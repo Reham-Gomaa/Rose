@@ -1,0 +1,94 @@
+{
+  "name": "Rose",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "apps/Rose/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "options": {
+        "outputPath": "dist/apps/Rose",
+        "index": "apps/Rose/src/index.html",
+        "browser": "apps/Rose/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/Rose/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/Rose/public"
+          }
+        ],
+        "styles": [
+          "apps/Rose/node_modules/primeflex/primeflex.css",
+          "apps/Rose/node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+          "apps/Rose/src/styles.scss"
+        ],
+        "scripts": [],
+        "server": "apps/Rose/src/main.server.ts",
+        "outputMode": "server",
+        "ssr": false
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kB",
+              "maximumError": "1MB"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kB",
+              "maximumError": "8kB"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "Rose:build:production"
+        },
+        "development": {
+          "buildTarget": "Rose:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n"
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "polyfills": ["zone.js", "zone.js/testing"],
+        "tsConfig": "apps/Rose/tsconfig.spec.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/Rose/public"
+          }
+        ],
+        "styles": ["apps/Rose/src/styles.scss"],
+        "scripts": []
+      }
+    }
+  }
+}
