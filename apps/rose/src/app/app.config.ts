@@ -19,7 +19,6 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
-    provideClientHydration(withEventReplay()),
     provideAnimationsAsync(),
     provideHttpClient(),
     MessageService,
