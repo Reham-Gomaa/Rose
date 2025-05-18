@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-best-seller',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './bestSeller.component.html',
   styleUrl: './bestSeller.component.scss',
 })
