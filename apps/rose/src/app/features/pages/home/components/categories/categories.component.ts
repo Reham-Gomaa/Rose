@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-categories',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss',
 })
