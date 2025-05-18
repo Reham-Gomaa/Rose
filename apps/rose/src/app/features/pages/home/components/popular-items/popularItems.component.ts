@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-popular-items',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './popularItems.component.html',
   styleUrl: './popularItems.component.scss',
 })
