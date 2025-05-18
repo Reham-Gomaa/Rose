@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FooterComponent } from "./features/pages/footer/footer.component";
 
 @Component({
   imports: [RouterOutlet],
