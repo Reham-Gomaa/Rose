@@ -11,7 +11,7 @@ import { TrustedByComponent } from "./components/trusted-by/trustedBy.component"
 
 @Component({
   selector: 'app-home',
-  imports: [ CategoriesComponent, GiftsComponent, OurServicesComponent, BestSellerComponent, PopularItemsComponent, AboutUsComponent, GalleryComponent, TestimonialsComponent, TrustedByComponent],
+  imports: [CategoriesComponent, GiftsComponent, OurServicesComponent, BestSellerComponent, PopularItemsComponent, AboutUsComponent, GalleryComponent, TestimonialsComponent, TrustedByComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
