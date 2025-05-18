@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { ButtonModule } from 'primeng/button';
+import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from "./features/pages/footer/footer.component";
 
 @Component({
-  imports: [RouterModule, ButtonModule, FooterComponent],
+  imports: [RouterOutlet],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
