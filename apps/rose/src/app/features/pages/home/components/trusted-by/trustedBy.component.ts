@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   templateUrl: './trustedBy.component.html',
   styleUrl: './trustedBy.component.scss',
 })
-export class TrustedByComponent {}
+export class TrustedByComponent {
+
+  
+}
