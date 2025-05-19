@@ -3,6 +3,11 @@ import { DashboardComponent } from './features/layouts/dashboard/dashboard.compo
 
 export const appRoutes: Route[] = [
   {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent,
     title: 'Dashboard Home',
@@ -27,3 +32,9 @@ export const appRoutes: Route[] = [
       ),
   },
 ];
+
+
+
+
+
+
