@@ -8,5 +8,14 @@ import { Component } from '@angular/core';
 })
 export class TrustedByComponent {
 
+
+   companyLogos: string[] = [
+    '/images/image 36.png',
+    '/images/image 40.png',
+    '/images/image 41.png',
+    '/images/image 38.png',
+    '/images/image 39.png',
+    '/images/image 37.png'
+  ];
   
 }
