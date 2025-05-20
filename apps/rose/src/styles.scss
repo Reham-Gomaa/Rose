@@ -1,43 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-
-$light-pink: #FEEDF7;
-$persian-rose: #F82BA9;
-$violet: #8C52FF;
-$carnation: #F05454;
-$azure: #00BFFF;
-$yellow-sea: #FBA707;
-$dark-blue: #160E4B;
-$slate-gray: #757F95;
-
-.contain{
-    width: 90%;
-}
-.light-pink-bg{
-    background-color: $light-pink;
-}
-.persian-rose-bg{
-    background-color: $persian-rose;
-}
-.violet-bg{
-    background-color: $violet;
-}
-.carnation-bg{
-    background-color: $carnation;
-}
-.carnation-text{
-    color: $carnation;
-}
-.azure-bg{
-    background-color: $azure;
-}
-.yellow-sea-bg{
-    background-color: $yellow-sea;
-}
-.dark-blue-text{
-    color: $dark-blue;
-}
-.slate-gray-text{
-    color: $slate-gray;
-}
+@use "./app/shared/styles/mixins";
+@use "./app/shared/styles/variables";
+@use "./app/shared/styles/utilities";
