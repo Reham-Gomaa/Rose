@@ -1,10 +1,16 @@
 import { Route } from '@angular/router';
+import { DashboardComponent } from './features/layouts/dashboard/dashboard.component';
 
 export const appRoutes: Route[] = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
   {
     path: 'dashboard',
-    title: 'Dashboard',
+    component: DashboardComponent,
+    title: 'Dashboard Home',
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       {
@@ -26,3 +32,9 @@ export const appRoutes: Route[] = [
       ),
   },
 ];
+
+
+
+
+
+
