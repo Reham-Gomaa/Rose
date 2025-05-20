@@ -1,0 +1,74 @@
+//Header Popular-items
+
+//Title Popular-items
+.popular-items-title-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.popular-items-title {
+  font-weight: 700;
+  font-size: 1.87rem;
+  line-height: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.popular-items-bg-shape {
+  position: absolute;
+  top: 1.37rem;
+  width: 8.5rem;
+  height: 1.06rem;
+  border-radius: 0 1.25rem 1.25rem 0;
+  z-index: 1;
+}
+
+.popular-items-underline-bar {
+  position: absolute;
+  top: 2.3rem;
+  width: 3.3rem;
+  height: 0.12rem;
+  z-index: 11;
+}
+
+
+//Tabs Popular-items
+
+.tabs-popular-items {
+  border: none;
+  cursor: pointer;
+  background-color: #FFFFFF;
+
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 100%;
+
+  transition: transform 0.3s ease;
+
+  &:hover {
+    border-bottom: 0.2rem solid #F82BA9;
+    color: #F82BA9;
+  }
+
+  &:active {
+    border-bottom: 0.2rem solid #F82BA9;
+    color: #F82BA9;
+  }
+
+}
+
+@media (min-width: 390px) and (max-width: 791px) {
+
+  .popular-items-title {
+    font-size: 1.25rem;
+  }
+
+  .popular-items-bg-shape {
+    top: 0.7rem;
+    width: 8.5rem;
+  }
+
+  .popular-items-underline-bar {
+    top: 1.6rem;
+  }
+}
