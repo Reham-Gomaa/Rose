@@ -1,12 +1,17 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
+import { CommonModule } from '@angular/common';
 import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
 import { CategoryRes, Category } from '../../../../../shared/interface/categories';
 
+// PrimeNG
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { Skeleton } from 'primeng/skeleton';
+
 @Component({
   selector: 'app-categories',
-  imports: [ToastModule],
+  standalone: true,
+  imports: [CommonModule, ToastModule, Skeleton],
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss'],
   providers: [MessageService]
@@ -15,7 +20,6 @@ export class CategoriesComponent implements OnInit {
   private categoriesService = inject(CategoriesService);
   private messageService = inject(MessageService);
 
-  // Typed signals
   categories = signal<Category[]>([]);
   isLoading = signal<boolean>(true);
   hasError = signal<boolean>(false);
@@ -25,6 +29,8 @@ export class CategoriesComponent implements OnInit {
   }
 
   private loadCategories() {
+    this.isLoading.set(true);
+
     this.categoriesService.getAllCategories().subscribe({
       next: (response: CategoryRes) => {
         this.categories.set(response.categories || []);
@@ -41,4 +47,6 @@ export class CategoriesComponent implements OnInit {
       }
     });
   }
+
+
 }
