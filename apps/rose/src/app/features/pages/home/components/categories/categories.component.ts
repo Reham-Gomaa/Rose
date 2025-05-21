@@ -1,5 +1,4 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
@@ -7,8 +6,7 @@ import { CategoryRes, Category } from '../../../../../shared/interface/categorie
 
 @Component({
   selector: 'app-categories',
-  standalone: true,
-  imports: [CommonModule, ToastModule],
+  imports: [ToastModule],
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss'],
   providers: [MessageService]
