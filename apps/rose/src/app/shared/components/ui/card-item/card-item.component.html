@@ -1,5 +1,5 @@
 <div class="product-card group w-full max-w-[18.87rem] sm:w-[18.87rem] mx-auto">
-  <div class="image-wrapper light-pink-bg">
+  <div class="image-wrapper">
     <img [src]="cardData.imageUrl" [alt]="cardData.title" class="product-image" />
     <div class="bg-shape"></div>
 
@@ -10,14 +10,14 @@
   </div>
 
   <div class="flex flex-column p-3 mt-3 flex-grow">
-    <h2 class="title pb-2 dark-blue-text fontFamily1">{{ cardData.title }}</h2>
+    <h2 class="title pb-2">{{ cardData.title }}</h2>
 
     <div class="flex align-items-center justify-content-between pt-2">
       <div class="flex flex-column">
         <form [formGroup]="formGroup">
           <p-rating formControlName="value" [readonly]="true" />
         </form>
-        <span class="price font-bold pt-2 carnation-text fontFamily2">${{ cardData.price.toFixed(2)
+        <span class="price font-bold pt-2">${{ cardData.price.toFixed(2)
           }}</span>
       </div>
       <i class="pi pi-shopping-bag btn-shopping text-white violet-bg border-circle"></i>

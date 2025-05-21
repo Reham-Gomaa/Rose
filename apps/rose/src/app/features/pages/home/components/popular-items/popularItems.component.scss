@@ -7,6 +7,8 @@
 }
 
 .popular-items-title {
+  color: var(--dark-blue);
+  font-family: var(--font-family-1);
   font-weight: 700;
   font-size: 1.87rem;
   line-height: 100%;
@@ -21,6 +23,7 @@
   height: 1.06rem;
   border-radius: 0 1.25rem 1.25rem 0;
   z-index: 1;
+  background-color: var(--light-pink);
 }
 
 .popular-items-underline-bar {
@@ -29,6 +32,7 @@
   width: 3.3rem;
   height: 0.12rem;
   z-index: 11;
+  background-color: var(--persian-rose);
 }
 
 
@@ -37,8 +41,9 @@
 .tabs-popular-items {
   border: none;
   cursor: pointer;
-  background-color: #FFFFFF;
-
+  background-color: var(--white);
+  color: var(--dark-blue);
+  font-family: var(--font-family-2);
   font-weight: 400;
   font-size: 1rem;
   line-height: 100%;
@@ -46,13 +51,13 @@
   transition: transform 0.3s ease;
 
   &:hover {
-    border-bottom: 0.2rem solid #F82BA9;
-    color: #F82BA9;
+    border-bottom: 0.2rem solid var(--persian-rose);
+    color: var(--persian-rose);
   }
 
   &:active {
-    border-bottom: 0.2rem solid #F82BA9;
-    color: #F82BA9;
+    border-bottom: 0.2rem solid var(--persian-rose);
+    color: var(--persian-rose);
   }
 
 }

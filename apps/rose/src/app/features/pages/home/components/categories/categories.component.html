@@ -2,12 +2,11 @@
 
 @if (isLoading()) {
 <section aria-labelledby="categories-heading">
-  <h2 id="categories-heading" class="sr-only">Loading Categories</h2>
   <div class="categories-scroll-container" tabindex="0" aria-label="Categories carousel">
     <div class="categories-scroll-wrapper" role="list">
-      @for (item of [1, 2, 3, 4]; track $index) {
+      @for (item of [1, 2, 3, 4 ,5]; track $index) {
       <div class="category-card light-pink-bg" role="listitem">
-        <div class="category-icon persian-rose-bg" aria-hidden="true">
+        <div class="category-icon" aria-hidden="true">
           <p-skeleton width="3.12rem" height="3.12rem" shape="circle"></p-skeleton>
         </div>
         <div class="category-content">
@@ -25,18 +24,17 @@
 </div>
 } @else {
 <section aria-labelledby="categories-heading">
-  <h2 id="categories-heading" class="sr-only">Product Categories</h2>
   <div class="categories-scroll-container" tabindex="0" aria-label="Categories carousel">
     <div class="categories-scroll-wrapper" role="list">
       @for (category of categories(); track category._id) {
       <div class="category-card light-pink-bg" role="listitem">
-        <div class="category-icon persian-rose-bg" aria-hidden="true">
+        <div class="category-icon" aria-hidden="true">
           <img [src]="category.image" [alt]="category.name + ' category icon'" class="category-img" width="56"
             height="56" loading="lazy" />
         </div>
         <div class="category-content">
-          <span class="category-name fontFamily1 dark-blue-text">{{ category.name }}</span>
-          <span class="category-count fontFamily2 slate-gray-text">
+          <span class="category-name ">{{ category.name }}</span>
+          <span class="category-count">
             {{ category.productsCount }}
             <span [ngPlural]="category.productsCount">
               <ng-template ngPluralCase="=1">item</ng-template>
