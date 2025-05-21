@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, shareReplay } from 'rxjs';
 import { EndPoint } from '../../../core/enums/endpoints';
-import { CategoryRes } from '../../interface/categories';
+import { CategoryRes } from '../../../core/interface/categories';
 
 @Injectable({
   providedIn: 'root',
