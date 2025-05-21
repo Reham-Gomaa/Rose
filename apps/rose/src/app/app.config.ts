@@ -22,6 +22,8 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideHttpClient(),
     MessageService,
+    provideHttpClient(),
+    provideAnimationsAsync(),
     providePrimeNG({
       theme: {
         preset: Aura,

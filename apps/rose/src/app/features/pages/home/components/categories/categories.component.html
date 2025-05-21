@@ -1,11 +1,34 @@
-<section>
-  <div class="categories-card light-pink-bg flex justify-content-between align-items-center p-3">
-    <div>
-      <img src="/images/Categories/Vector.png" alt="">
+<p-toast></p-toast>
+
+@if (isLoading()) {
+<div class="p-3 flex justify-content-center">
+  <p>Loading categories...</p>
+</div>
+} @else if (hasError()) {
+<div class="p-3 flex justify-content-center">
+  <p>Error loading categories</p>
+</div>
+} @else {
+<div class="categories-scroll-container">
+  <div class="categories-scroll-wrapper">
+    @for (category of categories(); track category._id) {
+    <div class="category-card light-pink-bg">
+      <!-- Left Circle Icon -->
+      <div class="category-icon persian-rose-bg">
+        <img [src]="category.image" [alt]="category.name" class="category-img">
+      </div>
+
+      <!-- Text Content -->
+      <div class="category-content">
+        <span class="category-name fontFamily1 dark-blue-text">{{ category.name }}</span>
+        <span class="category-count fontFamily2 slate-gray-text">{{ category.productsCount }} Items</span>
+      </div>
     </div>
-    <div>
-      <h2>Gifts Box</h2>
-      <p>30 Items</p>
+    } @empty {
+    <div class="p-3 flex justify-content-center no-categories">
+      <p>No categories found</p>
     </div>
+    }
   </div>
-</section>
+</div>
+}

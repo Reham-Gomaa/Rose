@@ -1,9 +1,46 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
+import { CategoryRes, Category } from '../../../../../shared/interface/categories';
 
 @Component({
   selector: 'app-categories',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, ToastModule],
   templateUrl: './categories.component.html',
-  styleUrl: './categories.component.scss',
+  styleUrls: ['./categories.component.scss'],
+  providers: [MessageService]
 })
-export class CategoriesComponent {}
+export class CategoriesComponent implements OnInit {
+  private categoriesService = inject(CategoriesService);
+  private messageService = inject(MessageService);
+
+  // Typed signals
+  categories = signal<Category[]>([]);
+  isLoading = signal<boolean>(true);
+  hasError = signal<boolean>(false);
+
+  ngOnInit(): void {
+    this.loadCategories();
+  }
+
+  private loadCategories() {
+    this.categoriesService.getAllCategories().subscribe({
+      next: (response: CategoryRes) => {
+        this.categories.set(response.categories || []);
+        this.isLoading.set(false);
+      },
+      error: (err) => {
+        this.hasError.set(true);
+        this.isLoading.set(false);
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Failed to load categories'
+        });
+      }
+    });
+  }
+}
