@@ -1,1 +1,21 @@
-<p>ourServices works!</p>
+<section class="m-y">
+    <div class="parent light-pink-bg grid align-items-stretch">
+        @for (service of services; track service.id) {
+        <div class="col-12 md:col-6 xl:col-3">
+            <div class="flex flex-column mb-5 md:flex-row justify-content-start align-items-center h-full">
+                <div
+                    class="icon mb-3 lg:mb-0 md:mr-3 persian-rose-bg text-white flex justify-content-center align-items-center">
+                    <i [class]="service.icon"
+                        class="style='color: surface-0' flex justify-content-center align-items-center"></i>
+                </div>
+                <div class="text-center lg:text-left">
+                    <h3 class="fontFamily1 line-height-3 text-xl font-semibold vertical-align-middle">
+                        {{service.heading}}</h3>
+                    <p class="fontFamily2 slate-gray-text m-0 text-base font-normal vertical-align-middle">{{service.p}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</section>
