@@ -1,1 +1,27 @@
-<p>gifts works!</p>
+<section>
+    <div class="grid">
+        <div class="col-3">
+            <img class="top-left bg-contain w-full block" src="./images/Red christmas gifts with white ribbon.png"
+                alt="">
+        </div>
+        <div class="card">
+            <p-carousel [value]="carouselList" [numVisible]="1" [numScroll]="1" [circular]="true"
+                [responsiveOptions]="responsiveOptions">
+                <ng-template pTemplate="item" let-pic>
+                    <div class="border border-surface rounded-border">
+                        <div class="mx-auto relative">
+                            <img [src]="pic.source" [alt]="pic.title" class="top-right w-full block bg-contain" />
+                        </div>
+                    </div>
+                </ng-template>
+            </p-carousel>
+        </div>
+    </div>
+    <div class="grid">
+        @for (pic of pics; track pic.id) {
+        <div class="col-4">
+            <img class="bottom bg-contain w-full block" [src]="pic.source" [alt]="pic.title">
+        </div>
+        }
+    </div>
+</section>
