@@ -1,26 +1,23 @@
-::ng-deep .card {
-  width: 75%;
-}
-::ng-deep .p-carousel-content,
-::ng-deep .p-carousel-item-list,
-::ng-deep .border-surface,
-.parent, .direct-parent{
+// ::ng-deep .card {
+//   width: 75%;
+// }
+
+.top-left-parent, .carousel-content-parent{
   height: 27.5rem;
 }
 
 img{
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .top-left {
   border-radius: .875rem;
 }
-
 .top-right {
   border-radius: .8738rem;
 }
-
 .bottom {
   border-radius: 1.25rem;
 }
@@ -36,25 +33,27 @@ img{
   background-color: white;
   border-radius: 100%;
 }
-
 ::ng-deep .p-carousel-next-button {
-  left: 50.125rem;
+  left: 52.6875rem;
+}
+::ng-deep .p-carousel-prev-button {
+  left: 49.375rem;
 }
 
 ::ng-deep .p-carousel-indicator-list {
   position: absolute;
   bottom: 1.5rem;
   left: 50%;
+  transform: translateX(-50%);
   padding: 0;
 }
-
 ::ng-deep .p-carousel-indicator-button {
   width: .4375rem;
   height: .4375rem;
   border-radius: 2.9125rem;
+  // background-color: #F82BA9;
 }
-
-::ng-deep .p-carousel-indicator-active {
+::ng-deep .p-carousel-indicator-active > .p-carousel-indicator-button {
   width: 1.1875rem;
 }
 

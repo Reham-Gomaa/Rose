@@ -1,15 +1,19 @@
 <section>
-    <div class="grid m-4">
-        <div class="col-3 parent">
+    <div class="grid mb-4">
+        <div class="col-3 top-left-parent">
             <img class="top-left block bg-contain" src="./images/Red christmas gifts with white ribbon.png"
-                alt="">
+                alt="Red christmas gifts with white ribbon">
         </div>
-        <div class="card">
-            <p-carousel [value]="carouselList" [numVisible]="1" [numScroll]="1" [circular]="true"
-                [responsiveOptions]="responsiveOptions">
+        <div class="card w-9">
+            <p-carousel 
+            [value]="carouselList" 
+            [numVisible]="1" 
+            [numScroll]="1" 
+            [circular]="true"
+            [responsiveOptions]="responsiveOptions">
                 <ng-template pTemplate="item" let-pic>
                     <div class="border border-surface rounded-border">
-                        <div class="mx-auto relative direct-parent">
+                        <div class="mx-auto relative carousel-content-parent p-2">
                             <img [src]="pic.source" [alt]="pic.title" class="top-right block bg-contain" />
                         </div>
                     </div>
