@@ -1,29 +1,129 @@
-// ::ng-deep .card {
-//   width: 75%;
-// }
-
-.top-left-parent, .carousel-content-parent{
+.top-left-parent,
+.carousel-content-parent {
   height: 27.5rem;
 }
 
-img{
+img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.top-left {
+.top-left-content {
+  position: absolute;
+  top: 16.125rem;
+  left: 1rem;
+  width: 15.5rem;
+
+  h2 {
+    font-family: "Roboto", sans-serif;     // add variable
+    font-weight: 700;
+    font-size: 1.0481rem;
+    color: #F82BA9; //add variable
+    line-height: 1.8875rem;
+    letter-spacing: .2913rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin: 0;
+  }
+
+  h1 {
+    color: #160E4B;    //add variable
+    font-family: "Inter", sans-serif; //add variable
+    font-weight: 600;
+    font-size: 1.6306rem;
+    line-height: 1.9569rem;
+    text-transform: capitalize;
+    vertical-align: middle;
+    text-align: left;
+    margin: .6987rem 0;
+  }
+}
+.carousel-content {
+  position: absolute;
+  top: 3.75rem;
+  left: 3.5rem;
+  width: 23.8125rem;
+
+  h1,
+  h2,
+  p {
+    font-family: "Inter", sans-serif; //add variable
+    vertical-align: middle;
+  }
+
+  h2 {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #F82BA9; //add variable
+    line-height: 1.5375rem;
+    letter-spacing: .2331rem;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  h1 {
+    color: #160E4B;    //add variable
+    font-weight: 700;
+    font-size: 2.8125rem;
+    line-height: 3.1456rem;
+    text-transform: capitalize;
+    text-align: left;
+    margin: 1.5rem 0 1rem;
+
+    span {
+      color: #F82BA9; //add variable
+    }
+  }
+
+  p{
+    color: #160E4B;    //add variable
+    font-weight: 400;
+    line-height: 1.7475rem;
+    margin: 0 0 1.5rem;
+  }
+}
+.bottom-content {
+  position: absolute;
+  top: 4.5313rem;
+  left: 12.9375rem;
+  width: 11.75rem;
+
+  h2 {
+    font-family: "Inter", sans-serif; //add variable
+    font-weight: 400;
+    font-size: 1rem;
+    color: #F82BA9; //add variable
+    line-height: 100%;
+    text-align: right;
+    text-transform: capitalize;
+    vertical-align: middle;
+    margin: 0;
+  }
+
+  h1 {
+    color: #160E4B;    //add variable
+    font-family: "Inter", sans-serif; //add variable
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 100%;
+    text-transform: capitalize;
+    vertical-align: middle;
+    text-align: right;
+    margin: .875rem 0;
+  }
+}
+
+.top-left-image {
   border-radius: .875rem;
 }
+
 .top-right {
   border-radius: .8738rem;
 }
-.bottom {
-  border-radius: 1.25rem;
-}
 
-::ng-deep .p-carousel{
-  position: relative;
+.bottom-images {
+  border-radius: 1.25rem;
 }
 
 ::ng-deep .p-carousel-next-button,
@@ -39,7 +139,6 @@ img{
 ::ng-deep .p-carousel-prev-button {
   left: 49.375rem;
 }
-
 ::ng-deep .p-carousel-indicator-list {
   position: absolute;
   bottom: 1.5rem;
@@ -51,9 +150,9 @@ img{
   width: .4375rem;
   height: .4375rem;
   border-radius: 2.9125rem;
-  // background-color: #F82BA9;
+  background-color: #F82BA9; //add variable
 }
-::ng-deep .p-carousel-indicator-active > .p-carousel-indicator-button {
+::ng-deep .p-carousel-indicator-active>.p-carousel-indicator-button {
   width: 1.1875rem;
+  background-color: #F82BA9; //add variable
 }
-

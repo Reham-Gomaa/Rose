@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
+import { ButtonComponent } from "../../../../../shared/components/ui/button/button.component";
 
 @Component({
   selector: 'app-gifts',
-  imports: [CarouselModule, ButtonModule, TagModule],
+  imports: [CarouselModule, ButtonModule, TagModule, ButtonComponent],
   templateUrl: './gifts.component.html',
   styleUrl: './gifts.component.scss',
 })
@@ -18,10 +19,10 @@ export class GiftsComponent implements OnInit {
     { id: 4, source: "./images/4.jpeg", title: "christmas gift with red ribbon" },
   ]
   pics: any = [
-    { id: 1, source: "./images/Confetti lying near present.png", title: "christmas gift with red ribbon" },
-    { id: 2, source: "./images/Top view hand holding gift box on work space.png", title: "christmas gift with golden ribbon" },
-    { id: 3, source: "./images/Christmas shopping composition with presents and cart.png", title: "colorful christmas ribbons with shopping cart" },
-  ]
+    { id: 1, source: "./images/Confetti lying near present.png", title: "christmas gift with red ribbon" , heading2:"Gifts Box" , heading1:"Awesome Gifts Box Collections" },
+    { id: 2, source: "./images/Top view hand holding gift box on work space.png", title: "christmas gift with golden ribbon", heading2:"Occasion Gifts" , heading1:"Best Occasion Gifts collections" },
+    { id: 3, source: "./images/Christmas shopping composition with presents and cart.png", title: "colorful christmas ribbons with shopping cart", heading2:"Occasion Gifts" , heading1:"Combo Sets Gift Box Up To 50% Off" },
+  ];
 
   responsiveOptions: any[] | undefined;
 

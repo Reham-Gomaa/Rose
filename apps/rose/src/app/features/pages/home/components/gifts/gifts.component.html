@@ -1,20 +1,28 @@
 <section>
     <div class="grid mb-4">
-        <div class="col-3 top-left-parent">
-            <img class="top-left block bg-contain" src="./images/Red christmas gifts with white ribbon.png"
+        <div class="col-3 top-left-parent relative">
+            <img class="top-left-image block bg-contain" src="./images/Red christmas gifts with white ribbon.png"
                 alt="Red christmas gifts with white ribbon">
+            <div class="top-left-content">
+                <h2>Start $10.99</h2>
+                <h1>Special Gifts Box For Your Love</h1>
+                <app-button [text]="'Shop Now'" [class.width]="'7.125rem'" [class.height]="'2.5rem'" [class.border-radius]="'.5825rem'"></app-button>
+            </div>
         </div>
         <div class="card w-9">
-            <p-carousel 
-            [value]="carouselList" 
-            [numVisible]="1" 
-            [numScroll]="1" 
-            [circular]="true"
-            [responsiveOptions]="responsiveOptions">
+            <p-carousel [value]="carouselList" [numVisible]="1" [numScroll]="1" [circular]="true"
+                [responsiveOptions]="responsiveOptions" class="relative">
                 <ng-template pTemplate="item" let-pic>
                     <div class="border border-surface rounded-border">
                         <div class="mx-auto relative carousel-content-parent p-2">
                             <img [src]="pic.source" [alt]="pic.title" class="top-right block bg-contain" />
+                            <div class="carousel-content">
+                                <h2>Best Gift Shop</h2>
+                                <h1>Choose Perfect <span>Gifts</span> From Us</h1>
+                                <p>Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores
+                                    et.</p>
+                                <app-button [text]="'Shop Now'" style=" width:'7.6875rem'; height:'2.875rem'; border-radius:'.5825rem'"></app-button>
+                            </div>
                         </div>
                     </div>
                 </ng-template>
@@ -23,8 +31,13 @@
     </div>
     <div class="grid">
         @for (pic of pics; track pic.id) {
-        <div class="col-4">
-            <img class="bottom bg-contain w-full block" [src]="pic.source" [alt]="pic.title">
+        <div class="col-4 relative">
+            <img class="bottom-images" [src]="pic.source" [alt]="pic.title">
+            <div class="bottom-content">
+                <h2>Start $10.99</h2>
+                <h1>Special Gifts Box For Your Love</h1>
+                <app-button [text]="'Shop Now'" [class.border-radius]="'1.25rem'"></app-button>
+            </div>
         </div>
         }
     </div>
