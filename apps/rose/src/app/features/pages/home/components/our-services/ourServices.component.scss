@@ -1,1 +1,25 @@
+.parent {
+    border-radius: 1.25rem;
+    padding: 2.5rem;
 
+    .icon {
+        width: 4.0625rem;
+        height: 4.0625rem;
+        border-radius: 2.031rem;
+        padding-inline: 0.859rem;
+        padding-top: 1rem;
+        padding-bottom: 1.125rem;
+        i{
+            width: 2.3175rem;
+            height: 2.3175rem;
+        }
+    }
+
+    h3 {
+        margin: 0 0 .3125rem 0;
+    }
+
+    p {
+        line-height: 1.75rem;
+    }
+}
