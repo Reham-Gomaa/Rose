@@ -4,13 +4,21 @@
     content: '';
     width: 10rem;
     height: 0.156rem;
-    background-color: $persian-rose;
+    background-color: var(--persian-rose);
     position: absolute;
     top: 100%;
     left: 0%;
     z-index: 5;
 }
 
+.content{
+    background-color: var(--light-pink);
+    font-family: var(--font-family-1);
+}
+
+.dark{
+    color: var(--dark-blue);
+}
 
 
 
