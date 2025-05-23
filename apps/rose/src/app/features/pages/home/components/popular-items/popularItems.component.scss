@@ -47,7 +47,7 @@
   font-weight: 400;
   font-size: 1rem;
   line-height: 100%;
-
+  white-space: nowrap;
   transition: transform 0.3s ease;
 
   &:hover {
@@ -55,12 +55,13 @@
     color: var(--persian-rose);
   }
 
-  &:active {
-    border-bottom: 0.2rem solid var(--persian-rose);
-    color: var(--persian-rose);
-  }
-
 }
+
+.active-tab {
+  border-bottom: 0.2rem solid var(--persian-rose);
+  color: var(--persian-rose);
+}
+
 
 @media (min-width: 390px) and (max-width: 791px) {
 

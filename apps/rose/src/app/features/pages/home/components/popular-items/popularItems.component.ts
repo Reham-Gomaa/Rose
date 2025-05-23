@@ -1,31 +1,76 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CardItemComponent } from "../../../../../shared/components/ui/card-item/card-item.component";
-import { ICardItem } from '../../../../../core/interface/carditem.interface';
-
+import { Product } from '../../../../../core/interfaces/carditem.interface';
+import { Subscription } from 'rxjs';
+import { ProductsService } from '../../../../../shared/services/products/products.service';
+import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-popular-items',
-  imports: [CardItemComponent],
+  imports: [CardItemComponent, CommonModule],
   templateUrl: './popularItems.component.html',
   styleUrl: './popularItems.component.scss',
 })
 export class PopularItemsComponent {
 
-  categories = ['all', 'home', 'garment', 'gifts', 'occasion'];
+  private readonly _productsService = inject(ProductsService);
+  private readonly _categoriesService = inject(CategoriesService);
 
-  cards: ICardItem[] = [
-    { id: 1, imageUrl: '/images/image 23.png', title: 'Special Gift Box', price: 250.00, rating: 4 },
-    { id: 2, imageUrl: '/images/image 23.png', title: 'Luxury Headphones', price: 199.99, rating: 5 },
-    { id: 3, imageUrl: '/images/image 23.png', title: 'Designer Watch', price: 349.50, rating: 4 },
-    { id: 4, imageUrl: '/images/image 23.png', title: 'Premium Perfume', price: 129.99, rating: 3 },
-    { id: 5, imageUrl: '/images/image 23.png', title: 'Smart Speaker', price: 179.00, rating: 4 },
-    { id: 6, imageUrl: '/images/image 23.png', title: 'Wireless Earbuds', price: 89.99, rating: 5 },
-    { id: 7, imageUrl: '/images/image 23.png', title: 'Leather Wallet', price: 59.95, rating: 4 },
-    { id: 8, imageUrl: '/images/image 23.png', title: 'Sunglasses', price: 149.00, rating: 4 }
-  ];
+  allProducts: Product[] = [];
+  categories: any[] = [];
+  selectedCategory = 'all';
+  productSub: Subscription = new Subscription();
+  categorySub: Subscription = new Subscription();
 
-  get filteredCards(): ICardItem[] {
-    return this.cards;
+  ngOnInit() {
+    this.getAllCategories();
+    this.getAllProduct();
   }
 
+  getAllCategories() {
+    this.categorySub.add(
+      this._categoriesService.getAllCategories().subscribe({
+        next: (res) => {
+          // Transform categories to match your existing structure
+          this.categories = [
+            { label: 'all', display: 'All Items', id: 'all' },
+            ...res.categories.map(cat => ({
+              label: cat.slug,
+              display: cat.name,
+              id: cat._id
+            }))
+          ];
+        }
+      })
+    );
+  }
+
+  getAllProduct() {
+    this.productSub.add(
+      this._productsService.getAllProducts().subscribe({
+        next: (res) => {
+          this.allProducts = res.products || [];
+        },
+      })
+    );
+  }
+
+  get filteredCards(): Product[] {
+    if (this.selectedCategory === 'all') {
+      return this.allProducts;
+    }
+    return this.allProducts.filter(
+      product => product.category === this.selectedCategory
+    );
+  }
+
+  selectCategory(categoryId: string) {
+    this.selectedCategory = categoryId;
+  }
+
+  ngOnDestroy() {
+    this.productSub.unsubscribe();
+    this.categorySub.unsubscribe();
+  }
 }

@@ -1,15 +1,12 @@
+import { PaginationData } from "./PaginationData.interface";
+
 export interface CategoryRes {
   message: string;
   metadata: PaginationData;
   categories: Category[];
 }
 
-export interface PaginationData {
-  currentPage: number;
-  limit: number;
-  totalPages: number;
-  totalItems: number;
-}
+
 
 export interface Category {
   _id: string;

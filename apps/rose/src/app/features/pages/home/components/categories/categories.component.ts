@@ -1,12 +1,13 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
-import { CategoryRes, Category } from '../../../../../core/interface/categories';
+import { CategoryRes, Category } from '../../../../../core/interfaces/categories';
 
 // PrimeNG
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { Skeleton } from 'primeng/skeleton';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-categories',
@@ -16,14 +17,14 @@ import { Skeleton } from 'primeng/skeleton';
   styleUrls: ['./categories.component.scss'],
   providers: [MessageService]
 })
-export class CategoriesComponent implements OnInit {
+export class CategoriesComponent implements OnInit, OnDestroy {
   private categoriesService = inject(CategoriesService);
   private messageService = inject(MessageService);
 
   categories = signal<Category[]>([]);
   isLoading = signal<boolean>(true);
   hasError = signal<boolean>(false);
-
+  subCategories: Subscription = new Subscription();
   ngOnInit(): void {
     this.loadCategories();
   }
@@ -31,7 +32,7 @@ export class CategoriesComponent implements OnInit {
   private loadCategories() {
     this.isLoading.set(true);
 
-    this.categoriesService.getAllCategories().subscribe({
+    this.subCategories.add(this.categoriesService.getAllCategories().subscribe({
       next: (response: CategoryRes) => {
         this.categories.set(response.categories || []);
         this.isLoading.set(false);
@@ -45,7 +46,11 @@ export class CategoriesComponent implements OnInit {
           detail: 'Failed to load categories'
         });
       }
-    });
+    }));
+  }
+
+  ngOnDestroy() {
+    this.subCategories.unsubscribe();
   }
 
 

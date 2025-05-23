@@ -4,23 +4,20 @@
     <!-- Title -->
     <div class="p-relative d-inline-block popular-items-title-wrapper">
       <span class="popular-items-title">Popular Items</span>
-      <div class="popular-items-bg-shape light-pink-bg"></div>
-      <div class="popular-items-underline-bar persian-rose-bg"></div>
+      <div class="popular-items-bg-shape"></div>
+      <div class="popular-items-underline-bar"></div>
     </div>
 
     <!-- Tabs - Scrollable on mobile -->
     <div class="w-full sm:w-auto overflow-x-auto pb-2">
       <div class="flex align-items-center gap-3" style="min-width: fit-content">
-        @for (category of categories; track category) {
-        <a class="tabs-popular-items dark-blue-text fontFamily1 whitespace-nowrap">
-          @switch (category) {
-          @case ('home') { Home & Living }
-          @case ('garment') { Garment Care }
-          @case ('gifts') { Gifts Box }
-          @case ('occasion') { Occasion Gifts }
-          @default { All Items }
-          }
-        </a>
+        @for (category of categories; track category.id) {
+        <button type="button" class="tabs-popular-items"
+          [ngClass]="{ 'active-tab': selectedCategory === category.id }"
+          (click)="selectCategory(category.id)"
+          (keyup.enter)="selectCategory(category.id)" (keyup.space)="selectCategory(category.id)" tabindex="0">
+          {{ category.display }}
+        </button>
         }
       </div>
     </div>
@@ -28,9 +25,9 @@
 
   <!-- Cards Grid -->
   <div class="grid mt-5">
-    @for (card of filteredCards; track card.id) {
+    @for (productInfo of filteredCards; track productInfo.id) {
     <div class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-2">
-      <app-card-item [cardData]="card" />
+      <app-card-item [productInfo]="productInfo" />
     </div>
     } @empty {
     <div class="col-12 text-center py-5">
