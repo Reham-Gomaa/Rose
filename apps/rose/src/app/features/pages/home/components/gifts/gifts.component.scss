@@ -1,3 +1,5 @@
+@use "./../../../../../shared/styles/variables" as *;
+
 .top-left-parent,
 .carousel-content-parent {
   height: 27.5rem;
@@ -16,10 +18,10 @@ img {
   width: 15.5rem;
 
   h2 {
-    font-family: "Roboto", sans-serif;     // add variable
+    font-family: var(--font-family-2); 
     font-weight: 700;
     font-size: 1.0481rem;
-    color: #F82BA9; //add variable
+    color: var(--persian-rose);
     line-height: 1.8875rem;
     letter-spacing: .2913rem;
     text-transform: uppercase;
@@ -28,8 +30,8 @@ img {
   }
 
   h1 {
-    color: #160E4B;    //add variable
-    font-family: "Inter", sans-serif; //add variable
+    color: var(--dark-blue); 
+    font-family: var(--font-family-1);
     font-weight: 600;
     font-size: 1.6306rem;
     line-height: 1.9569rem;
@@ -39,6 +41,7 @@ img {
     margin: .6987rem 0;
   }
 }
+
 .carousel-content {
   position: absolute;
   top: 3.75rem;
@@ -48,14 +51,14 @@ img {
   h1,
   h2,
   p {
-    font-family: "Inter", sans-serif; //add variable
+    font-family:var(--font-family-1); 
     vertical-align: middle;
   }
 
   h2 {
     font-weight: 700;
     font-size: 1.25rem;
-    color: #F82BA9; //add variable
+    color: var(--persian-rose); 
     line-height: 1.5375rem;
     letter-spacing: .2331rem;
     text-transform: uppercase;
@@ -63,7 +66,7 @@ img {
   }
 
   h1 {
-    color: #160E4B;    //add variable
+    color: var(--dark-blue); 
     font-weight: 700;
     font-size: 2.8125rem;
     line-height: 3.1456rem;
@@ -72,17 +75,18 @@ img {
     margin: 1.5rem 0 1rem;
 
     span {
-      color: #F82BA9; //add variable
+      color: var(--persian-rose);
     }
   }
 
-  p{
-    color: #160E4B;    //add variable
+  p {
+    color: var(--dark-blue); 
     font-weight: 400;
     line-height: 1.7475rem;
     margin: 0 0 1.5rem;
   }
 }
+
 .bottom-content {
   position: absolute;
   top: 4.5313rem;
@@ -90,10 +94,10 @@ img {
   width: 11.75rem;
 
   h2 {
-    font-family: "Inter", sans-serif; //add variable
+    font-family: var(--font-family-1); 
     font-weight: 400;
     font-size: 1rem;
-    color: #F82BA9; //add variable
+    color: var(--persian-rose); 
     line-height: 100%;
     text-align: right;
     text-transform: capitalize;
@@ -102,8 +106,8 @@ img {
   }
 
   h1 {
-    color: #160E4B;    //add variable
-    font-family: "Inter", sans-serif; //add variable
+    color: var(--dark-blue); 
+    font-family: var(--font-family-1);
     font-weight: 600;
     font-size: 1.25rem;
     line-height: 100%;
@@ -113,6 +117,7 @@ img {
     margin: .875rem 0;
   }
 }
+
 
 .top-left-image {
   border-radius: .875rem;
@@ -130,15 +135,19 @@ img {
 ::ng-deep .p-carousel-prev-button {
   position: absolute;
   top: 23.4375rem;
-  background-color: white;
+  background-color: var(--white);
   border-radius: 100%;
 }
+
 ::ng-deep .p-carousel-next-button {
   left: 52.6875rem;
 }
+
 ::ng-deep .p-carousel-prev-button {
   left: 49.375rem;
+  z-index: 10;
 }
+
 ::ng-deep .p-carousel-indicator-list {
   position: absolute;
   bottom: 1.5rem;
@@ -146,13 +155,15 @@ img {
   transform: translateX(-50%);
   padding: 0;
 }
+
 ::ng-deep .p-carousel-indicator-button {
   width: .4375rem;
   height: .4375rem;
   border-radius: 2.9125rem;
-  background-color: #F82BA9; //add variable
+  background-color: var(--persian-rose); 
 }
+
 ::ng-deep .p-carousel-indicator-active>.p-carousel-indicator-button {
   width: 1.1875rem;
-  background-color: #F82BA9; //add variable
+  background-color: var(--persian-rose); 
 }

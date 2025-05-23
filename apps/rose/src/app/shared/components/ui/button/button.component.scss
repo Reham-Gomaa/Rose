@@ -1,9 +1,11 @@
+@use "./../../../styles/variables" as *;
+
 button{
-    padding: .5825rem 1.165rem;
     color: white;
-    background-color: #F82BA9;     //add variable
+    background-color: var(--persian-rose);    
+    border: none;
     box-shadow: 0px 0px 37.28px 4.66px #0000000D;
-    font-family: "Roboto", sans-serif;     // add variable
+    font-family: var(--font-family-2);     
     font-weight: 500;
     font-size: .9319rem;
     line-height: 1.6775rem;

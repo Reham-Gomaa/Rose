@@ -1,4 +1,4 @@
-<section>
+<section class="my-8">
     <div class="grid mb-4">
         <div class="col-3 top-left-parent relative">
             <img class="top-left-image block bg-contain" src="./images/Red christmas gifts with white ribbon.png"
@@ -6,7 +6,11 @@
             <div class="top-left-content">
                 <h2>Start $10.99</h2>
                 <h1>Special Gifts Box For Your Love</h1>
-                <app-button [text]="'Shop Now'" [class.width]="'7.125rem'" [class.height]="'2.5rem'" [class.border-radius]="'.5825rem'"></app-button>
+                <app-button 
+                [text]="'Shop Now'"
+                [isIcon]="true"
+                [borderRadius]="'.5825rem'"
+                [padding]="'.4075rem .8738rem'" />
             </div>
         </div>
         <div class="card w-9">
@@ -21,7 +25,11 @@
                                 <h1>Choose Perfect <span>Gifts</span> From Us</h1>
                                 <p>Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores
                                     et.</p>
-                                <app-button [text]="'Shop Now'" style=" width:'7.6875rem'; height:'2.875rem'; border-radius:'.5825rem'"></app-button>
+                                <app-button 
+                                    [text]="'Shop Now'"
+                                    [isIcon]="true"
+                                    [borderRadius]="'.5825rem'"
+                                    [padding]="'.5825rem 1.165rem'" />
                             </div>
                         </div>
                     </div>
@@ -34,9 +42,14 @@
         <div class="col-4 relative">
             <img class="bottom-images" [src]="pic.source" [alt]="pic.title">
             <div class="bottom-content">
-                <h2>Start $10.99</h2>
-                <h1>Special Gifts Box For Your Love</h1>
-                <app-button [text]="'Shop Now'" [class.border-radius]="'1.25rem'"></app-button>
+                <h2 [class.text-white]="pic.id === 3">{{pic.heading2}}</h2>
+                <h1>{{pic.heading1}}</h1>
+                <app-button 
+                [text]="pic.btnText"
+                [isIcon]="false"
+                [borderRadius]="'1.25rem'"
+                [padding]="'.5rem'" 
+                [margin]="'0 0 0 auto'"/>
             </div>
         </div>
         }

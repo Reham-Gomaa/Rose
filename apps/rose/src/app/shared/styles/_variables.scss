@@ -1,14 +1,22 @@
 //colors
+:root {
+  --white: #ffffff;
+  --light-pink: #FEEDF7;
+  --persian-rose: #F82BA9;
+  --light-persian-rose: #F82BA9B2;
+  --hover-persian-rose: #e11e85;
+  --violet: #8C52FF;
+  --hover-violet: #6841b6;
+  --carnation: #F05454;
+  --azure: #00BFFF;
+  --yellow-sea: #FBA707;
+  --dark-blue: #160E4B;
+  --slate-gray: #757F95;
 
-    $light-pink: #FEEDF7;
-    $persian-rose: #F82BA9;
-    $violet: #8C52FF;
-    $carnation: #F05454;
-    $azure: #00BFFF;
-    $yellow-sea: #FBA707;
-    $dark-blue: #160E4B;
-    $slate-gray: #757F95;
-    //fonts
 
-    $font-family-1: "Inter", sans-serif;
-    $font-family-2: "Roboto", sans-serif;
+  //fonts
+
+  --font-family-1: "Inter", sans-serif;
+  --font-family-2: "Roboto", sans-serif;
+
+}

@@ -1,12 +1,17 @@
-import { Component, input, InputSignal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-button',
-  imports: [],
+  imports: [ CommonModule ],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
  
-  text:InputSignal<string> = input('');
+  @Input() text!:string;
+  @Input() isIcon!:boolean;
+  @Input() borderRadius!:string;
+  @Input() padding!:string;
+  @Input() margin!:string;
 }
