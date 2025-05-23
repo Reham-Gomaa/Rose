@@ -1,0 +1,134 @@
+.product-card {
+  background-color: var(--white);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  max-width: 18.87rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+/* Fixed height container for the entire card */
+.product-card {
+  height: 23.12rem;
+}
+
+.image-wrapper {
+  background-color: var(--light-pink);
+  position: relative;
+  width: 100%;
+  height: 14rem;
+  border-radius: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.card-content {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 9.12rem;
+}
+
+.title {
+  color: var(--dark-blue);
+  font-family: var(--font-family-1);
+  font-weight: 600;
+  font-size: 1.06rem;
+  line-height: 1.27rem;
+  margin: 0;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2.54rem;
+}
+
+.price {
+  color: var(--carnation);
+  font-family: var(--font-family-2);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.8rem;
+}
+
+/* Rest of your existing styles remain the same */
+.bg-shape {
+  position: absolute;
+  background-color: var(--light-persian-rose);
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-icons {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  gap: 2.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 20px);
+}
+
+.icon-circle {
+  background-color: var(--persian-rose);
+  color: var(--white);
+  padding: 0.5rem;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.icon-circle:hover {
+  background-color: var(--hover-persian-rose);
+}
+
+/* Hover States */
+.product-card:hover .bg-shape {
+  opacity: 0.8;
+}
+
+.product-card:hover .overlay-icons {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.btn-shopping {
+  background-color: var(--violet);
+  font-size: 0.9rem;
+  line-height: 1.1rem;
+  padding: 0.6rem 0.8rem 0.75rem 0.8rem;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--hover-violet);
+  }
+}
+
+:host ::ng-deep .p-rating .p-icon {
+  color: var(--yellow-sea) !important;
+}
