@@ -10,8 +10,8 @@ import { ProductRes } from '../../../core/interfaces/carditem.interface';
 export class ProductsService {
   private httpClient = inject(HttpClient);
 
-  getAllProducts(): Observable<any> {
-    return this.httpClient.get<any>(
+  getAllProducts(): Observable<ProductRes> {
+    return this.httpClient.get<ProductRes>(
       `${EndPoint.PRODUCTS}`
     ).pipe(shareReplay(1));
   }

@@ -1,10 +1,12 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { CardItemComponent } from "../../../../../shared/components/ui/card-item/card-item.component";
 import { Product } from '../../../../../core/interfaces/carditem.interface';
+import { CategoryOption } from '../../../../../core/interfaces/categories';
 import { Subscription } from 'rxjs';
 import { ProductsService } from '../../../../../shared/services/products/products.service';
 import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
 import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-popular-items',
@@ -12,13 +14,13 @@ import { CommonModule } from '@angular/common';
   templateUrl: './popularItems.component.html',
   styleUrl: './popularItems.component.scss',
 })
-export class PopularItemsComponent {
+export class PopularItemsComponent implements OnInit, OnDestroy {
 
   private readonly _productsService = inject(ProductsService);
   private readonly _categoriesService = inject(CategoriesService);
 
   allProducts: Product[] = [];
-  categories: any[] = [];
+  categories: CategoryOption[] = [];
   selectedCategory = 'all';
   productSub: Subscription = new Subscription();
   categorySub: Subscription = new Subscription();
@@ -32,7 +34,6 @@ export class PopularItemsComponent {
     this.categorySub.add(
       this._categoriesService.getAllCategories().subscribe({
         next: (res) => {
-          // Transform categories to match your existing structure
           this.categories = [
             { label: 'all', display: 'All Items', id: 'all' },
             ...res.categories.map(cat => ({
