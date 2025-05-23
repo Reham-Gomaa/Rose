@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { ICardItem } from '../../../../core/interface/carditem.interface';
+import { ICardItem } from '../../../../core/interfaces/carditem.interface';
 
 //PrimeNg
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { BestSellerRes } from '../../../core/interface/best-seller';
+import { BestSellerRes } from '../../../core/interfaces/best-seller';
 import { EndPoint } from '../../../core/enums/endpoints';
 
 @Injectable({
