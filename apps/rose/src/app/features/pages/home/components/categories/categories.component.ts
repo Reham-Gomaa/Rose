@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
-import { CategoryRes, Category } from '../../../../../core/interfaces/categories';
+import { CategoryRes, Category } from '../../../../../core/interfaces/categories.interface';
 
 // PrimeNG
 import { ToastModule } from 'primeng/toast';
