@@ -1,0 +1,142 @@
+.categories-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 1rem 0;
+  box-sizing: border-box;
+
+  /* REMOVE fixed width calculation here */
+  max-width: 100%;
+}
+
+.categories-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.categories-scroll-wrapper {
+  display: flex;
+  gap: 1rem;
+  box-sizing: border-box;
+  scroll-snap-type: x mandatory;
+  scroll-padding-left: 1rem;
+  padding-inline: 1rem;
+  min-width: fit-content;
+}
+
+.category-card {
+  flex: 0 0 13.5rem;
+  width: 13.5rem;
+  height: 7.6rem;
+  border-radius: 2.5rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background-color: var(--light-pink);
+}
+
+/* Icon circle */
+.category-icon {
+  flex-shrink: 0;
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 50%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--persian-rose);
+}
+
+.category-icon .category-img {
+  width: 3.12rem;
+  height: 3.12rem;
+  object-fit: contain;
+}
+
+.category-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.category-name {
+  color: var(--dark-blue);
+  font-family: var(--font-family-1);
+  font-weight: 600;
+  font-size: 1.12rem;
+  line-height: 1.35rem;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.category-count {
+  color: var(--slate-gray);
+  font-family: var(--font-family-2);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  overflow: visible;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+/* No categories message */
+.no-categories {
+  width: 100%;
+  text-align: center;
+  color: var(--slate-gray);
+  padding: 1rem 0;
+}
+
+/* Responsive container widths for full cards display */
+
+/* Mobile: 2 cards */
+@media (max-width: 767px) {
+  .categories-scroll-container {
+    width: calc((2 * 13.5rem) + (1 * 1rem) + 2rem);
+  }
+
+  .category-card {
+    flex-direction: column;
+    width: 10rem;
+    height: 13.1rem;
+  }
+}
+
+/* Tablet: 4 cards */
+@media (min-width: 768px) and (max-width: 991px) {
+  .categories-scroll-container {
+    width: calc((4 * 13.5rem) + (3 * 1rem) + 2rem);
+  }
+
+  .category-card {
+    width: 13.5rem;
+    height: 7.6rem;
+    flex-direction: row;
+  }
+}
+
+/* LG: 5 cards */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .categories-scroll-container {
+    width: calc((5 * 13.5rem) + (4 * 1rem) + 2rem);
+  }
+}
+
+/* XL and larger: 8 cards */
+@media (min-width: 1200px) {
+  .categories-scroll-container {
+    width: calc((7 * 13.5rem) + (6 * 1rem) + 2rem);
+  }
+}
