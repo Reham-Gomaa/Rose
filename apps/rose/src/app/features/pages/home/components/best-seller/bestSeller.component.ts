@@ -5,7 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { BestSellerService } from 'apps/rose/src/app/shared/services/best-seller/best-seller.service';
 import { CardItemComponent } from 'apps/rose/src/app/shared/components/ui/card-item/card-item.component';
 import { BestSeller, BestSellerRes } from 'apps/rose/src/app/core/interfaces/best-seller';
-import { ICardItem } from 'apps/rose/src/app/core/interfaces/carditem.interface';
+import { Product } from 'apps/rose/src/app/core/interfaces/carditem.interface';
 import { ButtonComponent } from 'apps/rose/src/app/shared/components/ui/button/button.component';
 import { Subscription } from 'rxjs';
 
@@ -20,6 +20,7 @@ export class BestSellerComponent implements OnInit {
 
   private readonly bestsellerService = inject(BestSellerService);
   bestSellers: BestSeller[] = [];
+
   private subscription: Subscription | undefined;
 
     responsiveOptions = [
@@ -54,15 +55,9 @@ ngOnDestroy(): void {
 }
 
 
-   mapToCardItem(b: BestSeller): ICardItem {
-    return {
-      id: b.id,
-      imageUrl: b.imgCover,
-      title: b.title,
-      price: b.priceAfterDiscount || b.price,
-      rating: b.rateAvg
-    };
-  }
+  
+
+  
 
   
 }
