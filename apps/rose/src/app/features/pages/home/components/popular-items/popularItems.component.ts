@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, OnDestroy } from '@angular/core';
 import { CardItemComponent } from "../../../../../shared/components/ui/card-item/card-item.component";
 import { Product } from '../../../../../core/interfaces/carditem.interface';
-import { CategoryOption } from '../../../../../core/interfaces/categories';
+import { CategoryOption } from '../../../../../core/interfaces/categories.interface';
 import { Subscription } from 'rxjs';
 import { ProductsService } from '../../../../../shared/services/products/products.service';
 import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
