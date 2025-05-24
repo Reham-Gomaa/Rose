@@ -1,1 +1,54 @@
-<p>categories works!</p>
+<p-toast aria-live="polite"></p-toast>
+
+@if (isLoading()) {
+<section aria-labelledby="categories-heading">
+  <div class="categories-scroll-container" tabindex="0" aria-label="Categories carousel">
+    <div class="categories-scroll-wrapper" role="list">
+      @for (item of [1, 2, 3, 4 ,5]; track $index) {
+      <div class="category-card light-pink-bg" role="listitem">
+        <div class="category-icon" aria-hidden="true">
+          <p-skeleton width="3.12rem" height="3.12rem" shape="circle"></p-skeleton>
+        </div>
+        <div class="category-content">
+          <p-skeleton width="6rem" height="1rem"></p-skeleton>
+          <p-skeleton width="4rem" height="1rem"></p-skeleton>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
+} @else if (hasError()) {
+<div class="p-3 flex justify-content-center" aria-live="assertive">
+  <p role="alert">Error loading categories. Please try again later.</p>
+</div>
+} @else {
+<section aria-labelledby="categories-heading">
+  <div class="categories-scroll-container" tabindex="0" aria-label="Categories carousel">
+    <div class="categories-scroll-wrapper" role="list">
+      @for (category of categories(); track category._id) {
+      <div class="category-card light-pink-bg" role="listitem">
+        <div class="category-icon" aria-hidden="true">
+          <img [src]="category.image" [alt]="category.name + ' category icon'" class="category-img" width="56"
+            height="56" loading="lazy" />
+        </div>
+        <div class="category-content">
+          <span class="category-name ">{{ category.name }}</span>
+          <span class="category-count">
+            {{ category.productsCount }}
+            <span [ngPlural]="category.productsCount">
+              <ng-template ngPluralCase="=1">item</ng-template>
+              <ng-template ngPluralCase="other">items</ng-template>
+            </span>
+          </span>
+        </div>
+      </div>
+      } @empty {
+      <div class="p-3 flex justify-content-center no-categories" aria-live="polite">
+        <p role="status">No categories available at this time.</p>
+      </div>
+      }
+    </div>
+  </div>
+</section>
+}
