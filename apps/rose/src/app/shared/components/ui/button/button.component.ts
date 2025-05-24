@@ -1,9 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-
 @Component({
   selector: 'app-button',
-  imports: [ CommonModule ],
+  imports: [],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
 })
@@ -15,4 +13,3 @@ export class ButtonComponent {
   @Input() padding!:string;
   @Input() margin!:string;
 }
-
