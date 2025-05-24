@@ -1,9 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-
 @Component({
   selector: 'app-button',
-  imports: [ CommonModule ],
+  imports: [],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
 })

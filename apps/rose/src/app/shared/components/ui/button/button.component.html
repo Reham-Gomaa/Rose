@@ -1,7 +1,3 @@
-<button class="text-center block" [ngStyle]="{
-    borderRadius: borderRadius,
-    padding: padding,
-    margin: margin
-}">
+<button [class]="margin + ' ' + padding + ' ' + borderRadius">
     {{text}} @if (isIcon === true) {<i class="pi pi-arrow-right" style="color: white; font-size: .7588rem"></i>}
 </button>
