@@ -3,8 +3,8 @@ import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import { ButtonComponent } from "../../../../../shared/components/ui/button/button.component";
-import { picsInterface } from './../../../../../core/interfaces/special-gifts/special-gifts.interface';
-import { carouselListInterface } from './../../../../../core/interfaces/special-gifts/special-gifts.interface';
+import { picsInterface } from '../../../../../core/interfaces/special-gifts.interface';
+import { carouselListInterface } from '../../../../../core/interfaces/special-gifts.interface';
 
 @Component({
   selector: 'app-gifts',

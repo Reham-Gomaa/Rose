@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ServicesInterface } from '../../../../../core/interfaces/our-services/services.interface';
+import { ServicesInterface } from '../../../../../core/interfaces/services.interface';
 
 @Component({
   selector: 'app-our-services',
