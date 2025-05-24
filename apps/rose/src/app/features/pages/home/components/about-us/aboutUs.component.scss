@@ -125,28 +125,7 @@
 }
 
 .p-button-pink {
-  max-width: 10.4375rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.3306rem;
-  background-color: var(--persian-rose);
-  padding: 0.625rem 1.25rem;
-  font-family: var(--font-family-2);
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.8rem;
-  color: var(--white);
-  border: none;
   border-radius: 0.625rem;
-  transition: all 0.3s ease;
-  margin-bottom: 1.5rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--hover-persian-rose);
-    transform: translateY(-0.125rem);
-  }
 }
 
 .icons-about-check {

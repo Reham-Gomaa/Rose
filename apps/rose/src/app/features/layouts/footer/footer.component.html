@@ -1,15 +1,30 @@
-<section class="mx-auto">
-  <div class="flex align-items-center justify-content-evenly gap-2">
-    <a class="p-2">About US</a>
-    <a class="p-2">Store Location</a>
-    <a class="p-2">Contact</a>
-    <a class="p-2">Delivery </a>
-    <a class="p-2">Policy</a>
-    <a class="p-2">FAQS</a>
+<footer class="footer flex flex-column align-items-center justify-content-center py-6 text-center" role="contentinfo">
+  <!-- Navigation Links -->
+  <nav aria-label="Footer navigation">
+    <ul class="list-none tab-footer tab-footer-scroll">
+      <li><a class="tab-footer" aria-label="About our company">About Us</a></li>
+      <li><a class="tab-footer" aria-label="Our store locations">Store Location</a></li>
+      <li><a class="tab-footer" aria-label="Contact us">Contact</a></li>
+      <li><a class="tab-footer" aria-label="Delivery information">Delivery</a></li>
+      <li><a class="tab-footer" aria-label="Our policies">Policy</a></li>
+      <li><a class="tab-footer" aria-label="Frequently asked questions">FAQs</a></li>
+    </ul>
+  </nav>
+
+  <!-- Coupon Text -->
+  <div>
+    <h2 class="coupon-text m-0">Get <span class="highlight" aria-hidden="true">20%</span> <span class="sr-only">20
+        percent</span> Off Discount Coupon</h2>
+    <p class="coupon-text-p">By Subscribing to Our Newsletter</p>
   </div>
 
-  <div class="flex flex-column  align-items-center justify-content-center">
-    <h6 class="m-0">Get 20% Off Discount Coupon</h6>
-    <p>By Subscribe Our Newsletter</p>
-  </div>
-</section>
+  <!-- Email Input -->
+  <form action="/subscribe" method="post" class="input-button-wrapper" aria-label="Newsletter subscription">
+    <input id="newsletter-email" type="email" placeholder="Enter your email" class="input-field" required
+      aria-required="true" name="email" />
+    <button type="submit" class="input-button flex align-items-center justify-content-center"
+      aria-label="Subscribe to newsletter">
+      Subscribe <i class="pi pi-arrow-right px-2" aria-hidden="true"></i>
+    </button>
+  </form>
+</footer>

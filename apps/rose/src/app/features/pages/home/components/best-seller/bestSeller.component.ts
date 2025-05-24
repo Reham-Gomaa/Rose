@@ -1,29 +1,30 @@
 import { Component, inject, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Subscription } from 'rxjs';
+
+import { CardItemComponent } from '../../../../../shared/components/ui/card-item/card-item.component';
+import { ButtonComponent } from '../../../../../shared/components/ui/button/button.component';
+
+//PrimeNg
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
-import { BestSellerService } from 'apps/rose/src/app/shared/services/best-seller/best-seller.service';
-import { CardItemComponent } from 'apps/rose/src/app/shared/components/ui/card-item/card-item.component';
-import { BestSeller, BestSellerRes } from 'apps/rose/src/app/core/interfaces/best-seller';
-import { Product } from 'apps/rose/src/app/core/interfaces/carditem.interface';
-import { ButtonComponent } from 'apps/rose/src/app/shared/components/ui/button/button.component';
-import { Subscription } from 'rxjs';
+import { BestSellerService } from '../../../../../shared/services/best-seller/best-seller.service';
+import { BestSeller, BestSellerRes } from '../../../../../core/interfaces/best-seller';
 
 @Component({
   selector: 'app-best-seller',
   standalone: true,
-  imports: [CommonModule, CarouselModule, ButtonModule, CardItemComponent,ButtonComponent],
+  imports: [CarouselModule, ButtonModule, CardItemComponent, ButtonComponent],
   templateUrl: './bestSeller.component.html',
   styleUrls: ['./bestSeller.component.scss']
 })
-export class BestSellerComponent implements OnInit {
+export class BestSellerComponent implements OnInit, OnDestroy {
 
   private readonly bestsellerService = inject(BestSellerService);
   bestSellers: BestSeller[] = [];
 
   private subscription: Subscription | undefined;
 
-    responsiveOptions = [
+  responsiveOptions = [
     {
       breakpoint: '1199px',
       numVisible: 2,
@@ -42,22 +43,22 @@ export class BestSellerComponent implements OnInit {
 
 
   getBestSellersData(): void {
-  this.subscription = this.bestsellerService.getBestSellers().subscribe({
-    next: (res: BestSellerRes) => {
-      this.bestSellers = res.bestSeller;
-    },
-    error: (err) => console.log(err),
-  });
-}
+    this.subscription = this.bestsellerService.getBestSellers().subscribe({
+      next: (res: BestSellerRes) => {
+        this.bestSellers = res.bestSeller;
+      },
+      error: (err) => console.log(err),
+    });
+  }
 
-ngOnDestroy(): void {
-  this.subscription?.unsubscribe(); 
-}
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
+  }
 
 
-  
 
-  
 
-  
+
+
+
 }

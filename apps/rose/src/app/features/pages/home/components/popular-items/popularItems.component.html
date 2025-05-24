@@ -1,37 +1,37 @@
-<section>
+<section aria-labelledby="popular-items-heading">
   <!-- Title and Tabs Section -->
-  <div class="flex flex-column lg:flex-row justify-content-between white-space-nowrap align-items-center gap-3">
+  <div class="flex flex-column lg:flex-row justify-content-between white-space-nowrap align-items-center gap-3 mt-8">
     <!-- Title -->
     <div class="p-relative d-inline-block popular-items-title-wrapper">
-      <span class="popular-items-title">Popular Items</span>
-      <div class="popular-items-bg-shape"></div>
-      <div class="popular-items-underline-bar"></div>
+      <h2 id="popular-items-heading" class="popular-items-title">Popular Items</h2>
+      <div class="popular-items-bg-shape" aria-hidden="true"></div>
+      <div class="popular-items-underline-bar" aria-hidden="true"></div>
     </div>
 
     <!-- Tabs - Scrollable on mobile -->
-    <div class="w-full sm:w-auto overflow-x-auto pb-2">
-      <div class="flex align-items-center gap-3" style="min-width: fit-content">
+    <nav class="w-full sm:w-auto overflow-x-auto pb-2" aria-label="Product categories">
+      <div class="flex align-items-center gap-3" style="min-width: fit-content" role="tablist">
         @for (category of categories; track category.id) {
-        <button type="button" class="tabs-popular-items"
-          [ngClass]="{ 'active-tab': selectedCategory === category.id }"
-          (click)="selectCategory(category.id)"
+        <button type="button" class="tabs-popular-items" role="tab"
+          [attr.aria-selected]="selectedCategory === category.id" [attr.aria-controls]="'category-' + category.id"
+          [class]="{ 'active-tab': selectedCategory === category.id }" (click)="selectCategory(category.id)"
           (keyup.enter)="selectCategory(category.id)" (keyup.space)="selectCategory(category.id)" tabindex="0">
           {{ category.display }}
         </button>
         }
       </div>
-    </div>
+    </nav>
   </div>
 
   <!-- Cards Grid -->
-  <div class="grid mt-5">
+  <div class="grid mt-5" [attr.aria-labelledby]="'category-' + selectedCategory">
     @for (productInfo of filteredCards; track productInfo.id) {
     <div class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-2">
       <app-card-item [productInfo]="productInfo" />
     </div>
     } @empty {
     <div class="col-12 text-center py-5">
-      <p>No items found in this category</p>
+      <p role="status" aria-live="polite">No items found in this category</p>
     </div>
     }
   </div>

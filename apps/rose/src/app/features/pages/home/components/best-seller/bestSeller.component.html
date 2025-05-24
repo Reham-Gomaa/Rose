@@ -2,44 +2,34 @@
   <!-- Header Section -->
   <div class=" header text-left col-12 md:col-6 lg:col-4">
     <span class="text-base mb-5 font-bold premium">PREMIUM GIFTS</span>
-    <h2 class=" gifts text-4xl font-bold mb-2"><span class="dark">Best</span> Seller Gifts <span class="dark">and Products</span></h2>
-   
-    
+    <h2 class=" gifts text-4xl font-bold mb-2"><span class="dark">Best</span> Seller Gifts <span class="dark">and
+        Products</span></h2>
+
+
     <p class="gray mb-4 gifts">
-      Recusandae tempora aut laborum molestias veniam. A commodi sequi accusantium ullam cupiditate. 
+      Recusandae tempora aut laborum molestias veniam. A commodi sequi accusantium ullam cupiditate.
       Neque quidem qui et autem dolor dicta necessitatibus ut ad.
     </p>
-    
-    <app-button 
-                [text]="'Explore More'"
-                [isIcon]="true"
-                [borderRadius]="'0.625rem'"
-                [padding]="'0.625rem 1.25rem'" />
+
+    <app-button [text]="'Explore More'" [isIcon]="true" [borderRadius]="'btn-bestseller-radius'"
+      [padding]="'btn-bestseller-padding'" />
 
   </div>
-  
+
   <!-- Carousel/Product Grid Section -->
   <div class="product-carousel col-12 md:col-6 lg:col-8">
 
 
-<p-carousel
-  [value]="bestSellers"
-  [numVisible]="3"
-  [numScroll]="1"
-  [circular]="true"
-  [responsiveOptions]="responsiveOptions"
-  [showIndicators]="false"
-  class="custom-carousel"
->
-  <ng-template let-product pTemplate="item">
-    <div class="carousel-card-wrapper">
-      <app-card-item [productInfo]="product" ></app-card-item>
-    </div>
-  </ng-template>
-</p-carousel>
+    <p-carousel [value]="bestSellers" [numVisible]="3" [numScroll]="1" [circular]="true"
+      [responsiveOptions]="responsiveOptions" [showIndicators]="false" class="custom-carousel">
+      <ng-template let-product pTemplate="item">
+        <div class="carousel-card-wrapper">
+          <app-card-item [productInfo]="product"></app-card-item>
+        </div>
+      </ng-template>
+    </p-carousel>
 
 
-    
+
   </div>
 </div>
-

@@ -21,7 +21,7 @@
 
   <!-- Right side content -->
   <div class="flex flex-column justify-content-center">
-    <h1 class="title-about">ABOUT US</h1>
+    <h1 class="title-about m-0">ABOUT US</h1>
     <h2 class="p-title">
       We Provide Best And Quality <span class="p-strong">Gifts Box</span> Product For You
     </h2>
@@ -30,9 +30,9 @@
       Neque quidem qui et autem dolor dicta necessitatibus ut ad.
     </p>
 
-    <button class="p-button-pink" aria-label="Discover more about our gifts">
-      Discover More <i class="pi pi-arrow-right" aria-hidden="true"></i>
-    </button>
+
+    <app-button [text]="'Discover More'" [isIcon]="true" [borderRadius]="'btn-about-radius'"
+      [padding]="'btn-about-padding'" />
 
     <div class="flex flex-wrap gap-y-3 mt-3">
       <div class="flex align-items-center mb-2 gap-2 w-full md:w-6">
