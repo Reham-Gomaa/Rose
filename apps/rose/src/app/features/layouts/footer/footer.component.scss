@@ -1,0 +1,44 @@
+/* Component SCSS */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  background-color: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+  .text-primary {
+    color: #3B82F6;
+    transition: color 0.2s;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  p-button {
+    .p-button {
+      background-color: #3B82F6;
+      border-color: #3B82F6;
+
+      &:hover {
+        background-color: #2563eb;
+        border-color: #2563eb;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .text-6xl {
+      font-size: 3.5rem;
+    }
+
+    .text-xl {
+      font-size: 1.25rem;
+    }
+  }
+}
