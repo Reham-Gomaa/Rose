@@ -54,11 +54,4 @@ export class BestSellerComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
-
-
-
-
-
-
-
 }
