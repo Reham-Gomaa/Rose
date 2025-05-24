@@ -276,7 +276,7 @@ img {
   }
 
   h1 {
-    color: var(--dark-blue);
+    //color: var(--dark-blue);
     font-family: var(--font-family-1);
     font-weight: 600;
     font-size: 1.25rem;
@@ -289,4 +289,17 @@ img {
 
 .bottom-images {
   border-radius: 1.25rem;
+}
+
+.responsive-h1{
+  color: var(--white);
+
+}
+@media all and (min-width: 62rem) {
+  .responsive-h1 {
+    color: var(--dark-blue);
+  }
+}
+.dark-text{
+  color: var(--dark-blue);
 }

@@ -43,7 +43,7 @@
             <img class="bottom-images" [src]="pic.source" [alt]="pic.title">
             <div class="bottom-content">
                 <h2 [class.text-white]="pic.id === 3">{{pic.heading2}}</h2>
-                <h1>{{pic.heading1}}</h1>
+                <h1 [class]="pic.id === 3 ? 'responsive-h1':'dark-text'">{{pic.heading1}}</h1>
                 <app-button 
                 [text]="pic.btnText" 
                 [isIcon]="false" 
