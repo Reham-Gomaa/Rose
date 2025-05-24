@@ -56,7 +56,7 @@ ngOnDestroy(): void {
 
    mapToCardItem(b: BestSeller): ICardItem {
     return {
-      id: +b.id,
+      id: b.id,
       imageUrl: b.imgCover,
       title: b.title,
       price: b.priceAfterDiscount || b.price,
