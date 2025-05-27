@@ -12,5 +12,10 @@ import { ButtonComponent } from "../../../../../shared/components/ui/button/butt
   styleUrl: './aboutUs.component.scss',
 })
 export class AboutUsComponent {
-
+items = [
+  "Streamlined Shipping Experience",
+  "Affordable Modern Design",
+  "Competitive Price & Easy To Shop",
+  "We Made Awesome Products"
+];
 }
