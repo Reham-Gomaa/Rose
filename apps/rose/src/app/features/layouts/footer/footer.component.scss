@@ -1,0 +1,171 @@
+//Accessibility helper classes
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+  inset: 0;
+}
+
+
+.footer {
+  background-image: url("/images/image 35.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.tab-footer-scroll {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 0 1rem;
+  margin-bottom: 3rem;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+.tab-footer-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-footer {
+  border: none;
+  padding: 0.5rem;
+  gap: 5rem;
+  color: var(--dark-blue);
+  font-family: var(--font-family-1);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.75rem;
+  background-color: transparent;
+  cursor: pointer;
+  margin-bottom: 2.5rem;
+  transition: all ease 0.3s;
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--persian-rose);
+  }
+}
+
+//coupon
+
+.coupon-text {
+  color: var(--dark-blue);
+  font-family: var(--font-family-1);
+  font-weight: 700;
+  font-size: 1.875rem;
+  line-height: 100%;
+}
+
+.highlight {
+  color: var(--persian-rose);
+}
+
+.coupon-text-p {
+  color: var(--slate-gray);
+  font-family: var(--font-family-1);
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 100%;
+  margin-bottom: 2.5rem;
+}
+
+//input
+
+.input-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25rem;
+  height: 3.0625rem;
+  margin-bottom: 5.7575rem;
+}
+
+.input-field {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  border-right: none;
+  border-radius: 1.875rem;
+  font-family: var(--font-family-1);
+  font-weight: 600;
+  font-size: .875rem;
+  line-height: 100%;
+  outline: none;
+
+  &:focus {
+    outline: 1px solid var(--persian-rose);
+  }
+}
+
+.input-button {
+  padding: 0.9rem 2rem;
+  background-color: var(--persian-rose);
+  color: white;
+  border: none;
+  border-radius: 1.875rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-left: -2rem;
+
+  &:hover {
+    background-color: var(--hover-persian-rose);
+  }
+}
+
+@media (max-width: 400px) {
+
+  .tab-footer {
+    gap: 0.5rem;
+    border: none;
+    padding: 0.5rem;
+    font-size: .875rem;
+    margin-bottom: 1rem;
+  }
+
+
+  .coupon-text {
+    font-size: 1.25rem;
+  }
+
+  .coupon-text-p {
+    font-size: 1rem;
+    line-height: 100%;
+    margin-bottom: 1rem;
+  }
+
+
+  .input-button-wrapper {
+    width: 21.4375rem;
+    height: 3rem;
+    margin-bottom: 1.125rem;
+
+  }
+
+  .input-field {
+    padding: 0.8rem 0.5rem;
+    border-radius: 0.625rem 0 0 0.625rem;
+    font-size: .75rem;
+    gap: 0.5rem;
+  }
+
+  .input-button {
+    padding: 0.5rem;
+    border-radius: 0.625rem;
+    font-weight: 500;
+    line-height: 1.8rem;
+    transition: background-color 0.3s ease;
+  }
+
+}

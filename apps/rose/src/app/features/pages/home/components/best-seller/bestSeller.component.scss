@@ -1,0 +1,70 @@
+.premium {
+  font-family: var(--font-family-2);
+}
+
+.gifts {
+  font-family: var(--font-family-1);
+}
+
+.dark {
+  color: var(--dark-blue);
+
+}
+
+.gray {
+  color: var(--slate-gray);
+}
+
+.header {
+  color: var(--persian-rose) !important;
+}
+
+
+.product-carousel {
+  position: relative;
+}
+
+/* Add spacing between cards */
+.carousel-card-wrapper {
+  padding: 0 0.5rem;
+}
+
+/* Remove indicator dots */
+.custom-carousel .p-carousel-indicators {
+  display: none !important;
+}
+
+
+
+::ng-deep .p-carousel-next-button,
+::ng-deep .p-carousel-prev-button {
+  position: absolute;
+  top: 25%;
+  background-color: var(--persian-rose);
+  border-radius: 100%;
+  z-index: 5;
+  transition: all 1s ease !important;
+}
+
+::ng-deep .p-carousel-next-button {
+  left: 94%;
+
+  .carousel-next-icon {
+    color: var(--white);
+  }
+}
+
+::ng-deep .p-carousel-prev-button {
+  left: 1.5%;
+
+  .carousel-prev-icon {
+    color: var(--white);
+  }
+}
+
+
+::ng-deep .p-carousel-next-button :hover,
+::ng-deep .p-carousel-prev-button :hover {
+  background-color: var(--hover-persian-rose) !important;
+
+}

@@ -1,1 +1,46 @@
-<p>aboutUs works!</p>
+<div class="about-section flex flex-wrap lg:flex-nowrap gap-8 px-1 lg:px-6 py-2 md:py-8">
+  <!-- Left side images -->
+  <div class="image-container mx-auto flex justify-content-center align-items-center gap-6">
+    <!-- Main image with custom border and rotation -->
+    <div class="border-box-container" aria-hidden="true">
+      <div class="border-box-transform"></div>
+      <img src="/images/abouts/Rectangle 3.png" alt="Premium gift box" class="border-image-main" loading="lazy" />
+    </div>
+
+    <!-- Secondary circular images -->
+    <div class="flex flex-column px-3 gap-3">
+      <div class="border-circle-second overflow-hidden">
+        <img src="/images/abouts/Rectangle 4.png" alt="Elegant gift packaging" class="border-image-second"
+          loading="lazy" />
+      </div>
+      <div class="border-circle-third overflow-hidden">
+        <img src="/images/abouts/Rectangle 5.png" alt="Luxury gift box" class="border-image-third" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Right side content -->
+  <div class="flex flex-column justify-content-center">
+    <h1 class="title-about m-0">ABOUT US</h1>
+    <h2 class="p-title">
+      We Provide Best And Quality <span class="p-strong">Gifts Box</span> Product For You
+    </h2>
+    <p class="p-about mb-4">
+      Recusandae tempora aut laborum molestias veniam. A commodi sequi accusantium ullam cupiditate.
+      Neque quidem qui et autem dolor dicta necessitatibus ut ad.
+    </p>
+
+
+    <app-button [text]="'Discover More'" [isIcon]="true" [borderRadius]="'btn-about-radius'"
+      [padding]="'btn-about-padding'" />
+
+       <div class="flex flex-wrap w-50 gap-y-3 mt-3">
+        @for(item of items; track item){
+        <div class="flex align-items-center mb-2 gap-2 w-full md:w-6">
+          <i class="pi pi-check icons-about-check" aria-hidden="true"></i>
+          <span class="p-about-icon">{{item}}</span>
+        </div>
+        }
+    </div>
+  </div>
+</div>
