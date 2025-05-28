@@ -6,4 +6,12 @@ import { Component } from '@angular/core';
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.scss',
 })
-export class GalleryComponent {}
+export class GalleryComponent {
+  images = [
+    'images/gallery/Frame 74.png',
+    'images/gallery/Frame 75.png',
+    'images/gallery/Frame 76.png',
+    'images/gallery/Frame 77.png',
+    'images/gallery/Frame 78.png',
+  ];
+}
