@@ -1,27 +1,26 @@
-@use "../../../../../shared/styles/variables" as *;
-
-.premium{
-  font-family:var(--font-family-2) ;
-}
-.gifts{
-  font-family:var(--font-family-1) ;
+.premium {
+  font-family: var(--font-family-2);
 }
 
-.dark{
-  color:var(--dark-blue);
- 
+.gifts {
+  font-family: var(--font-family-1);
 }
 
-.gray{
-  color:var(--slate-gray);
+.dark {
+  color: var(--dark-blue);
+
 }
 
-.header{
-  color:var(--persian-rose) !important;
+.gray {
+  color: var(--slate-gray);
+}
+
+.header {
+  color: var(--persian-rose) !important;
 }
 
 
-.product-carousel{
+.product-carousel {
   position: relative;
 }
 
@@ -46,27 +45,26 @@
   z-index: 5;
   transition: all 1s ease !important;
 }
+
 ::ng-deep .p-carousel-next-button {
   left: 94%;
+
   .carousel-next-icon {
     color: var(--white);
   }
 }
+
 ::ng-deep .p-carousel-prev-button {
   left: 1.5%;
+
   .carousel-prev-icon {
     color: var(--white);
   }
 }
 
- 
-::ng-deep .p-carousel-next-button :hover, ::ng-deep .p-carousel-prev-button :hover {
-      background-color:var(--hover-persian-rose) !important;
-      
+
+::ng-deep .p-carousel-next-button :hover,
+::ng-deep .p-carousel-prev-button :hover {
+  background-color: var(--hover-persian-rose) !important;
+
 }
-
-
-
-
-
-
