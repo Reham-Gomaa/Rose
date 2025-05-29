@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
+import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
+import { carouselListInterface, picsInterface } from '../../../../../core/interfaces/special-gifts.interface';
 import { ButtonComponent } from "../../../../../shared/components/ui/button/button.component";
-import { picsInterface } from '../../../../../core/interfaces/special-gifts.interface';
-import { carouselListInterface } from '../../../../../core/interfaces/special-gifts.interface';
 
 @Component({
   selector: 'app-gifts',
