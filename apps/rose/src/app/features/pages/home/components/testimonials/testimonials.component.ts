@@ -10,6 +10,17 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './testimonials.component.scss',
 })
 export class TestimonialsComponent {
+  testimonials : any[] = [
+    {source: "./images/T-1.jpg"},
+    {source: "./images/T-2.jpg"},
+    {source: "./images/T-3.jpg"},
+    {source: "./images/T-4.jpg"},
+    {source: "./images/T-1.jpg"},
+    {source: "./images/T-2.jpg"},
+    {source: "./images/T-3.jpg"},
+    {source: "./images/T-4.jpg"}
+  ]
+
     responsiveOptions: any[] | undefined = [
     // {
     //   breakpoint: '1199px',
@@ -17,8 +28,8 @@ export class TestimonialsComponent {
     //   numScroll: 1
     // },
     {
-      breakpoint: '768px',
-      numVisible: 4,
+      breakpoint: '575px',
+      numVisible: 1,
       numScroll: 1
     }
   ];

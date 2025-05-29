@@ -1,12 +1,39 @@
-<section style="background-image: url('./images/f75e1a4519ff1df94fe6268e0bd529beb9950b34.png');">
-    <div class="contain">
-        <p-carousel [numVisible]="4" [numScroll]="1" [circular]="true" [responsiveOptions]="responsiveOptions"
-            class="custom-carousel">
-            <ng-template let-product pTemplate="item">
-                <div class="carousel-card-wrapper">
-                    <div class="card">
-                        <div class="flex justify-content-between align-items-center p-4">
-                            
+<section class="py-8 my-8" style="background: url('./images/Birthday background.png');">
+    <div class="contain mx-auto ">
+        <p-carousel [value]="testimonials" [numVisible]="4" [numScroll]="1" [circular]="true"
+            [responsiveOptions]="responsiveOptions" class="custom-carousel ">
+            <ng-template let-pic pTemplate="item">
+                <div class="carousel-card-wrapper lg:pr-4">
+                    <div class="card p-4">
+                        <div class="heading flex justify-content-start align-items-center">
+                            <div class="img-container">
+                                <img [src]="pic.source" alt="user image">
+                            </div>
+                            <div>
+                                <h2>Ahmed Mohamed</h2>
+                                <h3>Customer</h3>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Ab vel consequatur repellat eos omnis accusamus porro sunt dolorem. Totam voluptas ullam
+                                ut. Neque accusantium voluptas rerum. Dolorem veritatis quo omnis nihil nulla harum eum.
+                                Dignissimos laborum necessitatibus vero nihil.
+                            </p>
+                            <div class="icons-container flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="pi pi-star-fill mr-1"
+                                        style="font-size: .9375rem; color: var(--persian-rose)"></i>
+                                    <i class="pi pi-star-fill mr-1"
+                                        style="font-size: .9375rem; color: var(--persian-rose)"></i>
+                                    <i class="pi pi-star-fill mr-1"
+                                        style="font-size: .9375rem; color: var(--persian-rose)"></i>
+                                    <i class="pi pi-star-fill mr-1"
+                                        style="font-size: .9375rem; color: var(--persian-rose)"></i>
+                                </div>
+                                <div>
+                                    <img class="feedback-icon" src="./images/🦆 icon _feedback_.png" alt="feedback icon">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -16,4 +43,4 @@
 </section>
 
 
-<!-- [value]="bestSellers"  [showIndicators]="false" -->
+<!--   [showIndicators]="false" -->
