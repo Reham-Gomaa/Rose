@@ -39,7 +39,7 @@
     <!-- bottom images -->
     <div class="grid mt-4">
         @for (pic of pics; track pic.id) {
-        <div class="col-12 lg:col-4 relative">
+        <div class="col-12 lg:col-4 relative" >
             <img class="bottom-images" [src]="pic.source" [alt]="pic.title">
             <div class="bottom-content">
                 <h2 [class.text-white]="pic.id === 3">{{pic.heading2}}</h2>
