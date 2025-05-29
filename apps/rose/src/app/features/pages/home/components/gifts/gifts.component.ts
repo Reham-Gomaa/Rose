@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
-import { carouselListInterface, picsInterface } from '../../../../../core/interfaces/special-gifts.interface';
+import { carouselListInterface, picsInterface, responsiveOptionsInterface } from '../../../../../core/interfaces/special-gifts.interface';
 import { ButtonComponent } from "../../../../../shared/components/ui/button/button.component";
 
 @Component({
@@ -11,7 +11,7 @@ import { ButtonComponent } from "../../../../../shared/components/ui/button/butt
   templateUrl: './gifts.component.html',
   styleUrl: './gifts.component.scss',
 })
-export class GiftsComponent implements OnInit {
+export class GiftsComponent {
 
   carouselList: carouselListInterface[] = [
     { id: 1, source: "./images/1.jpeg", title: "pink roses in white vase with white and pink balloons" },
@@ -25,16 +25,12 @@ export class GiftsComponent implements OnInit {
     { id: 3, source: "./images/Christmas shopping composition with presents and cart.png", title: "colorful christmas ribbons with shopping cart", heading2:"Occasion Gifts" , heading1:"Combo Sets Gift Box Up To 50% Off", btnText:'Discover Now' },
   ];
 
-  responsiveOptions: any[] | undefined;
-
-  ngOnInit() {
-    this.responsiveOptions = [
+  responsiveOptions: responsiveOptionsInterface[] | undefined  = [
       {
         breakpoint: '575px',
         numVisible: 1,
         numScroll: 1
       }
     ]
-  }
 
 }

@@ -13,3 +13,8 @@ export interface carouselListInterface {
   source: string
   title: string
 }
+export interface responsiveOptionsInterface {
+  breakpoint: string
+  numVisible: number
+  numScroll: number
+}
