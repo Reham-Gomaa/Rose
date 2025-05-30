@@ -10,12 +10,12 @@ export class TrustedByComponent {
 
 
    companyLogos: string[] = [
-    '/images/image 36.png',
-    '/images/image 40.png',
-    '/images/image 41.png',
-    '/images/image 38.png',
-    '/images/image 39.png',
-    '/images/image 37.png'
+    '/images/trustedBy/image 36.png',
+    '/images/trustedBy/image 40.png',
+    '/images/trustedBy/image 41.png',
+    '/images/trustedBy/image 38.png',
+    '/images/trustedBy/image 39.png',
+    '/images/trustedBy/image 37.png'
   ];
   
 }

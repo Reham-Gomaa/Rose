@@ -1,10 +1,14 @@
+@use "./../../../../../shared/styles/variables" as *;
+
 .parent {
     border-radius: 1.25rem;
     padding: 2.5rem;
+    background-color: var(--light-pink);
 
     .icon {
         width: 4.0625rem;
         height: 4.0625rem;
+        background-color: var(--persian-rose);
         border-radius: 2.031rem;
         padding-inline: 0.859rem;
         padding-top: 1rem;
@@ -16,10 +20,13 @@
     }
 
     h3 {
+        font-family: var(--font-family-1);
         margin: 0 0 .3125rem 0;
     }
 
     p {
+        font-family: var(--font-family-2);
         line-height: 1.75rem;
     }
 }
+
