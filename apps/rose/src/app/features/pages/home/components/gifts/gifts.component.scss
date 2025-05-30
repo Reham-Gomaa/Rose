@@ -8,7 +8,7 @@ img {
   // image next to carousel -------
 
 .top-left-parent {
-  height: 424px;
+  height: 27.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,10 +19,12 @@ img {
   border-radius: .875rem;
   overflow: hidden;
   padding: 0 0 1.5rem 1rem;
+  margin-bottom: 1.5rem;
 
     // medium screen 768px
     @media all and (min-width: 48rem) {
        justify-content: end;
+       margin-bottom: 0;
     }
 
    h2 {
@@ -62,7 +64,7 @@ img {
 
 // carousel -------
 
-.carousel-content-parent {
+::ng-deep .carousel-content-parent {
   height: 15rem;
   position: relative;
 
@@ -149,8 +151,8 @@ img {
   }
 }
 
-::ng-deep .p-carousel-next-button,
-::ng-deep .p-carousel-prev-button {
+::ng-deep .p-ripple.p-button.p-component.custom-gift-next,
+::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -159,6 +161,7 @@ img {
   position: absolute;
   bottom: .5938rem;
   background-color: var(--white);
+  color: var(--slate-gray);
   border-radius: 100%;
 
     @media all and (min-width: 48rem) {
@@ -191,7 +194,7 @@ img {
   }
 }
 
-::ng-deep .p-carousel-next-button {
+::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
   right: 1rem;
 
   @media all and (min-width: 62rem) {
@@ -199,7 +202,7 @@ img {
   }
 }
 
-::ng-deep .p-carousel-prev-button {
+::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
  right: 2.25rem;
   z-index: 10;
 
@@ -239,18 +242,15 @@ img {
 // three bottom images ----------
 
 .bottom-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 11.75rem;
-
-  // xlarge screens 992px
-  @media all and (max-width: 90rem) {
-    transform: translate(-50% , -50%);
-  }
-  @media all and (min-width: 90rem) {
-    top: 4.5313rem;
-    left: 12.9375rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 1.25rem;
+  padding: 4.5625rem 0;
+  
+  // medium screen 768px
+  @media all and (min-width: 48rem) {
+      padding: 3.75rem 1rem;
   }
 
   h1,
@@ -276,7 +276,6 @@ img {
   }
 
   h1 {
-    //color: var(--dark-blue);
     font-family: var(--font-family-1);
     font-weight: 600;
     font-size: 1.25rem;
@@ -287,13 +286,8 @@ img {
   }
 }
 
-.bottom-images {
-  border-radius: 1.25rem;
-}
-
 .responsive-h1{
   color: var(--white);
-
 }
 @media all and (min-width: 62rem) {
   .responsive-h1 {
