@@ -8,12 +8,12 @@ import { EndPoint } from '../../../core/enums/endpoints';
   providedIn: 'root'
 })
 export class BestSellerService {
-  
+
   constructor(private httpClient: HttpClient) {}
 
   getBestSellers(): Observable<BestSellerRes> {
     return this.httpClient.get<BestSellerRes>(`${EndPoint.BESTSELLER}`);
   }
 
-  
+
 }

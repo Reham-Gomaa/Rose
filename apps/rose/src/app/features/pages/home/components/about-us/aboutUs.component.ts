@@ -5,6 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { RippleModule } from 'primeng/ripple';
 import { ButtonComponent } from "../../../../../shared/components/ui/button/button.component";
+
 @Component({
   selector: 'app-about-us',
   imports: [ButtonModule, RippleModule, DividerModule, ButtonComponent],

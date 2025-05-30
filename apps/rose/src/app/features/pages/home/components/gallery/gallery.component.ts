@@ -7,11 +7,14 @@ import { Component } from '@angular/core';
   styleUrl: './gallery.component.scss',
 })
 export class GalleryComponent {
-  images = [
-    'images/gallery/Frame 74.png',
-    'images/gallery/Frame 75.png',
-    'images/gallery/Frame 76.png',
-    'images/gallery/Frame 77.png',
-    'images/gallery/Frame 78.png',
-  ];
+  images = {
+    url: [
+      'images/gallery/Frame 74.png',
+      'images/gallery/Frame 75.png',
+      'images/gallery/Frame 76.png',
+      'images/gallery/Frame 77.png',
+      'images/gallery/Frame 78.png',],
+  }
+
+
 }

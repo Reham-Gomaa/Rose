@@ -13,4 +13,5 @@ export class ButtonComponent {
   @Input() borderRadius!: string;
   @Input() padding!: string;
   @Input() margin!: string;
+  @Input() transition!: string;
 }

@@ -1,17 +1,5 @@
 //Accessibility helper classes
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-  inset: 0;
-}
-
 
 .footer {
   background-image: url("/images/image 35.png");
