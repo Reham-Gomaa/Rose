@@ -1,24 +1,26 @@
-<section class="my-8">
+<section class="my-8" aria-label="special gifts">
     <div class="grid ">
         <!-- image next to carousel -->
-        <div class="col-12 md:col-6 lg:col-3 top-left-parent"
-            style="background-image:url('./images/gifts/Red christmas gifts with white ribbon.png')">
+        <div class="col-12 md:col-6 lg:col-3 top-left-parent" role="img" aria-label="Red Christmas gifts with white ribbon"
+            style="background-image:url('./images/gifts/Red christmas gifts with white ribbon.png')" aria-hidden="true">
             <h2>Start $10.99</h2>
             <h1 class="white-space-normal">Special Gifts Box For Your Love</h1>
             <app-button 
             [text]="'Shop Now'" 
             [isIcon]="true" 
             [borderRadius]="'btn-roundedBorderRadius'"
-            [padding]="'btn-topLeft-padding'" />
+            [padding]="'btn-topLeft-padding'" 
+            aria-label="Shop for Special Gifts Box"/>
         </div>
         <!-- carousel -->
         <div class="card w-full md:w-6  lg:w-9">
             <p-carousel [value]="carouselList" [numVisible]="1" [numScroll]="1" [circular]="true"
-                [responsiveOptions]="responsiveOptions" class="relative">
+                [responsiveOptions]="responsiveOptions" class="relative"  aria-label="Gift Carousel">
                 <ng-template pTemplate="item" let-pic>
-                    <div class="border border-surface rounded-border">
+                    <div class="border border-surface rounded-border"
+                    role="group" aria-roledescription="slide" [attr.aria-label]="pic.title">
                         <div class="mx-auto relative carousel-content-parent p-2">
-                            <img [src]="pic.source" [alt]="pic.title" class="top-right-image block bg-contain" />
+                            <img loading="lazy" [src]="pic.source" [alt]="pic.title" class="top-right-image block bg-contain"/>
                             <div class="carousel-content">
                                 <h2>Best Gift Shop</h2>
                                 <h1>Choose Perfect <span>Gifts</span> From Us</h1>
@@ -28,7 +30,8 @@
                                 [text]="'Shop Now'" 
                                 [isIcon]="true" 
                                 [borderRadius]="'btn-roundedBorderRadius'"
-                                [padding]="'btn-carousel-padding'" />
+                                [padding]="'btn-carousel-padding'" 
+                                 aria-label="Shop for Special Gifts Box"/>
                             </div>
                         </div>
                     </div>
@@ -40,7 +43,7 @@
     <div class="grid mt-4">
         @for (pic of pics; track pic.id) {
         <div class="col-12 lg:col-4 relative" >
-            <img class="bottom-images" [src]="pic.source" [alt]="pic.title">
+            <img loading="lazy" class="bottom-images" [src]="pic.source" [alt]="pic.title">
             <div class="bottom-content">
                 <h2 [class.text-white]="pic.id === 3">{{pic.heading2}}</h2>
                 <h1 [class]="pic.id === 3 ? 'responsive-h1':'dark-text'">{{pic.heading1}}</h1>
@@ -49,7 +52,8 @@
                 [isIcon]="false" 
                 [borderRadius]="'btn-pillBorderRadius'" 
                 [padding]="'btn-bottom-padding'"
-                [margin]="' lg:ml-auto lg:mr-0 mx-auto'" />
+                [margin]="' lg:ml-auto lg:mr-0 mx-auto'" 
+                 aria-label="Shop for Special Gifts Box"/>
             </div>
         </div>
         }

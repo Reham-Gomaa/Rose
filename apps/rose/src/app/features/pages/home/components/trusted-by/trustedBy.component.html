@@ -10,7 +10,7 @@
 
        @for (logo of companyLogos; track logo) {
         <div>
-          <img [src]="logo" alt="Company Logo" />
+          <img loading="lazy" [src]="logo" alt="Company Logo" />
         </div>
       }
     </div>
