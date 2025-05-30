@@ -9,18 +9,9 @@ import { ButtonComponent } from "../../../../../shared/components/ui/button/butt
 @Component({
   selector: 'app-about-us',
   imports: [ButtonModule, RippleModule, DividerModule, ButtonComponent],
-  imports: [ButtonModule, RippleModule, DividerModule, ButtonComponent],
   templateUrl: './aboutUs.component.html',
   styleUrl: './aboutUs.component.scss',
 })
-export class AboutUsComponent {
-items = [
-  "Streamlined Shipping Experience",
-  "Affordable Modern Design",
-  "Competitive Price & Easy To Shop",
-  "We Made Awesome Products"
-];
-}
 export class AboutUsComponent {
 items = [
   "Streamlined Shipping Experience",

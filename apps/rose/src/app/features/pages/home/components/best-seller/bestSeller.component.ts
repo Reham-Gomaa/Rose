@@ -24,7 +24,6 @@ import { SkeletonModule } from 'primeng/skeleton';
   ],
   templateUrl: './bestSeller.component.html',
   styleUrls: ['./bestSeller.component.scss']
-  styleUrls: ['./bestSeller.component.scss']
 })
 export class BestSellerComponent implements OnInit, OnDestroy {
   private readonly bestsellerService = inject(BestSellerService);
