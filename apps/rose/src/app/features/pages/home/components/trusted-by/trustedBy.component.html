@@ -1,23 +1,23 @@
-<div class="surface-0 py-6 md:py-8 width-full fontFamily1">
+<section class="surface-0 py-6 md:py-8 width-full fontFamily1" aria-labelledby="trusted-companies-heading">
   <div class="content border-round-3xl mx-auto px-4 py-5 light-pink-bg">
     <!-- Title -->
     <div class="text-center mb-6">
-      <h2 class="dark font-bold text-4xl"><span class="relative writing">Trusted By</span> Over <span class="persian-rose-text">4.5k+</span> Companies</h2>
+      <h2 id="trusted-companies-heading" class="dark font-bold text-4xl"><span class="relative writing">Trusted By</span> Over <span class="persian-rose-text">4.5k+</span> Companies</h2>
     </div>
     
     <!-- Company Logos -->
-    <div class="justify-content-evenly flex-wrap flex gap-4">
+    <div class="justify-content-evenly flex-wrap flex gap-4" role="list" aria-label="Trusted company logos">
 
        @for (logo of companyLogos; track logo) {
-        <div>
-          <img [src]="logo" alt="Company Logo" />
+        <div role="listitem">
+          <img loading="lazy" [src]="logo" alt="Company Logo" />
         </div>
       }
     </div>
     
     
 </div>
-</div>
+</section>
 
 
 

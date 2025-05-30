@@ -1,34 +1,36 @@
-<section class="my-8">
-    <div class="grid ">
+<section class="my-8" aria-labelledby="special-gifts-section-heading">
+    <h2 id="special-gifts-section-heading" class="sr-only">Special Gifts Collection</h2>
+    <div class="grid">
         <!-- image next to carousel -->
-        <div class="col-12 md:col-6 lg:col-3 top-left-parent"
-            style="background-image:url('./images/Red christmas gifts with white ribbon.png')">
+        <div class="col-12 md:col-6 lg:col-3 top-left-parent" role="img"
+            aria-label="Red Christmas gifts with white ribbon"
+            style="background-image:url('./images/gifts/Red christmas gifts with white ribbon.png')" aria-hidden="true">
             <h2>Start $10.99</h2>
             <h1 class="white-space-normal">Special Gifts Box For Your Love</h1>
-            <app-button 
-            [text]="'Shop Now'" 
-            [isIcon]="true" 
-            [borderRadius]="'btn-roundedBorderRadius'"
-            [padding]="'btn-topLeft-padding'" />
+            <app-button [text]="'Shop Now'" [isIcon]="true" [borderRadius]="'btn-roundedBorderRadius'"
+                [padding]="'btn-topLeft-padding'" aria-label="Shop for Special Gifts Box" />
         </div>
         <!-- carousel -->
         <div class="card w-full md:w-6  lg:w-9">
             <p-carousel [value]="carouselList" [numVisible]="1" [numScroll]="1" [circular]="true"
-                [responsiveOptions]="responsiveOptions" class="relative">
+                [responsiveOptions]="responsiveOptions" class="relative" aria-label="Gift Carousel"
+                [prevButtonProps]="{styleClass: 'p-button-rounded custom-gift-prev'}"
+                [nextButtonProps]="{styleClass: 'p-button-rounded custom-gift-next'}">
+                <h3 id="carousel-heading" class="sr-only">Featured Gift Items</h3>
                 <ng-template pTemplate="item" let-pic>
-                    <div class="border border-surface rounded-border">
-                        <div class="mx-auto relative carousel-content-parent p-2">
-                            <img [src]="pic.source" [alt]="pic.title" class="top-right-image block bg-contain" />
+                    <div class="border border-surface rounded-border" role="group" aria-roledescription="slide"
+                        [attr.aria-label]="pic.title">
+                        <div class="mx-auto relative carousel-content-parent md:pl-3">
+                            <img loading="lazy" [src]="pic.source" [alt]="pic.title" role="presentation"
+                                class="top-right-image block bg-contain" />
                             <div class="carousel-content">
                                 <h2>Best Gift Shop</h2>
                                 <h1>Choose Perfect <span>Gifts</span> From Us</h1>
                                 <p>Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores
                                     et.</p>
-                                <app-button 
-                                [text]="'Shop Now'" 
-                                [isIcon]="true" 
-                                [borderRadius]="'btn-roundedBorderRadius'"
-                                [padding]="'btn-carousel-padding'" />
+                                <app-button [text]="'Shop Now'" [isIcon]="true"
+                                    [borderRadius]="'btn-roundedBorderRadius'" [padding]="'btn-carousel-padding'"
+                                    aria-label="Shop for Special Gifts Box" />
                             </div>
                         </div>
                     </div>
@@ -39,17 +41,17 @@
     <!-- bottom images -->
     <div class="grid mt-4">
         @for (pic of pics; track pic.id) {
-        <div class="col-12 lg:col-4 relative" >
-            <img class="bottom-images" [src]="pic.source" [alt]="pic.title">
-            <div class="bottom-content">
-                <h2 [class.text-white]="pic.id === 3">{{pic.heading2}}</h2>
-                <h1 [class]="pic.id === 3 ? 'responsive-h1':'dark-text'">{{pic.heading1}}</h1>
-                <app-button 
-                [text]="pic.btnText" 
-                [isIcon]="false" 
-                [borderRadius]="'btn-pillBorderRadius'" 
-                [padding]="'btn-bottom-padding'"
-                [margin]="' lg:ml-auto lg:mr-0 mx-auto'" />
+        <div class="col-12 md:col-4" [class.md:px-4]="pic.id === 2">
+            <div class="bottom-content flex justify-content-center align-items-center lg:justify-content-end"
+                [style.backgroundImage]="'url(' + '\'' + pic.source + '\'' + ')'"
+                role="img" [attr.aria-label]="pic.title">
+                <div>
+                    <h2 [class.text-white]="pic.id === 3">{{pic.heading2}}</h2>
+                    <h1 [class]="pic.id === 3 ? 'responsive-h1':'dark-text'">{{pic.heading1}}</h1>
+                    <app-button [text]="pic.btnText" [isIcon]="false" [borderRadius]="'btn-pillBorderRadius'"
+                        [padding]="'btn-bottom-padding'" [margin]="' lg:ml-auto lg:mr-0 mx-auto'"
+                        [attr.aria-label]="'Shop for ' + pic.heading1" />
+                </div>
             </div>
         </div>
         }

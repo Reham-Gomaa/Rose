@@ -1,8 +1,8 @@
-<div class="grid mt-8">
+<section class="grid mt-8" aria-labelledby="premium-gifts-heading">
   <!-- Header Section -->
   <div class=" header text-left col-12 md:col-6 lg:col-4">
     <span class="text-base mb-5 font-bold premium">PREMIUM GIFTS</span>
-    <h2 class=" gifts text-4xl font-bold mb-2"><span class="dark">Best</span> Seller Gifts <span class="dark">and
+    <h2 id="premium-gifts-heading" class=" gifts text-4xl font-bold mb-2"><span class="dark">Best</span> Seller Gifts <span class="dark">and
         Products</span></h2>
 
 
@@ -12,24 +12,24 @@
     </p>
 
     <app-button [text]="'Explore More'" [isIcon]="true" [borderRadius]="'btn-bestseller-radius'"
-      [padding]="'btn-bestseller-padding'" />
+      [padding]="'btn-bestseller-padding'" aria-label="Explore more best seller gifts and products" />
 
   </div>
 
   <!-- Carousel/Product Grid Section -->
   <div class="product-carousel col-12 md:col-6 lg:col-8">
 
-
     <p-carousel [value]="bestSellers" [numVisible]="3" [numScroll]="1" [circular]="true"
-      [responsiveOptions]="responsiveOptions" [showIndicators]="false" class="custom-carousel">
+      [responsiveOptions]="responsiveOptions" [showIndicators]="false" class="custom-carousel"
+      [prevButtonProps]="{styleClass: 'p-button-rounded custom-best-prev'}"
+      [nextButtonProps]="{styleClass: 'p-button-rounded custom-best-next'}"
+      aria-label="Best seller products carousel">
       <ng-template let-product pTemplate="item">
-        <div class="carousel-card-wrapper">
+        <div class="carousel-card-wrapper" role="group" aria-label="Product card">
           <app-card-item [productInfo]="product"></app-card-item>
         </div>
       </ng-template>
     </p-carousel>
 
-
-
   </div>
-</div>
+</section>
