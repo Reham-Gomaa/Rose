@@ -2,8 +2,10 @@
   <!-- Header Section -->
   <div class=" header text-left col-12 md:col-6 lg:col-4">
     <span class="text-base mb-5 font-bold premium">PREMIUM GIFTS</span>
-    <h2 id="premium-gifts-heading" class=" gifts text-4xl font-bold mb-2"><span class="dark">Best</span> Seller Gifts <span class="dark">and
-        Products</span></h2>
+    <h2 id="premium-gifts-heading" class=" gifts text-4xl font-bold mb-2"><span class="dark">Best</span> Seller Gifts
+      <span class="dark">and
+        Products</span>
+    </h2>
 
 
     <p class="gray mb-4 gifts">
@@ -12,22 +14,43 @@
     </p>
 
     <app-button [text]="'Explore More'" [isIcon]="true" [borderRadius]="'btn-bestseller-radius'"
-      [padding]="'btn-bestseller-padding'" aria-label="Explore more best seller gifts and products" />
+      [padding]="'btn-bestseller-padding'" [transition]="'btn-bestseller-transition'"
+      aria-label="Explore more best seller gifts and products" />
 
   </div>
 
   <!-- Carousel/Product Grid Section -->
   <div class="product-carousel col-12 md:col-6 lg:col-8">
 
-    <p-carousel [value]="bestSellers" [numVisible]="3" [numScroll]="1" [circular]="true"
+    <p-carousel [value]="bestSellers()" [numVisible]="3" [numScroll]="1" [circular]="true"
       [responsiveOptions]="responsiveOptions" [showIndicators]="false" class="custom-carousel"
       [prevButtonProps]="{styleClass: 'p-button-rounded custom-best-prev'}"
-      [nextButtonProps]="{styleClass: 'p-button-rounded custom-best-next'}"
-      aria-label="Best seller products carousel">
+      [nextButtonProps]="{styleClass: 'p-button-rounded custom-best-next'}" aria-label="Best seller products carousel">
       <ng-template let-product pTemplate="item">
-        <div class="carousel-card-wrapper" role="group" aria-label="Product card">
-          <app-card-item [productInfo]="product"></app-card-item>
+        @if (showSkeleton()) {
+        @for (item of skeletonItems(); track $index) {
+        <div class="carousel-card-wrapper">
+          <div class="image-wrapper">
+            <p-skeleton width="100%" height="200px"></p-skeleton>
+          </div>
+          <div class="flex flex-column p-3 mt-3 flex-grow">
+            <p-skeleton width="50%" height="1.5rem" class="mb-2"></p-skeleton>
+            <div class="flex align-items-center justify-content-between pt-2">
+              <div class="flex flex-column">
+                <p-skeleton width="6rem" height="1.5rem" class="mb-2"></p-skeleton>
+                <p-skeleton width="4rem" height="1.25rem"></p-skeleton>
+              </div>
+              <p-skeleton shape="circle" size="2.5rem"></p-skeleton>
+            </div>
+          </div>
         </div>
+        }
+        }
+        @else {
+        <div class="carousel-card-wrapper">
+          <app-card-item [productInfo]="product" />
+        </div>
+        }
       </ng-template>
     </p-carousel>
 
