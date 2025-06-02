@@ -64,36 +64,6 @@
   object-fit: cover;
 }
 
-/* Responsive scaling only */
-@media (max-width: 1200px) {
-  .border-box-container {
-    width: 14rem;
-    height: 19rem;
-  }
-
-  .border-image-main {
-    width: 16rem;
-    height: 18rem;
-    top: 1rem;
-    left: 1rem;
-  }
-
-  .border-circle-second {
-    width: 10rem;
-    height: 10rem;
-  }
-
-  .border-circle-third {
-    width: 10rem;
-    height: 7.5rem;
-  }
-}
-
-@media (min-width: 769px) {}
-
-
-
-
 .title-about {
   font-family: var(--font-family-2);
   font-weight: 700;
@@ -145,15 +115,78 @@
   color: var(--black);
 }
 
-/* Responsive adjustments */
-@media (max-width: 400px) {
+/* Ultra-Compact Screens (300px - 399px) */
+@media (min-width: 300px) and (max-width: 399px) {
+  .image-container {
+    width: 18rem;
+    /* Reduced from 22.5rem for better fit */
+    height: auto;
+    /* Changed from fixed height */
+    margin: 0 auto;
+  }
 
+  .border-box-container {
+    width: 16rem;
+    /* Reduced from 21.5rem */
+    height: 12rem;
+    /* Reduced from 15.125rem */
+  }
+
+  .border-box-transform {
+    width: 9rem;
+    /* Reduced from 10.8094rem */
+    height: 11rem;
+    /* Reduced from 14.5931rem */
+  }
+
+  .border-image-main {
+    width: 10rem;
+    /* Reduced from 12.1406rem */
+    height: 11rem;
+    /* Reduced from 13.8294rem */
+  }
+
+  .border-circle-second {
+    width: 6rem;
+    /* Reduced from 7.7588rem */
+    height: 6rem;
+    /* Reduced from 7.7588rem */
+  }
+
+  .border-circle-third {
+    width: 6rem;
+    /* Reduced from 7.7588rem */
+    height: 4.5rem;
+    /* Reduced from 5.7888rem */
+  }
+
+  .title-about {
+    margin-bottom: 1rem;
+    /* Reduced from 1.5rem */
+  }
+
+  .p-title {
+    font-size: 1.1rem;
+    /* Reduced from 1.25rem */
+    line-height: 110%;
+    /* Adjusted from 100% */
+    margin-bottom: 0.4rem;
+    /* Reduced from 0.5rem */
+  }
+
+  .p-button-pink {
+    margin-bottom: 0.8rem;
+    /* Reduced from 1rem */
+  }
+}
+
+/* Standard Mobile (400px - 768px) - Your original 400px styles */
+@media (min-width: 400px) and (max-width: 768px) {
   .image-container {
     width: 22.5rem;
     height: 15.125rem;
     margin: 0 auto;
   }
-
 
   .border-box-container {
     width: 21.5rem;
@@ -180,7 +213,6 @@
     height: 5.7888rem;
   }
 
-
   .title-about {
     margin-bottom: 1.5rem;
   }
@@ -194,5 +226,32 @@
   .p-button-pink {
     margin-bottom: 1rem;
   }
-
 }
+
+/* Tablet (769px - 1200px) - Your original 1200px styles */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .border-box-container {
+    width: 14rem;
+    height: 19rem;
+  }
+
+  .border-image-main {
+    width: 16rem;
+    height: 18rem;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .border-circle-second {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .border-circle-third {
+    width: 10rem;
+    height: 7.5rem;
+  }
+}
+
+/* Desktop (1201px+) - Empty as per your original structure */
+@media (min-width: 1201px) {}
