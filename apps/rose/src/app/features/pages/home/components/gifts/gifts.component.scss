@@ -64,7 +64,7 @@ img {
 
 // carousel -------
 
-::ng-deep .carousel-content-parent {
+:host ::ng-deep .carousel-content-parent {
   height: 15rem;
   position: relative;
 
@@ -151,8 +151,8 @@ img {
   }
 }
 
-::ng-deep .p-ripple.p-button.p-component.custom-gift-next,
-::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next,
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -194,7 +194,7 @@ img {
   }
 }
 
-::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
   right: 1rem;
 
   @media all and (min-width: 62rem) {
@@ -202,7 +202,7 @@ img {
   }
 }
 
-::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
  right: 2.25rem;
   z-index: 10;
 
@@ -214,7 +214,7 @@ img {
   }
 }
 
-::ng-deep .p-carousel-indicator-list {
+:host ::ng-deep .p-carousel-indicator-list {
   position: absolute;
   bottom: 1.5rem;
   left: 50%;
@@ -227,14 +227,14 @@ img {
   }
 }
 
-::ng-deep .p-carousel-indicator-button {
+:host ::ng-deep .p-carousel-indicator-button {
   width: .4375rem;
   height: .4375rem;
   border-radius: 2.9125rem;
   background-color: var(--persian-rose);
 }
 
-::ng-deep .p-carousel-indicator-active>.p-carousel-indicator-button {
+:host ::ng-deep .p-carousel-indicator-active>.p-carousel-indicator-button {
   width: 1.1875rem;
   background-color: var(--persian-rose);
 }
@@ -247,7 +247,7 @@ img {
   background-repeat: no-repeat;
   border-radius: 1.25rem;
   padding: 4.5625rem 0;
-  
+
   // medium screen 768px
   @media all and (min-width: 48rem) {
       padding: 3.75rem 1rem;
