@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { ServicesInterface } from '../../../../../core/interfaces/services.interface';
 
 @Component({
   selector: 'app-our-services',
-  imports: [],
+  imports: [ TranslatePipe ],
   templateUrl: './ourServices.component.html',
   styleUrl: './ourServices.component.scss',
 })
 export class OurServicesComponent {
+
   services:ServicesInterface[] = [
-    {id:1 , icon:"pi pi-truck" , heading:"Free Delivery" , paragraph:"Orders Over $120"},
-    {id:2 , icon:"pi pi-sync" , heading:"Get Refund" , paragraph:"Within 30 Days Returns"},
-    {id:3 , icon:"pi pi-wallet" , heading:"Safe Payment" , paragraph:"100% Secure Payment"},
-    {id:4 , icon:"pi pi-phone" , heading:"24/7 Support" , paragraph:"Feel Free To Call Us"},
+    {id:1 , icon:"pi pi-truck" , heading:"home.services.freeDelivery.heading" , paragraph:"home.services.freeDelivery.paragraph"},
+    {id:2 , icon:"pi pi-sync" , heading:"home.services.getRefund.heading" , paragraph:"home.services.getRefund.paragraph"},
+    {id:3 , icon:"pi pi-wallet" , heading:"home.services.safePayment.heading" , paragraph:"home.services.safePayment.paragraph"},
+    {id:4 , icon:"pi pi-phone" , heading:"home.services.support.heading" , paragraph:"home.services.support.paragraph"},
   ]
 }

@@ -4,6 +4,7 @@
     border-radius: 1.25rem;
     padding: 2.5rem;
     background-color: var(--light-pink);
+    text-align: center;
 
     .icon {
         width: 4.0625rem;
@@ -13,7 +14,8 @@
         padding-inline: 0.859rem;
         padding-top: 1rem;
         padding-bottom: 1.125rem;
-        i{
+
+        i {
             width: 2.3175rem;
             height: 2.3175rem;
         }
@@ -30,5 +32,30 @@
         line-height: 1.75rem;
         color: var(--slate-gray);
     }
+
+    @media all and (min-width: 48rem) and (max-width: 75rem) {
+        .content{
+        min-width: 15.625rem;
+    }
+    }
+    @media all and (min-width: 62rem) {
+        text-align: left;
+    }
 }
 
+:host-context([dir="rtl"]) .parent {
+    .icon {
+        margin-right: 0 !important;
+        margin-left: 1rem;
+    }
+
+    .md\:mr-3 {
+        margin-right: 0;
+        margin-left: 0.75rem;
+    }
+
+    @media all and (min-width: 48rem) {
+        text-align: right;
+    }
+
+}

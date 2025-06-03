@@ -1,0 +1,111 @@
+{
+    "home": {
+        "categories": {
+            "error": "Error loading categories. Please try again later.",
+            "empty": "No categories available at this time."
+        },
+        "gifts": {
+            "leftImage": {
+                "heading2": "Start $10.99",
+                "heading1": "Special Gifts Box For Your Love",
+                "btn": "Shop Now"
+            },
+            "rightCarousel": {
+                "heading2": "Best Gift Shop",
+                "heading1Part1": "Choose Perfect",
+                "heading1Span": "Gifts",
+                "heading1Part2": "From Us",
+                "paragraph": "Culpa ducimus nesciunt aliquam non rerum esse recusandae omnis. Rerum optio dolores et.",
+                "btn": "Shop Now"
+            },
+            "bottomImages": {
+                "left": {
+                    "heading2": "Gifts Box",
+                    "heading1": "Awesome Gifts Box Collections",
+                    "btn": "Shop Now"
+                },
+                "middle": {
+                    "heading2": "Occasion Gifts",
+                    "heading1": "Best Occasion Gifts collections",
+                    "btn": "Discover Now"
+                },
+                "right": {
+                    "heading2": "Occasion Gifts",
+                    "heading1": "Combo Sets Gift Box Up To 50% Off",
+                    "btn": "Discover Now"
+                }
+            }
+        },
+        "services": {
+            "freeDelivery": {
+                "heading": "Free Delivery",
+                "paragraph": "Orders Over $120"
+            },
+            "getRefund": {
+                "heading": "Get Refund",
+                "paragraph": "Within 30 Days Returns"
+            },
+            "safePayment": {
+                "heading": "Safe Payment",
+                "paragraph": "100% Secure Payment"
+            },
+            "support": {
+                "heading": "24/7 Support",
+                "paragraph": "Feel Free To Call Us"
+            }
+        },
+        "bestSeller": {
+            "left": {
+                "span": "PREMIUM GIFTS",
+                "heading2span1": "Best",
+                "heading2": "Seller Gifts",
+                "heading2span2": "and Products",
+                "paragraph": " Recusandae tempora aut laborum molestias veniam. A commodi sequi accusantium ullam cupiditate. Neque quidem qui et autem dolor dicta necessitatibus ut ad.",
+                "btn": "Explore More"
+            }
+        },
+        "popularItems": {
+            "title": "Popular Items"
+        },
+        "aboutUs": {
+            "heading1": "ABOUT US",
+            "heading2part1": " We Provide Best And Quality",
+            "heading2span": " Gifts Box",
+            "heading2part2": " Product For You",
+            "paragraph": "Recusandae tempora aut laborum molestias veniam. A commodi sequi accusantium ullam cupiditate. Neque quidem qui et autem dolor dicta necessitatibus ut ad.",
+            "btn": "Discover More",
+            "items": {
+                "item1": "Streamlined Shipping Experience",
+                "item2": "Affordable Modern Design",
+                "item3": "Competitive Price & Easy To Shop",
+                "item4": "We Made Awesome Products"
+            }
+        },
+        "gallery":{
+            "heading5": "Our Gallery",
+            "title": "Let's Check Our Photo Gallery"
+        },
+        "trustedBy":{
+            "span1": "Trusted By",
+            "part1": "Over ",
+            "span2": "4.5k+ ",
+            "part2": "Companies"
+        },
+        "footer":{
+            "nav":{
+                "item1": "About Us",
+                "item2": "Store Location",
+                "item3": "Contact",
+                "item4": "Delivery",
+                "item5": "Policy",
+                "item6": "FAQs"
+            },
+            "heading2part1": "Get",
+            "heading2span": "20%",
+            "heading2part2": "Off Discount Coupon",
+            "paragraph": "By Subscribing to Our Newsletter",
+            "placeHolder": "Enter your email",
+            "btn": "Subscribe"
+        }
+    }
+}

@@ -8,11 +8,12 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { Skeleton } from 'primeng/skeleton';
 import { Subscription } from 'rxjs';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [CommonModule, ToastModule, Skeleton],
+  imports: [CommonModule, ToastModule, Skeleton, TranslatePipe],
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss'],
   providers: [MessageService]

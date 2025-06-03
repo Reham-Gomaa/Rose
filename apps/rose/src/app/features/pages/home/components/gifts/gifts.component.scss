@@ -1,11 +1,10 @@
-
 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-  // image next to carousel -------
+// image next to carousel -------
 
 .top-left-parent {
   height: 27.5rem;
@@ -21,13 +20,13 @@ img {
   padding: 0 0 1.5rem 1rem;
   margin-bottom: 1.5rem;
 
-    // medium screen 768px
-    @media all and (min-width: 48rem) {
-       justify-content: end;
-       margin-bottom: 0;
-    }
+  // medium screen 768px
+  @media all and (min-width: 48rem) {
+    justify-content: end;
+    margin-bottom: 0;
+  }
 
-   h2 {
+  h2 {
     font-family: var(--font-family-2);
     font-weight: 700;
     font-size: 1rem;
@@ -64,32 +63,30 @@ img {
 
 // carousel -------
 
-::ng-deep .carousel-content-parent {
+.carousel-content-parent {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 1.25rem;
+  padding-left: 1rem;
   height: 15rem;
-  position: relative;
 
   @media all and (min-width: 48rem) {
     height: 27.5rem;
   }
-}
 
-.top-right-image {
-  border-radius: .8738rem;
+  @media all and (min-width: 62rem) {
+    padding-left: 3.5rem;
+  }
 }
 
 .carousel-content {
-  position: absolute;
-  top: 1.625rem;
-  left: 1.25rem;
   width: 9.5625rem;
 
-  @media all and (min-width: 48rem){
-    top: 1.875rem;
-    left: 1.4375rem;
-  }
   @media all and (min-width: 62rem) {
-    top: 3.75rem;
-    left: 3.125rem;
     width: 23.8125rem;
   }
 
@@ -164,33 +161,37 @@ img {
   color: var(--slate-gray);
   border-radius: 100%;
 
-    @media all and (min-width: 48rem) {
-     bottom: 1.5rem;
+  @media all and (min-width: 48rem) {
+    bottom: 1.5rem;
   }
+
   @media all and (min-width: 62rem) {
     width: 2.5625rem;
     height: 2.5625rem;
   }
 
   .carousel-next-icon,
-  .carousel-prev-icon{
+  .carousel-prev-icon {
     width: .4094rem;
     height: .6544rem;
-      @media all and (min-width: 62rem) {
-    width: .9375rem;
-    height: 1.5rem;
+
+    @media all and (min-width: 62rem) {
+      width: .9375rem;
+      height: 1.5rem;
+    }
   }
-  }
+
   .p-ripple {
     display: flex;
     justify-content: center;
     align-items: center;
     width: .4094rem;
     height: .6544rem;
-      @media all and (min-width: 62rem) {
-        width: .9375rem;
-        height: 1.5rem;
-      }
+
+    @media all and (min-width: 62rem) {
+      width: .9375rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -203,12 +204,13 @@ img {
 }
 
 ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
- right: 2.25rem;
+  right: 2.25rem;
   z-index: 10;
 
   @media all and (min-width: 48rem) {
     right: 2.8125rem;
   }
+
   @media all and (min-width: 62rem) {
     right: 4.6875rem;
   }
@@ -247,11 +249,11 @@ img {
   background-repeat: no-repeat;
   border-radius: 1.25rem;
   padding: 4.5625rem 0;
-  
+
   // medium screen 768px
   @media all and (min-width: 48rem) {
-      padding: 3.75rem 1rem;
-      height: 17rem;
+    padding: 3.75rem 1rem;
+    height: 17rem;
   }
 
   h1,
@@ -287,14 +289,63 @@ img {
   }
 }
 
-.responsive-h1{
+.responsive-h1 {
   color: var(--white);
 }
+
 @media all and (min-width: 62rem) {
   .responsive-h1 {
     color: var(--dark-blue);
   }
 }
-.dark-text{
+
+.dark-text {
   color: var(--dark-blue);
+}
+
+//  RTL direction styling
+
+:host-context([dir="rtl"]) .top-left-parent {
+  align-items: end;
+
+  h1,h2 {
+    text-align: left;
+  }
+}
+
+:host-context([dir="rtl"]) .carousel-content-parent {
+  justify-content: end;
+}
+
+:host-context([dir="rtl"]) .carousel-content {
+  width: 10rem;
+
+  h2,
+  p {
+    text-align: left;
+  }
+
+  @media all and (min-width: 62rem) {
+    width: 23.8125rem;
+  }
+}
+
+:host-context([dir="rtl"]) ::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
+  @media all and (min-width: 48rem) {
+    right: 22.8125rem;
+  }
+
+  @media all and (min-width: 62rem) {
+    right: 57.6875rem;
+  }
+}
+
+:host-context([dir="rtl"]) ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
+  @media all and (min-width: 48rem) {
+    right: 21.25rem;
+  }
+
+  @media all and (min-width: 62rem) {
+    right: 54.375rem;
+  }
 }

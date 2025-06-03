@@ -24,16 +24,17 @@
 
   <!-- Right side content -->
   <div class="flex flex-column justify-content-center">
-    <h1 class="title-about m-0" id="about-heading" itemprop="headline">ABOUT US</h1>
+    <h1 class="title-about m-0" id="about-heading" itemprop="headline">{{ "home.aboutUs.heading1" |translate }}</h1>
     <h2 class="p-title" itemprop="alternativeHeadline">
-      We Provide Best And Quality <span class="p-strong" itemprop="keywords">Gifts Box</span> Product For You
+      {{ "home.aboutUs.heading2part1" |translate }}
+      <span class="p-strong" itemprop="keywords">{{ "home.aboutUs.heading2span" |translate }}</span> 
+      {{ "home.aboutUs.heading2part2" |translate }}
     </h2>
     <p class="p-about mb-4" itemprop="description">
-      Recusandae tempora aut laborum molestias veniam. A commodi sequi accusantium ullam cupiditate.
-      Neque quidem qui et autem dolor dicta necessitatibus ut ad.
+      {{ "home.aboutUs.paragraph" |translate }}
     </p>
 
-    <app-button [text]="'Discover More'" [isIcon]="true" [borderRadius]="'btn-about-radius'"
+    <app-button [text]="('home.aboutUs.btn' |translate)" [isIcon]="true" [borderRadius]="'btn-about-radius'"
       [padding]="'btn-about-padding'" [transition]="'btn-about-transition'"
       aria-label="Discover more about our premium gift boxes" />
 
@@ -41,7 +42,7 @@
       @for(item of items; track item){
       <div class="flex align-items-center mb-2 gap-2 w-full md:w-6" role="listitem">
         <i class="pi pi-check icons-about-check" aria-hidden="true"></i>
-        <span class="p-about-icon" itemprop="itemListElement">{{item}}</span>
+        <span class="p-about-icon" itemprop="itemListElement">{{item |translate}}</span>
       </div>
       }
     </div>

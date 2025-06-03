@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-trusted-by',
-  imports: [],
+  imports: [ TranslatePipe ],
   templateUrl: './trustedBy.component.html',
   styleUrl: './trustedBy.component.scss',
 })

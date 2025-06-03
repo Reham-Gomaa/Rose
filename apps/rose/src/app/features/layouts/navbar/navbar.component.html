@@ -1,1 +1,4 @@
-<p>navbar works!</p>
+<p>navbar works! {{ "welcome" |translate }}</p>
+
+<button (click)="changeLang('en')">English</button>
+<button (click)="changeLang('ar')">Arabic</button>

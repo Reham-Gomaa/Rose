@@ -62,3 +62,9 @@
     color: var(--white);
   }
 }
+
+// RTL direction styling
+
+:host-context([dir="rtl"]) .header{
+  text-align: right !important;
+}
