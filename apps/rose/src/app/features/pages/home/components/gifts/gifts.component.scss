@@ -329,23 +329,3 @@ img {
     width: 23.8125rem;
   }
 }
-
-:host-context([dir="rtl"]) ::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
-  @media all and (min-width: 48rem) {
-    right: 22.8125rem;
-  }
-
-  @media all and (min-width: 62rem) {
-    right: 57.6875rem;
-  }
-}
-
-:host-context([dir="rtl"]) ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
-  @media all and (min-width: 48rem) {
-    right: 21.25rem;
-  }
-
-  @media all and (min-width: 62rem) {
-    right: 54.375rem;
-  }
-}

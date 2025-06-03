@@ -9,6 +9,8 @@ export class TranslationService {
   private readonly translateService = inject(TranslateService);
   private readonly platformId = inject(PLATFORM_ID);
 
+   public readonly onLangChange = this.translateService.onLangChange;
+
   defaultLang = 'en';
 
   constructor() {
@@ -38,5 +40,9 @@ export class TranslationService {
     }else if(savedLang == 'ar'){
       document.body.dir = 'rtl'
     }
+  }
+
+   getCurrentLang(): string {
+    return this.translateService.currentLang;
   }
 }

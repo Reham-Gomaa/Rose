@@ -14,4 +14,7 @@ export class ButtonComponent {
   @Input() padding!: string;
   @Input() margin!: string;
   @Input() transition!: string;
-}
+
+  }
+
+
