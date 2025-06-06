@@ -72,23 +72,23 @@ section {
   }
 }
 
-::ng-deep .custom-carousel .p-carousel-content-container {
+:host ::ng-deep .p-carousel-content {
   position: relative;
 }
 
 /* appearance of indicator dots */
-::ng-deep .custom-carousel .p-carousel-indicator-list {
+:host ::ng-deep .custom-carousel .p-carousel-indicator-list {
   padding-top: 2.5rem;
 }
 
-::ng-deep .custom-carousel .p-carousel-indicator-button {
+:host ::ng-deep .custom-carousel .p-carousel-indicator-button {
   width: 1rem;
   height: 1rem;
   border-radius: 100%;
   background-color: var(--white);
 }
 
-::ng-deep .custom-carousel .p-carousel-indicator-active .p-carousel-indicator-button {
+:host ::ng-deep .custom-carousel .p-carousel-indicator-active .p-carousel-indicator-button {
   width: 2.25rem;
   height: 1rem;
   border-radius: .625rem;
@@ -96,25 +96,37 @@ section {
 
 // next and previous buttons
 
-::ng-deep .custom-carousel .p-carousel-next-button,
-::ng-deep .custom-carousel .p-carousel-prev-button {
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next,
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
   position: absolute;
-  top: 10.625rem;
+  top: 3.75rem;
   background-color: var(--persian-rose);
   border-radius: 100%;
   z-index: 5;
   transition: all 1s ease !important;
+  &:hover{
+      background-color: var(--hover-persian-rose) !important;
+  }
 }
 
-::ng-deep .custom-carousel .p-carousel-next-button {
-  left: 94%;
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
+  right: 1.875rem;
+
+    @media all and (min-width: 48rem){
+    right: -2.5rem;
+  }
+  @media all and (min-width:75rem){
+    right: -2.625rem;
+  }
 }
 
-::ng-deep .custom-carousel .p-carousel-prev-button {
-  left: 0;
-}
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
+  left: 2.8125rem;
 
-.custom-carousel .p-carousel-next-button :hover,
-.custom-carousel .p-carousel-prev-button :hover {
-  background-color: var(--hover-persian-rose) !important;
+   @media all and (min-width: 48rem){
+    left: 3.125rem;
+  }
+   @media all and (min-width: 75rem){
+    left: -1.3125rem;
+  }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+// primeNg imports ....
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 
@@ -10,27 +11,34 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './testimonials.component.scss',
 })
 export class TestimonialsComponent {
-  testimonials : any[] = [
-    {source: "./images/T-1.jpg"},
-    {source: "./images/T-2.jpg"},
-    {source: "./images/T-3.jpg"},
-    {source: "./images/T-4.jpg"},
-    {source: "./images/T-1.jpg"},
-    {source: "./images/T-2.jpg"},
-    {source: "./images/T-3.jpg"},
-    {source: "./images/T-4.jpg"}
+  testimonials : string[] = [
+    "./images/T-1.jpg",
+    "./images/T-2.jpg",
+    "./images/T-3.jpg",
+    "./images/T-4.jpg",
+    "./images/T-1.jpg",
   ]
 
     responsiveOptions: any[] | undefined = [
-    // {
-    //   breakpoint: '1199px',
-    //   numVisible: 2,
-    //   numScroll: 1
-    // },
     {
-      breakpoint: '575px',
+      breakpoint: '1200px',
+      numVisible: 3,
+      numScroll: 1
+    },
+    {
+      breakpoint: '992px',
+      numVisible: 2,
+      numScroll: 1
+    },
+    {
+      breakpoint: '767px',
       numVisible: 1,
       numScroll: 1
-    }
+    },
+    {
+      breakpoint: '500px',
+      numVisible: 1,
+      numScroll: 1
+    },
   ];
 }
