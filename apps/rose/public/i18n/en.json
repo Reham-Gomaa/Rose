@@ -1,4 +1,11 @@
 {
+    "navbar":{
+        "home": "Home",
+        "allcategory": "All Category",
+        "about": "About",
+        "contact": "Contact",
+        "login": "Login"
+    },
     "home": {
         "categories": {
             "error": "Error loading categories. Please try again later.",
@@ -81,31 +88,58 @@
                 "item4": "We Made Awesome Products"
             }
         },
-        "gallery":{
+        "gallery": {
             "heading5": "Our Gallery",
             "title": "Let's Check Our Photo Gallery"
         },
-        "trustedBy":{
+        "trustedBy": {
             "span1": "Trusted By",
             "part1": "Over ",
             "span2": "4.5k+ ",
             "part2": "Companies"
         },
-        "footer":{
-            "nav":{
-                "item1": "About Us",
-                "item2": "Store Location",
-                "item3": "Contact",
-                "item4": "Delivery",
-                "item5": "Policy",
-                "item6": "FAQs"
+        "testimonials": {
+            "customer1": {
+                "heading2": "Ahmed Mohamed",
+                "heading3": "Customer",
+                "paragraph": "Ab vel consequatur repellat eos omnis accusamus porro sunt dolorem. Totam voluptas ullam ut. Neque accusantium voluptas rerum. Dolorem veritatis quo omnis nihil nulla harum eum. Dignissimos laborum necessitatibus vero nihil."
             },
-            "heading2part1": "Get",
-            "heading2span": "20%",
-            "heading2part2": "Off Discount Coupon",
-            "paragraph": "By Subscribing to Our Newsletter",
-            "placeHolder": "Enter your email",
-            "btn": "Subscribe"
+            "customer2": {
+                "heading2": "Laila Hassan",
+                "heading3": "Customer",
+                "paragraph": "Ab vel consequatur repellat eos omnis accusamus porro sunt dolorem. Totam voluptas ullam ut. Neque accusantium voluptas rerum. Dolorem veritatis quo omnis nihil nulla harum eum. Dignissimos laborum necessitatibus vero nihil."
+            },
+            "customer3": {
+                "heading2": "Sami Mahmoud",
+                "heading3": "Customer",
+                "paragraph": "Ab vel consequatur repellat eos omnis accusamus porro sunt dolorem. Totam voluptas ullam ut. Neque accusantium voluptas rerum. Dolorem veritatis quo omnis nihil nulla harum eum. Dignissimos laborum necessitatibus vero nihil."
+            },
+            "customer4": {
+                "heading2": "Nora Abdallah",
+                "heading3": "Customer",
+                "paragraph": "Ab vel consequatur repellat eos omnis accusamus porro sunt dolorem. Totam voluptas ullam ut. Neque accusantium voluptas rerum. Dolorem veritatis quo omnis nihil nulla harum eum. Dignissimos laborum necessitatibus vero nihil."
+            },
+            "customer5": {
+                "heading2": "Khaled Mansour",
+                "heading3": "Customer",
+                "paragraph": "Ab vel consequatur repellat eos omnis accusamus porro sunt dolorem. Totam voluptas ullam ut. Neque accusantium voluptas rerum. Dolorem veritatis quo omnis nihil nulla harum eum. Dignissimos laborum necessitatibus vero nihil."
+            }
         }
+    },
+    "footer": {
+        "nav": {
+            "item1": "About Us",
+            "item2": "Store Location",
+            "item3": "Contact",
+            "item4": "Delivery",
+            "item5": "Policy",
+            "item6": "FAQs"
+        },
+        "heading2part1": "Get",
+        "heading2span": "20%",
+        "heading2part2": "Off Discount Coupon",
+        "paragraph": "By Subscribing to Our Newsletter",
+        "placeHolder": "Enter your email",
+        "btn": "Subscribe"
     }
 }
