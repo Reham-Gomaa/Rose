@@ -7,8 +7,9 @@
             style="background-image:url('./images/gifts/Red christmas gifts with white ribbon.png')" aria-hidden="true">
             <h2>{{"home.gifts.leftImage.heading2" |translate }}</h2>
             <h1 class="white-space-normal">{{ "home.gifts.leftImage.heading1" |translate }}</h1>
-            <app-button [text]="('home.gifts.leftImage.btn' |translate)" [isIcon]="true" [borderRadius]="'btn-roundedBorderRadius'"
-                [padding]="'btn-topLeft-padding'" aria-label="Shop for Special Gifts Box"  [margin]="'btn-rtl-margin'"/>
+            <app-button [text]="('home.gifts.leftImage.btn' |translate)" [isIcon]="true"
+                [borderRadius]="'btn-roundedBorderRadius'" [padding]="'btn-topLeft-padding'"
+                aria-label="Shop for Special Gifts Box"  />
         </div>
         <!-- carousel -->
         <div class="card w-full md:w-6  lg:w-9">
@@ -19,18 +20,18 @@
                 <h3 id="carousel-heading" class="sr-only">Featured Gift Items</h3>
                 <ng-template pTemplate="item" let-pic>
                     <div class="carousel-content-parent border border-surface" role="group" aria-roledescription="slide"
-                        [style.backgroundImage]="'url(' + '\'' + pic.source + '\'' + ')'"
-                        [attr.aria-label]="pic.title">
+                        [style.backgroundImage]="'url(' + '\'' + pic.source + '\'' + ')'" [attr.aria-label]="pic.title">
                         <div>
-                            <div class="carousel-content">
+                            <div class="carousel-content flex flex-column justify-center align-items-start">
                                 <h2>{{ 'home.gifts.rightCarousel.heading2' |translate}}</h2>
                                 <h1>{{ 'home.gifts.rightCarousel.heading1Part1' |translate}}
                                     <span>{{ 'home.gifts.rightCarousel.heading1Span' |translate}}</span>
-                                    {{ 'home.gifts.rightCarousel.heading1Part2' |translate}}</h1>
+                                    {{ 'home.gifts.rightCarousel.heading1Part2' |translate}}
+                                </h1>
                                 <p>{{ 'home.gifts.rightCarousel.paragraph' |translate}}</p>
                                 <app-button [text]="('home.gifts.rightCarousel.btn' |translate)" [isIcon]="true"
                                     [borderRadius]="'btn-roundedBorderRadius'" [padding]="'btn-carousel-padding'"
-                                    [margin]="'btn-rtl-margin'" aria-label="Shop for Special Gifts Box" />
+                                    aria-label="Shop for Special Gifts Box" />
                             </div>
                         </div>
                     </div>
@@ -42,16 +43,14 @@
     <div class="grid mt-4">
         @for (pic of pics; track pic.id) {
         <div class="col-12 md:col-4" [class.md:px-3]="pic.id === 2">
-            <div class="bottom-content flex justify-content-center align-items-center lg:justify-content-end"
-                [style.backgroundImage]="'url(' + '\'' + pic.source + '\'' + ')'"
-                role="img" [attr.aria-label]="pic.title">
-                <div>
-                    <h2 class="md:text-xs lg:text-base" [class.text-white]="pic.id === 3">{{pic.heading2 |translate}}</h2>
-                    <h1 class="md:text-base lg:text-xl" [class]="pic.id === 3 ? 'responsive-h1':'dark-text'">{{pic.heading1 |translate}}</h1>
-                    <app-button [text]="pic.btnText |translate" [isIcon]="false" [borderRadius]="'btn-pillBorderRadius'"
-                        [padding]="'btn-bottom-padding'" [margin]="' lg:ml-auto lg:mr-0 mx-auto'"
-                        [attr.aria-label]="'Shop for ' + pic.heading1" />
-                </div>
+            <div class="bottom-content flex flex-column justify-content-center align-items-center lg:align-items-end"
+                [style.backgroundImage]="'url(' + '\'' + pic.source + '\'' + ')'" role="img"
+                [attr.aria-label]="pic.title">
+                <h2 class="md:text-xs lg:text-base" [class.text-white]="pic.id === 3">{{pic.heading2 |translate}}</h2>
+                <h1 class="md:text-base lg:text-xl" [class]="pic.id === 3 ? 'responsive-h1':'dark-text'">{{pic.heading1
+                    |translate}}</h1>
+                <app-button [text]="pic.btnText |translate" [isIcon]="false" [borderRadius]="'btn-pillBorderRadius'"
+                    [padding]="'btn-bottom-padding'" [attr.aria-label]="'Shop for ' + pic.heading1" />
             </div>
         </div>
         }

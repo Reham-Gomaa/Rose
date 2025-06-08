@@ -148,6 +148,7 @@ img {
   }
 }
 
+
 ::ng-deep .p-ripple.p-button.p-component.custom-gift-next,
 ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
   display: flex;
@@ -319,8 +320,8 @@ img {
 
 :host-context([dir="rtl"]) .carousel-content {
   width: 10rem;
+  align-items: end !important;
 
-  h2,
   p {
     text-align: left;
   }
@@ -328,4 +329,10 @@ img {
   @media all and (min-width: 62rem) {
     width: 23.8125rem;
   }
+}
+
+:host-context([dir="rtl"]) .bottom-content{
+   @media all and (min-width: 62rem){
+      align-items: start !important;
+   }
 }

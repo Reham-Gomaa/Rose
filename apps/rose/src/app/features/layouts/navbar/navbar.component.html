@@ -1,4 +1,9 @@
-<p>navbar works! {{ "welcome" |translate }}</p>
 
-<button (click)="changeLang('en')">English</button>
-<button (click)="changeLang('ar')">Arabic</button>
+
+<div class="custom-selector">
+    <select [value]="currentLang" (change)="changeLang($event)">
+        <option value="en">English</option>
+        <option value="ar">Arabic</option>
+    </select>
+    <i class="pi pi-globe"></i>
+</div>

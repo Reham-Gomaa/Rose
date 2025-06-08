@@ -42,11 +42,6 @@ button {
   }
 }
 
-// RTL direction margin
-:host-context([dir="rtl"]) .btn-rtl-margin{
-  margin-right: auto;
-}
-
 // gifts top part
 .btn-roundedBorderRadius {
   border-radius: .2544rem;
