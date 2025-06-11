@@ -1,9 +1,6 @@
-import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { TranslationService } from '../../../core/services/translation/translation.service';
-import { isPlatformBrowser } from '@angular/common';
-
-
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +10,7 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class NavbarComponent implements OnInit{
   private readonly translationService = inject(TranslationService);
-  private readonly platformId = inject(PLATFORM_ID);
+  
   currentLang !:string;
 
   changeLang(event: Event) {
@@ -23,13 +20,7 @@ export class NavbarComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    if(isPlatformBrowser(this.platformId)){
-      if(localStorage.getItem('lng')){
-          this.currentLang = localStorage.getItem('lng')!;
-      }else{
-        this.currentLang = this.translationService.defaultLang;
-      }
-    }
+    this.currentLang = this.translationService.getCurrentLang()
   }
 
 }
