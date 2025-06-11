@@ -1,15 +1,16 @@
-<section class="py-8 my-8" style="background: url('./images/Birthday background.png');">
+<section aria-label="Customer testimonials" class="py-8 my-8" style="background: url('./images/Birthday background.png');">
     <div class="contain mx-auto ">
         <p-carousel [value]="testimonials" [numVisible]="4" [numScroll]="1" [circular]="true"
             [responsiveOptions]="responsiveOptions" class="custom-carousel "
             [prevButtonProps]="{styleClass: 'p-button-rounded custom-gift-prev'}"
-            [nextButtonProps]="{styleClass: 'p-button-rounded custom-gift-next'}">
+            [nextButtonProps]="{styleClass: 'p-button-rounded custom-gift-next'}"
+            role="region" aria-roledescription="carousel" aria-label="Customer testimonials carousel">
             <ng-template let-pic pTemplate="item">
-                <div class="carousel-card-wrapper lg:pr-4">
+                <div class="carousel-card-wrapper lg:pr-4" role="group" aria-roledescription="slide" aria-label="Testimonial">
                     <div class="card p-4 mx-auto">
                         <div class="heading flex justify-content-start align-items-center">
                             <div class="img-container">
-                                <img [src]="pic" alt="user image">
+                                <img [src]="pic" alt="user image" loading="lazy">
                             </div>
                             <div>
                                 <h2>Ahmed Mohamed</h2>
@@ -22,7 +23,7 @@
                                 Dignissimos laborum necessitatibus vero nihil.
                             </p>
                             <div class="icons-container flex justify-content-between align-items-center">
-                                <div>
+                                <div role="img" aria-label="4 out of 5 stars">
                                     <i class="pi pi-star-fill mr-1"
                                         style="font-size: .9375rem; color: var(--persian-rose)"></i>
                                     <i class="pi pi-star-fill mr-1"
@@ -33,7 +34,7 @@
                                         style="font-size: .9375rem; color: var(--persian-rose)"></i>
                                 </div>
                                 <div>
-                                    <img class="feedback-icon" src="./images/🦆 icon _feedback_.png" alt="feedback icon">
+                                    <img loading="lazy" class="feedback-icon" src="./images/🦆 icon _feedback_.png" alt="feedback icon">
                                 </div>
                             </div>
                         </div>
@@ -43,6 +44,3 @@
         </p-carousel>
     </div>
 </section>
-
-
-<!--   [showIndicators]="false" -->
