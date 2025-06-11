@@ -20,6 +20,13 @@
   background-repeat: no-repeat;
 }
 
+.container-footer {
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+
 .tab-footer-scroll {
   display: flex;
   overflow-x: auto;
@@ -88,6 +95,7 @@
   align-items: center;
   width: 25rem;
   height: 3.0625rem;
+  margin: 0 auto;
   margin-bottom: 5.7575rem;
 }
 
@@ -124,7 +132,12 @@
   }
 }
 
-@media (max-width: 400px) {
+@media screen and (min-width: 300px) and (max-width: 766px) {
+
+  .container-footer {
+    width: 80%;
+    margin: 0 auto;
+  }
 
   .tab-footer {
     gap: 0.5rem;
@@ -147,8 +160,9 @@
 
 
   .input-button-wrapper {
-    width: 21.4375rem;
+    width: 17rem;
     height: 3rem;
+    margin: 0 auto;
     margin-bottom: 1.125rem;
 
   }
@@ -165,6 +179,7 @@
     border-radius: 0.625rem;
     font-weight: 500;
     line-height: 1.8rem;
+
     transition: background-color 0.3s ease;
   }
 
