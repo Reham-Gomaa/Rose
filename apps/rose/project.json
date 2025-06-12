@@ -23,9 +23,10 @@
           }
         ],
         "styles": [
-          "apps/rose/src/styles.scss",
           "node_modules/primeicons/primeicons.css",
-          "node_modules/primeflex/primeflex.css"
+          "node_modules/primeflex/primeflex.css",
+          "node_modules/primeflex/themes/primeone-light.css",
+          "apps/rose/src/styles.scss"
         ],
         "scripts": [],
         "server": "apps/rose/src/main.server.ts",
@@ -35,6 +36,7 @@
         "outputMode": "server"
       },
       "configurations": {
+
         "production": {
           "budgets": [
             {

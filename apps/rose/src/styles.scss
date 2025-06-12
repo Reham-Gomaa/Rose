@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@use "./app/shared/styles/utilities";
+@use "./app/shared/styles/utilities" as utl;
+@use "./app/shared/styles/functions" as func;
 
 
 body,
@@ -9,3 +10,37 @@ html {
   box-sizing: border-box;
   overflow-x: hidden;
 }
+
+
+.p-menubar-start {
+  width: func.pxToRem(50)+rem;
+}
+.p-menubar {
+  border: 0 !important;
+
+}
+.p-menubar {
+  justify-content: space-between;
+  font-family: var(--font-family-1);
+}
+.p-menubar-end {
+  margin-left: initial !important;
+}
+.loginBtn {
+  background-color: #F82BA9 !important;
+  border-color: #F82BA9 !important;
+}
+
+.p-menubar-mobile .p-menubar-button {
+  order:1
+}
+.p-icon {
+  color: #F82BA9;
+}
+@media all and (max-width:960px) {
+    .p-menubar-end {
+        margin-left: auto !important;
+       }
+}
+
+
