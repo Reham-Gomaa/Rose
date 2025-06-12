@@ -20,7 +20,7 @@ import { OverlayBadgeModule } from 'primeng/overlaybadge';
 export class NavbarComponent implements OnInit {
   items: MenuItem[] | undefined;
   btnClass = "loginBtn";
-  isLoggedIn:WritableSignal<boolean> = signal<boolean>(true)
+  isLoggedIn:WritableSignal<boolean> = signal<boolean>(false)
   ngOnInit() {
     this.items = [
         {

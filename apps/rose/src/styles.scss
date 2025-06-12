@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@use "./app/shared/styles/utilities";
+@use "./app/shared/styles/utilities" as utl;
 @use "./app/shared/styles/functions" as func;
 
 
@@ -21,6 +21,7 @@ html {
 }
 .p-menubar {
   justify-content: space-between;
+  font-family: var(--font-family-1);
 }
 .p-menubar-end {
   margin-left: initial !important;
