@@ -1,6 +1,12 @@
+import { TranslatePipe } from '@ngx-translate/core';
+import { TranslationService } from '../../../core/services/translation/translation.service';
+  
+
 import { CommonModule } from '@angular/common';
-import { Component, input, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, inject, input, OnInit, signal, WritableSignal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+
+// primeNg
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { Menubar } from 'primeng/menubar';
@@ -13,7 +19,8 @@ import { OverlayBadgeModule } from 'primeng/overlaybadge';
     CommonModule,
     RouterLink,
     RouterLinkActive,
-    OverlayBadgeModule ],
+    OverlayBadgeModule,
+    TranslatePipe ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
@@ -24,21 +31,33 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.items = [
         {
-            label: 'Home',
+            label: 'navbar.home',
             route:"home"
         },
         {
-            label: 'All Category',
+            label: 'navbar.allcategory',
             route:"categories"
         },
         {
-            label: 'About',
+            label: 'navbar.about',
             route:"about"
         },
         {
-            label: 'Contact',
+            label: 'navbar.contact',
             route:"contact"
         },
     ];
+
+    this.currentLang = this.translationService.getCurrentLang()
   }
+  private readonly translationService = inject(TranslationService);
+  
+  currentLang !:string;
+
+  changeLang(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    const lang = selectElement.value;
+    this.translationService.changeLang(lang);
+  }
+
 }

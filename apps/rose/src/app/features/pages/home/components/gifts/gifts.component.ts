@@ -6,9 +6,10 @@ import { ButtonComponent } from "../../../../../shared/components/ui/button/butt
 import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
+import { TranslatePipe } from '@ngx-translate/core';
 @Component({
   selector: 'app-gifts',
-  imports: [CarouselModule, ButtonModule, TagModule, ButtonComponent],
+  imports: [CarouselModule, ButtonModule, TagModule, ButtonComponent, TranslatePipe],
   templateUrl: './gifts.component.html',
   styleUrl: './gifts.component.scss',
 })
@@ -30,8 +31,8 @@ export class GiftsComponent {
   ]
 
   pics: picsInterface[] = [
-    { id: 1, source: "./images/gifts/Confetti lying near present.png", title: "christmas gift with red ribbon", heading2: "Gifts Box", heading1: "Awesome Gifts Box Collections", btnText: 'Shop Now' },
-    { id: 2, source: "./images/gifts/Top view hand holding gift box on work space.png", title: "christmas gift with golden ribbon", heading2: "Occasion Gifts", heading1: "Best Occasion Gifts collections", btnText: 'Discover Now' },
-    { id: 3, source: "./images/gifts/Christmas shopping composition with presents and cart.png", title: "colorful christmas ribbons with shopping cart", heading2: "Occasion Gifts", heading1: "Combo Sets Gift Box Up To 50% Off", btnText: 'Discover Now' },
+    { id: 1, source: "./images/gifts/Confetti lying near present.png", title: "christmas gift with red ribbon", heading2: "home.gifts.bottomImages.left.heading2", heading1: "home.gifts.bottomImages.left.heading1", btnText: 'home.gifts.bottomImages.left.btn' },
+    { id: 2, source: "./images/gifts/Top view hand holding gift box on work space.png", title: "christmas gift with golden ribbon", heading2: "home.gifts.bottomImages.middle.heading2", heading1: "home.gifts.bottomImages.middle.heading1", btnText: 'home.gifts.bottomImages.middle.btn' },
+    { id: 3, source: "./images/gifts/Christmas shopping composition with presents and cart.png", title: "colorful christmas ribbons with shopping cart", heading2: "home.gifts.bottomImages.right.heading2", heading1: "home.gifts.bottomImages.right.heading1", btnText: 'home.gifts.bottomImages.right.btn' },
   ];
 }

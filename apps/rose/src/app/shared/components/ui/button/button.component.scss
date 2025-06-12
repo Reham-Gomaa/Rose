@@ -17,6 +17,11 @@ button {
   }
 }
 
+// arrow icon rotation in rtl dir
+:host-context([dir="rtl"]) i {
+  transform: rotateY(180deg);
+}
+
 // gifts left image
 .btn-topLeft-padding {
   padding: .5rem;

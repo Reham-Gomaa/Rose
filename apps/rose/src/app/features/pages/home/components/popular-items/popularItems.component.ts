@@ -9,11 +9,12 @@ import { CategoryOption } from '../../../../../core/interfaces/categories.interf
 import { CardItemComponent } from "../../../../../shared/components/ui/card-item/card-item.component";
 //PrimeNg
 import { SkeletonModule } from 'primeng/skeleton';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-popular-items',
   standalone: true,
-  imports: [CardItemComponent, SkeletonModule],
+  imports: [CardItemComponent, SkeletonModule, TranslatePipe],
   templateUrl: './popularItems.component.html',
   styleUrl: './popularItems.component.scss',
 })

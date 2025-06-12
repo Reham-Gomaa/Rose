@@ -10,11 +10,12 @@ import { ButtonModule } from 'primeng/button';
 import { BestSellerService } from '../../../../../shared/services/best-seller/best-seller.service';
 import { BestSeller, BestSellerRes } from '../../../../../core/interfaces/best-seller';
 import { SkeletonModule } from 'primeng/skeleton';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-best-seller',
   standalone: true,
-  imports: [CarouselModule, ButtonModule, CardItemComponent, ButtonComponent, SkeletonModule],
+  imports: [CarouselModule, ButtonModule, CardItemComponent, ButtonComponent, SkeletonModule, TranslatePipe],
   templateUrl: './bestSeller.component.html',
   styleUrls: ['./bestSeller.component.scss']
 })
