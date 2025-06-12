@@ -29,3 +29,7 @@
   color: var(--persian-rose);
 }
 
+:host-context([dir="rtl"]) :host ::ng-deep .p-menubar-end {
+  margin-left: auto;
+  margin-right: 0;
+}

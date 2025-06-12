@@ -2,12 +2,12 @@
   <div class="card">
     <p-menubar [model]="items">
       <ng-template #start>
-        <img [routerLink]="'/'" src="/images/navbar/logo.png" class="w-full" alt="Rose logo">
+        <img [routerLink]="'/'" src="/images/navbar/Rose.png" class="w-full" alt="Rose logo">
       </ng-template>
       <ng-template #item let-item let-root="root">
         <a [routerLink]="item.route" routerLinkActive="active" pRipple
           class="flex items-center p-menubar-item-link font-bold">
-          <span>{{ item.label }}</span>
+          <span>{{ item.label |translate }}</span>
         </a>
       </ng-template>
       <ng-template #end>
@@ -16,7 +16,7 @@
           <i class="pi pi-search cursor-pointer text-md"></i>
           @if (!isLoggedIn()) {
 
-          <p-button [styleClass]="btnClass" label="Login" [severity]="'info'" [rounded]="true" />
+          <p-button [styleClass]="btnClass" [label]="('navbar.login' |translate)" [severity]="'info'" [rounded]="true" />
           }@else {
 
           <p-overlaybadge value="2" [badgeSize]="'small'" [style]="{

@@ -31,19 +31,19 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.items = [
         {
-            label: 'Home',
+            label: 'navbar.home',
             route:"home"
         },
         {
-            label: 'All Category',
+            label: 'navbar.allcategory',
             route:"categories"
         },
         {
-            label: 'About',
+            label: 'navbar.about',
             route:"about"
         },
         {
-            label: 'Contact',
+            label: 'navbar.contact',
             route:"contact"
         },
     ];
