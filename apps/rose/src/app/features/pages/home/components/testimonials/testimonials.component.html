@@ -1,4 +1,4 @@
-<section aria-label="Customer testimonials" class="py-8 my-8" style="background: url('./images/Birthday background.png');">
+<section aria-label="Customer testimonials" class="py-8 mt-8" style="background: url('./images/testimonials/Birthday background.png');">
     <div class="contain mx-auto ">
         <p-carousel [value]="testimonials" [numVisible]="4" [numScroll]="1" [circular]="true"
             [responsiveOptions]="responsiveOptions" class="custom-carousel "
@@ -10,18 +10,15 @@
                     <div class="card p-4 mx-auto">
                         <div class="heading flex justify-content-start align-items-center">
                             <div class="img-container">
-                                <img [src]="pic" alt="user image" loading="lazy">
+                                <img [src]="pic.source" alt="user image" loading="lazy">
                             </div>
                             <div>
-                                <h2>Ahmed Mohamed</h2>
-                                <h3>Customer</h3>
+                                <h2>{{ pic.heading2 |translate }}</h2>
+                                <h3>{{ pic.heading3 |translate }}</h3>
                             </div>
                         </div>
                         <div>
-                            <p>Ab vel consequatur repellat eos omnis accusamus porro sunt dolorem. Totam voluptas ullam
-                                ut. Neque accusantium voluptas rerum. Dolorem veritatis quo omnis nihil nulla harum eum.
-                                Dignissimos laborum necessitatibus vero nihil.
-                            </p>
+                            <p>{{ pic.paragraph |translate }}</p>
                             <div class="icons-container flex justify-content-between align-items-center">
                                 <div role="img" aria-label="4 out of 5 stars">
                                     <i class="pi pi-star-fill mr-1"
@@ -34,7 +31,7 @@
                                         style="font-size: .9375rem; color: var(--persian-rose)"></i>
                                 </div>
                                 <div>
-                                    <img loading="lazy" class="feedback-icon" src="./images/🦆 icon _feedback_.png" alt="feedback icon">
+                                    <img loading="lazy" class="feedback-icon" src="./images/testimonials/🦆 icon _feedback_.png" alt="feedback icon">
                                 </div>
                             </div>
                         </div>
