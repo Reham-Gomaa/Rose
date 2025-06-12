@@ -63,7 +63,7 @@ img {
 
 // carousel -------
 
-.carousel-content-parent {
+:host ::ng-deep .carousel-content-parent {
   display: flex;
   align-items: center;
   justify-content: start;
@@ -83,7 +83,7 @@ img {
   }
 }
 
-.carousel-content {
+:host ::ng-deep .carousel-content {
   width: 9.5625rem;
 
   @media all and (min-width: 62rem) {
@@ -148,9 +148,8 @@ img {
   }
 }
 
-
-::ng-deep .p-ripple.p-button.p-component.custom-gift-next,
-::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next,
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,8 +170,8 @@ img {
     height: 2.5625rem;
   }
 
-  .carousel-next-icon,
-  .carousel-prev-icon {
+  :host ::ng-deep .carousel-next-icon,
+  :host ::ng-deep .carousel-prev-icon {
     width: .4094rem;
     height: .6544rem;
 
@@ -182,7 +181,7 @@ img {
     }
   }
 
-  .p-ripple {
+  :host ::ng-deep .p-ripple {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -196,7 +195,7 @@ img {
   }
 }
 
-::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
   right: 1rem;
 
   @media all and (min-width: 62rem) {
@@ -204,8 +203,8 @@ img {
   }
 }
 
-::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
-  right: 2.25rem;
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
+ right: 2.25rem;
   z-index: 10;
 
   @media all and (min-width: 48rem) {
@@ -217,7 +216,7 @@ img {
   }
 }
 
-::ng-deep .p-carousel-indicator-list {
+:host ::ng-deep .p-carousel-indicator-list {
   position: absolute;
   bottom: 1.5rem;
   left: 50%;
@@ -230,14 +229,14 @@ img {
   }
 }
 
-::ng-deep .p-carousel-indicator-button {
+:host ::ng-deep .p-carousel-indicator-button {
   width: .4375rem;
   height: .4375rem;
   border-radius: 2.9125rem;
   background-color: var(--persian-rose);
 }
 
-::ng-deep .p-carousel-indicator-active>.p-carousel-indicator-button {
+:host ::ng-deep .p-carousel-indicator-active>.p-carousel-indicator-button {
   width: 1.1875rem;
   background-color: var(--persian-rose);
 }
