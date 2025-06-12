@@ -1,1 +1,41 @@
-<p>navbar works!</p>
+<div class="contain mx-auto">
+  <div class="card">
+    <p-menubar [model]="items" >
+      <ng-template #start >
+       <img [routerLink]="'/'" src="/images/navbar/logo.png" class="w-full"  alt="Rose logo">
+      </ng-template>
+      <ng-template #item let-item let-root="root">
+        <a [routerLink]="item.route" routerLinkActive="active"  pRipple class="flex items-center p-menubar-item-link font-bold">
+          <span>{{ item.label }}</span>
+        </a>
+      </ng-template>
+      <ng-template #end>
+        <div class="flex align-items-center gap-3">
+
+          <i class="pi pi-search cursor-pointer text-md" ></i>
+          @if (!isLoggedIn()) {
+
+            <p-button [styleClass]="btnClass" label="Login" [severity]="'info'" [rounded]="true" />
+          }@else {
+
+            <p-overlaybadge value="2" [badgeSize]="'small'" [style]="{
+              'background-color': '#F82BA9',
+              'top': '-5px',
+            }">
+              <i class="pi pi-heart cursor-pointer text-md" ></i>
+            </p-overlaybadge>
+            <p-overlaybadge value="4" [badgeSize]="'small'" [style]="{
+              'background-color': '#F82BA9',
+              'top': '-5px',
+            }">
+              <i class="pi pi-shopping-bag cursor-pointer text-md"></i>
+              </p-overlaybadge>
+
+              <i class="pi pi-user cursor-pointer text-lg"></i>
+          }
+
+        </div>
+      </ng-template>
+    </p-menubar>
+    </div>
+</div>
