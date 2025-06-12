@@ -1,73 +1,106 @@
-import { Component, inject, OnInit, OnDestroy } from '@angular/core';
-import { CardItemComponent } from "../../../../../shared/components/ui/card-item/card-item.component";
-import { Product } from '../../../../../core/interfaces/carditem.interface';
-import { CategoryOption } from '../../../../../core/interfaces/categories.interface';
-import { Subscription } from 'rxjs';
-import { ProductsService } from '../../../../../shared/services/products/products.service';
-import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
-import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit, OnDestroy, signal } from '@angular/core';
+import { Subscription, timer, take } from 'rxjs';
 
+import { ProductsService } from '../../../../../shared/services/products/products.service';
+import { Product } from '../../../../../core/interfaces/carditem.interface';
+import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
+import { CategoryOption } from '../../../../../core/interfaces/categories.interface';
+//Shared
+import { CardItemComponent } from "../../../../../shared/components/ui/card-item/card-item.component";
+//PrimeNg
+import { SkeletonModule } from 'primeng/skeleton';
 
 @Component({
   selector: 'app-popular-items',
-  imports: [CardItemComponent, CommonModule],
+  standalone: true,
+  imports: [CardItemComponent, SkeletonModule],
   templateUrl: './popularItems.component.html',
   styleUrl: './popularItems.component.scss',
 })
 export class PopularItemsComponent implements OnInit, OnDestroy {
-
   private readonly _productsService = inject(ProductsService);
   private readonly _categoriesService = inject(CategoriesService);
 
-  allProducts: Product[] = [];
-  categories: CategoryOption[] = [];
-  selectedCategory = 'all';
-  productSub: Subscription = new Subscription();
-  categorySub: Subscription = new Subscription();
+  // Signal-based state
+  allProducts = signal<Product[]>([]);
+  categories = signal<CategoryOption[]>([]);
+  selectedCategory = signal('all');
+  showSkeleton = signal(true);
+  loading = signal(true);
+  skeletonItems = signal(Array(6).fill(0));
+
+  private productSub: Subscription = new Subscription();
+  private categorySub: Subscription = new Subscription();
 
   ngOnInit() {
-    this.getAllCategories();
-    this.getAllProduct();
+    this.loadData();
   }
 
-  getAllCategories() {
+  private loadData() {
+    this.loading.set(true);
+    this.showSkeleton.set(true);
+
+    // Start a 3-second timer (matches your existing code)
+    const minLoadingTimer = timer(3000).pipe(take(1));
+
+    this.getAllCategories();
+    this.getAllProduct(minLoadingTimer);
+  }
+
+  private getAllCategories() {
     this.categorySub.add(
       this._categoriesService.getAllCategories().subscribe({
         next: (res) => {
-          this.categories = [
+          this.categories.set([
             { label: 'all', display: 'All Items', id: 'all' },
             ...res.categories.map(cat => ({
               label: cat.slug,
               display: cat.name,
               id: cat._id
             }))
-          ];
+          ]);
+        },
+        error: () => {
+          this.loading.set(false);
         }
       })
     );
   }
 
-  getAllProduct() {
+  private getAllProduct(minLoadingTimer: any) {
     this.productSub.add(
       this._productsService.getAllProducts().subscribe({
         next: (res) => {
-          this.allProducts = res.products || [];
+          this.allProducts.set(res.products || []);
+          this.loading.set(false);
+
+          minLoadingTimer.subscribe(() => {
+            this.showSkeleton.set(false);
+          });
         },
+        error: () => {
+          this.loading.set(false);
+          minLoadingTimer.subscribe(() => {
+            this.showSkeleton.set(false);
+          });
+        }
       })
     );
   }
 
   get filteredCards(): Product[] {
-    if (this.selectedCategory === 'all') {
-      return this.allProducts;
+    if (this.selectedCategory() === 'all') {
+      return this.allProducts();
     }
-    return this.allProducts.filter(
-      product => product.category === this.selectedCategory
+    return this.allProducts().filter(
+      product => product.category === this.selectedCategory()
     );
   }
 
   selectCategory(categoryId: string) {
-    this.selectedCategory = categoryId;
+    if (!this.loading()) {
+      this.selectedCategory.set(categoryId);
+    }
   }
 
   ngOnDestroy() {

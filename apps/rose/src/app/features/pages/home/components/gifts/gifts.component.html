@@ -41,13 +41,13 @@
     <!-- bottom images -->
     <div class="grid mt-4">
         @for (pic of pics; track pic.id) {
-        <div class="col-12 md:col-4" [class.md:px-4]="pic.id === 2">
+        <div class="col-12 md:col-4" [class.md:px-3]="pic.id === 2">
             <div class="bottom-content flex justify-content-center align-items-center lg:justify-content-end"
                 [style.backgroundImage]="'url(' + '\'' + pic.source + '\'' + ')'"
                 role="img" [attr.aria-label]="pic.title">
                 <div>
-                    <h2 [class.text-white]="pic.id === 3">{{pic.heading2}}</h2>
-                    <h1 [class]="pic.id === 3 ? 'responsive-h1':'dark-text'">{{pic.heading1}}</h1>
+                    <h2 class="md:text-xs lg:text-base" [class.text-white]="pic.id === 3">{{pic.heading2}}</h2>
+                    <h1 class="md:text-base lg:text-xl" [class]="pic.id === 3 ? 'responsive-h1':'dark-text'">{{pic.heading1}}</h1>
                     <app-button [text]="pic.btnText" [isIcon]="false" [borderRadius]="'btn-pillBorderRadius'"
                         [padding]="'btn-bottom-padding'" [margin]="' lg:ml-auto lg:mr-0 mx-auto'"
                         [attr.aria-label]="'Shop for ' + pic.heading1" />

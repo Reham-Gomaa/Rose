@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+
 @Component({
   selector: 'app-button',
   imports: [],
@@ -12,4 +13,5 @@ export class ButtonComponent {
   @Input() borderRadius!: string;
   @Input() padding!: string;
   @Input() margin!: string;
+  @Input() transition!: string;
 }

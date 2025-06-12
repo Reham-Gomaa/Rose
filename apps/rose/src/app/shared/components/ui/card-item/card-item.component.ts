@@ -3,7 +3,6 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Product } from '../../../../core/interfaces/carditem.interface';
 
 //PrimeNg
-
 import { RatingModule } from 'primeng/rating';
 
 @Component({
