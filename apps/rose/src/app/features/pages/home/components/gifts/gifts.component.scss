@@ -260,7 +260,7 @@ img {
   h1,
   h2 {
     text-align: center;
-    width: 12.5625rem;
+    max-width: 12.5625rem;
 
     // large screens 992px
     @media all and (min-width: 62rem) {
