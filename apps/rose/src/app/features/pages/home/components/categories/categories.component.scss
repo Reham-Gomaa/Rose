@@ -3,20 +3,65 @@
   overflow-y: hidden;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
   padding: 1rem 0;
   box-sizing: border-box;
-
-  /* REMOVE fixed width calculation here */
   max-width: 100%;
+
+  /* Hide scrollbar by default */
+  &::-webkit-scrollbar {
+    display: none;
+    height: 8px;
+    transition: all 0.3s ease;
+  }
+
+  /* Show scrollbar on hover (desktop only) */
+  @media (pointer: fine) {
+    &:hover {
+      &::-webkit-scrollbar {
+        display: block;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0.05);
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--persian-rose);
+        border-radius: 4px;
+        transition: background 0.3s ease;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: var(--hover-persian-rose);
+      }
+    }
+  }
+
+  /* Always show scrollbar when scrolling (desktop) */
+  &.scrolling {
+    &::-webkit-scrollbar {
+      display: block;
+    }
+  }
 }
 
-.categories-scroll-container::-webkit-scrollbar {
-  display: none;
+/* Dark mode scrollbar */
+.dark-mode {
+  .categories-scroll-container {
+    @media (pointer: fine) {
+      &:hover {
+        &::-webkit-scrollbar-thumb {
+          background: var(--soft-pink-400);
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background: var(--soft-pink-500);
+        }
+      }
+    }
+  }
 }
-
-
 .categories-scroll-wrapper {
   display: flex;
   gap: 1rem;
