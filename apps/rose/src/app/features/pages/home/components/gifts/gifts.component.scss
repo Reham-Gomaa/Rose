@@ -158,7 +158,6 @@ img {
   position: absolute;
   bottom: .5938rem;
   background-color: var(--white);
-  color: var(--slate-gray);
   border-radius: 100%;
 
   @media all and (min-width: 48rem) {
@@ -179,6 +178,9 @@ img {
       width: .9375rem;
       height: 1.5rem;
     }
+  }
+  .p-icon {
+    color: var(--slate-gray) !important;
   }
 
   :host ::ng-deep .p-ripple {
