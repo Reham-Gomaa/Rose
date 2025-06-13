@@ -23,3 +23,44 @@
 body {
   background: var(--white);
 }
+
+
+/* Light mode scrollbar (optional) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--persian-rose);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hover-persian-rose);
+}
+
+/* Dark mode scrollbar */
+.dark-mode {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--zinc-800);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--soft-pink-400);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--soft-pink-500);
+  }
+}
