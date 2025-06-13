@@ -22,6 +22,10 @@
   transform: rotate(8deg);
   z-index: 40;
   transition: all 0.3s ease;
+
+  .dark-mode & {
+    border: 0.25rem solid var(--soft-pink-400);
+  }
 }
 
 
@@ -241,10 +245,6 @@
 // Dark mode styling
 
 .dark-mode {
-
-.border-box-transform {
-  border-color: var(--soft-pink-400);
-}
 
 .title-about{
   color: var(--maroon-400);
