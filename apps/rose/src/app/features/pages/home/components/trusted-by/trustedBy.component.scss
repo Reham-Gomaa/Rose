@@ -81,6 +81,10 @@
   height: auto;
   object-fit: contain;
 }
+
+.btn-res{
+  display: none;
+}
 /* 300px - 400px */
 @media (min-width: 300px) and (max-width: 400px) {
   .trusted-companies {
@@ -100,6 +104,10 @@
   .trusted-companies-underline::after {
     width: 7.3rem;
   }
+
+  .btn-res{
+  display: block;
+  }
 }
 
 /* 401px - 1000px */
@@ -112,12 +120,20 @@
     margin: 0 -0.5rem;
   }
 
+  .trusted-companies-content {
+    border-radius: 0;
+  }
+
   .trusted-companies-title {
     font-size: 0.9rem;
   }
 
   .trusted-companies-underline::after {
     width: 10.3rem;
+  }
+
+  .btn-res{
+    display: block;
   }
 }
 

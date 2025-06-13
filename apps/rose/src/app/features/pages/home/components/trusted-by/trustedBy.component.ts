@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { DarkModeService } from '../../../../../core/services/darkmode/darkmode.service';
+import { ButtonComponent } from "../../../../../shared/components/ui/button/button.component";
 
 @Component({
   selector: 'app-trusted-by',
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, ButtonComponent],
   templateUrl: './trustedBy.component.html',
   styleUrl: './trustedBy.component.scss',
 })
