@@ -1,43 +1,41 @@
-<section aria-label="Customer testimonials" class="py-8 mt-8" style="background: url('./images/testimonials/Birthday background.png');">
-    <div class="contain mx-auto ">
-        <p-carousel [value]="testimonials" [numVisible]="4" [numScroll]="1" [circular]="true"
-            [responsiveOptions]="responsiveOptions" class="custom-carousel "
-            [prevButtonProps]="{styleClass: 'p-button-rounded custom-gift-prev'}"
-            [nextButtonProps]="{styleClass: 'p-button-rounded custom-gift-next'}"
-            role="region" aria-roledescription="carousel" aria-label="Customer testimonials carousel">
-            <ng-template let-pic pTemplate="item">
-                <div class="carousel-card-wrapper lg:pr-4" role="group" aria-roledescription="slide" aria-label="Testimonial">
-                    <div class="card p-4 mx-auto">
-                        <div class="heading flex justify-content-start align-items-center">
-                            <div class="img-container">
-                                <img [src]="pic.source" alt="user image" loading="lazy">
-                            </div>
-                            <div>
-                                <h2>{{ pic.heading2 |translate }}</h2>
-                                <h3>{{ pic.heading3 |translate }}</h3>
-                            </div>
-                        </div>
-                        <div>
-                            <p>{{ pic.paragraph |translate }}</p>
-                            <div class="icons-container flex justify-content-between align-items-center">
-                                <div role="img" aria-label="4 out of 5 stars">
-                                    <i class="pi pi-star-fill mr-1"
-                                        style="font-size: .9375rem; color: var(--persian-rose)"></i>
-                                    <i class="pi pi-star-fill mr-1"
-                                        style="font-size: .9375rem; color: var(--persian-rose)"></i>
-                                    <i class="pi pi-star-fill mr-1"
-                                        style="font-size: .9375rem; color: var(--persian-rose)"></i>
-                                    <i class="pi pi-star-fill mr-1"
-                                        style="font-size: .9375rem; color: var(--persian-rose)"></i>
-                                </div>
-                                <div>
-                                    <img loading="lazy" class="feedback-icon" src="./images/testimonials/🦆 icon _feedback_.png" alt="feedback icon">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<section aria-label="Customer testimonials" class="testimonial-section py-8 mt-8" [class.dark-mode]="darkMode.isDark()">
+  <div class="contain mx-auto">
+    <p-carousel [value]="testimonials" [numVisible]="4" [numScroll]="1" [circular]="true"
+      [responsiveOptions]="responsiveOptions" class="custom-carousel"
+      [prevButtonProps]="{styleClass: 'p-button-rounded custom-gift-prev'}"
+      [nextButtonProps]="{styleClass: 'p-button-rounded custom-gift-next'}" role="region"
+      aria-roledescription="carousel" aria-label="Customer testimonials carousel">
+
+      <ng-template let-pic pTemplate="item">
+        <div class="carousel-card-wrapper lg:pr-4" role="group" aria-roledescription="slide" aria-label="Testimonial">
+          <div class="card p-4 mx-auto">
+            <div class="heading flex justify-content-start align-items-center">
+              <div class="img-container">
+                <img [src]="pic.source" [alt]="pic.heading2 + ' image'" loading="lazy" width="50" height="50">
+              </div>
+              <div>
+                <h2>{{ pic.heading2 | translate }}</h2>
+                <h3>{{ pic.heading3 | translate }}</h3>
+              </div>
+            </div>
+            <div>
+              <p>{{ pic.paragraph | translate }}</p>
+              <div class="icons-container flex justify-content-between align-items-center">
+                <div role="img" [attr.aria-label]="'4 out of 5 stars'">
+                  <i class="pi pi-star-fill mr-1 star-icon"></i>
+                  <i class="pi pi-star-fill mr-1 star-icon"></i>
+                  <i class="pi pi-star-fill mr-1 star-icon"></i>
+                  <i class="pi pi-star-fill mr-1 star-icon"></i>
                 </div>
-            </ng-template>
-        </p-carousel>
-    </div>
+                <div>
+                  <img loading="lazy" class="feedback-icon" src="./images/testimonials/🦆 icon _feedback_.png"
+                    alt="feedback icon" width="76.59" height="62.23">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
 </section>

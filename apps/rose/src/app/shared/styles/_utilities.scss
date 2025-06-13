@@ -15,3 +15,11 @@
   border-width: 0;
   inset: 0;
 }
+
+.dark-mode {
+  background: var(--zinc-900);
+}
+
+body {
+  background: var(--white);
+}

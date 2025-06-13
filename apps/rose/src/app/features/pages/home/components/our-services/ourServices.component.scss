@@ -1,5 +1,3 @@
-@use "./../../../../../shared/styles/variables" as *;
-
 .parent {
     border-radius: 1.25rem;
     padding: 2.5rem;
@@ -57,5 +55,28 @@
     @media all and (min-width: 48rem) {
         text-align: right;
     }
+
+}
+
+// Dark mode styling
+
+.dark-mode {
+.parent {
+    background-color: var(--zinc-700);
+    .icon {
+        background-color: var(--soft-pink-200);
+        i{
+          color: var(--zinc-800);
+        }
+    }
+
+    h3 {
+        color: var(--soft-pink-200);
+    }
+
+    p {
+        color: var(--zinc-300);
+    }
+}
 
 }

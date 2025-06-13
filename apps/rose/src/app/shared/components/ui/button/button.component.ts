@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { DarkModeService } from '../../../../core/services/darkmode/darkmode.service';
 
 @Component({
   selector: 'app-button',
@@ -7,6 +8,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
+  public darkMode = inject(DarkModeService);
 
   @Input() text!: string;
   @Input() isIcon!: boolean;
@@ -15,6 +17,6 @@ export class ButtonComponent {
   @Input() margin!: string;
   @Input() transition!: string;
 
-  }
+}
 
 

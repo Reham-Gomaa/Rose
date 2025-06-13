@@ -1,4 +1,4 @@
-<div class="product-card group w-full max-w-[18.87rem] sm:w-[18.87rem] mx-auto">
+<div class="product-card group w-full max-w-[18.87rem] sm:w-[18.87rem] mx-auto" [class.dark-mode]="darkMode.isDark()">
   <div class="image-wrapper">
     <img [src]="productInfo.imgCover" [alt]="productInfo.title" class="product-image" />
     <div class="bg-shape"></div>

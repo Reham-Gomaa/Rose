@@ -1,4 +1,4 @@
-<div class="contain mx-auto">
+<div class="contain mx-auto" >
   <div class="card">
     <p-menubar [model]="items">
       <ng-template #start>
@@ -16,7 +16,8 @@
           <i class="pi pi-search cursor-pointer text-md"></i>
           @if (!isLoggedIn()) {
 
-          <p-button [styleClass]="btnClass" [label]="('navbar.login' |translate)" [severity]="'info'" [rounded]="true" />
+          <p-button [styleClass]="btnClass" [label]="('navbar.login' |translate)" [severity]="'info'"
+            [rounded]="true" />
           }@else {
 
           <p-overlaybadge value="2" [badgeSize]="'small'" [style]="{
@@ -40,6 +41,9 @@
               <option value="ar">العربيه</option>
             </select>
             <i class="pi pi-globe"></i>
+          </div>
+          <div>
+            <app-button-theme />
           </div>
         </div>
       </ng-template>

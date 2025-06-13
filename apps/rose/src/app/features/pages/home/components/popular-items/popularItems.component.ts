@@ -5,6 +5,8 @@ import { ProductsService } from '../../../../../shared/services/products/product
 import { Product } from '../../../../../core/interfaces/carditem.interface';
 import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
 import { CategoryOption } from '../../../../../core/interfaces/categories.interface';
+import { DarkModeService } from '../../../../../core/services/darkmode/darkmode.service';
+
 //Shared
 import { CardItemComponent } from "../../../../../shared/components/ui/card-item/card-item.component";
 //PrimeNg
@@ -19,8 +21,10 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './popularItems.component.scss',
 })
 export class PopularItemsComponent implements OnInit, OnDestroy {
+
   private readonly _productsService = inject(ProductsService);
   private readonly _categoriesService = inject(CategoriesService);
+  public darkMode = inject(DarkModeService);
 
   // Signal-based state
   allProducts = signal<Product[]>([]);
@@ -41,11 +45,8 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
     this.loading.set(true);
     this.showSkeleton.set(true);
 
-    // Start a 3-second timer (matches your existing code)
-    const minLoadingTimer = timer(3000).pipe(take(1));
-
     this.getAllCategories();
-    this.getAllProduct(minLoadingTimer);
+    this.getAllProduct();
   }
 
   private getAllCategories() {
@@ -68,22 +69,18 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
     );
   }
 
-  private getAllProduct(minLoadingTimer: any) {
+  private getAllProduct() {
     this.productSub.add(
       this._productsService.getAllProducts().subscribe({
         next: (res) => {
           this.allProducts.set(res.products || []);
           this.loading.set(false);
+          this.showSkeleton.set(false);
 
-          minLoadingTimer.subscribe(() => {
-            this.showSkeleton.set(false);
-          });
         },
         error: () => {
           this.loading.set(false);
-          minLoadingTimer.subscribe(() => {
-            this.showSkeleton.set(false);
-          });
+          this.showSkeleton.set(false);
         }
       })
     );

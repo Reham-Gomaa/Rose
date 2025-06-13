@@ -141,3 +141,24 @@
     height: 25.6875rem;
   }
 }
+
+// Dark mode styling
+
+.dark-mode {
+
+.title-h5 {
+  color: var(--maroon-400);
+}
+
+.gallery-title {
+  color: var(--soft-pink-200);
+}
+
+.gallery-bg-shape {
+  background-color: var(--zinc-700);
+}
+
+.gallery-underline-bar {
+  background-color: var(--soft-pink-500);
+}
+}

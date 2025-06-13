@@ -63,7 +63,7 @@
 }
 
 
-@media (min-width: 390px) and (max-width: 791px) {
+@media (min-width: 300px) and (max-width: 791px) {
 
   .popular-items-title {
     font-size: 1.25rem;
@@ -78,3 +78,40 @@
     top: 2.8rem;
   }
 }
+
+
+// Dark mode styling
+
+.dark-mode {
+
+.popular-items-title {
+  color: var(--soft-pink-200);
+}
+
+.popular-items-bg-shape {
+  background-color: var(--zinc-700);
+}
+
+.popular-items-underline-bar {
+  background-color: var(--soft-pink-500);
+}
+
+.tabs-popular-items {
+  color: var(--zinc-400);
+
+  &:hover {
+    color: var(--soft-pink-300);
+  }
+
+}
+
+.active-tab {
+  color: var(--soft-pink-200);
+}
+
+.no-item p{
+  color: var(--zinc-50);
+}
+
+}
+

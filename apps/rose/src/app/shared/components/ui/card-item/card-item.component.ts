@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Product } from '../../../../core/interfaces/carditem.interface';
+import { DarkModeService } from '../../../../core/services/darkmode/darkmode.service';
 
 //PrimeNg
 import { RatingModule } from 'primeng/rating';
@@ -13,6 +14,7 @@ import { RatingModule } from 'primeng/rating';
 })
 export class CardItemComponent implements OnInit {
   @Input() productInfo!: Product;
+  public darkMode = inject(DarkModeService);
 
   formGroup = new FormGroup({
     value: new FormControl<number>(4)

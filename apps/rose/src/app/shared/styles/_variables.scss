@@ -1,5 +1,44 @@
-//colors
 :root {
+  --font-family-1: "Inter", sans-serif;
+  --font-family-2: "Roboto", sans-serif;
+}
+
+[data-theme="dark"] {
+  --zinc-900: #18181B;
+  --zinc-800: #27272A;
+  --zinc-700: #3F3F46;
+  --zinc-600: #52525B;
+  --zinc-500: #71717A;
+  --zinc-400: #A1A1AA;
+  --zinc-300: #D4D4D8;
+  --zinc-100: #F4F4F5;
+  --zinc-50: #FAFAFA;
+
+  --maroon-800: #501419;
+  --maroon-700: #741C21;
+  --maroon-600: #A6252A;
+  --maroon-500: #CD2E33;
+  --maroon-400: #D75458;
+  --maroon-50: #FBEAEA;
+
+  --red-600: #DC2626;
+
+  --soft-pink-500: #FF668B;
+  --soft-pink-400: #FF85A2;
+  --soft-pink-300: #FFA3B9;
+  --soft-pink-200: #FFC2D0;
+  --soft-pink-50: #FFF1F5;
+  --yellow-dark-mode: #FBA707;
+
+  --hover-card-dark: #E6507380;
+
+  // Backgrounds
+  --background-color: var(--zinc-900);
+  --card-background: var(--zinc-800);
+  --text-color: var(--zinc-100);
+}
+
+[data-theme="light"] {
   --white: #ffffff;
   --black: #000000;
   --light-pink: #FEEDF7;
@@ -15,10 +54,8 @@
   --slate-gray: #757F95;
   --shadow-black: #0000000D;
 
-
-  //fonts
-
-  --font-family-1: "Inter", sans-serif;
-  --font-family-2: "Roboto", sans-serif;
-
+  // Backgrounds
+  --background-color: var(--white);
+  --card-background: var(--white);
+  --text-color: var(--black);
 }

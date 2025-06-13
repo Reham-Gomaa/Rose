@@ -1,0 +1,44 @@
+.btn-theme {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+
+
+  .pi {
+    font-size: 1.25rem;
+    color: var(--persian-rose);
+    transition: color 0.3s ease;
+  }
+
+  &:hover {
+    background-color: var(--light-pink);
+  }
+
+}
+
+  /* Dark mode styles - fixed selector */
+  .dark-mode {
+    background: none;
+
+.btn-theme {
+  .pi {
+    color: var(--soft-pink-200);
+  }
+
+  &:hover {
+    background-color: var(--soft-pink-50);
+
+    .pi {
+        color: var(--zinc-800);
+      }
+    }
+  }
+}

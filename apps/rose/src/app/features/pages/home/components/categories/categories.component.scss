@@ -16,6 +16,7 @@
   display: none;
 }
 
+
 .categories-scroll-wrapper {
   display: flex;
   gap: 1rem;
@@ -139,4 +140,29 @@
   .categories-scroll-container {
     width: calc((7 * 13.5rem) + (6 * 1rem) + 2rem);
   }
+}
+
+
+// Dark mode styling
+
+.dark-mode {
+.category-card {
+  background-color: var(--soft-pink-200);
+}
+.category-icon {
+  background-color: var(--soft-pink-200);
+}
+
+.category-name {
+  color: var(--maroon-800);
+}
+
+.category-count {
+  color: var(--zinc-800);
+}
+
+.no-categories {
+  color: var(--zinc-800);
+}
+
 }

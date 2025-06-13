@@ -122,6 +122,7 @@ img {
     text-align: left;
     margin: 1rem 0 .5rem;
 
+
     @media all and (min-width: 62rem) {
       font-size: 2.8125rem;
       line-height: 3.1456rem;
@@ -259,6 +260,7 @@ img {
   h1,
   h2 {
     text-align: center;
+    width: 12.5625rem;
 
     // large screens 992px
     @media all and (min-width: 62rem) {
@@ -334,4 +336,44 @@ img {
    @media all and (min-width: 62rem){
       align-items: start !important;
    }
+}
+
+// Dark mode styling
+
+.dark-mode {
+
+  h2 {
+    color: var(--maroon-600);
+  }
+
+  h1 {
+  color: var(--maroon-400);
+
+}
+
+span{
+   color: var(--soft-pink-500);
+}
+
+p{
+  color: var(--zinc-600);
+}
+
+:host ::ng-deep .p-carousel-indicator-button {
+  background-color: var(--maroon-500);
+}
+
+:host ::ng-deep .p-carousel-indicator-active>.p-carousel-indicator-button {
+  background-color: var(--maroon-500);
+}
+
+
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next,
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
+  background-color: var(--zinc-50);
+}
+
+:host ::ng-deep .p-icon {
+   color: var(--maroon-700);
+}
 }

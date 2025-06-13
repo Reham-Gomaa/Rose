@@ -21,8 +21,9 @@
   border-radius: 3.125rem 7.5rem 7.5rem 7.5rem;
   transform: rotate(8deg);
   z-index: 40;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
 }
+
 
 .border-image-main {
   position: absolute;
@@ -73,6 +74,7 @@
   margin-bottom: 0.5rem;
 }
 
+
 .p-title {
   font-family: var(--font-family-1);
   font-weight: 700;
@@ -119,64 +121,47 @@
 @media (min-width: 300px) and (max-width: 399px) {
   .image-container {
     width: 18rem;
-    /* Reduced from 22.5rem for better fit */
     height: auto;
-    /* Changed from fixed height */
     margin: 0 auto;
   }
 
   .border-box-container {
     width: 16rem;
-    /* Reduced from 21.5rem */
     height: 12rem;
-    /* Reduced from 15.125rem */
   }
 
   .border-box-transform {
     width: 9rem;
-    /* Reduced from 10.8094rem */
     height: 11rem;
-    /* Reduced from 14.5931rem */
   }
 
   .border-image-main {
     width: 10rem;
-    /* Reduced from 12.1406rem */
     height: 11rem;
-    /* Reduced from 13.8294rem */
   }
 
   .border-circle-second {
     width: 6rem;
-    /* Reduced from 7.7588rem */
     height: 6rem;
-    /* Reduced from 7.7588rem */
   }
 
   .border-circle-third {
     width: 6rem;
-    /* Reduced from 7.7588rem */
     height: 4.5rem;
-    /* Reduced from 5.7888rem */
   }
 
   .title-about {
     margin-bottom: 1rem;
-    /* Reduced from 1.5rem */
   }
 
   .p-title {
     font-size: 1.1rem;
-    /* Reduced from 1.25rem */
     line-height: 110%;
-    /* Adjusted from 100% */
     margin-bottom: 0.4rem;
-    /* Reduced from 0.5rem */
   }
 
   .p-button-pink {
     margin-bottom: 0.8rem;
-    /* Reduced from 1rem */
   }
 }
 
@@ -253,5 +238,33 @@
   }
 }
 
-/* Desktop (1201px+) - Empty as per your original structure */
-@media (min-width: 1201px) {}
+// Dark mode styling
+
+.dark-mode {
+
+.border-box-transform {
+  border-color: var(--soft-pink-400);
+}
+
+.title-about{
+  color: var(--maroon-400);
+}
+.p-title {
+  color: var(--soft-pink-200);
+}
+.p-strong {
+  color: var(--maroon-400);
+}
+.p-about {
+  color: var(--zinc-400);
+}
+.icons-about-check {
+  background-color: none;
+  color: var(--soft-pink-400);
+}
+
+.p-about-icon {
+  color: var(--zinc-50);
+}
+
+}

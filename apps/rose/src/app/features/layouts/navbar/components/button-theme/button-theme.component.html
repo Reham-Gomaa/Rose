@@ -1,0 +1,11 @@
+<!-- Either remove this div or use the correct reference -->
+<div [class.dark-mode]="darkModeService.isDark()">
+  <button type="button" class="btn-theme" (click)="toggle()"
+    [attr.aria-label]="darkModeService.isDark() ? 'Switch to light mode' : 'Switch to dark mode'">
+    @if (darkModeService.isDark()) {
+    <i class="pi pi-sun"></i>
+    } @else {
+    <i class="pi pi-moon"></i>
+    }
+  </button>
+</div>

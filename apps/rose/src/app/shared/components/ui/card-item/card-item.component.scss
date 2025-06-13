@@ -132,3 +132,48 @@
 :host ::ng-deep .p-rating .p-icon {
   color: var(--yellow-sea) !important;
 }
+
+
+// Dark Mode
+.dark-mode{
+.product-card {
+  background-color: var(--zinc-800);
+}
+
+.image-wrapper {
+  background-color: var(--zinc-800);
+}
+
+.title {
+  color: var(--soft-pink-200);
+}
+
+.price {
+  color: var(--soft-pink-200);
+}
+
+.bg-shape {
+  background-color: var(--soft-pink-200);
+}
+
+.icon-circle {
+  background-color: var(--maroon-500);
+  color: var(--zinc-50);
+}
+
+.icon-circle:hover {
+  background-color: var(--maroon-600);
+}
+
+.btn-shopping {
+  background-color: var(--maroon-500);
+
+  &:hover {
+    background-color: var(--maroon-600);
+  }
+}
+
+:host ::ng-deep .p-rating .p-icon {
+  color: var(--yellow-dark-mode) !important;
+}
+}

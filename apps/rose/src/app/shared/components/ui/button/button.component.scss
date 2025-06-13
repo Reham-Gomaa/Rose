@@ -1,6 +1,6 @@
 button {
   display: block;
-  color: white;
+  color: var(--white);
   background-color: var(--persian-rose);
   border: none;
   box-shadow: 0px 0px 37.28px 4.66px #0000000D;
@@ -11,10 +11,34 @@ button {
   text-align: center;
   text-transform: capitalize;
   cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
 
   &:hover {
     background-color: var(--hover-persian-rose);
   }
+}
+
+/* Dark mode override */
+.dark-mode{
+    background: none !important;
+  button {
+  color: var(--zinc-800) !important;
+  background-color: var(--soft-pink-200) !important;
+
+  &:hover {
+    background-color: var(--soft-pink-300) !important;
+  }
+
+  .arrowicon {
+    color: var(--zinc-800) !important;
+  }
+}
+}
+
+.arrowicon{
+  color: var(--white);
+  font-size: .7588rem;
 }
 
 // arrow icon rotation in rtl dir
