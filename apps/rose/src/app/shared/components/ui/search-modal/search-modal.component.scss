@@ -1,0 +1,52 @@
+@use "../../../styles/utilities" as utl;
+@use "../../../styles/functions" as func;
+.modal-outer {
+  position: absolute;
+  z-index: 999999999999;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .modal-inner {
+    width: func.pxToRem(600);
+    min-height: func.pxToRem(500);
+    background-color: transparent;
+    border-radius: 20px;
+    position: relative;
+
+    .search-input input {
+      outline: 0;
+      display: block;
+      padding:func.pxToRem(8) ;
+      border: 0;
+        border-bottom: 2px solid white;
+        color: white;
+        margin: auto;
+        width: 90%;
+        background-color: transparent;
+        font-size: func.pxToRem(30);
+        text-transform: capitalize;
+        &::placeholder {
+          color: inherit;
+        }
+    }
+  }
+}
+
+:host ::ng-deep .p-button {
+      width: func.pxToRem(35);
+      height: func.pxToRem(35);
+
+      background-color: var(--persian-rose) !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      border: 0 !important;
+      .pi-times::before {
+        color: var(--dark-blue);
+      }
+
+}
+
