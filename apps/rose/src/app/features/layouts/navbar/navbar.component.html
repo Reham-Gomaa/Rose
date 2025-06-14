@@ -13,9 +13,9 @@
       <ng-template #end>
         <div class="flex align-items-center gap-3">
 
-          <i class="pi pi-search cursor-pointer text-md"></i>
-          @if (!isLoggedIn()) {
+            <p-button (click)="openSearch()"  icon="pi pi-search" styleClass="bg-transparent border-0 cursor-pointer text-md" />
 
+          @if (!isLoggedIn()) {
           <p-button [styleClass]="btnClass" [label]="('navbar.login' |translate)" [severity]="'info'" [rounded]="true" />
           }@else {
 
@@ -35,14 +35,54 @@
           <i class="pi pi-user cursor-pointer text-lg"></i>
           }
           <div class="custom-selector">
-            <select [value]="currentLang" (change)="changeLang($event)">
+            <select [value]="currentLang" class="cursor-pointer" (change)="changeLang($event)">
               <option value="en">English</option>
               <option value="ar">العربيه</option>
             </select>
-            <i class="pi pi-globe"></i>
+            <i class="pi pi-globe "></i>
+          </div>
+          <div class="smallNav-toggle">
+            <p-button (click)="showDialog('topleft')" icon="pi pi-align-right"
+              styleClass="min-w-40 bg-white  border-0 " />
           </div>
         </div>
       </ng-template>
     </p-menubar>
   </div>
 </div>
+
+<div class="smallNav">
+  <p-dialog [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '25rem' }">
+    <div class="flex align-items-center justify-content-between mb-4">
+      <div class="smallNav-header">
+        <img [routerLink]="'/'" src="/images/navbar/Rose.png" class="w-full" alt="Rose logo">
+      </div>
+      <p-button icon="pi pi-times" [style]="{
+        'background-color':'transparent'
+      }" styleClass="cursor-pointer border-gray-300" (click)="visible = false" />
+
+
+
+    </div>
+
+    <ul class="navList">
+      @for (item of items; track $index;) {
+      @let label = item['label']!;
+      @let route = item['route'];
+      <li>
+        <a [routerLink]="route" routerLinkActive="active" class="text-decoration-none">
+          {{label | translate}}
+        </a>
+      </li>
+      }
+
+    </ul>
+
+  </p-dialog>
+</div>
+
+@if (inSearch) {
+  <app-search-modal />
+}
+
+
