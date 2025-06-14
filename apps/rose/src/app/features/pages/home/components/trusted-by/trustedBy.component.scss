@@ -10,7 +10,7 @@
 }
 
 .trusted-companies-content {
-  background-color: var(--light-pink);
+  background-color: var(--background-color);
   border-radius: 1.5rem;
   max-width: 80rem;
   margin: 0 auto;
@@ -27,12 +27,12 @@
 }
 
 .trusted-companies-title h2 {
-  color: var(--dark-blue);
+  color: var(--main-title);
   margin: 0;
 }
 
 .trusted-companies-title span {
-  color: var(--persian-rose);
+  color: var(--strong-color);
 }
 
 .trusted-companies-underline {
@@ -43,7 +43,7 @@
   content: '';
   width: 15rem;
   height: .125rem;
-  background-color: var(--persian-rose);
+  background-color: var(--underline-bar-color);
   position: absolute;
   top: 100%;
   left: 0;
@@ -182,20 +182,5 @@
 
 }
 
-
-// Dark Mode
-.dark-mode{
- .trusted-companies-content {
-  background-color: var(--zinc-700);
-}
-
-.trusted-companies-title h2 {
-  color: var(--soft-pink-200);
-}
-
-.trusted-companies-title span {
-  color: var(--maroon-400);
-}
-}
 
 

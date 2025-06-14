@@ -1,5 +1,4 @@
-import { Component, inject } from '@angular/core';
-import { DarkModeService } from '../../../core/services/darkmode/darkmode.service';
+import { Component } from '@angular/core';
 // PrimeNG
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
@@ -11,6 +10,4 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
-export class FooterComponent {
-  public darkMode = inject(DarkModeService);
-}
+export class FooterComponent { }

@@ -11,34 +11,13 @@
   width: 2.5rem;
   height: 2.5rem;
 
-
   .pi {
     font-size: 1.25rem;
-    color: var(--persian-rose);
+    color: var(--toggle-color);
     transition: color 0.3s ease;
   }
 
   &:hover {
-    background-color: var(--light-pink);
-  }
-
-}
-
-  /* Dark mode styles - fixed selector */
-  .dark-mode {
-    background: none;
-
-.btn-theme {
-  .pi {
-    color: var(--soft-pink-200);
-  }
-
-  &:hover {
-    background-color: var(--soft-pink-50);
-
-    .pi {
-        color: var(--zinc-800);
-      }
-    }
+    background-color: var(--toggle-hover);
   }
 }

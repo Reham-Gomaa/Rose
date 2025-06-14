@@ -1,8 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ServicesInterface } from '../../../../../core/interfaces/services.interface';
-import { DarkModeService } from '../../../../../core/services/darkmode/darkmode.service';
-
 @Component({
   selector: 'app-our-services',
   imports: [TranslatePipe],
@@ -10,8 +8,6 @@ import { DarkModeService } from '../../../../../core/services/darkmode/darkmode.
   styleUrl: './ourServices.component.scss',
 })
 export class OurServicesComponent {
-
-  public darkMode = inject(DarkModeService);
 
   services: ServicesInterface[] = [
     { id: 1, icon: "pi pi-truck", heading: "home.services.freeDelivery.heading", paragraph: "home.services.freeDelivery.paragraph" },

@@ -6,7 +6,6 @@ import { Subscription } from 'rxjs';
 
 import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
 import { CategoryRes, Category } from '../../../../../core/interfaces/categories.interface';
-import { DarkModeService } from '../../../../../core/services/darkmode/darkmode.service';
 
 // PrimeNG
 import { ToastModule } from 'primeng/toast';
@@ -24,7 +23,6 @@ export class CategoriesComponent implements OnInit, OnDestroy {
 
   private categoriesService = inject(CategoriesService);
   private messageService = inject(MessageService);
-  public darkMode = inject(DarkModeService);
 
   categories = signal<Category[]>([]);
   isLoading = signal<boolean>(true);

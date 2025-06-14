@@ -1,6 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
-import { DarkModeService } from '../../../../../core/services/darkmode/darkmode.service';
 
 @Component({
   selector: 'app-gallery',
@@ -9,7 +8,6 @@ import { DarkModeService } from '../../../../../core/services/darkmode/darkmode.
   styleUrl: './gallery.component.scss',
 })
 export class GalleryComponent {
-  public darkMode = inject(DarkModeService);
   images = {
     url: [
       'images/gallery/Frame 74.png',

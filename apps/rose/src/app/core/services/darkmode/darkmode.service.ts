@@ -1,74 +1,55 @@
-import { Injectable, signal, effect, inject } from '@angular/core';
+import { Injectable, effect, inject, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { PlatformService } from '../platform/platform.service';
 
 @Injectable({ providedIn: 'root' })
 export class DarkModeService {
+  private readonly document = inject(DOCUMENT);
   private readonly platform = inject(PlatformService);
-  private readonly STORAGE_KEY = 'theme';
-  private readonly DARK_MODE_CLASS = 'dark-mode';
-  private readonly PRIMENG_DARK_THEME = 'soho-dark';
-  private readonly PRIMENG_LIGHT_THEME = 'soho-light';
+  private readonly STORAGE_KEY = 'darkMode';
 
-  isDark = signal(false);
+  isDark = signal<boolean>(false);
 
   constructor() {
-    if (this.platform.isBrowser()) {
-      this.initializeTheme();
-      this.setupSystemPreferenceListener();
-
-      effect(() => {
-        const isDark = this.isDark();
-        localStorage.setItem(this.STORAGE_KEY, isDark ? 'dark' : 'light');
-        this.applyThemeClass(isDark);
-        this.applyPrimeNGTheme(isDark);
-      });
-    }
+    this.initializeTheme();
+    this.setupThemeListener();
   }
 
   toggle(): void {
     this.isDark.update(value => !value);
   }
 
-  setDarkMode(isDark: boolean): void {
-    this.isDark.set(isDark);
-  }
-
   private initializeTheme(): void {
-    const savedTheme = localStorage.getItem(this.STORAGE_KEY);
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
-    this.isDark.set(initialTheme);
-    this.applyThemeClass(initialTheme);
-    this.applyPrimeNGTheme(initialTheme);
-  }
+    if (!this.platform.isBrowser()) return;
 
-  private applyThemeClass(isDark: boolean): void {
-    const htmlElement = document.documentElement;
-    if (isDark) {
-      htmlElement.classList.add(this.DARK_MODE_CLASS);
-      htmlElement.setAttribute('data-theme', 'dark');
+    const savedMode = localStorage.getItem(this.STORAGE_KEY);
+    if (savedMode !== null) {
+      this.isDark.set(savedMode === 'true');
     } else {
-      htmlElement.classList.remove(this.DARK_MODE_CLASS);
-      htmlElement.setAttribute('data-theme', 'light');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      this.isDark.set(prefersDark);
     }
+    this.applyTheme(this.isDark());
   }
 
-  private applyPrimeNGTheme(isDark: boolean): void {
-    if (this.platform.isBrowser()) {
-      const themeLink = document.getElementById('primeng-theme') as HTMLLinkElement;
-      if (themeLink) {
-        themeLink.href = isDark
-          ? `node_modules/primeng/resources/themes/${this.PRIMENG_DARK_THEME}/theme.css`
-          : `node_modules/primeng/resources/themes/${this.PRIMENG_LIGHT_THEME}/theme.css`;
+  private setupThemeListener(): void {
+    effect(() => {
+      const isDark = this.isDark();
+      if (this.platform.isBrowser()) {
+        localStorage.setItem(this.STORAGE_KEY, String(isDark));
       }
-    }
-  }
-
-  private setupSystemPreferenceListener(): void {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      if (!localStorage.getItem(this.STORAGE_KEY)) {
-        this.isDark.set(e.matches);
-      }
+      this.applyTheme(isDark);
     });
+  }
+
+  private applyTheme(isDark: boolean): void {
+    if (!this.platform.isBrowser()) return;
+
+    const html = this.document.documentElement;
+    if (isDark) {
+      html.classList.add('dark-mode');
+    } else {
+      html.classList.remove('dark-mode');
+    }
   }
 }

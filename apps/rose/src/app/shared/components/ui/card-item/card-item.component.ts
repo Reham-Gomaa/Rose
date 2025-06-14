@@ -1,26 +1,17 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, Input } from '@angular/core';
 import { Product } from '../../../../core/interfaces/carditem.interface';
-import { DarkModeService } from '../../../../core/services/darkmode/darkmode.service';
 
 //PrimeNg
 import { RatingModule } from 'primeng/rating';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-card-item',
-  imports: [ReactiveFormsModule, RatingModule],
+  imports: [CommonModule, RatingModule ,FormsModule],
   templateUrl: './card-item.component.html',
   styleUrl: './card-item.component.scss'
 })
-export class CardItemComponent implements OnInit {
+export class CardItemComponent {
   @Input() productInfo!: Product;
-  public darkMode = inject(DarkModeService);
-
-  formGroup = new FormGroup({
-    value: new FormControl<number>(4)
-  });
-
-  ngOnInit() {
-    this.formGroup.controls.value.setValue(this.productInfo.rateAvg);
-  }
 }

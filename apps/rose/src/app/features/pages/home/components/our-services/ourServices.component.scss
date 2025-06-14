@@ -1,13 +1,13 @@
 .parent {
     border-radius: 1.25rem;
     padding: 2.5rem;
-    background-color: var(--light-pink);
+    background-color: var(--background-color);
     text-align: center;
 
     .icon {
         width: 4.0625rem;
         height: 4.0625rem;
-        background-color: var(--persian-rose);
+        background-color: var(--background-icon-color);
         border-radius: 2.031rem;
         padding-inline: 0.859rem;
         padding-top: 1rem;
@@ -16,19 +16,20 @@
         i {
             width: 2.3175rem;
             height: 2.3175rem;
+            color: var(--icons-color);
         }
     }
 
     h3 {
         font-family: var(--font-family-1);
         margin: 0 0 .3125rem 0;
-        color: var(--dark-blue);
+        color: var(--main-title);
     }
 
     p {
         font-family: var(--font-family-2);
         line-height: 1.75rem;
-        color: var(--slate-gray);
+        color: var(--p-main);
     }
 
     @media all and (min-width: 48rem) and (max-width: 75rem) {
@@ -55,28 +56,5 @@
     @media all and (min-width: 48rem) {
         text-align: right;
     }
-
-}
-
-// Dark mode styling
-
-.dark-mode {
-.parent {
-    background-color: var(--zinc-700);
-    .icon {
-        background-color: var(--soft-pink-200);
-        i{
-          color: var(--zinc-800);
-        }
-    }
-
-    h3 {
-        color: var(--soft-pink-200);
-    }
-
-    p {
-        color: var(--zinc-300);
-    }
-}
 
 }

@@ -5,3 +5,9 @@ export interface Testimonials {
   heading3: string
   paragraph: string
 }
+
+export interface responsiveOption {
+      breakpoint: string
+      numVisible: number
+      numScroll: number
+}

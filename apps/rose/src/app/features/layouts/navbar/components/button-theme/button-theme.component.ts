@@ -10,7 +10,6 @@ import { TooltipModule } from 'primeng/tooltip';
 })
 export class ButtonThemeComponent {
   darkModeService = inject(DarkModeService);
-
   toggle() {
     this.darkModeService.toggle();
   }

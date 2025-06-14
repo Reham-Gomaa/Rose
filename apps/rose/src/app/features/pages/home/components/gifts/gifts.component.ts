@@ -1,7 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { carouselListInterface, picsInterface, responsiveOptionsInterface } from '../../../../../core/interfaces/special-gifts.interface';
 import { ButtonComponent } from "../../../../../shared/components/ui/button/button.component";
-import { DarkModeService } from '../../../../../core/services/darkmode/darkmode.service';
 
 // primeNg ...
 import { ButtonModule } from 'primeng/button';
@@ -16,8 +15,6 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './gifts.component.scss',
 })
 export class GiftsComponent {
-  public darkMode = inject(DarkModeService);
-
   carouselList: carouselListInterface[] = [
     { id: 1, source: "./images/gifts/1.jpeg", title: "pink roses in white vase with white and pink balloons" },
     { id: 2, source: "./images/gifts/2.jpeg", title: "christmas gift with gray ribbon and orange roses" },

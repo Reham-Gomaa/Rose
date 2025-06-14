@@ -1,10 +1,9 @@
 import { Component, inject, OnInit, OnDestroy, signal } from '@angular/core';
-import { Subscription, take, timer } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { CardItemComponent } from '../../../../../shared/components/ui/card-item/card-item.component';
 import { ButtonComponent } from '../../../../../shared/components/ui/button/button.component';
 
-import { DarkModeService } from '../../../../../core/services/darkmode/darkmode.service';
 //PrimeNg
 import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
@@ -22,7 +21,6 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class BestSellerComponent implements OnInit, OnDestroy {
 
-  public darkMode = inject(DarkModeService);
   private readonly bestsellerService = inject(BestSellerService);
 
   bestSellers = signal<BestSeller[]>([]);

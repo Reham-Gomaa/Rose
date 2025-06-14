@@ -1,44 +1,13 @@
+// Variables
 :root {
+// Fonts
   --font-family-1: "Inter", sans-serif;
   --font-family-2: "Roboto", sans-serif;
-}
+  --testimonials-image: url('/images/testimonials/Birthday background.png') center/cover no-repeat;
+  --footer-image:  url("/images/image 35.png") center/cover no-repeat;
 
-[data-theme="dark"] {
-  --zinc-900: #18181B;
-  --zinc-800: #27272A;
-  --zinc-700: #3F3F46;
-  --zinc-600: #52525B;
-  --zinc-500: #71717A;
-  --zinc-400: #A1A1AA;
-  --zinc-300: #D4D4D8;
-  --zinc-100: #F4F4F5;
-  --zinc-50: #FAFAFA;
 
-  --maroon-800: #501419;
-  --maroon-700: #741C21;
-  --maroon-600: #A6252A;
-  --maroon-500: #CD2E33;
-  --maroon-400: #D75458;
-  --maroon-50: #FBEAEA;
-
-  --red-600: #DC2626;
-
-  --soft-pink-500: #FF668B;
-  --soft-pink-400: #FF85A2;
-  --soft-pink-300: #FFA3B9;
-  --soft-pink-200: #FFC2D0;
-  --soft-pink-50: #FFF1F5;
-  --yellow-dark-mode: #FBA707;
-
-  --hover-card-dark: #E6507380;
-
-  // Backgrounds
-  --background-color: var(--zinc-900);
-  --card-background: var(--zinc-800);
-  --text-color: var(--zinc-100);
-}
-
-[data-theme="light"] {
+// Light theme colors
   --white: #ffffff;
   --black: #000000;
   --light-pink: #FEEDF7;
@@ -54,8 +23,236 @@
   --slate-gray: #757F95;
   --shadow-black: #0000000D;
 
-  // Backgrounds
-  --background-color: var(--white);
-  --card-background: var(--white);
-  --text-color: var(--black);
+// backgrounds
+  --body-color: var(--white);
+  --background-color:var(--light-pink);
+  --background-icon-color:var(--persian-rose);
+  --background-checker-color:var(--violet);
+
+//Testimonials
+  --background-testimonials-color:var(--testimonials-image);
+  --background-testimonials-img:var(--persian-rose);
+  --color-testimonials-rating:var(--persian-rose);
+  --color-testimonials-carousel-indicator-button:var(--white);
+
+//Gift
+  --h2-color:var(--persian-rose);
+  --h1-color:var(--dark-blue);
+  --dark-text-gift:var(--dark-blue);
+  --p-gift-color:var(--dark-blue);
+  --carousel-i-gift-color:var(--slate-gray);
+  --background-carousel-button-gift:var(--white);
+  --background-carousel-indicator-button-gift:var(--persian-rose);
+
+//BTN-Shared
+  --btn-shared-color:var(--white);
+  --btn-shared-i-color:var(--white);
+  --btn-shared-background:var(--persian-rose);
+  --btn-shared-background-hover:var(--hover-persian-rose);
+
+//Cards
+  --bg-shape-card:var(--light-persian-rose);
+  --bg-shape-i-card:var(--persian-rose);
+  --color-shape-i-card:var(--white);
+  --hover-shape-i-card:var(--hover-persian-rose);
+
+  --price-color-card:var(--carnation);
+  --rating-color-card:var(--yellow-sea);
+
+  --bg-btn-shopping-card:var(--violet);
+  --hover-btn-shopping-card:var(--hover-violet);
+  --color-btn-shopping-card:var(--white);
+
+
+//Tabs
+  --tabs-color:var(--dark-blue);
+  --hover-tabs-color:var(--persian-rose);
+
+//other
+  --background-shape:var(--light-pink);
+  --underline-bar-color:var(--persian-rose);
+
+  --border-box-transform-color:var(--persian-rose);
+
+  --checker-color:var(--white);
+  --icons-color:var(--white);
+
+  --btn-carousel-color:var(--white);
+  --btn-carousel-background:var(--persian-rose);
+  --btn-carousel-background-hover:var(--hover-persian-rose);
+
+// Titles
+  --section-title-color:var(--dark-blue);
+  --sub-title-color:var(--dark-blue);
+
+  --strong-color:var(--persian-rose);
+
+  --main-title:var(--dark-blue);
+  --secondary-title:var(--persian-rose);
+
+
+//Texts
+  --p-main:var(--slate-gray);
+  --p-secondary:var(--slate-gray);
+  --p-checker:var(--black);
+  --text-color:var(--black);
+
+//footer
+  --background-footer:var(--footer-image);
+
+  --tabs-footer:var(--dark-blue);
+  --hover-tabs-footer:var(--persian-rose);
+
+  --coupon-text :var(--dark-blue);
+  --highlight-text:var(--persian-rose);
+  --p-footer-text:var(--slate-gray);
+
+  --bg-input-footer:var(--white);
+  --color-input-footer:var(--slate-gray);
+  --focus-input-footer:var(--persian-rose);
+
+  --bg-btn-footer:var(--persian-rose);
+  --hover-btn-footer:var(--hover-persian-rose);
+  --color-btn-footer:var(--white);
+
+//DarkMode Toggle
+  --toggle-color:var(--persian-rose);
+  --toggle-hover:var(--light-pink);
+
+// Scrollbar
+  --scrollbar-width: .625rem;
+  --scrollbar-height: .625rem;
+  --scrollbar-track-color: var(--white);
+  --scrollbar-thumb-color: var(--persian-rose);
+  --scrollbar-thumb-hover-color: var(--hover-persian-rose);
+}
+
+// Dark theme overrides
+.dark-mode {
+// Dark theme colors
+  --zinc-900: #18181B;
+  --zinc-800: #27272A;
+  --zinc-700: #3F3F46;
+  --zinc-600: #52525B;
+  --zinc-500: #71717A;
+  --zinc-400: #A1A1AA;
+  --zinc-300: #D4D4D8;
+  --zinc-100: #F4F4F5;
+  --zinc-50: #FAFAFA;
+  --maroon-800: #501419;
+  --maroon-700: #741C21;
+  --maroon-600: #A6252A;
+  --maroon-500: #CD2E33;
+  --maroon-400: #D75458;
+  --maroon-50: #FBEAEA;
+  --red-600: #DC2626;
+  --soft-pink-500: #FF668B;
+  --soft-pink-400: #FF85A2;
+  --soft-pink-300: #FFA3B9;
+  --soft-pink-200: #FFC2D0;
+  --soft-pink-50: #FFF1F5;
+  --yellow-dark-mode: #FBA707;
+  --hover-card-dark: #E6507380;
+
+// backgrounds
+  --body-color: var(--zinc-800);
+  --background-color:var(--zinc-700);
+  --background-icon-color:var(--soft-pink-200);
+  --background-checker-color:none;
+
+//Testimonials
+  --background-testimonials-color:var(--zinc-700);
+  --background-testimonials-img:var(--maroon-400);
+  --color-testimonials-rating:var(--yellow-dark-mode);
+  --color-testimonials-carousel-indicator-button:var(--maroon-50);
+
+
+//Gift
+  --h2-color:var(--maroon-600);
+  --h1-color:var(--maroon-700);
+  --dark-text-gift:var(--maroon-500);
+  --p-gift-color:var(--zinc-200);
+  --carousel-i-gift-color:var(--maroon-600);
+  --background-carousel-button-gift:var(--maroon-50);
+  --background-carousel-indicator-button-gift:var(--maroon-600);
+
+//BTN-Shared
+  --btn-shared-color:var(--zinc-800);
+  --btn-shared-i-color:var(--zinc-800);
+  --btn-shared-background:var(--soft-pink-200);
+  --btn-shared-background-hover:var(--soft-pink-300);
+
+//Cards
+  --bg-shape-card:var(--hover-card-dark);
+  --bg-shape-i-card:var(--white);
+  --color-shape-i-card:var(--maroon-500);
+  --hover-shape-i-card:var(--soft-pink-200);
+
+  --price-color-card:var(--soft-pink-200);
+  --rating-color-card:var(--yellow-dark-mode);
+
+  --bg-btn-shopping-card:var(--maroon-500);
+  --hover-btn-shopping-card:var(--maroon-600);
+  --color-btn-shopping-card:var(--maroon-50);
+
+  //Tabs
+  --tabs-color:var(--zinc-400);
+  --hover-tabs-color:var(--soft-pink-200);
+
+//other
+  --background-shape:var(--zinc-700);
+  --underline-bar-color:var(--soft-pink-500);
+
+  --border-box-transform-color:var(--soft-pink-400);
+
+  --checker-color:var(--soft-pink-400);
+  --icons-color:var(--zinc-800);
+
+  --btn-carousel-color:var(--zinc-50);
+  --btn-carousel-background:var(--maroon-500);
+  --btn-carousel-background-hover:var(--maroon-600);
+
+
+// Titles
+  --section-title-color:var(--maroon-400);
+  --sub-title-color:var(--soft-pink-200);
+
+  --strong-color:var(--maroon-400);
+
+  --main-title:var(--soft-pink-200);
+  --secondary-title:var(--maroon-400);
+
+//Texts
+  --p-main:var(--zinc-300);
+  --p-secondary:var(--zinc-400);
+  --p-checker:var(--zinc-50);
+  --text-color:var(--zinc-50);
+
+//footer
+  --background-footer:var(--zinc-900);
+
+  --tabs-footer:var(--zinc-100);
+  --hover-tabs-footer:var(--soft-pink-400);
+
+  --coupon-text :var(--soft-pink-300);
+  --highlight-text:var(--zinc-50);
+  --p-footer-text:var(--zinc-500);
+
+  --bg-input-footer:var(--zinc-800);
+  --color-input-footer:var(--zinc-50);
+  --focus-input-footer:var(--soft-pink-300);
+
+  --bg-btn-footer:var(--soft-pink-300);
+  --hover-btn-footer:var(--soft-pink-400);
+  --color-btn-footer:var(--zinc-800);
+
+//DarkMode Toggle
+  --toggle-color:var(--zinc-50);
+  --toggle-hover:var(--soft-pink-200);
+
+  // Scrollbar
+  --scrollbar-track-color: var(--zinc-800);
+  --scrollbar-thumb-color: var(--soft-pink-400);
+  --scrollbar-thumb-hover-color: var(--soft-pink-500);
+
 }

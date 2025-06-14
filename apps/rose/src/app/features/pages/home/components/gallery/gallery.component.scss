@@ -8,7 +8,7 @@
 //Titles gallery-items
 
 .title-h5 {
-  color: var(--persian-rose);
+  color: var(--secondary-title);
   font-family: var(--font-family-2);
   font-weight: 700;
   font-size: 1.0625rem;
@@ -22,7 +22,7 @@
 }
 
 .gallery-title {
-  color: var(--dark-blue);
+  color: var(--main-title);
   font-family: var(--font-family-1);
   font-weight: 700;
   font-size: 1.87rem;
@@ -38,7 +38,7 @@
   height: 1.0625rem;
   border-radius: 0 1.25rem 1.25rem 0;
   z-index: 1;
-  background-color: var(--light-pink);
+  background-color: var(--background-shape);
 }
 
 .gallery-underline-bar {
@@ -47,7 +47,7 @@
   width: 10.0625rem;
   height: .125rem;
   z-index: 11;
-  background-color: var(--persian-rose);
+  background-color: var(--underline-bar-color);
 }
 
 
@@ -140,25 +140,4 @@
     max-width: 100%;
     height: 25.6875rem;
   }
-}
-
-// Dark mode styling
-
-.dark-mode {
-
-.title-h5 {
-  color: var(--maroon-400);
-}
-
-.gallery-title {
-  color: var(--soft-pink-200);
-}
-
-.gallery-bg-shape {
-  background-color: var(--zinc-700);
-}
-
-.gallery-underline-bar {
-  background-color: var(--soft-pink-500);
-}
 }

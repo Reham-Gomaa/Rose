@@ -17,17 +17,11 @@
   left: 0.3rem;
   width: 100%;
   height: 100%;
-  border: 0.25rem solid var(--persian-rose);
+  border: 0.25rem solid var(--border-box-transform-color);
   border-radius: 3.125rem 7.5rem 7.5rem 7.5rem;
   transform: rotate(8deg);
   z-index: 40;
-  transition: all 0.3s ease;
-
-  .dark-mode & {
-    border: 0.25rem solid var(--soft-pink-400);
-  }
 }
-
 
 .border-image-main {
   position: absolute;
@@ -39,7 +33,6 @@
   border-radius: 3.125rem 7.5rem 7.5rem 7.5rem;
   transform: rotate(5deg);
   z-index: 50;
-  transition: transform 0.3s ease;
 }
 
 .border-circle-second {
@@ -74,7 +67,7 @@
   font-weight: 700;
   font-size: 1.0625rem;
   line-height: 1.9125rem;
-  color: var(--persian-rose);
+  color: var(--secondary-title);
   margin-bottom: 0.5rem;
 }
 
@@ -84,12 +77,12 @@
   font-weight: 700;
   font-size: 1.875rem;
   line-height: 2.55rem;
-  color: var(--dark-blue);
+  color: var(--sub-title-color);
   margin-bottom: 1rem;
 }
 
 .p-strong {
-  color: var(--persian-rose);
+  color: var(--strong-color);
 }
 
 .p-about {
@@ -97,7 +90,7 @@
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.8rem;
-  color: var(--slate-gray);
+  color: var(--p-secondary);
 }
 
 .p-button-pink {
@@ -106,8 +99,8 @@
 
 .icons-about-check {
   padding: 0.8125rem;
-  background-color: var(--hover-violet);
-  color: var(--white);
+  background-color: var(--background-checker-color);
+  color: var(--checker-color);
   border: none;
   border-radius: 1.3125rem;
   flex-shrink: 0;
@@ -118,7 +111,7 @@
   font-weight: 500;
   font-size: .75rem;
   line-height: 100%;
-  color: var(--black);
+  color: var(--p-checker);
 }
 
 /* Ultra-Compact Screens (300px - 399px) */
@@ -240,31 +233,4 @@
     width: 10rem;
     height: 7.5rem;
   }
-}
-
-// Dark mode styling
-
-.dark-mode {
-
-.title-about{
-  color: var(--maroon-400);
-}
-.p-title {
-  color: var(--soft-pink-200);
-}
-.p-strong {
-  color: var(--maroon-400);
-}
-.p-about {
-  color: var(--zinc-400);
-}
-.icons-about-check {
-  background-color: none;
-  color: var(--soft-pink-400);
-}
-
-.p-about-icon {
-  color: var(--zinc-50);
-}
-
 }

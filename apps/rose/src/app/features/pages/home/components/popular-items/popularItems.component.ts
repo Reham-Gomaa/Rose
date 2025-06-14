@@ -1,11 +1,10 @@
 import { Component, inject, OnInit, OnDestroy, signal } from '@angular/core';
-import { Subscription, timer, take } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { ProductsService } from '../../../../../shared/services/products/products.service';
 import { Product } from '../../../../../core/interfaces/carditem.interface';
 import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
 import { CategoryOption } from '../../../../../core/interfaces/categories.interface';
-import { DarkModeService } from '../../../../../core/services/darkmode/darkmode.service';
 
 //Shared
 import { CardItemComponent } from "../../../../../shared/components/ui/card-item/card-item.component";
@@ -24,7 +23,6 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
 
   private readonly _productsService = inject(ProductsService);
   private readonly _categoriesService = inject(CategoriesService);
-  public darkMode = inject(DarkModeService);
 
   // Signal-based state
   allProducts = signal<Product[]>([]);

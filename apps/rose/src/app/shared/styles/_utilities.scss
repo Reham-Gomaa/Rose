@@ -3,6 +3,36 @@
 .contain {
   width: 90%;
 }
+html,
+body {
+  background: var(--body-color);
+  color: var(--text-color);
+}
+
+// Scrollbar styles (works for both themes)
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-height);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-color);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-color);
+}
+
+// Utilities
+.contain {
+  width: 90%;
+}
 
 .sr-only {
   position: absolute;
@@ -14,53 +44,4 @@
   white-space: nowrap;
   border-width: 0;
   inset: 0;
-}
-
-.dark-mode {
-  background: var(--zinc-900);
-}
-
-body {
-  background: var(--white);
-}
-
-
-/* Light mode scrollbar (optional) */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--persian-rose);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--hover-persian-rose);
-}
-
-/* Dark mode scrollbar */
-.dark-mode {
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--zinc-800);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--soft-pink-400);
-    border-radius: 5px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--soft-pink-500);
-  }
 }
