@@ -1,30 +1,32 @@
-<section class="surface-0 py-6 md:py-8 width-full fontFamily1" aria-labelledby="trusted-companies-heading">
-  <div class="content border-round-3xl mx-auto px-4 py-5 light-pink-bg">
+<section class="trusted-companies" aria-labelledby="trusted-companies-heading">
+  <div class="trusted-companies-content">
     <!-- Title -->
-    <div class="text-center mb-6">
-      <h2 id="trusted-companies-heading" class="dark font-bold text-4xl">
-        <span class="relative writing">{{ "home.trustedBy.span1" |translate }}</span> 
-        {{ "home.trustedBy.part1" |translate }}
-        <span class="persian-rose-text">{{ "home.trustedBy.span2" |translate }}</span> 
-        {{ "home.trustedBy.part2" |translate }}
+    <div class="trusted-companies-title">
+      <h2 id="trusted-companies-heading">
+        <span class="trusted-companies-underline"></span>
+        {{ "home.trustedBy.span1" | translate }}
+        {{ "home.trustedBy.part1" | translate }}
+        <span class="trusted-companies-strong">{{ "home.trustedBy.span2" | translate }}</span>
+        {{ "home.trustedBy.part2" | translate }}
       </h2>
     </div>
-    
+
     <!-- Company Logos -->
-    <div class="justify-content-evenly flex-wrap flex gap-4" role="list" aria-label="Trusted company logos">
-
-       @for (logo of companyLogos; track logo) {
-        <div role="listitem">
-          <img loading="lazy" [src]="logo" alt="Company Logo" />
+    <div class="trusted-companies-logos-container">
+      <div class="trusted-companies-logos" role="list" aria-label="Trusted company logos">
+        @for (logo of companyLogos; track logo) {
+        <div class="trusted-companies-logo" role="listitem">
+          <img loading="lazy" [src]="logo" alt="Company Logo" class="trusted-companies-logo-img">
         </div>
-      }
+        }
+      </div>
+
+      <div class="btn-res">
+        <app-button [text]="('home.trustedBy.btn' |translate)" [isIcon]="true" [borderRadius]="'btn-about-radius'"
+          [padding]="'btn-about-padding'" [transition]="'btn-about-transition'" [margin]="'mx-auto'"
+          aria-label="Discover more about our premium gift boxes" />
+      </div>
+
     </div>
-    
-    
-</div>
+  </div>
 </section>
-
-
-
-
-

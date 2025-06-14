@@ -30,7 +30,7 @@ img {
     font-family: var(--font-family-2);
     font-weight: 700;
     font-size: 1rem;
-    color: var(--persian-rose);
+    color: var(--h2-color);
     line-height: 1.8875rem;
     letter-spacing: .2913rem;
     text-transform: uppercase;
@@ -44,7 +44,7 @@ img {
   }
 
   h1 {
-    color: var(--dark-blue);
+    color: var(--h1-color);
     font-family: var(--font-family-1);
     font-weight: 600;
     font-size: 1.25rem;
@@ -100,7 +100,7 @@ img {
   h2 {
     font-weight: 700;
     font-size: 1rem;
-    color: var(--persian-rose);
+    color: var(--h2-color);
     line-height: .6713rem;
     letter-spacing: .1019rem;
     text-transform: uppercase;
@@ -114,7 +114,7 @@ img {
   }
 
   h1 {
-    color: var(--dark-blue);
+    color: var(--h1-color);
     font-weight: 700;
     font-size: 1.25rem;
     line-height: 100%;
@@ -129,12 +129,12 @@ img {
     }
 
     span {
-      color: var(--persian-rose);
+      color: var(--strong-color);
     }
   }
 
   p {
-    color: var(--dark-blue);
+    color: var(--p-gift-color);
     font-size: .75rem;
     font-weight: 400;
 
@@ -153,13 +153,16 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--background-carousel-button-gift);
   width: 1.1181rem;
   height: 1.1181rem;
   position: absolute;
   bottom: .5938rem;
-  background-color: var(--white);
-  color: var(--slate-gray);
   border-radius: 100%;
+
+  .p-icon{
+  color: var(--carousel-i-gift-color);
+  }
 
   @media all and (min-width: 48rem) {
     bottom: 1.5rem;
@@ -233,12 +236,12 @@ img {
   width: .4375rem;
   height: .4375rem;
   border-radius: 2.9125rem;
-  background-color: var(--persian-rose);
+  background-color: var(--background-carousel-indicator-button-gift);
 }
 
 :host ::ng-deep .p-carousel-indicator-active>.p-carousel-indicator-button {
   width: 1.1875rem;
-  background-color: var(--persian-rose);
+  background-color: var(--background-carousel-indicator-button-gift);
 }
 
 // three bottom images ----------
@@ -271,7 +274,7 @@ img {
     font-family: var(--font-family-1);
     font-weight: 400;
     font-size: 1rem;
-    color: var(--persian-rose);
+    color: var(--h2-color);
     line-height: 100%;
     text-transform: capitalize;
     vertical-align: middle;
@@ -291,16 +294,18 @@ img {
 
 .responsive-h1 {
   color: var(--white);
+  max-width: 14rem;
 }
 
 @media all and (min-width: 62rem) {
   .responsive-h1 {
-    color: var(--dark-blue);
+    color: var(--h1-color);
   }
 }
 
 .dark-text {
-  color: var(--dark-blue);
+  color: var(--dark-text-gift);
+  max-width: 14rem;
 }
 
 //  RTL direction styling

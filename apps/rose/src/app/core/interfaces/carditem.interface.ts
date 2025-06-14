@@ -27,4 +27,3 @@ export interface Product {
   sold: number;
   id: string;
 }
-

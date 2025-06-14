@@ -7,7 +7,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
-
   @Input() text!: string;
   @Input() isIcon!: boolean;
   @Input() borderRadius!: string;
@@ -15,6 +14,6 @@ export class ButtonComponent {
   @Input() margin!: string;
   @Input() transition!: string;
 
-  }
+}
 
 
