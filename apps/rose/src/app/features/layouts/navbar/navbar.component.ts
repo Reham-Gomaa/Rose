@@ -14,7 +14,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { Menubar } from 'primeng/menubar';
 import { OverlayBadgeModule } from 'primeng/overlaybadge';
 import { SearchModalComponent } from "../../../shared/components/ui/search-modal/search-modal.component";
-
+type modalPosition = 'left' | 'right' | 'top' | 'bottom' | 'center' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright'
 @Component({
   selector: 'app-navbar',
   imports: [Menubar,
@@ -39,9 +39,9 @@ export class NavbarComponent implements OnInit {
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
   private readonly translationService = inject(TranslationService);
 
-  position: 'left' | 'right' | 'top' | 'bottom' | 'center' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' = 'center';
+  position: modalPosition = 'center';
 
-  showDialog(position: 'left' | 'right' | 'top' | 'bottom' | 'center' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright') {
+  showDialog(position: modalPosition) {
       this.position = position;
       this.visible = true;
   }

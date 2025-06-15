@@ -10,6 +10,5 @@ import { Dialog } from 'primeng/dialog';
   styleUrl: './custom-modal.component.scss',
 })
 export class CustomModalComponent {
-  visible = true
-  position:'left' | 'right' | 'top' | 'bottom' | 'center' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright' = 'center';
+
 }
