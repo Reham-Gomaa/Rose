@@ -3,6 +3,36 @@
 .contain {
   width: 90%;
 }
+html,
+body {
+  background: var(--body-color);
+  color: var(--text-color);
+}
+
+// Scrollbar styles (works for both themes)
+
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  height: var(--scrollbar-height);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb-color);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover-color);
+}
+
+// Utilities
+.contain {
+  width: 90%;
+}
 
 .sr-only {
   position: absolute;

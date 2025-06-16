@@ -1,4 +1,4 @@
-<div class="contain mx-auto">
+<div class="contain mx-auto" >
   <div class="card">
     <p-menubar [model]="items">
       <ng-template #start>
@@ -14,9 +14,9 @@
         <div class="flex align-items-center gap-3">
 
             <p-button (click)="openSearch()"  icon="pi pi-search" styleClass="bg-transparent border-0 cursor-pointer text-md" />
-
           @if (!isLoggedIn()) {
           <p-button [styleClass]="btnClass" [label]="('navbar.login' |translate)" [severity]="'info'" [rounded]="true" />
+          
           }@else {
 
           <p-overlaybadge value="2" [badgeSize]="'small'" [style]="{
@@ -44,6 +44,9 @@
           <div class="smallNav-toggle">
             <p-button (click)="showDialog('topleft')" icon="pi pi-align-right"
               styleClass="min-w-40 bg-white  border-0 " />
+          </div>
+          <div>
+            <app-button-theme />
           </div>
         </div>
       </ng-template>
@@ -84,5 +87,4 @@
 @if (inSearch) {
   <app-search-modal />
 }
-
 

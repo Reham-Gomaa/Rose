@@ -1,5 +1,9 @@
 import { Component, inject, OnInit, signal, OnDestroy } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
+
+import { Subscription } from 'rxjs';
+
 import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
 import { CategoryRes, Category } from '../../../../../core/interfaces/categories.interface';
 
@@ -7,18 +11,16 @@ import { CategoryRes, Category } from '../../../../../core/interfaces/categories
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { Skeleton } from 'primeng/skeleton';
-import { Subscription } from 'rxjs';
-import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-categories',
-  standalone: true,
   imports: [CommonModule, ToastModule, Skeleton, TranslatePipe],
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss'],
   providers: [MessageService]
 })
 export class CategoriesComponent implements OnInit, OnDestroy {
+
   private categoriesService = inject(CategoriesService);
   private messageService = inject(MessageService);
 

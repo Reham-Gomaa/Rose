@@ -8,7 +8,7 @@
 //Titles gallery-items
 
 .title-h5 {
-  color: var(--persian-rose);
+  color: var(--secondary-title);
   font-family: var(--font-family-2);
   font-weight: 700;
   font-size: 1.0625rem;
@@ -22,7 +22,7 @@
 }
 
 .gallery-title {
-  color: var(--dark-blue);
+  color: var(--main-title);
   font-family: var(--font-family-1);
   font-weight: 700;
   font-size: 1.87rem;
@@ -38,7 +38,7 @@
   height: 1.0625rem;
   border-radius: 0 1.25rem 1.25rem 0;
   z-index: 1;
-  background-color: var(--light-pink);
+  background-color: var(--background-shape);
 }
 
 .gallery-underline-bar {
@@ -47,7 +47,7 @@
   width: 10.0625rem;
   height: .125rem;
   z-index: 11;
-  background-color: var(--persian-rose);
+  background-color: var(--underline-bar-color);
 }
 
 
@@ -78,7 +78,7 @@
 }
 
 /* Mobile view: 1 column layout */
-@media screen and (max-width: 492px) {
+@media screen and (max-width: 768px) {
   .custom-gallery-grid {
     grid-template-columns: 1fr;
   }
@@ -93,25 +93,25 @@
   }
 
   .gallery-title {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     line-height: 100%;
   }
 
   .gallery-bg-shape {
-    top: 2rem;
+    top: 1.6rem;
     width: 16.5431rem;
     height: 1.0625rem;
   }
 
   .gallery-underline-bar {
-    top: 3rem;
+    top: 2.5rem;
     width: 7.88rem;
     height: 0.125rem;
   }
 }
 
 /* Tablet view: 3 columns */
-@media screen and (min-width: 493px) and (max-width: 1024px) {
+@media screen and (min-width: 769px) and (max-width: 1024px) {
   .custom-gallery-grid {
     grid-template-columns: repeat(3, 1fr);
   }

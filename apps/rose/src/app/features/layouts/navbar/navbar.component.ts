@@ -13,8 +13,11 @@ import { Dialog } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { Menubar } from 'primeng/menubar';
 import { OverlayBadgeModule } from 'primeng/overlaybadge';
+
+import { ButtonThemeComponent } from './components/button-theme/button-theme.component';
 import { SearchModalComponent } from "../../../shared/components/ui/search-modal/search-modal.component";
 type modalPosition = 'left' | 'right' | 'top' | 'bottom' | 'center' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright'
+
 @Component({
   selector: 'app-navbar',
   imports: [Menubar,
@@ -24,6 +27,7 @@ type modalPosition = 'left' | 'right' | 'top' | 'bottom' | 'center' | 'topleft' 
     RouterLinkActive,
     OverlayBadgeModule,
     TranslatePipe,
+    ButtonThemeComponent,
     Dialog,
     InputTextModule, SearchModalComponent],
   templateUrl: './navbar.component.html',
@@ -32,6 +36,7 @@ type modalPosition = 'left' | 'right' | 'top' | 'bottom' | 'center' | 'topleft' 
 export class NavbarComponent implements OnInit {
   items: MenuItem[] | undefined;
   btnClass = "loginBtn";
+
   isLoggedIn:WritableSignal<boolean> = signal<boolean>(false)
   currentLang !:string;
   visible = false;
@@ -61,30 +66,27 @@ export class NavbarComponent implements OnInit {
     this.inSearch = true;
     this.searchModal.closeSearch = false
   }
+
   ngOnInit() {
     this.items = [
-        {
-            label: 'navbar.home',
-            route:"home"
-        },
-        {
-            label: 'navbar.allcategory',
-            route:"categories"
-        },
-        {
-            label: 'navbar.about',
-            route:"about"
-        },
-        {
-            label: 'navbar.contact',
-            route:"contact"
-        },
+      {
+        label: 'navbar.home',
+        route: "home"
+      },
+      {
+        label: 'navbar.allcategory',
+        route: "categories"
+      },
+      {
+        label: 'navbar.about',
+        route: "about"
+      },
+      {
+        label: 'navbar.contact',
+        route: "contact"
+      },
     ];
 
     this.currentLang = this.translationService.getCurrentLang()
   }
-
-
-
-
 }
