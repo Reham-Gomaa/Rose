@@ -107,6 +107,10 @@ section {
     background-color: var(--hover-persian-rose) !important;
   }
 
+  .p-icon {
+    color: var(--white) !important;
+  }
+
   @media all and (min-width: 75rem){
     display: block;
     position: absolute;
@@ -126,6 +130,3 @@ section {
     left: 0;
   }
 }
-  :host ::ng-deep .p-icon {
-    color: var(--white) !important;
-  }

@@ -34,13 +34,7 @@
 
           <i class="pi pi-user cursor-pointer text-lg"></i>
           }
-          <div class="custom-selector">
-            <select [value]="currentLang" (change)="changeLang($event)">
-              <option value="en">English</option>
-              <option value="ar">العربيه</option>
-            </select>
-            <i class="pi pi-globe"></i>
-          </div>
+          <app-translate-toggle></app-translate-toggle>
         </div>
       </ng-template>
     </p-menubar>

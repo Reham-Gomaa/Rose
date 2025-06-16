@@ -11,6 +11,10 @@ html {
   overflow-x: hidden;
 }
 
+html[dir="rtl"] body{
+ font-family: var(--font-family-3);
+ font-weight: 400;
+}
 
 .p-menubar-start {
   width: func.pxToRem(50)+rem;
