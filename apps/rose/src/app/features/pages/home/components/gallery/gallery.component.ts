@@ -10,11 +10,11 @@ import { TranslatePipe } from '@ngx-translate/core';
 export class GalleryComponent {
   images = {
     url: [
-      'images/gallery/Frame 74.png',
-      'images/gallery/Frame 75.png',
-      'images/gallery/Frame 76.png',
-      'images/gallery/Frame 77.png',
-      'images/gallery/Frame 78.png',],
+      'images/gallery/Frame 74.WebP',
+      'images/gallery/Frame 75.WebP',
+      'images/gallery/Frame 76.WebP',
+      'images/gallery/Frame 77.WebP',
+      'images/gallery/Frame 78.WebP',],
   }
 
 

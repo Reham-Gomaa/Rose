@@ -43,8 +43,9 @@
   <!-- Email Input -->
   <form class="input-button-wrapper" aria-label="Newsletter subscription" method="post" action="/subscribe"
     itemprop="potentialAction" itemscope itemtype="https://schema.org/SubscribeAction">
-    <input id="newsletter-email" type="email" [placeholder]="('footer.placeHolder' |translate)" class="input-field" required
-      aria-required="true" name="email" aria-label="Email address for newsletter subscription" itemprop="object" />
+    <input id="newsletter-email" type="email" [placeholder]="('footer.placeHolder' |translate)" class="input-field"
+      required aria-required="true" name="email" aria-label="Email address for newsletter subscription"
+      itemprop="object" />
     <button type="submit" class="input-button flex align-items-center justify-content-center"
       aria-label="Subscribe to newsletter" itemprop="target">
       {{ "footer.btn" |translate }} <i class="pi pi-arrow-right px-2" aria-hidden="true"></i>
@@ -52,7 +53,7 @@
     <meta itemprop="actionStatus" content="PotentialActionStatus">
   </form>
 
-    <!-- Hidden structured data -->
-    <meta itemprop="copyrightYear" content="2024">
-    <meta itemprop="copyrightHolder" content="Your Company Name">
+  <!-- Hidden structured data -->
+  <meta itemprop="copyrightYear" content="2024">
+  <meta itemprop="copyrightHolder" content="Your Company Name">
 </footer>

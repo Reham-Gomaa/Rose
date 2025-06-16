@@ -3,7 +3,7 @@ import { TranslationService } from '../../../core/services/translation/translati
 
 
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, signal, ViewChild, viewChild, WritableSignal } from '@angular/core';
+import { Component, inject, OnInit, signal, ViewChild, WritableSignal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 // primeNg
@@ -14,8 +14,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { Menubar } from 'primeng/menubar';
 import { OverlayBadgeModule } from 'primeng/overlaybadge';
 
-import { ButtonThemeComponent } from './components/button-theme/button-theme.component';
+import { ButtonThemeComponent } from '../../../shared/components/ui/button-theme/button-theme.component';
 import { SearchModalComponent } from "../../../shared/components/ui/search-modal/search-modal.component";
+import { ButtonComponent } from "../../../shared/components/ui/button/button.component";
 type modalPosition = 'left' | 'right' | 'top' | 'bottom' | 'center' | 'topleft' | 'topright' | 'bottomleft' | 'bottomright'
 
 @Component({
@@ -29,16 +30,16 @@ type modalPosition = 'left' | 'right' | 'top' | 'bottom' | 'center' | 'topleft' 
     TranslatePipe,
     ButtonThemeComponent,
     Dialog,
-    InputTextModule, SearchModalComponent],
+    InputTextModule, SearchModalComponent, ButtonComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent implements OnInit {
   items: MenuItem[] | undefined;
   btnClass = "loginBtn";
-
-  isLoggedIn:WritableSignal<boolean> = signal<boolean>(false)
-  currentLang !:string;
+  
+  isLoggedIn: WritableSignal<boolean> = signal<boolean>(false)
+  currentLang !: string;
   visible = false;
   inSearch = false;
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
@@ -47,8 +48,8 @@ export class NavbarComponent implements OnInit {
   position: modalPosition = 'center';
 
   showDialog(position: modalPosition) {
-      this.position = position;
-      this.visible = true;
+    this.position = position;
+    this.visible = true;
   }
   onKeydown(event: KeyboardEvent): void {
     // Check if the pressed key is 'Enter' or 'Space'
