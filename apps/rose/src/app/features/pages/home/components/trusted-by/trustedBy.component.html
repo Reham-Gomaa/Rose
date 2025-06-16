@@ -16,7 +16,7 @@
       <div class="trusted-companies-logos" role="list" aria-label="Trusted company logos">
         @for (logo of companyLogos; track logo) {
         <div class="trusted-companies-logo" role="listitem">
-          <img loading="lazy" [src]="logo" alt="Company Logo" class="trusted-companies-logo-img">
+          <img loading="lazy" decoding="async" [src]="logo" alt="Company Logo" class="trusted-companies-logo-img">
         </div>
         }
       </div>

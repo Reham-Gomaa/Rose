@@ -40,7 +40,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
         this.categories.set(response.categories || []);
         this.isLoading.set(false);
       },
-      error: (err) => {
+      error: () => {
         this.hasError.set(true);
         this.isLoading.set(false);
         this.messageService.add({

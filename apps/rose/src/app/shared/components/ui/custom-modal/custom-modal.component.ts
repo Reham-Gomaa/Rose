@@ -1,11 +1,8 @@
-import { Component, input } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Dialog } from 'primeng/dialog';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-custom-modal',
-  imports: [CommonModule,
-    Dialog],
+  imports: [],
   templateUrl: './custom-modal.component.html',
   styleUrl: './custom-modal.component.scss',
 })

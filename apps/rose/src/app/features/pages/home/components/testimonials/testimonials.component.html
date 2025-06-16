@@ -11,7 +11,7 @@
           <div class="card p-4 mx-auto">
             <div class="heading flex justify-content-start align-items-center">
               <div class="img-container">
-                <img [src]="pic.source" [alt]="pic.heading2 + ' image'" loading="lazy" width="50" height="50">
+                <img [src]="pic.source" [alt]="pic.heading2 + ' image'" loading="lazy" decoding="async" width="50" height="50">
               </div>
               <div>
                 <h2>{{ pic.heading2 | translate }}</h2>
@@ -28,7 +28,7 @@
                   <i class="pi pi-star-fill mr-1 star-icon"></i>
                 </div>
                 <div>
-                  <img loading="lazy" class="feedback-icon" src="./images/testimonials/🦆 icon _feedback_.png"
+                  <img decoding="async" loading="lazy" class="feedback-icon" src="./images/testimonials/🦆 icon _feedback_.WebP"
                     alt="feedback icon" width="76.59" height="62.23">
                 </div>
               </div>
