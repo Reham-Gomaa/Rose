@@ -11,7 +11,7 @@
     </div>
 
     <!-- Tabs - Scrollable on mobile -->
-    <nav class="w-full lg:w-auto overflow-x-auto pb-2" aria-label="Product categories">
+    <nav class="w-full lg:w-auto overflow-x-auto pb-2 categories-scroll-container" aria-label="Product categories">
       <div class="flex align-items-center gap-3" style="min-width: fit-content" role="tablist">
         @if (loading()) {
         @for (item of [1,2,3]; track $index) {
