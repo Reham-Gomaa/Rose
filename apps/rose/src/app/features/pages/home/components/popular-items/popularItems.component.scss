@@ -53,6 +53,30 @@
     color: var(--hover-tabs-color);
   }
 
+    @media (pointer: fine) {
+    &:hover {
+      &::-webkit-scrollbar {
+        display: block;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--scrollbar-track-color);
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb-color);
+        border-radius: 4px;
+        transition: background 0.3s ease;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: var(--scrollbar-thumb-hover-color);
+      }
+    }
+  }
+
+
 }
 
 .active-tab {
@@ -61,7 +85,11 @@
 }
 
 
-@media (min-width: 300px) and (max-width: 791px) {
+@media (min-width: 300px) and (max-width: 980px) {
+
+  .popular-items-header{
+    flex-direction: column;
+  }
 
   .popular-items-title {
     font-size: 1.25rem;
