@@ -7,6 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
 import { TranslatePipe } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-gifts',
   imports: [CarouselModule, ButtonModule, TagModule, ButtonComponent, TranslatePipe],
@@ -14,7 +15,6 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './gifts.component.scss',
 })
 export class GiftsComponent {
-
   carouselList: carouselListInterface[] = [
     { id: 1, source: "./images/gifts/1.jpeg", title: "pink roses in white vase with white and pink balloons" },
     { id: 2, source: "./images/gifts/2.jpeg", title: "christmas gift with gray ribbon and orange roses" },

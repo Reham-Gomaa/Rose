@@ -1,5 +1,5 @@
 .product-card {
-  background-color: var(--white);
+  background-color: var(--body-color);
   border-radius: 1rem;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -18,7 +18,7 @@
 }
 
 .image-wrapper {
-  background-color: var(--light-pink);
+  background-color: var(--background-color);
   position: relative;
   width: 100%;
   height: 14rem;
@@ -47,7 +47,7 @@
 }
 
 .title {
-  color: var(--dark-blue);
+  color: var(--main-title);
   font-family: var(--font-family-1);
   font-weight: 600;
   font-size: 1.06rem;
@@ -60,7 +60,7 @@
 }
 
 .price {
-  color: var(--carnation);
+  color: var(--price-color-card);
   font-family: var(--font-family-2);
   font-weight: 500;
   font-size: 1rem;
@@ -70,7 +70,7 @@
 /* Rest of your existing styles remain the same */
 .bg-shape {
   position: absolute;
-  background-color: var(--light-persian-rose);
+  background-color: var(--bg-shape-card);
   inset: 0;
   z-index: 1;
   opacity: 0;
@@ -91,8 +91,8 @@
 }
 
 .icon-circle {
-  background-color: var(--persian-rose);
-  color: var(--white);
+  background-color: var(--bg-shape-i-card);
+  color: var(--color-shape-i-card);
   padding: 0.5rem;
   border-radius: 50%;
   font-size: 1.2rem;
@@ -100,7 +100,7 @@
 }
 
 .icon-circle:hover {
-  background-color: var(--hover-persian-rose);
+  background-color: var(--hover-shape-i-card);
 }
 
 /* Hover States */
@@ -118,17 +118,17 @@
 }
 
 .btn-shopping {
-  background-color: var(--violet);
+  background-color: var(--bg-btn-shopping-card);
   font-size: 0.9rem;
   line-height: 1.1rem;
   padding: 0.6rem 0.8rem 0.75rem 0.8rem;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: var(--hover-violet);
+    background-color: var(--hover-btn-shopping-card);
   }
 }
 
 :host ::ng-deep .p-rating .p-icon {
-  color: var(--yellow-sea) !important;
+  color: var(--rating-color-card) !important;
 }

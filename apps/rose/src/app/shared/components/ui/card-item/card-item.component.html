@@ -14,11 +14,10 @@
 
     <div class="flex align-items-center justify-content-between pt-2">
       <div class="flex flex-column">
-        <form [formGroup]="formGroup">
-          <p-rating formControlName="value" [readonly]="true" />
-        </form>
-        <span class="price font-bold pt-2">${{ productInfo.price.toFixed(2)
-          }}</span>
+        <div class="rating-container flex align-items-center">
+          <p-rating [(ngModel)]="productInfo.rateAvg" [readonly]="true" [stars]="5" />
+        </div>
+        <span class="price font-bold pt-2">{{ productInfo.price.toFixed(2) }} EGP</span>
       </div>
       <i class="pi pi-shopping-bag btn-shopping text-white violet-bg border-circle"></i>
     </div>

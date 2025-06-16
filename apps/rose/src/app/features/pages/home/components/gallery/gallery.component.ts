@@ -3,7 +3,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-gallery',
-  imports: [ TranslatePipe ],
+  imports: [TranslatePipe],
   templateUrl: './gallery.component.html',
   styleUrl: './gallery.component.scss',
 })

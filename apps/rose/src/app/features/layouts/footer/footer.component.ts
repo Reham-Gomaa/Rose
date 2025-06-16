@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+// PrimeNG
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TranslatePipe } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-footer',
   imports: [InputTextModule, ButtonModule, TranslatePipe],

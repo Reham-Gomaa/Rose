@@ -17,11 +17,10 @@
   left: 0.3rem;
   width: 100%;
   height: 100%;
-  border: 0.25rem solid var(--persian-rose);
+  border: 0.25rem solid var(--border-box-transform-color);
   border-radius: 3.125rem 7.5rem 7.5rem 7.5rem;
   transform: rotate(8deg);
   z-index: 40;
-  transition: transform 0.3s ease;
 }
 
 .border-image-main {
@@ -34,7 +33,6 @@
   border-radius: 3.125rem 7.5rem 7.5rem 7.5rem;
   transform: rotate(5deg);
   z-index: 50;
-  transition: transform 0.3s ease;
 }
 
 .border-circle-second {
@@ -69,21 +67,22 @@
   font-weight: 700;
   font-size: 1.0625rem;
   line-height: 1.9125rem;
-  color: var(--persian-rose);
+  color: var(--secondary-title);
   margin-bottom: 0.5rem;
 }
+
 
 .p-title {
   font-family: var(--font-family-1);
   font-weight: 700;
   font-size: 1.875rem;
   line-height: 2.55rem;
-  color: var(--dark-blue);
+  color: var(--sub-title-color);
   margin-bottom: 1rem;
 }
 
 .p-strong {
-  color: var(--persian-rose);
+  color: var(--strong-color);
 }
 
 .p-about {
@@ -91,7 +90,7 @@
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.8rem;
-  color: var(--slate-gray);
+  color: var(--p-secondary);
 }
 
 .p-button-pink {
@@ -100,8 +99,8 @@
 
 .icons-about-check {
   padding: 0.8125rem;
-  background-color: var(--hover-violet);
-  color: var(--white);
+  background-color: var(--background-checker-color);
+  color: var(--checker-color);
   border: none;
   border-radius: 1.3125rem;
   flex-shrink: 0;
@@ -112,71 +111,54 @@
   font-weight: 500;
   font-size: .75rem;
   line-height: 100%;
-  color: var(--black);
+  color: var(--p-checker);
 }
 
 /* Ultra-Compact Screens (300px - 399px) */
 @media (min-width: 300px) and (max-width: 399px) {
   .image-container {
     width: 18rem;
-    /* Reduced from 22.5rem for better fit */
     height: auto;
-    /* Changed from fixed height */
     margin: 0 auto;
   }
 
   .border-box-container {
     width: 16rem;
-    /* Reduced from 21.5rem */
     height: 12rem;
-    /* Reduced from 15.125rem */
   }
 
   .border-box-transform {
     width: 9rem;
-    /* Reduced from 10.8094rem */
     height: 11rem;
-    /* Reduced from 14.5931rem */
   }
 
   .border-image-main {
     width: 10rem;
-    /* Reduced from 12.1406rem */
     height: 11rem;
-    /* Reduced from 13.8294rem */
   }
 
   .border-circle-second {
     width: 6rem;
-    /* Reduced from 7.7588rem */
     height: 6rem;
-    /* Reduced from 7.7588rem */
   }
 
   .border-circle-third {
     width: 6rem;
-    /* Reduced from 7.7588rem */
     height: 4.5rem;
-    /* Reduced from 5.7888rem */
   }
 
   .title-about {
     margin-bottom: 1rem;
-    /* Reduced from 1.5rem */
   }
 
   .p-title {
     font-size: 1.1rem;
-    /* Reduced from 1.25rem */
     line-height: 110%;
-    /* Adjusted from 100% */
     margin-bottom: 0.4rem;
-    /* Reduced from 0.5rem */
   }
 
   .p-button-pink {
     margin-bottom: 0.8rem;
-    /* Reduced from 1rem */
   }
 }
 
@@ -252,6 +234,3 @@
     height: 7.5rem;
   }
 }
-
-/* Desktop (1201px+) - Empty as per your original structure */
-@media (min-width: 1201px) {}
