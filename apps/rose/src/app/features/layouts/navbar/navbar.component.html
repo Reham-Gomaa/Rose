@@ -42,13 +42,13 @@
 
           <i class="pi pi-user cursor-pointer text-lg"></i>
           }
-          <!-- <div class="custom-selector">
+          <div class="custom-selector hidden md:flex">
             <select [value]="currentLang" class="cursor-pointer" (change)="changeLang($event)">
               <option value="en">English</option>
               <option value="ar">العربيه</option>
             </select>
             <i class="pi pi-globe"></i>
-          </div> -->
+          </div>
           <app-button-theme />
           <div class="smallNav-toggle">
             <button (click)="showDialog('topleft')" class="toggle-menu">
@@ -70,20 +70,20 @@
           decoding="async">
       </div>
 
-<div class="flex align-items-center gap-5">
-      <div class="custom-selector">
-        <select [value]="currentLang" class="cursor-pointer" (change)="changeLang($event)">
-          <option value="en">English</option>
-          <option value="ar">العربيه</option>
-        </select>
-        <i class="pi pi-globe"></i>
-      </div>
+      <div class="flex align-items-center gap-5 ">
+        <div class="custom-selector">
+          <select [value]="currentLang" class="cursor-pointer" (change)="changeLang($event)">
+            <option value="en">English</option>
+            <option value="ar">العربيه</option>
+          </select>
+          <i class="pi pi-globe"></i>
+        </div>
 
-      <p-button icon="pi pi-times" [style]="{
+        <p-button icon="pi pi-times" [style]="{
         'background-color':'transparent'
       }" styleClass="cursor-pointer border-gray-300" (click)="visible = false" />
 
-</div>
+      </div>
 
     </div>
 
