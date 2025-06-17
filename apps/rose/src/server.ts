@@ -42,7 +42,13 @@ app.use(
  */
 app.use('/**', (req, res, next) => {
   angularApp
-    .handle(req)
+     .handle(req, {
+      // Add providers for SSR cookies
+      providers: [
+        { provide: 'REQUEST', useValue: req },
+        { provide: 'RESPONSE', useValue: res },
+      ],
+    })
     .then((response) =>
       response ? writeResponseToNodeResponse(response, res) : next()
     )

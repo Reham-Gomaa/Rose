@@ -158,12 +158,7 @@ img {
   height: 1.1181rem;
   position: absolute;
   bottom: .5938rem;
-  background-color: var(--white);
   border-radius: 100%;
-
-  .p-icon{
-  color: var(--carousel-i-gift-color);
-  }
 
   @media all and (min-width: 48rem) {
     bottom: 1.5rem;
@@ -187,7 +182,7 @@ img {
     }
   }
     .p-icon {
-    color: var(--slate-gray) !important;
+    color: var(--carousel-i-gift-color);
     width: .4094rem;
     height: .6544rem;
 

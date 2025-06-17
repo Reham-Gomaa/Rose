@@ -3,9 +3,14 @@
 // Fonts
   --font-family-1: "Inter", sans-serif;
   --font-family-2: "Roboto", sans-serif;
+  --font-family-3: "Tajawal", sans-serif;
   --testimonials-image: url('/images/testimonials/Birthday background.png') center/cover no-repeat;
   --footer-image:  url("/images/image 35.png") center/cover no-repeat;
 
+    &[dir="rtl"] {
+    --font-family-1: var(--font-family-3);
+    --font-family-2: var(--font-family-3);
+  }
 
 // Light theme colors
   --white: #ffffff;
@@ -125,6 +130,7 @@
   --scrollbar-track-color: var(--white);
   --scrollbar-thumb-color: var(--persian-rose);
   --scrollbar-thumb-hover-color: var(--hover-persian-rose);
+
 }
 
 // Dark theme overrides
