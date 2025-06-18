@@ -1,6 +1,7 @@
 button {
     color: var(--language-toggle-color);
     font-family: var(--font-family-1);
+    background: none;
 
     &[dir="rtl"] {
         font-family: var(--font-family-3);
