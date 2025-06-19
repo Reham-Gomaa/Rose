@@ -21,6 +21,30 @@ export const appRoutes: Route[] = [
             (c) => c.HomeComponent
           ),
       },
+      {
+        path: 'all-categories',
+        title: 'Our Categories',
+        loadComponent: () =>
+          import('./features/pages/all-categories/all-categories.component').then(
+            (c) => c.AllCategoriesComponent
+          ),
+      },
+      {
+        path: 'about',
+        title: 'About Us',
+        loadComponent: () =>
+          import('./features/pages/about/about.component').then(
+            (c) => c.AboutComponent
+          ),
+      },
+      {
+        path: 'contact',
+        title: 'Contact Us',
+        loadComponent: () =>
+          import('./features/pages/contact/contact.component').then(
+            (c) => c.ContactComponent
+          ),
+      },
     ],
   },
   {
