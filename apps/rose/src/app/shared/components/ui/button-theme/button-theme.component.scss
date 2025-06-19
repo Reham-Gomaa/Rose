@@ -10,14 +10,14 @@
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
+}
 
-  .pi {
-    font-size: 1.25rem;
-    color: var(--toggle-color);
-    transition: color 0.3s ease;
-  }
-
+.pi {
+  font-size: 1.25rem;
+  color: var(--toggle-color);
+  transition: all 0.3s ease-in-out;
   &:hover {
-    background-color: var(--toggle-hover);
+    color: var(--toggle-hover);
   }
 }
+

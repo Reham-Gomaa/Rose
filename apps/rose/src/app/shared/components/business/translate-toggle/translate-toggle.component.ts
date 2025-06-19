@@ -1,10 +1,9 @@
 import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { TranslationService } from './../../../../core/services/translation/translation.service';
 
 @Component({
   selector: 'app-translate-toggle',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './translate-toggle.component.html',
   styleUrl: './translate-toggle.component.scss',
 })

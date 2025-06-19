@@ -1,10 +1,10 @@
-@use "../../../styles/utilities" as utl;
 @use "../../../styles/functions" as func;
+
 .modal-outer {
   position: absolute;
   z-index: 999999999999;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #000000cc;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,15 +38,19 @@
       width: func.pxToRem(35);
       height: func.pxToRem(35);
 
-      background-color: var(--persian-rose) !important;
+      background-color: var(--Search-bg) !important;
       display: flex;
       justify-content: center;
       align-items: center;
       border-radius: 50%;
       border: 0 !important;
       .pi-times::before {
-        color: var(--dark-blue);
+        color: var(--Search-color);
       }
+      &:hover {
+        background-color: var(--Search-hover) !important;
+      }
+    }
 
-}
+
 

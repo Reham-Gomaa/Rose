@@ -2,6 +2,11 @@ button {
     color: var(--language-toggle-color);
     font-family: var(--font-family-1);
     background: none;
+    transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: var(--dark-blue-hover) !important;
+  }
 
     &[dir="rtl"] {
         font-family: var(--font-family-3);

@@ -1,47 +1,55 @@
-<div class="contain mx-auto" >
+<div class="contain mx-auto">
   <div class="card">
     <p-menubar [model]="items">
       <ng-template #start>
-        <img [routerLink]="'/'" src="/images/navbar/Rose.png" class="w-full" alt="Rose logo">
+        <img [routerLink]="'/'" src="/images/navbar/Rose.WebP" width="86" height="86" alt="Rose logo" rel="preload"
+          decoding="async" class="logo-img">
       </ng-template>
       <ng-template #item let-item let-root="root">
         <a [routerLink]="item.route" routerLinkActive="active" pRipple
-          class="flex items-center p-menubar-item-link font-bold">
+          class="flex items-center p-menubar-item-link nav-items">
           <span>{{ item.label |translate }}</span>
         </a>
       </ng-template>
       <ng-template #end>
         <div class="flex align-items-center gap-3">
+          <div class="search-icon">
+            <button (click)="openSearch()">
+              <i class="pi pi-search"></i>
+            </button>
+          </div>
 
-            <p-button (click)="openSearch()"  icon="pi pi-search" styleClass="bg-transparent border-0 cursor-pointer text-md" />
           @if (!isLoggedIn()) {
-          <p-button [styleClass]="btnClass" [label]="('navbar.login' |translate)" [severity]="'info'" [rounded]="true" />
-          
+          <app-button [text]="'navbar.login' |translate" [isIcon]="false" [borderRadius]="'btn-login-radius'"
+            [padding]="'btn-login-padding'" aria-label="Signup" />
+
           }@else {
 
           <p-overlaybadge value="2" [badgeSize]="'small'" [style]="{
-              'background-color': '#F82BA9',
-              'top': '-5px',
+              'background-color': 'var(--overlaybadge-bg)',
+              'outline':'none',
+              'top': '-10px',
             }">
             <i class="pi pi-heart cursor-pointer text-md"></i>
           </p-overlaybadge>
           <p-overlaybadge value="4" [badgeSize]="'small'" [style]="{
-              'background-color': '#F82BA9',
-              'top': '-5px',
+              'background-color': 'var(--overlaybadge-bg)',
+              'outline':'none',
+              'top': '-10px',
             }">
             <i class="pi pi-shopping-bag cursor-pointer text-md"></i>
           </p-overlaybadge>
 
           <i class="pi pi-user cursor-pointer text-lg"></i>
           }
-          <app-translate-toggle></app-translate-toggle>
+          <app-translate-toggle class="hidden md:flex"/>
+          <app-button-theme />
           <div class="smallNav-toggle">
-            <p-button (click)="showDialog('topleft')" icon="pi pi-align-right"
-              styleClass="min-w-40 bg-white  border-0 " />
+            <button (click)="showDialog('topleft')" class="toggle-menu">
+              <i class="pi pi-align-right"></i>
+            </button>
           </div>
-          <div>
-            <app-button-theme />
-          </div>
+
         </div>
       </ng-template>
     </p-menubar>
@@ -52,13 +60,24 @@
   <p-dialog [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '25rem' }">
     <div class="flex align-items-center justify-content-between mb-4">
       <div class="smallNav-header">
-        <img [routerLink]="'/'" src="/images/navbar/Rose.png" class="w-full" alt="Rose logo">
+        <img [routerLink]="'/'" src="/images/navbar/Rose.WebP" width="54" height="54" alt="Rose logo" loading="lazy"
+          decoding="async">
       </div>
-      <p-button icon="pi pi-times" [style]="{
+
+      <div class="flex align-items-center gap-5 ">
+        <div class="custom-selector">
+          <select [value]="currentLang" class="cursor-pointer" (change)="changeLang($event)">
+            <option value="en">English</option>
+            <option value="ar">العربيه</option>
+          </select>
+          <i class="pi pi-globe"></i>
+        </div>
+
+        <p-button icon="pi pi-times" [style]="{
         'background-color':'transparent'
       }" styleClass="cursor-pointer border-gray-300" (click)="visible = false" />
 
-
+      </div>
 
     </div>
 
@@ -67,7 +86,7 @@
       @let label = item['label']!;
       @let route = item['route'];
       <li>
-        <a [routerLink]="route" routerLinkActive="active" class="text-decoration-none">
+        <a [routerLink]="route" routerLinkActive="active" class="text-decoration-none nav-items">
           {{label | translate}}
         </a>
       </li>
@@ -79,6 +98,5 @@
 </div>
 
 @if (inSearch) {
-  <app-search-modal />
+<app-search-modal />
 }
-
