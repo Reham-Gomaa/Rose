@@ -39,7 +39,7 @@ export const appRoutes: Route[] = [
       },
       {
         path: 'contact',
-        title: 'Contact Us',
+        title: 'Contact-Us',
         loadComponent: () =>
           import('./features/pages/contact/contact.component').then(
             (c) => c.ContactComponent
