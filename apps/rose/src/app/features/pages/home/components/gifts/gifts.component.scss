@@ -232,6 +232,11 @@ img {
   height: .4375rem;
   border-radius: 2.9125rem;
   background-color: var(--background-carousel-indicator-button-gift);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: var(--hover-persian-rose) !important;
+  }
 }
 
 :host ::ng-deep .p-carousel-indicator-active>.p-carousel-indicator-button {

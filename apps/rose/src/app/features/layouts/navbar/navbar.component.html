@@ -42,7 +42,8 @@
 
           <i class="pi pi-user cursor-pointer text-lg"></i>
           }
-          <app-translate-toggle class="hidden md:flex"/>
+          <app-translate-toggle />
+          <!-- class="hidden md:flex"  -->
           <app-button-theme />
           <div class="smallNav-toggle">
             <button (click)="showDialog('topleft')" class="toggle-menu">
@@ -65,13 +66,7 @@
       </div>
 
       <div class="flex align-items-center gap-5 ">
-        <div class="custom-selector">
-          <select [value]="currentLang" class="cursor-pointer" (change)="changeLang($event)">
-            <option value="en">English</option>
-            <option value="ar">العربيه</option>
-          </select>
-          <i class="pi pi-globe"></i>
-        </div>
+        <!-- <app-translate-toggle /> -->
 
         <p-button icon="pi pi-times" [style]="{
         'background-color':'transparent'
@@ -91,7 +86,7 @@
         </a>
       </li>
       }
-
+      
     </ul>
 
   </p-dialog>
