@@ -39,8 +39,10 @@ export class TranslationService {
 
     if (savedLang == 'en') {
       html.setAttribute('dir', 'ltr');
+      html.setAttribute('lang', 'en');
     } else if (savedLang == 'ar') {
       html.setAttribute('dir', 'rtl');
+      html.setAttribute('lang', 'ar');
     }
   }
 
