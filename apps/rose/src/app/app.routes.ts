@@ -31,7 +31,7 @@ export const appRoutes: Route[] = [
       },
       {
         path: 'about',
-        title: 'About Us',
+        title: 'About-Us',
         loadComponent: () =>
           import('./features/pages/about/about.component').then(
             (c) => c.AboutComponent
