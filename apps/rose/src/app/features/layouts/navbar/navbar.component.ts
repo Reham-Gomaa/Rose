@@ -37,7 +37,7 @@ type modalPosition = 'left' | 'right' | 'top' | 'bottom' | 'center' | 'topleft' 
 export class NavbarComponent implements OnInit {
   items: MenuItem[] | undefined;
   btnClass = "loginBtn";
-  
+
   isLoggedIn: WritableSignal<boolean> = signal<boolean>(false)
   currentLang !: string;
   visible = false;
@@ -76,7 +76,7 @@ export class NavbarComponent implements OnInit {
       },
       {
         label: 'navbar.allcategory',
-        route: "categories"
+        route: "all-categories"
       },
       {
         label: 'navbar.about',
