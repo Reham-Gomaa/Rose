@@ -42,8 +42,7 @@
 
           <i class="pi pi-user cursor-pointer text-lg"></i>
           }
-          <app-translate-toggle />
-          <!-- class="hidden md:flex"  -->
+          <app-translate-toggle class="hidden sm:flex" />
           <app-button-theme />
           <div class="smallNav-toggle">
             <button (click)="showDialog('topleft')" class="toggle-menu">
@@ -66,7 +65,7 @@
       </div>
 
       <div class="flex align-items-center gap-5 ">
-        <!-- <app-translate-toggle /> -->
+        <app-translate-toggle class="sm:hidden" />
 
         <p-button icon="pi pi-times" [style]="{
         'background-color':'transparent'
