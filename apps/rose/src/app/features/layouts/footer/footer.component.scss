@@ -103,14 +103,4 @@
 
 }
 
-// arrow icon rotation in rtl dir
-:host-context([dir="rtl"]) i {
-  transform: rotateY(180deg);
-}
-
-:host-context([dir="rtl"]) .input-button{
-  margin-right: -2rem;
-  margin-left: 0;
-}
-
 

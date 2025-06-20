@@ -31,7 +31,9 @@
         <div class="rating-container flex align-items-center">
           <p-rating [(ngModel)]="productInfo.rateAvg" [readonly]="true" [stars]="5" />
         </div>
-        <span class="price font-bold pt-2">{{ productInfo.price.toFixed(2) }} EGP</span>
+        <span class="price font-bold pt-2">
+          {{ productInfo.price.toFixed(2) }} {{ 'EGP' | translate }}
+        </span>
       </div>
       <i class="pi pi-shopping-bag btn-shopping text-white violet-bg border-circle"></i>
       }

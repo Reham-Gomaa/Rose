@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sorting',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './sorting.component.html',
   styleUrl: './sorting.component.scss'
 })

@@ -1,16 +1,17 @@
 <div class="card">
   <div class="container-card">
-    <h2 class="card-title">Search</h2>
+    <h2 class="card-title">{{"all-categories.cardSearch.Search" | translate }}</h2>
     <div class="search-input">
-      <app-input-btn [type]="'text'" [name]="'search'" [placeholder]="'Search By the name' | translate"
-        [showBtn]="false" [disableMobileStyles]="true" />
+      <app-input-btn [type]="'text'" [name]="'search'"
+        [placeholder]="'all-categories.cardSearch.Search By The Name' | translate" [showBtn]="false"
+        [disableMobileStyles]="true" />
     </div>
   </div>
 </div>
 
 <div class="card">
   <div class="container-card">
-    <h2 class="card-title">Sort By</h2>
+    <h2 class="card-title">{{"all-categories.cardSort.Sort By" | translate }}</h2>
     <span class="underline-title"> </span>
     <app-sorting />
   </div>
@@ -22,4 +23,3 @@
 <app-filter-price />
 <app-filter-sales />
 <app-filter-rating />
-  

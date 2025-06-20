@@ -43,8 +43,8 @@
   <!-- Email Input -->
   <form class="input-button-wrapper" aria-label="Newsletter subscription" itemprop="potentialAction" itemscope
     itemtype="https://schema.org/SubscribeAction">
-    <app-input-btn [(inputValue)]="emailValue" [placeholder]="('footer.placeHolder' |translate)" buttonText="Subscribe"
-      [showIcon]="true" type="email" name="email" />
+    <app-input-btn [(inputValue)]="emailValue" [placeholder]="('footer.placeHolder' |translate)"
+      [buttonText]="'footer.btn' | translate" [showIcon]="true" type="email" name="email" />
     <meta itemprop="actionStatus" content="PotentialActionStatus">
   </form>
 
