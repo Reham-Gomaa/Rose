@@ -6,10 +6,12 @@ import { FilterBrandsComponent } from "./components/filter-brands/filter-brands.
 import { FilterPriceComponent } from "./components/filter-price/filter-price.component";
 import { FilterSalesComponent } from "./components/filter-sales/filter-sales.component";
 import { FilterRatingComponent } from "./components/filter-rating/filter-rating.component";
+import { FilterCardComponent } from "./components/filter-card/filter-card.component";
+import { FilterCategoryComponent } from "./components/filter-category/filter-category.component";
 
 @Component({
   selector: 'app-filter-categories',
-  imports: [SortingComponent, InputBtnComponent, TranslatePipe, FilterBrandsComponent, FilterPriceComponent, FilterSalesComponent, FilterRatingComponent],
+  imports: [SortingComponent, InputBtnComponent, TranslatePipe, FilterBrandsComponent, FilterPriceComponent, FilterSalesComponent, FilterRatingComponent, FilterCardComponent, FilterCategoryComponent],
   templateUrl: './filter-categories.component.html',
   styleUrl: './filter-categories.component.scss'
 })
