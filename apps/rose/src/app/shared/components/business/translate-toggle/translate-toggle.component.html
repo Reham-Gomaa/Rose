@@ -1,4 +1,7 @@
-<button class="border-none cursor-pointer font-medium" (click)="changeLang()">
-  <img [src]="currentLang() === 'English' ? './images/british_flag_icon.png': './images/egypt_flag_icon.png' "
-    alt="language flag icon">
+<button class="cursor-pointer font-medium" (click)="changeLang()" type="button"
+  [attr.aria-label]="'Switch language to ' + (currentLang() === 'English' ? 'Arabic' : 'English')"
+  [attr.title]="'Change language (current: ' + currentLang() + ')'">
+  <img [src]="currentLang() === 'English' ? './images/british_flag_icon.WebP': './images/egypt_flag_icon.WebP' "
+    [alt]="currentLang() === 'English' ? 'British flag' : 'Egyptian flag'" loading="lazy">
+  <span class="sr-only">Current language: {{ currentLang() }}</span>
 </button>

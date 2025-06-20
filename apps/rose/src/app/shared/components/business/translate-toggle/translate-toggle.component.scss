@@ -2,13 +2,12 @@ button {
   width: 2.1875rem;
   height: 1.5625rem;
   border-radius: 100%;
-  color: var(--language-toggle-color);
   font-family: var(--font-family-1);
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.8rem;
   background: none;
-  transition: all 0.3s ease-in-out;
+  border: none;
 
   img {
     width: 100%;
@@ -16,10 +15,12 @@ button {
     border-radius: 100%;
     display: block;
     object-fit: cover;
+      transition: all 3s ease-in-out;
+
   }
 
-  &:hover {
-    color: var(--language-toggle-hover) !important;
+  &:hover img{
+    border: .0625rem solid var(--language-toggle-hover) !important;
   }
 
   &[dir="rtl"] {
