@@ -1,0 +1,10 @@
+@for (item of filterItems(); track item.id) {
+<div class="field-checkbox">
+    <input type="checkbox" id="filter-item-{{item.id}}" [checked]="isItemSelected(item.id)"
+        (change)="toggleItemSelection(item.id)">
+    <label id="filter-item-{{item.id}}-label" for="filter-item-{{item.id}}">
+        <span class="checkbox-custom" aria-hidden="true"></span>
+        <span class="checkbox-label">{{item.name}}</span>
+    </label>
+</div>
+}

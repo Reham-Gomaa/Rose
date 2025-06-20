@@ -1,1 +1,15 @@
-<p>filter-sales works!</p>
+<app-filter-card>
+    <span>Sales</span>
+    <section aria-labelledby="filter-heading" class="checkbox-container">
+    @for (item of sales; track item.id) {
+<div class="field-checkbox">
+    <input type="checkbox" id="sales-{{item.id}}" [checked]="isItemSelected(item.id)"
+        (change)="toggleItemSelection(item.id)">
+    <label id="sales-{{item.id}}-label" for="sales-{{item.id}}">
+        <span class="checkbox-custom" aria-hidden="true"></span>
+        <span class="checkbox-label">{{item.name}}</span>
+    </label>
+</div>
+}
+    </section>
+</app-filter-card>
