@@ -8,8 +8,6 @@
   margin: 0 auto;
 }
 
-
-
 .tab-footer-scroll {
   display: flex;
   overflow-x: auto;
@@ -70,51 +68,8 @@
   margin-bottom: 2.5rem;
 }
 
-//input
-
 .input-button-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 25rem;
-  height: 3.0625rem;
-  margin: 0 auto;
   margin-bottom: 5.7575rem;
-}
-
-.input-field {
-  flex: 1;
-  padding: 1rem;
-  border: none;
-  border-right: none;
-  border-radius: 1.875rem;
-  font-family: var(--font-family-1);
-  font-weight: 600;
-  font-size: .875rem;
-  line-height: 100%;
-  outline: none;
-  background-color: var(--bg-input-footer);
-  color: var(--color-input-footer);
-
-  &:focus {
-    outline: 1px solid var(--focus-input-footer);
-  }
-}
-
-.input-button {
-  padding: 0.9rem 2rem;
-  background-color: var(--bg-btn-footer);
-  color: var(--color-btn-footer);
-  border: none;
-  border-radius: 1.875rem;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-  margin-left: -2rem;
-
-  &:hover {
-    background-color: var(--hover-btn-footer);
-  }
 }
 
 @media screen and (min-width: 300px) and (max-width: 766px) {
@@ -142,30 +97,8 @@
     line-height: 100%;
     margin-bottom: 1rem;
   }
-
-
   .input-button-wrapper {
-    width: 17rem;
-    height: 3rem;
-    margin: 0 auto;
-    margin-bottom: 1.125rem;
-
-  }
-
-  .input-field {
-    padding: 0.8rem 0.5rem;
-    border-radius: 0.625rem 0 0 0.625rem;
-    font-size: .75rem;
-    gap: 0.5rem;
-  }
-
-  .input-button {
-    padding: 0.5rem;
-    border-radius: 0.625rem;
-    font-weight: 500;
-    line-height: 1.8rem;
-
-    transition: background-color 0.3s ease;
+    margin: 0 auto 1.125rem !important;
   }
 
 }

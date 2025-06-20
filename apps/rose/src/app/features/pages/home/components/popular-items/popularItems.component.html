@@ -1,16 +1,14 @@
 <section aria-labelledby="popular-items-heading" itemscope itemtype="https://schema.org/ItemList">
-  <!-- Title and Tabs Section -->
   <div class="popular-items-header flex justify-content-between white-space-nowrap align-items-center gap-3 mt-8">
-    <!-- Title -->
     <div class="p-relative d-inline-block popular-items-title-wrapper">
-      <h2 id="popular-items-heading" class="popular-items-title" itemprop="name">{{ "home.popularItems.title" |translate
-        }}</h2>
+      <h2 id="popular-items-heading" class="popular-items-title" itemprop="name">
+        {{ "home.popularItems.title" | translate }}
+      </h2>
       <div class="popular-items-bg-shape" aria-hidden="true"></div>
       <div class="popular-items-underline-bar" aria-hidden="true"></div>
       <meta itemprop="description" content="Browse our most popular products and items">
     </div>
 
-    <!-- Tabs - Scrollable on mobile -->
     <nav class="w-full lg:w-auto overflow-x-auto pb-2 categories-scroll-container" aria-label="Product categories">
       <div class="flex align-items-center gap-3" style="min-width: fit-content" role="tablist">
         @if (loading()) {
@@ -36,42 +34,19 @@
     </nav>
   </div>
 
-  <!-- Cards Grid -->
   <div class="grid mt-5" [attr.aria-labelledby]="'category-' + selectedCategory()" role="region" aria-live="polite"
     itemprop="mainEntity" itemscope itemtype="https://schema.org/ItemList">
-    @if (showSkeleton()) {
-    <!-- Skeleton Loading State -->
-    @for (item of skeletonItems(); track $index) {
-    <div class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-2">
-      <div class="product-card group w-full max-w-[18.87rem] sm:w-[18.87rem] mx-auto">
-        <div class="image-wrapper">
-          <p-skeleton width="100%" height="200px"></p-skeleton>
-        </div>
-        <div class="flex flex-column p-3 mt-3 flex-grow">
-          <p-skeleton width="100%" height="1.5rem" class="mb-2"></p-skeleton>
-          <div class="flex align-items-center justify-content-between pt-2">
-            <div class="flex flex-column">
-              <p-skeleton width="6rem" height="1.5rem" class="mb-2"></p-skeleton>
-              <p-skeleton width="4rem" height="1.25rem"></p-skeleton>
-            </div>
-            <p-skeleton shape="circle" size="2.5rem"></p-skeleton>
-          </div>
-        </div>
-      </div>
-    </div>
-    }
-    } @else {
-    <!-- Content Loaded State -->
     @for (productInfo of filteredCards; track productInfo.id) {
     <div class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-2" itemprop="itemListElement" itemscope
       itemtype="https://schema.org/Product">
-      <app-card-item [productInfo]="productInfo" />
+      <app-card-item [productInfo]="productInfo" [loading]="loading()" />
     </div>
     } @empty {
     <div class="col-12 text-center py-5 no-item">
-      <p role="status" aria-live="polite" class="no-results-message">{{ "home.categories.empty" |translate}}</p>
+      <p role="status" aria-live="polite" class="no-results-message">
+        {{ "home.categories.empty" | translate }}
+      </p>
     </div>
-    }
     }
   </div>
 </section>

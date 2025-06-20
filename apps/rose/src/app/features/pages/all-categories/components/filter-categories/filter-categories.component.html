@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="container-card">
+    <h2 class="card-title">Search</h2>
+    <div class="search-input">
+      <app-input-btn [type]="'text'" [name]="'search'" [placeholder]="'Search By the name' | translate"
+        [showBtn]="false" [disableMobileStyles]="true" />
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="container-card">
+    <h2 class="card-title">Sort By</h2>
+    <span class="underline-title"> </span>
+    <app-sorting />
+  </div>
+</div>
+
+
+<app-filter-categories />
+<app-filter-brands />
+<app-filter-price />
+<app-filter-sales />
+<app-filter-rating />
+  

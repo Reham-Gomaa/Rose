@@ -140,6 +140,14 @@
   --Search-color:var(--dark-blue);
   --Search-hover:var(--hover-persian-rose);
 
+//Card Filters
+  --bg-card-filter:var(--white);
+  --color-title-card-filter:var(--dark-blue);
+  --color-card-filter:var(--slate-gray);
+  --checked-filter:var(--persian-rose);
+  --check-border-filter:var(--slate-gray);
+    --check-icon-border-filter:var(--white);
+
 // Scrollbar
   --scrollbar-width: .625rem;
   --scrollbar-height: .625rem;
@@ -289,6 +297,14 @@
   --Search-bg:var(--soft-pink-200);
   --Search-color:var(--zinc-800);
   --Search-hover:var(--soft-pink-300);
+
+//Card Filters
+  --bg-card-filter:var(--zinc-700);
+  --color-title-card-filter:var(--soft-pink-200);
+  --color-card-filter:var(--zinc-50);
+  --checked-filter:var(--soft-pink-200);
+  --check-border-filter:var(--zinc-50);
+  --check-icon-border-filter:var(--zinc-800);
 
   // Scrollbar
   --scrollbar-track-color: var(--zinc-800);

@@ -1,0 +1,23 @@
+/* all-categories.component.scss */
+.all-categories-container {
+  padding: 5rem 0rem;
+
+  .filter-sidebar {
+    padding: 1rem;
+    border-radius: 4px;
+
+    .filter-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+  }
+
+
+  /* Responsive adjustments */
+  @media screen and (max-width: 992px) {
+    .filter-sidebar {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+}
