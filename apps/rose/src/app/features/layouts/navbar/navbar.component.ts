@@ -13,6 +13,7 @@ import { Dialog } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { Menubar } from 'primeng/menubar';
 import { OverlayBadgeModule } from 'primeng/overlaybadge';
+import { TranslateToggleComponent } from "../../../shared/components/business/translate-toggle/translate-toggle.component";
 
 import { ButtonThemeComponent } from '../../../shared/components/ui/button-theme/button-theme.component';
 import { SearchModalComponent } from "../../../shared/components/ui/search-modal/search-modal.component";
@@ -30,7 +31,8 @@ type modalPosition = 'left' | 'right' | 'top' | 'bottom' | 'center' | 'topleft' 
     TranslatePipe,
     ButtonThemeComponent,
     Dialog,
-    InputTextModule, SearchModalComponent, ButtonComponent],
+    InputTextModule, SearchModalComponent, ButtonComponent,
+    TranslateToggleComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
@@ -56,11 +58,6 @@ export class NavbarComponent implements OnInit {
     if (event.key === 'Enter' || event.key === ' ') {
       this.visible = false;
     }
-  }
-  changeLang(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    const lang = selectElement.value;
-    this.translationService.changeLang(lang);
   }
 
   openSearch() {
@@ -88,6 +85,5 @@ export class NavbarComponent implements OnInit {
       },
     ];
 
-    this.currentLang = this.translationService.getCurrentLang()
   }
 }

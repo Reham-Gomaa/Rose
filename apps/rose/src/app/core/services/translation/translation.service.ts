@@ -1,6 +1,6 @@
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -8,8 +8,10 @@ import { isPlatformBrowser } from '@angular/common';
 export class TranslationService {
   private readonly translateService = inject(TranslateService);
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly document = inject(DOCUMENT);
 
   defaultLang = 'en';
+  private readonly cookieName = 'lng';
 
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
@@ -25,22 +27,27 @@ export class TranslationService {
 
   changeLang(lang: string) {
     this.translateService.use(lang);
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem('lng', lang);
+      if (isPlatformBrowser(this.platformId)) {
+      localStorage.setItem('lng' , lang);
       this.changeDir();
-    }
+  }
   }
 
-  changeDir(){
+  changeDir() {
     const savedLang = localStorage.getItem('lng');
-    if(savedLang == 'en'){
-      document.body.dir = 'ltr'
-    }else if(savedLang == 'ar'){
-      document.body.dir = 'rtl'
+    const html = this.document.documentElement;
+
+    if (savedLang == 'en') {
+      html.setAttribute('dir', 'ltr');
+      html.setAttribute('lang', 'en');
+    } else if (savedLang == 'ar') {
+      html.setAttribute('dir', 'rtl');
+      html.setAttribute('lang', 'ar');
     }
   }
 
-   getCurrentLang(): string {
+  getCurrentLang(): string {
     return this.translateService.currentLang;
   }
+
 }
