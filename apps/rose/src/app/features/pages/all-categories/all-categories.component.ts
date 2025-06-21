@@ -5,14 +5,19 @@ import { CardItemComponent } from "../../../shared/components/ui/card-item/card-
 import { FilterCategoriesComponent } from "./components/filter-categories/filter-categories.component";
 import { TranslatePipe } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
+import { ButtonModule } from 'primeng/button';
+import { DrawerModule } from 'primeng/drawer';
 
 @Component({
   selector: 'app-all-categories',
-  imports: [CardItemComponent, TranslatePipe, FilterCategoriesComponent],
+  imports: [CardItemComponent, TranslatePipe, FilterCategoriesComponent, ButtonModule, DrawerModule],
   templateUrl: './all-categories.component.html',
   styleUrl: './all-categories.component.scss',
 })
 export class AllCategoriesComponent implements OnInit, OnDestroy {
+
+  filterDrawerVisible = false;
+
   private readonly _productsService = inject(ProductsService);
 
   products = signal<Product[]>([]);
