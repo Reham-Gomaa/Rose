@@ -160,10 +160,6 @@ img {
   bottom: .5938rem;
   border-radius: 100%;
 
-  .p-icon{
-  color: var(--carousel-i-gift-color);
-  }
-
   @media all and (min-width: 48rem) {
     bottom: 1.5rem;
   }
@@ -173,21 +169,20 @@ img {
     height: 2.5625rem;
   }
 
-  :host ::ng-deep .carousel-next-icon,
-  :host ::ng-deep .carousel-prev-icon {
-    width: .4094rem;
-    height: .6544rem;
+  :host ::ng-deep .p-ripple {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.1181rem;
+    height: 1.1181rem;
 
     @media all and (min-width: 62rem) {
       width: .9375rem;
       height: 1.5rem;
     }
   }
-
-  :host ::ng-deep .p-ripple {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .p-icon {
+    color: var(--carousel-i-gift-color);
     width: .4094rem;
     height: .6544rem;
 
@@ -237,6 +232,11 @@ img {
   height: .4375rem;
   border-radius: 2.9125rem;
   background-color: var(--background-carousel-indicator-button-gift);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: var(--hover-persian-rose) !important;
+  }
 }
 
 :host ::ng-deep .p-carousel-indicator-active>.p-carousel-indicator-button {
