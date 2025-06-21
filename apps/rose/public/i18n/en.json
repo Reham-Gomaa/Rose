@@ -165,6 +165,7 @@
             "In Stock": "In Stock",
             "Out Of Stock": "Out Of Stock",
             "Discount": "Discount"
-        }
+        },
+        "Clear Filters":"Clear Filters"
     }
 }
