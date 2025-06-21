@@ -1,15 +1,9 @@
 <app-filter-card>
     <span>Category</span>
     <section class="checkbox-container">
-        @for (category of categories; track category._id) {
-        <div class="field-checkbox">
-            <input type="checkbox" id="category-{{category.category}}" [checked]="isItemSelected(category._id)"
-                (change)="toggleItemSelection(category._id)">
-            <label id="category-{{category.category}}-label" for="category-{{category.category}}">
-                <span class="checkbox-custom" aria-hidden="true"></span>
-                <span class="checkbox-label">{{category.category}}</span>
-            </label>
-        </div>
-        }
+        <app-checked-card 
+        [filterItems]="categories" 
+        [selectedItems]="selectedItems" >
+        </app-checked-card>
     </section>
 </app-filter-card>

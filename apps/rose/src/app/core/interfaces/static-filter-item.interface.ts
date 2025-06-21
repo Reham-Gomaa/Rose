@@ -1,4 +1,4 @@
 export interface staticFilterItem {
-  id: number
-  name: string
+  _id: string
+  category: string
 }

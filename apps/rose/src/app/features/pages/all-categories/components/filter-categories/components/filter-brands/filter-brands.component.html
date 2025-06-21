@@ -1,15 +1,9 @@
 <app-filter-card>
     <span>Brands</span>
     <section aria-labelledby="filter-heading" class="checkbox-container">
-    @for (brand of brands; track brand.id) {
-<div class="field-checkbox">
-    <input type="checkbox" id="brands-{{brand.id}}" [checked]="isItemSelected(brand.id)"
-        (change)="toggleItemSelection(brand.id)">
-    <label id="brands-{{brand.id}}-label" for="brands-{{brand.id}}">
-        <span class="checkbox-custom" aria-hidden="true"></span>
-        <span class="checkbox-label">{{brand.name}}</span>
-    </label>
-</div>
-}
+        <app-checked-card 
+        [filterItems]="brands" 
+        [selectedItems]="selectedItems" >
+        </app-checked-card>
     </section>
 </app-filter-card>

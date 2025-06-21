@@ -1,10 +1,11 @@
-@for (item of filterItems(); track item.id) {
+@for (item of filterItems(); track item._id) {
 <div class="field-checkbox">
-    <input type="checkbox" id="filter-item-{{item.id}}" [checked]="isItemSelected(item.id)"
-        (change)="toggleItemSelection(item.id)">
-    <label id="filter-item-{{item.id}}-label" for="filter-item-{{item.id}}">
+    <input type="checkbox" id="{{item._id}} - {{item.category}}" [checked]="isItemSelected(item._id)"
+        (change)="toggleItemSelection(item._id)">
+    <label id="filter-item-{{item._id}}-label" for="{{item._id}} - {{item.category}}">
         <span class="checkbox-custom" aria-hidden="true"></span>
-        <span class="checkbox-label">{{item.name}}</span>
+        <span class="checkbox-label">{{item.category}}</span>
     </label>
 </div>
 }
+

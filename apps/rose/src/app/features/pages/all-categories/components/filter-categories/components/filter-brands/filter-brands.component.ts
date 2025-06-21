@@ -1,33 +1,23 @@
-import { Component, input, InputSignal } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { CheckedCardComponent } from "../checkbox/checked-card.component";
 import { FilterCardComponent } from "../filter-card/filter-card.component";
 import { staticFilterItem } from './../../../../../../../core/interfaces/static-filter-item.interface';
 
 @Component({
   selector: 'app-filter-brands',
-  imports: [FilterCardComponent],
+  imports: [FilterCardComponent, CheckedCardComponent],
   templateUrl: './filter-brands.component.html',
   styleUrl: './filter-brands.component.scss'
 })
 export class FilterBrandsComponent {
+
   brands: staticFilterItem[] = [
-    { id: 1, name: 'Wedding' },
-    { id: 2, name: 'Apology' },
-    { id: 3, name: 'Graduation' },
-    { id: 4, name: 'Anniversary' }
+    { _id: '1-brand', category: 'Wedding' },
+    { _id: '2-brand', category: 'Apology' },
+    { _id: '3-brand', category: 'Graduation' },
+    { _id: '4-brand', category: 'Anniversary' }
   ];
-  selectedItems: InputSignal<number[]> = input([0]);
 
-  isItemSelected(itemId: number): boolean {
-    return this.selectedItems().includes(itemId);
-  }
+  selectedItems :string[] = [];
 
-   toggleItemSelection(itemId: number): void {
-    const current = [...this.selectedItems()];
-    const index = current.indexOf(itemId);
-    if (index === -1) {
-      this.selectedItems().push(itemId);
-    } else {
-      this.selectedItems().splice(index, 1);
-    }
-  }
 }
