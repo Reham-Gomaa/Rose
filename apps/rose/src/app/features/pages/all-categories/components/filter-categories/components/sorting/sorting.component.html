@@ -1,34 +1,12 @@
-<section aria-labelledby="filter-heading" class="checkbox-container">
-
-  <div class="field-checkbox">
-    <input type="checkbox" id="sort-low-high" name="sort-price" aria-labelledby="sort-low-high-label">
-    <label id="sort-low-high-label" for="sort-low-high">
-      <span class="checkbox-custom" aria-hidden="true"></span>
-      <span class="checkbox-label">{{"all-categories.cardSort.Price: Low to High" | translate}}</span>
+<section aria-labelledby="filter-heading" class="radio-container">
+  @for(option of sortOptions; track option.id) {
+  <div class="field-radio">
+    <input type="radio" [id]="option.id" name="sort-option" [value]="option.value" [checked]="option.checked"
+      [attr.aria-labelledby]="option.id + '-label'">
+    <label [attr.id]="option.id + '-label'" [for]="option.id">
+      <span class="radio-custom" aria-hidden="true"></span>
+      <span class="radio-label">{{ option.label | translate }}</span>
     </label>
   </div>
-
-  <div class="field-checkbox">
-    <input type="checkbox" id="sort-high-low" name="sort-price" aria-labelledby="sort-high-low-label">
-    <label id="sort-high-low-label" for="sort-high-low">
-      <span class="checkbox-custom" aria-hidden="true"></span>
-      <span class="checkbox-label">{{"all-categories.cardSort.Price: High to Low" | translate}}</span>
-    </label>
-  </div>
-
-  <div class="field-checkbox">
-    <input type="checkbox" id="sort-a-z" name="sort-alpha" aria-labelledby="sort-a-z-label">
-    <label id="sort-a-z-label" for="sort-a-z">
-      <span class="checkbox-custom" aria-hidden="true"></span>
-      <span class="checkbox-label">{{"all-categories.cardSort.Alphabetical: A-Z" | translate}}</span>
-    </label>
-  </div>
-
-  <div class="field-checkbox">
-    <input type="checkbox" id="sort-z-a" name="sort-alpha" aria-labelledby="sort-z-a-label">
-    <label id="sort-z-a-label" for="sort-z-a">
-      <span class="checkbox-custom" aria-hidden="true"></span>
-      <span class="checkbox-label">{{"all-categories.cardSort.Alphabetical: Z-A" | translate }}</span>
-    </label>
-  </div>
+  }
 </section>
