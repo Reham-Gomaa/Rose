@@ -1,4 +1,4 @@
-export interface staticFilterItem {
+export interface occasionFilterItem {
   _id: string
   category: string
 }
