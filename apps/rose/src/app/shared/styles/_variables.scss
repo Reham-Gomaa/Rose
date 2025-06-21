@@ -146,7 +146,11 @@
   --color-card-filter:var(--slate-gray);
   --checked-filter:var(--persian-rose);
   --check-border-filter:var(--slate-gray);
-    --check-icon-border-filter:var(--white);
+  --check-icon-border-filter:var(--white);
+
+//Btn-Clear-Filters
+  --btn-clear-filters-color:var(--persian-rose);
+  --btn-clear-filters-hover:var(--hover-persian-rose);
 
 // Scrollbar
   --scrollbar-width: .625rem;
@@ -305,6 +309,10 @@
   --checked-filter:var(--soft-pink-200);
   --check-border-filter:var(--zinc-50);
   --check-icon-border-filter:var(--zinc-800);
+
+//Btn-Clear-Filters
+  --btn-clear-filters-color:var(--zinc-100);
+  --btn-clear-filters-hover:var(--soft-pink-200);
 
   // Scrollbar
   --scrollbar-track-color: var(--zinc-800);

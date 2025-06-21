@@ -7,7 +7,20 @@
   </section>
 </app-filter-card>
 
-<app-sorting />
+<div class="flex justify-content-end">
+  <button class="btn-clear-filters">
+    <i class="pi pi-filter-slash"></i> Clear Filters</button>
+</div>
+
+<div class="card">
+  <div class="container-card">
+    <h2 class="card-title">{{"all-categories.cardSort.Sort By" | translate }}</h2>
+    <span class="underline-title"> </span>
+    <app-sorting />
+  </div>
+</div>
+
+
 <app-filter-category />
 <app-filter-brands />
 <app-filter-price />
