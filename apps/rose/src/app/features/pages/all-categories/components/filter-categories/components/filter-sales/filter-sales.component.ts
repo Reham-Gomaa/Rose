@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CheckedCardComponent } from "../../../../../../../shared/components/business/checkbox/checked-card.component";
 import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
-import { occasionFilterItem } from './../../../../../../../core/interfaces/static-filter-item.interface';
+import { staticFilterItem } from './../../../../../../../core/interfaces/static-filter-item.interface';
 
 @Component({
   selector: 'app-filter-sales',
@@ -10,7 +10,7 @@ import { occasionFilterItem } from './../../../../../../../core/interfaces/stati
   styleUrl: './filter-sales.component.scss'
 })
 export class FilterSalesComponent {
-  sales: occasionFilterItem[] = [
+  sales: staticFilterItem[] = [
     { _id: '1-sales', category: 'On Sale' },
     { _id: '2-sales', category: 'In Stock' },
     { _id: '3-sales', category: 'Out Of Stock' },
