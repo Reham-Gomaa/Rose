@@ -42,3 +42,20 @@
       margin: 0 auto;
       margin-bottom: 1.5rem;
     }
+
+
+    .btn-clear-filters{
+      background: none;
+      color: var(--btn-clear-filters-color);
+      border: none;
+      font-family: var(--font-family-1);
+      font-weight: 700;
+      font-size: .875rem;
+      line-height: 100%;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+      &:hover{
+        color: var(--btn-clear-filters-hover);
+      }
+    }

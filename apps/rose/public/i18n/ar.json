@@ -154,8 +154,8 @@
       "Sort By": "ترتيب حسب",
       "Price: Low to High": "السعر: من الأقل إلى الأعلى",
       "Price: High to Low": "السعر: من الأعلى إلى الأقل",
-      "Alphabetical: A-Z": "أبجديًا: من الألف إلى الياء",
-      "Alphabetical: Z-A": "أبجديًا: من الياء إلى الألف"
+      "Alphabetical: A-Z": "أبجديًا: من A إلى Z",
+      "Alphabetical: Z-A": "أبجديًا: من Z إلى A"
     }
   }
 }
