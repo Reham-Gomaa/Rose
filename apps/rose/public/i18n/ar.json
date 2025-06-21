@@ -1,4 +1,5 @@
 {
+    "EGP": "ج.م",
     "navbar": {
         "home": "الرئيسية",
         "allcategory": "جميع الفئات",
@@ -143,5 +144,18 @@
         "paragraph": "عند الاشتراك في نشرتنا الإخبارية",
         "placeHolder": "أدخل بريدك الإلكتروني",
         "btn": "اشترك"
+    },
+      "all-categories": {
+    "cardSearch": {
+      "Search": "بحث",
+      "Search By The Name": "ابحث بالاسم"
+    },
+    "cardSort": {
+      "Sort By": "ترتيب حسب",
+      "Price: Low to High": "السعر: من الأقل إلى الأعلى",
+      "Price: High to Low": "السعر: من الأعلى إلى الأقل",
+      "Alphabetical: A-Z": "أبجديًا: من A إلى Z",
+      "Alphabetical: Z-A": "أبجديًا: من Z إلى A"
     }
+  }
 }

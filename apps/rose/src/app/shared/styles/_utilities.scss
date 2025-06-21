@@ -1,9 +1,26 @@
 @use "./variables";
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+  inset: 0;
+}
+
+.contain {
+  width: 90%;
+}
+
 html,
 body {
   background: var(--body-color);
   color: var(--text-color);
+  padding: 5rem;
 }
 
 // Scrollbar styles (works for both themes)
@@ -24,21 +41,4 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--scrollbar-thumb-hover-color);
-}
-
-// Utilities
-.contain {
-  width: 90%;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-  inset: 0;
 }
