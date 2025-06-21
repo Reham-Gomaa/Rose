@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="container-card">
+    <h2 class="card-title">
+      <ng-content select="span" />
+    </h2>
+    @if (underlineTitle) {
+    <span class="underline-title"></span>
+    }
+    <ng-content select="section" />
+  </div>
+</div>

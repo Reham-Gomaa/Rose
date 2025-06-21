@@ -1,11 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { CheckedCardComponent } from "../../../../../../../shared/components/business/checkbox/checked-card.component";
+import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
+import { ProductsService } from '../../../../../../../shared/services/products/products.service';
+import { CategoryProductCount } from '../../../../../../../core/interfaces/count-by-product.interface';
 
 @Component({
   selector: 'app-filter-category',
-  imports: [],
+  imports: [FilterCardComponent, CheckedCardComponent],
   templateUrl: './filter-category.component.html',
   styleUrl: './filter-category.component.scss'
 })
-export class FilterCategoryComponent {
+export class FilterCategoryComponent implements OnInit, OnDestroy {
+  private readonly _productsService = inject(ProductsService);
+
+  categories !: CategoryProductCount[];
+  categoriesID !: Subscription;
+
+  ngOnInit(): void {
+    this.categoriesID = this._productsService.getcategoryProductCount().subscribe({
+      next: (res) => {
+        this.categories = res.categoryProductCount;
+        console.log(this.categories)
+      }
+    })
+  }
+
+  selectedItems: string[] = [];
+  ngOnDestroy(): void {
+    this.categoriesID?.unsubscribe();
+  }
 
 }
+

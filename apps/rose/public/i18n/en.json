@@ -155,6 +155,16 @@
             "Price: High to Low": "Price: High to Low",
             "Alphabetical: A-Z": "Alphabetical: A-Z",
             "Alphabetical: Z-A": "Alphabetical: Z-A"
+        },"filterBrands":{
+            "brands": "Brands"
+    },"filterCategories":{
+            "categories": "Categories"
+        }
+        ,"filterSales":{
+            "On Sale": "On Sale",
+            "In Stock": "In Stock",
+            "Out Of Stock": "Out Of Stock",
+            "Discount": "Discount"
         }
     }
 }
