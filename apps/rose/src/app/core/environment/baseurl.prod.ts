@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseApiUrl: 'https://flower.elevateegy.com/api/v1',
+  baseApiUrl: 'https://flower.elevateegy.com/',
 };

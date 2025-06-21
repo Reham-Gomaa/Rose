@@ -1,6 +1,6 @@
-import { Component, signal } from '@angular/core';
-import { CheckedCardComponent } from "../checkbox/checked-card.component";
-import { FilterCardComponent } from "../filter-card/filter-card.component";
+import { Component } from '@angular/core';
+import { CheckedCardComponent } from "../../../../../../../shared/components/business/checkbox/checked-card.component";
+import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
 import { staticFilterItem } from './../../../../../../../core/interfaces/static-filter-item.interface';
 
 @Component({
@@ -18,6 +18,6 @@ export class FilterBrandsComponent {
     { _id: '4-brand', category: 'Anniversary' }
   ];
 
-  selectedItems :string[] = [];
+  selectedItems: string[] = [];
 
 }

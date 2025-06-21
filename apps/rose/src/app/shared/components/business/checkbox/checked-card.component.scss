@@ -1,3 +1,4 @@
+useing space-between
 .checkbox-container {
   margin: 0;
   padding: 0;
@@ -30,12 +31,20 @@
 /* Label styling - LTR default */
 .field-checkbox label {
   position: relative;
-  padding-left: 1.6rem; /* Space for checkbox */
+  padding-left: 1.6rem;
   margin: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   min-height: 0.9375rem;
+}
+
+.checkbox-label-content {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .checkbox-label {
@@ -44,6 +53,7 @@
   font-size: 0.875rem;
   color: var(--color-card-filter);
   line-height: 1.3;
+  width: 100%;
 }
 
 /* Checkbox box - LTR position */
