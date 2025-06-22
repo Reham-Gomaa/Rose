@@ -1,5 +1,7 @@
 
 import { Component, input, InputSignal } from '@angular/core';
+import { FilterItem } from '../../../../core/interfaces/filter-item.interface';
+
 
 @Component({
   selector: 'app-checked-card',
@@ -9,7 +11,7 @@ import { Component, input, InputSignal } from '@angular/core';
 })
 
 export class CheckedCardComponent {
-  filterItems: InputSignal<any> = input([]);
+  filterItems: InputSignal<FilterItem[]> = input<FilterItem[]>([]);
   selectedItems: InputSignal<string[]> = input(['']);
 
   isItemSelected(itemId: string): boolean {
