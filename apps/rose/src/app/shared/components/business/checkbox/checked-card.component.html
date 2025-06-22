@@ -1,5 +1,6 @@
 @for (item of filterItems(); track item._id) {
-<div class="field-checkbox">
+@if (item.category) {
+  <div class="field-checkbox">
   <input type="checkbox" [id]="'category-' + item._id" [checked]="isItemSelected(item._id)"
     (change)="toggleItemSelection(item._id)">
   <label [id]="'filter-item-' + item._id + '-label'" [for]="'category-' + item._id">
@@ -12,4 +13,5 @@
     </div>
   </label>
 </div>
+}
 }
