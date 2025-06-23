@@ -15,12 +15,11 @@ button {
     border-radius: 100%;
     display: block;
     object-fit: cover;
-      transition: all 3s ease-in-out;
-
+    transition: all 3s ease-in-out;
   }
 
-  &:hover img{
-    border: .0625rem solid var(--language-toggle-hover) !important;
+  &:hover img {
+    border: 0.0625rem solid var(--language-toggle-hover) !important;
   }
 
   &[dir="rtl"] {

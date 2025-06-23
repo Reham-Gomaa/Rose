@@ -1,11 +1,20 @@
 <app-filter-card [underlineTitle]="false">
-  <span>{{"all-categories.cardSearch.Search" | translate }}</span>
+  <span>{{ "all-categories.cardSearch.Search" | translate }}</span>
   <section class="search-input">
-    <app-input-btn [type]="'text'" [name]="'search'"
-      [placeholder]="'all-categories.cardSearch.Search By The Name' | translate" [showBtn]="false"
-      [disableMobileStyles]="true" appEnglishOnly />
+    <app-input-btn
+      [type]="'text'"
+      [name]="'search'"
+      [placeholder]="'all-categories.cardSearch.Search By The Name' | translate"
+      [showBtn]="false"
+      [disableMobileStyles]="true"
+      appEnglishOnly
+    />
   </section>
 </app-filter-card>
+
+<div class=" justify-content-end hidden lg:flex">
+  <button class="btn-clear-filters"><i class="pi pi-filter-slash"></i> Clear Filters</button>
+</div>
 
 <app-sorting />
 <app-filter-category />

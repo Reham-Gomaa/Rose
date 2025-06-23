@@ -18,7 +18,6 @@
   color: var(--secondary-title) !important;
 }
 
-
 .product-carousel {
   position: relative;
 }
@@ -33,15 +32,15 @@
   display: none !important;
 }
 
-:host ::ng-deep .p-ripple.p-button.p-component.custom-best-next{
+:host ::ng-deep .p-ripple.p-button.p-component.custom-best-next {
   position: absolute;
   top: 25%;
   background-color: var(--btn-carousel-background);
   border-radius: 100%;
   z-index: 5;
   transition: all 1s ease !important;
-  &:hover{
-      background-color: var(--btn-carousel-background-hover);
+  &:hover {
+    background-color: var(--btn-carousel-background-hover);
   }
 }
 :host ::ng-deep .p-ripple.p-button.p-component.custom-best-prev {
@@ -51,8 +50,8 @@
   border-radius: 100%;
   z-index: 5;
   transition: all 1s ease !important;
-  &:hover{
-      background-color: var(--btn-carousel-background-hover);
+  &:hover {
+    background-color: var(--btn-carousel-background-hover);
   }
 }
 
@@ -74,11 +73,6 @@
 
 // RTL direction styling
 
-:host-context([dir="rtl"]) .header{
+:host-context([dir="rtl"]) .header {
   text-align: right !important;
 }
-
-
-
-
-

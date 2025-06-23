@@ -20,7 +20,11 @@
     width: 3.75rem;
     height: 3.75rem;
     border-radius: 100%;
-    background: linear-gradient(to top right, var(--background-testimonials-img) 0% 50%, var(--white) 50%);
+    background: linear-gradient(
+      to top right,
+      var(--background-testimonials-img) 0% 50%,
+      var(--white) 50%
+    );
     margin-right: 1rem;
     display: flex;
     align-items: center;
@@ -39,7 +43,8 @@
     border-bottom: 0.5px solid var(--p-main);
   }
 
-  h2, h3 {
+  h2,
+  h3 {
     font-family: var(--font-family-1);
     font-weight: 700;
     font-size: 1.0625rem;
@@ -67,8 +72,8 @@
       width: 4.7869rem;
       height: 3.8894rem;
     }
-    i{
-      font-size: .9273rem;
+    i {
+      font-size: 0.9273rem;
       color: var(--color-testimonials-rating);
     }
   }
@@ -94,26 +99,26 @@
 :host ::ng-deep .custom-carousel .p-carousel-indicator-active .p-carousel-indicator-button {
   width: 2.25rem;
   height: 1rem;
-  border-radius: .625rem;
+  border-radius: 0.625rem;
 }
 
 // next and previous buttons
 :host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next,
 :host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
   display: none;
-  background-color: var( --btn-carousel-background);
+  background-color: var(--btn-carousel-background);
   border-radius: 100%;
   z-index: 5;
   transition: all 1s ease !important;
-  &:hover{
+  &:hover {
     background-color: var(--btn-carousel-background-hover) !important;
   }
 
   .p-icon {
-    color: var( --btn-carousel-color) !important;
+    color: var(--btn-carousel-color) !important;
   }
 
-  @media all and (min-width: 75rem){
+  @media all and (min-width: 75rem) {
     display: block;
     position: absolute;
     top: 50%;
@@ -122,13 +127,13 @@
 }
 
 :host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
-  @media all and (min-width: 75rem){
+  @media all and (min-width: 75rem) {
     right: 0;
   }
 }
 
 :host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
-   @media all and (min-width: 75rem){
+  @media all and (min-width: 75rem) {
     left: 0;
   }
 }

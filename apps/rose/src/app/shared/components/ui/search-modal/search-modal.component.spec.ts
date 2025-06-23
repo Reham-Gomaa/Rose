@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SearchModalComponent } from './search-modal.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { SearchModalComponent } from "./search-modal.component";
 
-describe('SearchModalComponent', () => {
+describe("SearchModalComponent", () => {
   let component: SearchModalComponent;
   let fixture: ComponentFixture<SearchModalComponent>;
 
@@ -15,7 +15,7 @@ describe('SearchModalComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

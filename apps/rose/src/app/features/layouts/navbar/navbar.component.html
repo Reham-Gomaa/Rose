@@ -2,13 +2,25 @@
   <div class="card">
     <p-menubar [model]="items">
       <ng-template #start>
-        <img [routerLink]="'/'" src="/images/navbar/Rose.WebP" width="86" height="86" alt="Rose logo" rel="preload"
-          decoding="async" class="logo-img">
+        <img
+          [routerLink]="'/'"
+          src="/images/navbar/Rose.WebP"
+          width="86"
+          height="86"
+          alt="Rose logo"
+          rel="preload"
+          decoding="async"
+          class="logo-img"
+        />
       </ng-template>
       <ng-template #item let-item let-root="root">
-        <a [routerLink]="item.route" routerLinkActive="active" pRipple
-          class="flex items-center p-menubar-item-link nav-items">
-          <span>{{ item.label |translate }}</span>
+        <a
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          pRipple
+          class="flex items-center p-menubar-item-link nav-items"
+        >
+          <span>{{ item.label | translate }}</span>
         </a>
       </ng-template>
       <ng-template #end>
@@ -21,24 +33,37 @@
 
           @if (!isLoggedIn()) {
 
-          <app-button [text]="'navbar.login' |translate" [isIcon]="false" [borderRadius]="'btn-login-radius'"
-            [padding]="'btn-login-padding'" aria-label="Signup" />
+          <app-button
+            [text]="'navbar.login' | translate"
+            [isIcon]="false"
+            [borderRadius]="'btn-login-radius'"
+            [padding]="'btn-login-padding'"
+            aria-label="Signup"
+          />
 
 
           }@else {
 
-          <p-overlaybadge value="2" [badgeSize]="'small'" [style]="{
+          <p-overlaybadge
+            value="2"
+            [badgeSize]="'small'"
+            [style]="{
               'background-color': 'var(--overlaybadge-bg)',
               'outline':'none',
               'top': '-10px',
-            }">
+            }"
+          >
             <i class="pi pi-heart cursor-pointer text-md"></i>
           </p-overlaybadge>
-          <p-overlaybadge value="4" [badgeSize]="'small'" [style]="{
+          <p-overlaybadge
+            value="4"
+            [badgeSize]="'small'"
+            [style]="{
               'background-color': 'var(--overlaybadge-bg)',
               'outline':'none',
               'top': '-10px',
-            }">
+            }"
+          >
             <i class="pi pi-shopping-bag cursor-pointer text-md"></i>
           </p-overlaybadge>
 
@@ -51,7 +76,6 @@
               <i class="pi pi-align-right"></i>
             </button>
           </div>
-
         </div>
       </ng-template>
     </p-menubar>
@@ -62,34 +86,40 @@
   <p-dialog [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '25rem' }">
     <div class="flex align-items-center justify-content-between mb-4">
       <div class="smallNav-header">
-        <img [routerLink]="'/'" src="/images/navbar/Rose.WebP" width="54" height="54" alt="Rose logo" loading="lazy"
-          decoding="async">
+        <img
+          [routerLink]="'/'"
+          src="/images/navbar/Rose.WebP"
+          width="54"
+          height="54"
+          alt="Rose logo"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
 
-      <div class="flex align-items-center gap-5 ">
+      <div class="flex align-items-center gap-5">
         <app-translate-toggle class="sm:hidden" />
 
-        <p-button icon="pi pi-times" [style]="{
-        'background-color':'transparent'
-      }" styleClass="cursor-pointer border-gray-300" (click)="visible = false" />
-
+        <p-button
+          icon="pi pi-times"
+          [style]="{
+            'background-color': 'transparent'
+          }"
+          styleClass="cursor-pointer border-gray-300"
+          (click)="visible = false"
+        />
       </div>
-
     </div>
 
     <ul class="navList">
-      @for (item of items; track $index;) {
-      @let label = item['label']!;
-      @let route = item['route'];
+      @for (item of items; track $index;) { @let label = item['label']!; @let route = item['route'];
       <li>
         <a [routerLink]="route" routerLinkActive="active" class="text-decoration-none nav-items">
-          {{label | translate}}
+          {{ label | translate }}
         </a>
       </li>
       }
-      
     </ul>
-
   </p-dialog>
 </div>
 

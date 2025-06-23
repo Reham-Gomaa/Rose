@@ -1,4 +1,8 @@
 {
-  "include": ["apps/rose/src/**/*.ts"],
-  "exclude": ["**/*.spec.ts"]
+  "include": [
+    "apps/rose/src/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ]
 }

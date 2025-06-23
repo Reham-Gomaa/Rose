@@ -1,18 +1,12 @@
 import { PaginationData } from "./PaginationData.interface";
 
-export interface CategoryRes {
+export interface occasionRes {
   message: string;
   metadata: PaginationData;
-  categories: Category[];
+  occasions: occasion[];
 }
 
-export interface CategoryOption {
-  label: string;
-  display: string;
-  id: string;
-}
-
-export interface Category {
+export interface occasion {
   _id: string;
   name: string;
   slug: string;

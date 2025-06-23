@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TrustedByComponent } from './trustedBy.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { TrustedByComponent } from "./trustedBy.component";
 
-describe('TrustedByComponent', () => {
+describe("TrustedByComponent", () => {
   let component: TrustedByComponent;
   let fixture: ComponentFixture<TrustedByComponent>;
 
@@ -15,7 +15,7 @@ describe('TrustedByComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
