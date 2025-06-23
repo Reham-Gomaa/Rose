@@ -1,6 +1,7 @@
-<app-filter-card>
+<app-filter-card [title]="'Sales Filter'">
     <span>Sales</span>
-    <section aria-labelledby="filter-heading" class="checkbox-container">
+    <section aria-labelledby="sales-heading" class="checkbox-container">
+        <h3 id="sales-heading" class="sr-only">Filter by Sales</h3>
         <app-checked-card
         [filterItems]="sales"
         [selectedItems]="selectedItems"

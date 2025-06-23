@@ -1,6 +1,7 @@
-<app-filter-card>
+<app-filter-card [title]="'Occasions Filter'">
   <span>Occasions</span>
-  <section aria-labelledby="filter-heading" class="checkbox-container">
+  <section aria-labelledby="occasions-heading" class="checkbox-container">
+    <h3 id="occasions-heading" class="sr-only">Filter by Occasions</h3>
     <app-checked-card [filterItems]="occasions" [selectedItems]="selectedItems" [itemType]="'occasion'">
     </app-checked-card>
   </section>

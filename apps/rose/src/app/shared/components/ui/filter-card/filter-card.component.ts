@@ -8,4 +8,5 @@ import { booleanAttribute, Component, Input } from '@angular/core';
 })
 export class FilterCardComponent {
     @Input({ transform: booleanAttribute }) underlineTitle = true;
+    @Input() title !: string;
 }

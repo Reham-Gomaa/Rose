@@ -24,10 +24,8 @@ export class CheckedCardComponent {
     const index = current.findIndex(item => item._id === itemId)
     if (index === -1) {
       this.selectedItems().push({_id:itemId, type:this.itemType()});
-      console.log(this.selectedItems())
     } else {
       this.selectedItems().splice(index, 1);
-      console.log(this.selectedItems())
     }
   }
 
