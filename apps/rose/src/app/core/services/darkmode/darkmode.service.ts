@@ -6,7 +6,9 @@ import { PlatformService } from "../platform/platform.service";
 export class DarkModeService {
   private readonly document = inject(DOCUMENT);
   private readonly platform = inject(PlatformService);
+
   private readonly STORAGE_KEY = "darkMode";
+
 
   isDark = signal<boolean>(false);
 
@@ -44,7 +46,6 @@ export class DarkModeService {
 
   private applyTheme(isDark: boolean): void {
     if (!this.platform.isBrowser()) return;
-
     const html = this.document.documentElement;
     if (isDark) {
       html.classList.add("dark-mode");
