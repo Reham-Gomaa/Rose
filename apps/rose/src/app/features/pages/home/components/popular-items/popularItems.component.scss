@@ -53,6 +53,30 @@
     color: var(--hover-tabs-color);
   }
 
+    @media (pointer: fine) {
+    &:hover {
+      &::-webkit-scrollbar {
+        display: block;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--scrollbar-track-color);
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb-color);
+        border-radius: 4px;
+        transition: background 0.3s ease;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: var(--scrollbar-thumb-hover-color);
+      }
+    }
+  }
+
+
 }
 
 .active-tab {
@@ -60,8 +84,60 @@
     color: var(--hover-tabs-color);
 }
 
+.categories-scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 1rem 0;
+  box-sizing: border-box;
+  max-width: 100%;
 
-@media (min-width: 300px) and (max-width: 791px) {
+  /* Hide scrollbar by default */
+  &::-webkit-scrollbar {
+    display: none;
+    height: 8px;
+    transition: all 0.3s ease;
+  }
+
+  /* Show scrollbar on hover (desktop only) */
+  @media (pointer: fine) {
+    &:hover {
+      &::-webkit-scrollbar {
+        display: block;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--scrollbar-track-color);
+        border-radius: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb-color);
+        border-radius: 4px;
+        transition: background 0.3s ease;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: var(--scrollbar-thumb-hover-color);
+      }
+    }
+  }
+
+  /* Always show scrollbar when scrolling (desktop) */
+  &.scrolling {
+    &::-webkit-scrollbar {
+      display: block;
+    }
+  }
+}
+
+
+@media (min-width: 300px) and (max-width: 980px) {
+
+  .popular-items-header{
+    flex-direction: column;
+  }
 
   .popular-items-title {
     font-size: 1.25rem;

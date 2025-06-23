@@ -5,13 +5,17 @@ import { Product } from '../../../../core/interfaces/carditem.interface';
 import { RatingModule } from 'primeng/rating';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SkeletonModule } from 'primeng/skeleton';
+import { TranslatePipe } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-card-item',
-  imports: [CommonModule, RatingModule ,FormsModule],
+  imports: [CommonModule, RatingModule, FormsModule, SkeletonModule, TranslatePipe],
   templateUrl: './card-item.component.html',
   styleUrl: './card-item.component.scss'
 })
 export class CardItemComponent {
-  @Input() productInfo!: Product;
+  @Input() productInfo: Product | undefined;
+  @Input() loading = false;
 }

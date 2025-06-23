@@ -6,8 +6,8 @@ button {
   box-shadow: 0px 0px 37.28px 4.66px #0000000D;
   font-family: var(--font-family-2);
   font-weight: 500;
-  font-size: .9319rem;
-  line-height: 1.6775rem;
+  font-size: 1rem;
+  line-height: 1.8rem;
   text-align: center;
   text-transform: capitalize;
   cursor: pointer;
@@ -78,6 +78,15 @@ button {
   }
 
 }
+
+//Btn-login-navbar
+  .btn-login-radius {
+    border-radius: 1.875rem;
+  }
+
+  .btn-login-padding {
+    padding: 0.5rem 1.25rem;
+  }
 
 // Btn-About
 

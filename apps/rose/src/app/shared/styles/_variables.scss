@@ -3,8 +3,8 @@
 // Fonts
   --font-family-1: "Inter", sans-serif;
   --font-family-2: "Roboto", sans-serif;
-  --testimonials-image: url('/images/testimonials/Birthday background.png') center/cover no-repeat;
-  --footer-image:  url("/images/image 35.png") center/cover no-repeat;
+  --testimonials-image: url('/images/testimonials/Birthday background.WebP') center/cover no-repeat;
+  --footer-image:  url("/images/image 35.WebP") center/cover no-repeat;
 
 
 // Light theme colors
@@ -20,7 +20,9 @@
   --azure: #00BFFF;
   --yellow-sea: #FBA707;
   --dark-blue: #160E4B;
+  --dark-blue-hover: #413781;
   --slate-gray: #757F95;
+  --gray: #EBEBEB;
   --shadow-black: #0000000D;
 
 // backgrounds
@@ -90,12 +92,26 @@
   --main-title:var(--dark-blue);
   --secondary-title:var(--persian-rose);
 
-
 //Texts
   --p-main:var(--slate-gray);
   --p-secondary:var(--slate-gray);
   --p-checker:var(--black);
   --text-color:var(--black);
+
+//Navbar
+  --background-navbar:var(--white);
+  --color-navbar:var(--dark-blue);
+  --hover-navbar:var(--persian-rose);
+  --active-navbar:var(--persian-rose);
+
+  --color-icon-navbar:var(--persian-rose);
+  --hover-icon-navbar:var(--hover-persian-rose);
+  --overlaybadge-bg:var(--persian-rose);
+  --overlaybadge-color:var(--white);
+
+  --close-btn-color:var(--dark-blue);
+  --close-btn-hover:var(--dark-blue-hover);
+  --close-btn-border:var(--slate-gray);
 
 //footer
   --background-footer:var(--footer-image);
@@ -117,7 +133,33 @@
 
 //DarkMode Toggle
   --toggle-color:var(--persian-rose);
-  --toggle-hover:var(--light-pink);
+  --toggle-hover:var(--hover-persian-rose);
+
+// Search Toggle
+  --Search-bg:var(--persian-rose);
+  --Search-color:var(--dark-blue);
+  --Search-hover:var(--hover-persian-rose);
+
+//Card Filters
+  --bg-card-filter:var(--white);
+  --color-title-card-filter:var(--dark-blue);
+  --color-card-filter:var(--slate-gray);
+  --checked-filter:var(--persian-rose);
+  --check-border-filter:var(--slate-gray);
+  --check-icon-border-filter:var(--white);
+
+//Btn-Clear-Filters
+  --btn-clear-filters-color:var(--persian-rose);
+  --btn-clear-filters-hover:var(--hover-persian-rose);
+  --btn-clear-filters-color-icon:var(--white);
+
+//Btn-SideBar-Filters
+  --btn-SideBar-filters-color:var(--persian-rose);
+  --btn-SideBar-filters-hover:var(--hover-persian-rose);
+  --btn-SideBar-filters-color-icon:var(--white);
+  --btn-close-SideBar-color:var(--dark-blue);
+  --btn-close-SideBar-border:var(--slate-gray);
+  --btn-close-SideBar-hover:var(--hover-persian-rose);
 
 // Scrollbar
   --scrollbar-width: .625rem;
@@ -165,7 +207,6 @@
   --background-testimonials-img:var(--maroon-400);
   --color-testimonials-rating:var(--yellow-dark-mode);
   --color-testimonials-carousel-indicator-button:var(--maroon-50);
-
 
 //Gift
   --h2-color:var(--maroon-600);
@@ -228,6 +269,21 @@
   --p-checker:var(--zinc-50);
   --text-color:var(--zinc-50);
 
+//Navbar
+  --background-navbar:var(--zinc-800);
+  --color-navbar:var(--zinc-100);
+  --hover-navbar:var(--soft-pink-300);
+  --active-navbar:var(--soft-pink-300);
+
+  --color-icon-navbar:var(--zinc-100);
+  --hover-icon-navbar:var(--soft-pink-300);
+  --overlaybadge-bg:var(--maroon-500);
+  --overlaybadge-color:var(--zinc-50);
+
+  --close-btn-color:var(--zinc-50);
+  --close-btn-hover:var(--soft-pink-200);
+  --close-btn-border:var(--zinc-800);
+
 //footer
   --background-footer:var(--zinc-900);
 
@@ -247,8 +303,33 @@
   --color-btn-footer:var(--zinc-800);
 
 //DarkMode Toggle
-  --toggle-color:var(--zinc-50);
-  --toggle-hover:var(--soft-pink-200);
+  --toggle-color:var(--zinc-100);
+  --toggle-hover:var(--soft-pink-300);
+
+// Search Toggle
+  --Search-bg:var(--soft-pink-200);
+  --Search-color:var(--zinc-800);
+  --Search-hover:var(--soft-pink-300);
+
+//Card Filters
+  --bg-card-filter:var(--zinc-700);
+  --color-title-card-filter:var(--soft-pink-200);
+  --color-card-filter:var(--zinc-50);
+  --checked-filter:var(--soft-pink-200);
+  --check-border-filter:var(--zinc-50);
+  --check-icon-border-filter:var(--zinc-800);
+
+//Btn-Clear-Filters
+  --btn-clear-filters-color:var(--zinc-100);
+  --btn-clear-filters-hover:var(--soft-pink-200);
+
+//Btn-SideBar-Filters
+  --btn-SideBar-filters-color:var(--maroon-500);
+  --btn-SideBar-filters-hover:var(--maroon-600);
+  --btn-SideBar-filters-color-icon:var(--zinc-100);
+  --btn-close-SideBar-color:var(--soft-pink-200);
+  --btn-close-SideBar-border:var(--zinc-100);
+  --btn-close-SideBar-hover:var(--soft-pink-200);
 
   // Scrollbar
   --scrollbar-track-color: var(--zinc-800);

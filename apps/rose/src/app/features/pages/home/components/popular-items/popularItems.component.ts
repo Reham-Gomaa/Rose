@@ -14,21 +14,17 @@ import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-popular-items',
-  standalone: true,
   imports: [CardItemComponent, SkeletonModule, TranslatePipe],
   templateUrl: './popularItems.component.html',
   styleUrl: './popularItems.component.scss',
 })
 export class PopularItemsComponent implements OnInit, OnDestroy {
-
   private readonly _productsService = inject(ProductsService);
   private readonly _categoriesService = inject(CategoriesService);
 
-  // Signal-based state
   allProducts = signal<Product[]>([]);
   categories = signal<CategoryOption[]>([]);
   selectedCategory = signal('all');
-  showSkeleton = signal(true);
   loading = signal(true);
   skeletonItems = signal(Array(6).fill(0));
 
@@ -41,8 +37,6 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
 
   private loadData() {
     this.loading.set(true);
-    this.showSkeleton.set(true);
-
     this.getAllCategories();
     this.getAllProduct();
   }
@@ -60,9 +54,7 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
             }))
           ]);
         },
-        error: () => {
-          this.loading.set(false);
-        }
+        error: () => this.loading.set(false)
       })
     );
   }
@@ -73,13 +65,8 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
         next: (res) => {
           this.allProducts.set(res.products || []);
           this.loading.set(false);
-          this.showSkeleton.set(false);
-
         },
-        error: () => {
-          this.loading.set(false);
-          this.showSkeleton.set(false);
-        }
+        error: () => this.loading.set(false)
       })
     );
   }
