@@ -38,11 +38,11 @@ export class NavbarComponent implements OnInit {
   btnClass = "loginBtn";
 
   isLoggedIn:WritableSignal<boolean> = signal<boolean>(false)
+  private readonly translationService = inject(TranslationService);
   currentLang !:string;
   visible = false;
   inSearch = false;
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
-  private readonly translationService = inject(TranslationService);
 
   position: modalPosition = 'center';
 
@@ -50,12 +50,7 @@ export class NavbarComponent implements OnInit {
       this.position = position;
       this.visible = true;
   }
-  onKeydown(event: KeyboardEvent): void {
-    // Check if the pressed key is 'Enter' or 'Space'
-    if (event.key === 'Enter' || event.key === ' ') {
-      this.visible = false;
-    }
-  }
+
   changeLang(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
     const lang = selectElement.value;

@@ -16,7 +16,7 @@
             <p-button (click)="openSearch()"  icon="pi pi-search" styleClass="bg-transparent border-0 cursor-pointer text-md" />
           @if (!isLoggedIn()) {
           <p-button [styleClass]="btnClass" [label]="('navbar.login' |translate)" [severity]="'info'" [rounded]="true" />
-          
+
           }@else {
 
           <p-overlaybadge value="2" [badgeSize]="'small'" [style]="{

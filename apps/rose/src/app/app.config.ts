@@ -9,7 +9,7 @@ import {
 } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 
 // @ngx imports ....
  import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -19,6 +19,10 @@ import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
+import { provideStore } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
+import { sortReducer } from './store/sort/sort.reducer';
+import { sortEffects } from './store/sort/store.effects';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -33,27 +37,29 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideHttpClient(),
     MessageService,
-    provideHttpClient(),
+    provideHttpClient(withFetch()),
     provideAnimationsAsync(),
     providePrimeNG({
-      theme: {
-        preset: Aura,
-        options: {
-          prefix: 'p',
-          darkModeSelector: 'light-mode',
-          cssLayer: false,
+        theme: {
+            preset: Aura,
+            options: {
+                prefix: 'p',
+                darkModeSelector: 'light-mode',
+                cssLayer: false,
+            },
         },
-      },
     }),
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    importProvidersFrom(
-      TranslateModule.forRoot({
+    importProvidersFrom(TranslateModule.forRoot({
         loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
+            provide: TranslateLoader,
+            useFactory: HttpLoaderFactory,
+            deps: [HttpClient]
         }
-      })
-    )
-  ],
+    })),
+    provideStore({
+      sort:sortReducer
+    }),
+    provideEffects(sortEffects)
+],
 };

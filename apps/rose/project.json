@@ -8,12 +8,16 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/rose",
         "index": "apps/rose/src/index.html",
         "browser": "apps/rose/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/rose/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -36,7 +40,6 @@
         "outputMode": "server"
       },
       "configurations": {
-
         "production": {
           "budgets": [
             {
@@ -84,7 +87,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/rose/jest.config.ts"
       }
