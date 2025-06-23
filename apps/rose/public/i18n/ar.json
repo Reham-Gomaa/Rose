@@ -74,7 +74,6 @@
         },
         "popularItems": {
             "title": "المنتجات الشائعه"
-
         },
         "aboutUs": {
             "heading1": "معلومات عنا",
@@ -99,7 +98,7 @@
             "part1": "أكثر من",
             "span2": "4.5 ألف",
             "part2": "شركة",
-             "btn": "عرض جميع الماركات"
+            "btn": "عرض جميع الماركات"
         },
         "testimonials": {
             "customer1": {
@@ -145,17 +144,35 @@
         "placeHolder": "أدخل بريدك الإلكتروني",
         "btn": "اشترك"
     },
-      "all-categories": {
-    "cardSearch": {
-      "Search": "بحث",
-      "Search By The Name": "ابحث بالاسم"
-    },
-    "cardSort": {
-      "Sort By": "ترتيب حسب",
-      "Price: Low to High": "السعر: من الأقل إلى الأعلى",
-      "Price: High to Low": "السعر: من الأعلى إلى الأقل",
-      "Alphabetical: A-Z": "أبجديًا: من A إلى Z",
-      "Alphabetical: Z-A": "أبجديًا: من Z إلى A"
-    },"Clear Filters":"مسح الفلاتر"
-}
+    "all-categories": {
+        "cardSearch": {
+            "Search": "بحث",
+            "Search By The Name": "ابحث بالاسم"
+        },
+        "cardSort": {
+            "Sort By": "ترتيب حسب",
+            "Price: Low to High": "السعر: من الأقل إلى الأعلى",
+            "Price: High to Low": "السعر: من الأعلى إلى الأقل",
+            "Alphabetical: A-Z": "أبجديًا: من A إلى Z",
+            "Alphabetical: Z-A": "أبجديًا: من Z إلى A"
+        },
+        "filterCategories": {
+            "categories": "الفئات"
+        },
+        "filterOccasions": {
+            "occasions": "المناسبات",
+            "wedding": "زفاف",
+            "apology": "اعتذار",
+            "graduation": "تخرج",
+            "anniversary": "ذكرى سنوية"
+        },
+        "filterSales": {
+            "sales": "العروض",
+            "On Sale": "تخفيضات",
+            "In Stock": "متوفر",
+            "Out Of Stock": "غير متوفر",
+            "Discount": "خصم"
+        },
+        "Clear Filters": "مسح الفلاتر"
+    }
 }

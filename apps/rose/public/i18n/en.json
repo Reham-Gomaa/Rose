@@ -1,6 +1,6 @@
 {
-  "EGP": "EGP",
-    "navbar":{
+    "EGP": "EGP",
+    "navbar": {
         "home": "Home",
         "allcategory": "All Category",
         "about": "About",
@@ -145,27 +145,34 @@
         "btn": "Subscribe"
     },
     "all-categories": {
-       "cardSearch":{
-         "Search": "Search",
-        "Search By The Name": "Search By The Name"
-       }
-      ,"cardSort":{
+        "cardSearch": {
+            "Search": "Search",
+            "Search By The Name": "Search By The Name"
+        },
+        "cardSort": {
             "Sort By": "Sort By",
             "Price: Low to High": "Price: Low to High",
             "Price: High to Low": "Price: High to Low",
             "Alphabetical: A-Z": "Alphabetical: A-Z",
             "Alphabetical: Z-A": "Alphabetical: Z-A"
-        },"filterBrands":{
-            "brands": "Brands"
-    },"filterCategories":{
+        },
+        "filterCategories": {
             "categories": "Categories"
-        }
-        ,"filterSales":{
+        },
+        "filterOccasions": {
+            "occasions": "Occasions",
+            "wedding": "Wedding",
+            "apology": "Apology",
+            "graduation": "Graduation",
+            "anniversary": "Anniversary"
+        },
+        "filterSales": {
+            "sales": "Sales",
             "On Sale": "On Sale",
             "In Stock": "In Stock",
             "Out Of Stock": "Out Of Stock",
             "Discount": "Discount"
         },
-        "Clear Filters":"Clear Filters"
+        "Clear Filters": "Clear Filters"
     }
 }

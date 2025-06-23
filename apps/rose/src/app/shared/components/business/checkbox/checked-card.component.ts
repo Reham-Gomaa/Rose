@@ -1,11 +1,12 @@
 
 import { Component, input, InputSignal } from '@angular/core';
 import { FilterItem, selectedItem } from '../../../../core/interfaces/filter-item.interface';
+import { TranslatePipe } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-checked-card',
-  imports: [],
+  imports: [ TranslatePipe ],
   templateUrl: './checked-card.component.html',
   styleUrl: './checked-card.component.scss',
 })

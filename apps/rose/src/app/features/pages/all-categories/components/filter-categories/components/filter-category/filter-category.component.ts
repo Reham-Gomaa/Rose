@@ -5,10 +5,11 @@ import { FilterCardComponent } from "../../../../../../../shared/components/ui/f
 import { ProductsService } from '../../../../../../../shared/services/products/products.service';
 import { CategoryProductCount } from '../../../../../../../core/interfaces/count-by-product.interface';
 import { selectedItem } from './../../../../../../../core/interfaces/filter-item.interface';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-filter-category',
-  imports: [FilterCardComponent, CheckedCardComponent],
+  imports: [FilterCardComponent, CheckedCardComponent, TranslatePipe],
   templateUrl: './filter-category.component.html',
   styleUrl: './filter-category.component.scss'
 })

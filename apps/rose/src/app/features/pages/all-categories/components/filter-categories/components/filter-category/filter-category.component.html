@@ -1,5 +1,5 @@
 <app-filter-card [title]="'Category Filter'">
-  <span>Category</span>
+<span>{{'all-categories.filterCategories.categories' | translate}}</span>
   <section  aria-labelledby="category-heading" class="checkbox-container">
     <h3 id="category-heading" class="sr-only">Filter by Category</h3>
     <app-checked-card [filterItems]="categories" [selectedItems]="selectedItems" [itemType]="'category'">

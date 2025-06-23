@@ -14,7 +14,7 @@
     tabindex="0">
     <span class="checkbox-custom" aria-hidden="true"></span>
     <div class="checkbox-label-content">
-      <span class="checkbox-label-text">{{item.category}}</span>
+      <span class="checkbox-label-text">{{item.category | translate}}</span>
       @if (item.productCount !== undefined) {
       <span class="product-count">({{item.productCount}})</span>
       }
