@@ -14,19 +14,13 @@ import { sortType } from './store/sort/sort.states';
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   protected darkMode = inject(DarkModeService);
   private _store = inject(Store)
   title = 'rose';
 
 
-  ngOnInit(){
 
-    this._store.dispatch(sortActions.loadProducts())
-    this._store.select(sortSelectors.sortedProducts).subscribe({
-      next: (sortedProducts) => console.log(sortedProducts)
-    })
-  }
 
   getSortedProducts(){
     this._store.select(sortSelectors.sortedProducts).subscribe({

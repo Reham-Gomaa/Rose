@@ -57,12 +57,8 @@ export class NavbarComponent implements OnInit {
   currentLang !:string;
 
 
-  isLoggedIn: WritableSignal<boolean> = signal<boolean>(false);
-  currentLang!: string;
   visible = false;
   inSearch = false;
-  @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
-  private readonly translationService = inject(TranslationService);
 
   position: modalPosition = "center";
 
@@ -80,7 +76,7 @@ export class NavbarComponent implements OnInit {
     const lang = selectElement.value;
     this.translationService.changeLang(lang);
 
-
+  }
 
 
   openSearch() {

@@ -7,6 +7,8 @@ import { TranslatePipe } from "@ngx-translate/core";
 import { Subscription } from "rxjs";
 import { ButtonModule } from "primeng/button";
 import { DrawerModule } from "primeng/drawer";
+import { Store } from "@ngrx/store";
+import * as sortActions from "../../../store/sort/sort.actions";
 
 @Component({
   selector: "app-all-categories",
@@ -21,9 +23,11 @@ import { DrawerModule } from "primeng/drawer";
   styleUrl: "./all-categories.component.scss",
 })
 export class AllCategoriesComponent implements OnInit, OnDestroy {
+  private readonly _productsService = inject(ProductsService);
+  private readonly _store = inject(Store);
+
   filterDrawerVisible = false;
 
-  private readonly _productsService = inject(ProductsService);
 
   products = signal<Product[]>([]);
   loading = signal(true);
@@ -31,6 +35,7 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadProducts();
+    this._store.dispatch(sortActions.loadProducts())
   }
 
   private loadProducts() {

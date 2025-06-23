@@ -39,7 +39,6 @@ export const appConfig: ApplicationConfig = {
 
     provideAnimationsAsync(),
     providePrimeNG({
-
       theme: {
         preset: Aura,
         options: {
@@ -48,7 +47,7 @@ export const appConfig: ApplicationConfig = {
           cssLayer: false,
 
         },
-    }),
+    }}),
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     importProvidersFrom(TranslateModule.forRoot({
         loader: {

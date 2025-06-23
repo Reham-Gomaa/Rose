@@ -13,16 +13,11 @@ export class sortEffects {
   readonly loadProductsEffect$ = createEffect(()=>
   this._actions$.pipe(
     ofType(sortActions.loadProducts),
-    switchMap(()=>
-      this._productsService.getAllProducts().pipe(
-        map((Res)=>
-         sortActions.setProducts({products: Res.products})
-        )
-      )
+    tap((action)=>
 
-    )
-  )
-
+    console.log(action))
+  ),
+  { dispatch: false }
   )
   readonly sortByPriceAndTitleEffects$ = createEffect(()=>
   this._actions$.pipe(

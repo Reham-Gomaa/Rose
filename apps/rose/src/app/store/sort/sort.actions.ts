@@ -3,7 +3,7 @@ import { Product } from "../../core/interfaces/carditem.interface";
 import { sortType } from "./sort.states";
 
 //load products
-export const loadProducts = createAction("[sort] loadProducts");
+export const loadProducts = createAction("[sort] loadProducts",props<{products:Product[]}>);
 //setProducts
 export const setProducts = createAction("[sort] setProducts", props<{products:Product[]}>());
 //sortByPrice
