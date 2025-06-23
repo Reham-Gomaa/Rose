@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AllCategoriesComponent } from './all-categories.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { AllCategoriesComponent } from "./all-categories.component";
 
-describe('AllCategoriesComponent', () => {
+describe("AllCategoriesComponent", () => {
   let component: AllCategoriesComponent;
   let fixture: ComponentFixture<AllCategoriesComponent>;
 
@@ -15,7 +15,7 @@ describe('AllCategoriesComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

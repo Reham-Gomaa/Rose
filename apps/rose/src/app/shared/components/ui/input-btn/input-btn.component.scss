@@ -15,7 +15,7 @@
     border-radius: 1.875rem;
     font-family: var(--font-family-1);
     font-weight: 600;
-    font-size: .875rem;
+    font-size: 0.875rem;
     line-height: 100%;
     outline: none;
     background-color: var(--bg-input-footer);
@@ -52,14 +52,14 @@
     .input-field {
       padding: 0.8rem 0.5rem;
       border-radius: 0.625rem 0 0 0.625rem;
-      font-size: .75rem;
+      font-size: 0.75rem;
       gap: 0.5rem;
     }
 
     .input-button {
       padding: 0.5rem;
-      border-radius:  0.625rem;
-      font-size: .75rem;
+      border-radius: 0.625rem;
+      font-size: 0.75rem;
       font-weight: 500;
       line-height: 1.8rem;
     }
@@ -69,8 +69,7 @@
 :host-context([dir="rtl"]) i {
   transform: rotateY(180deg);
 }
-:host-context([dir="rtl"]) .input-button{
+:host-context([dir="rtl"]) .input-button {
   margin-right: -2rem;
   margin-left: 0;
 }
-

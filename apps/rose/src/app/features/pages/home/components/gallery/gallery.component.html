@@ -1,44 +1,66 @@
-<section class="gallery-container w-full sm:text-center text-left" aria-labelledby="gallery-heading" itemscope
-  itemtype="https://schema.org/ImageGallery">
+<section
+  class="gallery-container w-full sm:text-center text-left"
+  aria-labelledby="gallery-heading"
+  itemscope
+  itemtype="https://schema.org/ImageGallery"
+>
   <!-- Title -->
-  <h5 class="title-h5 uppercase mb-2" itemprop="headline">{{ "home.gallery.heading5" |translate }}</h5>
+  <h5 class="title-h5 uppercase mb-2" itemprop="headline">
+    {{ "home.gallery.heading5" | translate }}
+  </h5>
 
   <div class="p-relative d-inline-block gallery-title-wrapper mb-3">
-    <h2 id="gallery-heading" class="gallery-title" itemprop="name">{{ "home.gallery.title" |translate }}</h2>
+    <h2 id="gallery-heading" class="gallery-title" itemprop="name">
+      {{ "home.gallery.title" | translate }}
+    </h2>
     <div class="gallery-bg-shape" aria-hidden="true"></div>
     <div class="gallery-underline-bar" aria-hidden="true"></div>
   </div>
 
   <div class="custom-gallery-grid grid-nogutter" role="list" aria-live="polite">
-    @for (image of images.url; track image; let i = $index) {
-    @if (i < 3) { <!-- First row: 3 images -->
-      <div role="listitem" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-        <div class="custom-img" [style.backgroundImage]="'url(' + '\'' + image + '\'' + ')'" role="img"
-          [attr.aria-label]="'Gallery image ' + (i + 1)" [attr.loading]="i > 1 ? 'lazy' : 'eager'"
-          [attr.fetchpriority]="i < 2 ? 'high' : 'auto'">
-        </div>
-        <meta itemprop="url" [attr.content]="image">
-      </div>
-      }
-      @if (i === 3) {
-      <!-- Second row: large image spanning 2 columns -->
-      <div class="gallery-wide" role="listitem" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-        <div class="custom-img" [style.backgroundImage]="'url(' + '\'' + image + '\'' + ')'" role="img"
-          [attr.aria-label]="'Gallery image ' + (i + 1)" loading="lazy">
-        </div>
-        <meta itemprop="url" [attr.content]="image">
-      </div>
-      }
-      @if (i === 4) {
-      <!-- Second row: regular image -->
-      <div role="listitem" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-        <div class="custom-img" [style.backgroundImage]="'url(' + '\'' + image + '\'' + ')'" role="img"
-          [attr.aria-label]="'Gallery image ' + (i + 1)" loading="lazy">
-        </div>
-        <meta itemprop="url" [attr.content]="image">
-      </div>
-      }
-      }
+    @for (image of images.url; track image; let i = $index) { @if (i < 3) {
+    <!-- First row: 3 images -->
+    <div role="listitem" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+      <div
+        class="custom-img"
+        [style.backgroundImage]="'url(' + '\'' + image + '\'' + ')'"
+        role="img"
+        [attr.aria-label]="'Gallery image ' + (i + 1)"
+        [attr.loading]="i > 1 ? 'lazy' : 'eager'"
+        [attr.fetchpriority]="i < 2 ? 'high' : 'auto'"
+      ></div>
+      <meta itemprop="url" [attr.content]="image" />
+    </div>
+    } @if (i === 3) {
+    <!-- Second row: large image spanning 2 columns -->
+    <div
+      class="gallery-wide"
+      role="listitem"
+      itemprop="image"
+      itemscope
+      itemtype="https://schema.org/ImageObject"
+    >
+      <div
+        class="custom-img"
+        [style.backgroundImage]="'url(' + '\'' + image + '\'' + ')'"
+        role="img"
+        [attr.aria-label]="'Gallery image ' + (i + 1)"
+        loading="lazy"
+      ></div>
+      <meta itemprop="url" [attr.content]="image" />
+    </div>
+    } @if (i === 4) {
+    <!-- Second row: regular image -->
+    <div role="listitem" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+      <div
+        class="custom-img"
+        [style.backgroundImage]="'url(' + '\'' + image + '\'' + ')'"
+        role="img"
+        [attr.aria-label]="'Gallery image ' + (i + 1)"
+        loading="lazy"
+      ></div>
+      <meta itemprop="url" [attr.content]="image" />
+    </div>
+    } }
   </div>
-
 </section>

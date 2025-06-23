@@ -18,39 +18,36 @@
     .search-input input {
       outline: 0;
       display: block;
-      padding:func.pxToRem(8) ;
+      padding: func.pxToRem(8);
       border: 0;
-        border-bottom: 2px solid white;
-        color: white;
-        margin: auto;
-        width: 90%;
-        background-color: transparent;
-        font-size: func.pxToRem(30);
-        text-transform: capitalize;
-        &::placeholder {
-          color: inherit;
-        }
+      border-bottom: 2px solid white;
+      color: white;
+      margin: auto;
+      width: 90%;
+      background-color: transparent;
+      font-size: func.pxToRem(30);
+      text-transform: capitalize;
+      &::placeholder {
+        color: inherit;
+      }
     }
   }
 }
 
 :host ::ng-deep .p-button {
-      width: func.pxToRem(35);
-      height: func.pxToRem(35);
+  width: func.pxToRem(35);
+  height: func.pxToRem(35);
 
-      background-color: var(--Search-bg) !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      border: 0 !important;
-      .pi-times::before {
-        color: var(--Search-color);
-      }
-      &:hover {
-        background-color: var(--Search-hover) !important;
-      }
-    }
-
-
-
+  background-color: var(--Search-bg) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 0 !important;
+  .pi-times::before {
+    color: var(--Search-color);
+  }
+  &:hover {
+    background-color: var(--Search-hover) !important;
+  }
+}

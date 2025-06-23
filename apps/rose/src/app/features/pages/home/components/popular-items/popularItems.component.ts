@@ -1,22 +1,22 @@
-import { Component, inject, OnInit, OnDestroy, signal } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, inject, OnInit, OnDestroy, signal } from "@angular/core";
+import { Subscription } from "rxjs";
 
-import { ProductsService } from '../../../../../shared/services/products/products.service';
-import { Product } from '../../../../../core/interfaces/carditem.interface';
-import { CategoriesService } from '../../../../../shared/services/categories/categories.service';
-import { CategoryOption } from '../../../../../core/interfaces/categories.interface';
+import { ProductsService } from "../../../../../shared/services/products/products.service";
+import { Product } from "../../../../../core/interfaces/carditem.interface";
+import { CategoriesService } from "../../../../../shared/services/categories/categories.service";
+import { CategoryOption } from "../../../../../core/interfaces/categories.interface";
 
 //Shared
 import { CardItemComponent } from "../../../../../shared/components/ui/card-item/card-item.component";
 //PrimeNg
-import { SkeletonModule } from 'primeng/skeleton';
-import { TranslatePipe } from '@ngx-translate/core';
+import { SkeletonModule } from "primeng/skeleton";
+import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
-  selector: 'app-popular-items',
+  selector: "app-popular-items",
   imports: [CardItemComponent, SkeletonModule, TranslatePipe],
-  templateUrl: './popularItems.component.html',
-  styleUrl: './popularItems.component.scss',
+  templateUrl: "./popularItems.component.html",
+  styleUrl: "./popularItems.component.scss",
 })
 export class PopularItemsComponent implements OnInit, OnDestroy {
   private readonly _productsService = inject(ProductsService);
@@ -24,7 +24,7 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
 
   allProducts = signal<Product[]>([]);
   categories = signal<CategoryOption[]>([]);
-  selectedCategory = signal('all');
+  selectedCategory = signal("all");
   loading = signal(true);
   skeletonItems = signal(Array(6).fill(0));
 
@@ -46,15 +46,15 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
       this._categoriesService.getAllCategories().subscribe({
         next: (res) => {
           this.categories.set([
-            { label: 'all', display: 'All Items', id: 'all' },
-            ...res.categories.map(cat => ({
+            { label: "all", display: "All Items", id: "all" },
+            ...res.categories.map((cat) => ({
               label: cat.slug,
               display: cat.name,
-              id: cat._id
-            }))
+              id: cat._id,
+            })),
           ]);
         },
-        error: () => this.loading.set(false)
+        error: () => this.loading.set(false),
       })
     );
   }
@@ -66,18 +66,16 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
           this.allProducts.set(res.products || []);
           this.loading.set(false);
         },
-        error: () => this.loading.set(false)
+        error: () => this.loading.set(false),
       })
     );
   }
 
   get filteredCards(): Product[] {
-    if (this.selectedCategory() === 'all') {
+    if (this.selectedCategory() === "all") {
       return this.allProducts();
     }
-    return this.allProducts().filter(
-      product => product.category === this.selectedCategory()
-    );
+    return this.allProducts().filter((product) => product.category === this.selectedCategory());
   }
 
   selectCategory(categoryId: string) {

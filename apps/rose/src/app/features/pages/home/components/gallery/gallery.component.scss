@@ -13,7 +13,7 @@
   font-weight: 700;
   font-size: 1.0625rem;
   line-height: 1.9125rem;
-  letter-spacing: .25rem;
+  letter-spacing: 0.25rem;
 }
 
 .gallery-title-wrapper {
@@ -45,13 +45,10 @@
   position: absolute;
   top: 3.6rem;
   width: 10.0625rem;
-  height: .125rem;
+  height: 0.125rem;
   z-index: 11;
   background-color: var(--underline-bar-color);
 }
-
-
-
 
 .custom-gallery-grid {
   display: grid;

@@ -1,28 +1,24 @@
-import { appRoutes } from './app.routes';
+import { appRoutes } from "./app.routes";
 
 // @angular imports ....
-import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
-import {
-  provideClientHydration,
-  withEventReplay,
-} from '@angular/platform-browser';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
+import { provideRouter } from "@angular/router";
+import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
+import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
+import { HashLocationStrategy, LocationStrategy } from "@angular/common";
+import { HttpClient, provideHttpClient, withFetch } from "@angular/common/http";
 
 // @ngx imports ....
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 
 // primeng imports ....
-import { MessageService } from 'primeng/api';
-import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeng/themes/aura';
-
+import { MessageService } from "primeng/api";
+import { providePrimeNG } from "primeng/config";
+import Aura from "@primeng/themes/aura";
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './i18n/', '.json');
+  return new TranslateHttpLoader(http, "./i18n/", ".json");
 }
 
 export const appConfig: ApplicationConfig = {
@@ -38,8 +34,8 @@ export const appConfig: ApplicationConfig = {
       theme: {
         preset: Aura,
         options: {
-          prefix: 'p',
-          darkModeSelector: 'light-mode',
+          prefix: "p",
+          darkModeSelector: "light-mode",
           cssLayer: false,
         },
       },
@@ -50,9 +46,9 @@ export const appConfig: ApplicationConfig = {
         loader: {
           provide: TranslateLoader,
           useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-        }
+          deps: [HttpClient],
+        },
       })
-    )
+    ),
   ],
 };

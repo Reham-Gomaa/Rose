@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 import { CategoriesComponent } from "./components/categories/categories.component";
 import { GiftsComponent } from "./components/gifts/gifts.component";
 import { OurServicesComponent } from "./components/our-services/ourServices.component";
@@ -10,9 +10,19 @@ import { TestimonialsComponent } from "./components/testimonials/testimonials.co
 import { TrustedByComponent } from "./components/trusted-by/trustedBy.component";
 
 @Component({
-  selector: 'app-home',
-  imports: [CategoriesComponent, GiftsComponent, OurServicesComponent, BestSellerComponent, PopularItemsComponent, AboutUsComponent, GalleryComponent, TestimonialsComponent, TrustedByComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+  selector: "app-home",
+  imports: [
+    CategoriesComponent,
+    GiftsComponent,
+    OurServicesComponent,
+    BestSellerComponent,
+    PopularItemsComponent,
+    AboutUsComponent,
+    GalleryComponent,
+    TestimonialsComponent,
+    TrustedByComponent,
+  ],
+  templateUrl: "./home.component.html",
+  styleUrl: "./home.component.scss",
 })
 export class HomeComponent {}

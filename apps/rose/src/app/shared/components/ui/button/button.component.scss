@@ -3,7 +3,7 @@ button {
   color: var(--btn-shared-color);
   background-color: var(--btn-shared-background);
   border: none;
-  box-shadow: 0px 0px 37.28px 4.66px #0000000D;
+  box-shadow: 0px 0px 37.28px 4.66px #0000000d;
   font-family: var(--font-family-2);
   font-weight: 500;
   font-size: 1rem;
@@ -19,9 +19,9 @@ button {
   }
 }
 
-.arrowicon{
+.arrowicon {
   color: var(--btn-shared-i-color);
-  font-size: .7588rem;
+  font-size: 0.7588rem;
 }
 
 // arrow icon rotation in rtl dir
@@ -31,37 +31,37 @@ button {
 
 // gifts left image
 .btn-topLeft-padding {
-  padding: .5rem;
+  padding: 0.5rem;
 
   // large screen 992px
   @media all and (min-width: 62rem) {
-    padding: .4075rem .8738rem;
+    padding: 0.4075rem 0.8738rem;
   }
 }
 
 // gifts carousel
 .btn-carousel-padding {
-  padding: .5rem;
+  padding: 0.5rem;
 
   // large screen 992px
   @media all and (min-width: 62rem) {
-    padding: .5825rem 1.165rem;
+    padding: 0.5825rem 1.165rem;
   }
 }
 
 // gifts top part
 .btn-roundedBorderRadius {
-  border-radius: .2544rem;
+  border-radius: 0.2544rem;
 
   // large screen 992px
   @media all and (min-width: 62rem) {
-    border-radius: .5825rem;
+    border-radius: 0.5825rem;
   }
 }
 
 // gifts bottom-images
 .btn-pillBorderRadius {
-  border-radius: .625rem;
+  border-radius: 0.625rem;
 
   // large screen 992px
   @media all and (min-width: 62rem) {
@@ -70,28 +70,27 @@ button {
 }
 
 .btn-bottom-padding {
-  padding: .625rem 1.25rem;
+  padding: 0.625rem 1.25rem;
 
   // large screen 992px
   @media all and (min-width: 62rem) {
-    padding: .5rem;
+    padding: 0.5rem;
   }
-
 }
 
 //Btn-login-navbar
-  .btn-login-radius {
-    border-radius: 1.875rem;
-  }
+.btn-login-radius {
+  border-radius: 1.875rem;
+}
 
-  .btn-login-padding {
-    padding: 0.5rem 1.25rem;
-  }
+.btn-login-padding {
+  padding: 0.5rem 1.25rem;
+}
 
 // Btn-About
 
 .btn-about-radius {
-  border-radius: .625rem;
+  border-radius: 0.625rem;
 }
 
 .btn-about-padding {
@@ -99,8 +98,7 @@ button {
 }
 
 .btn-bestseller-radius {
-  border-radius: .625rem;
-
+  border-radius: 0.625rem;
 }
 
 // Btn-BestSeller
@@ -108,7 +106,6 @@ button {
 .btn-bestseller-padding {
   padding: 0.625rem 1.25rem;
 }
-
 
 .btn-about-transition,
 .btn-bestseller-transition {
