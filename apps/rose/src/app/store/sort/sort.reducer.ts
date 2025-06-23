@@ -1,7 +1,10 @@
 import { createReducer, on } from "@ngrx/store";
 import { sortConditions, sortProducts, sortState } from "./sort.states";
 import * as sortActions from "./sort.actions"
-
+export enum sortTypes {
+  ASC = "asc",
+  DESC = "desc"
+}
 const sortInitialState:sortState = {
   products:[],
   sortedProducts:[],
@@ -50,7 +53,7 @@ export const sortReducer = createReducer(
 
 
    switch(sortType) {
-    case "asc":
+    case sortTypes.ASC:
       if(sortField === "title") {
         newState.sortedProducts = sortProducts(newState.products , "title","asc")
       }else {
@@ -58,7 +61,7 @@ export const sortReducer = createReducer(
       }
 
       break;
-    case "desc":
+    case sortTypes.DESC:
       if(sortField === "title") {
         newState.sortedProducts = sortProducts(newState.products , "title","desc")
       }else {
