@@ -1,0 +1,25 @@
+@for (item of filterItems(); track item._id) {
+@if (item.category) {
+  <div class="field-checkbox">
+  <input 
+    type="checkbox" 
+    [id]="'category-' + item._id" 
+    [checked]="isItemSelected(item._id)"
+    (change)="toggleItemSelection(item._id)"
+    [attr.aria-labelledby]="'filter-item-' + item._id + '-label'"
+    [attr.aria-describedby]="item.productCount !== undefined ? 'product-count-' + item._id : null">
+  <label 
+    [id]="'filter-item-' + item._id + '-label'" 
+    [for]="'category-' + item._id"
+    tabindex="0">
+    <span class="checkbox-custom" aria-hidden="true"></span>
+    <div class="checkbox-label-content">
+      <span class="checkbox-label-text">{{item.category | translate}}</span>
+      @if (item.productCount !== undefined) {
+      <span class="product-count">({{item.productCount}})</span>
+      }
+    </div>
+  </label>
+</div>
+}
+}

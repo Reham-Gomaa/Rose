@@ -151,6 +151,15 @@
 //Btn-Clear-Filters
   --btn-clear-filters-color:var(--persian-rose);
   --btn-clear-filters-hover:var(--hover-persian-rose);
+  --btn-clear-filters-color-icon:var(--white);
+
+//Btn-SideBar-Filters
+  --btn-SideBar-filters-color:var(--persian-rose);
+  --btn-SideBar-filters-hover:var(--hover-persian-rose);
+  --btn-SideBar-filters-color-icon:var(--white);
+  --btn-close-SideBar-color:var(--dark-blue);
+  --btn-close-SideBar-border:var(--slate-gray);
+  --btn-close-SideBar-hover:var(--hover-persian-rose);
 
 // Scrollbar
   --scrollbar-width: .625rem;
@@ -313,6 +322,14 @@
 //Btn-Clear-Filters
   --btn-clear-filters-color:var(--zinc-100);
   --btn-clear-filters-hover:var(--soft-pink-200);
+
+//Btn-SideBar-Filters
+  --btn-SideBar-filters-color:var(--maroon-500);
+  --btn-SideBar-filters-hover:var(--maroon-600);
+  --btn-SideBar-filters-color-icon:var(--zinc-100);
+  --btn-close-SideBar-color:var(--soft-pink-200);
+  --btn-close-SideBar-border:var(--zinc-100);
+  --btn-close-SideBar-hover:var(--soft-pink-200);
 
   // Scrollbar
   --scrollbar-track-color: var(--zinc-800);

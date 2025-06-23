@@ -1,30 +1,15 @@
-<div class="card">
-  <div class="container-card">
-    <h2 class="card-title">{{"all-categories.cardSearch.Search" | translate }}</h2>
-    <div class="search-input">
-      <app-input-btn [type]="'text'" [name]="'search'"
-        [placeholder]="'all-categories.cardSearch.Search By The Name' | translate" [showBtn]="false"
-        [disableMobileStyles]="true" />
-    </div>
-  </div>
-</div>
+<app-filter-card [underlineTitle]="false">
+  <span>{{"all-categories.cardSearch.Search" | translate }}</span>
+  <section class="search-input">
+    <app-input-btn [type]="'text'" [name]="'search'"
+      [placeholder]="'all-categories.cardSearch.Search By The Name' | translate" [showBtn]="false"
+      [disableMobileStyles]="true" appEnglishOnly />
+  </section>
+</app-filter-card>
 
-<div class="flex justify-content-end">
-  <button class="btn-clear-filters">
-    <i class="pi pi-filter-slash"></i> Clear Filters</button>
-</div>
-
-<div class="card">
-  <div class="container-card">
-    <h2 class="card-title">{{"all-categories.cardSort.Sort By" | translate }}</h2>
-    <span class="underline-title"> </span>
-    <app-sorting />
-  </div>
-</div>
-
-
+<app-sorting />
 <app-filter-category />
-<app-filter-brands />
+<app-filter-occasions />
 <app-filter-price />
 <app-filter-sales />
 <app-filter-rating />

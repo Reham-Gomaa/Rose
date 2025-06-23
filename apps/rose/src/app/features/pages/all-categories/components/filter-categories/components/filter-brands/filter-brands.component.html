@@ -1,1 +1,9 @@
-<p>filter-brands works!</p>
+<app-filter-card>
+    <span>Occasions</span>
+    <section aria-labelledby="filter-heading" class="checkbox-container">
+        <app-checked-card 
+        [filterItems]="brands" 
+        [selectedItems]="selectedItems" >
+        </app-checked-card>
+    </section>
+</app-filter-card>
