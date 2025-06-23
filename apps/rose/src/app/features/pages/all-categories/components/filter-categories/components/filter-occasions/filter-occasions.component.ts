@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CheckedCardComponent } from "../../../../../../../shared/components/business/checkbox/checked-card.component";
 import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
-import { staticFilterItem } from '../../../../../../../core/interfaces/filter-item.interface';
+import { FilterItem, selectedItem } from '../../../../../../../core/interfaces/filter-item.interface';
 
 @Component({
   selector: 'app-filter-occasions',
@@ -11,13 +11,13 @@ import { staticFilterItem } from '../../../../../../../core/interfaces/filter-it
 })
 export class FilterOccasionsComponent {
 
-  occasions: staticFilterItem[] = [
-    { _id: '1-occasion', name: 'occasion', category: 'Wedding' },
-    { _id: '2-occasion', name: 'occasion', category: 'Apology' },
-    { _id: '3-occasion', name: 'occasion', category: 'Graduation' },
-    { _id: '4-occasion', name: 'occasion', category: 'Anniversary' }
+  occasions: FilterItem[] = [
+    { _id: '1-occasion', category: 'Wedding', productCount: 5},
+    { _id: '2-occasion', category: 'Apology', productCount: 4},
+    { _id: '3-occasion', category: 'Graduation', productCount: 4},
+    { _id: '4-occasion', category: 'Anniversary', productCount: 1}
   ];
 
-  selectedItems: string[] = [];
+  selectedItems: selectedItem[] = [] as selectedItem[];
 
 }

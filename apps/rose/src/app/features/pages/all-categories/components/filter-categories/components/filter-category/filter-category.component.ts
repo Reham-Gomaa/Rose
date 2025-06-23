@@ -4,6 +4,7 @@ import { CheckedCardComponent } from "../../../../../../../shared/components/bus
 import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
 import { ProductsService } from '../../../../../../../shared/services/products/products.service';
 import { CategoryProductCount } from '../../../../../../../core/interfaces/count-by-product.interface';
+import { selectedItem } from './../../../../../../../core/interfaces/filter-item.interface';
 
 @Component({
   selector: 'app-filter-category',
@@ -21,12 +22,11 @@ export class FilterCategoryComponent implements OnInit, OnDestroy {
     this.categoriesID = this._productsService.getcategoryProductCount().subscribe({
       next: (res) => {
         this.categories = res.categoryProductCount;
-        console.log(this.categories)
       }
     })
   }
 
-  selectedItems: string[] = [];
+  selectedItems: selectedItem[] = [] as selectedItem[];
   ngOnDestroy(): void {
     this.categoriesID?.unsubscribe();
   }

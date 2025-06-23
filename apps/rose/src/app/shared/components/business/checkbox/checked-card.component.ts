@@ -1,6 +1,6 @@
 
 import { Component, input, InputSignal } from '@angular/core';
-import { FilterItem } from '../../../../core/interfaces/filter-item.interface';
+import { FilterItem, selectedItem } from '../../../../core/interfaces/filter-item.interface';
 
 
 @Component({
@@ -12,19 +12,22 @@ import { FilterItem } from '../../../../core/interfaces/filter-item.interface';
 
 export class CheckedCardComponent {
   filterItems: InputSignal<FilterItem[]> = input<FilterItem[]>([]);
-  selectedItems: InputSignal<string[]> = input(['']);
+  selectedItems: InputSignal<selectedItem[]> = input([] as selectedItem[]);
+  itemType: InputSignal<string> = input('');
 
   isItemSelected(itemId: string): boolean {
-    return this.selectedItems().includes(itemId);
+    return this.selectedItems().some(item => item._id === itemId);
   }
 
   toggleItemSelection(itemId: string): void {
     const current = [...this.selectedItems()];
-    const index = current.indexOf(itemId);
+    const index = current.findIndex(item => item._id === itemId)
     if (index === -1) {
-      this.selectedItems().push(itemId);
+      this.selectedItems().push({_id:itemId, type:this.itemType()});
+      console.log(this.selectedItems())
     } else {
       this.selectedItems().splice(index, 1);
+      console.log(this.selectedItems())
     }
   }
 
