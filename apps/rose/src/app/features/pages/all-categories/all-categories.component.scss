@@ -23,26 +23,26 @@
 /* Drawer customizations */
 ::ng-deep .p-drawer {
   background-color: var(--body-color) !important;
-  border: none;
+  border: none !important;
 
   .p-drawer-header {
     padding: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    border: none;
+    border: none !important;
 
     .drawer-header-content {
       width: 100%;
       display: flex;
       justify-content: flex-end;
-      border: none;
+      border: none !important;
     }
   }
 
   .p-drawer-content {
     padding: 1.5rem;
-    border: none;
+    border: none !important;
   }
 
   .p-button-text.p-button-secondary {
