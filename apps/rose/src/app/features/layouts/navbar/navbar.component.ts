@@ -34,17 +34,16 @@ type modalPosition = 'left' | 'right' | 'top' | 'bottom' | 'center' | 'topleft' 
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent implements OnInit {
+  private readonly translationService = inject(TranslationService);
+  isLoggedIn:WritableSignal<boolean> = signal<boolean>(false)
+  @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
   items: MenuItem[] | undefined;
   btnClass = "loginBtn";
-
-  isLoggedIn:WritableSignal<boolean> = signal<boolean>(false)
-  private readonly translationService = inject(TranslationService);
   currentLang !:string;
   visible = false;
   inSearch = false;
-  @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
-
   position: modalPosition = 'center';
+
 
   showDialog(position: modalPosition) {
       this.position = position;
