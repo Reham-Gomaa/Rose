@@ -10,12 +10,12 @@ import { ButtonComponent } from "../../../../../shared/components/ui/button/butt
 })
 export class TrustedByComponent {
   companyLogos: string[] = [
-    '/images/trustedBy/image 36.png',
-    '/images/trustedBy/image 40.png',
-    '/images/trustedBy/image 41.png',
-    '/images/trustedBy/image 38.png',
-    '/images/trustedBy/image 39.png',
-    '/images/trustedBy/image 37.png'
+    '/images/trustedBy/image 36.WebP',
+    '/images/trustedBy/image 40.WebP',
+    '/images/trustedBy/image 41.WebP',
+    '/images/trustedBy/image 38.WebP',
+    '/images/trustedBy/image 39.WebP',
+    '/images/trustedBy/image 37.WebP'
   ];
 
 }

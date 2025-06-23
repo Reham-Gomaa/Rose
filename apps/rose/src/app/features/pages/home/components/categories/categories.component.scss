@@ -22,18 +22,18 @@
       }
 
       &::-webkit-scrollbar-track {
-        background: rgba(0,0,0,0.05);
+        background: var(--scrollbar-track-color);
         border-radius: 4px;
       }
 
       &::-webkit-scrollbar-thumb {
-        background: var(--persian-rose);
+        background: var(--scrollbar-thumb-color);
         border-radius: 4px;
         transition: background 0.3s ease;
       }
 
       &::-webkit-scrollbar-thumb:hover {
-        background: var(--hover-persian-rose);
+        background: var(--scrollbar-thumb-hover-color);
       }
     }
   }
@@ -46,22 +46,7 @@
   }
 }
 
-/* Dark mode scrollbar */
-.dark-mode {
-  .categories-scroll-container {
-    @media (pointer: fine) {
-      &:hover {
-        &::-webkit-scrollbar-thumb {
-          background: var(--soft-pink-400);
-        }
 
-        &::-webkit-scrollbar-thumb:hover {
-          background: var(--soft-pink-500);
-        }
-      }
-    }
-  }
-}
 .categories-scroll-wrapper {
   display: flex;
   gap: 1rem;
@@ -119,7 +104,7 @@
   color: var(--main-title);
   font-family: var(--font-family-1);
   font-weight: 600;
-  font-size: 1.12rem;
+  font-size: 1rem;
   line-height: 1.35rem;
   overflow: visible;
   text-overflow: clip;

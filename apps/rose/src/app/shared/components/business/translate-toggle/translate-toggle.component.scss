@@ -1,0 +1,34 @@
+button {
+  width: 2.1875rem;
+  height: 1.5625rem;
+  border-radius: 100%;
+  font-family: var(--font-family-1);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.8rem;
+  background: none;
+  border: none;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    display: block;
+    object-fit: cover;
+      transition: all 3s ease-in-out;
+
+  }
+
+  &:hover img{
+    border: .0625rem solid var(--language-toggle-hover) !important;
+  }
+
+  &[dir="rtl"] {
+    font-family: var(--font-family-3);
+  }
+
+  @media all and (min-width: 48rem) {
+    width: 2.8125rem;
+    height: 2.1875rem;
+  }
+}

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { DarkModeService } from '../../../../../core/services/darkmode/darkmode.service';
+import { DarkModeService } from '../../../../core/services/darkmode/darkmode.service';
 import { ButtonModule } from 'primeng/button';
 import { TooltipModule } from 'primeng/tooltip';
 @Component({

@@ -12,8 +12,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 
 // @ngx imports ....
- import { TranslateHttpLoader } from '@ngx-translate/http-loader';
- import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 // primeng imports ....
 import { MessageService } from 'primeng/api';
@@ -35,9 +35,9 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
     provideAnimationsAsync(),
-    provideHttpClient(),
-    MessageService,
     provideHttpClient(withFetch()),
+    MessageService,
+
     provideAnimationsAsync(),
     providePrimeNG({
         theme: {

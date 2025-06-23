@@ -30,7 +30,7 @@
       <div class="category-card light-pink-bg" role="listitem">
         <div class="category-icon" aria-hidden="true">
           <img [src]="category.image" [alt]="category.name + ' category icon'" class="category-img" width="56"
-            height="56" loading="lazy" />
+            height="56" loading="lazy" decoding="async" />
         </div>
         <div class="category-content">
           <span class="category-name ">{{ category.name }}</span>

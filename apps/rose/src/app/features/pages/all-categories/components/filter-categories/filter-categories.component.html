@@ -1,0 +1,15 @@
+<app-filter-card [underlineTitle]="false">
+  <span>{{"all-categories.cardSearch.Search" | translate }}</span>
+  <section class="search-input">
+    <app-input-btn [type]="'text'" [name]="'search'"
+      [placeholder]="'all-categories.cardSearch.Search By The Name' | translate" [showBtn]="false"
+      [disableMobileStyles]="true" appEnglishOnly />
+  </section>
+</app-filter-card>
+
+<app-sorting />
+<app-filter-category />
+<app-filter-occasions />
+<app-filter-price />
+<app-filter-sales />
+<app-filter-rating />
