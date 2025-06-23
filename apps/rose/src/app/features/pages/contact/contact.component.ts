@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
 @Component({
-  selector: 'app-contact',
+  selector: "app-contact",
   imports: [CommonModule],
-  templateUrl: './contact.component.html',
-  styleUrl: './contact.component.scss',
+  templateUrl: "./contact.component.html",
+  styleUrl: "./contact.component.scss",
 })
 export class ContactComponent {}

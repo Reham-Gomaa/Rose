@@ -1,4 +1,3 @@
-
 # 🌹 Rose E-Commerce App
 
 ![Rose Logo](https://rose-chi-nine.vercel.app/images/navbar/Rose.WebP)
@@ -18,16 +17,16 @@
 
 ## 🛠 Tech Stack
 
-| Tool               | Purpose                           |
-|--------------------|-----------------------------------|
-| **Angular 19**      | Core SPA framework                |
-| **PrimeNG**         | UI components                     |
-| **PrimeFlex**       | Flex-based responsive layout      |
-| **PrimeIcons**      | Icon set                          |
-| **SCSS**            | Styling with custom variables     |
-| **NX**              | Monorepo management               |
-| **NgRx Signals**    | State management (reactive store) |
-| **TypeScript**      | Strongly-typed JS                 |
+| Tool             | Purpose                           |
+| ---------------- | --------------------------------- |
+| **Angular 19**   | Core SPA framework                |
+| **PrimeNG**      | UI components                     |
+| **PrimeFlex**    | Flex-based responsive layout      |
+| **PrimeIcons**   | Icon set                          |
+| **SCSS**         | Styling with custom variables     |
+| **NX**           | Monorepo management               |
+| **NgRx Signals** | State management (reactive store) |
+| **TypeScript**   | Strongly-typed JS                 |
 
 ---
 
@@ -47,13 +46,16 @@
 ## 🚀 Getting Started
 
 # Clone the repo
+
 git clone https://github.com/Reham-Gomaa/Rose.git
 cd Rose
 
 # Install dependencies
+
 npm install
 
 # Serve the app
+
 nx serve rose
 
 # The app will be available at http://localhost:4200/
@@ -78,9 +80,9 @@ MIT License
 
 ## 💡 Notes
 
-- Built with ❤️ using Angular 19 + NX  
-- UI powered by PrimeNG + PrimeFlex  
-- Reactive state via NgRx Signals  
+- Built with ❤️ using Angular 19 + NX
+- UI powered by PrimeNG + PrimeFlex
+- Reactive state via NgRx Signals
 - Designed following Figma spec
 
 ---

@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CustomModalComponent } from './custom-modal.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { CustomModalComponent } from "./custom-modal.component";
 
-describe('CustomModalComponent', () => {
+describe("CustomModalComponent", () => {
   let component: CustomModalComponent;
   let fixture: ComponentFixture<CustomModalComponent>;
 
@@ -15,7 +15,7 @@ describe('CustomModalComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

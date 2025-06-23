@@ -13,4 +13,3 @@ export interface selectedItem {
   _id: string;
   type: string;
 }
-

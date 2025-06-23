@@ -33,7 +33,6 @@
   background-color: var(--underline-bar-color);
 }
 
-
 //Tabs Popular-items
 
 .tabs-popular-items {
@@ -53,7 +52,7 @@
     color: var(--hover-tabs-color);
   }
 
-    @media (pointer: fine) {
+  @media (pointer: fine) {
     &:hover {
       &::-webkit-scrollbar {
         display: block;
@@ -75,13 +74,11 @@
       }
     }
   }
-
-
 }
 
 .active-tab {
-    border-bottom: 0.2rem solid var(--hover-tabs-color);
-    color: var(--hover-tabs-color);
+  border-bottom: 0.2rem solid var(--hover-tabs-color);
+  color: var(--hover-tabs-color);
 }
 
 .categories-scroll-container {
@@ -132,10 +129,8 @@
   }
 }
 
-
 @media (min-width: 300px) and (max-width: 980px) {
-
-  .popular-items-header{
+  .popular-items-header {
     flex-direction: column;
   }
 

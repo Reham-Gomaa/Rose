@@ -1,12 +1,12 @@
-import { Injectable, effect, inject, signal } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { PlatformService } from '../platform/platform.service';
+import { Injectable, effect, inject, signal } from "@angular/core";
+import { DOCUMENT } from "@angular/common";
+import { PlatformService } from "../platform/platform.service";
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class DarkModeService {
   private readonly document = inject(DOCUMENT);
   private readonly platform = inject(PlatformService);
-  private readonly STORAGE_KEY = 'darkMode';
+  private readonly STORAGE_KEY = "darkMode";
 
   isDark = signal<boolean>(false);
 
@@ -16,7 +16,7 @@ export class DarkModeService {
   }
 
   toggle(): void {
-    this.isDark.update(value => !value);
+    this.isDark.update((value) => !value);
   }
 
   private initializeTheme(): void {
@@ -24,9 +24,9 @@ export class DarkModeService {
 
     const savedMode = localStorage.getItem(this.STORAGE_KEY);
     if (savedMode !== null) {
-      this.isDark.set(savedMode === 'true');
+      this.isDark.set(savedMode === "true");
     } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
       this.isDark.set(prefersDark);
     }
     this.applyTheme(this.isDark());
@@ -47,9 +47,9 @@ export class DarkModeService {
 
     const html = this.document.documentElement;
     if (isDark) {
-      html.classList.add('dark-mode');
+      html.classList.add("dark-mode");
     } else {
-      html.classList.remove('dark-mode');
+      html.classList.remove("dark-mode");
     }
   }
 }

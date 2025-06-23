@@ -1,12 +1,12 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
-import { Observable, shareReplay } from 'rxjs';
-import { EndPoint } from '../../../core/enums/endpoints';
-import { ProductRes } from '../../../core/interfaces/carditem.interface';
-import { countBproduct } from '../../../core/interfaces/count-by-product.interface';
+import { HttpClient } from "@angular/common/http";
+import { inject, Injectable } from "@angular/core";
+import { Observable, shareReplay } from "rxjs";
+import { EndPoint } from "../../../core/enums/endpoints";
+import { ProductRes } from "../../../core/interfaces/carditem.interface";
+import { countBproduct } from "../../../core/interfaces/count-by-product.interface";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class ProductsService {
   private httpClient = inject(HttpClient);
@@ -16,8 +16,6 @@ export class ProductsService {
   }
 
   getcategoryProductCount(): Observable<countBproduct> {
-    return this.httpClient.get<countBproduct>(
-      `${EndPoint.CountPRODUCTSByCATEGORIES}`
-    );
+    return this.httpClient.get<countBproduct>(`${EndPoint.CountPRODUCTSByCATEGORIES}`);
   }
 }

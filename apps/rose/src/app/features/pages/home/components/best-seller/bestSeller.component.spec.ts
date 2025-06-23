@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { BestSellerComponent } from './bestSeller.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { BestSellerComponent } from "./bestSeller.component";
 
-describe('BestSellerComponent', () => {
+describe("BestSellerComponent", () => {
   let component: BestSellerComponent;
   let fixture: ComponentFixture<BestSellerComponent>;
 
@@ -15,7 +15,7 @@ describe('BestSellerComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

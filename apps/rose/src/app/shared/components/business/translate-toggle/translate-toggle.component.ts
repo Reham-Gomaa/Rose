@@ -1,36 +1,36 @@
-import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { TranslationService } from './../../../../core/services/translation/translation.service';
+import { Component, inject, OnInit, signal, WritableSignal } from "@angular/core";
+import { TranslationService } from "./../../../../core/services/translation/translation.service";
 
 @Component({
-  selector: 'app-translate-toggle',
+  selector: "app-translate-toggle",
   imports: [],
-  templateUrl: './translate-toggle.component.html',
-  styleUrl: './translate-toggle.component.scss',
+  templateUrl: "./translate-toggle.component.html",
+  styleUrl: "./translate-toggle.component.scss",
 })
 export class TranslateToggleComponent implements OnInit {
   private readonly translationService = inject(TranslationService);
 
-  currentLang: WritableSignal<string> = signal('');
+  currentLang: WritableSignal<string> = signal("");
 
   setLanguage() {
-    if (this.translationService.getCurrentLang() === 'en') {
-      this.currentLang.set('English');
+    if (this.translationService.getCurrentLang() === "en") {
+      this.currentLang.set("English");
     } else {
-      this.currentLang.set('العربيه');
+      this.currentLang.set("العربيه");
     }
   }
 
   ngOnInit(): void {
-    this.setLanguage()
+    this.setLanguage();
   }
 
   changeLang() {
-    if (this.currentLang() === 'English') {
-      this.translationService.changeLang('ar');
-      this.currentLang.set('العربيه');
+    if (this.currentLang() === "English") {
+      this.translationService.changeLang("ar");
+      this.currentLang.set("العربيه");
     } else {
-      this.translationService.changeLang('en');
-      this.currentLang.set('English');
+      this.translationService.changeLang("en");
+      this.currentLang.set("English");
     }
   }
 }

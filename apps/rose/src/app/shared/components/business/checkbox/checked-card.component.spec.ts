@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CheckedCardComponent } from './checked-card.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { CheckedCardComponent } from "./checked-card.component";
 
-describe('CheckedCardComponent', () => {
+describe("CheckedCardComponent", () => {
   let component: CheckedCardComponent;
   let fixture: ComponentFixture<CheckedCardComponent>;
 
@@ -15,7 +15,7 @@ describe('CheckedCardComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

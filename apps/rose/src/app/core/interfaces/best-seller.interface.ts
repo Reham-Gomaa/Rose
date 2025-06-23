@@ -1,12 +1,9 @@
-import { PaginationData } from "./PaginationData.interface";
-
-export interface ProductRes {
+export interface BestSellerRes {
   message: string;
-  metadata: PaginationData;
-  products: Product[];
+  bestSeller: BestSeller[];
 }
 
-export interface Product {
+export interface BestSeller {
   rateAvg: number;
   rateCount: number;
   _id: string;
@@ -24,6 +21,6 @@ export interface Product {
   updatedAt: string;
   __v: number;
   isSuperAdmin: boolean;
-  sold: number;
+  sold?: number;
   id: string;
 }

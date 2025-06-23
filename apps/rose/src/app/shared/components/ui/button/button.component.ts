@@ -1,10 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input } from "@angular/core";
 
 @Component({
-  selector: 'app-button',
+  selector: "app-button",
   imports: [],
-  templateUrl: './button.component.html',
-  styleUrl: './button.component.scss',
+  templateUrl: "./button.component.html",
+  styleUrl: "./button.component.scss",
 })
 export class ButtonComponent {
   @Input() text!: string;
@@ -13,7 +13,4 @@ export class ButtonComponent {
   @Input() padding!: string;
   @Input() margin!: string;
   @Input() transition!: string;
-
 }
-
-
