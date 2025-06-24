@@ -58,7 +58,7 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
       next: (res) => {
         this.products.set(res.products || []);
         this.loading.set(false);
-        this.loadProducts()
+        this.addProductsToStore()
 
       },
       error: () => {
