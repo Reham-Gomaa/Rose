@@ -57,6 +57,7 @@ export class NavbarComponent implements OnInit {
   currentLang !:string;
 
 
+
   visible = false;
   inSearch = false;
 
@@ -76,8 +77,8 @@ export class NavbarComponent implements OnInit {
     const lang = selectElement.value;
     this.translationService.changeLang(lang);
 
-  }
 
+  }
 
   openSearch() {
     this.inSearch = true;

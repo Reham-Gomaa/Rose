@@ -8,7 +8,8 @@ import { Subscription } from "rxjs";
 import { ButtonModule } from "primeng/button";
 import { DrawerModule } from "primeng/drawer";
 import { Store } from "@ngrx/store";
-import * as sortActions from "../../../store/sort/sort.actions";
+import * as sortActions from "../../../store/sort/sort.actions"
+import * as sortSelectors from "../../../store/sort/store.selectors"
 
 @Component({
   selector: "app-all-categories",
@@ -28,6 +29,8 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
 
   filterDrawerVisible = false;
 
+  private readonly _productsService = inject(ProductsService);
+  private readonly _store = inject(Store);
 
   products = signal<Product[]>([]);
   loading = signal(true);
@@ -35,7 +38,14 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadProducts();
-    this._store.dispatch(sortActions.loadProducts())
+    this._store.dispatch(sortActions.loadProducts({
+      products:this.products()
+    }))
+    this._store.select(sortSelectors.sortedProducts).subscribe({
+      next: (products) =>{
+        this.products.set(products)
+      }
+    })
   }
 
   private loadProducts() {
@@ -50,6 +60,8 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
       },
     });
   }
+
+
 
   ngOnDestroy() {
     this.productSub.unsubscribe();

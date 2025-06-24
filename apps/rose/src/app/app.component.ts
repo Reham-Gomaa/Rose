@@ -16,29 +16,13 @@ import { sortType } from './store/sort/sort.states';
 })
 export class AppComponent {
   protected darkMode = inject(DarkModeService);
-  private _store = inject(Store)
   title = 'rose';
 
 
 
 
-  getSortedProducts(){
-    this._store.select(sortSelectors.sortedProducts).subscribe({
-      next: (sortedProducts) => console.log(sortedProducts)
-    })
-  }
 
-  sortByPrice(type:sortType) {
-    this._store.dispatch(sortActions.sortByPrice({
-      sType: type
-    }))
-  }
 
-  sortByTitle() {
-    this._store.dispatch(sortActions.sortByTitle({
-      sType: 'desc'
-    }))
-  }
 
 
 

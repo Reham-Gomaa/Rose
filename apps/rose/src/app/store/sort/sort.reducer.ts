@@ -14,14 +14,16 @@ const sortInitialState:sortState = {
 
 export const sortReducer = createReducer(
   sortInitialState,
-  on(sortActions.loadProducts , ()=>sortInitialState),
-  on(sortActions.setProducts , (state,{products})=>{
-    return {
-      ...state,
-      products:products,
-      sortedProducts:products,
-    }
-  }),
+  on(sortActions.loadProducts , (state,{products})=>
+ {
+  return {
+    ...state,
+    products:products,
+    sortedProducts:products,
+  }
+}
+),
+
 
   on(sortActions.sortByTitle , (state , {sType} ) => {
       return {
