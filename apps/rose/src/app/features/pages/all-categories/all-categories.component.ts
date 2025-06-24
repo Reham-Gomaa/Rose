@@ -24,10 +24,12 @@ import * as sortSelectors from "../../../store/sort/store.selectors"
   styleUrl: "./all-categories.component.scss",
 })
 export class AllCategoriesComponent implements OnInit, OnDestroy {
-  filterDrawerVisible = false;
-
   private readonly _productsService = inject(ProductsService);
   private readonly _store = inject(Store);
+
+  filterDrawerVisible = false;
+
+
 
   products = signal<Product[]>([]);
   loading = signal(true);
@@ -35,14 +37,19 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadProducts();
-    this._store.dispatch(sortActions.loadProducts({
-      products:this.products()
-    }))
+
     this._store.select(sortSelectors.sortedProducts).subscribe({
       next: (products) =>{
         this.products.set(products)
+        console.log(this.products());
       }
     })
+  }
+
+  addProductsToStore(){
+    this._store.dispatch(sortActions.loadProducts({
+      products:this.products()
+    }))
   }
 
   private loadProducts() {
@@ -51,6 +58,8 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
       next: (res) => {
         this.products.set(res.products || []);
         this.loading.set(false);
+        this.loadProducts()
+
       },
       error: () => {
         this.loading.set(false);
