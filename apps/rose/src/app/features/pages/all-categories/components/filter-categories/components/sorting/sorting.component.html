@@ -10,6 +10,7 @@
         [value]="option.value"
         [checked]="option.checked"
         [attr.aria-labelledby]="option.id + '-label'"
+        (change)="onSortChange(option.value)"
       />
       <label [attr.id]="option.id + '-label'" [for]="option.id">
         <span class="radio-custom" aria-hidden="true"></span>
