@@ -33,7 +33,6 @@ export class FilterOccasionsComponent implements OnInit, OnDestroy {
             category: occasion.name,
             productCount: occasion.productsCount,
           }));
-        console.log(this.occasions);
       },
       error: (err) => {
         console.error("Error fetching occasions:", err);
