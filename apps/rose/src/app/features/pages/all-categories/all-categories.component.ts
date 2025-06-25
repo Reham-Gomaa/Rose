@@ -26,10 +26,12 @@ import { selectFilterProducts } from "../../../store/filter/filter.selector";
   styleUrl: "./all-categories.component.scss",
 })
 export class AllCategoriesComponent implements OnInit, OnDestroy {
-  filterDrawerVisible = false;
-
   private readonly _productsService = inject(ProductsService);
   private readonly _store = inject(Store);
+
+  filterDrawerVisible = false;
+
+
 
   products = signal<Product[]>([]);
   loading = signal(true);
@@ -45,6 +47,13 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
         this.products.set(filterProducts);
       },
     });
+
+  }
+
+  addProductsToStore(){
+    this._store.dispatch(sortActions.loadProducts({
+      products:this.products()
+    }))
   }
 
   private loadProducts() {
