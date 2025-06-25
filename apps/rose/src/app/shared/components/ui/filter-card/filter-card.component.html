@@ -1,7 +1,9 @@
 <div class="card" role="region" [attr.aria-label]="title">
   <div class="container-card">
     <h2 class="card-title">
-      <span #titleContent><ng-content select="span" /></span>
+      <span #titleContent>
+        <ng-content select="span" />
+      </span>
     </h2>
     @if (underlineTitle) {
     <span class="underline-title" aria-hidden="true"></span>

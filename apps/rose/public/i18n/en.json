@@ -166,12 +166,18 @@
             "graduation": "Graduation",
             "anniversary": "Anniversary"
         },
+        "filterPrice":{
+            "Price Rating": "Price Rating"
+        },
         "filterSales": {
             "sales": "Sales",
             "On Sale": "On Sale",
             "In Stock": "In Stock",
             "Out Of Stock": "Out Of Stock",
             "Discount": "Discount"
+        },
+        "filterRatings":{
+            "Ratings": "Ratings"
         },
         "Clear Filters": "Clear Filters"
     }

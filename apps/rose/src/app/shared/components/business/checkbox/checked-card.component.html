@@ -1,5 +1,6 @@
 @for (item of filterItems(); track item._id) {
-@if (item.category) {
+  <!-- to handle products with no category from api -->
+@if (item.category || itemType() === 'ratings') {
   <div class="field-checkbox">
   <input 
     type="checkbox" 
@@ -13,10 +14,20 @@
     [for]="'category-' + item._id"
     tabindex="0">
     <span class="checkbox-custom" aria-hidden="true"></span>
-    <div class="checkbox-label-content">
-      <span class="checkbox-label-text">{{item.category | translate}}</span>
-      @if (item.productCount !== undefined) {
-      <span class="product-count">({{item.productCount}})</span>
+    <div class="checkbox-label-content" [class.w-6]="itemType() === 'ratings'">
+      <!-- for all filters except (RATINGS) -->
+      @if (itemType() !== 'ratings' && item.category) {
+        <span class="checkbox-label-text">{{item.category | translate}}</span>
+        <!-- to handle ON SALE filter it does not have product count -->
+        @if (item.productCount !== undefined) {
+        <span class="product-count">({{item.productCount}})</span>
+        }
+      }
+      <!-- for RATINGS filter -->
+      @else if (item.rating !== undefined) {
+        @for (star of [1,2,3,4,5]; track star) {
+            <i style="color: var(--background-icon-color)" class="pi" [class]=" star <= item.rating ? 'pi-star-fill' : 'pi-star'"></i>
+        }
       }
     </div>
   </label>

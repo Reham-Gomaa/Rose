@@ -166,12 +166,18 @@
             "graduation": "تخرج",
             "anniversary": "ذكرى سنوية"
         },
+        "filterPrice": {
+            "Price Rating": "تقييم حسب السعر"
+        },
         "filterSales": {
             "sales": "العروض",
             "On Sale": "تخفيضات",
             "In Stock": "متوفر",
             "Out Of Stock": "غير متوفر",
             "Discount": "خصم"
+        },
+        "filterRatings": {
+            "Ratings": "التقييمات"
         },
         "Clear Filters": "مسح الفلاتر"
     }
