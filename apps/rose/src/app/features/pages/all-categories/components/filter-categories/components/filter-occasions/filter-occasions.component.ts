@@ -9,6 +9,8 @@ import { TranslatePipe } from "@ngx-translate/core";
 import { OccasionsService } from "../../../../../../../shared/services/occasions/occasions.service";
 import { Subscription } from "rxjs";
 import { occasionRes } from "../../../../../../../core/interfaces/occasions.interface";
+import { Store } from "@ngrx/store";
+import { ApplyFilters, loadSelectedOccasions} from "apps/rose/src/app/store/filter/filter.actions";
 
 @Component({
   selector: "app-filter-occasions",
@@ -18,6 +20,8 @@ import { occasionRes } from "../../../../../../../core/interfaces/occasions.inte
 })
 export class FilterOccasionsComponent implements OnInit, OnDestroy {
   private readonly _occasionsService = inject(OccasionsService);
+  private readonly _store = inject(Store);
+
   occasions!: FilterItem[];
   occasionsID!: Subscription;
 
@@ -30,7 +34,6 @@ export class FilterOccasionsComponent implements OnInit, OnDestroy {
           category: occasion.name,
           productsCount: occasion.productsCount,
         }));
-        console.log(this.occasions);
       },
       error: (err) => {
         console.error("Error fetching occasions:", err);
@@ -39,6 +42,12 @@ export class FilterOccasionsComponent implements OnInit, OnDestroy {
   }
 
   selectedItems: selectedItem[] = [] as selectedItem[];
+
+  changeValue() {
+    this._store.dispatch(loadSelectedOccasions({selectedOccasions:this.selectedItems}));
+    this._store.dispatch(ApplyFilters());
+  }
+
   ngOnDestroy(): void {
     this.occasionsID?.unsubscribe();
   }

@@ -1,4 +1,4 @@
-import { Component, input, InputSignal } from "@angular/core";
+import { Component, input, InputSignal, Output, EventEmitter } from "@angular/core";
 import { FilterItem, selectedItem } from "../../../../core/interfaces/filter-item.interface";
 import { TranslatePipe } from "@ngx-translate/core";
 
@@ -13,6 +13,8 @@ export class CheckedCardComponent {
   selectedItems: InputSignal<selectedItem[]> = input([] as selectedItem[]);
   itemType: InputSignal<string> = input("");
 
+  @Output() selectedItemsChange = new EventEmitter<selectedItem[]>();
+
   isItemSelected(itemId: string): boolean {
     return this.selectedItems().some((item) => item._id === itemId);
   }
@@ -20,10 +22,12 @@ export class CheckedCardComponent {
   toggleItemSelection(itemId: string): void {
     const current = [...this.selectedItems()];
     const index = current.findIndex((item) => item._id === itemId);
+    let newSelected: selectedItem[];
     if (index === -1) {
-      this.selectedItems().push({ _id: itemId, type: this.itemType() });
+      newSelected = [...current, { _id: itemId, type: this.itemType() }];
     } else {
-      this.selectedItems().splice(index, 1);
+      newSelected = current.filter((item) => item._id !== itemId);
     }
+    this.selectedItemsChange.emit(newSelected);
   }
 }

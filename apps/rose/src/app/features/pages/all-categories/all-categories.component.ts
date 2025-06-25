@@ -8,8 +8,10 @@ import { Subscription } from "rxjs";
 import { ButtonModule } from "primeng/button";
 import { DrawerModule } from "primeng/drawer";
 import { Store } from "@ngrx/store";
-import * as sortActions from "../../../store/sort/sort.actions"
-import * as sortSelectors from "../../../store/sort/store.selectors"
+import * as sortActions from "../../../store/sort/sort.actions";
+import * as sortSelectors from "../../../store/sort/store.selectors";
+import { ApplyFilters, loadProductsToFilter } from "../../../store/filter/filter.actions";
+import { selectFilterProducts } from "../../../store/filter/filter.selector";
 
 @Component({
   selector: "app-all-categories",
@@ -35,14 +37,14 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadProducts();
-    this._store.dispatch(sortActions.loadProducts({
-      products:this.products()
-    }))
-    this._store.select(sortSelectors.sortedProducts).subscribe({
-      next: (products) =>{
-        this.products.set(products)
-      }
-    })
+
+    
+
+    this._store.select(selectFilterProducts).subscribe({
+      next: (filterProducts) => {
+        this.products.set(filterProducts);
+      },
+    });
   }
 
   private loadProducts() {
@@ -51,6 +53,7 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
       next: (res) => {
         this.products.set(res.products || []);
         this.loading.set(false);
+        this.loadStores()
       },
       error: () => {
         this.loading.set(false);
@@ -58,7 +61,15 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
     });
   }
 
-
+  private loadStores() {
+    this._store.dispatch(sortActions.loadProducts({products: this.products(),}));
+    this._store.select(sortSelectors.sortedProducts).subscribe({
+      next: (sortProducts) => {
+        this._store.dispatch(loadProductsToFilter({ products: sortProducts }));
+        this._store.dispatch(ApplyFilters());
+      },
+    });
+  }
 
   ngOnDestroy() {
     this.productSub.unsubscribe();

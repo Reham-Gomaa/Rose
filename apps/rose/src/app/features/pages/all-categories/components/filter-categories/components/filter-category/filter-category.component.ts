@@ -6,6 +6,8 @@ import { ProductsService } from "../../../../../../../shared/services/products/p
 import { CategoryProductCount } from "../../../../../../../core/interfaces/count-by-product.interface";
 import { selectedItem } from "./../../../../../../../core/interfaces/filter-item.interface";
 import { TranslatePipe } from "@ngx-translate/core";
+import { Store } from "@ngrx/store";
+import { ApplyFilters, loadSelectedCategories } from "apps/rose/src/app/store/filter/filter.actions";
 
 @Component({
   selector: "app-filter-category",
@@ -15,6 +17,8 @@ import { TranslatePipe } from "@ngx-translate/core";
 })
 export class FilterCategoryComponent implements OnInit, OnDestroy {
   private readonly _productsService = inject(ProductsService);
+  private readonly _store = inject(Store);;
+  
 
   categories!: CategoryProductCount[];
   categoriesID!: Subscription;
@@ -28,6 +32,13 @@ export class FilterCategoryComponent implements OnInit, OnDestroy {
   }
 
   selectedItems: selectedItem[] = [] as selectedItem[];
+
+  changeValue(){
+  
+    this._store.dispatch(loadSelectedCategories({selectedCategories:this.selectedItems}));
+    this._store.dispatch(ApplyFilters());
+
+  }
   ngOnDestroy(): void {
     this.categoriesID?.unsubscribe();
   }
