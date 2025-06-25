@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateToggleComponent } from './translate-toggle.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { TranslateToggleComponent } from "./translate-toggle.component";
 
-describe('TranslateToggleComponent', () => {
+describe("TranslateToggleComponent", () => {
   let component: TranslateToggleComponent;
   let fixture: ComponentFixture<TranslateToggleComponent>;
 
@@ -15,7 +15,7 @@ describe('TranslateToggleComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

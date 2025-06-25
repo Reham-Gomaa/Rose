@@ -123,19 +123,18 @@
   border-color: var(--checked-filter);
 }
 
-
 /* RTL - Only move the checkbox box to right */
-:host-context([dir="rtl"])  .field-checkbox label {
+:host-context([dir="rtl"]) .field-checkbox label {
   padding-left: 0;
   padding-right: 1.6rem;
 }
 
-:host-context([dir="rtl"])  .field-checkbox label::before {
+:host-context([dir="rtl"]) .field-checkbox label::before {
   left: auto;
   right: 0;
 }
 
-:host-context([dir="rtl"])  .field-checkbox label::after {
+:host-context([dir="rtl"]) .field-checkbox label::after {
   left: auto;
   right: 0.3125rem;
 }

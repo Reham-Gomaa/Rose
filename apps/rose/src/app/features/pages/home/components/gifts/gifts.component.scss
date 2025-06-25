@@ -15,7 +15,7 @@ img {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: .875rem;
+  border-radius: 0.875rem;
   overflow: hidden;
   padding: 0 0 1.5rem 1rem;
   margin-bottom: 1.5rem;
@@ -32,7 +32,7 @@ img {
     font-size: 1rem;
     color: var(--h2-color);
     line-height: 1.8875rem;
-    letter-spacing: .2913rem;
+    letter-spacing: 0.2913rem;
     text-transform: uppercase;
     vertical-align: middle;
     margin: 0;
@@ -52,7 +52,7 @@ img {
     text-transform: capitalize;
     vertical-align: middle;
     text-align: left;
-    margin: .6987rem 0;
+    margin: 0.6987rem 0;
 
     // large screen 992px
     @media all and (min-width: 62rem) {
@@ -101,15 +101,15 @@ img {
     font-weight: 700;
     font-size: 1rem;
     color: var(--h2-color);
-    line-height: .6713rem;
-    letter-spacing: .1019rem;
+    line-height: 0.6713rem;
+    letter-spacing: 0.1019rem;
     text-transform: uppercase;
     margin: 0;
 
     @media all and (min-width: 62rem) {
       font-size: 1.25rem;
       line-height: 1.5375rem;
-      letter-spacing: .2331rem;
+      letter-spacing: 0.2331rem;
     }
   }
 
@@ -120,7 +120,7 @@ img {
     line-height: 100%;
     text-transform: capitalize;
     text-align: left;
-    margin: 1rem 0 .5rem;
+    margin: 1rem 0 0.5rem;
 
     @media all and (min-width: 62rem) {
       font-size: 2.8125rem;
@@ -135,7 +135,7 @@ img {
 
   p {
     color: var(--p-gift-color);
-    font-size: .75rem;
+    font-size: 0.75rem;
     font-weight: 400;
 
     margin: 0 0 1rem;
@@ -157,7 +157,7 @@ img {
   width: 1.1181rem;
   height: 1.1181rem;
   position: absolute;
-  bottom: .5938rem;
+  bottom: 0.5938rem;
   border-radius: 100%;
 
   @media all and (min-width: 48rem) {
@@ -177,17 +177,17 @@ img {
     height: 1.1181rem;
 
     @media all and (min-width: 62rem) {
-      width: .9375rem;
+      width: 0.9375rem;
       height: 1.5rem;
     }
   }
-    .p-icon {
+  .p-icon {
     color: var(--carousel-i-gift-color);
-    width: .4094rem;
-    height: .6544rem;
+    width: 0.4094rem;
+    height: 0.6544rem;
 
     @media all and (min-width: 62rem) {
-      width: .9375rem;
+      width: 0.9375rem;
       height: 1.5rem;
     }
   }
@@ -202,7 +202,7 @@ img {
 }
 
 :host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
- right: 2.25rem;
+  right: 2.25rem;
   z-index: 10;
 
   @media all and (min-width: 48rem) {
@@ -228,8 +228,8 @@ img {
 }
 
 :host ::ng-deep .p-carousel-indicator-button {
-  width: .4375rem;
-  height: .4375rem;
+  width: 0.4375rem;
+  height: 0.4375rem;
   border-radius: 2.9125rem;
   background-color: var(--background-carousel-indicator-button-gift);
   transition: all 0.3s ease-in-out;
@@ -239,7 +239,7 @@ img {
   }
 }
 
-:host ::ng-deep .p-carousel-indicator-active>.p-carousel-indicator-button {
+:host ::ng-deep .p-carousel-indicator-active > .p-carousel-indicator-button {
   width: 1.1875rem;
   background-color: var(--background-carousel-indicator-button-gift);
 }
@@ -267,7 +267,6 @@ img {
     @media all and (min-width: 62rem) {
       text-align: right;
     }
-
   }
 
   h2 {
@@ -288,7 +287,7 @@ img {
     line-height: 100%;
     text-transform: capitalize;
     vertical-align: middle;
-    margin: .875rem 0;
+    margin: 0.875rem 0;
   }
 }
 
@@ -313,7 +312,8 @@ img {
 :host-context([dir="rtl"]) .top-left-parent {
   align-items: end;
 
-  h1,h2 {
+  h1,
+  h2 {
     text-align: left;
   }
 }
@@ -335,8 +335,8 @@ img {
   }
 }
 
-:host-context([dir="rtl"]) .bottom-content{
-   @media all and (min-width: 62rem){
-      align-items: start !important;
-   }
+:host-context([dir="rtl"]) .bottom-content {
+  @media all and (min-width: 62rem) {
+    align-items: start !important;
+  }
 }

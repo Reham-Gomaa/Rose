@@ -1,9 +1,9 @@
 export interface countBproduct {
-  categoryProductCount: CategoryProductCount[]
+  categoryProductCount: CategoryProductCount[];
 }
 
 export interface CategoryProductCount {
-  _id: string
-  productCount: number
-  category: string
+  _id: string;
+  productCount: number;
+  category: string;
 }

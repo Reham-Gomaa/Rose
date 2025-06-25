@@ -8,11 +8,9 @@
     [checked]="isItemSelected(item._id)"
     (change)="toggleItemSelection(item._id)"
     [attr.aria-labelledby]="'filter-item-' + item._id + '-label'"
-    [attr.aria-describedby]="item.productCount !== undefined ? 'product-count-' + item._id : null">
-  <label 
-    [id]="'filter-item-' + item._id + '-label'" 
-    [for]="'category-' + item._id"
-    tabindex="0">
+    [attr.aria-describedby]="item.productCount !== undefined ? 'product-count-' + item._id : null"
+  />
+  <label [id]="'filter-item-' + item._id + '-label'" [for]="'category-' + item._id" tabindex="0">
     <span class="checkbox-custom" aria-hidden="true"></span>
     <div class="checkbox-label-content" [class.w-6]="itemType() === 'ratings'">
       <!-- for all filters except (RATINGS) -->
@@ -32,5 +30,4 @@
     </div>
   </label>
 </div>
-}
-}
+} }

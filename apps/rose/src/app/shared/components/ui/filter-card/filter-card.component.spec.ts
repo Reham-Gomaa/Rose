@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FilterCardComponent } from './filter-card.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { FilterCardComponent } from "./filter-card.component";
 
-describe('FilterCardComponent', () => {
+describe("FilterCardComponent", () => {
   let component: FilterCardComponent;
   let fixture: ComponentFixture<FilterCardComponent>;
 
@@ -15,7 +15,7 @@ describe('FilterCardComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,8 +1,8 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { DarkmodeService } from './darkmode.service';
+import { DarkmodeService } from "./darkmode.service";
 
-describe('DarkmodeService', () => {
+describe("DarkmodeService", () => {
   let service: DarkmodeService;
 
   beforeEach(() => {
@@ -10,7 +10,7 @@ describe('DarkmodeService', () => {
     service = TestBed.inject(DarkmodeService);
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(service).toBeTruthy();
   });
 });

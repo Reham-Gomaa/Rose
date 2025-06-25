@@ -1,169 +1,167 @@
 // Variables
 :root {
-// Fonts
+  // Fonts
   --font-family-1: "Inter", sans-serif;
   --font-family-2: "Roboto", sans-serif;
-  --testimonials-image: url('/images/testimonials/Birthday background.WebP') center/cover no-repeat;
-  --footer-image:  url("/images/image 35.WebP") center/cover no-repeat;
+  --testimonials-image: url("/images/testimonials/Birthday background.WebP") center/cover no-repeat;
+  --footer-image: url("/images/image 35.WebP") center/cover no-repeat;
 
-
-// Light theme colors
+  // Light theme colors
   --white: #ffffff;
   --black: #000000;
-  --light-pink: #FEEDF7;
-  --persian-rose: #F82BA9;
-  --light-persian-rose: #F82BA9B2;
+  --light-pink: #feedf7;
+  --persian-rose: #f82ba9;
+  --light-persian-rose: #f82ba9b2;
   --hover-persian-rose: #e11e85;
-  --violet: #8C52FF;
+  --violet: #8c52ff;
   --hover-violet: #6841b6;
-  --carnation: #F05454;
-  --azure: #00BFFF;
-  --yellow-sea: #FBA707;
-  --dark-blue: #160E4B;
+  --carnation: #f05454;
+  --azure: #00bfff;
+  --yellow-sea: #fba707;
+  --dark-blue: #160e4b;
   --dark-blue-hover: #413781;
-  --slate-gray: #757F95;
-  --gray: #EBEBEB;
-  --shadow-black: #0000000D;
+  --slate-gray: #757f95;
+  --gray: #ebebeb;
+  --shadow-black: #0000000d;
 
-// backgrounds
+  // backgrounds
   --body-color: var(--white);
-  --background-color:var(--light-pink);
-  --background-icon-color:var(--persian-rose);
-  --background-checker-color:var(--violet);
+  --background-color: var(--light-pink);
+  --background-icon-color: var(--persian-rose);
+  --background-checker-color: var(--violet);
 
-//Testimonials
-  --background-testimonials-color:var(--testimonials-image);
-  --background-testimonials-img:var(--persian-rose);
-  --color-testimonials-rating:var(--persian-rose);
-  --color-testimonials-carousel-indicator-button:var(--white);
+  //Testimonials
+  --background-testimonials-color: var(--testimonials-image);
+  --background-testimonials-img: var(--persian-rose);
+  --color-testimonials-rating: var(--persian-rose);
+  --color-testimonials-carousel-indicator-button: var(--white);
 
-//Gift
-  --h2-color:var(--persian-rose);
-  --h1-color:var(--dark-blue);
-  --dark-text-gift:var(--dark-blue);
-  --p-gift-color:var(--dark-blue);
-  --carousel-i-gift-color:var(--slate-gray);
-  --background-carousel-button-gift:var(--white);
-  --background-carousel-indicator-button-gift:var(--persian-rose);
+  //Gift
+  --h2-color: var(--persian-rose);
+  --h1-color: var(--dark-blue);
+  --dark-text-gift: var(--dark-blue);
+  --p-gift-color: var(--dark-blue);
+  --carousel-i-gift-color: var(--slate-gray);
+  --background-carousel-button-gift: var(--white);
+  --background-carousel-indicator-button-gift: var(--persian-rose);
 
-//BTN-Shared
-  --btn-shared-color:var(--white);
-  --btn-shared-i-color:var(--white);
-  --btn-shared-background:var(--persian-rose);
-  --btn-shared-background-hover:var(--hover-persian-rose);
+  //BTN-Shared
+  --btn-shared-color: var(--white);
+  --btn-shared-i-color: var(--white);
+  --btn-shared-background: var(--persian-rose);
+  --btn-shared-background-hover: var(--hover-persian-rose);
 
-//Cards
-  --bg-shape-card:var(--light-persian-rose);
-  --bg-shape-i-card:var(--persian-rose);
-  --color-shape-i-card:var(--white);
-  --hover-shape-i-card:var(--hover-persian-rose);
+  //Cards
+  --bg-shape-card: var(--light-persian-rose);
+  --bg-shape-i-card: var(--persian-rose);
+  --color-shape-i-card: var(--white);
+  --hover-shape-i-card: var(--hover-persian-rose);
 
-  --price-color-card:var(--carnation);
-  --rating-color-card:var(--yellow-sea);
+  --price-color-card: var(--carnation);
+  --rating-color-card: var(--yellow-sea);
 
-  --bg-btn-shopping-card:var(--violet);
-  --hover-btn-shopping-card:var(--hover-violet);
-  --color-btn-shopping-card:var(--white);
+  --bg-btn-shopping-card: var(--violet);
+  --hover-btn-shopping-card: var(--hover-violet);
+  --color-btn-shopping-card: var(--white);
 
+  //Tabs
+  --tabs-color: var(--dark-blue);
+  --hover-tabs-color: var(--persian-rose);
 
-//Tabs
-  --tabs-color:var(--dark-blue);
-  --hover-tabs-color:var(--persian-rose);
+  //other
+  --background-shape: var(--light-pink);
+  --underline-bar-color: var(--persian-rose);
 
-//other
-  --background-shape:var(--light-pink);
-  --underline-bar-color:var(--persian-rose);
+  --border-box-transform-color: var(--persian-rose);
 
-  --border-box-transform-color:var(--persian-rose);
+  --checker-color: var(--white);
+  --icons-color: var(--white);
 
-  --checker-color:var(--white);
-  --icons-color:var(--white);
+  --btn-carousel-color: var(--white);
+  --btn-carousel-background: var(--persian-rose);
+  --btn-carousel-background-hover: var(--hover-persian-rose);
 
-  --btn-carousel-color:var(--white);
-  --btn-carousel-background:var(--persian-rose);
-  --btn-carousel-background-hover:var(--hover-persian-rose);
+  // Titles
+  --section-title-color: var(--dark-blue);
+  --sub-title-color: var(--dark-blue);
 
-// Titles
-  --section-title-color:var(--dark-blue);
-  --sub-title-color:var(--dark-blue);
+  --strong-color: var(--persian-rose);
 
-  --strong-color:var(--persian-rose);
+  --main-title: var(--dark-blue);
+  --secondary-title: var(--persian-rose);
 
-  --main-title:var(--dark-blue);
-  --secondary-title:var(--persian-rose);
+  //Texts
+  --p-main: var(--slate-gray);
+  --p-secondary: var(--slate-gray);
+  --p-checker: var(--black);
+  --text-color: var(--black);
 
-//Texts
-  --p-main:var(--slate-gray);
-  --p-secondary:var(--slate-gray);
-  --p-checker:var(--black);
-  --text-color:var(--black);
+  //Navbar
+  --background-navbar: var(--white);
+  --color-navbar: var(--dark-blue);
+  --hover-navbar: var(--persian-rose);
+  --active-navbar: var(--persian-rose);
 
-//Navbar
-  --background-navbar:var(--white);
-  --color-navbar:var(--dark-blue);
-  --hover-navbar:var(--persian-rose);
-  --active-navbar:var(--persian-rose);
+  --color-icon-navbar: var(--persian-rose);
+  --hover-icon-navbar: var(--hover-persian-rose);
+  --overlaybadge-bg: var(--persian-rose);
+  --overlaybadge-color: var(--white);
 
-  --color-icon-navbar:var(--persian-rose);
-  --hover-icon-navbar:var(--hover-persian-rose);
-  --overlaybadge-bg:var(--persian-rose);
-  --overlaybadge-color:var(--white);
+  --close-btn-color: var(--dark-blue);
+  --close-btn-hover: var(--dark-blue-hover);
+  --close-btn-border: var(--slate-gray);
 
-  --close-btn-color:var(--dark-blue);
-  --close-btn-hover:var(--dark-blue-hover);
-  --close-btn-border:var(--slate-gray);
+  //footer
+  --background-footer: var(--footer-image);
 
-//footer
-  --background-footer:var(--footer-image);
+  --tabs-footer: var(--dark-blue);
+  --hover-tabs-footer: var(--persian-rose);
 
-  --tabs-footer:var(--dark-blue);
-  --hover-tabs-footer:var(--persian-rose);
+  --coupon-text: var(--dark-blue);
+  --highlight-text: var(--persian-rose);
+  --p-footer-text: var(--slate-gray);
 
-  --coupon-text :var(--dark-blue);
-  --highlight-text:var(--persian-rose);
-  --p-footer-text:var(--slate-gray);
+  --bg-input-footer: var(--white);
+  --color-input-footer: var(--slate-gray);
+  --focus-input-footer: var(--persian-rose);
 
-  --bg-input-footer:var(--white);
-  --color-input-footer:var(--slate-gray);
-  --focus-input-footer:var(--persian-rose);
+  --bg-btn-footer: var(--persian-rose);
+  --hover-btn-footer: var(--hover-persian-rose);
+  --color-btn-footer: var(--white);
 
-  --bg-btn-footer:var(--persian-rose);
-  --hover-btn-footer:var(--hover-persian-rose);
-  --color-btn-footer:var(--white);
+  //DarkMode Toggle
+  --toggle-color: var(--persian-rose);
+  --toggle-hover: var(--hover-persian-rose);
 
-//DarkMode Toggle
-  --toggle-color:var(--persian-rose);
-  --toggle-hover:var(--hover-persian-rose);
+  // Search Toggle
+  --Search-bg: var(--persian-rose);
+  --Search-color: var(--dark-blue);
+  --Search-hover: var(--hover-persian-rose);
 
-// Search Toggle
-  --Search-bg:var(--persian-rose);
-  --Search-color:var(--dark-blue);
-  --Search-hover:var(--hover-persian-rose);
+  //Card Filters
+  --bg-card-filter: var(--white);
+  --color-title-card-filter: var(--dark-blue);
+  --color-card-filter: var(--slate-gray);
+  --checked-filter: var(--persian-rose);
+  --check-border-filter: var(--slate-gray);
+  --check-icon-border-filter: var(--white);
 
-//Card Filters
-  --bg-card-filter:var(--white);
-  --color-title-card-filter:var(--dark-blue);
-  --color-card-filter:var(--slate-gray);
-  --checked-filter:var(--persian-rose);
-  --check-border-filter:var(--slate-gray);
-  --check-icon-border-filter:var(--white);
+  //Btn-Clear-Filters
+  --btn-clear-filters-color: var(--persian-rose);
+  --btn-clear-filters-hover: var(--hover-persian-rose);
+  --btn-clear-filters-color-icon: var(--white);
 
-//Btn-Clear-Filters
-  --btn-clear-filters-color:var(--persian-rose);
-  --btn-clear-filters-hover:var(--hover-persian-rose);
-  --btn-clear-filters-color-icon:var(--white);
+  //Btn-SideBar-Filters
+  --btn-SideBar-filters-color: var(--persian-rose);
+  --btn-SideBar-filters-hover: var(--hover-persian-rose);
+  --btn-SideBar-filters-color-icon: var(--white);
+  --btn-close-SideBar-color: var(--dark-blue);
+  --btn-close-SideBar-border: var(--slate-gray);
+  --btn-close-SideBar-hover: var(--hover-persian-rose);
 
-//Btn-SideBar-Filters
-  --btn-SideBar-filters-color:var(--persian-rose);
-  --btn-SideBar-filters-hover:var(--hover-persian-rose);
-  --btn-SideBar-filters-color-icon:var(--white);
-  --btn-close-SideBar-color:var(--dark-blue);
-  --btn-close-SideBar-border:var(--slate-gray);
-  --btn-close-SideBar-hover:var(--hover-persian-rose);
-
-// Scrollbar
-  --scrollbar-width: .625rem;
-  --scrollbar-height: .625rem;
+  // Scrollbar
+  --scrollbar-width: 0.625rem;
+  --scrollbar-height: 0.625rem;
   --scrollbar-track-color: var(--white);
   --scrollbar-thumb-color: var(--persian-rose);
   --scrollbar-thumb-hover-color: var(--hover-persian-rose);
@@ -174,169 +172,167 @@
 
 // Dark theme overrides
 .dark-mode {
-// Dark theme colors
-  --zinc-900: #18181B;
-  --zinc-800: #27272A;
-  --zinc-700: #3F3F46;
-  --zinc-600: #52525B;
-  --zinc-500: #71717A;
-  --zinc-400: #A1A1AA;
-  --zinc-300: #D4D4D8;
-  --zinc-100: #F4F4F5;
-  --zinc-50: #FAFAFA;
+  // Dark theme colors
+  --zinc-900: #18181b;
+  --zinc-800: #27272a;
+  --zinc-700: #3f3f46;
+  --zinc-600: #52525b;
+  --zinc-500: #71717a;
+  --zinc-400: #a1a1aa;
+  --zinc-300: #d4d4d8;
+  --zinc-100: #f4f4f5;
+  --zinc-50: #fafafa;
   --maroon-800: #501419;
-  --maroon-700: #741C21;
-  --maroon-600: #A6252A;
-  --maroon-500: #CD2E33;
-  --maroon-400: #D75458;
-  --maroon-50: #FBEAEA;
-  --red-600: #DC2626;
-  --soft-pink-500: #FF668B;
-  --soft-pink-400: #FF85A2;
-  --soft-pink-300: #FFA3B9;
-  --soft-pink-200: #FFC2D0;
-  --soft-pink-50: #FFF1F5;
-  --yellow-dark-mode: #FBA707;
-  --hover-card-dark: #E6507380;
+  --maroon-700: #741c21;
+  --maroon-600: #a6252a;
+  --maroon-500: #cd2e33;
+  --maroon-400: #d75458;
+  --maroon-50: #fbeaea;
+  --red-600: #dc2626;
+  --soft-pink-500: #ff668b;
+  --soft-pink-400: #ff85a2;
+  --soft-pink-300: #ffa3b9;
+  --soft-pink-200: #ffc2d0;
+  --soft-pink-50: #fff1f5;
+  --yellow-dark-mode: #fba707;
+  --hover-card-dark: #e6507380;
 
-// backgrounds
+  // backgrounds
   --body-color: var(--zinc-800);
-  --background-color:var(--zinc-700);
-  --background-icon-color:var(--soft-pink-200);
-  --background-checker-color:none;
+  --background-color: var(--zinc-700);
+  --background-icon-color: var(--soft-pink-200);
+  --background-checker-color: none;
 
-//Testimonials
-  --background-testimonials-color:var(--zinc-700);
-  --background-testimonials-img:var(--maroon-400);
-  --color-testimonials-rating:var(--yellow-dark-mode);
-  --color-testimonials-carousel-indicator-button:var(--maroon-50);
+  //Testimonials
+  --background-testimonials-color: var(--zinc-700);
+  --background-testimonials-img: var(--maroon-400);
+  --color-testimonials-rating: var(--yellow-dark-mode);
+  --color-testimonials-carousel-indicator-button: var(--maroon-50);
 
-//Gift
-  --h2-color:var(--maroon-600);
-  --h1-color:var(--maroon-700);
-  --dark-text-gift:var(--maroon-500);
-  --p-gift-color:var(--zinc-200);
-  --carousel-i-gift-color:var(--maroon-600);
-  --background-carousel-button-gift:var(--maroon-50);
-  --background-carousel-indicator-button-gift:var(--maroon-600);
+  //Gift
+  --h2-color: var(--maroon-600);
+  --h1-color: var(--maroon-700);
+  --dark-text-gift: var(--maroon-500);
+  --p-gift-color: var(--zinc-200);
+  --carousel-i-gift-color: var(--maroon-600);
+  --background-carousel-button-gift: var(--maroon-50);
+  --background-carousel-indicator-button-gift: var(--maroon-600);
 
-//BTN-Shared
-  --btn-shared-color:var(--zinc-800);
-  --btn-shared-i-color:var(--zinc-800);
-  --btn-shared-background:var(--soft-pink-200);
-  --btn-shared-background-hover:var(--soft-pink-300);
+  //BTN-Shared
+  --btn-shared-color: var(--zinc-800);
+  --btn-shared-i-color: var(--zinc-800);
+  --btn-shared-background: var(--soft-pink-200);
+  --btn-shared-background-hover: var(--soft-pink-300);
 
-//Cards
-  --bg-shape-card:var(--hover-card-dark);
-  --bg-shape-i-card:var(--white);
-  --color-shape-i-card:var(--maroon-500);
-  --hover-shape-i-card:var(--soft-pink-200);
+  //Cards
+  --bg-shape-card: var(--hover-card-dark);
+  --bg-shape-i-card: var(--white);
+  --color-shape-i-card: var(--maroon-500);
+  --hover-shape-i-card: var(--soft-pink-200);
 
-  --price-color-card:var(--soft-pink-200);
-  --rating-color-card:var(--yellow-dark-mode);
+  --price-color-card: var(--soft-pink-200);
+  --rating-color-card: var(--yellow-dark-mode);
 
-  --bg-btn-shopping-card:var(--maroon-500);
-  --hover-btn-shopping-card:var(--maroon-600);
-  --color-btn-shopping-card:var(--maroon-50);
+  --bg-btn-shopping-card: var(--maroon-500);
+  --hover-btn-shopping-card: var(--maroon-600);
+  --color-btn-shopping-card: var(--maroon-50);
 
   //Tabs
-  --tabs-color:var(--zinc-400);
-  --hover-tabs-color:var(--soft-pink-200);
+  --tabs-color: var(--zinc-400);
+  --hover-tabs-color: var(--soft-pink-200);
 
-//other
-  --background-shape:var(--zinc-700);
-  --underline-bar-color:var(--soft-pink-500);
+  //other
+  --background-shape: var(--zinc-700);
+  --underline-bar-color: var(--soft-pink-500);
 
-  --border-box-transform-color:var(--soft-pink-400);
+  --border-box-transform-color: var(--soft-pink-400);
 
-  --checker-color:var(--soft-pink-400);
-  --icons-color:var(--zinc-800);
+  --checker-color: var(--soft-pink-400);
+  --icons-color: var(--zinc-800);
 
-  --btn-carousel-color:var(--zinc-50);
-  --btn-carousel-background:var(--maroon-500);
-  --btn-carousel-background-hover:var(--maroon-600);
+  --btn-carousel-color: var(--zinc-50);
+  --btn-carousel-background: var(--maroon-500);
+  --btn-carousel-background-hover: var(--maroon-600);
 
+  // Titles
+  --section-title-color: var(--maroon-400);
+  --sub-title-color: var(--soft-pink-200);
 
-// Titles
-  --section-title-color:var(--maroon-400);
-  --sub-title-color:var(--soft-pink-200);
+  --strong-color: var(--maroon-400);
 
-  --strong-color:var(--maroon-400);
+  --main-title: var(--soft-pink-200);
+  --secondary-title: var(--maroon-400);
 
-  --main-title:var(--soft-pink-200);
-  --secondary-title:var(--maroon-400);
+  //Texts
+  --p-main: var(--zinc-300);
+  --p-secondary: var(--zinc-400);
+  --p-checker: var(--zinc-50);
+  --text-color: var(--zinc-50);
 
-//Texts
-  --p-main:var(--zinc-300);
-  --p-secondary:var(--zinc-400);
-  --p-checker:var(--zinc-50);
-  --text-color:var(--zinc-50);
+  //Navbar
+  --background-navbar: var(--zinc-800);
+  --color-navbar: var(--zinc-100);
+  --hover-navbar: var(--soft-pink-300);
+  --active-navbar: var(--soft-pink-300);
 
-//Navbar
-  --background-navbar:var(--zinc-800);
-  --color-navbar:var(--zinc-100);
-  --hover-navbar:var(--soft-pink-300);
-  --active-navbar:var(--soft-pink-300);
+  --color-icon-navbar: var(--zinc-100);
+  --hover-icon-navbar: var(--soft-pink-300);
+  --overlaybadge-bg: var(--maroon-500);
+  --overlaybadge-color: var(--zinc-50);
 
-  --color-icon-navbar:var(--zinc-100);
-  --hover-icon-navbar:var(--soft-pink-300);
-  --overlaybadge-bg:var(--maroon-500);
-  --overlaybadge-color:var(--zinc-50);
+  --close-btn-color: var(--zinc-50);
+  --close-btn-hover: var(--soft-pink-200);
+  --close-btn-border: var(--zinc-800);
 
-  --close-btn-color:var(--zinc-50);
-  --close-btn-hover:var(--soft-pink-200);
-  --close-btn-border:var(--zinc-800);
+  //footer
+  --background-footer: var(--zinc-900);
 
-//footer
-  --background-footer:var(--zinc-900);
+  --tabs-footer: var(--zinc-100);
+  --hover-tabs-footer: var(--soft-pink-400);
 
-  --tabs-footer:var(--zinc-100);
-  --hover-tabs-footer:var(--soft-pink-400);
+  --coupon-text: var(--soft-pink-300);
+  --highlight-text: var(--zinc-50);
+  --p-footer-text: var(--zinc-500);
 
-  --coupon-text :var(--soft-pink-300);
-  --highlight-text:var(--zinc-50);
-  --p-footer-text:var(--zinc-500);
+  --bg-input-footer: var(--zinc-800);
+  --color-input-footer: var(--zinc-50);
+  --focus-input-footer: var(--soft-pink-300);
 
-  --bg-input-footer:var(--zinc-800);
-  --color-input-footer:var(--zinc-50);
-  --focus-input-footer:var(--soft-pink-300);
+  --bg-btn-footer: var(--soft-pink-300);
+  --hover-btn-footer: var(--soft-pink-400);
+  --color-btn-footer: var(--zinc-800);
 
-  --bg-btn-footer:var(--soft-pink-300);
-  --hover-btn-footer:var(--soft-pink-400);
-  --color-btn-footer:var(--zinc-800);
+  //DarkMode Toggle
+  --toggle-color: var(--zinc-100);
+  --toggle-hover: var(--soft-pink-300);
 
-//DarkMode Toggle
-  --toggle-color:var(--zinc-100);
-  --toggle-hover:var(--soft-pink-300);
+  // Search Toggle
+  --Search-bg: var(--soft-pink-200);
+  --Search-color: var(--zinc-800);
+  --Search-hover: var(--soft-pink-300);
 
-// Search Toggle
-  --Search-bg:var(--soft-pink-200);
-  --Search-color:var(--zinc-800);
-  --Search-hover:var(--soft-pink-300);
+  //Card Filters
+  --bg-card-filter: var(--zinc-700);
+  --color-title-card-filter: var(--soft-pink-200);
+  --color-card-filter: var(--zinc-50);
+  --checked-filter: var(--soft-pink-200);
+  --check-border-filter: var(--zinc-50);
+  --check-icon-border-filter: var(--zinc-800);
 
-//Card Filters
-  --bg-card-filter:var(--zinc-700);
-  --color-title-card-filter:var(--soft-pink-200);
-  --color-card-filter:var(--zinc-50);
-  --checked-filter:var(--soft-pink-200);
-  --check-border-filter:var(--zinc-50);
-  --check-icon-border-filter:var(--zinc-800);
+  //Btn-Clear-Filters
+  --btn-clear-filters-color: var(--zinc-100);
+  --btn-clear-filters-hover: var(--soft-pink-200);
 
-//Btn-Clear-Filters
-  --btn-clear-filters-color:var(--zinc-100);
-  --btn-clear-filters-hover:var(--soft-pink-200);
-
-//Btn-SideBar-Filters
-  --btn-SideBar-filters-color:var(--maroon-500);
-  --btn-SideBar-filters-hover:var(--maroon-600);
-  --btn-SideBar-filters-color-icon:var(--zinc-100);
-  --btn-close-SideBar-color:var(--soft-pink-200);
-  --btn-close-SideBar-border:var(--zinc-100);
-  --btn-close-SideBar-hover:var(--soft-pink-200);
+  //Btn-SideBar-Filters
+  --btn-SideBar-filters-color: var(--maroon-500);
+  --btn-SideBar-filters-hover: var(--maroon-600);
+  --btn-SideBar-filters-color-icon: var(--zinc-100);
+  --btn-close-SideBar-color: var(--soft-pink-200);
+  --btn-close-SideBar-border: var(--zinc-100);
+  --btn-close-SideBar-hover: var(--soft-pink-200);
 
   // Scrollbar
   --scrollbar-track-color: var(--zinc-800);
   --scrollbar-thumb-color: var(--soft-pink-400);
   --scrollbar-thumb-hover-color: var(--soft-pink-500);
-
 }

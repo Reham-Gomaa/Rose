@@ -1,26 +1,31 @@
-import { Component, inject, OnInit, OnDestroy, signal } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, inject, OnInit, OnDestroy, signal } from "@angular/core";
+import { Subscription } from "rxjs";
 
-import { CardItemComponent } from '../../../../../shared/components/ui/card-item/card-item.component';
-import { ButtonComponent } from '../../../../../shared/components/ui/button/button.component';
+import { CardItemComponent } from "../../../../../shared/components/ui/card-item/card-item.component";
+import { ButtonComponent } from "../../../../../shared/components/ui/button/button.component";
 
 //PrimeNg
-import { CarouselModule } from 'primeng/carousel';
-import { ButtonModule } from 'primeng/button';
-import { BestSellerService } from '../../../../../shared/services/best-seller/best-seller.service';
-import { BestSeller, BestSellerRes } from '../../../../../core/interfaces/best-seller';
-import { SkeletonModule } from 'primeng/skeleton';
-import { TranslatePipe } from '@ngx-translate/core';
-
+import { CarouselModule } from "primeng/carousel";
+import { ButtonModule } from "primeng/button";
+import { BestSellerService } from "../../../../../shared/services/best-seller/best-seller.service";
+import { BestSeller, BestSellerRes } from "../../../../../core/interfaces/best-seller.interface";
+import { SkeletonModule } from "primeng/skeleton";
+import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
-  selector: 'app-best-seller',
-  imports: [CarouselModule, ButtonModule, CardItemComponent, ButtonComponent, SkeletonModule, TranslatePipe],
-  templateUrl: './bestSeller.component.html',
-  styleUrls: ['./bestSeller.component.scss']
+  selector: "app-best-seller",
+  imports: [
+    CarouselModule,
+    ButtonModule,
+    CardItemComponent,
+    ButtonComponent,
+    SkeletonModule,
+    TranslatePipe,
+  ],
+  templateUrl: "./bestSeller.component.html",
+  styleUrls: ["./bestSeller.component.scss"],
 })
 export class BestSellerComponent implements OnInit, OnDestroy {
-
   private readonly bestsellerService = inject(BestSellerService);
 
   bestSellers = signal<BestSeller[]>([]);
@@ -32,15 +37,15 @@ export class BestSellerComponent implements OnInit, OnDestroy {
 
   responsiveOptions = [
     {
-      breakpoint: '1199px',
+      breakpoint: "1199px",
       numVisible: 2,
-      numScroll: 1
+      numScroll: 1,
     },
     {
-      breakpoint: '768px',
+      breakpoint: "768px",
       numVisible: 1,
-      numScroll: 1
-    }
+      numScroll: 1,
+    },
   ];
 
   ngOnInit(): void {
@@ -49,7 +54,6 @@ export class BestSellerComponent implements OnInit, OnDestroy {
   loadBestSellers(): void {
     this.loading.set(true);
     this.showSkeleton.set(true);
-
 
     this.subscription = this.bestsellerService.getBestSellers().subscribe({
       next: (res: BestSellerRes) => {
@@ -60,8 +64,8 @@ export class BestSellerComponent implements OnInit, OnDestroy {
       error: (err) => {
         console.error(err);
         this.loading.set(false);
-          this.showSkeleton.set(false);
-      }
+        this.showSkeleton.set(false);
+      },
     });
   }
   ngOnDestroy(): void {

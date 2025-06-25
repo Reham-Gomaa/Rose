@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { PopularItemsComponent } from './popularItems.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { PopularItemsComponent } from "./popularItems.component";
 
-describe('PopularItemsComponent', () => {
+describe("PopularItemsComponent", () => {
   let component: PopularItemsComponent;
   let fixture: ComponentFixture<PopularItemsComponent>;
 
@@ -15,7 +15,7 @@ describe('PopularItemsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

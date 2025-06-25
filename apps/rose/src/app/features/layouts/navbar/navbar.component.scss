@@ -36,9 +36,7 @@
     background: none;
     border: none;
   }
-
 }
-
 
 .nav-items {
   color: var(--color-navbar);
@@ -71,12 +69,11 @@
   .p-dialog {
     margin: 0 !important;
     border-radius: 0 !important;
-
   }
 
   .p-menubar-start,
   .smallNav-header {
-    width: calc(50 / 16)+rem;
+    width: calc(50 / 16) + rem;
   }
 
   .smallNav {
@@ -129,10 +126,8 @@
     }
   }
 
-
   .p-menubar {
     border: 0 !important;
-
   }
 
   .p-menubar {
@@ -145,9 +140,8 @@
     margin-left: initial !important;
   }
 
-
   .p-menubar-mobile .p-menubar-button {
-    order: 1
+    order: 1;
   }
 
   .p-menubar-item-content:hover,
@@ -170,8 +164,6 @@
   .p-dialog-header-actions {
     display: none !important;
   }
-
-
 }
 
 @media screen and (max-width: 960px) {

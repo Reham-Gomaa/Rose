@@ -1,10 +1,17 @@
 <app-filter-card>
-  <span>{{"all-categories.cardSort.Sort By" | translate }}</span>
+  <span>{{ "all-categories.cardSort.Sort By" | translate }}</span>
   <section aria-labelledby="filter-heading" class="radio-container">
     @for(option of sortOptions; track option.id) {
     <div class="field-radio">
-      <input type="radio" [id]="option.id" name="sort-option" [value]="option.value" [checked]="option.checked"
-        [attr.aria-labelledby]="option.id + '-label'">
+      <input
+        type="radio"
+        [id]="option.id"
+        name="sort-option"
+        [value]="option.value"
+        [checked]="option.checked"
+        [attr.aria-labelledby]="option.id + '-label'"
+        (change)="onSortChange(option.value)"
+      />
       <label [attr.id]="option.id + '-label'" [for]="option.id">
         <span class="radio-custom" aria-hidden="true"></span>
         <span class="radio-label">{{ option.label | translate }}</span>

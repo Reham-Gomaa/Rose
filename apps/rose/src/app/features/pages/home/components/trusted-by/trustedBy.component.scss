@@ -40,9 +40,9 @@
 }
 
 .trusted-companies-underline::after {
-  content: '';
+  content: "";
   width: 15rem;
-  height: .125rem;
+  height: 0.125rem;
   background-color: var(--underline-bar-color);
   position: absolute;
   top: 100%;
@@ -82,7 +82,7 @@
   object-fit: contain;
 }
 
-.btn-res{
+.btn-res {
   display: none;
 }
 /* 300px - 400px */
@@ -105,8 +105,8 @@
     width: 7.3rem;
   }
 
-  .btn-res{
-  display: block;
+  .btn-res {
+    display: block;
   }
 }
 
@@ -132,7 +132,7 @@
     width: 10.3rem;
   }
 
-  .btn-res{
+  .btn-res {
     display: block;
   }
 }
@@ -155,7 +155,7 @@
     width: 10.3rem;
   }
 
-    .trusted-companies {
+  .trusted-companies {
     width: 100%;
     margin: 5rem 0;
     left: auto;
@@ -179,8 +179,4 @@
     left: auto;
     right: auto;
   }
-
 }
-
-
-
