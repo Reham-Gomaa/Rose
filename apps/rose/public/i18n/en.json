@@ -173,6 +173,9 @@
       "Out Of Stock": "Out Of Stock",
       "Discount": "Discount"
     },
+     "filterRatings": {
+      "Ratings": "Ratings"
+    },
     "Clear Filters": "Clear Filters"
   }
 }

@@ -1,5 +1,4 @@
 {
-
   "EGP": "ج.م",
   "navbar": {
     "home": "الرئيسية",
@@ -174,7 +173,9 @@
       "Out Of Stock": "غير متوفر",
       "Discount": "خصم"
     },
+    "filterRatings": {
+      "Ratings": "التقييمات"
+    },
     "Clear Filters": "مسح الفلاتر"
   }
-    
 }
