@@ -1,0 +1,9 @@
+<app-filter-card [title]="'Price Rating Filter'">
+  <span>{{ "all-categories.filterPriceRating.Price Rating" | translate }}</span>
+  <section aria-labelledby="Price Rating-heading" class="checkbox-container">
+    <h3 id="Price Rating-heading" class="sr-only">Filter by Price Ratings</h3>
+  </section>
+  <div class="card flex justify-center">
+    <p-slider [(ngModel)]="rangeValues" [range]="true" styleClass="w-56" />
+  </div>
+</app-filter-card>

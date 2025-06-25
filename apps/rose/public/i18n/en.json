@@ -166,6 +166,9 @@
       "graduation": "Graduation",
       "anniversary": "Anniversary"
     },
+    "filterPriceRating": {
+      "Price Rating": "Price Rating"
+    },
     "filterSales": {
       "sales": "Sales",
       "On Sale": "On Sale",

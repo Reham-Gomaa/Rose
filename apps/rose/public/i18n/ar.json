@@ -166,6 +166,9 @@
       "graduation": "تخرج",
       "anniversary": "ذكرى سنوية"
     },
+    "filterPriceRating": {
+      "Price Rating": "التقييمات حسب السعر"
+    },
     "filterSales": {
       "sales": "العروض",
       "On Sale": "تخفيضات",
