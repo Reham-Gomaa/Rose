@@ -34,7 +34,6 @@ export class FilterCategoriesComponent {
 
   filterByName(productName:string){
     this._store.dispatch(loadSelectedName({name:productName}))
-    this._store.dispatch(ApplyFilters());
   }
 
 

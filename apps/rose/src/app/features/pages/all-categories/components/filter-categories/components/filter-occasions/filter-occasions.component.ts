@@ -45,7 +45,6 @@ export class FilterOccasionsComponent implements OnInit, OnDestroy {
 
   changeValue() {
     this._store.dispatch(loadSelectedOccasions({selectedOccasions:this.selectedItems}));
-    this._store.dispatch(ApplyFilters());
   }
 
   ngOnDestroy(): void {

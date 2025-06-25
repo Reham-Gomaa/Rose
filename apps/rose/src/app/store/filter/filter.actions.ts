@@ -25,7 +25,7 @@ export const loadSelectedPrice= createAction(
 );
 
 export const loadSelectedName= createAction(
-  "[FILTER] Load Selected Price",
+  "[FILTER] Load Selected Name",
   props<{name:string}>()
 );
 

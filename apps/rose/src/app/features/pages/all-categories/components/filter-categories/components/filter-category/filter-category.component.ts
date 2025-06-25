@@ -36,8 +36,6 @@ export class FilterCategoryComponent implements OnInit, OnDestroy {
   changeValue(){
   
     this._store.dispatch(loadSelectedCategories({selectedCategories:this.selectedItems}));
-    this._store.dispatch(ApplyFilters());
-
   }
   ngOnDestroy(): void {
     this.categoriesID?.unsubscribe();

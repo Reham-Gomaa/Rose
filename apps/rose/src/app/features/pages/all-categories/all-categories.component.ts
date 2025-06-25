@@ -62,11 +62,10 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
   }
 
   private loadStores() {
-    this._store.dispatch(sortActions.loadProducts({products: this.products(),}));
+    this._store.dispatch(sortActions.loadProducts({products: this.products()}));
     this._store.select(sortSelectors.sortedProducts).subscribe({
       next: (sortProducts) => {
         this._store.dispatch(loadProductsToFilter({ products: sortProducts }));
-        this._store.dispatch(ApplyFilters());
       },
     });
   }

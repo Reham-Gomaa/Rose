@@ -92,7 +92,7 @@ export const filterReduser = createReducer(
   on(clearFilter, (state) => {
     return {
       ...state,
-      filterList: [],
+      filterList: state.products,
     };
   })
 );

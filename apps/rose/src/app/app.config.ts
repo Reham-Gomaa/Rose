@@ -22,6 +22,7 @@ import { provideEffects } from '@ngrx/effects';
 import { sortReducer } from './store/sort/sort.reducer';
 import { sortEffects } from './store/sort/store.effects';
 import { filterReduser } from "./store/filter/filter.reducer";
+import { FilterEffects } from "./store/filter/filter.effect";
 
 
 
@@ -63,7 +64,7 @@ export const appConfig: ApplicationConfig = {
       sort:sortReducer,
       filter:filterReduser
     }),
-    provideEffects(sortEffects)
+    provideEffects(sortEffects,FilterEffects),
 ],
 
 };
