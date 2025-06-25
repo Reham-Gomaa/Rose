@@ -10,6 +10,7 @@ import {
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 // @ngx imports ....
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -34,6 +35,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     MessageService,
     provideAnimationsAsync(),
+    provideAnimations(),
     providePrimeNG({
       theme: {
         preset: Aura,
