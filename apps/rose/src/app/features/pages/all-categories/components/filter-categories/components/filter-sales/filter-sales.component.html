@@ -1,1 +1,8 @@
-<p>filter-sales works!</p>
+<app-filter-card [title]="'Sales Filter'">
+  <span>{{ "all-categories.filterSales.sales" | translate }}</span>
+  <section aria-labelledby="sales-heading" class="checkbox-container">
+    <h3 id="sales-heading" class="sr-only">Filter by Sales</h3>
+    <app-checked-card [filterItems]="sales" [selectedItems]="selectedItems" [itemType]="'sales'">
+    </app-checked-card>
+  </section>
+</app-filter-card>

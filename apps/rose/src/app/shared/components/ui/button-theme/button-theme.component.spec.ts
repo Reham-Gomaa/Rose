@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ButtonThemeComponent } from './button-theme.component';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ButtonThemeComponent } from "./button-theme.component";
 
-describe('ButtonThemeComponent', () => {
+describe("ButtonThemeComponent", () => {
   let component: ButtonThemeComponent;
   let fixture: ComponentFixture<ButtonThemeComponent>;
 
@@ -15,7 +15,7 @@ describe('ButtonThemeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

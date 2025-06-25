@@ -1,60 +1,59 @@
 .parent {
-    border-radius: 1.25rem;
-    padding: 2.5rem;
-    background-color: var(--background-color);
-    text-align: center;
+  border-radius: 1.25rem;
+  padding: 2.5rem;
+  background-color: var(--background-color);
+  text-align: center;
 
-    .icon {
-        width: 4.0625rem;
-        height: 4.0625rem;
-        background-color: var(--background-icon-color);
-        border-radius: 2.031rem;
-        padding-inline: 0.859rem;
-        padding-top: 1rem;
-        padding-bottom: 1.125rem;
+  .icon {
+    width: 4.0625rem;
+    height: 4.0625rem;
+    background-color: var(--background-icon-color);
+    border-radius: 2.031rem;
+    padding-inline: 0.859rem;
+    padding-top: 1rem;
+    padding-bottom: 1.125rem;
 
-        i {
-            width: 2.3175rem;
-            height: 2.3175rem;
-            color: var(--icons-color);
-        }
+    i {
+      width: 2.3175rem;
+      height: 2.3175rem;
+      color: var(--icons-color);
     }
+  }
 
-    h3 {
-        font-family: var(--font-family-1);
-        margin: 0 0 .3125rem 0;
-        color: var(--main-title);
-    }
+  h3 {
+    font-family: var(--font-family-1);
+    margin: 0 0 0.3125rem 0;
+    color: var(--main-title);
+  }
 
-    p {
-        font-family: var(--font-family-2);
-        line-height: 1.75rem;
-        color: var(--p-main);
-    }
+  p {
+    font-family: var(--font-family-2);
+    line-height: 1.75rem;
+    color: var(--p-main);
+  }
 
-    @media all and (min-width: 48rem) and (max-width: 75rem) {
-        .content{
-        min-width: 15.625rem;
+  @media all and (min-width: 48rem) and (max-width: 75rem) {
+    .content {
+      min-width: 15.625rem;
     }
-    }
-    @media all and (min-width: 62rem) {
-        text-align: left;
-    }
+  }
+  @media all and (min-width: 62rem) {
+    text-align: left;
+  }
 }
 
 :host-context([dir="rtl"]) .parent {
-    .icon {
-        margin-right: 0 !important;
-        margin-left: 1rem;
-    }
+  .icon {
+    margin-right: 0 !important;
+    margin-left: 1rem;
+  }
 
-    .md\:mr-3 {
-        margin-right: 0;
-        margin-left: 0.75rem;
-    }
+  .md\:mr-3 {
+    margin-right: 0;
+    margin-left: 0.75rem;
+  }
 
-    @media all and (min-width: 48rem) {
-        text-align: right;
-    }
-
+  @media all and (min-width: 48rem) {
+    text-align: right;
+  }
 }

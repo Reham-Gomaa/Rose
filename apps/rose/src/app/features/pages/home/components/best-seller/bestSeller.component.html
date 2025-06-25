@@ -1,34 +1,45 @@
 <section class="grid mt-8" aria-labelledby="premium-gifts-heading">
   <!-- Header Section -->
-  <div class=" header text-left col-12 md:col-6 lg:col-4">
-    <span class="text-base mb-5 font-bold premium">{{ "home.bestSeller.left.span" |translate }}</span>
-    <h2 id="premium-gifts-heading" class=" gifts text-4xl font-bold mb-2">
-      <span class="dark">{{ "home.bestSeller.left.heading2span1" |translate }}</span>
-      {{ "home.bestSeller.left.heading2" |translate }}
-      <span class="dark">{{ "home.bestSeller.left.heading2span2" |translate }}</span>
+  <div class="header text-left col-12 md:col-6 lg:col-4">
+    <span class="text-base mb-5 font-bold premium">{{
+      "home.bestSeller.left.span" | translate
+    }}</span>
+    <h2 id="premium-gifts-heading" class="gifts text-4xl font-bold mb-2">
+      <span class="dark">{{ "home.bestSeller.left.heading2span1" | translate }}</span>
+      {{ "home.bestSeller.left.heading2" | translate }}
+      <span class="dark">{{ "home.bestSeller.left.heading2span2" | translate }}</span>
     </h2>
 
-
     <p class="gray mb-4 gifts">
-      {{ "home.bestSeller.left.paragraph" |translate }}
+      {{ "home.bestSeller.left.paragraph" | translate }}
     </p>
 
-    <app-button [text]="('home.bestSeller.left.btn' |translate)" [isIcon]="true"
-      [borderRadius]="'btn-bestseller-radius'" [padding]="'btn-bestseller-padding'"
-      [transition]="'btn-bestseller-transition'" aria-label="Explore more best seller gifts and products" />
-
+    <app-button
+      [text]="'home.bestSeller.left.btn' | translate"
+      [isIcon]="true"
+      [borderRadius]="'btn-bestseller-radius'"
+      [padding]="'btn-bestseller-padding'"
+      [transition]="'btn-bestseller-transition'"
+      aria-label="Explore more best seller gifts and products"
+    />
   </div>
 
   <!-- Carousel/Product Grid Section -->
   <div class="product-carousel col-12 md:col-6 lg:col-8">
-
-    <p-carousel [value]="bestSellers()" [numVisible]="3" [numScroll]="1" [circular]="true"
-      [responsiveOptions]="responsiveOptions" [showIndicators]="false" class="custom-carousel"
-      [prevButtonProps]="{styleClass: 'p-button-rounded custom-best-prev'}"
-      [nextButtonProps]="{styleClass: 'p-button-rounded custom-best-next'}" aria-label="Best seller products carousel">
+    <p-carousel
+      [value]="bestSellers()"
+      [numVisible]="3"
+      [numScroll]="1"
+      [circular]="true"
+      [responsiveOptions]="responsiveOptions"
+      [showIndicators]="false"
+      class="custom-carousel"
+      [prevButtonProps]="{ styleClass: 'p-button-rounded custom-best-prev' }"
+      [nextButtonProps]="{ styleClass: 'p-button-rounded custom-best-next' }"
+      aria-label="Best seller products carousel"
+    >
       <ng-template let-product pTemplate="item">
-        @if (showSkeleton()) {
-        @for (item of skeletonItems(); track $index) {
+        @if (showSkeleton()) { @for (item of skeletonItems(); track $index) {
         <div class="carousel-card-wrapper">
           <div class="image-wrapper">
             <p-skeleton width="100%" height="200px"></p-skeleton>
@@ -44,15 +55,12 @@
             </div>
           </div>
         </div>
-        }
-        }
-        @else {
+        } } @else {
         <div class="carousel-card-wrapper">
           <app-card-item [productInfo]="product" />
         </div>
         }
       </ng-template>
     </p-carousel>
-
   </div>
 </section>

@@ -20,7 +20,7 @@
 </section>
 } @else if (hasError()) {
 <div class="p-3 flex justify-content-center" aria-live="assertive">
-  <p role="alert">{{ "home.categories.error" |translate }}</p>
+  <p role="alert">{{ "home.categories.error" | translate }}</p>
 </div>
 } @else {
 <section aria-labelledby="categories-heading">
@@ -29,11 +29,18 @@
       @for (category of categories(); track category._id) {
       <div class="category-card light-pink-bg" role="listitem">
         <div class="category-icon" aria-hidden="true">
-          <img [src]="category.image" [alt]="category.name + ' category icon'" class="category-img" width="56"
-            height="56" loading="lazy" decoding="async" />
+          <img
+            [src]="category.image"
+            [alt]="category.name + ' category icon'"
+            class="category-img"
+            width="56"
+            height="56"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
         <div class="category-content">
-          <span class="category-name ">{{ category.name }}</span>
+          <span class="category-name">{{ category.name }}</span>
           <span class="category-count">
             {{ category.productsCount }}
             <span [ngPlural]="category.productsCount">
@@ -45,7 +52,7 @@
       </div>
       } @empty {
       <div class="p-3 flex justify-content-center no-categories" aria-live="polite">
-        <p role="status">{{ "home.categories.empty" |translate }}</p>
+        <p role="status">{{ "home.categories.empty" | translate }}</p>
       </div>
       }
     </div>

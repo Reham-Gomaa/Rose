@@ -1,54 +1,86 @@
-<footer class="footer flex flex-column align-items-center justify-content-center py-6 text-center" role="contentinfo"
-  itemscope itemtype="https://schema.org/WPFooter">
+<footer
+  class="footer flex flex-column align-items-center justify-content-center py-6 text-center"
+  role="contentinfo"
+  itemscope
+  itemtype="https://schema.org/WPFooter"
+>
   <!-- Navigation Links -->
   <nav aria-label="Footer navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
-    <ul class="list-none tab-footer tab-footer-scroll " role="list">
-      <li itemprop="name"><a class="tab-footer no-underline" aria-label="About our company" itemprop="url">
-          {{ "footer.nav.item1" |translate }}
+    <ul class="list-none tab-footer tab-footer-scroll" role="list">
+      <li itemprop="name">
+        <a class="tab-footer no-underline" aria-label="About our company" itemprop="url">
+          {{ "footer.nav.item1" | translate }}
         </a>
       </li>
-      <li itemprop="name"><a class="tab-footer no-underline" aria-label="Our store locations" itemprop="url">
-          {{ "footer.nav.item2" |translate }}</a></li>
-      <li itemprop="name"><a class="tab-footer no-underline" aria-label="Contact us" itemprop="url">
-          {{ "footer.nav.item3" |translate }}
-        </a></li>
-      <li itemprop="name"><a class="tab-footer no-underline" aria-label="Delivery information" itemprop="url">{{
-          "footer.nav.item4" |translate }}</a></li>
-      <li itemprop="name"><a class="tab-footer no-underline" aria-label="Our policies" itemprop="url">
-          {{ "footer.nav.item5" |translate }}
+      <li itemprop="name">
+        <a class="tab-footer no-underline" aria-label="Our store locations" itemprop="url">
+          {{ "footer.nav.item2" | translate }}</a
+        >
+      </li>
+      <li itemprop="name">
+        <a class="tab-footer no-underline" aria-label="Contact us" itemprop="url">
+          {{ "footer.nav.item3" | translate }}
         </a>
       </li>
-      <li itemprop="name"><a class="tab-footer no-underline" aria-label="Frequently asked questions" itemprop="url">{{
-          "footer.nav.item6" |translate }}</a></li>
+      <li itemprop="name">
+        <a class="tab-footer no-underline" aria-label="Delivery information" itemprop="url">{{
+          "footer.nav.item4" | translate
+        }}</a>
+      </li>
+      <li itemprop="name">
+        <a class="tab-footer no-underline" aria-label="Our policies" itemprop="url">
+          {{ "footer.nav.item5" | translate }}
+        </a>
+      </li>
+      <li itemprop="name">
+        <a class="tab-footer no-underline" aria-label="Frequently asked questions" itemprop="url">{{
+          "footer.nav.item6" | translate
+        }}</a>
+      </li>
     </ul>
   </nav>
 
   <!-- Coupon Text -->
   <div itemprop="specialOffer" itemscope itemtype="https://schema.org/Offer">
     <h2 class="coupon-text m-0">
-      {{ "footer.heading2part1" |translate }}
-      <span class="highlight" aria-hidden="true">{{ "footer.heading2span" |translate }} </span>
+      {{ "footer.heading2part1" | translate }}
+      <span class="highlight" aria-hidden="true">{{ "footer.heading2span" | translate }} </span>
       <span class="sr-only">20 percent</span>
-      <span itemprop="priceSpecification" itemscope itemtype="https://schema.org/UnitPriceSpecification">
-        <meta itemprop="priceCurrency" content="USD">
-        <meta itemprop="price" content="20">
+      <span
+        itemprop="priceSpecification"
+        itemscope
+        itemtype="https://schema.org/UnitPriceSpecification"
+      >
+        <meta itemprop="priceCurrency" content="USD" />
+        <meta itemprop="price" content="20" />
       </span>
-      {{ "footer.heading2part2" |translate }}
+      {{ "footer.heading2part2" | translate }}
     </h2>
-    <p class="coupon-text-p" itemprop="description">{{ "footer.paragraph" |translate }}</p>
-    <meta itemprop="price" content="20%">
-    <meta itemprop="priceCurrency" content="percent">
+    <p class="coupon-text-p" itemprop="description">{{ "footer.paragraph" | translate }}</p>
+    <meta itemprop="price" content="20%" />
+    <meta itemprop="priceCurrency" content="percent" />
   </div>
 
   <!-- Email Input -->
-  <form class="input-button-wrapper" aria-label="Newsletter subscription" itemprop="potentialAction" itemscope
-    itemtype="https://schema.org/SubscribeAction">
-    <app-input-btn [(inputValue)]="emailValue" [placeholder]="('footer.placeHolder' |translate)"
-      [buttonText]="'footer.btn' | translate" [showIcon]="true" type="email" name="email" />
-    <meta itemprop="actionStatus" content="PotentialActionStatus">
+  <form
+    class="input-button-wrapper"
+    aria-label="Newsletter subscription"
+    itemprop="potentialAction"
+    itemscope
+    itemtype="https://schema.org/SubscribeAction"
+  >
+    <app-input-btn
+      [(inputValue)]="emailValue"
+      [placeholder]="'footer.placeHolder' | translate"
+      [buttonText]="'footer.btn' | translate"
+      [showIcon]="true"
+      type="email"
+      name="email"
+    />
+    <meta itemprop="actionStatus" content="PotentialActionStatus" />
   </form>
 
   <!-- Hidden structured data -->
-  <meta itemprop="copyrightYear" content="2024">
-  <meta itemprop="copyrightHolder" content="Your Company Name">
+  <meta itemprop="copyrightYear" content="2024" />
+  <meta itemprop="copyrightHolder" content="Your Company Name" />
 </footer>

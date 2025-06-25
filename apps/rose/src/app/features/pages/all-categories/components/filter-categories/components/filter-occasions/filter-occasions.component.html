@@ -1,0 +1,12 @@
+<app-filter-card [title]="'Occasions Filter'">
+  <span>{{ "all-categories.filterOccasions.occasions" | translate }}</span>
+  <section aria-labelledby="occasions-heading" class="checkbox-container">
+    <h3 id="occasions-heading" class="sr-only">Filter by Occasions</h3>
+    <app-checked-card
+      [filterItems]="occasions"
+      [selectedItems]="selectedItems"
+      [itemType]="'occasion'"
+    >
+    </app-checked-card>
+  </section>
+</app-filter-card>

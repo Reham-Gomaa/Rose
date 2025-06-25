@@ -1,160 +1,178 @@
 {
   "EGP": "EGP",
-    "navbar":{
-        "home": "Home",
-        "allcategory": "All Category",
-        "about": "About",
-        "contact": "Contact",
-        "login": "Login"
+  "navbar": {
+    "home": "Home",
+    "allcategory": "All Category",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login"
+  },
+  "home": {
+    "categories": {
+      "error": "Error loading categories. Please try again later.",
+      "empty": "No categories available at this time."
     },
-    "home": {
-        "categories": {
-            "error": "Error loading categories. Please try again later.",
-            "empty": "No categories available at this time."
+    "gifts": {
+      "leftImage": {
+        "heading2": "Start $10.99",
+        "heading1": "Special Gifts Box For Your Love",
+        "btn": "Shop Now"
+      },
+      "rightCarousel": {
+        "heading2": "Best Gift Shop",
+        "heading1Part1": "Choose Perfect",
+        "heading1Span": "Gifts",
+        "heading1Part2": "From Us",
+        "paragraph": "Shop from our curated collection to get the best products that add a magical touch to every occasion.",
+        "btn": "Shop Now"
+      },
+      "bottomImages": {
+        "left": {
+          "heading2": "Gifts Box",
+          "heading1": "Awesome Gifts Box Collections",
+          "btn": "Shop Now"
         },
-        "gifts": {
-            "leftImage": {
-                "heading2": "Start $10.99",
-                "heading1": "Special Gifts Box For Your Love",
-                "btn": "Shop Now"
-            },
-            "rightCarousel": {
-                "heading2": "Best Gift Shop",
-                "heading1Part1": "Choose Perfect",
-                "heading1Span": "Gifts",
-                "heading1Part2": "From Us",
-                "paragraph": "Shop from our curated collection to get the best products that add a magical touch to every occasion.",
-                "btn": "Shop Now"
-            },
-            "bottomImages": {
-                "left": {
-                    "heading2": "Gifts Box",
-                    "heading1": "Awesome Gifts Box Collections",
-                    "btn": "Shop Now"
-                },
-                "middle": {
-                    "heading2": "Occasion Gifts",
-                    "heading1": "Best Occasion Gifts collections",
-                    "btn": "Discover Now"
-                },
-                "right": {
-                    "heading2": "Occasion Gifts",
-                    "heading1": "Combo Sets Gift Box Up To 50% Off",
-                    "btn": "Discover Now"
-                }
-            }
+        "middle": {
+          "heading2": "Occasion Gifts",
+          "heading1": "Best Occasion Gifts collections",
+          "btn": "Discover Now"
         },
-        "services": {
-            "freeDelivery": {
-                "heading": "Free Delivery",
-                "paragraph": "Orders Over $120"
-            },
-            "getRefund": {
-                "heading": "Get Refund",
-                "paragraph": "Within 30 Days Returns"
-            },
-            "safePayment": {
-                "heading": "Safe Payment",
-                "paragraph": "100% Secure Payment"
-            },
-            "support": {
-                "heading": "24/7 Support",
-                "paragraph": "Feel Free To Call Us"
-            }
-        },
-        "bestSeller": {
-            "left": {
-                "span": "PREMIUM GIFTS ",
-                "heading2span1": "Best ",
-                "heading2": "Seller Gifts ",
-                "heading2span2": "and Products ",
-                "paragraph": "Explore our wide collection of unique gifts and favorite products. We offer everything you need to make every occasion special and joyful.",
-                "btn": "Explore More"
-            }
-        },
-        "popularItems": {
-            "title": "Popular Items"
-        },
-        "aboutUs": {
-            "heading1": "ABOUT US ",
-            "heading2part1": "We Provide Best And Quality ",
-            "heading2span": "Gifts Box ",
-            "heading2part2": "Product For You ",
-            "paragraph": "We are committed to offering high-quality, carefully selected products to meet all your needs and special occasions.",
-            "btn": "Discover More",
-            "items": {
-                "item1": "Streamlined Shipping Experience",
-                "item2": "Affordable Modern Design",
-                "item3": "Competitive Price & Easy To Shop",
-                "item4": "We Made Awesome Products"
-            }
-        },
-        "gallery": {
-            "heading5": "Our Gallery",
-            "title": "Let's Check Our Photo Gallery"
-        },
-        "trustedBy": {
-            "span1": "Trusted By",
-            "part1": "Over ",
-            "span2": "4.5k+ ",
-            "part2": "Companies",
-            "btn": "View All Brands"
-        },
-        "testimonials": {
-            "customer1": {
-                "heading2": "Ahmed Mohamed",
-                "heading3": "Customer",
-                "paragraph": "My experience with this store was wonderful. The gifts arrived quickly and were carefully wrapped. The product quality is excellent, and the customer service is friendly and responsive. I’ll definitely be shopping here again."
-            },
-            "customer2": {
-                "heading2": "omar Hassan",
-                "heading3": "Customer",
-                "paragraph": "I ordered a birthday gift and it was delivered on time. The packaging was very elegant, and the gift was greatly appreciated by the recipient. The prices are reasonable and the service is excellent. I highly recommend shopping from this amazing website."
-            },
-            "customer3": {
-                "heading2": "Sami Mahmoud",
-                "heading3": "Customer",
-                "paragraph": "I loved the variety of gifts available and how easy it was to order from the website. The experience was smooth, and the payment process was safe and quick. The gift arrived in perfect condition. Thank you for paying attention to the small details that make a big difference."
-            },
-            "customer4": {
-                "heading2": "Ali Abdallah",
-                "heading3": "Customer",
-                "paragraph": "Excellent service and high-quality products. The gift was exactly as I expected—actually, even more beautiful than in the pictures. I really appreciated their attention to packaging and order details. I’ll definitely recommend the site to my friends and family."
-            },
-            "customer5": {
-                "heading2": "Khaled Mansour",
-                "heading3": "Customer",
-                "paragraph": "I didn’t expect my experience to be this easy. The website is well-organized and clear, with a wide variety of gift options. The delivery service was very punctual, and the packaging added a luxurious touch. I’ll definitely order again for future occasions."
-            }
+        "right": {
+          "heading2": "Occasion Gifts",
+          "heading1": "Combo Sets Gift Box Up To 50% Off",
+          "btn": "Discover Now"
         }
+      }
     },
-    "footer": {
-        "nav": {
-            "item1": "About Us",
-            "item2": "Store Location",
-            "item3": "Contact",
-            "item4": "Delivery",
-            "item5": "Policy",
-            "item6": "FAQs"
-        },
-        "heading2part1": "Get",
-        "heading2span": "20%",
-        "heading2part2": "Off Discount Coupon",
-        "paragraph": "By Subscribing to Our Newsletter",
-        "placeHolder": "Enter your email",
-        "btn": "Subscribe"
+    "services": {
+      "freeDelivery": {
+        "heading": "Free Delivery",
+        "paragraph": "Orders Over $120"
+      },
+      "getRefund": {
+        "heading": "Get Refund",
+        "paragraph": "Within 30 Days Returns"
+      },
+      "safePayment": {
+        "heading": "Safe Payment",
+        "paragraph": "100% Secure Payment"
+      },
+      "support": {
+        "heading": "24/7 Support",
+        "paragraph": "Feel Free To Call Us"
+      }
     },
-    "all-categories": {
-       "cardSearch":{
-         "Search": "Search",
-        "Search By The Name": "Search By The Name"
-       }
-      ,"cardSort":{
-            "Sort By": "Sort By",
-            "Price: Low to High": "Price: Low to High",
-            "Price: High to Low": "Price: High to Low",
-            "Alphabetical: A-Z": "Alphabetical: A-Z",
-            "Alphabetical: Z-A": "Alphabetical: Z-A"
-        }
+    "bestSeller": {
+      "left": {
+        "span": "PREMIUM GIFTS ",
+        "heading2span1": "Best ",
+        "heading2": "Seller Gifts ",
+        "heading2span2": "and Products ",
+        "paragraph": "Explore our wide collection of unique gifts and favorite products. We offer everything you need to make every occasion special and joyful.",
+        "btn": "Explore More"
+      }
+    },
+    "popularItems": {
+      "title": "Popular Items"
+    },
+    "aboutUs": {
+      "heading1": "ABOUT US ",
+      "heading2part1": "We Provide Best And Quality ",
+      "heading2span": "Gifts Box ",
+      "heading2part2": "Product For You ",
+      "paragraph": "We are committed to offering high-quality, carefully selected products to meet all your needs and special occasions.",
+      "btn": "Discover More",
+      "items": {
+        "item1": "Streamlined Shipping Experience",
+        "item2": "Affordable Modern Design",
+        "item3": "Competitive Price & Easy To Shop",
+        "item4": "We Made Awesome Products"
+      }
+    },
+    "gallery": {
+      "heading5": "Our Gallery",
+      "title": "Let's Check Our Photo Gallery"
+    },
+    "trustedBy": {
+      "span1": "Trusted By",
+      "part1": "Over ",
+      "span2": "4.5k+ ",
+      "part2": "Companies",
+      "btn": "View All Brands"
+    },
+    "testimonials": {
+      "customer1": {
+        "heading2": "Ahmed Mohamed",
+        "heading3": "Customer",
+        "paragraph": "My experience with this store was wonderful. The gifts arrived quickly and were carefully wrapped. The product quality is excellent, and the customer service is friendly and responsive. I’ll definitely be shopping here again."
+      },
+      "customer2": {
+        "heading2": "omar Hassan",
+        "heading3": "Customer",
+        "paragraph": "I ordered a birthday gift and it was delivered on time. The packaging was very elegant, and the gift was greatly appreciated by the recipient. The prices are reasonable and the service is excellent. I highly recommend shopping from this amazing website."
+      },
+      "customer3": {
+        "heading2": "Sami Mahmoud",
+        "heading3": "Customer",
+        "paragraph": "I loved the variety of gifts available and how easy it was to order from the website. The experience was smooth, and the payment process was safe and quick. The gift arrived in perfect condition. Thank you for paying attention to the small details that make a big difference."
+      },
+      "customer4": {
+        "heading2": "Ali Abdallah",
+        "heading3": "Customer",
+        "paragraph": "Excellent service and high-quality products. The gift was exactly as I expected—actually, even more beautiful than in the pictures. I really appreciated their attention to packaging and order details. I’ll definitely recommend the site to my friends and family."
+      },
+      "customer5": {
+        "heading2": "Khaled Mansour",
+        "heading3": "Customer",
+        "paragraph": "I didn’t expect my experience to be this easy. The website is well-organized and clear, with a wide variety of gift options. The delivery service was very punctual, and the packaging added a luxurious touch. I’ll definitely order again for future occasions."
+      }
     }
+  },
+  "footer": {
+    "nav": {
+      "item1": "About Us",
+      "item2": "Store Location",
+      "item3": "Contact",
+      "item4": "Delivery",
+      "item5": "Policy",
+      "item6": "FAQs"
+    },
+    "heading2part1": "Get",
+    "heading2span": "20%",
+    "heading2part2": "Off Discount Coupon",
+    "paragraph": "By Subscribing to Our Newsletter",
+    "placeHolder": "Enter your email",
+    "btn": "Subscribe"
+  },
+  "all-categories": {
+    "cardSearch": {
+      "Search": "Search",
+      "Search By The Name": "Search By The Name"
+    },
+    "cardSort": {
+      "Sort By": "Sort By",
+      "Price: Low to High": "Price: Low to High",
+      "Price: High to Low": "Price: High to Low",
+      "Alphabetical: A-Z": "Alphabetical: A-Z",
+      "Alphabetical: Z-A": "Alphabetical: Z-A"
+    },
+    "filterCategories": {
+      "categories": "Categories"
+    },
+    "filterOccasions": {
+      "occasions": "Occasions",
+      "wedding": "Wedding",
+      "apology": "Apology",
+      "graduation": "Graduation",
+      "anniversary": "Anniversary"
+    },
+    "filterSales": {
+      "sales": "Sales",
+      "On Sale": "On Sale",
+      "In Stock": "In Stock",
+      "Out Of Stock": "Out Of Stock",
+      "Discount": "Discount"
+    },
+    "Clear Filters": "Clear Filters"
+  }
 }
