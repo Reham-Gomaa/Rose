@@ -144,7 +144,7 @@
     "placeHolder": "Enter your email",
     "btn": "Subscribe"
   },
- "all-categories": {
+  "all-categories": {
     "cardSearch": {
       "Search": "Search",
       "Search By The Name": "Search By The Name"
@@ -173,7 +173,7 @@
       "Out Of Stock": "Out Of Stock",
       "Discount": "Discount"
     },
-     "filterRatings": {
+    "filterRatings": {
       "Ratings": "Ratings"
     },
     "Clear Filters": "Clear Filters"

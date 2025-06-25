@@ -1,8 +1,12 @@
 <app-filter-card [title]="'Rating Filter'">
-  <span>{{'all-categories.filterRatings.Ratings' | translate}}</span>
+  <span>{{ "all-categories.filterRatings.Ratings" | translate }}</span>
   <section aria-labelledby="Rating-heading" class="checkbox-container">
     <h3 id="Rating-heading" class="sr-only">Filter by Ratings</h3>
-    <app-checked-card [filterItems]="ratings" [selectedItems]="selectedItems" [itemType]="'ratings'">
+    <app-checked-card
+      [filterItems]="ratings"
+      [selectedItems]="selectedItems"
+      [itemType]="'ratings'"
+    >
     </app-checked-card>
   </section>
 </app-filter-card>

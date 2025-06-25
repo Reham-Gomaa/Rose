@@ -22,15 +22,17 @@ export class FilterOccasionsComponent implements OnInit, OnDestroy {
   occasionsID!: Subscription;
 
   selectedItems: selectedItem[] = [] as selectedItem[];
-  
+
   ngOnInit(): void {
     this.occasionsID = this._occasionsService.getcategoryOccasions().subscribe({
       next: (res: occasionRes) => {
-        this.occasions = res.occasions.filter((occasion) => occasion.productsCount > 0).map((occasion) => ({
-          _id: occasion._id,
-          category: occasion.name,
-          productCount: occasion.productsCount,
-        }));
+        this.occasions = res.occasions
+          .filter((occasion) => occasion.productsCount > 0)
+          .map((occasion) => ({
+            _id: occasion._id,
+            category: occasion.name,
+            productCount: occasion.productsCount,
+          }));
         console.log(this.occasions);
       },
       error: (err) => {

@@ -8,8 +8,8 @@ import { Subscription } from "rxjs";
 import { ButtonModule } from "primeng/button";
 import { DrawerModule } from "primeng/drawer";
 import { Store } from "@ngrx/store";
-import * as sortActions from "../../../store/sort/sort.actions"
-import * as sortSelectors from "../../../store/sort/store.selectors"
+import * as sortActions from "../../../store/sort/sort.actions";
+import * as sortSelectors from "../../../store/sort/store.selectors";
 
 @Component({
   selector: "app-all-categories",
@@ -29,8 +29,6 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
 
   filterDrawerVisible = false;
 
-
-
   products = signal<Product[]>([]);
   loading = signal(true);
   private productSub: Subscription = new Subscription();
@@ -39,17 +37,19 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
     this.loadProducts();
 
     this._store.select(sortSelectors.sortedProducts).subscribe({
-      next: (products) =>{
-        this.products.set(products)
+      next: (products) => {
+        this.products.set(products);
         console.log(this.products());
-      }
-    })
+      },
+    });
   }
 
-  addProductsToStore(){
-    this._store.dispatch(sortActions.loadProducts({
-      products:this.products()
-    }))
+  addProductsToStore() {
+    this._store.dispatch(
+      sortActions.loadProducts({
+        products: this.products(),
+      })
+    );
   }
 
   private loadProducts() {
@@ -58,16 +58,13 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
       next: (res) => {
         this.products.set(res.products || []);
         this.loading.set(false);
-        this.addProductsToStore()
-
+        this.addProductsToStore();
       },
       error: () => {
         this.loading.set(false);
       },
     });
   }
-
-
 
   ngOnDestroy() {
     this.productSub.unsubscribe();

@@ -9,7 +9,6 @@ export class DarkModeService {
 
   private readonly STORAGE_KEY = "darkMode";
 
-
   isDark = signal<boolean>(false);
 
   constructor() {

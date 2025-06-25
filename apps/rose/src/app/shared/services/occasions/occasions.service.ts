@@ -1,4 +1,3 @@
-
 import { Observable } from "rxjs";
 import { EndPoint } from "../../../core/enums/endpoints";
 import { occasionRes } from "../../../core/interfaces/occasions.interface";
