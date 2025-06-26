@@ -19,6 +19,7 @@ export const initalState: FilterState = {
     maxPrice: 9999999,
   },
   selectedName: "",
+  selectedRating:0
 };
 
 export const filterReduser = createReducer(
@@ -74,6 +75,12 @@ export const filterReduser = createReducer(
         product.title.toLowerCase().includes(state.selectedName)
       );
 
+    }
+
+    if(state.selectedRating!==0){
+       filtered = filtered.filter((product) =>
+        state.selectedRating === product.rateAvg 
+      );
     }
 
     // filter by price
