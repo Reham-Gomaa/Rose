@@ -50,34 +50,26 @@ type modalPosition =
 })
 export class NavbarComponent implements OnInit {
   private readonly translationService = inject(TranslationService);
-  isLoggedIn:WritableSignal<boolean> = signal<boolean>(false)
+  isLoggedIn: WritableSignal<boolean> = signal<boolean>(false);
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
   items: MenuItem[] | undefined;
   btnClass = "loginBtn";
-  currentLang !:string;
-
-
+  currentLang!: string;
 
   visible = false;
   inSearch = false;
 
   position: modalPosition = "center";
 
-
-
   showDialog(position: modalPosition) {
     this.position = position;
     this.visible = true;
   }
 
-
-
   changeLang(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
     const lang = selectElement.value;
     this.translationService.changeLang(lang);
-
-
   }
 
   openSearch() {

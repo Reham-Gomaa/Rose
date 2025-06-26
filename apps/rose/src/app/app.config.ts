@@ -47,18 +47,19 @@ export const appConfig: ApplicationConfig = {
           prefix: "p",
           darkModeSelector: "light-mode",
           cssLayer: false,
-
         },
-    }}),
+      },
+    }),
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    importProvidersFrom(TranslateModule.forRoot({
+    importProvidersFrom(
+      TranslateModule.forRoot({
         loader: {
-
-            provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
-            deps: [HttpClient]
-        }
-    })),
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient],
+        },
+      })
+    ),
     provideStore({
       sort:sortReducer,
       filter:filterReduser

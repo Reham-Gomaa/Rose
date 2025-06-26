@@ -13,6 +13,7 @@ import * as sortSelectors from "../../../store/sort/store.selectors";
 import { ApplyFilters, loadProductsToFilter } from "../../../store/filter/filter.actions";
 import { selectFilterProducts } from "../../../store/filter/filter.selector";
 
+
 @Component({
   selector: "app-all-categories",
   imports: [
@@ -31,8 +32,6 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
 
   filterDrawerVisible = false;
 
-
-
   products = signal<Product[]>([]);
   loading = signal(true);
   private productSub: Subscription = new Subscription();
@@ -48,12 +47,15 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
       },
     });
 
+
   }
 
-  addProductsToStore(){
-    this._store.dispatch(sortActions.loadProducts({
-      products:this.products()
-    }))
+  addProductsToStore() {
+    this._store.dispatch(
+      sortActions.loadProducts({
+        products: this.products(),
+      })
+    );
   }
 
   private loadProducts() {
@@ -63,6 +65,7 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
         this.products.set(res.products || []);
         this.loading.set(false);
         this.loadStores()
+
       },
       error: () => {
         this.loading.set(false);
@@ -78,6 +81,7 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
       },
     });
   }
+
 
   ngOnDestroy() {
     this.productSub.unsubscribe();

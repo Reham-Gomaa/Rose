@@ -29,6 +29,9 @@
   --background-color: var(--light-pink);
   --background-icon-color: var(--persian-rose);
   --background-checker-color: var(--violet);
+  --background-slider: var(--slate-gray);
+  --background-slider-rose: var(--persian-rose);
+  --background-slider-hover: var(--hover-persian-rose);
 
   //Testimonials
   --background-testimonials-color: var(--testimonials-image);
@@ -95,6 +98,7 @@
   --p-secondary: var(--slate-gray);
   --p-checker: var(--black);
   --text-color: var(--black);
+  --text-price-rating: var(--persian-rose);
 
   //Navbar
   --background-navbar: var(--white);
@@ -165,6 +169,9 @@
   --scrollbar-track-color: var(--white);
   --scrollbar-thumb-color: var(--persian-rose);
   --scrollbar-thumb-hover-color: var(--hover-persian-rose);
+
+  // Ratings-filter
+  --star-color: var(--persian-rose);
 }
 
 // Dark theme overrides
@@ -199,6 +206,9 @@
   --background-color: var(--zinc-700);
   --background-icon-color: var(--soft-pink-200);
   --background-checker-color: none;
+  --background-slider: var(--soft-pink-200);
+  --background-slider-rose: var(--zinc-100);
+  --background-slider-hover: var(--soft-pink-300);
 
   //Testimonials
   --background-testimonials-color: var(--zinc-700);
@@ -265,6 +275,7 @@
   --p-secondary: var(--zinc-400);
   --p-checker: var(--zinc-50);
   --text-color: var(--zinc-50);
+  --text-price-rating: var(--zinc-100);
 
   //Navbar
   --background-navbar: var(--zinc-800);
@@ -332,4 +343,7 @@
   --scrollbar-track-color: var(--zinc-800);
   --scrollbar-thumb-color: var(--soft-pink-400);
   --scrollbar-thumb-hover-color: var(--soft-pink-500);
+
+  // Ratings-filter
+  --star-color: var(--yellow-dark-mode);
 }
