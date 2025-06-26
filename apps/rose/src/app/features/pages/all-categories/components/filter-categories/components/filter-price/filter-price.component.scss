@@ -23,6 +23,11 @@
     outline: none;
 }
 
+:host ::ng-deep .custom-slider.p-slider .p-slider-handle:hover,
+:host ::ng-deep .custom-slider.p-slider .p-slider-handle:hover::before{
+    background-color: var(--background-slider-hover);
+}
+
 :focus{
     outline: none;
 }

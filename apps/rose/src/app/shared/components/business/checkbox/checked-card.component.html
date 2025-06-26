@@ -23,7 +23,7 @@
       <!-- for RATINGS filter -->
       @else if (item.rating !== undefined) { @for (star of [1,2,3,4,5]; track star) {
       <i
-        style="color: var(--background-icon-color)"
+        style="color: var(--star-color)"
         class="pi"
         [class]="star <= item.rating ? 'pi-star-fill' : 'pi-star'"
       ></i>
