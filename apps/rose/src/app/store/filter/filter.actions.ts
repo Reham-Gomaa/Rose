@@ -31,7 +31,7 @@ export const loadSelectedName= createAction(
 
 export const loadSelectedRating= createAction(
   "[FILTER] Load Selected Rating",
-  props<{name:string}>()
+  props<{selectedRating:selectedItem[]}>()
 );
 
 export const ApplyFilters = createAction("[FILTER] Apply Filters");
