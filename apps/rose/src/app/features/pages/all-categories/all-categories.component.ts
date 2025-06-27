@@ -8,8 +8,11 @@ import { Subscription } from "rxjs";
 import { ButtonModule } from "primeng/button";
 import { DrawerModule } from "primeng/drawer";
 import { Store } from "@ngrx/store";
-import * as sortActions from "../../../store/sort/sort.actions"
-import * as sortSelectors from "../../../store/sort/store.selectors"
+import * as sortActions from "../../../store/sort/sort.actions";
+import * as sortSelectors from "../../../store/sort/store.selectors";
+import { ApplyFilters, loadProductsToFilter } from "../../../store/filter/filter.actions";
+import { selectFilterProducts } from "../../../store/filter/filter.selector";
+
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 
 @Component({
@@ -51,13 +54,16 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loadProducts();
 
-    this._store.select(sortSelectors.sortedProducts).subscribe({
-      next: (products) =>{
-        this.products.set(products)
-        console.log(this.products());
+    
+
+    this._store.select(selectFilterProducts).subscribe({
+      next: (filterProducts) => {
+        this.products.set(filterProducts);
         this.triggerGridAnimation(); // Trigger the animation when products are updated
-      }
-    })
+      },
+    });
+
+
   }
 
   triggerGridAnimation() { // This method is called to trigger the animation
@@ -65,10 +71,12 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
   setTimeout(() => this.showGridToggle = true, 0);
  } 
 
-  addProductsToStore(){
-    this._store.dispatch(sortActions.loadProducts({
-      products:this.products()
-    }))
+  addProductsToStore() {
+    this._store.dispatch(
+      sortActions.loadProducts({
+        products: this.products(),
+      })
+    );
   }
 
   private loadProducts() {
@@ -77,7 +85,7 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
       next: (res) => {
         this.products.set(res.products || []);
         this.loading.set(false);
-        this.addProductsToStore()
+        this.loadStores()
 
       },
       error: () => {
@@ -86,6 +94,14 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
     });
   }
 
+  private loadStores() {
+    this._store.dispatch(sortActions.loadProducts({products: this.products()}));
+    this._store.select(sortSelectors.sortedProducts).subscribe({
+      next: (sortProducts) => {
+        this._store.dispatch(loadProductsToFilter({ products: sortProducts }));
+      },
+    });
+  }
 
 
   ngOnDestroy() {

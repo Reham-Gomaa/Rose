@@ -1,0 +1,28 @@
+.values {
+    color: var(--text-price-rating);
+
+    input {
+        color: var(--text-price-rating);
+        background: none;
+    }
+}
+
+:host ::ng-deep .p-slider {
+    background-color: var(--background-slider);
+}
+
+:host ::ng-deep .p-slider-range {
+    background-color: var(--background-slider-rose);
+}
+
+:host ::ng-deep .p-slider-handle,
+:host ::ng-deep .p-slider-handle::before{
+    width: 1.125rem;
+    height: 1.125rem;
+    background-color: var(--background-slider-rose);
+    outline: none;
+}
+
+:focus{
+    outline: none;
+}

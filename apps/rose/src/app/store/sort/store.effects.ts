@@ -2,23 +2,22 @@ import { inject } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
 import { tap } from "rxjs";
-import * as sortActions from './sort.actions';
+import * as sortActions from "./sort.actions";
 
 export class sortEffects {
   private readonly _actions$ = inject(Actions);
   private readonly _store = inject(Store);
 
-
-  readonly sortByPriceAndTitleEffects$ = createEffect(()=>
-  this._actions$.pipe(
-    ofType(sortActions.sortByPrice , sortActions.sortByTitle),
-    tap(()=>{
-      this._store.dispatch(sortActions.sortProducts())
-    })
-  ),
-  {
-    dispatch: false
-  }
-  )
-
+  readonly sortByPriceAndTitleEffects$ = createEffect(
+    () =>
+      this._actions$.pipe(
+        ofType(sortActions.sortByPrice, sortActions.sortByTitle),
+        tap(() => {
+          this._store.dispatch(sortActions.sortProducts());
+        })
+      ),
+    {
+      dispatch: false,
+    }
+  );
 }

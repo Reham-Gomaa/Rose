@@ -2,9 +2,8 @@ import { Component, inject } from "@angular/core";
 import { TranslatePipe } from "@ngx-translate/core";
 import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
 import { Store } from "@ngrx/store";
-import * as sortActions from "../../../../../../../store/sort/sort.actions"
+import * as sortActions from "../../../../../../../store/sort/sort.actions";
 import { sortType } from "../../../../../../../store/sort/sort.states";
-
 
 @Component({
   selector: "app-sorting",
@@ -13,7 +12,7 @@ import { sortType } from "../../../../../../../store/sort/sort.states";
   styleUrl: "./sorting.component.scss",
 })
 export class SortingComponent {
-  private readonly _store = inject(Store)
+  private readonly _store = inject(Store);
   sortOptions = [
     {
       id: "sort-low-high",
@@ -41,28 +40,30 @@ export class SortingComponent {
     },
   ];
 
-  onSortChange(val:string){
-    if(val=="price-asc") {
-      this.sortByPrice("asc")
-    }else if (val=="price-desc"){
-      this.sortByPrice("desc")
-
-    }else if (val=="alpha-asc"){
-      this.sortByTitle("asc")
-
-    }else {
-      this.sortByTitle("desc")
+  onSortChange(val: string) {
+    if (val == "price-asc") {
+      this.sortByPrice("asc");
+    } else if (val == "price-desc") {
+      this.sortByPrice("desc");
+    } else if (val == "alpha-asc") {
+      this.sortByTitle("asc");
+    } else {
+      this.sortByTitle("desc");
     }
   }
-  sortByPrice(type:sortType) {
-    this._store.dispatch(sortActions.sortByPrice({
-      sType: type
-    }))
+  sortByPrice(type: sortType) {
+    this._store.dispatch(
+      sortActions.sortByPrice({
+        sType: type,
+      })
+    );
   }
 
-  sortByTitle(type:sortType) {
-    this._store.dispatch(sortActions.sortByTitle({
-      sType: type
-    }))
+  sortByTitle(type: sortType) {
+    this._store.dispatch(
+      sortActions.sortByTitle({
+        sType: type,
+      })
+    );
   }
 }

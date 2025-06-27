@@ -22,6 +22,8 @@ import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { sortReducer } from './store/sort/sort.reducer';
 import { sortEffects } from './store/sort/store.effects';
+import { filterReduser } from "./store/filter/filter.reducer";
+import { FilterEffects } from "./store/filter/filter.effect";
 
 
 
@@ -47,22 +49,24 @@ export const appConfig: ApplicationConfig = {
           prefix: "p",
           darkModeSelector: "light-mode",
           cssLayer: false,
-
         },
-    }}),
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
-    importProvidersFrom(TranslateModule.forRoot({
-        loader: {
-
-            provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
-            deps: [HttpClient]
-        }
-    })),
-    provideStore({
-      sort:sortReducer
+      },
     }),
-    provideEffects(sortEffects)
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    importProvidersFrom(
+      TranslateModule.forRoot({
+        loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient],
+        },
+      })
+    ),
+    provideStore({
+      sort:sortReducer,
+      filter:filterReduser
+    }),
+    provideEffects(sortEffects,FilterEffects),
 ],
 
 };

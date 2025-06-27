@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { SortingComponent } from "./components/sorting/sorting.component";
 import { InputBtnComponent } from "../../../../../shared/components/ui/input-btn/input-btn.component";
 import { TranslatePipe } from "@ngx-translate/core";
@@ -9,6 +9,8 @@ import { FilterRatingComponent } from "./components/filter-rating/filter-rating.
 import { FilterCardComponent } from "../../../../../shared/components/ui/filter-card/filter-card.component";
 import { FilterCategoryComponent } from "./components/filter-category/filter-category.component";
 import { EnglishOnlyDirective } from "../../../../../core/directive/english-only.directive";
+import { Store } from "@ngrx/store";
+import { ApplyFilters, clearFilter, loadSelectedName } from "apps/rose/src/app/store/filter/filter.actions";
 
 @Component({
   selector: "app-filter-categories",
@@ -27,4 +29,17 @@ import { EnglishOnlyDirective } from "../../../../../core/directive/english-only
   templateUrl: "./filter-categories.component.html",
   styleUrl: "./filter-categories.component.scss",
 })
-export class FilterCategoriesComponent {}
+export class FilterCategoriesComponent {
+  private readonly _store = inject(Store);
+
+  filterByName(productName:string){
+    this._store.dispatch(loadSelectedName({name:productName}))
+  }
+
+
+  
+  clearFilterBtn(){
+    this._store.dispatch(clearFilter())
+  }
+
+}
