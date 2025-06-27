@@ -10,6 +10,9 @@ import { DrawerModule } from "primeng/drawer";
 import { Store } from "@ngrx/store";
 import * as sortActions from "../../../store/sort/sort.actions";
 import * as sortSelectors from "../../../store/sort/store.selectors";
+import { ApplyFilters, loadProductsToFilter } from "../../../store/filter/filter.actions";
+import { selectFilterProducts } from "../../../store/filter/filter.selector";
+
 
 @Component({
   selector: "app-all-categories",
@@ -36,12 +39,15 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loadProducts();
 
-    this._store.select(sortSelectors.sortedProducts).subscribe({
-      next: (products) => {
-        this.products.set(products);
-        console.log(this.products());
+    
+
+    this._store.select(selectFilterProducts).subscribe({
+      next: (filterProducts) => {
+        this.products.set(filterProducts);
       },
     });
+
+
   }
 
   addProductsToStore() {
@@ -58,13 +64,24 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
       next: (res) => {
         this.products.set(res.products || []);
         this.loading.set(false);
-        this.addProductsToStore();
+        this.loadStores()
+
       },
       error: () => {
         this.loading.set(false);
       },
     });
   }
+
+  private loadStores() {
+    this._store.dispatch(sortActions.loadProducts({products: this.products()}));
+    this._store.select(sortSelectors.sortedProducts).subscribe({
+      next: (sortProducts) => {
+        this._store.dispatch(loadProductsToFilter({ products: sortProducts }));
+      },
+    });
+  }
+
 
   ngOnDestroy() {
     this.productSub.unsubscribe();

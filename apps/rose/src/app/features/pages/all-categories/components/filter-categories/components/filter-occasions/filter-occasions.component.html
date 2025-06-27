@@ -6,6 +6,11 @@
       [filterItems]="occasions"
       [selectedItems]="selectedItems"
       [itemType]="'occasion'"
+      (selectedItemsChange)="selectedItems = $event"
+      (change)="changeValue()"
+      >
+      
+
     >
     </app-checked-card>
   </section>

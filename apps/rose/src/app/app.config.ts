@@ -14,13 +14,17 @@ import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 
 // primeng imports ....
 
-import { MessageService } from "primeng/api";
-import { providePrimeNG } from "primeng/config";
-import Aura from "@primeng/themes/aura";
-import { provideStore } from "@ngrx/store";
-import { provideEffects } from "@ngrx/effects";
-import { sortReducer } from "./store/sort/sort.reducer";
-import { sortEffects } from "./store/sort/store.effects";
+import { MessageService } from 'primeng/api';
+import { providePrimeNG } from 'primeng/config';
+import Aura from '@primeng/themes/aura';
+import { provideStore } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
+import { sortReducer } from './store/sort/sort.reducer';
+import { sortEffects } from './store/sort/store.effects';
+import { filterReduser } from "./store/filter/filter.reducer";
+import { FilterEffects } from "./store/filter/filter.effect";
+
+
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
@@ -57,8 +61,10 @@ export const appConfig: ApplicationConfig = {
       })
     ),
     provideStore({
-      sort: sortReducer,
+      sort:sortReducer,
+      filter:filterReduser
     }),
-    provideEffects(sortEffects),
-  ],
+    provideEffects(sortEffects,FilterEffects),
+],
+
 };

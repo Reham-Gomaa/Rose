@@ -9,6 +9,8 @@ import { TranslatePipe } from "@ngx-translate/core";
 import { OccasionsService } from "../../../../../../../shared/services/occasions/occasions.service";
 import { Subscription } from "rxjs";
 import { occasionRes } from "../../../../../../../core/interfaces/occasions.interface";
+import { Store } from "@ngrx/store";
+import { ApplyFilters, loadSelectedOccasions} from "apps/rose/src/app/store/filter/filter.actions";
 
 @Component({
   selector: "app-filter-occasions",
@@ -18,6 +20,8 @@ import { occasionRes } from "../../../../../../../core/interfaces/occasions.inte
 })
 export class FilterOccasionsComponent implements OnInit, OnDestroy {
   private readonly _occasionsService = inject(OccasionsService);
+  private readonly _store = inject(Store);
+
   occasions!: FilterItem[];
   occasionsID!: Subscription;
 
@@ -26,6 +30,7 @@ export class FilterOccasionsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.occasionsID = this._occasionsService.getcategoryOccasions().subscribe({
       next: (res: occasionRes) => {
+
         this.occasions = res.occasions
           .filter((occasion) => occasion.productsCount > 0)
           .map((occasion) => ({
@@ -39,6 +44,13 @@ export class FilterOccasionsComponent implements OnInit, OnDestroy {
       },
     });
   }
+
+  selectedItems: selectedItem[] = [] as selectedItem[];
+
+  changeValue() {
+    this._store.dispatch(loadSelectedOccasions({selectedOccasions:this.selectedItems}));
+  }
+
 
   ngOnDestroy(): void {
     this.occasionsID?.unsubscribe();
