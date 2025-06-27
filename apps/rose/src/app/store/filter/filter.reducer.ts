@@ -7,6 +7,8 @@ import {
   loadSelectedCategories,
   loadSelectedName,
   loadSelectedOccasions,
+  loadSelectedPrice,
+  loadSelectedRating,
 } from "./filter.actions";
 
 export const initalState: FilterState = {
@@ -19,7 +21,7 @@ export const initalState: FilterState = {
     maxPrice: 9999999,
   },
   selectedName: "",
-  selectedRating:0
+  selectedRating: [],
 };
 
 export const filterReduser = createReducer(
@@ -52,6 +54,22 @@ export const filterReduser = createReducer(
     };
   }),
 
+  on(loadSelectedPrice, (state, { minPrice, maxPrice }) => {
+    return {
+      ...state,
+      selectedPrice: {
+        minPrice,
+        maxPrice,
+      },
+    };
+  }),
+  on(loadSelectedRating, (state, { selectedRating }) => {
+    return {
+      ...state,
+     selectedRating:selectedRating
+    };
+  }),
+
   on(ApplyFilters, (state) => {
     let filtered = state.products;
 
@@ -68,27 +86,26 @@ export const filterReduser = createReducer(
         state.selectedOccasions.some((occ) => product.occasion === occ._id)
       );
     }
-    
+
     // filter by Name
     if (state.selectedName) {
       filtered = filtered.filter((product) =>
         product.title.toLowerCase().includes(state.selectedName)
       );
-
     }
 
-    if(state.selectedRating!==0){
-       filtered = filtered.filter((product) =>
-        state.selectedRating === product.rateAvg 
-      );
-    }
+    // if (state.selectedRating.length!==0) {
+    //   filtered = filtered.filter((product) =>
+    //      state.selectedRating.some((rating) => product.rateAvg === rating.type)
+    //   );
+    // }
 
     // filter by price
     filtered = filtered.filter(
       (product) =>
-        product.price < state.selectedPrice.maxPrice && product.price > state.selectedPrice.minPrice
+        Number(product.price) <= Number(state.selectedPrice.maxPrice) &&
+        Number(product.price) >= Number(state.selectedPrice.minPrice)
     );
-
 
     return {
       ...state,

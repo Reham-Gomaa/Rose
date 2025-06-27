@@ -23,6 +23,7 @@
       </div>
     </div>
     <p-slider [(ngModel)]="rangeValues" [range]="true" [min]="200" [max]="5000"  
+    (onChange)="change()"
       aria-labelledby="price-rating-heading" />
   </section>
 </app-filter-card>

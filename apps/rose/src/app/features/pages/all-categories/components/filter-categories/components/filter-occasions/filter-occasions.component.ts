@@ -10,7 +10,7 @@ import { OccasionsService } from "../../../../../../../shared/services/occasions
 import { Subscription } from "rxjs";
 import { occasionRes } from "../../../../../../../core/interfaces/occasions.interface";
 import { Store } from "@ngrx/store";
-import { ApplyFilters, loadSelectedOccasions} from "apps/rose/src/app/store/filter/filter.actions";
+import { loadSelectedOccasions} from "apps/rose/src/app/store/filter/filter.actions";
 
 @Component({
   selector: "app-filter-occasions",
@@ -44,8 +44,6 @@ export class FilterOccasionsComponent implements OnInit, OnDestroy {
       },
     });
   }
-
-  selectedItems: selectedItem[] = [] as selectedItem[];
 
   changeValue() {
     this._store.dispatch(loadSelectedOccasions({selectedOccasions:this.selectedItems}));

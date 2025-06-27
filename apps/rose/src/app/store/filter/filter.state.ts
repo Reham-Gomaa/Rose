@@ -11,5 +11,5 @@ export interface FilterState {
      minPrice: number;
   }
   selectedName:string
-  selectedRating:number
+  selectedRating:selectedItem[]
 }
