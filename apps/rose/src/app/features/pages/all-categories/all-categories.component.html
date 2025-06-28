@@ -33,8 +33,10 @@
 
   <!-- Main Content -->
   <main class="products-grid flex-1">
+    @if (!loading() && showGridToggle) {
     <div
       class="grid mt-3"
+       [@gridAnimation]
       role="region"
       aria-live="polite"
       itemprop="mainEntity"
@@ -56,5 +58,6 @@
       </div>
       } }
     </div>
+  }
   </main>
 </div>
