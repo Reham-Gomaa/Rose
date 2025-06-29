@@ -1,6 +1,4 @@
 @for (item of filterItems(); track item._id) {
-<!-- to handle products with no category from api -->
-@if (item.category || itemType() === 'ratings') {
 <div class="field-checkbox">
   <input
     type="checkbox"
@@ -31,4 +29,4 @@
     </div>
   </label>
 </div>
-} }
+} 
