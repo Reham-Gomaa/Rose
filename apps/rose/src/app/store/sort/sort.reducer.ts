@@ -1,10 +1,27 @@
 import { createReducer, on } from "@ngrx/store";
-import { sortConditions, sortProducts, sortState } from "./sort.states";
+import { sortConditions, sortState, sortType } from "./sort.states";
 import * as sortActions from "./sort.actions";
+import { Product } from "../../core/interfaces/carditem.interface";
 export enum sortTypes {
   ASC = "asc",
   DESC = "desc",
 }
+
+export function sortProducts(products: Product[], field: string, order: sortType): Product[] {
+  return [...products].sort((a, b) => {
+    const valueA = field === "price" ? a.price : a.title.toLowerCase();
+    const valueB = field === "price" ? b.price : b.title.toLowerCase();
+
+    if (valueA < valueB) {
+      return order === "asc" ? -1 : 1;
+    }
+    if (valueA > valueB) {
+      return order === "asc" ? 1 : -1;
+    }
+    return 0;
+  });
+}
+
 const sortInitialState: sortState = {
   products: [],
   sortedProducts: [],
