@@ -1,5 +1,6 @@
-import { Component, inject, OnInit, OnDestroy, signal } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, inject, OnInit, OnDestroy, signal } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { trigger, transition, query, style, animate, stagger } from '@angular/animations';
 
 import { ProductsService } from "../../../../../shared/services/products/products.service";
 import { Product } from "../../../../../core/interfaces/carditem.interface";
@@ -15,8 +16,27 @@ import { TranslatePipe } from "@ngx-translate/core";
 @Component({
   selector: "app-popular-items",
   imports: [CardItemComponent, SkeletonModule, TranslatePipe],
-  templateUrl: "./popularItems.component.html",
-  styleUrl: "./popularItems.component.scss",
+  templateUrl: './popularItems.component.html',
+  styleUrl: './popularItems.component.scss',
+    animations: [
+      trigger('gridFade', [
+    transition('* => *', [
+      style({ opacity: 0, transform: 'translateY(20px)' }),
+      animate('300ms ease-out', style({ opacity: 1,  transform: 'translateY(0)' }))
+    ])
+  ]),
+    trigger('listAnimation', [
+      transition('* => *', [
+        query(':enter', [
+          style({ opacity: 0, transform: 'translateY(20px)' }),
+          stagger(100, [
+            animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        ], { optional: true }),
+
+      ])
+    ])
+  ]
 })
 export class PopularItemsComponent implements OnInit, OnDestroy {
   private readonly _productsService = inject(ProductsService);
@@ -27,6 +47,7 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
   selectedCategory = signal("all");
   loading = signal(true);
   skeletonItems = signal(Array(6).fill(0));
+  
 
   private productSub: Subscription = new Subscription();
   private categorySub: Subscription = new Subscription();

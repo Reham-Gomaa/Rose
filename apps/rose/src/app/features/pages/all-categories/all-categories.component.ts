@@ -10,6 +10,10 @@ import { DrawerModule } from "primeng/drawer";
 import { Store } from "@ngrx/store";
 import * as sortActions from "../../../store/sort/sort.actions";
 import * as sortSelectors from "../../../store/sort/store.selectors";
+import { ApplyFilters, loadProductsToFilter } from "../../../store/filter/filter.actions";
+import { selectFilterProducts } from "../../../store/filter/filter.selector";
+
+import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 
 @Component({
   selector: "app-all-categories",
@@ -22,12 +26,26 @@ import * as sortSelectors from "../../../store/sort/store.selectors";
   ],
   templateUrl: "./all-categories.component.html",
   styleUrl: "./all-categories.component.scss",
+   animations: [
+    trigger('gridAnimation', [
+      transition('* => *', [  
+        query(':enter', [
+          style({ opacity: 0, transform: 'scale(0.95)' }),
+          stagger(100, [
+            animate('300ms ease-out', style({ opacity: 1, transform: 'scale(1)' }))
+          ])
+        ], { optional: true })
+      ])
+    ])
+  ]
 })
 export class AllCategoriesComponent implements OnInit, OnDestroy {
   private readonly _productsService = inject(ProductsService);
   private readonly _store = inject(Store);
 
   filterDrawerVisible = false;
+  showGridToggle = true; // This will be used to trigger the animation
+
 
   products = signal<Product[]>([]);
   loading = signal(true);
@@ -36,13 +54,22 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loadProducts();
 
-    this._store.select(sortSelectors.sortedProducts).subscribe({
-      next: (products) => {
-        this.products.set(products);
-        console.log(this.products());
+    
+
+    this._store.select(selectFilterProducts).subscribe({
+      next: (filterProducts) => {
+        this.products.set(filterProducts);
+        this.triggerGridAnimation(); // Trigger the animation when products are updated
       },
     });
+
+
   }
+
+  triggerGridAnimation() { // This method is called to trigger the animation
+  this.showGridToggle = false;
+  setTimeout(() => this.showGridToggle = true, 0);
+ } 
 
   addProductsToStore() {
     this._store.dispatch(
@@ -58,13 +85,24 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
       next: (res) => {
         this.products.set(res.products || []);
         this.loading.set(false);
-        this.addProductsToStore();
+        this.loadStores()
+
       },
       error: () => {
         this.loading.set(false);
       },
     });
   }
+
+  private loadStores() {
+    this._store.dispatch(sortActions.loadProducts({products: this.products()}));
+    this._store.select(sortSelectors.sortedProducts).subscribe({
+      next: (sortProducts) => {
+        this._store.dispatch(loadProductsToFilter({ products: sortProducts }));
+      },
+    });
+  }
+
 
   ngOnDestroy() {
     this.productSub.unsubscribe();

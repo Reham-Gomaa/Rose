@@ -76,3 +76,15 @@
 :host-context([dir="rtl"]) .header {
   text-align: right !important;
 }
+
+@media (min-width: 768px) and (max-width: 840px) {
+  ::ng-deep .p-carousel .p-carousel-item {
+    width: 50% !important;
+    flex: 0 0 auto !important; 
+  }
+}
+
+
+
+  
+
