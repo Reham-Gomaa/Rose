@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Slider } from 'primeng/slider';
 import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
 import { Store } from "@ngrx/store";
-import { loadSelectedPrice } from "apps/rose/src/app/store/filter/filter.actions";
+import { loadSelectedPrice } from "./../../../../../../../store/filter/filter.actions";
 
 @Component({
   selector: "app-filter-price",
