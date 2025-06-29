@@ -26,7 +26,7 @@ export class FilterCategoryComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.categoriesID = this._productsService.getcategoryProductCount().subscribe({
       next: (res) => {
-        this.categories = res.categoryProductCount;
+        this.categories = res.categoryProductCount.filter((category)=> category.category);
       },
     });
   }
