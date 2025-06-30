@@ -19,12 +19,12 @@ export class CheckedCardComponent {
     return this.selectedItems().some((item) => item._id === itemId);
   }
 
-  toggleItemSelection(itemId: string): void {
+  toggleItemSelection(itemId: string, rateAvg ?:number): void {
     const current = [...this.selectedItems()];
     const index = current.findIndex((item) => item._id === itemId);
     let newSelected: selectedItem[];
     if (index === -1) {
-      newSelected = [...current, { _id: itemId, type: this.itemType() }];
+      newSelected = [...current, { _id: itemId, type: this.itemType(), ...(this.itemType() === 'ratings' && { rateAvg: rateAvg ?? 0 })}];
     } else {
       newSelected = current.filter((item) => item._id !== itemId);
     }

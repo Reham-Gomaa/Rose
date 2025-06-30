@@ -1,19 +1,19 @@
 import { Component, inject, OnDestroy, OnInit, signal } from "@angular/core";
-import { ProductsService } from "../../../shared/services/products/products.service";
-import { Product } from "../../../core/interfaces/carditem.interface";
-import { CardItemComponent } from "../../../shared/components/ui/card-item/card-item.component";
-import { FilterCategoriesComponent } from "./components/filter-categories/filter-categories.component";
+import { Store } from "@ngrx/store";
 import { TranslatePipe } from "@ngx-translate/core";
-import { Subscription } from "rxjs";
 import { ButtonModule } from "primeng/button";
 import { DrawerModule } from "primeng/drawer";
-import { Store } from "@ngrx/store";
+import { Subscription } from "rxjs";
+import { Product } from "../../../core/interfaces/carditem.interface";
+import { CardItemComponent } from "../../../shared/components/ui/card-item/card-item.component";
+import { ProductsService } from "../../../shared/services/products/products.service";
+import { loadProductsToFilter } from "../../../store/filter/filter.actions";
+import { selectFilterProducts } from "../../../store/filter/filter.selector";
 import * as sortActions from "../../../store/sort/sort.actions";
 import * as sortSelectors from "../../../store/sort/store.selectors";
-import { ApplyFilters, loadProductsToFilter } from "../../../store/filter/filter.actions";
-import { selectFilterProducts } from "../../../store/filter/filter.selector";
+import { FilterCategoriesComponent } from "./components/filter-categories/filter-categories.component";
 
-import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: "app-all-categories",
