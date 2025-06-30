@@ -1,7 +1,7 @@
 import { inject } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
-import { ApplyFilters, loadProductsToFilter, loadSelectedCategories, loadSelectedOccasions, loadSelectedPrice, loadSelectedName } from "./filter.actions";
+import { ApplyFilters, loadProductsToFilter, loadSelectedCategories, loadSelectedOccasions, loadSelectedPrice, loadSelectedName, loadSelectedRating } from "./filter.actions";
 import { tap } from "rxjs/operators";
 
 export class FilterEffects {
@@ -15,7 +15,8 @@ export class FilterEffects {
         loadSelectedCategories,
         loadSelectedOccasions,
         loadSelectedPrice,
-        loadSelectedName
+        loadSelectedName,
+        loadSelectedRating
       ),
       tap(() => {
         this._store.dispatch(ApplyFilters());

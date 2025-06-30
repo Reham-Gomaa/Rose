@@ -15,9 +15,15 @@ import { loadSelectedPrice } from "./../../../../../../../store/filter/filter.ac
 export class FilterPriceComponent {
   private readonly _store = inject(Store);
   rangeValues: number[] = [200, 5000];
+  private priceTimeout: ReturnType<typeof setTimeout> | null = null;
 
-  change(){
-    this._store.dispatch(loadSelectedPrice({minPrice:this.rangeValues[0],maxPrice:this.rangeValues[1]}));
+  change() {
+    if (this.priceTimeout) {
+      clearTimeout(this.priceTimeout);
+    }
+    this.priceTimeout = setTimeout(() => {
+      this._store.dispatch(loadSelectedPrice({ minPrice: this.rangeValues[0], maxPrice: this.rangeValues[1] }));
+    }, 400); 
   };
   
 }
