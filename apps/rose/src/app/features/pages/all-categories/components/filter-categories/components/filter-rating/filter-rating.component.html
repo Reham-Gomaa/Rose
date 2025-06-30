@@ -6,6 +6,8 @@
       [filterItems]="ratings"
       [selectedItems]="selectedItems"
       [itemType]="'ratings'"
+      (selectedItemsChange)="selectedItems = $event"
+      (change)="changeValue()"
     >
     </app-checked-card>
   </section>

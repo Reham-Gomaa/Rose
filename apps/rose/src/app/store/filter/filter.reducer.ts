@@ -66,7 +66,7 @@ export const filterReduser = createReducer(
   on(loadSelectedRating, (state, { selectedRating }) => {
     return {
       ...state,
-     selectedRating:selectedRating
+      selectedRating: selectedRating,
     };
   }),
 
@@ -94,11 +94,13 @@ export const filterReduser = createReducer(
       );
     }
 
-    // if (state.selectedRating.length!==0) {
-    //   filtered = filtered.filter((product) =>
-    //      state.selectedRating.some((rating) => product.rateAvg === rating.type)
-    //   );
-    // }
+
+    // filter by rating
+    if (state.selectedRating && state.selectedRating.length > 0) {
+      filtered = filtered.filter((product) =>
+        state.selectedRating.some((rating) => product.rateAvg === Number(rating.rateAvg))
+      );
+    }
 
     // filter by price
     filtered = filtered.filter(
@@ -107,6 +109,7 @@ export const filterReduser = createReducer(
         Number(product.price) >= Number(state.selectedPrice.minPrice)
     );
 
+    
     return {
       ...state,
       filterList: filtered,
