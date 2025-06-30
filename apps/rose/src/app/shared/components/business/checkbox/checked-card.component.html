@@ -4,7 +4,7 @@
     type="checkbox"
     [id]="'category-' + item._id"
     [checked]="isItemSelected(item._id)"
-    (change)="toggleItemSelection(item._id)"
+    (change)="toggleItemSelection(item._id, item.rating)"
     [attr.aria-labelledby]="'filter-item-' + item._id + '-label'"
     [attr.aria-describedby]="item.productCount !== undefined ? 'product-count-' + item._id : null"
   />

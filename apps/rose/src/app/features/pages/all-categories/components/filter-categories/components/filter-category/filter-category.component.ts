@@ -1,13 +1,13 @@
 import { Component, inject, OnDestroy, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { TranslatePipe } from "@ngx-translate/core";
 import { Subscription } from "rxjs";
+import { CategoryProductCount } from "../../../../../../../core/interfaces/count-by-product.interface";
 import { CheckedCardComponent } from "../../../../../../../shared/components/business/checkbox/checked-card.component";
 import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
 import { ProductsService } from "../../../../../../../shared/services/products/products.service";
-import { CategoryProductCount } from "../../../../../../../core/interfaces/count-by-product.interface";
 import { selectedItem } from "./../../../../../../../core/interfaces/filter-item.interface";
-import { TranslatePipe } from "@ngx-translate/core";
-import { Store } from "@ngrx/store";
-import { ApplyFilters, loadSelectedCategories } from "apps/rose/src/app/store/filter/filter.actions";
+import { loadSelectedCategories } from './../../../../../../../store/filter/filter.actions';
 
 @Component({
   selector: "app-filter-category",

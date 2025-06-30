@@ -7,4 +7,5 @@ export interface FilterItem {
 export interface selectedItem {
   _id: string;
   type: string;
+  rateAvg?:number;
 }
