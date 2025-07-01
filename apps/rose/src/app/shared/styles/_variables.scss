@@ -172,6 +172,13 @@
 
   // Ratings-filter
   --star-color: var(--persian-rose);
+
+  //Not-Found
+  --not-found-title-color: var(--dark-blue);
+  --not-found-p-color: var(--slate-gray);
+
+  //Not-Found-Product
+  --not-found-Product-color: var(--slate-gray);
 }
 
 // Dark theme overrides
@@ -346,4 +353,11 @@
 
   // Ratings-filter
   --star-color: var(--yellow-dark-mode);
+
+  //Not-Found
+  --not-found-title-color: var(--soft-pink-200);
+  --not-found-p-color: var(--zinc-50);
+
+  //Not-Found-Product
+  --not-found-Product-color: var(--zinc-50);
 }

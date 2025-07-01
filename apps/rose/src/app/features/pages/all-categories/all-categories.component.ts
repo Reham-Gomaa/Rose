@@ -22,6 +22,7 @@ import { ButtonModule } from "primeng/button";
 import { DrawerModule } from "primeng/drawer";
 
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+import { NoProductAvailableComponent } from "../../layouts/no-product-available/no-product-available.component";
 
 
 
@@ -33,7 +34,8 @@ import { animate, query, stagger, style, transition, trigger } from '@angular/an
     FilterCategoriesComponent,
     ButtonModule,
     DrawerModule,
-  ],
+    NoProductAvailableComponent
+],
   templateUrl: "./all-categories.component.html",
   styleUrl: "./all-categories.component.scss",
    animations: [

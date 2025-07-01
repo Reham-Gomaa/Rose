@@ -1,0 +1,45 @@
+.not-found-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Error Image */
+.not-found-image {
+  width: 100%;
+  max-width: 28rem;
+  object-fit: contain;
+}
+
+/* Error Heading */
+.not-found-heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--not-found-title-color);
+  margin-top: 1rem;
+}
+
+/* Error Message */
+.not-found-message {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--not-found-p-color);
+  max-width: 40rem;
+  padding: 0 1rem 2rem;
+}
+
+
+/* Responsive Design */
+@media (min-width: 300px) and (max-width: 767px) {
+  .not-found-heading {
+    font-size: 1.1rem;
+  }
+
+  .not-found-message {
+    font-size: 0.75rem;
+  }
+}

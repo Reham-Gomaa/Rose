@@ -180,5 +180,17 @@
       "Ratings": "Ratings"
     },
     "Clear Filters": "Clear Filters"
+  },
+  "not-found": {
+    "not-found-home": {
+      "backToHome": "Back to Store"
+    },
+    "notFoundContent": {
+      "title": "Sorry, we couldn't find that page",
+      "message": "The page you're looking for might have been removed, had its name changed, or is temporarily unavailable. You can return to the store to continue shopping."
+    }
+  },
+    "noProductAvailable": {
+    "message": "No Products available at this time!"
   }
 }
