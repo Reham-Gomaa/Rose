@@ -1,14 +1,18 @@
-import { Component, inject, OnDestroy, OnInit } from "@angular/core";
+import { Component, DestroyRef, inject, OnInit } from "@angular/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+
+import { TranslatePipe } from "@ngx-translate/core";
+
 import { CheckedCardComponent } from "../../../../../../../shared/components/business/checkbox/checked-card.component";
 import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
 import {
   FilterItem,
   selectedItem,
 } from "../../../../../../../core/interfaces/filter-item.interface";
-import { TranslatePipe } from "@ngx-translate/core";
-import { OccasionsService } from "../../../../../../../shared/services/occasions/occasions.service";
-import { Subscription } from "rxjs";
+
 import { occasionRes } from "../../../../../../../core/interfaces/occasions.interface";
+import { OccasionsService } from "../../../../../../../shared/services/occasions/occasions.service";
+
 import { Store } from "@ngrx/store";
 import { loadSelectedOccasions } from './../../../../../../../store/filter/filter.actions';
 
@@ -18,17 +22,18 @@ import { loadSelectedOccasions } from './../../../../../../../store/filter/filte
   templateUrl: "./filter-occasions.component.html",
   styleUrl: "./filter-occasions.component.scss",
 })
-export class FilterOccasionsComponent implements OnInit, OnDestroy {
+export class FilterOccasionsComponent implements OnInit {
   private readonly _occasionsService = inject(OccasionsService);
   private readonly _store = inject(Store);
 
+  private destroyRef = inject(DestroyRef);
+
   occasions!: FilterItem[];
-  occasionsID!: Subscription;
 
   selectedItems: selectedItem[] = [] as selectedItem[];
 
   ngOnInit(): void {
-    this.occasionsID = this._occasionsService.getcategoryOccasions().subscribe({
+     this._occasionsService.getcategoryOccasions().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (res: occasionRes) => {
 
         this.occasions = res.occasions
@@ -47,10 +52,5 @@ export class FilterOccasionsComponent implements OnInit, OnDestroy {
 
   changeValue() {
     this._store.dispatch(loadSelectedOccasions({selectedOccasions:this.selectedItems}));
-  }
-
-
-  ngOnDestroy(): void {
-    this.occasionsID?.unsubscribe();
   }
 }

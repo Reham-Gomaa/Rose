@@ -1,11 +1,15 @@
 import { Component, inject } from "@angular/core";
-import { TranslatePipe } from "@ngx-translate/core";
 import { FormsModule } from '@angular/forms';
-import { Slider } from 'primeng/slider';
+
+import { TranslatePipe } from "@ngx-translate/core";
+
 import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
+
 import { Store } from "@ngrx/store";
 import { loadSelectedPrice } from "./../../../../../../../store/filter/filter.actions";
 
+//Primeng
+import { Slider } from 'primeng/slider';
 @Component({
   selector: "app-filter-price",
   imports: [FilterCardComponent, TranslatePipe, FormsModule, Slider],
@@ -23,7 +27,7 @@ export class FilterPriceComponent {
     }
     this.priceTimeout = setTimeout(() => {
       this._store.dispatch(loadSelectedPrice({ minPrice: this.rangeValues[0], maxPrice: this.rangeValues[1] }));
-    }, 400); 
+    }, 400);
   };
-  
+
 }

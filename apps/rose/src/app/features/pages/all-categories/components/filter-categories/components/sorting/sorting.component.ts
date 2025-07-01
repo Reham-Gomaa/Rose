@@ -1,6 +1,9 @@
 import { Component, inject } from "@angular/core";
+
 import { TranslatePipe } from "@ngx-translate/core";
+
 import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
+
 import { Store } from "@ngrx/store";
 import * as sortActions from "../../../../../../../store/sort/sort.actions";
 import { sortType } from "../../../../../../../store/sort/sort.states";

@@ -1,4 +1,7 @@
 import { Component, Input } from "@angular/core";
+
+import { TranslatePipe } from "@ngx-translate/core";
+
 import { Product } from "../../../../core/interfaces/carditem.interface";
 
 //PrimeNg
@@ -6,7 +9,6 @@ import { RatingModule } from "primeng/rating";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { SkeletonModule } from "primeng/skeleton";
-import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
   selector: "app-card-item",

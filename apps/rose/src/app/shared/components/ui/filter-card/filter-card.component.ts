@@ -1,5 +1,6 @@
 import { booleanAttribute, Component, Input } from "@angular/core";
 import { FormsModule } from '@angular/forms';
+//PrimeNg
 import { SliderModule } from 'primeng/slider';
 
 @Component({

@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
+
 import { TranslatePipe } from "@ngx-translate/core";
+
 import { ServicesInterface } from "../../../../../core/interfaces/services.interface";
 @Component({
   selector: "app-our-services",

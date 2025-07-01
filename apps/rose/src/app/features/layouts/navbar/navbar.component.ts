@@ -1,9 +1,14 @@
+
+import { Component, inject, OnInit, signal, ViewChild, WritableSignal } from "@angular/core";
+import { RouterLink, RouterLinkActive } from "@angular/router";
+
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "../../../core/services/translation/translation.service";
 
-import { CommonModule } from "@angular/common";
-import { Component, inject, OnInit, signal, ViewChild, WritableSignal } from "@angular/core";
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { TranslateToggleComponent } from "../../../shared/components/business/translate-toggle/translate-toggle.component";
+import { ButtonThemeComponent } from "../../../shared/components/ui/button-theme/button-theme.component";
+import { SearchModalComponent } from "../../../shared/components/ui/search-modal/search-modal.component";
+import { ButtonComponent } from "../../../shared/components/ui/button/button.component";
 
 // primeNg
 import { MenuItem } from "primeng/api";
@@ -12,11 +17,8 @@ import { Dialog } from "primeng/dialog";
 import { InputTextModule } from "primeng/inputtext";
 import { Menubar } from "primeng/menubar";
 import { OverlayBadgeModule } from "primeng/overlaybadge";
-import { TranslateToggleComponent } from "../../../shared/components/business/translate-toggle/translate-toggle.component";
 
-import { ButtonThemeComponent } from "../../../shared/components/ui/button-theme/button-theme.component";
-import { SearchModalComponent } from "../../../shared/components/ui/search-modal/search-modal.component";
-import { ButtonComponent } from "../../../shared/components/ui/button/button.component";
+
 type modalPosition =
   | "left"
   | "right"
@@ -33,7 +35,6 @@ type modalPosition =
   imports: [
     Menubar,
     ButtonModule,
-    CommonModule,
     RouterLink,
     RouterLinkActive,
     OverlayBadgeModule,

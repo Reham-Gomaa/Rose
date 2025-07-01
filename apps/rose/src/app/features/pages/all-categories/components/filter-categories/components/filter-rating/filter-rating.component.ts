@@ -1,13 +1,16 @@
 import { Component, inject } from "@angular/core";
+
 import { TranslatePipe } from "@ngx-translate/core";
+
 import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
 import { CheckedCardComponent } from "../../../../../../../shared/components/business/checkbox/checked-card.component";
 import {
   FilterItem,
   selectedItem,
 } from "./../../../../../../../core/interfaces/filter-item.interface";
+
 import { Store } from "@ngrx/store";
-import { loadSelectedRating } from "apps/rose/src/app/store/filter/filter.actions";
+import { loadSelectedRating } from '../../../../../../../store/filter/filter.actions';
 
 @Component({
   selector: "app-filter-rating",

@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
+
 import { TranslatePipe } from "@ngx-translate/core";
+
 import { ButtonComponent } from "../../../../../shared/components/ui/button/button.component";
 
 @Component({

@@ -1,13 +1,17 @@
-import { Component, inject, OnDestroy, OnInit } from "@angular/core";
-import { Store } from "@ngrx/store";
+import { Component, DestroyRef, inject, OnInit } from "@angular/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+
 import { TranslatePipe } from "@ngx-translate/core";
-import { Subscription } from "rxjs";
-import { CategoryProductCount } from "../../../../../../../core/interfaces/count-by-product.interface";
+
+import { Store } from "@ngrx/store";
+import { loadSelectedCategories } from './../../../../../../../store/filter/filter.actions';
+
 import { CheckedCardComponent } from "../../../../../../../shared/components/business/checkbox/checked-card.component";
 import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
 import { ProductsService } from "../../../../../../../shared/services/products/products.service";
+
+import { CategoryProductCount } from "../../../../../../../core/interfaces/count-by-product.interface";
 import { selectedItem } from "./../../../../../../../core/interfaces/filter-item.interface";
-import { loadSelectedCategories } from './../../../../../../../store/filter/filter.actions';
 
 @Component({
   selector: "app-filter-category",
@@ -15,16 +19,16 @@ import { loadSelectedCategories } from './../../../../../../../store/filter/filt
   templateUrl: "./filter-category.component.html",
   styleUrl: "./filter-category.component.scss",
 })
-export class FilterCategoryComponent implements OnInit, OnDestroy {
+export class FilterCategoryComponent implements OnInit {
   private readonly _productsService = inject(ProductsService);
   private readonly _store = inject(Store);;
-  
+
+  private destroyRef = inject(DestroyRef);
 
   categories!: CategoryProductCount[];
-  categoriesID!: Subscription;
 
   ngOnInit(): void {
-    this.categoriesID = this._productsService.getcategoryProductCount().subscribe({
+      this._productsService.getcategoryProductCount().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (res) => {
         this.categories = res.categoryProductCount.filter((category)=> category.category);
       },
@@ -34,10 +38,7 @@ export class FilterCategoryComponent implements OnInit, OnDestroy {
   selectedItems: selectedItem[] = [] as selectedItem[];
 
   changeValue(){
-  
+
     this._store.dispatch(loadSelectedCategories({selectedCategories:this.selectedItems}));
-  }
-  ngOnDestroy(): void {
-    this.categoriesID?.unsubscribe();
   }
 }

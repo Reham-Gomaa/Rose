@@ -1,6 +1,9 @@
 import { Component, input, InputSignal, Output, EventEmitter } from "@angular/core";
-import { FilterItem, selectedItem } from "../../../../core/interfaces/filter-item.interface";
+
 import { TranslatePipe } from "@ngx-translate/core";
+
+import { FilterItem, selectedItem } from "../../../../core/interfaces/filter-item.interface";
+
 
 @Component({
   selector: "app-checked-card",

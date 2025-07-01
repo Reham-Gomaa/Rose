@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { CommonModule } from "@angular/common";
+
+//primeNg
 import { ButtonModule } from "primeng/button";
 
 @Component({
   selector: "app-search-modal",
-  imports: [CommonModule, ButtonModule],
+  imports: [ ButtonModule],
   templateUrl: "./search-modal.component.html",
   styleUrl: "./search-modal.component.scss",
 })

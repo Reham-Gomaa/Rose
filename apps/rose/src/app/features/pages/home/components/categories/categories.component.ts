@@ -1,8 +1,8 @@
-import { Component, inject, OnInit, signal, OnDestroy } from "@angular/core";
-import { TranslatePipe } from "@ngx-translate/core";
+import { Component, inject, OnInit, signal, DestroyRef } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
-import { Subscription } from "rxjs";
+import { TranslatePipe } from "@ngx-translate/core";
 
 import { CategoriesService } from "../../../../../shared/services/categories/categories.service";
 import { CategoryRes, Category } from "../../../../../core/interfaces/categories.interface";
@@ -19,14 +19,16 @@ import { Skeleton } from "primeng/skeleton";
   styleUrls: ["./categories.component.scss"],
   providers: [MessageService],
 })
-export class CategoriesComponent implements OnInit, OnDestroy {
+export class CategoriesComponent implements OnInit {
   private categoriesService = inject(CategoriesService);
   private messageService = inject(MessageService);
+
+  private destroyRef = inject(DestroyRef);
 
   categories = signal<Category[]>([]);
   isLoading = signal<boolean>(true);
   hasError = signal<boolean>(false);
-  subCategories: Subscription = new Subscription();
+
   ngOnInit(): void {
     this.loadCategories();
   }
@@ -34,8 +36,8 @@ export class CategoriesComponent implements OnInit, OnDestroy {
   private loadCategories() {
     this.isLoading.set(true);
 
-    this.subCategories.add(
-      this.categoriesService.getAllCategories().subscribe({
+
+      this.categoriesService.getAllCategories().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
         next: (response: CategoryRes) => {
           this.categories.set(response.categories || []);
           this.isLoading.set(false);
@@ -50,10 +52,6 @@ export class CategoriesComponent implements OnInit, OnDestroy {
           });
         },
       })
-    );
-  }
 
-  ngOnDestroy() {
-    this.subCategories.unsubscribe();
   }
 }
