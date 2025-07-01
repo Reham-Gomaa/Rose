@@ -1,17 +1,20 @@
-import { Component, inject, OnInit, OnDestroy, signal } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, inject, OnInit, signal, DestroyRef } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
+import { TranslatePipe } from "@ngx-translate/core";
+
 import { trigger, transition, query, style, animate, stagger } from '@angular/animations';
 
 import { ProductsService } from "../../../../../shared/services/products/products.service";
-import { Product } from "../../../../../core/interfaces/carditem.interface";
 import { CategoriesService } from "../../../../../shared/services/categories/categories.service";
+
+import { Product } from "../../../../../core/interfaces/carditem.interface";
 import { CategoryOption } from "../../../../../core/interfaces/categories.interface";
 
 //Shared
 import { CardItemComponent } from "../../../../../shared/components/ui/card-item/card-item.component";
 //PrimeNg
 import { SkeletonModule } from "primeng/skeleton";
-import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
   selector: "app-popular-items",
@@ -38,7 +41,7 @@ import { TranslatePipe } from "@ngx-translate/core";
     ])
   ]
 })
-export class PopularItemsComponent implements OnInit, OnDestroy {
+export class PopularItemsComponent implements OnInit {
   private readonly _productsService = inject(ProductsService);
   private readonly _categoriesService = inject(CategoriesService);
 
@@ -47,10 +50,9 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
   selectedCategory = signal("all");
   loading = signal(true);
   skeletonItems = signal(Array(6).fill(0));
-  
 
-  private productSub: Subscription = new Subscription();
-  private categorySub: Subscription = new Subscription();
+
+  private destroyRef = inject(DestroyRef);
 
   ngOnInit() {
     this.loadData();
@@ -63,8 +65,7 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
   }
 
   private getAllCategories() {
-    this.categorySub.add(
-      this._categoriesService.getAllCategories().subscribe({
+      this._categoriesService.getAllCategories().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
         next: (res) => {
           this.categories.set([
             { label: "all", display: "All Items", id: "all" },
@@ -77,19 +78,17 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
         },
         error: () => this.loading.set(false),
       })
-    );
   }
 
   private getAllProduct() {
-    this.productSub.add(
-      this._productsService.getAllProducts().subscribe({
+
+      this._productsService.getAllProducts().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
         next: (res) => {
           this.allProducts.set(res.products || []);
           this.loading.set(false);
         },
         error: () => this.loading.set(false),
       })
-    );
   }
 
   get filteredCards(): Product[] {
@@ -103,10 +102,5 @@ export class PopularItemsComponent implements OnInit, OnDestroy {
     if (!this.loading()) {
       this.selectedCategory.set(categoryId);
     }
-  }
-
-  ngOnDestroy() {
-    this.productSub.unsubscribe();
-    this.categorySub.unsubscribe();
   }
 }

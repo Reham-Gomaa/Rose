@@ -1,19 +1,29 @@
-import { Component, inject, OnDestroy, OnInit, signal } from "@angular/core";
-import { Store } from "@ngrx/store";
+import { Component, DestroyRef, inject, OnInit, signal } from "@angular/core";
+
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+
 import { TranslatePipe } from "@ngx-translate/core";
-import { ButtonModule } from "primeng/button";
-import { DrawerModule } from "primeng/drawer";
-import { Subscription } from "rxjs";
+
 import { Product } from "../../../core/interfaces/carditem.interface";
+
 import { CardItemComponent } from "../../../shared/components/ui/card-item/card-item.component";
 import { ProductsService } from "../../../shared/services/products/products.service";
+
+import { Store } from "@ngrx/store";
 import { loadProductsToFilter } from "../../../store/filter/filter.actions";
 import { selectFilterProducts } from "../../../store/filter/filter.selector";
 import * as sortActions from "../../../store/sort/sort.actions";
 import * as sortSelectors from "../../../store/sort/store.selectors";
+
 import { FilterCategoriesComponent } from "./components/filter-categories/filter-categories.component";
 
+// primeng
+import { ButtonModule } from "primeng/button";
+import { DrawerModule } from "primeng/drawer";
+
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+
+
 
 @Component({
   selector: "app-all-categories",
@@ -28,7 +38,7 @@ import { animate, query, stagger, style, transition, trigger } from '@angular/an
   styleUrl: "./all-categories.component.scss",
    animations: [
     trigger('gridAnimation', [
-      transition('* => *', [  
+      transition('* => *', [
         query(':enter', [
           style({ opacity: 0, transform: 'scale(0.95)' }),
           stagger(100, [
@@ -39,37 +49,37 @@ import { animate, query, stagger, style, transition, trigger } from '@angular/an
     ])
   ]
 })
-export class AllCategoriesComponent implements OnInit, OnDestroy {
+export class AllCategoriesComponent implements OnInit {
   private readonly _productsService = inject(ProductsService);
   private readonly _store = inject(Store);
 
   filterDrawerVisible = false;
-  showGridToggle = true; // This will be used to trigger the animation
+  showGridToggle = true;
 
 
   products = signal<Product[]>([]);
   loading = signal(true);
-  private productSub: Subscription = new Subscription();
+  private destroyRef = inject(DestroyRef);
 
   ngOnInit() {
     this.loadProducts();
 
-    
 
-    this._store.select(selectFilterProducts).subscribe({
+
+    this._store.select(selectFilterProducts).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (filterProducts) => {
         this.products.set(filterProducts);
-        this.triggerGridAnimation(); // Trigger the animation when products are updated
+        this.triggerGridAnimation();
       },
     });
 
 
   }
 
-  triggerGridAnimation() { // This method is called to trigger the animation
+  triggerGridAnimation() {
   this.showGridToggle = false;
   setTimeout(() => this.showGridToggle = true, 0);
- } 
+ }
 
   addProductsToStore() {
     this._store.dispatch(
@@ -81,7 +91,7 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
 
   private loadProducts() {
     this.loading.set(true);
-    this._productsService.getAllProducts().subscribe({
+    this._productsService.getAllProducts().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (res) => {
         this.products.set(res.products || []);
         this.loading.set(false);
@@ -96,15 +106,10 @@ export class AllCategoriesComponent implements OnInit, OnDestroy {
 
   private loadStores() {
     this._store.dispatch(sortActions.loadProducts({products: this.products()}));
-    this._store.select(sortSelectors.sortedProducts).subscribe({
+    this._store.select(sortSelectors.sortedProducts).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (sortProducts) => {
         this._store.dispatch(loadProductsToFilter({ products: sortProducts }));
       },
     });
-  }
-
-
-  ngOnDestroy() {
-    this.productSub.unsubscribe();
   }
 }

@@ -1,11 +1,14 @@
 import { Component } from "@angular/core";
+
+import { TranslatePipe } from "@ngx-translate/core";
+
 import { CheckedCardComponent } from "../../../../../../../shared/components/business/checkbox/checked-card.component";
 import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
 import {
   FilterItem,
   selectedItem,
 } from "../../../../../../../core/interfaces/filter-item.interface";
-import { TranslatePipe } from "@ngx-translate/core";
+
 
 @Component({
   selector: "app-filter-sales",

@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+
 import { TranslatePipe } from "@ngx-translate/core";
 
 import {
@@ -6,7 +7,7 @@ import {
   Testimonials,
 } from "./../../../../../core/interfaces/testimonials.interface";
 
-// primeNg imports ....
+// primeNg
 import { CarouselModule } from "primeng/carousel";
 import { ButtonModule } from "primeng/button";
 

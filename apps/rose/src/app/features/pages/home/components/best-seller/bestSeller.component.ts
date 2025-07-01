@@ -1,16 +1,18 @@
-import { Component, inject, OnInit, OnDestroy, signal } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Component, inject, OnInit, signal, DestroyRef } from "@angular/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+
+import { TranslatePipe } from "@ngx-translate/core";
 
 import { CardItemComponent } from "../../../../../shared/components/ui/card-item/card-item.component";
 import { ButtonComponent } from "../../../../../shared/components/ui/button/button.component";
+import { BestSellerService } from "../../../../../shared/services/best-seller/best-seller.service";
+
+import { BestSeller, BestSellerRes } from "../../../../../core/interfaces/best-seller.interface";
 
 //PrimeNg
 import { CarouselModule } from "primeng/carousel";
 import { ButtonModule } from "primeng/button";
-import { BestSellerService } from "../../../../../shared/services/best-seller/best-seller.service";
-import { BestSeller, BestSellerRes } from "../../../../../core/interfaces/best-seller.interface";
 import { SkeletonModule } from "primeng/skeleton";
-import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
   selector: "app-best-seller",
@@ -25,7 +27,7 @@ import { TranslatePipe } from "@ngx-translate/core";
   templateUrl: "./bestSeller.component.html",
   styleUrls: ["./bestSeller.component.scss"],
 })
-export class BestSellerComponent implements OnInit, OnDestroy {
+export class BestSellerComponent implements OnInit {
   private readonly bestsellerService = inject(BestSellerService);
 
   bestSellers = signal<BestSeller[]>([]);
@@ -33,7 +35,7 @@ export class BestSellerComponent implements OnInit, OnDestroy {
   loading = signal(true);
   skeletonItems = signal(Array(1).fill(0));
 
-  private subscription: Subscription | undefined;
+  private destroyRef = inject(DestroyRef);
 
   responsiveOptions = [
     {
@@ -55,7 +57,7 @@ export class BestSellerComponent implements OnInit, OnDestroy {
     this.loading.set(true);
     this.showSkeleton.set(true);
 
-    this.subscription = this.bestsellerService.getBestSellers().subscribe({
+ this.bestsellerService.getBestSellers().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
       next: (res: BestSellerRes) => {
         this.bestSellers.set(res.bestSeller || []);
         this.loading.set(false);
@@ -67,8 +69,5 @@ export class BestSellerComponent implements OnInit, OnDestroy {
         this.showSkeleton.set(false);
       },
     });
-  }
-  ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
   }
 }
