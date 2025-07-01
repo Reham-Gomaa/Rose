@@ -19,7 +19,20 @@
 }
 
 .no-product-available-text {
-  font-size: 1.125rem;
   color: var(--not-found-Product-color);
+  font-family: var(--font-family-1);
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 100%;
   max-width: 500px;
+}
+
+@media (min-width: 300px) and (max-width: 767px) {
+.no-product-available-container {
+    flex-direction: column;
+  }
+
+  .no-product-available-text {
+    font-size: 0.75rem;
+  }
 }

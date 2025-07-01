@@ -17,17 +17,20 @@
 
 /* Error Heading */
 .not-found-heading {
+  color: var(--not-found-title-color);
+  font-family: var(--font-family-1);
   font-size: 2.2rem;
   font-weight: 700;
-  color: var(--not-found-title-color);
   margin-top: 1rem;
 }
 
 /* Error Message */
 .not-found-message {
+  color: var(--not-found-p-color);
+  font-family: var(--font-family-2);
   margin-top: 0.5rem;
   font-size: 1rem;
-  color: var(--not-found-p-color);
+  font-weight: 400;
   max-width: 40rem;
   padding: 0 1rem 2rem;
 }
