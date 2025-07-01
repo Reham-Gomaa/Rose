@@ -72,12 +72,6 @@ We welcome contributions!
 
 ---
 
-## 📜 License
-
-MIT License
-
----
-
 ## 💡 Notes
 
 - Built with ❤️ using Angular 19 + NX
