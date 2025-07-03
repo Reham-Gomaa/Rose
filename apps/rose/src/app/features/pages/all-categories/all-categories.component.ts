@@ -22,7 +22,7 @@ import { ButtonModule } from "primeng/button";
 import { DrawerModule } from "primeng/drawer";
 
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
-import { NoProductAvailableComponent } from "../../layouts/no-product-available/no-product-available.component";
+import { NoDataAvailableComponent } from "../../../shared/components/business/no-data-available/no-data-available.component";
 
 
 
@@ -34,7 +34,8 @@ import { NoProductAvailableComponent } from "../../layouts/no-product-available/
     FilterCategoriesComponent,
     ButtonModule,
     DrawerModule,
-    NoProductAvailableComponent
+    NoDataAvailableComponent,
+    NoDataAvailableComponent
 ],
   templateUrl: "./all-categories.component.html",
   styleUrl: "./all-categories.component.scss",

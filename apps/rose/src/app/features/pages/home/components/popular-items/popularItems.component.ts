@@ -15,11 +15,11 @@ import { CategoryOption } from "../../../../../core/interfaces/categories.interf
 import { CardItemComponent } from "../../../../../shared/components/ui/card-item/card-item.component";
 //PrimeNg
 import { SkeletonModule } from "primeng/skeleton";
-import { NoProductAvailableComponent } from "../../../../layouts/no-product-available/no-product-available.component";
+import { NoDataAvailableComponent } from "../../../../../shared/components/business/no-data-available/no-data-available.component";
 
 @Component({
   selector: "app-popular-items",
-  imports: [CardItemComponent, SkeletonModule, TranslatePipe, NoProductAvailableComponent],
+  imports: [CardItemComponent, SkeletonModule, TranslatePipe, NoDataAvailableComponent],
   templateUrl: './popularItems.component.html',
   styleUrl: './popularItems.component.scss',
     animations: [

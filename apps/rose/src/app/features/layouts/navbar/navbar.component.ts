@@ -7,8 +7,8 @@ import { TranslationService } from "../../../core/services/translation/translati
 
 import { TranslateToggleComponent } from "../../../shared/components/business/translate-toggle/translate-toggle.component";
 import { ButtonThemeComponent } from "../../../shared/components/ui/button-theme/button-theme.component";
-import { SearchModalComponent } from "../../../shared/components/ui/search-modal/search-modal.component";
 import { ButtonComponent } from "../../../shared/components/ui/button/button.component";
+import { SearchModalComponent } from "../../../shared/components/ui/search-modal/search-modal.component";
 
 // primeNg
 import { MenuItem } from "primeng/api";

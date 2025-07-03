@@ -6,6 +6,7 @@ import { TranslatePipe } from "@ngx-translate/core";
 
 import { CategoriesService } from "../../../../../shared/services/categories/categories.service";
 import { CategoryRes, Category } from "../../../../../core/interfaces/categories.interface";
+import { NoDataAvailableComponent } from "../../../../../shared/components/business/no-data-available/no-data-available.component";
 
 // PrimeNG
 import { ToastModule } from "primeng/toast";
@@ -14,7 +15,7 @@ import { Skeleton } from "primeng/skeleton";
 
 @Component({
   selector: "app-categories",
-  imports: [CommonModule, ToastModule, Skeleton, TranslatePipe],
+  imports: [CommonModule, ToastModule, Skeleton, TranslatePipe, NoDataAvailableComponent],
   templateUrl: "./categories.component.html",
   styleUrls: ["./categories.component.scss"],
   providers: [MessageService],

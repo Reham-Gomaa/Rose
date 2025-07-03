@@ -190,7 +190,7 @@
       "message": "The page you're looking for might have been removed, had its name changed, or is temporarily unavailable. You can return to the store to continue shopping."
     }
   },
-    "noProductAvailable": {
-    "message": "No Products available at this time!"
+  "emptyData": {
+    "message": "Oops! Something went wrong while loading the data. Please try again later."
   }
 }

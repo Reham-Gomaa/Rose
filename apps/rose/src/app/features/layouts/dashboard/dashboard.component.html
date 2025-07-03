@@ -1,7 +1,11 @@
-<section class="dash">
+<section class="dash" >
   <app-navbar />
   <div class="contain mx-auto">
     <router-outlet />
   </div>
   <app-footer />
 </section>
+
+<!-- 
+[@fadeTransition]="translationService.fadeAnimation() ? 'visible' : 'hidden'" 
+-->
