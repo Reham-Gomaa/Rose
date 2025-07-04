@@ -7,7 +7,7 @@ import { TranslateService } from "@ngx-translate/core";
   providedIn: "root",
 })
 export class TranslationService {
-  //fadeAnimation: WritableSignal<'visible' | 'hidden'> = signal('visible');
+  fadeState: WritableSignal<'visible' | 'hidden'> = signal('visible');
 
   private readonly translateService = inject(TranslateService);
   private readonly platformId = inject(PLATFORM_ID);
@@ -30,27 +30,18 @@ export class TranslationService {
     }
   }
 
-  isLoading = signal(false);
-
   changeLang(lang: string) {
-    // this.translateService.use(lang);
-    // if (isPlatformBrowser(this.platformId)) {
-    //   localStorage.setItem("lng", lang);
-    //   //this.ssrCookieService.set(this.cookieName, lang, { expires:30 });
-    //   this.changeDir();
-    // }
+    this.fadeState.set('hidden');
 
-      this.isLoading.set(true); // Show overlay
-
-  setTimeout(() => {
-    this.translateService.use(lang);
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem("lng", lang);
-      this.changeDir();
-    }
-
-    this.isLoading.set(false); // Hide overlay after change
-  }, 1200);
+    setTimeout(() => {
+      this.translateService.use(lang);
+      if (isPlatformBrowser(this.platformId)) {
+        localStorage.setItem("lng", lang);
+        //this.ssrCookieService.set(this.cookieName, lang, { expires:30 });
+        this.changeDir();
+      }
+      this.fadeState.set('visible');
+    }, 400);
   }
 
   changeDir() {

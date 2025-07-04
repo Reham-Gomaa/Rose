@@ -23,6 +23,8 @@ import { DrawerModule } from "primeng/drawer";
 
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { NoDataAvailableComponent } from "../../../shared/components/business/no-data-available/no-data-available.component";
+import { TranslationService } from "../../../core/services/translation/translation.service";
+import { fadeTransition } from "../../../core/services/translation/fade.animation";
 
 
 
@@ -49,11 +51,13 @@ import { NoDataAvailableComponent } from "../../../shared/components/business/no
           ])
         ], { optional: true })
       ])
-    ])
+    ]),
+    [fadeTransition]
   ]
 })
 export class AllCategoriesComponent implements OnInit {
   private readonly _productsService = inject(ProductsService);
+  readonly translationService = inject(TranslationService);
   private readonly _store = inject(Store);
 
   filterDrawerVisible = false;

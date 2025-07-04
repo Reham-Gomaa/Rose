@@ -1,4 +1,4 @@
-<div class="all-categories-container flex flex-column lg:flex-row gap-5">
+<div [@fadeTransition]="translationService.fadeState()" class="all-categories-container flex flex-column lg:flex-row gap-5">
   <!-- Mobile/Tablet Filter Toggle Button -->
   <button pButton icon="pi pi-filter" class="lg:hidden filter-toggle" (click)="filterDrawerVisible = true"
     aria-label="Toggle filters"></button>
