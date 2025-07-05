@@ -1,5 +1,6 @@
-import { Product } from "../../core/interfaces/carditem.interface";
-import { selectedItem } from "../../core/interfaces/filter-item.interface";
+// Interfaces
+import { Product } from "@rose/core_interfaces/carditem.interface";
+import { selectedItem } from "@rose/core_interfaces/filter-item.interface";
 
 export interface FilterState {
   products: Product[];

@@ -1,8 +1,10 @@
-import { Observable } from "rxjs";
-import { EndPoint } from "../../../core/enums/endpoints";
-import { occasionRes } from "../../../core/interfaces/occasions.interface";
-import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
+// Interfaces
+import { occasionRes } from "@rose/core_interfaces/occasions.interface";
+// Enums
+import { EndPoint } from "@rose/core_enums/endpoints";
 
 @Injectable({
   providedIn: "root",

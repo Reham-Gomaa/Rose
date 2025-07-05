@@ -45,7 +45,9 @@
       </div>
       } @empty {
       <div class="p-3 flex justify-content-center no-categories" aria-live="polite">
-        <p role="status">{{ "home.categories.empty" | translate }}</p>
+        <p role="status" aria-live="polite" class="no-results-message">
+        <app-no-data-available />
+      </p>
       </div>
       }
     </div>

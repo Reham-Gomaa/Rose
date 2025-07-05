@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({

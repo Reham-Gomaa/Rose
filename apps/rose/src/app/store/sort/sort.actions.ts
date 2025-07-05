@@ -1,6 +1,7 @@
 import { createAction, props } from "@ngrx/store";
-import { Product } from "../../core/interfaces/carditem.interface";
 import { sortType } from "./sort.states";
+//Interfaces
+import { Product } from "@rose/core_interfaces/carditem.interface";
 
 //load products
 export const loadProducts = createAction("[sort] loadProducts", props<{ products: Product[] }>());

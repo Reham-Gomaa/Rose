@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import { ButtonComponent } from "../../../../../shared/components/ui/button/button.component";
+// Shared_Components
+import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 
 @Component({
   selector: "app-trusted-by",

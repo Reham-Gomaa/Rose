@@ -1,21 +1,27 @@
 import { DOCUMENT, isPlatformBrowser } from "@angular/common";
-import { inject, Injectable, PLATFORM_ID } from "@angular/core";
+import { inject, Injectable, PLATFORM_ID, signal, WritableSignal } from "@angular/core";
+//Translation
 import { TranslateService } from "@ngx-translate/core";
+// SSR Cookie Service
+import { SsrCookieService } from "ngx-cookie-service-ssr";
 
 @Injectable({
   providedIn: "root",
 })
 export class TranslationService {
+  fadeState: WritableSignal<'visible' | 'hidden'> = signal('visible');
+
   private readonly translateService = inject(TranslateService);
   private readonly platformId = inject(PLATFORM_ID);
   private readonly document = inject(DOCUMENT);
+  private readonly ssrCookieService = inject(SsrCookieService);
 
-  defaultLang = "en";
   private readonly cookieName = "lng";
+  defaultLang = "en";
 
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
-      const savedLang = localStorage.getItem("lng");
+      const savedLang = this.ssrCookieService.get(this.cookieName);
       if (savedLang) {
         this.defaultLang = savedLang;
       }
@@ -26,15 +32,20 @@ export class TranslationService {
   }
 
   changeLang(lang: string) {
-    this.translateService.use(lang);
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem("lng", lang);
-      this.changeDir();
-    }
+    this.fadeState.set('hidden');
+
+    setTimeout(() => {
+      this.translateService.use(lang);
+      if (isPlatformBrowser(this.platformId)) {
+        this.ssrCookieService.set(this.cookieName, lang, { expires:30 });
+        this.changeDir();
+      }
+      this.fadeState.set('visible');
+    }, 400);
   }
 
   changeDir() {
-    const savedLang = localStorage.getItem("lng");
+    const savedLang = this.ssrCookieService.get(this.cookieName);
     const html = this.document.documentElement;
 
     if (savedLang == "en") {

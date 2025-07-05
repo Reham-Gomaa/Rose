@@ -9,6 +9,7 @@ import { Component, Input } from "@angular/core";
 export class ButtonComponent {
   @Input() text!: string;
   @Input() isIcon!: boolean;
+  @Input() isRefresh!: boolean;
   @Input() borderRadius!: string;
   @Input() padding!: string;
   @Input() margin!: string;

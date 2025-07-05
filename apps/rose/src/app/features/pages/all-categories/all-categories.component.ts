@@ -1,30 +1,30 @@
 import { Component, DestroyRef, inject, OnInit, signal } from "@angular/core";
-
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-
+// Animations
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import { Product } from "../../../core/interfaces/carditem.interface";
-
-import { CardItemComponent } from "../../../shared/components/ui/card-item/card-item.component";
-import { ProductsService } from "../../../shared/services/products/products.service";
-
-import { Store } from "@ngrx/store";
-import { loadProductsToFilter } from "../../../store/filter/filter.actions";
-import { selectFilterProducts } from "../../../store/filter/filter.selector";
-import * as sortActions from "../../../store/sort/sort.actions";
-import * as sortSelectors from "../../../store/sort/store.selectors";
-
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Animations_Translation
+import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+// Interfaces
+import { Product } from "@rose/core_interfaces/carditem.interface";
+// Components
 import { FilterCategoriesComponent } from "./components/filter-categories/filter-categories.component";
-
+// Shared_Components
+import { NoDataAvailableComponent } from "@rose/shared_Components_business/no-data-available/no-data-available.component";
+import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
+// Shared_Services
+import { ProductsService } from "@rose/shared_services/products/products.service";
+//NGRX
+import { Store } from "@ngrx/store";
+import { loadProductsToFilter } from "@rose/store_filter/filter.actions";
+import { selectFilterProducts } from "@rose/store_filter/filter.selector";
+import * as sortActions from "@rose/store_sort/sort.actions";
+import * as sortSelectors from "@rose/store_sort/store.selectors";
 // primeng
 import { ButtonModule } from "primeng/button";
 import { DrawerModule } from "primeng/drawer";
-
-import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
-import { NoProductAvailableComponent } from "../../layouts/no-product-available/no-product-available.component";
-
-
 
 @Component({
   selector: "app-all-categories",
@@ -34,7 +34,8 @@ import { NoProductAvailableComponent } from "../../layouts/no-product-available/
     FilterCategoriesComponent,
     ButtonModule,
     DrawerModule,
-    NoProductAvailableComponent
+    NoDataAvailableComponent,
+    NoDataAvailableComponent
 ],
   templateUrl: "./all-categories.component.html",
   styleUrl: "./all-categories.component.scss",
@@ -48,11 +49,13 @@ import { NoProductAvailableComponent } from "../../layouts/no-product-available/
           ])
         ], { optional: true })
       ])
-    ])
+    ]),
+    [fadeTransition]
   ]
 })
 export class AllCategoriesComponent implements OnInit {
   private readonly _productsService = inject(ProductsService);
+  readonly translationService = inject(TranslationService);
   private readonly _store = inject(Store);
 
   filterDrawerVisible = false;

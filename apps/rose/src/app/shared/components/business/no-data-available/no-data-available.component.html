@@ -1,0 +1,15 @@
+<section class="no-data-available-container" role="region" aria-label="No Data Available">
+  <div class="no-data-available-wrapper" role="img" aria-label="No Data illustration"></div>
+  <div>
+    <p class="no-data-available-text">
+      {{ 'emptyData.message' | translate }}
+    </p>
+     <app-button 
+    (click)="retryFetch()"
+    [isRefresh]="true" 
+    [borderRadius]="'btn-roundedBorderRadius'"
+    [padding]="'btn-topLeft-padding'"
+    [margin]="'mx-auto'"
+    aria-label="Shop for Special Gifts Box" ></app-button>
+  </div>
+</section>

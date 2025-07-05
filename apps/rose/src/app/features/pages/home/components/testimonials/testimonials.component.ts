@@ -1,12 +1,8 @@
 import { Component } from "@angular/core";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import {
-  responsiveOption,
-  Testimonials,
-} from "./../../../../../core/interfaces/testimonials.interface";
-
+// Interfaces
+import { responsiveOption, Testimonials } from "@rose/core_interfaces/testimonials.interface";
 // primeNg
 import { CarouselModule } from "primeng/carousel";
 import { ButtonModule } from "primeng/button";

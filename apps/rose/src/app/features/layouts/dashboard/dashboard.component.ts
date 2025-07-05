@@ -1,8 +1,10 @@
 import { Component } from "@angular/core";
+// Router
 import { RouterOutlet } from "@angular/router";
-
-import { FooterComponent } from "../footer/footer.component";
+// Components
 import { NavbarComponent } from "../navbar/navbar.component";
+import { FooterComponent } from "../footer/footer.component";
+
 
 
 @Component({

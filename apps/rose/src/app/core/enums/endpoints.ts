@@ -1,4 +1,4 @@
-import { environment } from "../environment/baseurl.prod";
+import { environment } from "@rose/core_environment/baseurl.prod";
 
 export class EndPoint {
   static CATEGORIES = `${environment.baseApiUrl}api/v1/categories`;

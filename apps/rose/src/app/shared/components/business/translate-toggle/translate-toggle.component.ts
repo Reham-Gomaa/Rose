@@ -1,9 +1,9 @@
 import { Component, inject, OnInit, signal, WritableSignal } from "@angular/core";
-import { TranslationService } from "./../../../../core/services/translation/translation.service";
-
+// Translation
+import { TranslationService } from "@rose/core_services/translation/translation.service";
 @Component({
   selector: "app-translate-toggle",
-  imports: [],
+  imports: [ ],
   templateUrl: "./translate-toggle.component.html",
   styleUrl: "./translate-toggle.component.scss",
 })

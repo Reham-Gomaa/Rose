@@ -1,9 +1,8 @@
 import { Component } from "@angular/core";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import { InputBtnComponent } from "../../../shared/components/ui/input-btn/input-btn.component";
-
+// Shared_Components
+import { InputBtnComponent } from "@rose/shared_Components_ui/input-btn/input-btn.component";
 // PrimeNG
 import { InputTextModule } from "primeng/inputtext";
 import { ButtonModule } from "primeng/button";
