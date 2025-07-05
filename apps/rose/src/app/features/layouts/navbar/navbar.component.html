@@ -1,4 +1,4 @@
-<div class="contain mx-auto">
+<div [@fadeTransition]="translationService.fadeState()" class="contain mx-auto">
   <div class="card">
     <p-menubar [model]="items">
       <ng-template #start>

@@ -3,7 +3,7 @@
   <section aria-labelledby="category-heading" class="checkbox-container">
     <h3 id="category-heading" class="sr-only">Filter by Category</h3>
     <app-checked-card (change)="changeValue()" [filterItems]="categories" [selectedItems]="selectedItems"
-      (selectedItemsChange)="selectedItems = $event">
+      (selectedItemsChange)="selectedItems = $event"
       [itemType]="'category'"
       >
     </app-checked-card>

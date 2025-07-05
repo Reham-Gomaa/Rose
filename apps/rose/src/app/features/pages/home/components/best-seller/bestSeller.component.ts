@@ -1,3 +1,5 @@
+import { TranslationService } from './../../../../../core/services/translation/translation.service';
+import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
 import { Component, inject, OnInit, signal, DestroyRef } from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
@@ -26,9 +28,11 @@ import { SkeletonModule } from "primeng/skeleton";
   ],
   templateUrl: "./bestSeller.component.html",
   styleUrls: ["./bestSeller.component.scss"],
+  animations: [fadeTransition]
 })
 export class BestSellerComponent implements OnInit {
   private readonly bestsellerService = inject(BestSellerService);
+  translationService = inject(TranslationService);
 
   bestSellers = signal<BestSeller[]>([]);
   showSkeleton = signal(true);

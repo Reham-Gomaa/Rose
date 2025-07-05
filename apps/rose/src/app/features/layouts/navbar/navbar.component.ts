@@ -7,8 +7,8 @@ import { TranslationService } from "../../../core/services/translation/translati
 
 import { TranslateToggleComponent } from "../../../shared/components/business/translate-toggle/translate-toggle.component";
 import { ButtonThemeComponent } from "../../../shared/components/ui/button-theme/button-theme.component";
-import { SearchModalComponent } from "../../../shared/components/ui/search-modal/search-modal.component";
 import { ButtonComponent } from "../../../shared/components/ui/button/button.component";
+import { SearchModalComponent } from "../../../shared/components/ui/search-modal/search-modal.component";
 
 // primeNg
 import { MenuItem } from "primeng/api";
@@ -17,6 +17,7 @@ import { Dialog } from "primeng/dialog";
 import { InputTextModule } from "primeng/inputtext";
 import { Menubar } from "primeng/menubar";
 import { OverlayBadgeModule } from "primeng/overlaybadge";
+import { fadeTransition } from "../../../core/services/translation/fade.animation";
 
 
 type modalPosition =
@@ -48,9 +49,10 @@ type modalPosition =
   ],
   templateUrl: "./navbar.component.html",
   styleUrl: "./navbar.component.scss",
+  animations: [fadeTransition]
 })
 export class NavbarComponent implements OnInit {
-  private readonly translationService = inject(TranslationService);
+  readonly translationService = inject(TranslationService);
   isLoggedIn: WritableSignal<boolean> = signal<boolean>(false);
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
   items: MenuItem[] | undefined;

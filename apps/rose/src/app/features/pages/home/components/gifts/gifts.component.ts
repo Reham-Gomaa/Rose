@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
+import { TranslationService } from './../../../../../core/services/translation/translation.service';
+import { Component, inject } from "@angular/core";
 
 import { TranslatePipe } from "@ngx-translate/core";
 
@@ -20,8 +22,11 @@ import { TagModule } from "primeng/tag";
   imports: [CarouselModule, ButtonModule, TagModule, ButtonComponent, TranslatePipe],
   templateUrl: "./gifts.component.html",
   styleUrl: "./gifts.component.scss",
+  animations: [fadeTransition]
 })
 export class GiftsComponent {
+  translationService = inject(TranslationService);
+
   carouselList: carouselListInterface[] = [
     {
       id: 1,

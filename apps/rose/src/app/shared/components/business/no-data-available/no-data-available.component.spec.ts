@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NoProductAvailableComponent } from './no-product-available.component';
+import { NoDataAvailableComponent } from './no-data-available.component';
 
 describe('NoProductAvailableComponent', () => {
-  let component: NoProductAvailableComponent;
-  let fixture: ComponentFixture<NoProductAvailableComponent>;
+  let component: NoDataAvailableComponent;
+  let fixture: ComponentFixture<NoDataAvailableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NoProductAvailableComponent]
+      imports: [NoDataAvailableComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NoProductAvailableComponent);
+    fixture = TestBed.createComponent(NoDataAvailableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
