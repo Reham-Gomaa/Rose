@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import { ServicesInterface } from "../../../../../core/interfaces/services.interface";
+// Interfaces
+import { ServicesInterface } from "@rose/core_interfaces/services.interface";
 @Component({
   selector: "app-our-services",
   imports: [TranslatePipe],

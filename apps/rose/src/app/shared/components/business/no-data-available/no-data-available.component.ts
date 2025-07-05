@@ -1,9 +1,9 @@
-import { isPlatformBrowser } from '@angular/common';
 import { Component, inject, PLATFORM_ID } from '@angular/core';
-
+import { isPlatformBrowser } from '@angular/common';
+// Translation
 import { TranslatePipe } from '@ngx-translate/core';
-import { ButtonComponent } from "../../ui/button/button.component";
-
+// Shared_Components
+import { ButtonComponent } from '@rose/shared_Components_ui/button/button.component';
 @Component({
   selector: 'app-no-data-available',
   imports: [TranslatePipe, ButtonComponent],

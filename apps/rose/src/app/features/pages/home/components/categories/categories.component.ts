@@ -1,13 +1,14 @@
 import { Component, inject, OnInit, signal, DestroyRef } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import { CategoriesService } from "../../../../../shared/services/categories/categories.service";
-import { CategoryRes, Category } from "../../../../../core/interfaces/categories.interface";
-import { NoDataAvailableComponent } from "../../../../../shared/components/business/no-data-available/no-data-available.component";
-
+// Interfaces
+import { Category, CategoryRes } from "@rose/core_interfaces/categories.interface";
+// Shared_Services
+import { CategoriesService } from "@rose/shared_services/categories/categories.service";
+// Shared_Components
+import { NoDataAvailableComponent } from "@rose/shared_Components_business/no-data-available/no-data-available.component";
 // PrimeNG
 import { ToastModule } from "primeng/toast";
 import { MessageService } from "primeng/api";

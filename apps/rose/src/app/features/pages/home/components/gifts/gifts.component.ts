@@ -1,15 +1,10 @@
 import { Component } from "@angular/core";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import {
-  carouselListInterface,
-  picsInterface,
-  responsiveOptionsInterface,
-} from "../../../../../core/interfaces/special-gifts.interface";
-
-import { ButtonComponent } from "../../../../../shared/components/ui/button/button.component";
-
+// Interfaces
+import { carouselListInterface, picsInterface, responsiveOptionsInterface } from "@rose/core_interfaces/special-gifts.interface";
+// Shared_Components
+import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 // primeNg ...
 import { ButtonModule } from "primeng/button";
 import { CarouselModule } from "primeng/carousel";

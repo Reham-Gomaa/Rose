@@ -1,10 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { Observable, shareReplay } from "rxjs";
-import { EndPoint } from "../../../core/enums/endpoints";
-import { ProductRes } from "../../../core/interfaces/carditem.interface";
-import { countBproduct } from "../../../core/interfaces/count-by-product.interface";
-
+// Interfaces
+import { ProductRes } from "@rose/core_interfaces/carditem.interface";
+import { countBproduct } from "@rose/core_interfaces/count-by-product.interface";
+// Enums
+import { EndPoint } from "@rose/core_enums/endpoints";
 @Injectable({
   providedIn: "root",
 })

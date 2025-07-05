@@ -1,9 +1,10 @@
 import { Component, inject } from "@angular/core";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import { DarkModeService } from "../../../../../core/services/darkmode/darkmode.service";
-import { ButtonComponent } from "../../../../../shared/components/ui/button/button.component";
+// Services
+import { DarkModeService } from "@rose/core_services/darkmode/darkmode.service";
+// Shared_services
+import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 //PrimeNg
 import { ButtonModule } from "primeng/button";
 import { DividerModule } from "primeng/divider";

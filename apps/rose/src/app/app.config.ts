@@ -1,31 +1,26 @@
 import { appRoutes } from "./app.routes";
-
-// @angular imports ....
+// @angular imports
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
-import { provideRouter, withViewTransitions } from "@angular/router";
+import { provideRouter, withInMemoryScrolling, withViewTransitions } from "@angular/router";
 import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 import { HttpClient, provideHttpClient, withFetch } from "@angular/common/http";
 import { provideAnimations } from '@angular/platform-browser/animations';
-
-// @ngx imports ....
+// @ngx imports
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-
-// primeng imports ....
-
+// ngrx imports
+import { provideStore } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
+import { FilterEffects } from "@rose/store_filter/filter.effect";
+import { sortReducer } from "@rose/store_sort/sort.reducer";
+import { filterReduser } from "@rose/store_filter/filter.reducer";
+import { sortEffects } from "@rose/store_sort/store.effects";
+// primeng imports
 import { MessageService } from 'primeng/api';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
-import { provideStore } from '@ngrx/store';
-import { provideEffects } from '@ngrx/effects';
-import { sortReducer } from './store/sort/sort.reducer';
-import { sortEffects } from './store/sort/store.effects';
-import { filterReduser } from "./store/filter/filter.reducer";
-import { FilterEffects } from "./store/filter/filter.effect";
-
-
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
@@ -35,7 +30,10 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(appRoutes , withViewTransitions()),
+    provideRouter(appRoutes , withViewTransitions() ,
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'enabled',
+    })),
     provideHttpClient(withFetch()),
     MessageService,
 
@@ -67,5 +65,4 @@ export const appConfig: ApplicationConfig = {
     }),
     provideEffects(sortEffects,FilterEffects),
 ],
-
 };
