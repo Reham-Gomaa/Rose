@@ -19,7 +19,6 @@ export class TranslationService {
 
   constructor() {
     if (isPlatformBrowser(this.platformId)) {
-      //const savedLang = localStorage.getItem("lng");
       const savedLang = this.ssrCookieService.get(this.cookieName);
       if (savedLang) {
         this.defaultLang = savedLang;
@@ -36,7 +35,6 @@ export class TranslationService {
     setTimeout(() => {
       this.translateService.use(lang);
       if (isPlatformBrowser(this.platformId)) {
-        //localStorage.setItem("lng", lang);
         this.ssrCookieService.set(this.cookieName, lang, { expires:30 });
         this.changeDir();
       }
@@ -45,7 +43,6 @@ export class TranslationService {
   }
 
   changeDir() {
-    //const savedLang = localStorage.getItem("lng");
     const savedLang = this.ssrCookieService.get(this.cookieName);
     const html = this.document.documentElement;
 
