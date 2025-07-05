@@ -10,7 +10,6 @@ export class TranslationService {
   fadeState: WritableSignal<'visible' | 'hidden'> = signal('visible');
 
   private readonly translateService = inject(TranslateService);
-  private readonly platformId = inject(PLATFORM_ID);
   private readonly document = inject(DOCUMENT);
   private readonly ssrCookieService = inject(SsrCookieService);
 
@@ -18,7 +17,6 @@ export class TranslationService {
   defaultLang = "en";
 
   constructor() {
-    if (isPlatformBrowser(this.platformId)) {
       const savedLang = this.ssrCookieService.get(this.cookieName);
       if (savedLang) {
         this.defaultLang = savedLang;
@@ -26,18 +24,14 @@ export class TranslationService {
       this.translateService.setDefaultLang(this.defaultLang);
       this.translateService.use(this.defaultLang);
       this.changeDir();
-    }
   }
 
   changeLang(lang: string) {
     this.fadeState.set('hidden');
-
+    this.ssrCookieService.set(this.cookieName, lang, { expires: 30 });
     setTimeout(() => {
       this.translateService.use(lang);
-      if (isPlatformBrowser(this.platformId)) {
-        this.ssrCookieService.set(this.cookieName, lang, { expires:30 });
-        this.changeDir();
-      }
+      this.changeDir();
       this.fadeState.set('visible');
     }, 400);
   }

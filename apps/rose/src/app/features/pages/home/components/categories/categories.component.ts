@@ -1,3 +1,5 @@
+import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
+import { TranslationService } from './../../../../../core/services/translation/translation.service';
 import { Component, inject, OnInit, signal, DestroyRef } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
@@ -19,9 +21,11 @@ import { Skeleton } from "primeng/skeleton";
   templateUrl: "./categories.component.html",
   styleUrls: ["./categories.component.scss"],
   providers: [MessageService],
+  animations: [fadeTransition]
 })
 export class CategoriesComponent implements OnInit {
   private categoriesService = inject(CategoriesService);
+   translationService = inject(TranslationService);
   private messageService = inject(MessageService);
 
   private destroyRef = inject(DestroyRef);

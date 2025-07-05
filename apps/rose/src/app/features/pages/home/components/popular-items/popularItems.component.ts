@@ -1,3 +1,5 @@
+import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
+import { TranslationService } from './../../../../../core/services/translation/translation.service';
 import { Component, inject, OnInit, signal, DestroyRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
@@ -39,12 +41,14 @@ import { NoDataAvailableComponent } from "../../../../../shared/components/busin
         ], { optional: true }),
 
       ])
-    ])
+    ]),
+    [fadeTransition]
   ]
 })
 export class PopularItemsComponent implements OnInit {
   private readonly _productsService = inject(ProductsService);
   private readonly _categoriesService = inject(CategoriesService);
+  translationService = inject(TranslationService);
 
   allProducts = signal<Product[]>([]);
   categories = signal<CategoryOption[]>([]);
