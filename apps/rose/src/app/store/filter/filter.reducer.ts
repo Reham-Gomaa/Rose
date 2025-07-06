@@ -94,7 +94,6 @@ export const filterReduser = createReducer(
       );
     }
 
-
     // filter by rating
     if (state.selectedRating && state.selectedRating.length > 0) {
       filtered = filtered.filter((product) =>
@@ -108,8 +107,6 @@ export const filterReduser = createReducer(
         Number(product.price) <= Number(state.selectedPrice.maxPrice) &&
         Number(product.price) >= Number(state.selectedPrice.minPrice)
     );
-
-    
     return {
       ...state,
       filterList: filtered,
@@ -119,7 +116,15 @@ export const filterReduser = createReducer(
   on(clearFilter, (state) => {
     return {
       ...state,
-      filterList: state.products,
+      filterList: [],
+      selectedCategories: [],
+      selectedOccasions: [],
+      selectedPrice: {
+        minPrice: 0,
+        maxPrice: 9999999,
+      },
+      selectedName: "",
+      selectedRating: [],
     };
   })
 );
