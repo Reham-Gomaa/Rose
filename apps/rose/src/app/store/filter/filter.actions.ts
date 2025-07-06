@@ -2,7 +2,6 @@ import { createAction, props } from "@ngrx/store";
 import { Product } from "../../core/interfaces/carditem.interface";
 import { selectedItem } from "../../core/interfaces/filter-item.interface";
 
-4;
 
 export const loadProductsToFilter = createAction(
   "[FILTER] Load Products",
