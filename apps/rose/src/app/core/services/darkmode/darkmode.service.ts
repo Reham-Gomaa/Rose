@@ -1,11 +1,13 @@
 import { Injectable, effect, inject, signal } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
 import { PlatformService } from "../platform/platform.service";
+import { SsrCookieService } from "ngx-cookie-service-ssr";
 
 @Injectable({ providedIn: "root" })
 export class DarkModeService {
   private readonly document = inject(DOCUMENT);
   private readonly platform = inject(PlatformService);
+  private readonly ssrCookieService = inject(SsrCookieService);
 
   private readonly STORAGE_KEY = "darkMode";
 
@@ -23,7 +25,7 @@ export class DarkModeService {
   private initializeTheme(): void {
     if (!this.platform.isBrowser()) return;
 
-    const savedMode = localStorage.getItem(this.STORAGE_KEY);
+    const savedMode = this.ssrCookieService.get(this.STORAGE_KEY)
     if (savedMode !== null) {
       this.isDark.set(savedMode === "true");
     } else {
@@ -36,9 +38,7 @@ export class DarkModeService {
   private setupThemeListener(): void {
     effect(() => {
       const isDark = this.isDark();
-      if (this.platform.isBrowser()) {
-        localStorage.setItem(this.STORAGE_KEY, String(isDark));
-      }
+      this.ssrCookieService.set(this.STORAGE_KEY, String(isDark), { expires: 30 });
       this.applyTheme(isDark);
     });
   }

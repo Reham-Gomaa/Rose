@@ -1,4 +1,4 @@
-<section aria-labelledby="popular-items-heading" itemscope itemtype="https://schema.org/ItemList">
+<section [@fadeTransition]="translationService.fadeState()" aria-labelledby="popular-items-heading" itemscope itemtype="https://schema.org/ItemList">
   <div class="popular-items-header flex justify-content-between white-space-nowrap align-items-center gap-3 mt-8">
     <div class="p-relative d-inline-block popular-items-title-wrapper">
       <h2 id="popular-items-heading" class="popular-items-title" itemprop="name">
@@ -41,7 +41,7 @@
     } @empty {
     <div class="col-12 text-center py-5 no-item">
       <p role="status" aria-live="polite" class="no-results-message">
-        <app-no-product-available />
+        <app-no-data-available />
       </p>
     </div>
     }

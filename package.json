@@ -26,6 +26,7 @@
     "express": "^4.21.2",
     "git-cz": "^4.9.0",
     "install": "^0.13.0",
+    "ngx-cookie-service-ssr": "^19.1.2",
     "npm": "^11.4.0",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",

@@ -1,3 +1,5 @@
+import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
+import { TranslationService } from './../../../../../core/services/translation/translation.service';
 import { Component, inject, OnInit, signal, DestroyRef } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
@@ -6,6 +8,7 @@ import { TranslatePipe } from "@ngx-translate/core";
 
 import { CategoriesService } from "../../../../../shared/services/categories/categories.service";
 import { CategoryRes, Category } from "../../../../../core/interfaces/categories.interface";
+import { NoDataAvailableComponent } from "../../../../../shared/components/business/no-data-available/no-data-available.component";
 
 // PrimeNG
 import { ToastModule } from "primeng/toast";
@@ -14,13 +17,15 @@ import { Skeleton } from "primeng/skeleton";
 
 @Component({
   selector: "app-categories",
-  imports: [CommonModule, ToastModule, Skeleton, TranslatePipe],
+  imports: [CommonModule, ToastModule, Skeleton, TranslatePipe, NoDataAvailableComponent],
   templateUrl: "./categories.component.html",
   styleUrls: ["./categories.component.scss"],
   providers: [MessageService],
+  animations: [fadeTransition]
 })
 export class CategoriesComponent implements OnInit {
   private categoriesService = inject(CategoriesService);
+   translationService = inject(TranslationService);
   private messageService = inject(MessageService);
 
   private destroyRef = inject(DestroyRef);

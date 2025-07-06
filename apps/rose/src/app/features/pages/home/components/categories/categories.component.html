@@ -23,7 +23,7 @@
   <p role="alert">{{ "home.categories.error" | translate }}</p>
 </div>
 } @else {
-<section aria-labelledby="categories-heading">
+<section [@fadeTransition]="translationService.fadeState()" aria-labelledby="categories-heading">
   <div class="categories-scroll-container" tabindex="0" aria-label="Categories carousel">
     <div class="categories-scroll-wrapper" role="list">
       @for (category of categories(); track category._id) {
@@ -45,7 +45,9 @@
       </div>
       } @empty {
       <div class="p-3 flex justify-content-center no-categories" aria-live="polite">
-        <p role="status">{{ "home.categories.empty" | translate }}</p>
+        <p role="status" aria-live="polite" class="no-results-message">
+        <app-no-data-available />
+      </p>
       </div>
       }
     </div>

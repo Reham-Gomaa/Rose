@@ -3,7 +3,7 @@ import { TranslationService } from "./../../../../core/services/translation/tran
 
 @Component({
   selector: "app-translate-toggle",
-  imports: [],
+  imports: [ ],
   templateUrl: "./translate-toggle.component.html",
   styleUrl: "./translate-toggle.component.scss",
 })

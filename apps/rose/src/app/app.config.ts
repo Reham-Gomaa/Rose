@@ -2,7 +2,7 @@ import { appRoutes } from "./app.routes";
 
 // @angular imports ....
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
-import { provideRouter } from "@angular/router";
+import { provideRouter, withViewTransitions } from "@angular/router";
 import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
@@ -35,8 +35,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(appRoutes),
-    provideAnimationsAsync(),
+    provideRouter(appRoutes , withViewTransitions()),
     provideHttpClient(withFetch()),
     MessageService,
 

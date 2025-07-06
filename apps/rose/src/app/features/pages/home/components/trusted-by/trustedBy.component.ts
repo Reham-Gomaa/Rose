@@ -1,4 +1,6 @@
-import { Component } from "@angular/core";
+import { TranslationService } from './../../../../../core/services/translation/translation.service';
+import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
+import { Component, inject } from "@angular/core";
 
 import { TranslatePipe } from "@ngx-translate/core";
 
@@ -9,8 +11,11 @@ import { ButtonComponent } from "../../../../../shared/components/ui/button/butt
   imports: [TranslatePipe, ButtonComponent],
   templateUrl: "./trustedBy.component.html",
   styleUrl: "./trustedBy.component.scss",
+  animations: [fadeTransition]
 })
 export class TrustedByComponent {
+  translationService = inject(TranslationService);
+
   companyLogos: string[] = [
     "/images/trustedBy/image 36.WebP",
     "/images/trustedBy/image 40.WebP",
