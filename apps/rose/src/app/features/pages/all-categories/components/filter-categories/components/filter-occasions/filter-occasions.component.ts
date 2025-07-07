@@ -12,7 +12,7 @@ import { CheckedCardComponent } from "@rose/shared_Components_business/checkbox/
 import { OccasionsService } from "@rose/shared_services/occasions/occasions.service";
 // NGRX
 import { Store } from "@ngrx/store";
-import { loadSelectedOccasions } from './../../../../../../../store/filter/filter.actions';
+import { loadSelectedOccasions } from "@rose/store_filter/filter.actions";
 
 
 @Component({

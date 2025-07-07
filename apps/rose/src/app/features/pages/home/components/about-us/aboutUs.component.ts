@@ -1,8 +1,9 @@
-import { TranslationService } from './../../../../../core/services/translation/translation.service';
-import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
 import { Component, inject } from "@angular/core";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Animations
+import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Services
 import { DarkModeService } from "@rose/core_services/darkmode/darkmode.service";
 // Shared_services
@@ -22,7 +23,7 @@ import { RippleModule } from "primeng/ripple";
 export class AboutUsComponent {
   public darkMode = inject(DarkModeService);
   translationService = inject(TranslationService);
-  
+
   items = [
     "home.aboutUs.items.item1",
     "home.aboutUs.items.item2",

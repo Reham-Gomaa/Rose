@@ -1,8 +1,9 @@
-import { TranslationService } from './../../../../../core/services/translation/translation.service';
-import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
 import { Component, inject } from "@angular/core";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Animations
+import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 
 @Component({
   selector: "app-gallery",

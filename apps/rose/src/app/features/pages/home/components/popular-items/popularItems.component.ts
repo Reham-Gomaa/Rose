@@ -1,11 +1,11 @@
-import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
-import { TranslationService } from './../../../../../core/services/translation/translation.service';
 import { Component, inject, OnInit, signal, DestroyRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 //translation
 import { TranslatePipe } from "@ngx-translate/core";
+import { TranslationService } from "@rose/core_services/translation/translation.service";
 //Animations
 import { trigger, transition, query, style, animate, stagger } from '@angular/animations';
+import { fadeTransition } from '@rose/core_services/translation/fade.animation';
 //Shared_Services
 import { ProductsService } from '@rose/shared_services/products/products.service';
 import { CategoriesService } from '@rose/shared_services/categories/categories.service';

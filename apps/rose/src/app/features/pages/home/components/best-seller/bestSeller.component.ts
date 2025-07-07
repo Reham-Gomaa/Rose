@@ -1,9 +1,10 @@
-import { TranslationService } from './../../../../../core/services/translation/translation.service';
-import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
 import { Component, inject, OnInit, signal, DestroyRef } from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Animations
+import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Interfaces
 import { BestSeller, BestSellerRes } from "@rose/core_interfaces/best-seller.interface";
 // Shared_Components
@@ -15,6 +16,7 @@ import { BestSellerService } from "@rose/shared_services/best-seller/best-seller
 import { CarouselModule } from "primeng/carousel";
 import { ButtonModule } from "primeng/button";
 import { SkeletonModule } from "primeng/skeleton";
+
 
 @Component({
   selector: "app-best-seller",
