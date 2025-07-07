@@ -1,5 +1,7 @@
-import { Component } from "@angular/core";
-// Translation
+import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
+import { TranslationService } from './../../../../../core/services/translation/translation.service';
+import { Component, inject } from "@angular/core";
+
 import { TranslatePipe } from "@ngx-translate/core";
 // Interfaces
 import { ServicesInterface } from "@rose/core_interfaces/services.interface";
@@ -8,8 +10,11 @@ import { ServicesInterface } from "@rose/core_interfaces/services.interface";
   imports: [TranslatePipe],
   templateUrl: "./ourServices.component.html",
   styleUrl: "./ourServices.component.scss",
+  animations: [fadeTransition]
 })
 export class OurServicesComponent {
+  translationService = inject(TranslationService);
+
   services: ServicesInterface[] = [
     {
       id: 1,

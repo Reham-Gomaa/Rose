@@ -1,5 +1,7 @@
-import { Component } from "@angular/core";
-// Translation
+import { TranslationService } from './../../../../../core/services/translation/translation.service';
+import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
+import { Component, inject } from "@angular/core";
+
 import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
@@ -7,8 +9,11 @@ import { TranslatePipe } from "@ngx-translate/core";
   imports: [TranslatePipe],
   templateUrl: "./gallery.component.html",
   styleUrl: "./gallery.component.scss",
+  animations: [fadeTransition]
 })
 export class GalleryComponent {
+  translationService = inject(TranslationService);
+
   images = {
     url: [
       "images/gallery/Frame 74.WebP",

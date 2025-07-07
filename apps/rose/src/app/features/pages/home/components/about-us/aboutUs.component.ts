@@ -1,3 +1,5 @@
+import { TranslationService } from './../../../../../core/services/translation/translation.service';
+import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
 import { Component, inject } from "@angular/core";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
@@ -15,9 +17,12 @@ import { RippleModule } from "primeng/ripple";
   imports: [ButtonModule, RippleModule, DividerModule, ButtonComponent, TranslatePipe],
   templateUrl: "./aboutUs.component.html",
   styleUrl: "./aboutUs.component.scss",
+  animations: [fadeTransition]
 })
 export class AboutUsComponent {
   public darkMode = inject(DarkModeService);
+  translationService = inject(TranslationService);
+  
   items = [
     "home.aboutUs.items.item1",
     "home.aboutUs.items.item2",

@@ -1,5 +1,7 @@
-import { Component } from "@angular/core";
-// Translation
+import { TranslationService } from './../../../../../core/services/translation/translation.service';
+import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
+import { Component, inject } from "@angular/core";
+
 import { TranslatePipe } from "@ngx-translate/core";
 // Interfaces
 import { responsiveOption, Testimonials } from "@rose/core_interfaces/testimonials.interface";
@@ -12,8 +14,11 @@ import { ButtonModule } from "primeng/button";
   imports: [CarouselModule, ButtonModule, TranslatePipe],
   templateUrl: "./testimonials.component.html",
   styleUrl: "./testimonials.component.scss",
+  animations: [fadeTransition]
 })
 export class TestimonialsComponent {
+  translationService = inject(TranslationService);
+
   testimonials: Testimonials[] = [
     {
       source: "./images/testimonials/T-1.WebP",
