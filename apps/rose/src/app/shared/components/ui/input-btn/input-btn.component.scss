@@ -48,9 +48,9 @@
 }
 
 /* Mobile Styles (only when ≤766px AND disableMobileStyles=false) */
-@media screen and (max-width: 766px) {
+@media  (min-width: 300px) and (max-width: 766px) {
   .input-button-wrapper:not(.disable-mobile) {
-    width: 17rem;
+    width: 15rem;
     height: 3rem;
 
     .input-field {
