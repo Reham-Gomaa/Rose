@@ -68,7 +68,7 @@
   box-sizing: border-box;
   overflow: hidden;
   scroll-snap-align: start;
-  background-color: var(--background-card-category);
+  background-color: var(--card-category-background);
 }
 
 /* Icon circle */
@@ -81,7 +81,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--background-icon-category);
+  background-color: var(--icon-category-background);
 }
 
 .category-icon .category-img {
@@ -100,7 +100,7 @@
 }
 
 .category-name {
-  color: var(--background-card-title-category);
+  color: var(--card-title-category-color);
   font-family: var(--font-family-1);
   font-weight: 600;
   font-size: 1rem;
@@ -111,7 +111,7 @@
 }
 
 .category-count {
-  color: var(--background-card-p-category);
+  color: var(--card-p-category-color);
   font-family: var(--font-family-2);
   font-weight: 400;
   font-size: 1rem;
@@ -125,7 +125,7 @@
 .no-categories {
   width: 100%;
   text-align: center;
-  color: var(--background-card-p-category);
+  color: var(--card-p-category-color);
   padding: 1rem 0;
 }
 

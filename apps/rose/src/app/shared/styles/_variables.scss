@@ -93,10 +93,10 @@
 
   // Home Components
   // Categories
-  --background-card-category: var(--maroon-50);
-  --background-icon-category: var(--maroon-600);
-  --background-card-title-category: var(--maroon-600);
-  --background-card-p-category: var(--zinc-500);
+  --card-category-background: var(--maroon-50);
+  --icon-category-background: var(--maroon-600);
+  --card-title-category-color: var(--maroon-600);
+  --card-p-category-color: var(--zinc-500);
   //Gift
   --h2-color-gift: var(--maroon-600);
   --h2-background-gift: var(--maroon-50);
@@ -104,11 +104,12 @@
   --dark-text-gift: var(--white);
   --highlight-color-gift: var(--maroon-600);
   --carousel-i-color-gift: var(--maroon-50);
-  --background-carousel-button-gift: var(--maroon-600);
-  --background-carousel-indicator-button-gift: var(--maroon-50);
-  --background-active-carousel-indicator-button-gift: var(--maroon-600);
-  --background-hover-carousel-indicator-button-gift: var(--maroon-500);
-  --background-carousel-hover-button-gift: var(--maroon-500);
+  --carousel-button-gift-background: var(--maroon-600);
+  --carousel-button-gift-hover: var(--maroon-500);
+  --carousel-indicator-button-gift-color: var(--maroon-50);
+  --carousel-indicator-button-gift-active: var(--maroon-600);
+  --carousel-indicator-button-gift-hover: var(--maroon-500);
+  --carousel-button-gift-hover: var(--maroon-500);
   //BTN-Shared
   --btn-shared-color: var(--maroon-50);
   --btn-shared-i-color: var(--white);
@@ -266,10 +267,10 @@
 
   // Home Components
   // Categories
-  --background-card-category: var(--zinc-700);
-  --background-icon-category: var(--soft-pink-200);
-  --background-card-title-category: var(--soft-pink-200);
-  --background-card-p-category: var(--zinc-300);
+  --card-category-background: var(--zinc-700);
+  --icon-category-background: var(--soft-pink-200);
+  --card-title-category-color: var(--soft-pink-200);
+  --card-p-category-color: var(--zinc-300);
   //BTN-Shared
   --btn-shared-color: var(--zinc-800);
   --btn-shared-i-color: var(--zinc-800);
@@ -281,12 +282,13 @@
   --h1-color-gift: var(--white);
   --dark-text-gift: var(--white);
   --highlight-color-gift: var(--maroon-600);
-  --carousel-i-color-gift: var(--maroon-700);
-  --background-carousel-button-gift: var(--maroon-50);
-  --background-carousel-indicator-button-gift: var(--maroon-50);
-  --background-active-carousel-indicator-button-gift: var(--maroon-600);
-  --background-hover-carousel-indicator-button-gift: var(--maroon-500);
-  --background-carousel-hover-button-gift: var(--soft-pink-200);
+  --carousel-i-color-gift: var(--maroon-50);
+  --carousel-button-gift-background: var(--maroon-600);
+  --carousel-button-gift-hover: var(--maroon-500);
+  --carousel-indicator-button-gift-color: var(--maroon-50);
+  --carousel-indicator-button-gift-active: var(--maroon-600);
+  --carousel-indicator-button-gift-hover: var(--maroon-500);
+  --carousel-button-gift-hover: var(--maroon-500);
   //Our Services
   --our-services-color: var(--zinc-700);
   --our-services-background: var(--soft-pink-200);

@@ -159,7 +159,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--background-carousel-button-gift);
+  background-color: var(--carousel-button-gift-background);
   width: 1.1181rem;
   height: 1.1181rem;
   position: absolute;
@@ -198,7 +198,7 @@ img {
     }
   }
   &:hover {
-    background-color: var(--background-carousel-hover-button-gift);
+    background-color: var(--carousel-button-gift-hover);
   }
 }
 
@@ -240,17 +240,17 @@ img {
   width: 0.4375rem;
   height: 0.4375rem;
   border-radius: 2.9125rem;
-  background-color: var(--background-carousel-indicator-button-gift);
+  background-color: var(--carousel-indicator-button-gift-color);
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: var(--background-hover-carousel-indicator-button-gift) !important;
+    color: var(--carousel-indicator-button-gift-hover) !important;
   }
 }
 
 :host ::ng-deep .p-carousel-indicator-active > .p-carousel-indicator-button {
   width: 1.1875rem;
-  background-color: var(--background-active-carousel-indicator-button-gift);
+  background-color: var(--carousel-indicator-button-gift-active);
 }
 
 // three bottom images ----------
