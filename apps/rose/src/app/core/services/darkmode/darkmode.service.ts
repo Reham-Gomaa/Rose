@@ -1,6 +1,8 @@
 import { Injectable, effect, inject, signal } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
+// Services
 import { PlatformService } from "../platform/platform.service";
+// SSR Cookie Service
 import { SsrCookieService } from "ngx-cookie-service-ssr";
 
 @Injectable({ providedIn: "root" })

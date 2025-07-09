@@ -1,15 +1,17 @@
 
 import { Component, inject, OnInit, signal, ViewChild, WritableSignal } from "@angular/core";
+// Router
 import { RouterLink, RouterLinkActive } from "@angular/router";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "../../../core/services/translation/translation.service";
-
-import { TranslateToggleComponent } from "../../../shared/components/business/translate-toggle/translate-toggle.component";
-import { ButtonThemeComponent } from "../../../shared/components/ui/button-theme/button-theme.component";
-import { ButtonComponent } from "../../../shared/components/ui/button/button.component";
-import { SearchModalComponent } from "../../../shared/components/ui/search-modal/search-modal.component";
-
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Animations_Translation
+import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+// Shared_Components
+import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
+import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
+import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
+import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";
 // primeNg
 import { MenuItem } from "primeng/api";
 import { ButtonModule } from "primeng/button";
@@ -17,8 +19,6 @@ import { Dialog } from "primeng/dialog";
 import { InputTextModule } from "primeng/inputtext";
 import { Menubar } from "primeng/menubar";
 import { OverlayBadgeModule } from "primeng/overlaybadge";
-import { fadeTransition } from "../../../core/services/translation/fade.animation";
-
 
 type modalPosition =
   | "left"

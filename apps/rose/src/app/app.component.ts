@@ -1,11 +1,8 @@
-import { Component, inject, OnInit } from "@angular/core";
+import { Component, inject } from "@angular/core";
+// Router
 import { RouterOutlet } from "@angular/router";
-import { DarkModeService } from "./core/services/darkmode/darkmode.service";
-import { Store } from "@ngrx/store";
-import * as sortSelectors from "./store/sort/store.selectors";
-import * as sortActions from "./store/sort/sort.actions";
-import { sortType } from "./store/sort/sort.states";
-
+// Services
+import { DarkModeService } from "@rose/core_services/darkmode/darkmode.service";
 @Component({
   imports: [RouterOutlet],
   selector: "app-root",

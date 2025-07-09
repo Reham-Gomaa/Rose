@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+// Animations
 import {
   trigger,
   style,
@@ -8,13 +8,12 @@ import {
   query,
   stagger
 } from '@angular/animations';
-
+// Router
 import { RouterLink } from '@angular/router';
-
+// Translation
 import { TranslatePipe } from '@ngx-translate/core';
-
-import { ButtonComponent } from '../../../shared/components/ui/button/button.component';
-
+// Shared Components
+import { ButtonComponent } from '@rose/shared_Components_ui/button/button.component';
 @Component({
   selector: 'app-not-found',
   imports: [ButtonComponent, TranslatePipe, RouterLink],

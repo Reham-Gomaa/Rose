@@ -1,8 +1,9 @@
 import { Component, EventEmitter, input, InputSignal, Output } from "@angular/core";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import { FilterItem, selectedItem } from "../../../../core/interfaces/filter-item.interface";
+// Interfaces
+import { FilterItem, selectedItem } from "@rose/core_interfaces/filter-item.interface";
+// Shared_Components
 import { NoDataAvailableComponent } from "../no-data-available/no-data-available.component";
 
 

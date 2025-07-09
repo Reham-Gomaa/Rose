@@ -1,15 +1,17 @@
-import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
-import { TranslationService } from './../../../../../core/services/translation/translation.service';
 import { Component, inject, OnInit, signal, DestroyRef } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import { CategoriesService } from "../../../../../shared/services/categories/categories.service";
-import { CategoryRes, Category } from "../../../../../core/interfaces/categories.interface";
-import { NoDataAvailableComponent } from "../../../../../shared/components/business/no-data-available/no-data-available.component";
-
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Animations
+import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+// Interfaces
+import { Category, CategoryRes } from "@rose/core_interfaces/categories.interface";
+// Shared_Services
+import { CategoriesService } from "@rose/shared_services/categories/categories.service";
+// Shared_Components
+import { NoDataAvailableComponent } from "@rose/shared_Components_business/no-data-available/no-data-available.component";
 // PrimeNG
 import { ToastModule } from "primeng/toast";
 import { MessageService } from "primeng/api";

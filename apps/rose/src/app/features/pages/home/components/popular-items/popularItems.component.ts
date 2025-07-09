@@ -1,23 +1,22 @@
-import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
-import { TranslationService } from './../../../../../core/services/translation/translation.service';
 import { Component, inject, OnInit, signal, DestroyRef } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-
+//translation
 import { TranslatePipe } from "@ngx-translate/core";
-
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+//Animations
 import { trigger, transition, query, style, animate, stagger } from '@angular/animations';
-
-import { ProductsService } from "../../../../../shared/services/products/products.service";
-import { CategoriesService } from "../../../../../shared/services/categories/categories.service";
-
-import { Product } from "../../../../../core/interfaces/carditem.interface";
-import { CategoryOption } from "../../../../../core/interfaces/categories.interface";
-
-//Shared
-import { CardItemComponent } from "../../../../../shared/components/ui/card-item/card-item.component";
+import { fadeTransition } from '@rose/core_services/translation/fade.animation';
+//Shared_Services
+import { ProductsService } from '@rose/shared_services/products/products.service';
+import { CategoriesService } from '@rose/shared_services/categories/categories.service';
+//Interfaces
+import { Product } from '@rose/core_interfaces/carditem.interface';
+import { CategoryOption } from '@rose/core_interfaces/categories.interface';
+//Shared_Components
+import { CardItemComponent } from '@rose/shared_Components_ui/card-item/card-item.component';
+import { NoDataAvailableComponent } from '@rose/shared_Components_business/no-data-available/no-data-available.component';
 //PrimeNg
 import { SkeletonModule } from "primeng/skeleton";
-import { NoDataAvailableComponent } from "../../../../../shared/components/business/no-data-available/no-data-available.component";
 
 @Component({
   selector: "app-popular-items",

@@ -1,18 +1,16 @@
 import { Component, Input } from "@angular/core";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import { Product } from "../../../../core/interfaces/carditem.interface";
-
+// Interfaces
+import { Product } from "@rose/core_interfaces/carditem.interface";
 //PrimeNg
 import { RatingModule } from "primeng/rating";
-import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { SkeletonModule } from "primeng/skeleton";
 
 @Component({
   selector: "app-card-item",
-  imports: [CommonModule, RatingModule, FormsModule, SkeletonModule, TranslatePipe],
+  imports: [ RatingModule, FormsModule, SkeletonModule, TranslatePipe],
   templateUrl: "./card-item.component.html",
   styleUrl: "./card-item.component.scss",
 })

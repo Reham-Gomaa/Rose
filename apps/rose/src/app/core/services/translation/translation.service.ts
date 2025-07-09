@@ -1,6 +1,8 @@
 import { DOCUMENT, isPlatformBrowser } from "@angular/common";
 import { inject, Injectable, PLATFORM_ID, signal, WritableSignal } from "@angular/core";
+//Translation
 import { TranslateService } from "@ngx-translate/core";
+// SSR Cookie Service
 import { SsrCookieService } from "ngx-cookie-service-ssr";
 
 @Injectable({

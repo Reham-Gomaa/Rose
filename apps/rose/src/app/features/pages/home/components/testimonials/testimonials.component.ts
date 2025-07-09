@@ -1,14 +1,11 @@
-import { TranslationService } from './../../../../../core/services/translation/translation.service';
-import { fadeTransition } from './../../../../../core/services/translation/fade.animation';
 import { Component, inject } from "@angular/core";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import {
-  responsiveOption,
-  Testimonials,
-} from "./../../../../../core/interfaces/testimonials.interface";
-
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Animations
+import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+// Interfaces
+import { responsiveOption, Testimonials } from "@rose/core_interfaces/testimonials.interface";
 // primeNg
 import { CarouselModule } from "primeng/carousel";
 import { ButtonModule } from "primeng/button";

@@ -1,9 +1,10 @@
 import { Injectable, inject } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, shareReplay } from "rxjs";
-import { EndPoint } from "../../../core/enums/endpoints";
-import { CategoryRes } from "../../../core/interfaces/categories.interface";
-
+// Interfaces
+import { CategoryRes } from "@rose/core_interfaces/categories.interface";
+// Enums
+import { EndPoint } from "@rose/core_enums/endpoints";
 @Injectable({
   providedIn: "root",
 })
