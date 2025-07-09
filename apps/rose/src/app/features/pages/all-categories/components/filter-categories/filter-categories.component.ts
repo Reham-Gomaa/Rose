@@ -15,7 +15,7 @@ import { InputBtnComponent } from "@rose/shared_Components_ui/input-btn/input-bt
 import { FilterCardComponent } from "@rose/shared_Components_ui/filter-card/filter-card.component";
 // NGRX
 import { Store } from "@ngrx/store";
-import { clearFilter, loadSelectedName } from '@rose/store_filter/filter.actions';
+import { clearFilter, loadSelectedName } from "@rose/store_filter/filter.actions";
 
 @Component({
   selector: "app-filter-categories",
@@ -37,14 +37,11 @@ import { clearFilter, loadSelectedName } from '@rose/store_filter/filter.actions
 export class FilterCategoriesComponent {
   private readonly _store = inject(Store);
 
-  filterByName(productName:string){
-    this._store.dispatch(loadSelectedName({name:productName}))
+  filterByName(productName: string) {
+    this._store.dispatch(loadSelectedName({ name: productName }));
   }
 
-
-
-  clearFilterBtn(){
-    this._store.dispatch(clearFilter())
+  clearFilterBtn() {
+    this._store.dispatch(clearFilter());
   }
-
 }

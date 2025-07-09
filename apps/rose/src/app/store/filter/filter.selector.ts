@@ -12,6 +12,6 @@ export const selectFilterProducts = createSelector(selectFilterState, (state) =>
     state.selectedName === ""
   ) {
     return state.products;
-  } 
+  }
   return state.filterList;
 });

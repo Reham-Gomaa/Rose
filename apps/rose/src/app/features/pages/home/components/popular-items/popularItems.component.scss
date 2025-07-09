@@ -5,7 +5,7 @@
 }
 
 .popular-items-title {
-  color: var(--main-title);
+  color: var(--title-popular-items-color);
   font-family: var(--font-family-1);
   font-weight: 700;
   font-size: 1.87rem;
@@ -21,7 +21,7 @@
   height: 1.06rem;
   border-radius: 0 1.25rem 1.25rem 0;
   z-index: 1;
-  background-color: var(--background-shape);
+  background-color: var(--shape-popular-items-background);
 }
 
 .popular-items-underline-bar {
@@ -30,7 +30,7 @@
   width: 3.3rem;
   height: 0.12rem;
   z-index: 11;
-  background-color: var(--underline-bar-color);
+  background-color: var(--underline-bar-popular-items-color);
 }
 
 //Tabs Popular-items
@@ -39,7 +39,7 @@
   border: none;
   cursor: pointer;
   background: none;
-  color: var(--tabs-color);
+  color: var(--popular-items-tabs-color);
   font-family: var(--font-family-2);
   font-weight: 400;
   font-size: 1rem;
@@ -48,8 +48,8 @@
   transition: border-bottom 0.2s ease-in-out, color 0.2s ease-in-out;
 
   &:hover {
-    border-bottom: 0.2rem solid var(--hover-tabs-color);
-    color: var(--hover-tabs-color);
+    border-bottom: 0.2rem solid var(--popular-items-tabs-hover-color);
+    color: var(--popular-items-tabs-hover-color);
   }
 
   @media (pointer: fine) {
@@ -77,8 +77,8 @@
 }
 
 .active-tab {
-  border-bottom: 0.2rem solid var(--hover-tabs-color);
-  color: var(--hover-tabs-color);
+  border-bottom: 0.2rem solid var(--popular-items-tabs-active-color);
+  color: var(--popular-items-tabs-active-color);
 }
 
 .categories-scroll-container {

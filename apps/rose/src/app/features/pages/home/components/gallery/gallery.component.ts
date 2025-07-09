@@ -10,7 +10,7 @@ import { fadeTransition } from "@rose/core_services/translation/fade.animation";
   imports: [TranslatePipe],
   templateUrl: "./gallery.component.html",
   styleUrl: "./gallery.component.scss",
-  animations: [fadeTransition]
+  animations: [fadeTransition],
 })
 export class GalleryComponent {
   translationService = inject(TranslationService);

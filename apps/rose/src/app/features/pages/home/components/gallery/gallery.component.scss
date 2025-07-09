@@ -8,7 +8,7 @@
 //Titles gallery-items
 
 .title-h5 {
-  color: var(--secondary-title);
+  color: var(--title-gallery-color);
   font-family: var(--font-family-2);
   font-weight: 700;
   font-size: 1.0625rem;
@@ -22,7 +22,7 @@
 }
 
 .gallery-title {
-  color: var(--main-title);
+  color: var(--subtitle-gallery-color);
   font-family: var(--font-family-1);
   font-weight: 700;
   font-size: 1.87rem;
@@ -38,7 +38,7 @@
   height: 1.0625rem;
   border-radius: 0 1.25rem 1.25rem 0;
   z-index: 1;
-  background-color: var(--background-shape);
+  background-color: var(--shape-gallery-background);
 }
 
 .gallery-underline-bar {
@@ -47,7 +47,7 @@
   width: 10.0625rem;
   height: 0.125rem;
   z-index: 11;
-  background-color: var(--underline-bar-color);
+  background-color: var(--underline-bar-gallery-color);
 }
 
 .custom-gallery-grid {

@@ -1,4 +1,8 @@
-<section [@fadeTransition]="translationService.fadeState()" class="my-8" aria-labelledby="services-section-heading">
+<section
+  [@fadeTransition]="translationService.fadeState()"
+  class="my-8"
+  aria-labelledby="services-section-heading"
+>
   <h2 id="services-section-heading" class="sr-only">Our Services</h2>
   <div class="parent grid">
     @for (service of services; track service.id) {

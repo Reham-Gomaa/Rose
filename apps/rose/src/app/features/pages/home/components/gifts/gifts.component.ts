@@ -5,7 +5,11 @@ import { TranslationService } from "@rose/core_services/translation/translation.
 // Animations
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Interfaces
-import { carouselListInterface, picsInterface, responsiveOptionsInterface } from "@rose/core_interfaces/special-gifts.interface";
+import {
+  carouselListInterface,
+  picsInterface,
+  responsiveOptionsInterface,
+} from "@rose/core_interfaces/special-gifts.interface";
 // Shared_Components
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 // primeNg ...
@@ -18,7 +22,7 @@ import { TagModule } from "primeng/tag";
   imports: [CarouselModule, ButtonModule, TagModule, ButtonComponent, TranslatePipe],
   templateUrl: "./gifts.component.html",
   styleUrl: "./gifts.component.scss",
-  animations: [fadeTransition]
+  animations: [fadeTransition],
 })
 export class GiftsComponent {
   translationService = inject(TranslationService);

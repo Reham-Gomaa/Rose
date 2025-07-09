@@ -1,4 +1,6 @@
 import { Component, inject } from "@angular/core";
+// Images
+import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -12,10 +14,10 @@ import { ButtonModule } from "primeng/button";
 
 @Component({
   selector: "app-testimonials",
-  imports: [CarouselModule, ButtonModule, TranslatePipe],
+  imports: [CarouselModule, ButtonModule, TranslatePipe, NgOptimizedImage],
   templateUrl: "./testimonials.component.html",
   styleUrl: "./testimonials.component.scss",
-  animations: [fadeTransition]
+  animations: [fadeTransition],
 })
 export class TestimonialsComponent {
   translationService = inject(TranslationService);

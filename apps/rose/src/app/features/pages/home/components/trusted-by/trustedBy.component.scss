@@ -10,7 +10,7 @@
 }
 
 .trusted-companies-content {
-  background-color: var(--background-color);
+  background-color: var(--trusted-by-background);
   border-radius: 1.5rem;
   max-width: 80rem;
   margin: 0 auto;
@@ -27,12 +27,12 @@
 }
 
 .trusted-companies-title h2 {
-  color: var(--main-title);
+  color: var(--trusted-by-title-color);
   margin: 0;
 }
 
 .trusted-companies-title span {
-  color: var(--strong-color);
+  color: var(--trusted-by-highlight-color);
 }
 
 .trusted-companies-underline {
@@ -43,7 +43,7 @@
   content: "";
   width: 15rem;
   height: 0.125rem;
-  background-color: var(--underline-bar-color);
+  background-color: var(--trusted-by-underline-color);
   position: absolute;
   top: 100%;
   left: 0;

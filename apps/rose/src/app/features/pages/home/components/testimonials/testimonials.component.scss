@@ -8,13 +8,13 @@
   max-width: 100vw;
   overflow-x: hidden;
   box-sizing: border-box;
-  background: var(--background-testimonials-color);
+  background: var(--testimonials-background);
 }
 
 .card {
   width: 18.875rem;
   border-radius: 3.125rem 6.25rem 6.25rem 6.25rem;
-  background-color: var(--white);
+  background-color: var(--testimonials-card-background);
 
   .img-container {
     width: 3.75rem;
@@ -22,7 +22,7 @@
     border-radius: 100%;
     background: linear-gradient(
       to top right,
-      var(--background-testimonials-img) 0% 50%,
+      var(--testimonials-img-background) 0% 50%,
       var(--white) 50%
     );
     margin-right: 1rem;
@@ -40,7 +40,7 @@
 
   .heading {
     padding-bottom: 1.5rem;
-    border-bottom: 0.5px solid var(--p-main);
+    border-bottom: 0.5px solid var(--testimonials-title-color);
   }
 
   h2,
@@ -53,7 +53,7 @@
   }
 
   h3 {
-    color: var(--secondary-title);
+    color: var(--testimonials-subtitle-color);
     margin-top: 0.25rem;
   }
 
@@ -62,7 +62,7 @@
     font-weight: 400;
     font-size: 0.875rem;
     text-transform: capitalize;
-    color: var(--p-secondary);
+    color: var(--testimonials-p-color);
   }
 
   .icons-container {
@@ -74,7 +74,7 @@
     }
     i {
       font-size: 0.9273rem;
-      color: var(--color-testimonials-rating);
+      color: var(--testimonials-rating-color);
     }
   }
 }
@@ -93,10 +93,16 @@
   width: 1rem;
   height: 1rem;
   border-radius: 100%;
-  background-color: var(--color-testimonials-carousel-indicator-button);
+  background-color: var(--testimonials-carousel-indicator-button-color);
+
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: var(--testimonials-carousel-indicator-button-hover) !important;
+  }
 }
 
 :host ::ng-deep .custom-carousel .p-carousel-indicator-active .p-carousel-indicator-button {
+  background-color: var(--testimonials-carousel-indicator-button-active);
   width: 2.25rem;
   height: 1rem;
   border-radius: 0.625rem;
@@ -106,16 +112,16 @@
 :host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next,
 :host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
   display: none;
-  background-color: var(--btn-carousel-background);
+  background-color: var(--testimonials-carousel-button-background);
   border-radius: 100%;
   z-index: 5;
   transition: all 1s ease !important;
   &:hover {
-    background-color: var(--btn-carousel-background-hover) !important;
+    background-color: var(--testimonials-carousel-button-hover) !important;
   }
 
   .p-icon {
-    color: var(--btn-carousel-color) !important;
+    color: var(--testimonials-carousel-button-color) !important;
   }
 
   @media all and (min-width: 75rem) {

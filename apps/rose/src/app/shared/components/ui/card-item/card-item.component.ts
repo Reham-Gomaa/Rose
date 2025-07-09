@@ -1,4 +1,6 @@
 import { Component, Input } from "@angular/core";
+// Images
+import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 // Interfaces
@@ -10,7 +12,7 @@ import { SkeletonModule } from "primeng/skeleton";
 
 @Component({
   selector: "app-card-item",
-  imports: [ RatingModule, FormsModule, SkeletonModule, TranslatePipe],
+  imports: [RatingModule, FormsModule, SkeletonModule, TranslatePipe, NgOptimizedImage],
   templateUrl: "./card-item.component.html",
   styleUrl: "./card-item.component.scss",
 })

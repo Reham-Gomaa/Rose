@@ -1,5 +1,5 @@
 import { Component, inject } from "@angular/core";
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from "@angular/forms";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 // Shared_Components
@@ -8,7 +8,7 @@ import { FilterCardComponent } from "@rose/shared_Components_ui/filter-card/filt
 import { Store } from "@ngrx/store";
 import { loadSelectedPrice } from "@rose/store_filter/filter.actions";
 //Primeng
-import { Slider } from 'primeng/slider';
+import { Slider } from "primeng/slider";
 
 @Component({
   selector: "app-filter-price",
@@ -26,8 +26,9 @@ export class FilterPriceComponent {
       clearTimeout(this.priceTimeout);
     }
     this.priceTimeout = setTimeout(() => {
-      this._store.dispatch(loadSelectedPrice({ minPrice: this.rangeValues[0], maxPrice: this.rangeValues[1] }));
+      this._store.dispatch(
+        loadSelectedPrice({ minPrice: this.rangeValues[0], maxPrice: this.rangeValues[1] })
+      );
     }, 400);
-  };
-
+  }
 }

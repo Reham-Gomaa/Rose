@@ -9,7 +9,7 @@ import { SsrCookieService } from "ngx-cookie-service-ssr";
   providedIn: "root",
 })
 export class TranslationService {
-  fadeState: WritableSignal<'visible' | 'hidden'> = signal('visible');
+  fadeState: WritableSignal<"visible" | "hidden"> = signal("visible");
 
   private readonly translateService = inject(TranslateService);
   private readonly document = inject(DOCUMENT);
@@ -19,22 +19,22 @@ export class TranslationService {
   defaultLang = "en";
 
   constructor() {
-      const savedLang = this.ssrCookieService.get(this.cookieName);
-      if (savedLang) {
-        this.defaultLang = savedLang;
-      }
-      this.translateService.setDefaultLang(this.defaultLang);
-      this.translateService.use(this.defaultLang);
-      this.changeDir();
+    const savedLang = this.ssrCookieService.get(this.cookieName);
+    if (savedLang) {
+      this.defaultLang = savedLang;
+    }
+    this.translateService.setDefaultLang(this.defaultLang);
+    this.translateService.use(this.defaultLang);
+    this.changeDir();
   }
 
   changeLang(lang: string) {
-    this.fadeState.set('hidden');
+    this.fadeState.set("hidden");
     this.ssrCookieService.set(this.cookieName, lang, { expires: 30 });
     setTimeout(() => {
       this.translateService.use(lang);
       this.changeDir();
-      this.fadeState.set('visible');
+      this.fadeState.set("visible");
     }, 400);
   }
 

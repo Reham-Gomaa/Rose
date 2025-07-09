@@ -6,7 +6,6 @@ import { FilterItem, selectedItem } from "@rose/core_interfaces/filter-item.inte
 // Shared_Components
 import { NoDataAvailableComponent } from "../no-data-available/no-data-available.component";
 
-
 @Component({
   selector: "app-checked-card",
   imports: [TranslatePipe, NoDataAvailableComponent],
@@ -14,7 +13,6 @@ import { NoDataAvailableComponent } from "../no-data-available/no-data-available
   styleUrl: "./checked-card.component.scss",
 })
 export class CheckedCardComponent {
-
   filterItems: InputSignal<FilterItem[]> = input<FilterItem[]>([]);
   selectedItems: InputSignal<selectedItem[]> = input([] as selectedItem[]);
   itemType: InputSignal<string> = input("");
@@ -30,11 +28,17 @@ export class CheckedCardComponent {
     const index = current.findIndex((item) => item._id === itemId);
     let newSelected: selectedItem[];
     if (index === -1) {
-      newSelected = [...current, { _id: itemId, type: this.itemType(), ...(this.itemType() === 'ratings' && { rateAvg: rateAvg ?? 0 }) }];
+      newSelected = [
+        ...current,
+        {
+          _id: itemId,
+          type: this.itemType(),
+          ...(this.itemType() === "ratings" && { rateAvg: rateAvg ?? 0 }),
+        },
+      ];
     } else {
       newSelected = current.filter((item) => item._id !== itemId);
     }
     this.selectedItemsChange.emit(newSelected);
   }
-
 }
