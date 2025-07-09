@@ -7,15 +7,15 @@
 }
 
 .dark {
-  color: var(--sub-title-color);
+  color: var(--highlight-best-sellers-color);
 }
 
 .gray {
-  color: var(--p-secondary);
+  color: var(--p-best-sellers-color);
 }
 
 .header {
-  color: var(--secondary-title) !important;
+  color: var(--title-best-sellers-color) !important;
 }
 
 .product-carousel {
@@ -35,23 +35,23 @@
 :host ::ng-deep .p-ripple.p-button.p-component.custom-best-next {
   position: absolute;
   top: 25%;
-  background-color: var(--btn-carousel-background);
+  background-color: var(--carousel-button-best-sellers-background);
   border-radius: 100%;
   z-index: 5;
   transition: all 1s ease !important;
   &:hover {
-    background-color: var(--btn-carousel-background-hover);
+    background-color: var(--carousel-button-best-sellers-hover);
   }
 }
 :host ::ng-deep .p-ripple.p-button.p-component.custom-best-prev {
   position: absolute;
   top: 25%;
-  background-color: var(--btn-carousel-background);
+  background-color: var(--carousel-button-best-sellers-background);
   border-radius: 100%;
   z-index: 5;
   transition: all 1s ease !important;
   &:hover {
-    background-color: var(--btn-carousel-background-hover);
+    background-color: var(--carousel-button-best-sellers-hover);
   }
 }
 
@@ -59,7 +59,7 @@
   left: 94%;
 
   .carousel-next-icon {
-    color: var(--btn-carousel-color);
+    color: var(--carousel-i-color-best-sellers);
   }
 }
 
@@ -67,7 +67,7 @@
   left: 1.5%;
 
   .carousel-prev-icon {
-    color: var(--btn-carousel-color);
+    color: var(--carousel-i-color-best-sellers);
   }
 }
 
@@ -80,11 +80,6 @@
 @media (min-width: 768px) and (max-width: 840px) {
   ::ng-deep .p-carousel .p-carousel-item {
     width: 50% !important;
-    flex: 0 0 auto !important; 
+    flex: 0 0 auto !important;
   }
 }
-
-
-
-  
-

@@ -8,7 +8,7 @@ import { FilterCardComponent } from "@rose/shared_Components_ui/filter-card/filt
 import { CheckedCardComponent } from "@rose/shared_Components_business/checkbox/checked-card.component";
 // NGRX
 import { Store } from "@ngrx/store";
-import { loadSelectedRating } from '@rose/store_filter/filter.actions';
+import { loadSelectedRating } from "@rose/store_filter/filter.actions";
 
 @Component({
   selector: "app-filter-rating",
@@ -17,7 +17,7 @@ import { loadSelectedRating } from '@rose/store_filter/filter.actions';
   styleUrl: "./filter-rating.component.scss",
 })
 export class FilterRatingComponent {
-    private readonly _store = inject(Store);
+  private readonly _store = inject(Store);
 
   ratings: FilterItem[] = [
     { _id: "1-ratings", rating: 5 },
@@ -28,7 +28,7 @@ export class FilterRatingComponent {
   ];
 
   selectedItems: selectedItem[] = [] as selectedItem[];
-  changeValue(){
-    this._store.dispatch(loadSelectedRating({selectedRating:this.selectedItems}))
+  changeValue() {
+    this._store.dispatch(loadSelectedRating({ selectedRating: this.selectedItems }));
   }
 }

@@ -26,19 +26,19 @@ export class SortingComponent {
     },
     {
       id: "sort-high-low",
-      value:  sortObjectVal.P_DESC,
+      value: sortObjectVal.P_DESC,
       label: "all-categories.cardSort.Price: High to Low",
       checked: false,
     },
     {
       id: "sort-a-z",
-      value:  sortObjectVal.A_ASC,
+      value: sortObjectVal.A_ASC,
       label: "all-categories.cardSort.Alphabetical: A-Z",
       checked: false,
     },
     {
       id: "sort-z-a",
-      value:  sortObjectVal.A_DESC,
+      value: sortObjectVal.A_DESC,
       label: "all-categories.cardSort.Alphabetical: Z-A",
       checked: false,
     },
@@ -57,7 +57,7 @@ export class SortingComponent {
         this.sortByTitle("asc");
         break;
 
-        case sortObjectVal.A_ASC:
+      case sortObjectVal.A_ASC:
         this.sortByTitle("desc");
         break;
     }

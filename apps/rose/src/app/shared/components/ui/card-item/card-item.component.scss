@@ -1,5 +1,5 @@
 .product-card {
-  background-color: var(--body-color);
+  background-color: var(--card-item-background);
   border-radius: 1rem;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -18,7 +18,7 @@
 }
 
 .image-wrapper {
-  background-color: var(--background-color);
+  background-color: var(--card-item-background);
   position: relative;
   width: 100%;
   height: 14rem;
@@ -30,9 +30,10 @@
 }
 
 .product-image {
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
   height: 100%;
+  scale: 1;
   z-index: 1;
   transition: transform 0.3s ease;
 }
@@ -47,7 +48,7 @@
 }
 
 .title {
-  color: var(--main-title);
+  color: var(--title-card-item-color);
   font-family: var(--font-family-1);
   font-weight: 600;
   font-size: 1.06rem;
@@ -60,7 +61,7 @@
 }
 
 .price {
-  color: var(--price-color-card);
+  color: var(--price-card-item-color);
   font-family: var(--font-family-2);
   font-weight: 500;
   font-size: 1rem;
@@ -70,7 +71,7 @@
 /* Rest of your existing styles remain the same */
 .bg-shape {
   position: absolute;
-  background-color: var(--bg-shape-card);
+  background-color: var(--shape-card-item-background);
   inset: 0;
   z-index: 1;
   opacity: 0;
@@ -91,8 +92,8 @@
 }
 
 .icon-circle {
-  background-color: var(--bg-shape-i-card);
-  color: var(--color-shape-i-card);
+  background-color: var(--shape-i-card-item-background);
+  color: var(--shape-i-card-item-color);
   padding: 0.5rem;
   border-radius: 50%;
   font-size: 1.2rem;
@@ -100,7 +101,7 @@
 }
 
 .icon-circle:hover {
-  background-color: var(--hover-shape-i-card);
+  background-color: var(--shape-i-card-item-hover-color);
 }
 
 /* Hover States */
@@ -118,17 +119,17 @@
 }
 
 .btn-shopping {
-  background-color: var(--bg-btn-shopping-card);
+  background-color: var(--btn-shopping-card-item-background);
   font-size: 0.9rem;
   line-height: 1.1rem;
   padding: 0.6rem 0.8rem 0.75rem 0.8rem;
   transition: all 0.3s ease;
 
   &:hover {
-    background-color: var(--hover-btn-shopping-card);
+    background-color: var(--btn-shopping-card-item-hover-background);
   }
 }
 
 :host ::ng-deep .p-rating .p-icon {
-  color: var(--rating-color-card) !important;
+  color: var(--rating-card-item-color) !important;
 }

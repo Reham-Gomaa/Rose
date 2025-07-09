@@ -6,7 +6,6 @@ import { Product } from "@rose/core_interfaces/carditem.interface";
 // Enums
 import { sortTypes } from "@rose/core_enums/sorttypes";
 
-
 export function sortProducts(products: Product[], field: string, order: sortType): Product[] {
   return [...products].sort((a, b) => {
     const valueA = field === "price" ? a.price : a.title.toLowerCase();

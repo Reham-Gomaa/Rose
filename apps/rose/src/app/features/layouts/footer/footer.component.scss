@@ -1,5 +1,5 @@
 .footer {
-  background: var(--background-footer);
+  background: var(--footer-background);
 }
 
 .container-footer {
@@ -28,7 +28,7 @@
   border: none;
   padding: 0.5rem;
   gap: 5rem;
-  color: var(--tabs-footer);
+  color: var(--footer-tabs-color);
   font-family: var(--font-family-1);
   font-weight: 700;
   font-size: 1rem;
@@ -40,14 +40,14 @@
   white-space: nowrap;
 
   &:hover {
-    color: var(--hover-tabs-footer);
+    color: var(--footer-tabs-hover-color);
   }
 }
 
 //coupon
 
 .coupon-text {
-  color: var(--coupon-text);
+  color: var(--footer-coupon-text-color);
   font-family: var(--font-family-1);
   font-weight: 700;
   font-size: 1.875rem;
@@ -55,11 +55,11 @@
 }
 
 .highlight {
-  color: var(--highlight-text);
+  color: var(--footer-highlight-text-color);
 }
 
 .coupon-text-p {
-  color: var(--p-footer-text);
+  color: var(--footer-p-text-color);
   font-family: var(--font-family-1);
   font-weight: 500;
   font-size: 1.25rem;

@@ -1,29 +1,50 @@
 <app-filter-card [title]="'Price Rating Filter'">
   <span aria-hidden="true">{{ "all-categories.filterPriceRating.Price Rating" | translate }}</span>
   <section aria-labelledby="Price Rating-heading" class="checkbox-container">
-    <h2 id="price-rating-heading" class="sr-only">{{ "all-categories.filterPriceRating.Price Rating" | translate }}</h2>
-    <div class="values flex justify-content-start align-items-center w-8 lg:w-6 mb-4"
-      role="group" aria-labelledby="price-range-label">
+    <h2 id="price-rating-heading" class="sr-only">
+      {{ "all-categories.filterPriceRating.Price Rating" | translate }}
+    </h2>
+    <div
+      class="values flex justify-content-start align-items-center w-8 lg:w-6 mb-4"
+      role="group"
+      aria-labelledby="price-range-label"
+    >
       <div class="flex justify-content-start align-items-center">
-        <label class="text-xs" for="min-value">{{'EGP' |translate}}</label>
-        <input id="min-value" type="text" [(ngModel)]="rangeValues[0]" class="border-none w-full" 
+        <label class="text-xs" for="min-value">{{ "EGP" | translate }}</label>
+        <input
+          id="min-value"
+          type="text"
+          [(ngModel)]="rangeValues[0]"
+          class="border-none w-full"
           aria-valuemin="200"
           aria-valuemax="5000"
           min="200"
-          max="5000"/>
+          max="5000"
+        />
       </div>
       <div aria-hidden="true">-</div>
       <div class="flex justify-content-start align-items-center">
-        <label class="text-xs" for="max-value">{{'EGP' |translate}}</label>
-        <input id="max-value" type="text" [(ngModel)]="rangeValues[1]" class="border-none w-full" 
+        <label class="text-xs" for="max-value">{{ "EGP" | translate }}</label>
+        <input
+          id="max-value"
+          type="text"
+          [(ngModel)]="rangeValues[1]"
+          class="border-none w-full"
           aria-valuemin="200"
           aria-valuemax="5000"
           min="200"
-          max="5000"/>
+          max="5000"
+        />
       </div>
     </div>
-    <p-slider [(ngModel)]="rangeValues" [range]="true" [min]="200" [max]="5000"  
-      styleClass="custom-slider" (onChange)="change()"
-      aria-labelledby="price-rating-heading" />
+    <p-slider
+      [(ngModel)]="rangeValues"
+      [range]="true"
+      [min]="200"
+      [max]="5000"
+      styleClass="custom-slider"
+      (onChange)="change()"
+      aria-labelledby="price-rating-heading"
+    />
   </section>
 </app-filter-card>

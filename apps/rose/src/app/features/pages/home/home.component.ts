@@ -29,7 +29,7 @@ import { TrustedByComponent } from "./components/trusted-by/trustedBy.component"
   ],
   templateUrl: "./home.component.html",
   styleUrl: "./home.component.scss",
-  animations: [fadeTransition]
+  animations: [fadeTransition],
 })
 export class HomeComponent {
   translationService = inject(TranslationService);

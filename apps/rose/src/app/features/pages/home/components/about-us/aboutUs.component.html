@@ -1,4 +1,5 @@
-<section [@fadeTransition]="translationService.fadeState()"
+<section
+  [@fadeTransition]="translationService.fadeState()"
   class="about-section flex flex-wrap lg:flex-nowrap gap-8 px-1 lg:px-6 py-2 md:py-8"
   aria-labelledby="about-heading"
   itemscope
@@ -10,7 +11,7 @@
     <div class="border-box-container" aria-hidden="true">
       <div class="border-box-transform"></div>
       <img
-        src="/images/abouts/Rectangle 3.WebP"
+        ngSrc="/images/abouts/Rectangle 3.WebP"
         alt="Premium gift box with elegant wrapping"
         class="border-image-main"
         loading="lazy"
@@ -25,7 +26,7 @@
     <div class="flex flex-column px-3 gap-3">
       <div class="border-circle-second overflow-hidden">
         <img
-          src="/images/abouts/Rectangle 4.WebP"
+          ngSrc="/images/abouts/Rectangle 4.WebP"
           alt="Close-up of elegant gift packaging details"
           class="border-image-second"
           loading="lazy"
@@ -37,7 +38,7 @@
       </div>
       <div class="border-circle-third overflow-hidden">
         <img
-          src="/images/abouts/Rectangle 5.WebP"
+          ngSrc="/images/abouts/Rectangle 5.WebP"
           alt="Open luxury gift box showing interior"
           class="border-image-third"
           loading="lazy"

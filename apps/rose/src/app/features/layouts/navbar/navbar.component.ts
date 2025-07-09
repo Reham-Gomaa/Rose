@@ -1,7 +1,8 @@
-
 import { Component, inject, OnInit, signal, ViewChild, WritableSignal } from "@angular/core";
 // Router
 import { RouterLink, RouterLinkActive } from "@angular/router";
+// Images
+import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -46,10 +47,11 @@ type modalPosition =
     SearchModalComponent,
     ButtonComponent,
     TranslateToggleComponent,
+    NgOptimizedImage,
   ],
   templateUrl: "./navbar.component.html",
   styleUrl: "./navbar.component.scss",
-  animations: [fadeTransition]
+  animations: [fadeTransition],
 })
 export class NavbarComponent implements OnInit {
   readonly translationService = inject(TranslationService);

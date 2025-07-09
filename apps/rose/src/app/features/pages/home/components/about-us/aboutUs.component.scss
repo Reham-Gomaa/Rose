@@ -17,7 +17,7 @@
   left: 0.3rem;
   width: 100%;
   height: 100%;
-  border: 0.25rem solid var(--border-box-transform-color);
+  border: 0.25rem solid var(--border-img-about-us-color);
   border-radius: 3.125rem 7.5rem 7.5rem 7.5rem;
   transform: rotate(8deg);
   z-index: 40;
@@ -67,7 +67,7 @@
   font-weight: 700;
   font-size: 1.0625rem;
   line-height: 1.9125rem;
-  color: var(--secondary-title);
+  color: var(--title-about-us-color);
   margin-bottom: 0.5rem;
 }
 
@@ -76,12 +76,12 @@
   font-weight: 700;
   font-size: 1.875rem;
   line-height: 2.55rem;
-  color: var(--sub-title-color);
+  color: var(--subtitle-about-us-color);
   margin-bottom: 1rem;
 }
 
 .p-strong {
-  color: var(--strong-color);
+  color: var(--highlight-about-us-color);
 }
 
 .p-about {
@@ -89,7 +89,7 @@
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.8rem;
-  color: var(--p-secondary);
+  color: var(--p-about-us-color);
 }
 
 .p-button-pink {
@@ -98,8 +98,8 @@
 
 .icons-about-check {
   padding: 0.8125rem;
-  background-color: var(--background-checker-color);
-  color: var(--checker-color);
+  background: none;
+  color: var(--checker-about-us-color);
   border: none;
   border-radius: 1.3125rem;
   flex-shrink: 0;
@@ -110,7 +110,7 @@
   font-weight: 500;
   font-size: 0.75rem;
   line-height: 100%;
-  color: var(--p-checker);
+  color: var(--checker-p-about-us-color);
 }
 
 /* Ultra-Compact Screens (300px - 399px) */
@@ -233,4 +233,3 @@
     height: 7.5rem;
   }
 }
-

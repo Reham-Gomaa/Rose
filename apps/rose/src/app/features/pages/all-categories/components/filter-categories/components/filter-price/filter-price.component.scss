@@ -1,33 +1,33 @@
 .values {
-    color: var(--text-price-rating);
+  color: var(--text-price-rating);
 
-    input {
-        color: var(--text-price-rating);
-        background: none;
-    }
+  input {
+    color: var(--text-price-rating);
+    background: none;
+  }
 }
 
 :host ::ng-deep .p-slider {
-    background-color: var(--background-slider);
+  background-color: var(--p-slider-background);
 }
 
 :host ::ng-deep .p-slider-range {
-    background-color: var(--background-slider-rose);
+  background-color: var(--p-slider-range-color);
 }
 
 :host ::ng-deep .p-slider-handle,
-:host ::ng-deep .p-slider-handle::before{
-    width: 1.125rem;
-    height: 1.125rem;
-    background-color: var(--background-slider-rose);
-    outline: none;
+:host ::ng-deep .p-slider-handle::before {
+  width: 1.125rem;
+  height: 1.125rem;
+  background-color: var(--point-slider-color);
+  outline: none;
 }
 
 :host ::ng-deep .custom-slider.p-slider .p-slider-handle:hover,
-:host ::ng-deep .custom-slider.p-slider .p-slider-handle:hover::before{
-    background-color: var(--background-slider-hover);
+:host ::ng-deep .custom-slider.p-slider .p-slider-handle:hover::before {
+  background-color: var(--point-slider-hover);
 }
 
-:focus{
-    outline: none;
+:focus {
+  outline: none;
 }

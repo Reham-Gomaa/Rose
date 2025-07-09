@@ -1,21 +1,35 @@
 <section class="not-found-section" role="main" aria-labelledby="not-found-title" @fadeInStagger>
   <!-- Descriptive Error Image with Alt Text -->
-  <img src="/images/404-page-not-found.svg" alt="Illustration of a page not found error" width="480" height="360"
-    class="not-found-image" loading="lazy" decoding="async" />
+  <img
+    ngSrc="/images/404-page-not-found.svg"
+    alt="Illustration of a page not found error"
+    width="480"
+    height="360"
+    class="not-found-image"
+    loading="lazy"
+    decoding="async"
+  />
 
   <!-- Accessible and Semantic Heading -->
   <h1 id="not-found-title" class="not-found-heading">
-    {{"not-found.notFoundContent.title" | translate}}
+    {{ "not-found.notFoundContent.title" | translate }}
   </h1>
 
   <!-- Descriptive Paragraph -->
   <p class="not-found-message">
-    {{"not-found.notFoundContent.message" | translate}}
+    {{ "not-found.notFoundContent.message" | translate }}
   </p>
 
   <!-- Accessible Button (with role for clarity) -->
-  <app-button routerLink="/dashboard/home" [text]="'not-found.not-found-home.backToHome' | translate" [isIcon]="true"
-    [borderRadius]="'btn-about-radius'" [padding]="'btn-about-padding'" [transition]="'btn-about-transition'"
-    aria-label="Back to homepage" role="link">
+  <app-button
+    routerLink="/dashboard/home"
+    [text]="'not-found.not-found-home.backToHome' | translate"
+    [isIcon]="true"
+    [borderRadius]="'btn-about-radius'"
+    [padding]="'btn-about-padding'"
+    [transition]="'btn-about-transition'"
+    aria-label="Back to homepage"
+    role="link"
+  >
   </app-button>
 </section>

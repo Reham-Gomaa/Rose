@@ -1,4 +1,8 @@
-<section [@fadeTransition]="translationService.fadeState()" class="trusted-companies" aria-labelledby="trusted-companies-heading">
+<section
+  [@fadeTransition]="translationService.fadeState()"
+  class="trusted-companies"
+  aria-labelledby="trusted-companies-heading"
+>
   <div class="trusted-companies-content">
     <!-- Title -->
     <div class="trusted-companies-title">
@@ -19,9 +23,11 @@
           <img
             loading="lazy"
             decoding="async"
-            [src]="logo"
+            [ngSrc]="logo"
             alt="Company Logo"
             class="trusted-companies-logo-img"
+            width="100"
+            height="50"
           />
         </div>
         }

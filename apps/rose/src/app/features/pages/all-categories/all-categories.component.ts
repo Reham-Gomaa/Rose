@@ -1,7 +1,7 @@
 import { Component, DestroyRef, inject, OnInit, signal } from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Animations
-import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+import { animate, query, stagger, style, transition, trigger } from "@angular/animations";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -35,23 +35,25 @@ import { DrawerModule } from "primeng/drawer";
     ButtonModule,
     DrawerModule,
     NoDataAvailableComponent,
-    NoDataAvailableComponent
-],
+    NoDataAvailableComponent,
+  ],
   templateUrl: "./all-categories.component.html",
   styleUrl: "./all-categories.component.scss",
-   animations: [
-    trigger('gridAnimation', [
-      transition('* => *', [
-        query(':enter', [
-          style({ opacity: 0, transform: 'scale(0.95)' }),
-          stagger(100, [
-            animate('300ms ease-out', style({ opacity: 1, transform: 'scale(1)' }))
-          ])
-        ], { optional: true })
-      ])
+  animations: [
+    trigger("gridAnimation", [
+      transition("* => *", [
+        query(
+          ":enter",
+          [
+            style({ opacity: 0, transform: "scale(0.95)" }),
+            stagger(100, [animate("300ms ease-out", style({ opacity: 1, transform: "scale(1)" }))]),
+          ],
+          { optional: true }
+        ),
+      ]),
     ]),
-    [fadeTransition]
-  ]
+    [fadeTransition],
+  ],
 })
 export class AllCategoriesComponent implements OnInit {
   private readonly _productsService = inject(ProductsService);
@@ -61,7 +63,6 @@ export class AllCategoriesComponent implements OnInit {
   filterDrawerVisible = false;
   showGridToggle = true;
 
-
   products = signal<Product[]>([]);
   loading = signal(true);
   private destroyRef = inject(DestroyRef);
@@ -69,22 +70,21 @@ export class AllCategoriesComponent implements OnInit {
   ngOnInit() {
     this.loadProducts();
 
-
-
-    this._store.select(selectFilterProducts).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
-      next: (filterProducts) => {
-        this.products.set(filterProducts);
-        this.triggerGridAnimation();
-      },
-    });
-
-
+    this._store
+      .select(selectFilterProducts)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (filterProducts) => {
+          this.products.set(filterProducts);
+          this.triggerGridAnimation();
+        },
+      });
   }
 
   triggerGridAnimation() {
-  this.showGridToggle = false;
-  setTimeout(() => this.showGridToggle = true, 0);
- }
+    this.showGridToggle = false;
+    setTimeout(() => (this.showGridToggle = true), 0);
+  }
 
   addProductsToStore() {
     this._store.dispatch(
@@ -96,25 +96,30 @@ export class AllCategoriesComponent implements OnInit {
 
   private loadProducts() {
     this.loading.set(true);
-    this._productsService.getAllProducts().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
-      next: (res) => {
-        this.products.set(res.products || []);
-        this.loading.set(false);
-        this.loadStores()
-
-      },
-      error: () => {
-        this.loading.set(false);
-      },
-    });
+    this._productsService
+      .getAllProducts()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (res) => {
+          this.products.set(res.products || []);
+          this.loading.set(false);
+          this.loadStores();
+        },
+        error: () => {
+          this.loading.set(false);
+        },
+      });
   }
 
   private loadStores() {
-    this._store.dispatch(sortActions.loadProducts({products: this.products()}));
-    this._store.select(sortSelectors.sortedProducts).pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
-      next: (sortProducts) => {
-        this._store.dispatch(loadProductsToFilter({ products: sortProducts }));
-      },
-    });
+    this._store.dispatch(sortActions.loadProducts({ products: this.products() }));
+    this._store
+      .select(sortSelectors.sortedProducts)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (sortProducts) => {
+          this._store.dispatch(loadProductsToFilter({ products: sortProducts }));
+        },
+      });
   }
 }

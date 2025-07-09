@@ -3,7 +3,6 @@ import { createAction, props } from "@ngrx/store";
 import { Product } from "@rose/core_interfaces/carditem.interface";
 import { selectedItem } from "@rose/core_interfaces/filter-item.interface";
 
-
 export const loadProductsToFilter = createAction(
   "[FILTER] Load Products",
   props<{ products: Product[] }>()
@@ -19,19 +18,19 @@ export const loadSelectedOccasions = createAction(
   props<{ selectedOccasions: selectedItem[] }>()
 );
 
-export const loadSelectedPrice= createAction(
+export const loadSelectedPrice = createAction(
   "[FILTER] Load Selected Price",
-  props<{ maxPrice: number , minPrice: number }>()
+  props<{ maxPrice: number; minPrice: number }>()
 );
 
-export const loadSelectedName= createAction(
+export const loadSelectedName = createAction(
   "[FILTER] Load Selected Name",
-  props<{name:string}>()
+  props<{ name: string }>()
 );
 
-export const loadSelectedRating= createAction(
+export const loadSelectedRating = createAction(
   "[FILTER] Load Selected Rating",
-  props<{selectedRating:selectedItem[]}>()
+  props<{ selectedRating: selectedItem[] }>()
 );
 
 export const ApplyFilters = createAction("[FILTER] Apply Filters");

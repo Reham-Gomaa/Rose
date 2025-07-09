@@ -12,7 +12,7 @@ import { ServicesInterface } from "@rose/core_interfaces/services.interface";
   imports: [TranslatePipe],
   templateUrl: "./ourServices.component.html",
   styleUrl: "./ourServices.component.scss",
-  animations: [fadeTransition]
+  animations: [fadeTransition],
 })
 export class OurServicesComponent {
   translationService = inject(TranslationService);

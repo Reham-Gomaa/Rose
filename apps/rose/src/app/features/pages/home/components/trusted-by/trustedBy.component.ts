@@ -1,4 +1,6 @@
 import { Component, inject } from "@angular/core";
+// Images
+import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -9,10 +11,10 @@ import { ButtonComponent } from "@rose/shared_Components_ui/button/button.compon
 
 @Component({
   selector: "app-trusted-by",
-  imports: [TranslatePipe, ButtonComponent],
+  imports: [TranslatePipe, ButtonComponent, NgOptimizedImage],
   templateUrl: "./trustedBy.component.html",
   styleUrl: "./trustedBy.component.scss",
-  animations: [fadeTransition]
+  animations: [fadeTransition],
 })
 export class TrustedByComponent {
   translationService = inject(TranslationService);

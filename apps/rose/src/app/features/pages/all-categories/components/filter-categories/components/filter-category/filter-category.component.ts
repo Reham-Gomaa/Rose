@@ -22,24 +22,26 @@ import { ProductsService } from "@rose/shared_services/products/products.service
 })
 export class FilterCategoryComponent implements OnInit {
   private readonly _productsService = inject(ProductsService);
-  private readonly _store = inject(Store);;
+  private readonly _store = inject(Store);
 
   private destroyRef = inject(DestroyRef);
 
   categories!: CategoryProductCount[];
 
   ngOnInit(): void {
-      this._productsService.getcategoryProductCount().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
-      next: (res) => {
-        this.categories = res.categoryProductCount.filter((category)=> category.category);
-      },
-    });
+    this._productsService
+      .getcategoryProductCount()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (res) => {
+          this.categories = res.categoryProductCount.filter((category) => category.category);
+        },
+      });
   }
 
   selectedItems: selectedItem[] = [] as selectedItem[];
 
-  changeValue(){
-
-    this._store.dispatch(loadSelectedCategories({selectedCategories:this.selectedItems}));
+  changeValue() {
+    this._store.dispatch(loadSelectedCategories({ selectedCategories: this.selectedItems }));
   }
 }

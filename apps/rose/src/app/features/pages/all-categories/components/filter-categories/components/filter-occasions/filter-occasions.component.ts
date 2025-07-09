@@ -14,7 +14,6 @@ import { OccasionsService } from "@rose/shared_services/occasions/occasions.serv
 import { Store } from "@ngrx/store";
 import { loadSelectedOccasions } from "@rose/store_filter/filter.actions";
 
-
 @Component({
   selector: "app-filter-occasions",
   imports: [FilterCardComponent, CheckedCardComponent, TranslatePipe],
@@ -32,24 +31,26 @@ export class FilterOccasionsComponent implements OnInit {
   selectedItems: selectedItem[] = [] as selectedItem[];
 
   ngOnInit(): void {
-     this._occasionsService.getcategoryOccasions().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
-      next: (res: occasionRes) => {
-
-        this.occasions = res.occasions
-          .filter((occasion) => occasion.productsCount > 0)
-          .map((occasion) => ({
-            _id: occasion._id,
-            category: occasion.name,
-            productCount: occasion.productsCount,
-          }));
-      },
-      error: (err) => {
-        console.error("Error fetching occasions:", err);
-      },
-    });
+    this._occasionsService
+      .getcategoryOccasions()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (res: occasionRes) => {
+          this.occasions = res.occasions
+            .filter((occasion) => occasion.productsCount > 0)
+            .map((occasion) => ({
+              _id: occasion._id,
+              category: occasion.name,
+              productCount: occasion.productsCount,
+            }));
+        },
+        error: (err) => {
+          console.error("Error fetching occasions:", err);
+        },
+      });
   }
 
   changeValue() {
-    this._store.dispatch(loadSelectedOccasions({selectedOccasions:this.selectedItems}));
+    this._store.dispatch(loadSelectedOccasions({ selectedOccasions: this.selectedItems }));
   }
 }

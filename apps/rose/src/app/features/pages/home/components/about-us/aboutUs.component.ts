@@ -1,4 +1,6 @@
 import { Component, inject } from "@angular/core";
+// Images
+import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -15,10 +17,17 @@ import { RippleModule } from "primeng/ripple";
 
 @Component({
   selector: "app-about-us",
-  imports: [ButtonModule, RippleModule, DividerModule, ButtonComponent, TranslatePipe],
+  imports: [
+    ButtonModule,
+    RippleModule,
+    DividerModule,
+    ButtonComponent,
+    TranslatePipe,
+    NgOptimizedImage,
+  ],
   templateUrl: "./aboutUs.component.html",
   styleUrl: "./aboutUs.component.scss",
-  animations: [fadeTransition]
+  animations: [fadeTransition],
 })
 export class AboutUsComponent {
   public darkMode = inject(DarkModeService);

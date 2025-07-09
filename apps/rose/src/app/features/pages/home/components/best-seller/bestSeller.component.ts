@@ -17,7 +17,6 @@ import { CarouselModule } from "primeng/carousel";
 import { ButtonModule } from "primeng/button";
 import { SkeletonModule } from "primeng/skeleton";
 
-
 @Component({
   selector: "app-best-seller",
   imports: [
@@ -30,7 +29,7 @@ import { SkeletonModule } from "primeng/skeleton";
   ],
   templateUrl: "./bestSeller.component.html",
   styleUrls: ["./bestSeller.component.scss"],
-  animations: [fadeTransition]
+  animations: [fadeTransition],
 })
 export class BestSellerComponent implements OnInit {
   private readonly bestsellerService = inject(BestSellerService);
@@ -63,17 +62,20 @@ export class BestSellerComponent implements OnInit {
     this.loading.set(true);
     this.showSkeleton.set(true);
 
- this.bestsellerService.getBestSellers().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
-      next: (res: BestSellerRes) => {
-        this.bestSellers.set(res.bestSeller || []);
-        this.loading.set(false);
-        this.showSkeleton.set(false);
-      },
-      error: (err) => {
-        console.error(err);
-        this.loading.set(false);
-        this.showSkeleton.set(false);
-      },
-    });
+    this.bestsellerService
+      .getBestSellers()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (res: BestSellerRes) => {
+          this.bestSellers.set(res.bestSeller || []);
+          this.loading.set(false);
+          this.showSkeleton.set(false);
+        },
+        error: (err) => {
+          console.error(err);
+          this.loading.set(false);
+          this.showSkeleton.set(false);
+        },
+      });
   }
 }

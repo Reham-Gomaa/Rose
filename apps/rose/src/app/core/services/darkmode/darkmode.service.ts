@@ -27,7 +27,7 @@ export class DarkModeService {
   private initializeTheme(): void {
     if (!this.platform.isBrowser()) return;
 
-    const savedMode = this.ssrCookieService.get(this.STORAGE_KEY)
+    const savedMode = this.ssrCookieService.get(this.STORAGE_KEY);
     if (savedMode !== null) {
       this.isDark.set(savedMode === "true");
     } else {

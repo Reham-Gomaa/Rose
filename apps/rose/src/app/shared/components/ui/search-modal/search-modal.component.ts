@@ -4,7 +4,7 @@ import { ButtonModule } from "primeng/button";
 
 @Component({
   selector: "app-search-modal",
-  imports: [ ButtonModule],
+  imports: [ButtonModule],
   templateUrl: "./search-modal.component.html",
   styleUrl: "./search-modal.component.scss",
 })
