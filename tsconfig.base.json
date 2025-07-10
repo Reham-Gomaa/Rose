@@ -18,7 +18,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      // Core
       "@rose/core_directive/*": [
         "./apps/rose/src/app/core/directive/*"
       ],
@@ -34,30 +33,26 @@
       "@rose/core_services/*": [
         "./apps/rose/src/app/core/services/*"
       ],
-      //features
       "@rose/features_layouts/*": [
         "./apps/rose/src/app/features/layouts/*"
       ],
       "@rose/features_pages/*": [
         "./apps/rose/src/app/features/pages/*"
       ],
-      //features_pages
-      "@rose/features_pages_home/*": [
-        "./apps/rose/src/app/features/pages/home/*"
-      ],
       "@rose/features_pages_all_categories/*": [
         "./apps/rose/src/app/features/pages/all-categories/*"
       ],
-      //filters
       "@rose/features_pages_all_categories_components_filter_categories/*": [
         "./apps/rose/src/app/features/pages/all-categories/components/filter-categories/*"
       ],
-      //shared
-      "@rose/shared_Components_ui/*": [
-        "./apps/rose/src/app/shared/components/ui/*"
+      "@rose/features_pages_home/*": [
+        "./apps/rose/src/app/features/pages/home/*"
       ],
       "@rose/shared_Components_business/*": [
         "./apps/rose/src/app/shared/components/business/*"
+      ],
+      "@rose/shared_Components_ui/*": [
+        "./apps/rose/src/app/shared/components/ui/*"
       ],
       "@rose/shared_services/*": [
         "./apps/rose/src/app/shared/services/*"
@@ -65,7 +60,6 @@
       "@rose/shared_styles/*": [
         "./apps/rose/src/app/shared/styles/*"
       ],
-      //Store
       "@rose/store_filter/*": [
         "./apps/rose/src/app/store/filter/*"
       ],
