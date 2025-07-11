@@ -11,56 +11,62 @@
   background: var(--testimonials-background);
 }
 
+.card-container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 4rem;
+}
+
 .card {
   width: 18.875rem;
-  border-radius: 3.125rem 6.25rem 6.25rem 6.25rem;
+  border-radius: 1.5rem;
   background-color: var(--testimonials-card-background);
+  padding: 3.4375rem 1.25rem 1.25rem;
 
   .img-container {
-    width: 3.75rem;
-    height: 3.75rem;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    width: 7.5rem;
+    height: 7.5rem;
+    border: .0625rem solid var(--white);
     border-radius: 100%;
-    background: linear-gradient(
-      to top right,
-      var(--testimonials-img-background) 0% 50%,
-      var(--white) 50%
-    );
-    margin-right: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    img {
-      display: block;
-      width: 3.125rem;
-      height: 3.125rem;
-      border-radius: 100%;
-    }
-  }
-
-  .heading {
-    padding-bottom: 1.5rem;
-    border-bottom: 0.5px solid var(--testimonials-title-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
 
   h2,
   h3 {
     font-family: var(--font-family-1);
-    font-weight: 700;
-    font-size: 1.0625rem;
     text-transform: capitalize;
-    margin: 0;
+    vertical-align: middle;
+  }
+
+  h2{
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--testimonials-title-color);
+    margin: .75rem 0;
   }
 
   h3 {
+    font-size: .75rem;
+    font-weight: 500;
     color: var(--testimonials-subtitle-color);
     margin-top: 0.25rem;
   }
 
   p {
     font-family: var(--font-family-1);
-    font-weight: 400;
-    font-size: 0.875rem;
+    font-weight: 500;
+    font-size: 1rem;
     text-transform: capitalize;
     color: var(--testimonials-p-color);
   }
@@ -76,70 +82,5 @@
       font-size: 0.9273rem;
       color: var(--testimonials-rating-color);
     }
-  }
-}
-
-:host ::ng-deep .p-carousel-content {
-  position: relative;
-  overflow: hidden;
-}
-
-/* appearance of indicator dots */
-:host ::ng-deep .custom-carousel .p-carousel-indicator-list {
-  padding-top: 2.5rem;
-}
-
-:host ::ng-deep .custom-carousel .p-carousel-indicator-button {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 100%;
-  background-color: var(--testimonials-carousel-indicator-button-color);
-
-  transition: all 0.3s ease;
-  &:hover {
-    background-color: var(--testimonials-carousel-indicator-button-hover) !important;
-  }
-}
-
-:host ::ng-deep .custom-carousel .p-carousel-indicator-active .p-carousel-indicator-button {
-  background-color: var(--testimonials-carousel-indicator-button-active);
-  width: 2.25rem;
-  height: 1rem;
-  border-radius: 0.625rem;
-}
-
-// next and previous buttons
-:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next,
-:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
-  display: none;
-  background-color: var(--testimonials-carousel-button-background);
-  border-radius: 100%;
-  z-index: 5;
-  transition: all 1s ease !important;
-  &:hover {
-    background-color: var(--testimonials-carousel-button-hover) !important;
-  }
-
-  .p-icon {
-    color: var(--testimonials-carousel-button-color) !important;
-  }
-
-  @media all and (min-width: 75rem) {
-    display: block;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
-:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
-  @media all and (min-width: 75rem) {
-    right: 0;
-  }
-}
-
-:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
-  @media all and (min-width: 75rem) {
-    left: 0;
   }
 }

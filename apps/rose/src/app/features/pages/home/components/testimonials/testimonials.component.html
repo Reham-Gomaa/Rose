@@ -1,18 +1,18 @@
 <section
   [@fadeTransition]="translationService.fadeState()"
   aria-label="Customer testimonials"
-  class="testimonial-section py-8 mt-8"
+  class="testimonial-section pt-8 pb-6 mt-8"
 >
   <div class="contain mx-auto">
     <p-carousel
       [value]="testimonials"
-      [numVisible]="4"
+      [numVisible]="3"
       [numScroll]="1"
       [circular]="true"
+      [showIndicators]="false"
+      [showNavigators]="false"
+      [autoplayInterval]="5000"
       [responsiveOptions]="responsiveOptions"
-      class="custom-carousel"
-      [prevButtonProps]="{ styleClass: 'p-button-rounded custom-gift-prev' }"
-      [nextButtonProps]="{ styleClass: 'p-button-rounded custom-gift-next' }"
       role="region"
       aria-roledescription="carousel"
       aria-label="Customer testimonials carousel"
@@ -24,45 +24,24 @@
           aria-roledescription="slide"
           aria-label="Testimonial"
         >
-          <div class="card p-4 mx-auto">
-            <div class="heading flex justify-content-start align-items-center">
-              <div class="img-container">
-                <img
-                  [ngSrc]="pic.source"
-                  [alt]="pic.heading2 + ' image'"
-                  loading="lazy"
-                  decoding="async"
-                  width="50"
-                  height="50"
-                />
+          <div class="card-container">
+            <div class="card mx-auto">
+              <div class="img-container" [style.backgroundImage]="'url(' + '\'' + pic.source + '\'' + ')'">
               </div>
-              <div>
-                <h2>{{ pic.heading2 | translate }}</h2>
-                <h3>{{ pic.heading3 | translate }}</h3>
-              </div>
-            </div>
             <div>
-              <p>{{ pic.paragraph | translate }}</p>
-              <div class="icons-container flex justify-content-between align-items-center">
+              <h2 class="text-center">{{ pic.heading2 | translate }}</h2>
+              <div class="icons-container flex justify-content-center align-items-center">
                 <div role="img" [attr.aria-label]="'4 out of 5 stars'">
                   <i class="pi pi-star-fill mr-1 star-icon"></i>
                   <i class="pi pi-star-fill mr-1 star-icon"></i>
                   <i class="pi pi-star-fill mr-1 star-icon"></i>
-                  <i class="pi pi-star-fill mr-1 star-icon"></i>
-                </div>
-                <div>
-                  <img
-                    decoding="async"
-                    loading="lazy"
-                    class="feedback-icon"
-                    ngSrc="./images/testimonials/🦆 icon _feedback_.WebP"
-                    alt="feedback icon"
-                    width="76.59"
-                    height="62.23"
-                  />
+                  <i class="pi pi-star mr-1 star-icon"></i>
                 </div>
               </div>
+              <p>{{ pic.paragraph | translate }}</p>
+              <h3 class="text-center">{{ pic.heading3 | translate }}</h3>
             </div>
+          </div>
           </div>
         </div>
       </ng-template>
