@@ -37,14 +37,7 @@ export class GiftsComponent {
       id: 2,
       source: "./images/gifts/2$.WebP",
       title: "pink roses with box of chocolate",
-    },
-    // {
-    //   id: 2,
-    //   source: "./images/gifts/2.WebP",
-    //   title: "christmas gift with gray ribbon and orange roses",
-    // },
-    // { id: 3, source: "./images/gifts/3.WebP", title: "pink christmas gifts with pink ribbons" },
-    // { id: 4, source: "./images/gifts/4.WebP", title: "christmas gift with red ribbon" },
+    }
   ];
 
   pics: picsInterface[] = [
