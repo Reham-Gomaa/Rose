@@ -75,7 +75,6 @@ img {
   border-radius: 1.25rem;
   padding-left: 1rem;
   height: 17rem;
-  overflow: hidden;
 
   @media all and (min-width: 48rem) {
     height: 27.5rem;
@@ -88,7 +87,6 @@ img {
 
 :host ::ng-deep .carousel-content {
   padding-bottom: 1.5rem;
-  overflow: hidden;
 
   @media all and (max-width: 62rem) {
     width: 18.75rem;
@@ -276,12 +274,10 @@ img {
 
 :host-context([dir="rtl"]) ::ng-deep .carousel-content-parent {
   padding-right: 1rem;
-  overflow: hidden;
 }
 
 :host-context([dir="rtl"]) .carousel-content {
   width: 10rem;
-  overflow: hidden;
 
   h1 {
     text-align: right;
