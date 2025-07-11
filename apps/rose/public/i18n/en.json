@@ -19,28 +19,22 @@
         "btn": "Shop Now"
       },
       "rightCarousel": {
-        "heading2": "Best Gift Shop",
-        "heading1Part1": "Choose Perfect",
-        "heading1Span": "Gifts",
-        "heading1Part2": "From Us",
-        "paragraph": "Shop from our curated collection to get the best products that add a magical touch to every occasion.",
-        "btn": "Shop Now"
+        "heading1": "Say It with Flowers",
+        "heading2": "Elegant gifts for every special moment.",
+        "btn": "I’m buying!"
       },
       "bottomImages": {
         "left": {
-          "heading2": "Gifts Box",
-          "heading1": "Awesome Gifts Box Collections",
-          "btn": "Shop Now"
+          "heading2": "Wedding",
+          "heading1": "Celebrate Her Forever with a Gift She’ll Always Remember"
         },
         "middle": {
-          "heading2": "Occasion Gifts",
-          "heading1": "Best Occasion Gifts collections",
-          "btn": "Discover Now"
+          "heading2": "Engagement",
+          "heading1": "Honor the Beginning of a Beautiful Journey Together"
         },
         "right": {
-          "heading2": "Occasion Gifts",
-          "heading1": "Combo Sets Gift Box Up To 50% Off",
-          "btn": "Discover Now"
+          "heading2": "Anniversary",
+          "heading1": "Mark Every Year of Love with a Meaningful Surprise"
         }
       }
     },

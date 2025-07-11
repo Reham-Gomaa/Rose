@@ -35,19 +35,16 @@ export class GiftsComponent {
     },
     {
       id: 2,
-      source: "./images/gifts/2.WebP",
-      title: "christmas gift with gray ribbon and orange roses",
+      source: "./images/gifts/2$.WebP",
+      title: "pink roses with box of chocolate",
     },
-    { id: 3, source: "./images/gifts/3.WebP", title: "pink christmas gifts with pink ribbons" },
-    { id: 4, source: "./images/gifts/4.WebP", title: "christmas gift with red ribbon" },
-  ];
-
-  responsiveOptions: responsiveOptionsInterface[] | undefined = [
-    {
-      breakpoint: "575px",
-      numVisible: 1,
-      numScroll: 1,
-    },
+    // {
+    //   id: 2,
+    //   source: "./images/gifts/2.WebP",
+    //   title: "christmas gift with gray ribbon and orange roses",
+    // },
+    // { id: 3, source: "./images/gifts/3.WebP", title: "pink christmas gifts with pink ribbons" },
+    // { id: 4, source: "./images/gifts/4.WebP", title: "christmas gift with red ribbon" },
   ];
 
   pics: picsInterface[] = [
@@ -56,8 +53,7 @@ export class GiftsComponent {
       source: "./images/gifts/Confetti lying near present.WebP",
       title: "christmas gift with red ribbon",
       heading2: "home.gifts.bottomImages.left.heading2",
-      heading1: "home.gifts.bottomImages.left.heading1",
-      btnText: "home.gifts.bottomImages.left.btn",
+      heading1: "home.gifts.bottomImages.left.heading1"
     },
     {
       id: 2,
@@ -65,7 +61,6 @@ export class GiftsComponent {
       title: "christmas gift with golden ribbon",
       heading2: "home.gifts.bottomImages.middle.heading2",
       heading1: "home.gifts.bottomImages.middle.heading1",
-      btnText: "home.gifts.bottomImages.middle.btn",
     },
     {
       id: 3,
@@ -73,7 +68,6 @@ export class GiftsComponent {
       title: "colorful christmas ribbons with shopping cart",
       heading2: "home.gifts.bottomImages.right.heading2",
       heading1: "home.gifts.bottomImages.right.heading1",
-      btnText: "home.gifts.bottomImages.right.btn",
     },
   ];
 }
