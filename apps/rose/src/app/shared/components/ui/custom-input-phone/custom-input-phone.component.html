@@ -1,0 +1,37 @@
+<div class="flex flex-column gap-2">
+  <label [for]="id()" class="label-color">{{labelText()}}</label>
+  <div class="input-phone-container">
+    <div class="custom-country-dropdown">
+      <div class="selected-country" (click)="toggleDropdown()">
+        <img class="country-flag" [src]="selectedCountry.flag" alt="image for flag" />
+        <p>{{selectedCountry.name}}{{selectedCountry.code}}</p>
+        <div class="flex flex-column gap-1">
+          <i class="pi pi-arrow-up text-xs"></i>
+          <i class="pi pi-arrow-down text-xs"></i>
+        </div>
+      </div>
+      @if(dropdownOpen){
+      <div class="country-list ">
+        <ul>
+          @for (country of countries; track $index) {
+            <li class="country-item" (click)="selectCountry(country)">
+            <img class="country-flag" [src]="country.flag" alt="image for flag" />
+            <p>{{country.name}} {{country.code}}</p></li>
+          }
+        </ul>
+      </div>
+      }
+    </div>
+    <input
+      class="input-style phone-input"
+      type="tel"
+      [id]="id()"
+      name="phone"
+      [placeholder]="placeholder()"
+      [value]="phoneNumber"
+      (input)="handleInput($event)"
+      maxlength="10"
+      required
+    />
+  </div>
+</div>

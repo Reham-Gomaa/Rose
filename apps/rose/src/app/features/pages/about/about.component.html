@@ -1,1 +1,8 @@
-<p>about works!</p>
+
+<form [formGroup]="aboutForm" (ngSubmit)="onSubmit()" class="container">
+  <app-custom-input formControlName="name" type="text" placeholder="Name" id="name" labelText="Name"></app-custom-input>
+  <app-custom-input formControlName="email" type="email" placeholder="Email" id="email" labelText="Email"></app-custom-input>
+  <app-custom-input formControlName="password" type="password" placeholder="password" id="password" labelText="Password"></app-custom-input>
+  <app-custom-input-phone formControlName="phone" placeholder="1558889635" labelText="Phone" id="phone"></app-custom-input-phone>
+  <button type="submit">Submit</button>
+</form>

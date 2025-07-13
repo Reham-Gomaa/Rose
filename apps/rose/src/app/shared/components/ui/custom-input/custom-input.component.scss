@@ -1,0 +1,39 @@
+.eye-btn {
+  background: transparent;
+  border: none;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-style{
+    border: 1px solid var(--input-border-color);
+    border-radius: 10px;
+    padding: 16px;
+    background: var(--input-color);
+    color: var(--input-text-color);
+    transition: border-color 0.2s;
+}
+
+.input-style:focus {
+  outline: none;
+  border-color: var(--maroon-700);
+  box-shadow: 0 0 0 2px var(--maroon-700, 0.2);
+}
+
+.password-eye{
+  font-size: 1.3rem;
+  color: var(--input-text-color);
+
+}
+
+.label-color{
+  color: var(--label-color);
+}
+
