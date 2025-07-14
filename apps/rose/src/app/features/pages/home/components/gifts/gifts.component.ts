@@ -22,6 +22,7 @@ import { TagModule } from "primeng/tag";
   imports: [CarouselModule, ButtonModule, TagModule, ButtonComponent, TranslatePipe],
   templateUrl: "./gifts.component.html",
   styleUrl: "./gifts.component.scss",
+  host: { ngSkipHydration: "true" },
   animations: [fadeTransition],
 })
 export class GiftsComponent {

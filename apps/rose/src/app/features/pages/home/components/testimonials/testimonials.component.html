@@ -13,7 +13,7 @@
   </div>
   <div class="testimonial-section py-8">
     <div class="mx-auto">
-      <p-carousel [value]="testimonials" [numVisible]="3" [numScroll]="1" [circular]="true" [showIndicators]="false"
+      <p-carousel ngSkipHydration [value]="testimonials" [numVisible]="3" [numScroll]="1" [circular]="true" [showIndicators]="false"
         [showNavigators]="false" [autoplayInterval]="5000" [responsiveOptions]="responsiveOptions" role="region"
         aria-roledescription="carousel" aria-label="Customer testimonials carousel">
         <ng-template let-pic pTemplate="item">

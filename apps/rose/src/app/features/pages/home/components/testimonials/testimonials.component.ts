@@ -1,6 +1,5 @@
 import { Component, inject } from "@angular/core";
 // Images
-import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -9,14 +8,15 @@ import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Interfaces
 import { responsiveOption, Testimonials } from "@rose/core_interfaces/testimonials.interface";
 // primeNg
-import { CarouselModule } from "primeng/carousel";
 import { ButtonModule } from "primeng/button";
+import { CarouselModule } from "primeng/carousel";
 
 @Component({
   selector: "app-testimonials",
-  imports: [CarouselModule, ButtonModule, TranslatePipe, NgOptimizedImage],
+  imports: [CarouselModule, ButtonModule, TranslatePipe],
   templateUrl: "./testimonials.component.html",
   styleUrl: "./testimonials.component.scss",
+  host: { ngSkipHydration: "true" },
   animations: [fadeTransition],
 })
 export class TestimonialsComponent {
