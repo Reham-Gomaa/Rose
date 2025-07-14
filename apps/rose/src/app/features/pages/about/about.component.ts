@@ -16,16 +16,25 @@ export class AboutComponent {
 
   constructor(private fb: FormBuilder) {
     this.aboutForm = this.fb.group({
-      name: ["", Validators.required],
+      name: ["", [Validators.required, Validators.minLength(2)]],
       email: ["", [Validators.required, Validators.email]],
-      phone: ["", Validators.required],
-      password: ["", Validators.required],
+      phone: ["", [Validators.required,]],
+      password: [
+        "",
+        [
+          Validators.required,
+          Validators.pattern(
+            "^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\"\\|,.<>/?]).{8,}$"
+          )
+        ]
+      ],
     });
   }
 
   onSubmit() {
       console.log(this.aboutForm.value);
       console.log(this.aboutForm)
+      console.log(this.aboutForm.get('name'))
     
   }
 }

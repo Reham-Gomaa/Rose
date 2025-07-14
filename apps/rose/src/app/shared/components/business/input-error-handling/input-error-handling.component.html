@@ -1,0 +1,17 @@
+@if(control.invalid && control.touched){
+  <div class="error-block">
+    <ul class="error-list ">
+      @if(control.hasError('required')){
+        <li class="error-item"><i class="pi pi-delete-left"></i> This field is required</li>
+      } @else if (control.hasError("minlength")) {
+        <li class="error-item"><i class="pi pi-delete-left"></i> Minimum {{ control.getError('minlength')?.requiredLength }} characters required</li>
+      } @else if (control.hasError("maxlength")) {
+        <li class="error-item"><i class="pi pi-delete-left"></i> Maximum {{ control.getError('maxlength')?.requiredLength }} characters allowed</li>
+      } @else if (control.hasError("email")) {
+        <li class="error-item"><i class="pi pi-delete-left"></i> Invalid email format (e.g., {{'example@example.com'}})</li>
+      } @else if (control.hasError("pattern") && control.getError("pattern").requiredPattern==="^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\"\\|,.<>/?]).{8,}$") {
+        <li class="error-item"><i class="pi pi-delete-left"></i> Password must be at least 8 characters, include uppercase, lowercase, and a special character.</li>
+      } 
+    </ul>
+  </div>
+}

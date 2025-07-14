@@ -10,17 +10,18 @@
       (blur)="onTouched()"
       required
       class="input-style"
-      style="flex: 1"
     />
     <button
       *ngIf="type() === 'password'"
       type="button"
       (click)="toggleShowPassword()"
-      tabindex="-1"
       class="eye-btn"
     >
       <span *ngIf="!showPassword"><i class="pi pi-eye password-eye"></i></span>
       <span *ngIf="showPassword"><i class="pi pi-eye-slash password-eye"></i></span>
     </button>
   </div>
+  @if(errorHandilgControl()){
+      <app-input-error-handling [control]="errorHandilgControl()!"></app-input-error-handling>
+  }
 </div>

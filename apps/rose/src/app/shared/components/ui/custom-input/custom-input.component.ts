@@ -1,10 +1,11 @@
 import { Component, forwardRef, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, AbstractControl } from '@angular/forms';
+import { InputErrorHandlingComponent } from "@rose/shared_Components_business/input-error-handling/input-error-handling.component";
 
 @Component({
   selector: 'app-custom-input',
-  imports: [CommonModule],
+  imports: [CommonModule, InputErrorHandlingComponent],
   providers:[
     {
       provide: NG_VALUE_ACCESSOR,
@@ -20,6 +21,8 @@ export class CustomInputComponent implements ControlValueAccessor {
   type = input<string>('text');
   placeholder = input<string>('');
   labelText = input<string>('');
+  errorHandilgControl = input<AbstractControl>();
+
   showPassword = false;
 
   value: string = '';

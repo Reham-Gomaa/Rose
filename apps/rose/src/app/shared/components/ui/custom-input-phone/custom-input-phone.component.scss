@@ -10,7 +10,6 @@
   border: 1px solid var(--input-border-color);
   border-radius: 10px;
   padding: 0 1rem;
-  width: 100%;
   box-sizing: border-box;
 }
 
@@ -21,7 +20,6 @@
   color: var(--input-text-color);
   font-size: 1rem;
   margin-right: 0.5rem;
-  min-width: 110px;
   outline: none;
   appearance: none;
   height: 100%;
@@ -43,8 +41,8 @@
 }
 
 .input-phone-container:focus-within {
-  border-color: var(--maroon-700,);
-  box-shadow: 0 0 0 2px var(--maroon-700, 0.2);
+  border-color: var(--border-active-color);
+  box-shadow: 0 0 0 2px var(--border-active-color);
 }
 
 .country-select::-ms-expand {

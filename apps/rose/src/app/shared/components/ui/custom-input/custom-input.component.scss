@@ -1,3 +1,6 @@
+.input-wrapper {
+  position: relative;
+}
 .eye-btn {
   background: transparent;
   border: none;
@@ -9,22 +12,24 @@
 }
 .input-wrapper {
   position: relative;
-  display: flex;
-  align-items: center;
-}
-.input-style{
+  .input-style {
     border: 1px solid var(--input-border-color);
     border-radius: 10px;
     padding: 16px;
+    padding-right: 44px; /* space for eye icon */
     background: var(--input-color);
     color: var(--input-text-color);
     transition: border-color 0.2s;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
 }
 
 .input-style:focus {
   outline: none;
-  border-color: var(--maroon-700);
-  box-shadow: 0 0 0 2px var(--maroon-700, 0.2);
+  border-color: var(--border-active-color);
+  box-shadow: 0 0 0 2px var(--border-active-color);
 }
 
 .password-eye{

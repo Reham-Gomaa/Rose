@@ -4,7 +4,7 @@
     <div class="custom-country-dropdown">
       <div class="selected-country" (click)="toggleDropdown()">
         <img class="country-flag" [src]="selectedCountry.flag" alt="image for flag" />
-        <p>{{selectedCountry.name}}{{selectedCountry.code}}</p>
+        <p>{{selectedCountry.name}} {{selectedCountry.code}}</p>
         <div class="flex flex-column gap-1">
           <i class="pi pi-arrow-up text-xs"></i>
           <i class="pi pi-arrow-down text-xs"></i>
@@ -30,8 +30,12 @@
       [placeholder]="placeholder()"
       [value]="phoneNumber"
       (input)="handleInput($event)"
+      (blur)="onTouched()"
       maxlength="10"
       required
     />
+    @if(errorHandilgControl()){
+      <app-input-error-handling [control]="errorHandilgControl()!"></app-input-error-handling>
+    }
   </div>
 </div>
