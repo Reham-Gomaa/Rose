@@ -18,12 +18,12 @@
           {{ errorMessage }}
         </div>
       }
-      @else if (relatedProducts().length > 0) {
+      @else if (relatedProducts.length > 0) {
         <!-- Carousel for related products -->
         <div  [@fadeTransition]="translationService.fadeState()">
 
           <p-carousel
-          [value]="relatedProducts()"
+          [value]="relatedProducts"
           [numVisible]="4"
           [numScroll]="1"
           [circular]="true"

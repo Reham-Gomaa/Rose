@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from "@angular/core";
+import { Component, inject, Input, OnDestroy, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { TranslatePipe } from "@ngx-translate/core";
 import { ProductDetail, ProductDetailsRes } from "@rose/core_interfaces/details.interface"; 
@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: "app-related-products",
@@ -25,7 +26,7 @@ import { TranslationService } from "@rose/core_services/translation/translation.
   ],
   templateUrl: "./related-products.component.html",
   styleUrls: ["./related-products.component.scss"],
-    animations: [
+  animations: [
     trigger("listAnimation", [
       transition("* => *", [
         query(
@@ -43,14 +44,15 @@ import { TranslationService } from "@rose/core_services/translation/translation.
     [fadeTransition],
   ],
 })
-export class RelatedProductsComponent implements OnInit {
+export class RelatedProductsComponent implements OnInit, OnDestroy {
   @Input() currentProductId!: string;
 
-  products: Product[] = [];
+  relatedProducts: Product[] = []; 
   currentProduct!: ProductDetail; 
   loading: boolean = true;
   errorMessage: string | null = null;
   
+  private subscriptions = new Subscription(); 
 
   responsiveOptions = [
     {
@@ -75,59 +77,68 @@ export class RelatedProductsComponent implements OnInit {
   translationService = inject(TranslationService);
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      const productId = params['id'];
-      if (productId) {
-        this.currentProductId = productId;
-        this.fetchProducts();
-      } else {
-        console.error('No product ID provided');
-        this.errorMessage = 'No product ID provided';
-        this.loading = false;
-      }
-    });
+    this.loadProductData();
   }
 
-  fetchProducts(): void {
+  private loadProductData(): void {
+    this.subscriptions.add(
+      this.route.params.subscribe({
+        next: params => {
+          const productId = params['id'];
+          if (productId) {
+            this.currentProductId = productId;
+            this.loadProductDetails();
+          } else {
+            this.handleError('No product ID provided');
+          }
+        },
+        error: err => this.handleError('Failed to load route parameters', err)
+      })
+    );
+  }
+
+  private loadProductDetails(): void {
     this.loading = true;
     this.errorMessage = null;
 
-    this.productsService.getSpecificProduct(this.currentProductId).subscribe({
-      next: (res: ProductDetailsRes) => { 
-        console.log(res);
-        this.currentProduct = res.product;
-        this.fetchRelatedProducts();
-      },
-      error: (err: HttpErrorResponse) => {
-        console.error('Failed to load product details', err);
-        this.errorMessage = 'Failed to load product details';
-        this.loading = false;
-      }
-    });
-  }
-
-   fetchRelatedProducts(): void {
-    this.productsService.getAllProducts().subscribe({
-      next: (response: ProductRes) => { 
-        console.log('Products response:', response); 
-        this.products = response.products;
-        this.loading = false;
-      },
-      error: (err: HttpErrorResponse) => {
-        console.error('Failed to load related products', err);
-        this.errorMessage = 'Failed to load related products';
-        this.loading = false;
-      }
-    });
-  }
-
-  relatedProducts(): Product[] {
-    if (!this.products || !this.currentProduct) return [];
-    return this.products.filter(
-      product =>
-        product.category === this.currentProduct.category &&
-        product._id !== this.currentProduct._id
+    this.subscriptions.add(
+      this.productsService.getSpecificProduct(this.currentProductId).subscribe({
+        next: (res: ProductDetailsRes) => { 
+          this.currentProduct = res.product;
+          this.loadRelatedProducts(res.product.category);
+        },
+        error: (err: HttpErrorResponse) => {
+          this.handleError('Failed to load product details', err);
+        }
+      })
     );
+  }
+
+  private loadRelatedProducts(categoryId: string): void {
+    this.subscriptions.add(
+      this.productsService.getAllProducts(categoryId).subscribe({
+        next: (response: ProductRes) => { 
+          // Filter out the current product from the results
+          this.relatedProducts = response.products.filter(
+            product => product._id !== this.currentProduct._id
+          );
+          this.loading = false;
+        },
+        error: (err: HttpErrorResponse) => {
+          this.handleError('Failed to load related products', err);
+        }
+      })
+    );
+  }
+
+  private handleError(message: string, error?: any): void {
+    console.error(message, error);
+    this.errorMessage = message;
+    this.loading = false;
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe(); 
   }
 
   showSkeleton(): boolean {
