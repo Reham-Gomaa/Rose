@@ -39,6 +39,12 @@ export const appRoutes: Route[] = [
         loadComponent: () =>
           import("@rose/features_pages/contact/contact.component").then((c) => c.ContactComponent),
       },
+      {
+        path: "details/:id",
+        title: "Product Details",
+        loadComponent: () =>
+          import("@rose/features_pages/details/details.component").then((c) => c.DetailsComponent),
+      },
     ],
   },
   {

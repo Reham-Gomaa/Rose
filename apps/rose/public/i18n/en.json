@@ -192,5 +192,13 @@
   },
   "emptyData": {
     "message": "Oops! Something went wrong while loading the data. Please try again later."
+  },
+   "details": {   
+    "relatedProducts": {
+      "title": "Related Products",
+      "noItemsMessage": "No related products available!"
+
+    }
+    
   }
 }
