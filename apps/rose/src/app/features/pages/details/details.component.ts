@@ -1,5 +1,5 @@
 
-import { Component, inject, OnInit } from "@angular/core";
+import { Component, inject, OnInit,OnDestroy } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ProductReviewComponent } from "./product-review/product-review.component";
 import { ActivatedRoute } from "@angular/router";
@@ -14,7 +14,7 @@ import { ProductDetailsComponent } from "./product-details/product-details.compo
   templateUrl: "./details.component.html",
   styleUrl: "./details.component.scss",
 })
-export class DetailsComponent implements OnInit {
+export class DetailsComponent implements OnInit, OnDestroy {
 
   private readonly _activatedRoute = inject(ActivatedRoute)
   private readonly _productService = inject(ProductsService)
@@ -35,7 +35,7 @@ export class DetailsComponent implements OnInit {
 
   getProductDetails(){
 
-    this._productService.getProductDetails(this.productId).subscribe({
+  this.subscription=this._productService.getProductDetails(this.productId).subscribe({
       next:(response)=>{
         this.productDetails = response.product
         console.log(this.productDetails);
@@ -49,6 +49,9 @@ export class DetailsComponent implements OnInit {
     this.getProductId();
   }
 
+  ngOnDestroy():void{
+    this.subscription.unsubscribe()
+  }
 
 
 
