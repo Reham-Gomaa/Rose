@@ -9,7 +9,7 @@
         <li class="error-item"><i class="pi pi-delete-left"></i> Maximum {{ control.getError('maxlength')?.requiredLength }} characters allowed</li>
       } @else if (control.hasError("email")) {
         <li class="error-item"><i class="pi pi-delete-left"></i> Invalid email format (e.g., {{'example@example.com'}})</li>
-      } @else if (control.hasError("pattern") && control.getError("pattern").requiredPattern==="^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\"\\|,.<>/?]).{8,}$") {
+      } @else if (control.hasError("pattern") && control.getError("pattern").requiredPattern===passwordPattern) {
         <li class="error-item"><i class="pi pi-delete-left"></i> Password must be at least 8 characters, include uppercase, lowercase, and a special character.</li>
       } 
     </ul>

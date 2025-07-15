@@ -10,4 +10,6 @@ import { AbstractControl } from '@angular/forms';
 export class InputErrorHandlingComponent {
   @Input() control!: AbstractControl;
 
+  readonly passwordPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\"\\|,.<>/?]).{8,}$";
+
 }

@@ -1,5 +1,6 @@
-import { Component, forwardRef, input } from "@angular/core";
+import { Component, forwardRef, input, OnInit, OnDestroy } from "@angular/core";
 import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { Country } from "@rose/core_interfaces/country";
 import { InputErrorHandlingComponent } from "@rose/shared_Components_business/input-error-handling/input-error-handling.component";
 
 @Component({
@@ -16,72 +17,84 @@ import { InputErrorHandlingComponent } from "@rose/shared_Components_business/in
     },
   ],
 })
-export class CustomInputPhoneComponent implements ControlValueAccessor {
+export class CustomInputPhoneComponent implements ControlValueAccessor, OnInit, OnDestroy {
   id = input<string>();
   placeholder = input<string>("");
   labelText = input<string>("");
   errorHandilgControl = input<AbstractControl>();
-  countries = [
-    { name: "EG", code: "+20", flag: "https://flagcdn.com/16x12/eg.png" },
-    { name: "US", code: "+1", flag: "https://flagcdn.com/16x12/us.png" },
-    { name: "UA", code: "+380", flag: "https://flagcdn.com/16x12/ua.png" },
-    { name: "CA", code: "+1", flag: "https://flagcdn.com/16x12/ca.png" },
-    { name: "GB", code: "+44", flag: "https://flagcdn.com/16x12/gb.png" },
-    { name: "DE", code: "+49", flag: "https://flagcdn.com/16x12/de.png" },
-    { name: "FR", code: "+33", flag: "https://flagcdn.com/16x12/fr.png" },
-    { name: "IT", code: "+39", flag: "https://flagcdn.com/16x12/it.png" },
-    { name: "ES", code: "+34", flag: "https://flagcdn.com/16x12/es.png" },
-    { name: "RU", code: "+7", flag: "https://flagcdn.com/16x12/ru.png" },
-    { name: "CN", code: "+86", flag: "https://flagcdn.com/16x12/cn.png" },
-    { name: "IN", code: "+91", flag: "https://flagcdn.com/16x12/in.png" },
-    { name: "BR", code: "+55", flag: "https://flagcdn.com/16x12/br.png" },
-    { name: "SA", code: "+966", flag: "https://flagcdn.com/16x12/sa.png" },
-    { name: "TR", code: "+90", flag: "https://flagcdn.com/16x12/tr.png" },
-    { name: "JP", code: "+81", flag: "https://flagcdn.com/16x12/jp.png" },
-    { name: "KR", code: "+82", flag: "https://flagcdn.com/16x12/kr.png" },
-    { name: "AU", code: "+61", flag: "https://flagcdn.com/16x12/au.png" },
-    { name: "AR", code: "+54", flag: "https://flagcdn.com/16x12/ar.png" },
-    { name: "MX", code: "+52", flag: "https://flagcdn.com/16x12/mx.png" },
-    { name: "ZA", code: "+27", flag: "https://flagcdn.com/16x12/za.png" },
-    { name: "NG", code: "+234", flag: "https://flagcdn.com/16x12/ng.png" },
-    { name: "KE", code: "+254", flag: "https://flagcdn.com/16x12/ke.png" },
-    { name: "SD", code: "+249", flag: "https://flagcdn.com/16x12/sd.png" },
-    { name: "DZ", code: "+213", flag: "https://flagcdn.com/16x12/dz.png" },
-    { name: "MA", code: "+212", flag: "https://flagcdn.com/16x12/ma.png" },
-    { name: "IQ", code: "+964", flag: "https://flagcdn.com/16x12/iq.png" },
-    { name: "IR", code: "+98", flag: "https://flagcdn.com/16x12/ir.png" },
-    { name: "PK", code: "+92", flag: "https://flagcdn.com/16x12/pk.png" },
-    { name: "ID", code: "+62", flag: "https://flagcdn.com/16x12/id.png" },
-    { name: "TH", code: "+66", flag: "https://flagcdn.com/16x12/th.png" },
-    { name: "VN", code: "+84", flag: "https://flagcdn.com/16x12/vn.png" },
-    { name: "PH", code: "+63", flag: "https://flagcdn.com/16x12/ph.png" },
-    { name: "MY", code: "+60", flag: "https://flagcdn.com/16x12/my.png" },
-    { name: "SG", code: "+65", flag: "https://flagcdn.com/16x12/sg.png" },
-    { name: "NZ", code: "+64", flag: "https://flagcdn.com/16x12/nz.png" },
-    { name: "SE", code: "+46", flag: "https://flagcdn.com/16x12/se.png" },
-    { name: "NO", code: "+47", flag: "https://flagcdn.com/16x12/no.png" },
-    { name: "FI", code: "+358", flag: "https://flagcdn.com/16x12/fi.png" },
-    { name: "DK", code: "+45", flag: "https://flagcdn.com/16x12/dk.png" },
-    { name: "PL", code: "+48", flag: "https://flagcdn.com/16x12/pl.png" },
-    { name: "NL", code: "+31", flag: "https://flagcdn.com/16x12/nl.png" },
-    { name: "BE", code: "+32", flag: "https://flagcdn.com/16x12/be.png" },
-    { name: "CH", code: "+41", flag: "https://flagcdn.com/16x12/ch.png" },
-    { name: "AT", code: "+43", flag: "https://flagcdn.com/16x12/at.png" },
-    { name: "GR", code: "+30", flag: "https://flagcdn.com/16x12/gr.png" },
-    { name: "PT", code: "+351", flag: "https://flagcdn.com/16x12/pt.png" },
-    { name: "IE", code: "+353", flag: "https://flagcdn.com/16x12/ie.png" },
-    { name: "HU", code: "+36", flag: "https://flagcdn.com/16x12/hu.png" },
-    { name: "CZ", code: "+420", flag: "https://flagcdn.com/16x12/cz.png" },
-    { name: "RO", code: "+40", flag: "https://flagcdn.com/16x12/ro.png" },
-    { name: "SK", code: "+421", flag: "https://flagcdn.com/16x12/sk.png" },
-    { name: "BG", code: "+359", flag: "https://flagcdn.com/16x12/bg.png" },
-    { name: "HR", code: "+385", flag: "https://flagcdn.com/16x12/hr.png" },
-    { name: "RS", code: "+381", flag: "https://flagcdn.com/16x12/rs.png" },
-    { name: "UA", code: "+380", flag: "https://flagcdn.com/16x12/ua.png" }
+  baseFlagUrl = "https://flagcdn.com/16x12/";
+  countries: Country[] = [
+    { name: "EG", code: "+20", flag: "eg.png" },
+    { name: "US", code: "+1", flag: "us.png" },
+    { name: "UA", code: "+380", flag: "ua.png" },
+    { name: "CA", code: "+1", flag: "ca.png" },
+    { name: "GB", code: "+44", flag: "gb.png" },
+    { name: "DE", code: "+49", flag: "de.png" },
+    { name: "FR", code: "+33", flag: "fr.png" },
+    { name: "IT", code: "+39", flag: "it.png" },
+    { name: "ES", code: "+34", flag: "es.png" },
+    { name: "RU", code: "+7", flag: "ru.png" },
+    { name: "CN", code: "+86", flag: "cn.png" },
+    { name: "IN", code: "+91", flag: "in.png" },
+    { name: "BR", code: "+55", flag: "br.png" },
+    { name: "SA", code: "+966", flag: "sa.png" },
+    { name: "TR", code: "+90", flag: "tr.png" },
+    { name: "JP", code: "+81", flag: "jp.png" },
+    { name: "KR", code: "+82", flag: "kr.png" },
+    { name: "AU", code: "+61", flag: "au.png" },
+    { name: "AR", code: "+54", flag: "ar.png" },
+    { name: "MX", code: "+52", flag: "mx.png" },
+    { name: "ZA", code: "+27", flag: "za.png" },
+    { name: "NG", code: "+234", flag: "ng.png" },
+    { name: "KE", code: "+254", flag: "ke.png" },
+    { name: "SD", code: "+249", flag: "sd.png" },
+    { name: "DZ", code: "+213", flag: "dz.png" },
+    { name: "MA", code: "+212", flag: "ma.png" },
+    { name: "IQ", code: "+964", flag: "iq.png" },
+    { name: "IR", code: "+98", flag: "ir.png" },
+    { name: "PK", code: "+92", flag: "pk.png" },
+    { name: "ID", code: "+62", flag: "id.png" },
+    { name: "TH", code: "+66", flag: "th.png" },
+    { name: "VN", code: "+84", flag: "vn.png" },
+    { name: "PH", code: "+63", flag: "ph.png" },
+    { name: "MY", code: "+60", flag: "my.png" },
+    { name: "SG", code: "+65", flag: "sg.png" },
+    { name: "NZ", code: "+64", flag: "nz.png" },
+    { name: "SE", code: "+46", flag: "se.png" },
+    { name: "NO", code: "+47", flag: "no.png" },
+    { name: "FI", code: "+358", flag: "fi.png" },
+    { name: "DK", code: "+45", flag: "dk.png" },
+    { name: "PL", code: "+48", flag: "pl.png" },
+    { name: "NL", code: "+31", flag: "nl.png" },
+    { name: "BE", code: "+32", flag: "be.png" },
+    { name: "CH", code: "+41", flag: "ch.png" },
+    { name: "AT", code: "+43", flag: "at.png" },
+    { name: "GR", code: "+30", flag: "gr.png" },
+    { name: "PT", code: "+351", flag: "pt.png" },
+    { name: "IE", code: "+353", flag: "ie.png" },
+    { name: "HU", code: "+36", flag: "hu.png" },
+    { name: "CZ", code: "+420", flag: "cz.png" },
+    { name: "RO", code: "+40", flag: "ro.png" },
+    { name: "SK", code: "+421", flag: "sk.png" },
+    { name: "BG", code: "+359", flag: "bg.png" },
+    { name: "HR", code: "+385", flag: "hr.png" },
+    { name: "RS", code: "+381", flag: "rs.png" },
+    { name: "UA", code: "+380", flag: "ua.png" },
   ];
   phoneNumber = "";
-  selectedCountry = this.countries[0];
+  selectedCountry: Country = this.countries[0];
   dropdownOpen = false;
+
+  private handleDocumentClick = (event: MouseEvent) => {
+    const dropdown = document.querySelector(".custom-country-dropdown");
+    if (dropdown && !dropdown.contains(event.target as Node)) {
+      this.dropdownOpen = false;
+    }
+  };
+
+  ngOnInit() {
+    document.addEventListener("click", this.handleDocumentClick);
+  }
 
   onChange: (value: string) => void = () => {};
   onTouched: () => void = () => {};
@@ -107,7 +120,6 @@ export class CustomInputPhoneComponent implements ControlValueAccessor {
   handleInput(event: Event) {
     const input = event.target as HTMLInputElement;
     this.phoneNumber = input.value.replace(/[^0-9]/g, "");
-    this.phoneNumber = input.value;
     this.propagateValue();
   }
 
@@ -119,8 +131,12 @@ export class CustomInputPhoneComponent implements ControlValueAccessor {
     this.dropdownOpen = !this.dropdownOpen;
   }
 
-  selectCountry(country: any) {
+  selectCountry(country: Country) {
     this.selectedCountry = country;
     this.dropdownOpen = false;
+  }
+
+  ngOnDestroy() {
+    document.removeEventListener("click", this.handleDocumentClick);
   }
 }

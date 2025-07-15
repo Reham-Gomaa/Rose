@@ -3,7 +3,7 @@
   <div class="input-phone-container">
     <div class="custom-country-dropdown">
       <div class="selected-country" (click)="toggleDropdown()">
-        <img class="country-flag" [src]="selectedCountry.flag" alt="image for flag" />
+        <img class="country-flag" [src]="baseFlagUrl+selectedCountry.flag" alt="image for flag" />
         <p>{{selectedCountry.name}} {{selectedCountry.code}}</p>
         <div class="flex flex-column gap-1">
           <i class="pi pi-arrow-up text-xs"></i>
@@ -15,7 +15,7 @@
         <ul>
           @for (country of countries; track $index) {
             <li class="country-item" (click)="selectCountry(country)">
-            <img class="country-flag" [src]="country.flag" alt="image for flag" />
+            <img class="country-flag" [src]="baseFlagUrl+country.flag" alt="image for flag" />
             <p>{{country.name}} {{country.code}}</p></li>
           }
         </ul>
