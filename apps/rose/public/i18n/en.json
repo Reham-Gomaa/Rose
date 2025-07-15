@@ -19,28 +19,22 @@
         "btn": "Shop Now"
       },
       "rightCarousel": {
-        "heading2": "Best Gift Shop",
-        "heading1Part1": "Choose Perfect",
-        "heading1Span": "Gifts",
-        "heading1Part2": "From Us",
-        "paragraph": "Shop from our curated collection to get the best products that add a magical touch to every occasion.",
-        "btn": "Shop Now"
+        "heading1": "Say It with Flowers",
+        "heading2": "Elegant gifts for every special moment.",
+        "btn": "I’m buying!"
       },
       "bottomImages": {
         "left": {
-          "heading2": "Gifts Box",
-          "heading1": "Awesome Gifts Box Collections",
-          "btn": "Shop Now"
+          "heading2": "Wedding",
+          "heading1": "Celebrate Her Forever with a Gift She’ll Always Remember"
         },
         "middle": {
-          "heading2": "Occasion Gifts",
-          "heading1": "Best Occasion Gifts collections",
-          "btn": "Discover Now"
+          "heading2": "Engagement",
+          "heading1": "Honor the Beginning of a Beautiful Journey Together"
         },
         "right": {
-          "heading2": "Occasion Gifts",
-          "heading1": "Combo Sets Gift Box Up To 50% Off",
-          "btn": "Discover Now"
+          "heading2": "Anniversary",
+          "heading1": "Mark Every Year of Love with a Meaningful Surprise"
         }
       }
     },
@@ -94,30 +88,20 @@
       "title": "Let's Check Our Photo Gallery"
     },
     "testimonials": {
+      "heading5": "Testimonials",
+      "title": "Real Words from Happy Customers",
+      "heading3": "January 12, 2025",
       "customer1": {
-        "heading2": "Ahmed Mohamed",
-        "heading3": "Customer",
-        "paragraph": "My experience with this store was wonderful. The gifts arrived quickly and were carefully wrapped. The product quality is excellent, and the customer service is friendly and responsive. I’ll definitely be shopping here again."
+        "heading2": "Jake Miller",
+        "paragraph": "I've been ordering from this flower shop for years and they never disappoint. The quality and service are exceptional!"
       },
       "customer2": {
-        "heading2": "omar Hassan",
-        "heading3": "Customer",
-        "paragraph": "I ordered a birthday gift and it was delivered on time. The packaging was very elegant, and the gift was greatly appreciated by the recipient. The prices are reasonable and the service is excellent. I highly recommend shopping from this amazing website."
+        "heading2": "Tyler Brooks",
+        "paragraph": "Customer service is top-notch and the flowers last longer than any others I've bought. Highly recommend!"
       },
       "customer3": {
-        "heading2": "Sami Mahmoud",
-        "heading3": "Customer",
-        "paragraph": "I loved the variety of gifts available and how easy it was to order from the website. The experience was smooth, and the payment process was safe and quick. The gift arrived in perfect condition. Thank you for paying attention to the small details that make a big difference."
-      },
-      "customer4": {
-        "heading2": "Ali Abdallah",
-        "heading3": "Customer",
-        "paragraph": "Excellent service and high-quality products. The gift was exactly as I expected—actually, even more beautiful than in the pictures. I really appreciated their attention to packaging and order details. I’ll definitely recommend the site to my friends and family."
-      },
-      "customer5": {
-        "heading2": "Khaled Mansour",
-        "heading3": "Customer",
-        "paragraph": "I didn’t expect my experience to be this easy. The website is well-organized and clear, with a wide variety of gift options. The delivery service was very punctual, and the packaging added a luxurious touch. I’ll definitely order again for future occasions."
+        "heading2": "Max Turner",
+        "paragraph": "The team truly cares about every order. I always feel confident when I buy flowers from here. The checkout process was sup..."
       }
     },
     "trustedBy": {

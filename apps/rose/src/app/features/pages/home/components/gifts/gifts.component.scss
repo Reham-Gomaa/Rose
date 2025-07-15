@@ -10,7 +10,7 @@ img {
   height: 27.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: end;
   align-items: start;
   background-position: 50%;
   background-repeat: no-repeat;
@@ -22,7 +22,6 @@ img {
 
   // medium screen 768px
   @media all and (min-width: 48rem) {
-    justify-content: end;
     margin-bottom: 0;
   }
 
@@ -32,7 +31,7 @@ img {
     border-radius: 1.25rem;
     font-family: var(--font-family-2);
     font-weight: 700;
-    font-size: 1rem;
+    font-size: .75rem;
     color: var(--h2-color-gift);
     line-height: 1.8875rem;
     letter-spacing: 0.2913rem;
@@ -42,7 +41,7 @@ img {
 
     // large screen 992px
     @media all and (min-width: 62rem) {
-      font-size: 1.0481rem;
+      font-size: .75rem;
     }
   }
 
@@ -59,7 +58,7 @@ img {
 
     // large screen 992px
     @media all and (min-width: 62rem) {
-      font-size: 1.6306rem;
+      font-size: 1.5rem;
     }
   }
 }
@@ -68,14 +67,14 @@ img {
 
 :host ::ng-deep .carousel-content-parent {
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: start;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 1.25rem;
   padding-left: 1rem;
-  height: 15rem;
+  height: 17rem;
 
   @media all and (min-width: 48rem) {
     height: 27.5rem;
@@ -87,71 +86,59 @@ img {
 }
 
 :host ::ng-deep .carousel-content {
-  width: 9.5625rem;
+  padding-bottom: 1.5rem;
 
-  @media all and (min-width: 62rem) {
-    width: 23.8125rem;
+  @media all and (max-width: 62rem) {
+    width: 18.75rem;
   }
 
   h1,
-  h2,
-  p {
+  h2 {
     font-family: var(--font-family-1);
     vertical-align: middle;
   }
 
-  h2 {
-    background-color: var(--h2-background-gift);
-    padding: 0.125rem 0.5rem;
-    border-radius: 1.25rem;
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--h2-color-gift);
-    line-height: 0.6713rem;
-    letter-spacing: 0.1019rem;
-    text-transform: uppercase;
-    margin: 0;
-
-    @media all and (min-width: 62rem) {
-      font-size: 1.25rem;
-      line-height: 1.5375rem;
-      letter-spacing: 0.2331rem;
-    }
-  }
-
   h1 {
     color: var(--h1-color-gift);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.25rem;
     line-height: 100%;
     text-transform: capitalize;
     text-align: left;
-    margin: 1rem 0 0.5rem;
+    margin: 1rem 0 .3125rem;
 
     @media all and (min-width: 62rem) {
-      font-size: 2.8125rem;
-      line-height: 3.1456rem;
+      font-size: 2.25rem;
       margin: 1.5rem 0 1rem;
     }
-
-    span {
-      color: var(--highlight-color-gift);
-    }
   }
 
-  p {
-    color: var(--white);
-    font-size: 0.75rem;
+  h2 {
+    border-radius: 1.25rem;
     font-weight: 400;
+    font-size: 1rem;
+    color: var(--h2-carousel-color-gift);
+    letter-spacing: 0.1019rem;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 2.375rem;
+    line-height: 100%;
 
-    margin: 0 0 1rem;
-
-    @media all and (min-width: 48rem) {
-      font-size: 1rem;
-      line-height: 1.7475rem;
-      margin: 0 0 1.5rem;
+    @media all and (min-width: 62rem) {
+      margin-bottom: 3rem;
     }
+
   }
+
+}
+
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
+  right: calc(100% - 95%);
+}
+
+:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
+  z-index: 10;
+  right: calc(100% - 89%);
 }
 
 :host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next,
@@ -160,15 +147,11 @@ img {
   justify-content: center;
   align-items: center;
   background-color: var(--carousel-button-gift-background);
-  width: 1.1181rem;
-  height: 1.1181rem;
+  width: 1.3125rem;
+  height: 1.3125rem;
   position: absolute;
-  bottom: 0.5938rem;
+  bottom: 1.5rem;
   border-radius: 100%;
-
-  @media all and (min-width: 48rem) {
-    bottom: 1.5rem;
-  }
 
   @media all and (min-width: 62rem) {
     width: 2.5625rem;
@@ -187,6 +170,7 @@ img {
       height: 1.5rem;
     }
   }
+
   .p-icon {
     color: var(--carousel-i-color-gift);
     width: 0.4094rem;
@@ -197,48 +181,27 @@ img {
       height: 1.5rem;
     }
   }
+
   &:hover {
     background-color: var(--carousel-button-gift-hover);
   }
 }
 
-:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
-  right: 1rem;
-
-  @media all and (min-width: 62rem) {
-    right: 1.5rem;
-  }
-}
-
-:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
-  right: 2.25rem;
-  z-index: 10;
-
-  @media all and (min-width: 48rem) {
-    right: 2.8125rem;
-  }
-
-  @media all and (min-width: 62rem) {
-    right: 4.6875rem;
-  }
-}
-
 :host ::ng-deep .p-carousel-indicator-list {
-  position: absolute;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
   padding: 0;
   opacity: 0;
+  position: absolute;
+  top: 1.7188rem;
 
   @media all and (min-width: 48rem) {
     opacity: 1;
+    right: calc(100% - 95%);
   }
 }
 
 :host ::ng-deep .p-carousel-indicator-button {
-  width: 0.4375rem;
-  height: 0.4375rem;
+  width: .625rem;
+  height: .625rem;
   border-radius: 2.9125rem;
   background-color: var(--carousel-indicator-button-gift-color);
   transition: all 0.3s ease-in-out;
@@ -246,100 +209,78 @@ img {
   &:hover {
     color: var(--carousel-indicator-button-gift-hover) !important;
   }
+
 }
 
-:host ::ng-deep .p-carousel-indicator-active > .p-carousel-indicator-button {
-  width: 1.1875rem;
+:host ::ng-deep .p-carousel-indicator-active>.p-carousel-indicator-button {
+  width: 2.25rem;
   background-color: var(--carousel-indicator-button-gift-active);
 }
 
 // three bottom images ----------
 
 .bottom-content {
+  height: 17rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 1.25rem;
-  padding: 4.5625rem 0;
+  padding-left: 1.5rem;
+  padding-bottom: 1.5rem;
 
-  // medium screen 768px
-  @media all and (min-width: 48rem) {
-    padding: 3.75rem 1rem;
-    height: 17rem;
-  }
+  div {
+    max-width: 22.5rem;
 
-  h1,
-  h2 {
-    text-align: center;
-
-    // large screens 992px
-    @media all and (min-width: 62rem) {
-      text-align: right;
+    h2 {
+      display: inline-block;
+      background-color: var(--h2-background-gift);
+      border-radius: 1.25rem;
+      font-family: var(--font-family-1);
+      font-weight: 500;
+      font-size: .625rem;
+      color: var(--h2-color-gift);
+      line-height: 100%;
+      text-transform: capitalize;
+      padding: 0.125rem 0.5rem;
+      margin: 0;
     }
+
+    h1 {
+      font-family: var(--font-family-1);
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: var(--h1-color-gift);
+      line-height: 100%;
+      text-transform: capitalize;
+      vertical-align: middle;
+      margin: 0.875rem 0;
+
+      @media all and (min-width: 62rem) {
+        font-size: 1.5rem;
+      }
+    }
+
   }
-
-  h2 {
-    background-color: var(--h2-background);
-    padding: 0.125rem 0.5rem;
-    border-radius: 1.25rem;
-    font-family: var(--font-family-1);
-    font-weight: 400;
-    font-size: 1rem;
-    color: var(--h2-color-gift);
-    line-height: 100%;
-    text-transform: capitalize;
-    vertical-align: middle;
-    margin: 0;
-  }
-
-  h1 {
-    font-family: var(--font-family-1);
-    font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 100%;
-    text-transform: capitalize;
-    vertical-align: middle;
-    margin: 0.875rem 0;
-  }
-}
-
-.responsive-h1 {
-  color: var(--white);
-  max-width: 14rem;
-}
-
-@media all and (min-width: 62rem) {
-  .responsive-h1 {
-    color: var(--h1-color-gift);
-  }
-}
-
-.dark-text {
-  color: var(--dark-text-gift);
-  max-width: 14rem;
 }
 
 //  RTL direction styling
 
 :host-context([dir="rtl"]) .top-left-parent {
-  align-items: end;
-
-  h1,
-  h2 {
-    text-align: left;
+  padding: 0 1rem 1.5rem 0;
+  h1{
+    text-align: right;
   }
 }
 
-:host-context([dir="rtl"]) .carousel-content-parent {
-  justify-content: end;
+:host-context([dir="rtl"]) ::ng-deep .carousel-content-parent {
+  padding-right: 1rem;
 }
 
 :host-context([dir="rtl"]) .carousel-content {
   width: 10rem;
-  align-items: end !important;
 
-  p {
-    text-align: left;
+  h1 {
+    text-align: right;
   }
 
   @media all and (min-width: 62rem) {
@@ -347,8 +288,19 @@ img {
   }
 }
 
-:host-context([dir="rtl"]) .bottom-content {
-  @media all and (min-width: 62rem) {
-    align-items: start !important;
+:host-context([dir="rtl"]) ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
+  right: calc(100% - 10%);
+}
+
+:host-context([dir="rtl"]) ::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
+  right: calc(100% - 16%);
+}
+
+:host-context([dir="rtl"]) ::ng-deep .p-carousel-indicator-list {
+   @media all and (min-width: 48rem) {
+     right: calc(100% - 17%);
+    }
+    @media all and (min-width: 62rem) {
+     right: calc(100% - 13%);
   }
 }

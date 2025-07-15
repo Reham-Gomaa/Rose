@@ -101,6 +101,7 @@
   --h2-color-gift: var(--maroon-600);
   --h2-background-gift: var(--maroon-50);
   --h1-color-gift: var(--white);
+  --h2-carousel-color-gift: var(--white);
   --dark-text-gift: var(--white);
   --highlight-color-gift: var(--maroon-600);
   --carousel-i-color-gift: var(--maroon-50);
@@ -111,9 +112,9 @@
   --carousel-indicator-button-gift-hover: var(--maroon-500);
   --carousel-button-gift-hover: var(--maroon-500);
   //BTN-Shared
-  --btn-shared-color: var(--maroon-50);
+  --btn-shared-color: var(--white);
   --btn-shared-i-color: var(--white);
-  --btn-shared-background: var(--maroon-700);
+  --btn-shared-background: var(--maroon-600);
   --btn-shared-background-hover: var(--maroon-500);
   //Our Services
   --our-services-color: var(--maroon-50);
@@ -166,7 +167,7 @@
   //Testimonials
   --testimonials-background: var(--maroon-50);
   --testimonials-title-color: var(--zinc-800);
-  --testimonials-subtitle-color: var(--zinc-800);
+  --testimonials-subtitle-color: var(--zinc-400);
   --testimonials-p-color: var(--zinc-800);
   --testimonials-card-background: var(--white);
   --testimonials-img-background: var(--soft-pink-200);

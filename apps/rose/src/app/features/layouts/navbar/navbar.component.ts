@@ -51,6 +51,7 @@ type modalPosition =
   ],
   templateUrl: "./navbar.component.html",
   styleUrl: "./navbar.component.scss",
+  host: { ngSkipHydration: "true" },
   animations: [fadeTransition],
 })
 export class NavbarComponent implements OnInit {
