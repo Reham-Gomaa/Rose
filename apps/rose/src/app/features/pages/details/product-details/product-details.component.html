@@ -15,7 +15,7 @@
         <div class="others flex justify-content-center align-items-center gap-3">
           @for (image of productDetails().images; track $index) {
           <div class="image cursor-pointer">
-            <img class="w-full object-cover " [src]="image" [alt]="productDetails().slug" />
+            <img class="w-full object-cover " [ngSrc]="image" [alt]="productDetails().slug" />
           </div>
           }
         </div>
