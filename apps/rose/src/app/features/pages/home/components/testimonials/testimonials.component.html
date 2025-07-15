@@ -1,4 +1,8 @@
-<section aria-label="Customer testimonials" class="testimonial-section py-8 mt-8">
+<section
+  [@fadeTransition]="translationService.fadeState()"
+  aria-label="Customer testimonials"
+  class="testimonial-section py-8 mt-8"
+>
   <div class="contain mx-auto">
     <p-carousel
       [value]="testimonials"
@@ -24,7 +28,7 @@
             <div class="heading flex justify-content-start align-items-center">
               <div class="img-container">
                 <img
-                  [src]="pic.source"
+                  [ngSrc]="pic.source"
                   [alt]="pic.heading2 + ' image'"
                   loading="lazy"
                   decoding="async"
@@ -51,7 +55,7 @@
                     decoding="async"
                     loading="lazy"
                     class="feedback-icon"
-                    src="./images/testimonials/🦆 icon _feedback_.WebP"
+                    ngSrc="./images/testimonials/🦆 icon _feedback_.WebP"
                     alt="feedback icon"
                     width="76.59"
                     height="62.23"

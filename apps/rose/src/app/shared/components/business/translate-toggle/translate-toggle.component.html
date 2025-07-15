@@ -6,13 +6,16 @@
   [attr.title]="'Change language (current: ' + currentLang() + ')'"
 >
   <img
-    [src]="
+    [ngSrc]="
       currentLang() === 'English'
         ? './images/british_flag_icon.WebP'
         : './images/egypt_flag_icon.WebP'
     "
     [alt]="currentLang() === 'English' ? 'British flag' : 'Egyptian flag'"
     loading="lazy"
+    width="100"
+    height="50"
+    decoding="async"
   />
   <span class="sr-only">Current language: {{ currentLang() }}</span>
 </button>

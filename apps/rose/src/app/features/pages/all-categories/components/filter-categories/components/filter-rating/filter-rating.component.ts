@@ -1,16 +1,14 @@
 import { Component, inject } from "@angular/core";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
-import { CheckedCardComponent } from "../../../../../../../shared/components/business/checkbox/checked-card.component";
-import {
-  FilterItem,
-  selectedItem,
-} from "./../../../../../../../core/interfaces/filter-item.interface";
-
+// Interfaces
+import { FilterItem, selectedItem } from "@rose/core_interfaces/filter-item.interface";
+// Shared_Components
+import { FilterCardComponent } from "@rose/shared_Components_ui/filter-card/filter-card.component";
+import { CheckedCardComponent } from "@rose/shared_Components_business/checkbox/checked-card.component";
+// NGRX
 import { Store } from "@ngrx/store";
-import { loadSelectedRating } from '../../../../../../../store/filter/filter.actions';
+import { loadSelectedRating } from "@rose/store_filter/filter.actions";
 
 @Component({
   selector: "app-filter-rating",
@@ -19,7 +17,7 @@ import { loadSelectedRating } from '../../../../../../../store/filter/filter.act
   styleUrl: "./filter-rating.component.scss",
 })
 export class FilterRatingComponent {
-    private readonly _store = inject(Store);
+  private readonly _store = inject(Store);
 
   ratings: FilterItem[] = [
     { _id: "1-ratings", rating: 5 },
@@ -30,7 +28,7 @@ export class FilterRatingComponent {
   ];
 
   selectedItems: selectedItem[] = [] as selectedItem[];
-  changeValue(){
-    this._store.dispatch(loadSelectedRating({selectedRating:this.selectedItems}))
+  changeValue() {
+    this._store.dispatch(loadSelectedRating({ selectedRating: this.selectedItems }));
   }
 }

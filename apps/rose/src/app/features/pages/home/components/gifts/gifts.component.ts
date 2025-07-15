@@ -1,15 +1,17 @@
-import { Component } from "@angular/core";
-
+import { Component, inject } from "@angular/core";
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Animations
+import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+// Interfaces
 import {
   carouselListInterface,
   picsInterface,
   responsiveOptionsInterface,
-} from "../../../../../core/interfaces/special-gifts.interface";
-
-import { ButtonComponent } from "../../../../../shared/components/ui/button/button.component";
-
+} from "@rose/core_interfaces/special-gifts.interface";
+// Shared_Components
+import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 // primeNg ...
 import { ButtonModule } from "primeng/button";
 import { CarouselModule } from "primeng/carousel";
@@ -20,8 +22,11 @@ import { TagModule } from "primeng/tag";
   imports: [CarouselModule, ButtonModule, TagModule, ButtonComponent, TranslatePipe],
   templateUrl: "./gifts.component.html",
   styleUrl: "./gifts.component.scss",
+  animations: [fadeTransition],
 })
 export class GiftsComponent {
+  translationService = inject(TranslationService);
+
   carouselList: carouselListInterface[] = [
     {
       id: 1,

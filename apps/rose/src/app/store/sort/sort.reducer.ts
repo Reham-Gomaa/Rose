@@ -1,11 +1,10 @@
 import { createReducer, on } from "@ngrx/store";
 import { sortConditions, sortState, sortType } from "./sort.states";
 import * as sortActions from "./sort.actions";
-import { Product } from "../../core/interfaces/carditem.interface";
-export enum sortTypes {
-  ASC = "asc",
-  DESC = "desc",
-}
+// Interfaces
+import { Product } from "@rose/core_interfaces/carditem.interface";
+// Enums
+import { sortTypes } from "@rose/core_enums/sorttypes";
 
 export function sortProducts(products: Product[], field: string, order: sortType): Product[] {
   return [...products].sort((a, b) => {

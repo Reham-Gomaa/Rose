@@ -1,13 +1,13 @@
 .parent {
   border-radius: 1.25rem;
   padding: 2.5rem;
-  background-color: var(--background-color);
+  background-color: var(--our-services-color);
   text-align: center;
 
   .icon {
     width: 4.0625rem;
     height: 4.0625rem;
-    background-color: var(--background-icon-color);
+    background-color: var(--our-services-icon-background);
     border-radius: 2.031rem;
     padding-inline: 0.859rem;
     padding-top: 1rem;
@@ -16,20 +16,20 @@
     i {
       width: 2.3175rem;
       height: 2.3175rem;
-      color: var(--icons-color);
+      color: var(--our-services-icon-color);
     }
   }
 
   h3 {
     font-family: var(--font-family-1);
     margin: 0 0 0.3125rem 0;
-    color: var(--main-title);
+    color: var(--our-services-title-color);
   }
 
   p {
     font-family: var(--font-family-2);
     line-height: 1.75rem;
-    color: var(--p-main);
+    color: var(--our-services-p-color);
   }
 
   @media all and (min-width: 48rem) and (max-width: 75rem) {

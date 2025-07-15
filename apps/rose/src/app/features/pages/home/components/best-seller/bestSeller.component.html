@@ -1,4 +1,8 @@
-<section class="grid mt-8" aria-labelledby="premium-gifts-heading">
+<section
+  [@fadeTransition]="translationService.fadeState()"
+  class="grid mt-8"
+  aria-labelledby="premium-gifts-heading"
+>
   <!-- Header Section -->
   <div class="header text-left col-12 md:col-6 lg:col-4">
     <span class="text-base mb-5 font-bold premium">{{

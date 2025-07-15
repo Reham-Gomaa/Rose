@@ -27,10 +27,13 @@ img {
   }
 
   h2 {
+    background-color: var(--h2-background-gift);
+    padding: 0.125rem 0.5rem;
+    border-radius: 1.25rem;
     font-family: var(--font-family-2);
     font-weight: 700;
     font-size: 1rem;
-    color: var(--h2-color);
+    color: var(--h2-color-gift);
     line-height: 1.8875rem;
     letter-spacing: 0.2913rem;
     text-transform: uppercase;
@@ -44,7 +47,7 @@ img {
   }
 
   h1 {
-    color: var(--h1-color);
+    color: var(--h1-color-gift);
     font-family: var(--font-family-1);
     font-weight: 600;
     font-size: 1.25rem;
@@ -98,9 +101,12 @@ img {
   }
 
   h2 {
+    background-color: var(--h2-background-gift);
+    padding: 0.125rem 0.5rem;
+    border-radius: 1.25rem;
     font-weight: 700;
     font-size: 1rem;
-    color: var(--h2-color);
+    color: var(--h2-color-gift);
     line-height: 0.6713rem;
     letter-spacing: 0.1019rem;
     text-transform: uppercase;
@@ -114,7 +120,7 @@ img {
   }
 
   h1 {
-    color: var(--h1-color);
+    color: var(--h1-color-gift);
     font-weight: 700;
     font-size: 1.25rem;
     line-height: 100%;
@@ -129,12 +135,12 @@ img {
     }
 
     span {
-      color: var(--strong-color);
+      color: var(--highlight-color-gift);
     }
   }
 
   p {
-    color: var(--p-gift-color);
+    color: var(--white);
     font-size: 0.75rem;
     font-weight: 400;
 
@@ -153,7 +159,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--background-carousel-button-gift);
+  background-color: var(--carousel-button-gift-background);
   width: 1.1181rem;
   height: 1.1181rem;
   position: absolute;
@@ -182,7 +188,7 @@ img {
     }
   }
   .p-icon {
-    color: var(--carousel-i-gift-color);
+    color: var(--carousel-i-color-gift);
     width: 0.4094rem;
     height: 0.6544rem;
 
@@ -190,6 +196,9 @@ img {
       width: 0.9375rem;
       height: 1.5rem;
     }
+  }
+  &:hover {
+    background-color: var(--carousel-button-gift-hover);
   }
 }
 
@@ -231,17 +240,17 @@ img {
   width: 0.4375rem;
   height: 0.4375rem;
   border-radius: 2.9125rem;
-  background-color: var(--background-carousel-indicator-button-gift);
+  background-color: var(--carousel-indicator-button-gift-color);
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: var(--hover-persian-rose) !important;
+    color: var(--carousel-indicator-button-gift-hover) !important;
   }
 }
 
 :host ::ng-deep .p-carousel-indicator-active > .p-carousel-indicator-button {
   width: 1.1875rem;
-  background-color: var(--background-carousel-indicator-button-gift);
+  background-color: var(--carousel-indicator-button-gift-active);
 }
 
 // three bottom images ----------
@@ -270,10 +279,13 @@ img {
   }
 
   h2 {
+    background-color: var(--h2-background);
+    padding: 0.125rem 0.5rem;
+    border-radius: 1.25rem;
     font-family: var(--font-family-1);
     font-weight: 400;
     font-size: 1rem;
-    color: var(--h2-color);
+    color: var(--h2-color-gift);
     line-height: 100%;
     text-transform: capitalize;
     vertical-align: middle;
@@ -298,7 +310,7 @@ img {
 
 @media all and (min-width: 62rem) {
   .responsive-h1 {
-    color: var(--h1-color);
+    color: var(--h1-color-gift);
   }
 }
 

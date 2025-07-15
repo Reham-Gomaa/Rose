@@ -4,11 +4,13 @@
     <p-skeleton width="100%" height="200px"></p-skeleton>
     } @else if (productInfo) {
     <img
-      [src]="productInfo.imgCover"
+      [ngSrc]="productInfo.imgCover"
       [alt]="productInfo.title"
       class="product-image"
       loading="lazy"
       decoding="async"
+      width="100"
+      height="50"
     />
     <div class="bg-shape"></div>
     <div class="overlay-icons">

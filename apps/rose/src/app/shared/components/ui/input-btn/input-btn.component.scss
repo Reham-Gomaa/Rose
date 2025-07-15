@@ -18,18 +18,22 @@
     font-size: 0.875rem;
     line-height: 100%;
     outline: none;
-    background-color: var(--bg-input-footer);
-    color: var(--color-input-footer);
+    background-color: var(--input-background);
+    color: var(--input-color);
 
     &:focus {
-      outline: 1px solid var(--focus-input-footer);
+      outline: 1px solid var(--input-focus);
     }
+  }
+
+  ::placeholder {
+    color: var(--input-placeholder-color);
   }
 
   .input-button {
     padding: 0.9rem 2rem;
-    background-color: var(--bg-btn-footer);
-    color: var(--color-btn-footer);
+    background-color: var(--input-btn-background);
+    color: var(--input-btn-color);
     border: none;
     border-radius: 1.875rem;
     cursor: pointer;
@@ -38,15 +42,15 @@
     margin-left: -2rem;
 
     &:hover {
-      background-color: var(--hover-btn-footer);
+      background-color: var(--input-btn-hover);
     }
   }
 }
 
 /* Mobile Styles (only when ≤766px AND disableMobileStyles=false) */
-@media screen and (max-width: 766px) {
+@media  (min-width: 300px) and (max-width: 766px) {
   .input-button-wrapper:not(.disable-mobile) {
-    width: 17rem;
+    width: 15rem;
     height: 3rem;
 
     .input-field {

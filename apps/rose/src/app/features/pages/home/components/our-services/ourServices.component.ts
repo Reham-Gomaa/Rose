@@ -1,15 +1,22 @@
-import { Component } from "@angular/core";
-
+import { Component, inject } from "@angular/core";
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Animations
+import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+// Interfaces
+import { ServicesInterface } from "@rose/core_interfaces/services.interface";
 
-import { ServicesInterface } from "../../../../../core/interfaces/services.interface";
 @Component({
   selector: "app-our-services",
   imports: [TranslatePipe],
   templateUrl: "./ourServices.component.html",
   styleUrl: "./ourServices.component.scss",
+  animations: [fadeTransition],
 })
 export class OurServicesComponent {
+  translationService = inject(TranslationService);
+
   services: ServicesInterface[] = [
     {
       id: 1,

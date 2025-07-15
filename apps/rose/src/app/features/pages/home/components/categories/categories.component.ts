@@ -1,12 +1,19 @@
 import { Component, inject, OnInit, signal, DestroyRef } from "@angular/core";
 import { CommonModule } from "@angular/common";
+// Images
+import { NgOptimizedImage } from "@angular/common";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import { CategoriesService } from "../../../../../shared/services/categories/categories.service";
-import { CategoryRes, Category } from "../../../../../core/interfaces/categories.interface";
-
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Animations
+import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+// Interfaces
+import { Category, CategoryRes } from "@rose/core_interfaces/categories.interface";
+// Shared_Services
+import { CategoriesService } from "@rose/shared_services/categories/categories.service";
+// Shared_Components
+import { NoDataAvailableComponent } from "@rose/shared_Components_business/no-data-available/no-data-available.component";
 // PrimeNG
 import { ToastModule } from "primeng/toast";
 import { MessageService } from "primeng/api";
@@ -14,13 +21,22 @@ import { Skeleton } from "primeng/skeleton";
 
 @Component({
   selector: "app-categories",
-  imports: [CommonModule, ToastModule, Skeleton, TranslatePipe],
+  imports: [
+    CommonModule,
+    ToastModule,
+    Skeleton,
+    TranslatePipe,
+    NoDataAvailableComponent,
+    NgOptimizedImage,
+  ],
   templateUrl: "./categories.component.html",
   styleUrls: ["./categories.component.scss"],
   providers: [MessageService],
+  animations: [fadeTransition],
 })
 export class CategoriesComponent implements OnInit {
   private categoriesService = inject(CategoriesService);
+  translationService = inject(TranslationService);
   private messageService = inject(MessageService);
 
   private destroyRef = inject(DestroyRef);
@@ -36,8 +52,10 @@ export class CategoriesComponent implements OnInit {
   private loadCategories() {
     this.isLoading.set(true);
 
-
-      this.categoriesService.getAllCategories().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
+    this.categoriesService
+      .getAllCategories()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
         next: (response: CategoryRes) => {
           this.categories.set(response.categories || []);
           this.isLoading.set(false);
@@ -51,7 +69,6 @@ export class CategoriesComponent implements OnInit {
             detail: "Failed to load categories",
           });
         },
-      })
-
+      });
   }
 }

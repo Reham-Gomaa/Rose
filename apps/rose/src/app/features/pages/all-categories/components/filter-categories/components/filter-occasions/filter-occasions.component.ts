@@ -1,20 +1,18 @@
 import { Component, DestroyRef, inject, OnInit } from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import { CheckedCardComponent } from "../../../../../../../shared/components/business/checkbox/checked-card.component";
-import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
-import {
-  FilterItem,
-  selectedItem,
-} from "../../../../../../../core/interfaces/filter-item.interface";
-
-import { occasionRes } from "../../../../../../../core/interfaces/occasions.interface";
-import { OccasionsService } from "../../../../../../../shared/services/occasions/occasions.service";
-
+// Interfaces
+import { FilterItem, selectedItem } from "@rose/core_interfaces/filter-item.interface";
+import { occasionRes } from "@rose/core_interfaces/occasions.interface";
+// Shared_Components
+import { FilterCardComponent } from "@rose/shared_Components_ui/filter-card/filter-card.component";
+import { CheckedCardComponent } from "@rose/shared_Components_business/checkbox/checked-card.component";
+// Shared_Services
+import { OccasionsService } from "@rose/shared_services/occasions/occasions.service";
+// NGRX
 import { Store } from "@ngrx/store";
-import { loadSelectedOccasions } from './../../../../../../../store/filter/filter.actions';
+import { loadSelectedOccasions } from "@rose/store_filter/filter.actions";
 
 @Component({
   selector: "app-filter-occasions",
@@ -33,24 +31,26 @@ export class FilterOccasionsComponent implements OnInit {
   selectedItems: selectedItem[] = [] as selectedItem[];
 
   ngOnInit(): void {
-     this._occasionsService.getcategoryOccasions().pipe(takeUntilDestroyed(this.destroyRef)).subscribe({
-      next: (res: occasionRes) => {
-
-        this.occasions = res.occasions
-          .filter((occasion) => occasion.productsCount > 0)
-          .map((occasion) => ({
-            _id: occasion._id,
-            category: occasion.name,
-            productCount: occasion.productsCount,
-          }));
-      },
-      error: (err) => {
-        console.error("Error fetching occasions:", err);
-      },
-    });
+    this._occasionsService
+      .getcategoryOccasions()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (res: occasionRes) => {
+          this.occasions = res.occasions
+            .filter((occasion) => occasion.productsCount > 0)
+            .map((occasion) => ({
+              _id: occasion._id,
+              category: occasion.name,
+              productCount: occasion.productsCount,
+            }));
+        },
+        error: (err) => {
+          console.error("Error fetching occasions:", err);
+        },
+      });
   }
 
   changeValue() {
-    this._store.dispatch(loadSelectedOccasions({selectedOccasions:this.selectedItems}));
+    this._store.dispatch(loadSelectedOccasions({ selectedOccasions: this.selectedItems }));
   }
 }

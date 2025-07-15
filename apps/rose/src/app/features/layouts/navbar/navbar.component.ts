@@ -1,15 +1,18 @@
-
 import { Component, inject, OnInit, signal, ViewChild, WritableSignal } from "@angular/core";
+// Router
 import { RouterLink, RouterLinkActive } from "@angular/router";
-
+// Images
+import { NgOptimizedImage } from "@angular/common";
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "../../../core/services/translation/translation.service";
-
-import { TranslateToggleComponent } from "../../../shared/components/business/translate-toggle/translate-toggle.component";
-import { ButtonThemeComponent } from "../../../shared/components/ui/button-theme/button-theme.component";
-import { SearchModalComponent } from "../../../shared/components/ui/search-modal/search-modal.component";
-import { ButtonComponent } from "../../../shared/components/ui/button/button.component";
-
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Animations_Translation
+import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+// Shared_Components
+import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
+import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
+import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
+import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";
 // primeNg
 import { MenuItem } from "primeng/api";
 import { ButtonModule } from "primeng/button";
@@ -17,7 +20,6 @@ import { Dialog } from "primeng/dialog";
 import { InputTextModule } from "primeng/inputtext";
 import { Menubar } from "primeng/menubar";
 import { OverlayBadgeModule } from "primeng/overlaybadge";
-
 
 type modalPosition =
   | "left"
@@ -45,12 +47,14 @@ type modalPosition =
     SearchModalComponent,
     ButtonComponent,
     TranslateToggleComponent,
+    NgOptimizedImage,
   ],
   templateUrl: "./navbar.component.html",
   styleUrl: "./navbar.component.scss",
+  animations: [fadeTransition],
 })
 export class NavbarComponent implements OnInit {
-  private readonly translationService = inject(TranslationService);
+  readonly translationService = inject(TranslationService);
   isLoggedIn: WritableSignal<boolean> = signal<boolean>(false);
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
   items: MenuItem[] | undefined;

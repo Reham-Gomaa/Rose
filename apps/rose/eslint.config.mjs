@@ -22,6 +22,7 @@ export default [
           type: 'element',
           prefix: 'app',
           style: 'kebab-case',
+          allow: ['@rose/shared']
         },
       ],
     },

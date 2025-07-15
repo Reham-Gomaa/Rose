@@ -1,6 +1,9 @@
 import { Route } from "@angular/router";
-import { DashboardComponent } from "./features/layouts/dashboard/dashboard.component";
+
 import { DetailsComponent } from "./features/pages/details/details.component";
+
+import { DashboardComponent } from "@rose/features_layouts/dashboard/dashboard.component";
+
 
 export const appRoutes: Route[] = [
   {
@@ -18,13 +21,13 @@ export const appRoutes: Route[] = [
         path: "home",
         title: "Home",
         loadComponent: () =>
-          import("./features/pages/home/home.component").then((c) => c.HomeComponent),
+          import("@rose/features_pages/home/home.component").then((c) => c.HomeComponent),
       },
       {
         path: "all-categories",
         title: "Our Categories",
         loadComponent: () =>
-          import("./features/pages/all-categories/all-categories.component").then(
+          import("@rose/features_pages/all-categories/all-categories.component").then(
             (c) => c.AllCategoriesComponent
           ),
       },
@@ -32,16 +35,19 @@ export const appRoutes: Route[] = [
         path: "about",
         title: "About-Us",
         loadComponent: () =>
-          import("./features/pages/about/about.component").then((c) => c.AboutComponent),
+          import("@rose/features_pages/about/about.component").then((c) => c.AboutComponent),
       },
       {
         path: "contact",
         title: "Contact-Us",
         loadComponent: () =>
-          import("./features/pages/contact/contact.component").then((c) => c.ContactComponent),
+          import("@rose/features_pages/contact/contact.component").then((c) => c.ContactComponent),
       },
       {
-        path:"details/:id",loadComponent:()=>import("./features/pages/details/details.component").then(c=>c.DetailsComponent)
+        path: "details/:id",
+        title: "Product Details",
+        loadComponent: () =>
+          import("@rose/features_pages/details/details.component").then((c) => c.DetailsComponent),
       }
     ],
   },
@@ -49,6 +55,6 @@ export const appRoutes: Route[] = [
     path: "**",
     title: "Not Found",
     loadComponent: () =>
-      import("./features/pages/not-found/not-found.component").then((c) => c.NotFoundComponent),
+      import("@rose/features_pages/not-found/not-found.component").then((c) => c.NotFoundComponent),
   },
 ];

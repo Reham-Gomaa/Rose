@@ -1,14 +1,11 @@
 import { Component } from "@angular/core";
-
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import { CheckedCardComponent } from "../../../../../../../shared/components/business/checkbox/checked-card.component";
-import { FilterCardComponent } from "../../../../../../../shared/components/ui/filter-card/filter-card.component";
-import {
-  FilterItem,
-  selectedItem,
-} from "../../../../../../../core/interfaces/filter-item.interface";
-
+// Interfaces
+import { FilterItem, selectedItem } from "@rose/core_interfaces/filter-item.interface";
+// Shared_Components
+import { CheckedCardComponent } from "@rose/shared_Components_business/checkbox/checked-card.component";
+import { FilterCardComponent } from "@rose/shared_Components_ui/filter-card/filter-card.component";
 
 @Component({
   selector: "app-filter-sales",

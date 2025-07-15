@@ -1,13 +1,14 @@
-import { Component, input, InputSignal, Output, EventEmitter } from "@angular/core";
-
+import { Component, EventEmitter, input, InputSignal, Output } from "@angular/core";
+// Translation
 import { TranslatePipe } from "@ngx-translate/core";
-
-import { FilterItem, selectedItem } from "../../../../core/interfaces/filter-item.interface";
-
+// Interfaces
+import { FilterItem, selectedItem } from "@rose/core_interfaces/filter-item.interface";
+// Shared_Components
+import { NoDataAvailableComponent } from "../no-data-available/no-data-available.component";
 
 @Component({
   selector: "app-checked-card",
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, NoDataAvailableComponent],
   templateUrl: "./checked-card.component.html",
   styleUrl: "./checked-card.component.scss",
 })
@@ -22,12 +23,19 @@ export class CheckedCardComponent {
     return this.selectedItems().some((item) => item._id === itemId);
   }
 
-  toggleItemSelection(itemId: string, rateAvg ?:number): void {
+  toggleItemSelection(itemId: string, rateAvg?: number): void {
     const current = [...this.selectedItems()];
     const index = current.findIndex((item) => item._id === itemId);
     let newSelected: selectedItem[];
     if (index === -1) {
-      newSelected = [...current, { _id: itemId, type: this.itemType(), ...(this.itemType() === 'ratings' && { rateAvg: rateAvg ?? 0 })}];
+      newSelected = [
+        ...current,
+        {
+          _id: itemId,
+          type: this.itemType(),
+          ...(this.itemType() === "ratings" && { rateAvg: rateAvg ?? 0 }),
+        },
+      ];
     } else {
       newSelected = current.filter((item) => item._id !== itemId);
     }
