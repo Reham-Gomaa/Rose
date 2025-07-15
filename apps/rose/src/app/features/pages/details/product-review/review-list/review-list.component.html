@@ -1,0 +1,35 @@
+<div class="review-list">
+  <div class="review-item">
+    <div class="review-header">
+      <div class="review-owner flex mb-4 gap-3 align-items-center">
+        <div class="owner-photo">
+          <span class="flex justify-content-center align-items-center">
+            A
+          </span>
+        </div>
+        <div>
+          <div class="owner-name">
+            <span class="font-semibold">Adrian</span>
+          </div>
+          <div class="date">
+            Apr 7, 2025
+          </div>
+        </div>
+      </div>
+      <div class="review-rate flex">
+        <p-rating [(ngModel)]="value" [stars]="5" [readonly]="true"></p-rating>
+        <span class="font-semibold ml-2">(4.5)</span>
+      </div>
+    </div>
+    <div class="review-content">
+      <h3 class="font-bold">{{"Details.reviewTitleExample" | translate }}</h3>
+      <p class="text-muted">
+      {{"Details.reviewBodyExample" | translate }}
+
+      </p>
+
+    </div>
+  </div>
+
+
+</div>

@@ -6,4 +6,5 @@ export class EndPoint {
   static CountPRODUCTSByCATEGORIES = `${environment.baseApiUrl}products/count-by-category`;
   static BESTSELLER = `${environment.baseApiUrl}api/v1/best-seller`;
   static OCCASION = `${environment.baseApiUrl}api/v1/occasions`;
+  static ADD_REVIEW = `${environment.baseApiUrl}api/v1/reviews`;
 }

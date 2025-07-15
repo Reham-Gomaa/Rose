@@ -1,5 +1,6 @@
 import { Route } from "@angular/router";
 import { DashboardComponent } from "./features/layouts/dashboard/dashboard.component";
+import { DetailsComponent } from "./features/pages/details/details.component";
 
 export const appRoutes: Route[] = [
   {
@@ -39,6 +40,9 @@ export const appRoutes: Route[] = [
         loadComponent: () =>
           import("./features/pages/contact/contact.component").then((c) => c.ContactComponent),
       },
+      {
+        path:"details/:id",loadComponent:()=>import("./features/pages/details/details.component").then(c=>c.DetailsComponent)
+      }
     ],
   },
   {
