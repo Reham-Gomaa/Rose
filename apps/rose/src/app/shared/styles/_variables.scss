@@ -34,6 +34,7 @@
   --soft-pink-50: #fff1f5;
   --yellow: #fba707;
   --hover-card-shape: #e6507380;
+  --gray-950: #323639
 
   //Body
   --body-color: var(--white);
@@ -211,6 +212,15 @@
   --point-slider-hover: var(--maroon-500);
   // Ratings-filter
   --star-color: var(--yellow);
+  // Custom Input
+  --input-color: var(--white);
+  --input-text-color: var(--zinc-400);
+  --label-color:var(--zinc-800);
+  --input-border-color:var(--zinc-300);
+  --selected-color-input:var(--gray-950);
+  --border-active-color:var(--maroon-700);
+
+
 }
 
 // Dark theme overrides
@@ -385,4 +395,12 @@
   --point-slider-hover: var(--soft-pink-400);
   // Ratings-filter
   --star-color: var(--yellow);
+  // Custom Input
+  --input-color: var(--zinc-700);
+  --input-text-color: var(--zinc-400);
+  --label-color:var(--white);
+  --input-border-color:var(--zinc-600);
+  --selected-color-input:var(--white);
+  --border-active-color:var(--soft-pink-600);
+
 }
