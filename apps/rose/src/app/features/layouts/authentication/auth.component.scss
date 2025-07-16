@@ -70,11 +70,12 @@
 }
 
 :host-context([dir="rtl"]) h5 {
-    text-align: left;
+    text-align: left !important;
 }
 
-:host-context([dir="rtl"]) h1.forget {
-    text-align: right;
+:host-context([dir="rtl"]) h1.forget,
+:host-context([dir="rtl"]) p.forget {
+    text-align: right !important;
 }
 
 #photo {

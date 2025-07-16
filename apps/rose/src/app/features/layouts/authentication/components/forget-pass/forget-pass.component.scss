@@ -37,6 +37,10 @@
        margin: .625rem 0 0;
    }
 
+   :host-context([dir="rtl"]) h5 {
+    text-align: left !important;
+}
+
     // Login
 //     h3 {
 //         font-weight: 500;
