@@ -1,0 +1,19 @@
+button{
+    width: 100%;
+    border-radius: .625rem;
+    border: none;
+    padding: .875rem 1rem;
+    margin-top: 2.25rem;
+    margin-bottom: 2.25rem;
+    background-color: var(--form-button-bg);
+    color: var(--form-button-color);
+    font-family: var(--font-family-1);
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color .3s ease;
+
+    &:hover{
+        background-color: var(--form-button-hover);
+    }
+}

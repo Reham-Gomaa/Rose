@@ -1,0 +1,45 @@
+<section class="grid h-screen">
+    <div id="auth" class="col-6 ">
+        <div id="lang-toggle" class="flex justify-content-end align-items-center">
+            <app-button-theme />
+            <app-translate-toggle />
+        </div>
+        <div>
+            <app-separator></app-separator>
+            @if (process() === 'forgetPass') {
+                <h1 class="forget">{{ title() |translate }}</h1>
+                <p class="forget">{{ titleParagraph() |translate }} <span>{{ paragraphSpan() |translate }}</span> </p>
+            }
+            @else {<h1>{{ title() |translate }}</h1>}
+            <div id="form-wrapper">
+                <form>
+                    <ng-content />
+                    @if (process() === 'login') {<h5 [routerLink]="'/forget-pass'" class="cursor-pointer">{{ heading5() |translate }}</h5>}
+                    @if (process() !== 'forgetPass') {
+                        <app-form-button [text]="button() |translate"></app-form-button>
+                    }
+                </form>
+            </div>
+            <h3 [routerLink]="process() === 'register' ? '/login' : '/register'" class="cursor-pointer">{{heading3() | translate}}
+                <span>{{heading3span() |translate}}</span> </h3>
+            <app-separator></app-separator>
+        </div>
+    </div>
+    <div id="photo" class="col-6" style="background-image: url('./images/auth/gifts.WebP')"></div>
+</section>
+
+
+<!-- <section class="grid h-screen">
+    <div id="auth" class="col-6 ">
+        <div id="lang-toggle" class="flex justify-content-end align-items-center">
+            <app-button-theme />
+            <app-translate-toggle />
+        </div>
+        <div>
+            <app-separator></app-separator>
+            <ng-content select="section" />
+            <app-separator></app-separator>
+        </div>
+    </div>
+    <div id="photo" class="col-6" style="background-image: url('./images/auth/gifts.WebP')"></div>
+</section> -->

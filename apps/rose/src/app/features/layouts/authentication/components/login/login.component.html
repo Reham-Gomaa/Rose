@@ -1,0 +1,29 @@
+<app-auth [@fadeTransition]="translationService.fadeState()" 
+   [process]="'login'"
+   [title]="'auth.login.h1'"
+   [heading5]="'auth.login.h5'"
+   [button]="'auth.login.button'"
+   [heading3]="'auth.login.h3'"
+   [heading3span]="'auth.login.span'">
+   <div class="flex-col ">
+      <input type="text" class="block w-full">
+      <input type="text" class="block w-full">
+   </div>
+</app-auth>
+
+<!-- <app-auth [@fadeTransition]="translationService.fadeState()" >
+   <section>
+      <h1>{{ 'auth.login.h1' |translate }}</h1>
+      <div id="form-wrapper">
+         <form>
+            <div class="flex-col ">
+               <input type="text" class="block w-full">
+               <input type="text" class="block w-full">
+            </div>
+            <h5 [routerLink]="'/forget-pass'" class="cursor-pointer">{{ 'auth.login.h5' |translate }}</h5>
+            <app-form-button [text]="'auth.login.button' |translate"></app-form-button>
+         </form>
+      </div>
+      <h3 [routerLink]="'/register'" class="cursor-pointer">{{'auth.login.h3' | translate}} <span>{{'auth.login.span' |translate}}</span> </h3>
+   </section>
+</app-auth> -->

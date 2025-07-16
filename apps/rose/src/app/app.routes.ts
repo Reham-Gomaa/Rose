@@ -1,5 +1,6 @@
 import { Route } from "@angular/router";
 import { DashboardComponent } from "@rose/features_layouts/dashboard/dashboard.component";
+import path from "path";
 
 export const appRoutes: Route[] = [
   {
@@ -39,7 +40,26 @@ export const appRoutes: Route[] = [
         loadComponent: () =>
           import("@rose/features_pages/contact/contact.component").then((c) => c.ContactComponent),
       },
+
     ],
+  },
+  {
+    path: "login",
+    title: "Log-in",
+    loadComponent: () =>
+      import("@rose/features_layouts/authentication/components/login/login.component").then((c) => c.LoginComponent)
+  },
+  {
+    path: "register",
+    title: "Register",
+    loadComponent: () =>
+      import("@rose/features_layouts/authentication/components/register/register.component").then((c) => c.RegisterComponent)
+  },
+  {
+    path: "forget-pass",
+    title: "Forget Password",
+    loadComponent: () =>
+      import("@rose/features_layouts/authentication/components/forget-pass/forget-pass.component").then((c) => c.ForgetPassComponent)
   },
   {
     path: "**",

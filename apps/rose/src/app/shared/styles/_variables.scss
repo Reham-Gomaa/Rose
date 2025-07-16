@@ -3,6 +3,12 @@
   // Fonts
   --font-family-1: "Inter", sans-serif;
   --font-family-2: "Roboto", sans-serif;
+  --font-family-3: "Tajawal", sans-serif;
+
+  &[dir="rtl"] {
+    --font-family-1: var(--font-family-3);
+    --font-family-2: var(--font-family-3);
+  }
 
   // Light theme colors
   --white: #ffffff;
@@ -34,6 +40,7 @@
   --soft-pink-50: #fff1f5;
   --yellow: #fba707;
   --hover-card-shape: #e6507380;
+  --blue-700: #1447E6;
 
   //Body
   --body-color: var(--white);
@@ -210,6 +217,19 @@
   --point-slider-hover: var(--maroon-500);
   // Ratings-filter
   --star-color: var(--yellow);
+  // Login
+  --auth-title: var(--maroon-700);
+  --forgetPass-anchor: var(--maroon-700);
+  --register-anchor: var(--zinc-800);
+  --register-span-anchor: var(--maroon-700);
+  // Forget pass
+  --forget-pass-title: var(--zinc-800);
+  // Verify OTP
+  --edit: var(--blue-700);
+  // Auth-Button
+  --form-button-bg: var(--maroon-600);
+  --form-button-hover: var(--maroon-500);
+  --form-button-color: var(--white);
 }
 
 // Dark theme overrides
@@ -384,4 +404,17 @@
   --point-slider-hover: var(--soft-pink-400);
   // Ratings-filter
   --star-color: var(--yellow);
+  // Login
+  --auth-title: var(--soft-pink-300);
+  --forgetPass-anchor: var(--soft-pink-300);
+  --register-anchor: var(--zinc-50);
+  --register-span-anchor: var(--soft-pink-300);
+   // Forget pass
+  --forget-pass-title: var(--zinc-50);
+  // Verify OTP
+  --edit: var(--blue-700);
+  // Auth-Button
+  --form-button-bg: var(--soft-pink-300);
+  --form-button-hover: var(--soft-pink-400);
+  --form-button-color: var(--zinc-800);
 }

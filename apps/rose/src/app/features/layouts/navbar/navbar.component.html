@@ -34,6 +34,7 @@
           @if (!isLoggedIn()) {
 
           <app-button
+            [routerLink]="'/login'"
             [text]="'navbar.login' | translate"
             [isIcon]="false"
             [borderRadius]="'btn-login-radius'"
