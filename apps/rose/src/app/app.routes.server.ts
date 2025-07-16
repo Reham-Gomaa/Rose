@@ -10,7 +10,7 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Server,
   },
   {
-    path: "dashboard/details",
+    path: "dashboard/details/:id",
     renderMode: RenderMode.Client,
   },
   {
