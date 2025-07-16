@@ -1,0 +1,44 @@
+<section class="product-review my-5">
+
+  <div class="product-review-header pb-5">
+    <h2 id="review-header" class="capitalize">
+      {{ 'Details.productReviews' | translate }}
+      <span class="bottom-rect"></span>
+    </h2>
+
+    <div class="general-rating">
+      <h3 class="mb-2">
+        {{ 'Details.generalRating' | translate }}:
+      </h3>
+      <div class="rating-value">
+        <span class="rating-average mb-3 inline-block capitalize font-semibold  ">
+          <span class="font-bold rateVal">
+            4.5
+          </span>
+          <span class="numOfRating">
+            ({{ 'Details.ratingsCount' | translate:{ count: 8 } }})
+          </span>
+        </span>
+        <div class="rating-stars">
+          <p-rating [(ngModel)]="value" [iconOnStyle]="{
+                  'color': '#FFD700',
+                }" [stars]="5" [readonly]="true" />
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="prod-review-content py-5">
+    <div class="grid">
+      <div class="md:col-6 col-12 sm:border-none md:flex-order-0 flex-order-1">
+        <app-review-form></app-review-form>
+      </div>
+      <div class="md:col-6 col-12">
+       <app-review-list></app-review-list>
+      </div>
+
+    </div>
+  </div>
+
+</section>

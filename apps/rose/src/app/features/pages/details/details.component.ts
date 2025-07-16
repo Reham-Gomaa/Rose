@@ -1,27 +1,59 @@
-import { Component, OnInit } from "@angular/core";
+
+import { Component, inject, OnInit,OnDestroy } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { RelatedProductsComponent } from "./components/related-products/related-products.component";
-import { ActivatedRoute } from "@angular/router"; 
+import { ProductReviewComponent } from "./product-review/product-review.component";
+import { ActivatedRoute } from "@angular/router";
+import { Subscription } from "rxjs";
+import { ProductsService } from "../../../shared/services/products/products.service";
+import { Product } from "../../../core/interfaces/carditem.interface";
+import { ProductDetailsComponent } from "./product-details/product-details.component";
 
 @Component({
   selector: "app-details",
-  standalone: true,
-  imports: [CommonModule, RelatedProductsComponent],
+  imports: [CommonModule, ProductReviewComponent, ProductDetailsComponent],
   templateUrl: "./details.component.html",
-  styleUrls: ["./details.component.scss"],
+  styleUrl: "./details.component.scss",
 })
-export class DetailsComponent implements OnInit {
-  //stores the current product ID
-  currentProductId: string = '';
+export class DetailsComponent implements OnInit, OnDestroy {
 
-  constructor(private route: ActivatedRoute) {}
+  private readonly _activatedRoute = inject(ActivatedRoute)
+  private readonly _productService = inject(ProductsService)
+  subscription:Subscription = new Subscription();
+  productId!:string;
+  productDetails:Product = {} as Product;
 
-  ngOnInit(): void {
-    // Get product ID from route parameters
-    this.route.params.subscribe(params => {
-      this.currentProductId = params['id'];
-      console.log('Current Product ID:', this.currentProductId);
-    });
+
+  getProductId(){
+    this._activatedRoute.params.subscribe({
+      next:(params)=>{
+        this.productId=params['id'];
+        this.getProductDetails()
+      }
+    })
+  }
+
+
+  getProductDetails(){
+
+  this.subscription=this._productService.getProductDetails(this.productId).subscribe({
+      next:(response)=>{
+        this.productDetails = response.product
+        console.log(this.productDetails);
+      }
+    })
 
   }
+
+  ngOnInit():void
+  {
+    this.getProductId();
+  }
+
+  ngOnDestroy():void{
+    this.subscription.unsubscribe()
+  }
+
+
+
+
 }
