@@ -7,10 +7,11 @@ import { Subscription } from "rxjs";
 import { ProductsService } from "../../../shared/services/products/products.service";
 import { Product } from "../../../core/interfaces/carditem.interface";
 import { ProductDetailsComponent } from "./product-details/product-details.component";
+import { RelatedProductsComponent } from "./components/related-products/related-products.component";
 
 @Component({
   selector: "app-details",
-  imports: [CommonModule, ProductReviewComponent, ProductDetailsComponent],
+  imports: [CommonModule, ProductReviewComponent, ProductDetailsComponent, RelatedProductsComponent],
   templateUrl: "./details.component.html",
   styleUrl: "./details.component.scss",
 })

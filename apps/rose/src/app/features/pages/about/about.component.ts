@@ -35,6 +35,6 @@ export class AboutComponent {
       console.log(this.aboutForm.value);
       console.log(this.aboutForm)
       console.log(this.aboutForm.get('name'))
-    
+
   }
 }
