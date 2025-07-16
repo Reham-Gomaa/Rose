@@ -1,7 +1,7 @@
 <section id="product-details" class="my-5">
 
   <div class="grid  gap-5 md:flex-nowrap">
-    <div class="md:col-5 col-12">
+    <div class="md:col-6 col-12">
       <div class="product-image">
         <div class="cover relative">
           <svg xmlns="http://www.w3.org/2000/svg" class="absolute m-3 cursor-pointer" viewBox="0 0 512 512"
@@ -10,18 +10,18 @@
               d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM184 296c0 13.3 10.7 24 24 24s24-10.7 24-24l0-64 64 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-64 0 0-64c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 64-64 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l64 0 0 64z" />
           </svg>
           <!-- <i class="pi pi-eye absolute right-0 m-3 cursor-pointer" style="font-size: 2rem;"></i> -->
-          <img class="w-full object-contain" [src]="productDetails().imgCover" [alt]="productDetails().slug">
+          <img class="w-full object-cover" [src]="productDetails().imgCover" [alt]="productDetails().slug">
         </div>
         <div class="others flex justify-content-center align-items-center gap-3">
           @for (image of productDetails().images; track $index) {
-          <div class="image cursor-pointer">
-            <img class="w-full object-cover " [ngSrc]="image" [alt]="productDetails().slug" />
+          <div class="image flex justify-content-center cursor-pointer flex-wrap" #im>
+            <img class="object-cover" width="91" height="110" [ngSrc]="image" [alt]="productDetails().slug" />
           </div>
           }
         </div>
       </div>
     </div>
-    <div class="md:col-7 col-12 border">
+    <div class="md:col-6 col-12 border">
       <div class="product-info h-full flex flex-column justify-content-between">
         <div>
           <h2 class="font-semibold mb-1 mt-0">{{ productDetails().title }}</h2>
@@ -46,7 +46,7 @@
             {{productDetails().description}}
           </p>
         </div>
-        <div class="wish-and-cart text-lg w-full flex gap-2">
+        <div class="wish-and-cart text-xl w-full flex gap-2">
           <button class="submit-btn wish cursor-pointer flex-grow-0 w-fit capitalize">
             <i class="pi  pi-heart"></i>
           </button>

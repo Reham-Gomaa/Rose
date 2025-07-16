@@ -188,17 +188,16 @@
   "enterReview": "What do you think of this product?",
   "addReview": "Add Review",
   "reviewTitleExample": "Awesome Bouquet !",
-  "reviewBodyExample": "I ordered this bouquet for a special occasion, and it absolutely exceeded my expectations! The flowers were fresh, beautifully arranged, and exactly as pictured—if not better. The color combination was stunning and gave off such a luxurious vibe. Even the wrapping was elegant and thoughtful. Delivery was right on time, and the bouquet arrived in perfect condition. The recipient was genuinely touched and couldn't stop admiring it. Highly recommend for anyone looking to make a lasting impression. Will definitely order again!"
-
-  "emptyData": {
-    "message": "Oops! Something went wrong while loading the data. Please try again later."
-  },
-   "details": {   
-    "relatedProducts": {
+  "reviewBodyExample": "I ordered this bouquet for a special occasion, and it absolutely exceeded my expectations! The flowers were fresh, beautifully arranged, and exactly as pictured—if not better. The color combination was stunning and gave off such a luxurious vibe. Even the wrapping was elegant and thoughtful. Delivery was right on time, and the bouquet arrived in perfect condition. The recipient was genuinely touched and couldn't stop admiring it. Highly recommend for anyone looking to make a lasting impression. Will definitely order again!",
+"relatedProducts": {
       "title": "Related Products",
       "noItemsMessage": "No related products available!"
 
     }
-    
+  },
+
+  "emptyData": {
+    "message": "Oops! Something went wrong while loading the data. Please try again later."
   }
 }
+
