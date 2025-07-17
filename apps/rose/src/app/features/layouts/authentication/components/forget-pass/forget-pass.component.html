@@ -1,13 +1,3 @@
-<!-- <app-auth [@fadeTransition]="translationService.fadeState()"
-   [process]="'forgetPass'"
-   [title]="forgetFlow === 'forget' ? details[1].title : forgetFlow === 'verify' ? details[2].title : details[3].title"
-   [titleParagraph]="forgetFlow === 'forget' ? details[1].titleParagraph : forgetFlow === 'verify' ? details[2].titleParagraph : details[3].titleParagraph"
-   [paragraphSpan]="forgetFlow === 'verify' ? details[2].paragraphSpan ! : ''"
-   [heading5]="forgetFlow === 'verify' ? details[2].heading5 ! : ''"
-   [heading3]="forgetFlow === 'forget' ? details[1].heading3 : forgetFlow === 'verify' ? details[2].heading3 : details[3].heading3"
-   [heading3span]="forgetFlow === 'forget' ? details[1].heading3span : forgetFlow === 'verify' ? details[2].heading3span : details[3].heading3span" 
-   > -->
-
    <app-auth [@fadeTransition]="translationService.fadeState()" 
       [process]="'forgetPass'"
    [title]="getDetails().title"
@@ -45,49 +35,3 @@
       </div>
    }
 </app-auth>
-
-<!-- <app-auth [@fadeTransition]="translationService.fadeState()" >
-   <section>
-      <h1>{{ 'auth.forget-pass.h1' |translate }}</h1>
-      <p>{{ 'auth.forget-pass.paragraph' |translate }}</p>
-      <div id="form-wrapper">
-         <form>
-            <div class="flex-col ">
-               <input type="text" class="block w-full">
-               <input type="text" class="block w-full">
-            </div>
-            <app-form-button [text]="'auth.forget-pass.button' |translate"></app-form-button>
-         </form>
-      </div>
-      <h3 [routerLink]="'/register'" class="cursor-pointer">{{'auth.forget-pass.h3' | translate}} <span>{{'auth.forget-pass.span' |translate}}</span> </h3>
-   </section>
-   <section>
-      <h1>{{ 'auth.verify.h1' |translate }}</h1>
-      <p>{{ 'auth.verify.paragraph' |translate }} <span>{{ 'auth.verify.pSpan' |translate }}</span> </p>
-      <div id="form-wrapper">
-         <form>
-            <div class="flex-col ">
-               <input type="text" class="block w-full">
-               <input type="text" class="block w-full">
-            </div>
-            <h5 class="cursor-pointer">{{ 'auth.verify.h5' |translate }}</h5>
-            <app-form-button [text]="'auth.verify.button' |translate"></app-form-button>
-         </form>
-      </div>
-      <h3 [routerLink]="'/register'" class="cursor-pointer">{{'auth.verify.h3' | translate}} <span>{{'auth.verify.span' |translate}}</span> </h3>
-   </section>
-   <section>
-      <h1>{{ 'auth.forget-pass.h1' |translate }}</h1>
-      <p>{{ 'auth.forget-pass.paragraph' |translate }}</p>
-      <div id="form-wrapper">
-         <form>
-            <div class="flex-col ">
-               <input type="text" class="block w-full">
-               <input type="text" class="block w-full">
-            </div>
-            <app-form-button [text]="'auth.forget-pass.button' |translate"></app-form-button>
-         </form>
-      </div>
-      <h3 [routerLink]="'/register'" class="cursor-pointer">{{'auth.forget-pass.h3' | translate}} <span>{{'auth.forget-pass.span' |translate}}</span> </h3>
-   </section>
-</app-auth> -->
