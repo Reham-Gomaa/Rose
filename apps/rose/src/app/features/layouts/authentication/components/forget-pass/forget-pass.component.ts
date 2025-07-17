@@ -8,7 +8,7 @@ import { TranslatePipe } from "@ngx-translate/core";
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
 import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
-import { AuthComponent } from "../../auth.component";
+import { AuthComponent } from "@rose/features_layouts/authentication/auth.component";
 
 export interface Details {
   title: string
