@@ -29,7 +29,7 @@ export class ProductDetailsComponent {
   }
 
   openImageModal(): void {
-    // this.currentImage.set(image);
+    
     this.showModal.set(true);
   }
 }
