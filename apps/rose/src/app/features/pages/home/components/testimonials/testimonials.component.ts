@@ -1,6 +1,5 @@
 import { Component, inject } from "@angular/core";
 // Images
-import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -9,14 +8,15 @@ import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Interfaces
 import { responsiveOption, Testimonials } from "@rose/core_interfaces/testimonials.interface";
 // primeNg
-import { CarouselModule } from "primeng/carousel";
 import { ButtonModule } from "primeng/button";
+import { CarouselModule } from "primeng/carousel";
 
 @Component({
   selector: "app-testimonials",
-  imports: [CarouselModule, ButtonModule, TranslatePipe, NgOptimizedImage],
+  imports: [CarouselModule, ButtonModule, TranslatePipe],
   templateUrl: "./testimonials.component.html",
   styleUrl: "./testimonials.component.scss",
+  host: { ngSkipHydration: "true" },
   animations: [fadeTransition],
 })
 export class TestimonialsComponent {
@@ -24,35 +24,23 @@ export class TestimonialsComponent {
 
   testimonials: Testimonials[] = [
     {
-      source: "./images/testimonials/T-1.WebP",
+      source: "./images/testimonials/customer-1.WebP",
       heading2: "home.testimonials.customer1.heading2",
-      heading3: "home.testimonials.customer1.heading3",
       paragraph: "home.testimonials.customer1.paragraph",
+      heading3: "home.testimonials.heading3",
     },
     {
-      source: "./images/testimonials/T-2.WebP",
+      source: "./images/testimonials/customer-2.WebP",
       heading2: "home.testimonials.customer2.heading2",
-      heading3: "home.testimonials.customer2.heading3",
       paragraph: "home.testimonials.customer2.paragraph",
+      heading3: "home.testimonials.heading3",
     },
     {
-      source: "./images/testimonials/T-3.WebP",
+      source: "./images/testimonials/customer-3.WebP",
       heading2: "home.testimonials.customer3.heading2",
-      heading3: "home.testimonials.customer3.heading3",
       paragraph: "home.testimonials.customer3.paragraph",
-    },
-    {
-      source: "./images/testimonials/T-4.WebP",
-      heading2: "home.testimonials.customer4.heading2",
-      heading3: "home.testimonials.customer4.heading3",
-      paragraph: "home.testimonials.customer4.paragraph",
-    },
-    {
-      source: "./images/testimonials/T-1.WebP",
-      heading2: "home.testimonials.customer5.heading2",
-      heading3: "home.testimonials.customer5.heading3",
-      paragraph: "home.testimonials.customer5.paragraph",
-    },
+      heading3: "home.testimonials.heading3",
+    }
   ];
 
   responsiveOptions: responsiveOption[] | undefined = [

@@ -1,0 +1,19 @@
+.error-item {
+  font-size: 1rem;
+}
+
+@media (max-width: 400px) {
+  .error-item {
+    font-size: 0.85rem;
+  }
+}
+.error-list {
+  list-style: none;
+  padding: 0;
+}
+
+
+.error-item {
+  font-weight: 500;
+  color: var(--border-active-color);
+}

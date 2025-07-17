@@ -1,6 +1,6 @@
 <div [@fadeTransition]="translationService.fadeState()" class="contain mx-auto">
   <div class="card">
-    <p-menubar [model]="items">
+    <p-menubar ngSkipHydration [model]="items">
       <ng-template #start>
         <img
           [routerLink]="'/'"
@@ -83,7 +83,7 @@
 </div>
 
 <div class="smallNav">
-  <p-dialog [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '25rem' }">
+  <p-dialog ngSkipHydration [modal]="true" [(visible)]="visible" [position]="position" [style]="{ width: '25rem' }">
     <div class="flex align-items-center justify-content-between mb-4">
       <div class="smallNav-header">
         <img

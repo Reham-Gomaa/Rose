@@ -4,7 +4,7 @@ export interface picsInterface {
   title: string;
   heading2: string;
   heading1: string;
-  btnText: string;
+  btnText ?: string;
 }
 
 export interface carouselListInterface {

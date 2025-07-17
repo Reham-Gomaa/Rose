@@ -41,6 +41,7 @@
   --yellow: #fba707;
   --hover-card-shape: #e6507380;
   --blue-700: #1447E6;
+  --gray-950: #323639;
 
   //Body
   --body-color: var(--white);
@@ -108,6 +109,7 @@
   --h2-color-gift: var(--maroon-600);
   --h2-background-gift: var(--maroon-50);
   --h1-color-gift: var(--white);
+  --h2-carousel-color-gift: var(--white);
   --dark-text-gift: var(--white);
   --highlight-color-gift: var(--maroon-600);
   --carousel-i-color-gift: var(--maroon-50);
@@ -118,9 +120,9 @@
   --carousel-indicator-button-gift-hover: var(--maroon-500);
   --carousel-button-gift-hover: var(--maroon-500);
   //BTN-Shared
-  --btn-shared-color: var(--maroon-50);
+  --btn-shared-color: var(--white);
   --btn-shared-i-color: var(--white);
-  --btn-shared-background: var(--maroon-700);
+  --btn-shared-background: var(--maroon-600);
   --btn-shared-background-hover: var(--maroon-500);
   //Our Services
   --our-services-color: var(--maroon-50);
@@ -173,7 +175,7 @@
   //Testimonials
   --testimonials-background: var(--maroon-50);
   --testimonials-title-color: var(--zinc-800);
-  --testimonials-subtitle-color: var(--zinc-800);
+  --testimonials-subtitle-color: var(--zinc-400);
   --testimonials-p-color: var(--zinc-800);
   --testimonials-card-background: var(--white);
   --testimonials-img-background: var(--soft-pink-200);
@@ -230,6 +232,15 @@
   --form-button-bg: var(--maroon-600);
   --form-button-hover: var(--maroon-500);
   --form-button-color: var(--white);
+  // Custom Input
+  --input-color: var(--white);
+  --input-text-color: var(--zinc-400);
+  --label-color:var(--zinc-800);
+  --input-border-color:var(--zinc-300);
+  --selected-color-input:var(--gray-950);
+  --border-active-color:var(--maroon-700);
+
+
 }
 
 // Dark theme overrides
@@ -417,4 +428,12 @@
   --form-button-bg: var(--soft-pink-300);
   --form-button-hover: var(--soft-pink-400);
   --form-button-color: var(--zinc-800);
+  // Custom Input
+  --input-color: var(--zinc-700);
+  --input-text-color: var(--zinc-400);
+  --label-color:var(--white);
+  --input-border-color:var(--zinc-600);
+  --selected-color-input:var(--white);
+  --border-active-color:var(--soft-pink-600);
+
 }

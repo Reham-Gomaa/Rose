@@ -1,0 +1,77 @@
+<section>
+  <!-- Title -->
+  <div class="p-relative d-inline-block details-title-wrapper">
+    <h2 id="details-heading" class="details-title" itemprop="name">
+      {{ "Details.relatedProducts.title" | translate }}
+    </h2>
+    <div class="details-bg-shape" aria-hidden="true"></div>
+    <div class="details-underline-bar" aria-hidden="true"></div>
+    <meta itemprop="description" content="Browse related products" />
+  </div>
+
+  <!-- Slider -->
+  <div class="product-carousel col-12 md:col-6 lg:col-8 ">
+    @defer (when !loading) {
+      @if (errorMessage) {
+        <!-- Error message-->
+        <div class="error-message">
+          {{ errorMessage }}
+        </div>
+      }
+      @else if (relatedProducts.length > 0) {
+        <!-- Carousel for related products -->
+        <div  [@fadeTransition]="translationService.fadeState()">
+
+          <p-carousel
+          [value]="relatedProducts"
+          [numVisible]="4"
+          [numScroll]="1"
+          [circular]="true"
+          [responsiveOptions]="responsiveOptions"
+          [showIndicators]="false"
+          class="custom-carousel"
+          [prevButtonProps]="{ styleClass: 'p-button-rounded custom-best-prev' }"
+          [nextButtonProps]="{ styleClass: 'p-button-rounded custom-best-next' }"
+          aria-label="Related products carousel"
+        >
+          <ng-template let-product pTemplate="item">
+            <div class="carousel-card-wrapper">
+              <app-card-item [productInfo]="product" />
+            </div>
+          </ng-template>
+        </p-carousel>
+
+        </div>
+      }
+      @else {
+        <!-- No items message -->
+        <div class="no-items-message">
+          {{ "details.relatedProducts.noItemsMessage" | translate }}
+        </div>
+      }
+    }
+
+    @loading {
+      <!-- Skeleton loader shown while loading -->
+      <div class="skeleton-loader">
+        @for (item of skeletonItems(); track $index) {
+          <div class="carousel-card-wrapper">
+            <div class="image-wrapper">
+              <p-skeleton width="100%" height="200px"></p-skeleton>
+            </div>
+            <div class="flex flex-column p-3 mt-3 flex-grow">
+              <p-skeleton width="50%" height="1.5rem" class="mb-2"></p-skeleton>
+              <div class="flex align-items-center justify-content-between pt-2">
+                <div class="flex flex-column">
+                  <p-skeleton width="6rem" height="1.5rem" class="mb-2"></p-skeleton>
+                  <p-skeleton width="4rem" height="1.25rem"></p-skeleton>
+                </div>
+                <p-skeleton shape="circle" size="2.5rem"></p-skeleton>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</section>

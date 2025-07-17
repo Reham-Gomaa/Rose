@@ -1,6 +1,10 @@
 import { Route } from "@angular/router";
+
+import { DetailsComponent } from "./features/pages/details/details.component";
+
 import { DashboardComponent } from "@rose/features_layouts/dashboard/dashboard.component";
 import path from "path";
+
 
 export const appRoutes: Route[] = [
   {
@@ -41,6 +45,12 @@ export const appRoutes: Route[] = [
           import("@rose/features_pages/contact/contact.component").then((c) => c.ContactComponent),
       },
 
+      {
+        path: "details/:id",
+        title: "Product Details",
+        loadComponent: () =>
+          import("@rose/features_pages/details/details.component").then((c) => c.DetailsComponent),
+      }
     ],
   },
   {

@@ -16,6 +16,19 @@
   width: 90%;
 }
 
+.submit-btn {
+  padding: 10px 16px;
+  background-color: #A6252A;
+  border-radius: 10px;
+  color: white;
+  width: 100%;
+  display: block;
+  border: 0 !important;
+  outline: 0 !important;
+  font-size: 14px;
+}
+
+
 html,
 body {
   background: var(--body-color);
