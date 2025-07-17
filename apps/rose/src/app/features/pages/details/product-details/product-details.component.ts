@@ -1,10 +1,13 @@
+// @angular
+import { NgOptimizedImage } from "@angular/common";
 import { Component, input, InputSignal } from "@angular/core";
-import { CommonModule,NgOptimizedImage } from "@angular/common";
-import { Product } from "../../../../core/interfaces/carditem.interface";
+
+// shared-interface
+import { Product } from "@rose/core_interfaces/carditem.interface";
 
 @Component({
   selector: "app-product-details",
-  imports: [CommonModule,NgOptimizedImage],
+  imports: [NgOptimizedImage],
   templateUrl: "./product-details.component.html",
   styleUrl: "./product-details.component.scss",
 })

@@ -1,15 +1,17 @@
+// @angular
 import { Component } from "@angular/core";
-import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
-import { NgxIntlTelInputModule } from "ngx-intl-tel-input";
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+
+// shared-components
 import { CustomInputPhoneComponent } from "@rose/shared_Components_ui/custom-input-phone/custom-input-phone.component";
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
+import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
 
 @Component({
   selector: "app-about",
   templateUrl: "./about.component.html",
   styleUrl: "./about.component.scss",
   standalone: true,
-  imports: [CustomInputComponent, NgxIntlTelInputModule, CustomInputPhoneComponent, ReactiveFormsModule],
+  imports: [CustomInputComponent, CustomInputPhoneComponent, ReactiveFormsModule],
 })
 export class AboutComponent {
   aboutForm: FormGroup;
