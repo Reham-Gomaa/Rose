@@ -1,14 +1,14 @@
+// @angular
 import { Component, inject } from "@angular/core";
-import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
-import { AuthComponent } from "../../auth.component";
-import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
-import { RouterLink } from "@angular/router";
+
+// shared-components
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { AuthComponent } from "../../auth.component";
 
 @Component({
   selector: "app-register",
-  imports: [ AuthComponent, FormButtonComponent, TranslatePipe, RouterLink],
+  imports: [ AuthComponent],
   templateUrl: "./register.component.html",
   styleUrl: "./register.component.scss",
   animations: [fadeTransition]
