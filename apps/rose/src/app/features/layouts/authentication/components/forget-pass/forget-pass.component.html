@@ -1,37 +1,46 @@
-   <app-auth [@fadeTransition]="translationService.fadeState()" 
-      [process]="'forgetPass'"
-   [title]="getDetails().title"
+<app-auth [@fadeTransition]="translationService.fadeState()" [process]="'forgetPass'" [title]="getDetails().title"
    [titleParagraph]="getDetails().titleParagraph"
    [paragraphSpan]="forgetFlow === 'verify' ? getDetails().paragraphSpan! : ''"
-   [heading5]="forgetFlow === 'verify' ? getDetails().heading5! : ''"
-   [heading3]="getDetails().heading3"
+   [heading5]="forgetFlow === 'verify' ? getDetails().heading5! : ''" [heading3]="getDetails().heading3"
    [heading3span]="getDetails().heading3span">
 
-    <!-- Forget Pass -->
-      @if (forgetFlow === 'forget') {
-         <div class="flex-col ">
-         <input type="text" class="block w-full">
-         <input type="text" class="block w-full">
-         <app-form-button (click)="shiftFlow()" [text]="'auth.forget-pass.button' | translate"></app-form-button>
-      </div>
-      }
+   <!-- Forget Pass -->
+   @if (forgetFlow === 'forget') {
+   <form [formGroup]="forgetPassForm" (ngSubmit)="submit()">
+      <!-- Email -->
+      <app-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email" labelText="Email"
+         [errorHandilgControl]="forgetPassForm.get('email')!" class="w-full mb-3" />
+
+      <app-form-button [text]="'auth.forget-pass.button' |translate" />
+   </form>
+   }
 
    <!-- Verify OTP -->
-      @else if (forgetFlow === 'verify') {
-            <div class="flex-col ">
-         <input type="text" class="block w-full">
-         <input type="text" class="block w-full">
-         <h5 class="sendCode">{{ 'auth.verify.h5'|translate }}</h5>
-         <app-form-button (click)="shiftFlow()" [text]="'auth.verify.button' | translate"></app-form-button>
+   @else if (forgetFlow === 'verify') {
+   <form [formGroup]="verifyCodeForm" (ngSubmit)="submit()">
+      <div>
+         <!-- ResetCode -->
+         <app-custom-input formControlName="resetCode" type="text" id="resetCode"
+            [errorHandilgControl]="forgetPassForm.get('resetCode')!" class="w-full mb-3" />
       </div>
-      }
+
+      <h5 class="sendCode">{{ 'auth.verify.h5'|translate }}</h5>
+
+      <app-form-button [text]="'auth.verify.button' |translate" />
+   </form>
+   }
 
    <!-- Create New Pass -->
    @else {
-         <div class="flex-col ">
-         <input type="text" class="block w-full">
-         <input type="text" class="block w-full">
-         <app-form-button (click)="shiftFlow()" [text]="'auth.reset.button' | translate"></app-form-button>
-      </div>
+   <form [formGroup]="resetPassForm" (ngSubmit)="submit()">
+      <!-- Password
+      <app-custom-input formControlName="newPassword" type="password" placeholder="********" id="Password"
+         labelText="Password" [errorHandilgControl]="forgetPassForm.get('password')!" class="w-full" /> -->
+      <!-- newPassword -->
+      <app-custom-input formControlName="newPassword" type="password" placeholder="********" id="Password"
+         labelText="Confirm Password" [errorHandilgControl]="forgetPassForm.get('password')!" class="w-full" />
+
+      <app-form-button [text]="'auth.reset.button' |translate" />
+   </form>
    }
 </app-auth>

@@ -1,7 +1,38 @@
 <app-auth [@fadeTransition]="translationService.fadeState()" [process]="'register'" [title]="'auth.register.h1'"
-   [button]="'auth.register.button'" [heading3]="'auth.register.h3'" [heading3span]="'auth.register.span'">
+   [heading3]="'auth.register.h3'" [heading3span]="'auth.register.span'">
    <div class="flex-col ">
-      <input type="text" class="block w-full">
-      <input type="text" class="block w-full">
+      <form [formGroup]="registerForm" (ngSubmit)="submit()">
+         <div class="grid">
+            <!-- First Name -->
+            <app-custom-input formControlName="firstName" type="text" placeholder="Jonathan" id="firstName" labelText="First name"
+               [errorHandilgControl]="registerForm.get('firstName')!" class="col-5" />
+
+            <!-- Last Name -->
+            <app-custom-input formControlName="lastName" type="text" placeholder="Adrian" id="lastName" labelText="Last name"
+               [errorHandilgControl]="registerForm.get('lastName')!" class="col-5 ml-auto" />
+         </div>
+
+         <!-- Email -->
+         <app-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email"
+            labelText="Email" [errorHandilgControl]="registerForm.get('email')!" class="w-full mb-3" />
+
+         <!-- Phone -->
+         <app-custom-input-phone formControlName="phone" placeholder="1012345678" labelText="Phone" id="phone"
+            class="w-full" [errorHandilgControl]="registerForm.get('phone')!" />
+
+         <!-- Gender -->
+         <app-custom-input formControlName="gender" type="text" placeholder="Select gender" id="gender"
+            labelText="gender" [errorHandilgControl]="registerForm.get('gender')!" class="w-full" />
+
+         <!-- Password -->
+         <app-custom-input formControlName="password" type="password" placeholder="Password@12345" id="Password"
+            labelText="Password" [errorHandilgControl]="registerForm.get('password')!" class="w-full" />
+
+         <!-- rePassword -->
+         <app-custom-input formControlName="rePassword" type="password" placeholder="**************" id="rePassword"
+            labelText="rePassword" [errorHandilgControl]="registerForm.get('rePassword')!" class="w-full" />
+
+         <app-form-button [text]="'auth.register.button' |translate" />
+      </form>
    </div>
 </app-auth>

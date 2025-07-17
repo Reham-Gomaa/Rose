@@ -1,6 +1,6 @@
 #auth {
     font-family: var(--font-family-1);
-    padding: 3.125rem 3.75rem;
+    padding: 3.125rem 4.375rem;
 
     #lang-toggle {
         padding-bottom: 1.5625rem;
@@ -44,15 +44,6 @@
         }
     }
 
-    // FORGET PASS
-    h5 {
-        font-weight: 600;
-        font-size: .875rem;
-        text-align: right;
-        color: var(--forgetPass-anchor);
-        margin: .625rem 0 0;
-    }
-
     // CREATE ACCOUNT
     h3 {
         font-weight: 500;
@@ -67,10 +58,6 @@
         }
     }
 
-}
-
-:host-context([dir="rtl"]) h5 {
-    text-align: left !important;
 }
 
 :host-context([dir="rtl"]) h1.forget,

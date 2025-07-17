@@ -1,8 +1,8 @@
 <div class="flex flex-column gap-2">
-  <label [for]="id()" class="label-color">{{labelText()}}</label>
+  <label [for]="id()" class="label-color mt-3">{{labelText()}}</label>
   <div class="input-phone-container">
     <div class="custom-country-dropdown">
-      <div class="selected-country" (click)="toggleDropdown()">
+      <div class="selected-country" (click;keyup)="toggleDropdown()">
         <img class="country-flag" [src]="baseFlagUrl+selectedCountry.flag" alt="image for flag" />
         <p>{{selectedCountry.name}} {{selectedCountry.code}}</p>
         <div class="flex flex-column gap-1">
@@ -14,7 +14,7 @@
       <div class="country-list ">
         <ul>
           @for (country of countries; track $index) {
-            <li class="country-item" (click)="selectCountry(country)">
+            <li class="country-item" (click;keyup)="selectCountry(country) ">
             <img class="country-flag" [src]="baseFlagUrl+country.flag" alt="image for flag" />
             <p>{{country.name}} {{country.code}}</p></li>
           }
