@@ -29,7 +29,6 @@
     "install": "^0.13.0",
     "intl-tel-input": "^19.5.7",
     "ngx-cookie-service-ssr": "^19.1.2",
-    "ngx-intl-tel-input": "^17.0.0",
     "npm": "^11.4.0",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
