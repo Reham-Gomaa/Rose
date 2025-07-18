@@ -1,19 +1,37 @@
-// @angular
-import { NgOptimizedImage } from "@angular/common";
-import { Component, input, InputSignal } from "@angular/core";
-
-// shared-interface
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Component,input, signal, effect } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
+//interfaces
+import { Product } from '@rose/core_interfaces/carditem.interface';
+// PrimeNG
+import { DialogModule } from 'primeng/dialog';
 
 @Component({
-  selector: "app-product-details",
-  imports: [NgOptimizedImage],
-  templateUrl: "./product-details.component.html",
-  styleUrl: "./product-details.component.scss",
+  selector: 'app-product-details',
+  standalone: true,
+  imports: [ NgOptimizedImage, DialogModule],
+  templateUrl: './product-details.component.html',
+  styleUrl: './product-details.component.scss'
 })
 export class ProductDetailsComponent {
+  productDetails = input.required<Product>();
+  currentImage = signal<string>('');
+  showModal = signal<boolean>(false);
 
-  productDetails:InputSignal<Product> = input.required<Product>();
+  constructor() {
+    // Watch for input changes
+    effect(() => {
+      if (this.productDetails()) {
+        this.currentImage.set(this.productDetails().imgCover);
+      }
+    });
+  }
 
+  onThumbnailClick(image: string): void {
+    this.currentImage.set(image);
+  }
 
+  openImageModal(): void {
+
+    this.showModal.set(true);
+  }
 }
