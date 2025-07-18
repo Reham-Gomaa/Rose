@@ -1,21 +1,20 @@
-import { Component, input, signal, effect } from '@angular/core';
-import {NgOptimizedImage } from '@angular/common';
+import { Component, input, signal, effect } from "@angular/core";
+import { NgOptimizedImage } from "@angular/common";
 // Interfaces
-import { Product } from '@rose/core_interfaces/carditem.interface';
+import { Product } from "@rose/core_interfaces/carditem.interface";
 // PrimeNG
-import { DialogModule } from 'primeng/dialog';
-
+import { DialogModule } from "primeng/dialog";
 
 @Component({
-  selector: 'app-product-details',
+  selector: "app-product-details",
   standalone: true,
-  imports: [ NgOptimizedImage, DialogModule],
-  templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.scss'
+  imports: [NgOptimizedImage, DialogModule],
+  templateUrl: "./product-details.component.html",
+  styleUrl: "./product-details.component.scss",
 })
 export class ProductDetailsComponent {
   productDetails = input.required<Product>();
-  currentImage = signal<string>('');
+  currentImage = signal<string>("");
   showModal = signal<boolean>(false);
 
   constructor() {
@@ -32,7 +31,6 @@ export class ProductDetailsComponent {
   }
 
   openImageModal(): void {
-    
     this.showModal.set(true);
   }
 }
