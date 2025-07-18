@@ -1,5 +1,5 @@
 // @angular
-import { Component, inject } from "@angular/core";
+import { Component, inject, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 
 // @ngx
@@ -65,20 +65,20 @@ export class ForgetPassComponent {
 
   submit(){
      console.log(this.forgetPassForm.value);
-      console.log(this.forgetPassForm)
-      console.log(this.forgetPassForm.get('email'))
+      console.log(this.forgetPassForm);
+      console.log(this.forgetPassForm.get('email'));
   }
 
  getDetails() {
   switch (this.forgetFlow) {
     case 'forget':
-      return this.details[1];
-    case 'verify':
+      return this.details[0];
+      case 'verify':
+        return this.details[1];
+        case 'reset':
       return this.details[2];
-    case 'reset':
-      return this.details[3];
     default:
-      return this.details[1];
+      return this.details[0];
   }
 }
 
@@ -86,9 +86,9 @@ export class ForgetPassComponent {
     if (this.forgetFlow === 'forget') {
       this.forgetFlow = 'verify';
     } else if (this.forgetFlow === 'verify') {
-      this.forgetFlow = 'reset'
+      this.forgetFlow = 'reset';
     } else {
-      this.forgetFlow = 'forget'
+      this.forgetFlow = 'forget';
     }
   }
 }

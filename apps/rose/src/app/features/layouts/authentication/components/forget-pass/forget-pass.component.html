@@ -11,7 +11,7 @@
       <app-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email" labelText="Email"
          [errorHandilgControl]="forgetPassForm.get('email')!" class="w-full mb-3" />
 
-      <app-form-button [text]="'auth.forget-pass.button' |translate" />
+      <app-form-button (click)="shiftFlow()" [text]="'auth.forget-pass.button' |translate" />
    </form>
    }
 
@@ -26,7 +26,7 @@
 
       <h5 class="sendCode">{{ 'auth.verify.h5'|translate }}</h5>
 
-      <app-form-button [text]="'auth.verify.button' |translate" />
+      <app-form-button (click)="shiftFlow()" [text]="'auth.verify.button' |translate" />
    </form>
    }
 
@@ -40,7 +40,7 @@
       <app-custom-input formControlName="newPassword" type="password" placeholder="********" id="Password"
          labelText="Confirm Password" [errorHandilgControl]="forgetPassForm.get('password')!" class="w-full" />
 
-      <app-form-button [text]="'auth.reset.button' |translate" />
+      <app-form-button (click)="shiftFlow()"  [text]="'auth.reset.button' |translate" />
    </form>
    }
 </app-auth>
