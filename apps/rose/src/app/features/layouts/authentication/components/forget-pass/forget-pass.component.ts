@@ -13,17 +13,11 @@ import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/cu
 // shared-service
 import { TranslationService } from "@rose/core_services/translation/translation.service";
 
+// shared-interfaces
+import { forgetFlowDetails } from "@rose/core_interfaces/forget-flow-details.interface";
+
 // Animation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
-
-export interface Details {
-  title: string
-  titleParagraph: string
-  paragraphSpan?: string
-  heading5?: string
-  heading3: string
-  heading3span: string
-}
 
 @Component({
   selector: "app-forget-pass",
@@ -36,7 +30,7 @@ export class ForgetPassComponent {
   readonly translationService = inject(TranslationService);
 
   forgetFlow !: 'forget' | 'verify' | 'reset';
-  details !: Details[];
+  details !: forgetFlowDetails[];
   forgetPassForm :FormGroup;
   verifyCodeForm :FormGroup;
   resetPassForm :FormGroup;
