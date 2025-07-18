@@ -42,3 +42,6 @@
   color: var(--label-color);
 }
 
+:host-context([dir="rtl"]) .eye-btn{
+  right: calc(100% - 4.375rem);
+}

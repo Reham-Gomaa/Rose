@@ -174,31 +174,43 @@
       "message": "The page you're looking for might have been removed, had its name changed, or is temporarily unavailable. You can return to the store to continue shopping."
     }
   },
-    "emptyData": {
+  "emptyData": {
     "message": "Oops! Something went wrong while loading the data. Please try again later."
   },
-    "auth": {
-    "login":{
+  "auth": {
+    "inputs": {
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Jonathan",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Adrian",
+      "phone": "Phone",
+      "gender": "Gender",
+      "genderPlaceholder": "Select Gender"
+    },
+    "login": {
       "h3": "Don’t have an account yet?",
       "span": "Create one now!",
       "h1": "Welcome back!",
       "h5": "Forgot your password?",
       "button": "Login"
     },
-    "register":{
+    "register": {
       "h3": "Already have an account? ",
       "span": "Login",
       "h1": "Become part of our family!",
       "button": "Create Account"
     },
-    "forget-pass":{
+    "forget-pass": {
       "h3": "Don’t have an account yet? ",
       "span": "Create one now!",
       "h1": "Forgot Password?",
       "paragraph": "Worry not, we’ll send you instructions to help you reset it.",
       "button": "Continue"
     },
-    "verify":{
+    "verify": {
       "h3": "Need help? ",
       "span": "Contact us",
       "h1": "Enter the OTP Code",
@@ -207,7 +219,7 @@
       "h5": "Send a new code",
       "button": "Verify OTP"
     },
-    "reset":{
+    "reset": {
       "h3": "Need help? ",
       "span": "Contact us",
       "h1": "Create a new password",
@@ -215,22 +227,22 @@
       "button": "Reset Password"
     }
   },
-    "noProductAvailable": {
+  "noProductAvailable": {
     "message": "No Products available at this time!"
   },
-  "Details":{
-  "productReviews": "Product Reviews",
-  "generalRating": "General rating",
-  "ratingsCount": "{{count}} Ratings",
-  "yourRating": "Your Rating",
-  "title": "Title",
-  "enterTitle": "enter the review title",
-  "review": "Review",
-  "enterReview": "What do you think of this product?",
-  "addReview": "Add Review",
-  "reviewTitleExample": "Awesome Bouquet !",
-  "reviewBodyExample": "I ordered this bouquet for a special occasion, and it absolutely exceeded my expectations! The flowers were fresh, beautifully arranged, and exactly as pictured—if not better. The color combination was stunning and gave off such a luxurious vibe. Even the wrapping was elegant and thoughtful. Delivery was right on time, and the bouquet arrived in perfect condition. The recipient was genuinely touched and couldn't stop admiring it. Highly recommend for anyone looking to make a lasting impression. Will definitely order again!",
-"relatedProducts": {
+  "Details": {
+    "productReviews": "Product Reviews",
+    "generalRating": "General rating",
+    "ratingsCount": "{{count}} Ratings",
+    "yourRating": "Your Rating",
+    "title": "Title",
+    "enterTitle": "enter the review title",
+    "review": "Review",
+    "enterReview": "What do you think of this product?",
+    "addReview": "Add Review",
+    "reviewTitleExample": "Awesome Bouquet !",
+    "reviewBodyExample": "I ordered this bouquet for a special occasion, and it absolutely exceeded my expectations! The flowers were fresh, beautifully arranged, and exactly as pictured—if not better. The color combination was stunning and gave off such a luxurious vibe. Even the wrapping was elegant and thoughtful. Delivery was right on time, and the bouquet arrived in perfect condition. The recipient was genuinely touched and couldn't stop admiring it. Highly recommend for anyone looking to make a lasting impression. Will definitely order again!",
+    "relatedProducts": {
       "title": "Related Products",
       "noItemsMessage": "No related products available!"
     }

@@ -4,11 +4,11 @@
    <div class="flex-col ">
       <form [formGroup]="loginForm" (ngSubmit)="submit()" >
          <!-- Email -->
-      <app-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email" labelText="Email"
+      <app-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email" labelText="{{'auth.inputs.email' |translate}}"
          [errorHandilgControl]="loginForm.get('email')!"   class="w-full" />
 
       <!-- Password -->
-      <app-custom-input formControlName="password" type="password" placeholder="********" id="password" labelText="Password"
+      <app-custom-input formControlName="password" type="password" placeholder="********" id="password" labelText="{{'auth.inputs.password' |translate}}"
          [errorHandilgControl]="loginForm.get('password')!"   class="w-full" />
 
          <h5 [routerLink]="'/forget-pass'" class="cursor-pointer">{{'auth.login.h5' |translate }}</h5>

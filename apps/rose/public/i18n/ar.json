@@ -178,6 +178,18 @@
     "message": "عذرًا! حدث خطأ أثناء تحميل البيانات. يرجى المحاولة مرة أخرى لاحقًا."
   },
   "auth": {
+    "inputs": {
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "firstName": "الاسم الأول",
+    "firstNamePlaceholder": "أحمد",
+    "lastName": "اسم العائلة",
+    "lastNamePlaceholder": "مصطفي",
+    "phone": "رقم الهاتف",
+    "gender": "النوع",
+    "genderPlaceholder": "اختر النوع"
+  },
     "login": {
       "h3": "ليس لديك حساب بعد؟",
       "span": "أنشئ واحدًا الآن!",

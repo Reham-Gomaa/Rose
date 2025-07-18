@@ -8,7 +8,7 @@
    @if (forgetFlow === 'forget') {
    <form [formGroup]="forgetPassForm" (ngSubmit)="submit()">
       <!-- Email -->
-      <app-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email" labelText="Email"
+      <app-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email" labelText="{{'auth.inputs.email' |translate}}"
          [errorHandilgControl]="forgetPassForm.get('email')!" class="w-full mb-3" />
 
       <app-form-button (click)="shiftFlow()" [text]="'auth.forget-pass.button' |translate" />
@@ -36,11 +36,11 @@
    <form [formGroup]="resetPassForm" (ngSubmit)="submit()">
       <!-- Password -->
       <app-custom-input formControlName="newPassword" type="password" placeholder="********" id="Password"
-         labelText="Password" [errorHandilgControl]="forgetPassForm.get('newPassword')!" class="w-full" />
+         labelText="{{'auth.inputs.password' |translate}}" [errorHandilgControl]="forgetPassForm.get('newPassword')!" class="w-full" />
 
       <!-- newPassword -->
       <app-custom-input formControlName="newPassword" type="password" placeholder="********" id="confirmPassword"
-         labelText="Confirm Password" [errorHandilgControl]="forgetPassForm.get('newPassword')!" class="w-full" />
+         labelText="{{'auth.inputs.confirmPassword' |translate}}" [errorHandilgControl]="forgetPassForm.get('newPassword')!" class="w-full" />
 
       <app-form-button (click)="shiftFlow()"  [text]="'auth.reset.button' |translate" />
    </form>
