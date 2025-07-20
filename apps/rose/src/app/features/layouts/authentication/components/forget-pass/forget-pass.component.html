@@ -6,43 +6,52 @@
 
    <!-- Forget Pass -->
    @if (forgetFlow === 'forget') {
-   <form [formGroup]="forgetPassForm" (ngSubmit)="submit()">
+   <form [formGroup]="forgetPassForm" (ngSubmit)="submit()" role="form" aria-label="Forgot Password Form">
       <!-- Email -->
-      <app-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email" labelText="{{'auth.inputs.email' |translate}}"
-         [errorHandilgControl]="forgetPassForm.get('email')!" class="w-full mb-3" />
+      <app-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email"
+         labelText="{{'auth.inputs.email' |translate}}" [errorHandilgControl]="forgetPassForm.get('email')!"
+         class="w-full mb-3" autocomplete="email" aria-required="true" />
 
-      <app-form-button (click)="shiftFlow()" [text]="'auth.forget-pass.button' |translate" />
+      <app-form-button (click)="shiftFlow()" [text]="'auth.forget-pass.button' |translate"
+         [attr.aria-label]="'auth.forget-pass.button' | translate" />
    </form>
    }
 
    <!-- Verify OTP -->
    @else if (forgetFlow === 'verify') {
-   <form [formGroup]="verifyCodeForm" (ngSubmit)="submit()">
-      <div class="otp-wrapper flex justify-content-between align-items-center">
+   <form [formGroup]="verifyCodeForm" (ngSubmit)="submit()" role="form" aria-label="Verify Code Form">
+      <div class="otp-wrapper flex justify-content-between align-items-center" role="group"
+         aria-label="6-digit verification code">
          @for (item of [1,2,3,4,5,6]; track item) {
-            <app-custom-input formControlName="resetCode" type="text" id="resetCode"
-            [errorHandilgControl]="forgetPassForm.get('resetCode')!" class="otp" />
+         <app-custom-input formControlName="resetCode" type="text" id="resetCode"
+            [errorHandilgControl]="forgetPassForm.get('resetCode')!" class="otp" aria-required="true"
+            [attr.aria-label]="'Digit ' + item + ' of verification code'" />
          }
       </div>
 
       <h5 class="sendCode mt-3">{{ 'auth.verify.h5'|translate }}</h5>
 
-      <app-form-button (click)="shiftFlow()" [text]="'auth.verify.button' |translate" />
+      <app-form-button (click)="shiftFlow()" [text]="'auth.verify.button' |translate"
+         [attr.aria-label]="'auth.verify.button' | translate" />
    </form>
    }
 
    <!-- Create New Pass -->
    @else {
-   <form [formGroup]="resetPassForm" (ngSubmit)="submit()">
+   <form [formGroup]="resetPassForm" (ngSubmit)="submit()" role="form" aria-label="Reset Password Form">
       <!-- Password -->
       <app-custom-input formControlName="newPassword" type="password" placeholder="********" id="Password"
-         labelText="{{'auth.inputs.password' |translate}}" [errorHandilgControl]="forgetPassForm.get('newPassword')!" class="w-full" />
+         labelText="{{'auth.inputs.password' |translate}}" [errorHandilgControl]="forgetPassForm.get('newPassword')!"
+         class="w-full" autocomplete="new-password" aria-required="true" />
 
       <!-- newPassword -->
       <app-custom-input formControlName="newPassword" type="password" placeholder="********" id="confirmPassword"
-         labelText="{{'auth.inputs.confirmPassword' |translate}}" [errorHandilgControl]="forgetPassForm.get('newPassword')!" class="w-full" />
+         labelText="{{'auth.inputs.confirmPassword' |translate}}"
+         [errorHandilgControl]="forgetPassForm.get('newPassword')!" class="w-full" autocomplete="new-password"
+         aria-required="true" />
 
-      <app-form-button (click)="shiftFlow()"  [text]="'auth.reset.button' |translate" />
+      <app-form-button (click)="shiftFlow()" [text]="'auth.reset.button' |translate"
+         [attr.aria-label]="'auth.reset.button' | translate" />
    </form>
    }
 </app-auth>
