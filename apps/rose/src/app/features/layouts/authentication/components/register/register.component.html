@@ -1,38 +1,50 @@
 <app-auth [@fadeTransition]="translationService.fadeState()" [process]="'register'" [title]="'auth.register.h1'"
    [heading3]="'auth.register.h3'" [heading3span]="'auth.register.span'">
    <div class="flex-col ">
-      <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      <form [formGroup]="registerForm" (ngSubmit)="submit()" role="form" aria-label="Registration Form">
          <div class="formgrid grid">
             <!-- First Name -->
-            <app-custom-input formControlName="firstName" type="text" placeholder="{{'auth.inputs.firstNamePlaceholder' |translate}}" id="firstName" labelText="{{'auth.inputs.firstName' |translate}}"
-               [errorHandilgControl]="registerForm.get('firstName')!" class="col field " />
+            <app-custom-input formControlName="firstName" type="text"
+               placeholder="{{'auth.inputs.firstNamePlaceholder' |translate}}" id="firstName"
+               labelText="{{'auth.inputs.firstName' |translate}}" [errorHandilgControl]="registerForm.get('firstName')!"
+               class="col field " autocomplete="given-name" aria-required="true" />
 
             <!-- Last Name -->
-            <app-custom-input formControlName="lastName" type="text" placeholder="{{'auth.inputs.lastNamePlaceholder' |translate}}" id="lastName" labelText="{{'auth.inputs.lastName' |translate}}"
-               [errorHandilgControl]="registerForm.get('lastName')!" class="col field " />
+            <app-custom-input formControlName="lastName" type="text"
+               placeholder="{{'auth.inputs.lastNamePlaceholder' |translate}}" id="lastName"
+               labelText="{{'auth.inputs.lastName' |translate}}" [errorHandilgControl]="registerForm.get('lastName')!"
+               class="col field " autocomplete="family-name" aria-required="true" />
          </div>
 
          <!-- Email -->
          <app-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email"
-            labelText="{{'auth.inputs.email' |translate}}" [errorHandilgControl]="registerForm.get('email')!" class="w-full mb-3" />
+            labelText="{{'auth.inputs.email' |translate}}" [errorHandilgControl]="registerForm.get('email')!"
+            class="w-full mb-3" autocomplete="email" aria-required="true" />
 
          <!-- Phone -->
-         <app-custom-input-phone formControlName="phone" placeholder="1012345678" labelText="{{'auth.inputs.phone' |translate}}" id="phone"
-            class="w-full" [errorHandilgControl]="registerForm.get('phone')!" />
+         <app-custom-input-phone formControlName="phone" placeholder="1012345678"
+            labelText="{{'auth.inputs.phone' |translate}}" id="phone" class="w-full"
+            [errorHandilgControl]="registerForm.get('phone')!" autocomplete="tel" aria-required="true" />
 
          <!-- Gender -->
-         <app-custom-input formControlName="gender" type="text" placeholder="{{'auth.inputs.genderPlaceholder' |translate}}" id="gender"
-            labelText="{{'auth.inputs.gender' |translate}}" [errorHandilgControl]="registerForm.get('gender')!" class="w-full" />
+         <app-custom-input formControlName="gender" type="text"
+            placeholder="{{'auth.inputs.genderPlaceholder' |translate}}" id="gender"
+            labelText="{{'auth.inputs.gender' |translate}}" [errorHandilgControl]="registerForm.get('gender')!"
+            class="w-full" aria-required="true" />
 
          <!-- Password -->
          <app-custom-input formControlName="password" type="password" placeholder="Password@12345" id="Password"
-            labelText="{{'auth.inputs.password' |translate}}" [errorHandilgControl]="registerForm.get('password')!" class="w-full" />
+            labelText="{{'auth.inputs.password' |translate}}" [errorHandilgControl]="registerForm.get('password')!"
+            class="w-full" autocomplete="new-password" aria-required="true" />
 
          <!-- rePassword -->
          <app-custom-input formControlName="rePassword" type="password" placeholder="**************" id="rePassword"
-            labelText="{{'auth.inputs.confirmPassword' |translate}}" [errorHandilgControl]="registerForm.get('rePassword')!" class="w-full" />
+            labelText="{{'auth.inputs.confirmPassword' |translate}}"
+            [errorHandilgControl]="registerForm.get('rePassword')!" class="w-full" autocomplete="new-password"
+            aria-required="true" />
 
-         <app-form-button [text]="'auth.register.button' |translate" />
+         <app-form-button [text]="'auth.register.button' |translate"
+            [attr.aria-label]="'auth.register.button' | translate" />
       </form>
    </div>
 </app-auth>
