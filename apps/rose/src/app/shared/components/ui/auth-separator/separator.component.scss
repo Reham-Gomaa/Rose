@@ -1,9 +1,16 @@
 .separator {
+  img {
+    display: block;
+    margin: auto;
 
-    img {
-        display: block;
-        width: 17.5rem;
-        height: 2.8125rem;
-        margin: auto;
+    @media all and (max-width: 31.25rem) {
+      width: 7.5rem;
+      height: 1.5625rem;
     }
+
+    @media all and (min-width: 31.25rem) {
+      width: 17.5rem;
+      height: 2.8125rem;
+    }
+  }
 }

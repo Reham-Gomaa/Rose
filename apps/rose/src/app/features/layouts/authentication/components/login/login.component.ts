@@ -19,27 +19,33 @@ import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 
 @Component({
   selector: "app-login",
-  imports: [RouterLink, AuthComponent, CustomInputComponent, ReactiveFormsModule, FormButtonComponent, TranslatePipe],
+  imports: [
+    RouterLink,
+    AuthComponent,
+    CustomInputComponent,
+    ReactiveFormsModule,
+    FormButtonComponent,
+    TranslatePipe,
+  ],
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.scss",
-  animations: [fadeTransition]
+  animations: [fadeTransition],
 })
 export class LoginComponent {
   readonly translationService = inject(TranslationService);
 
-  loginForm :FormGroup;
+  loginForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
       email: ["", [Validators.required]],
-      password: ["",[Validators.required]],
+      password: ["", [Validators.required]],
     });
   }
 
-  submit(){
-     console.log(this.loginForm.value);
-      console.log(this.loginForm)
-      console.log(this.loginForm.get('name'))
+  submit() {
+    console.log(this.loginForm.value);
+    console.log(this.loginForm);
+    console.log(this.loginForm.get("email"));
   }
-
 }

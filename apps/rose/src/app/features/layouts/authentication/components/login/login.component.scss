@@ -1,11 +1,17 @@
 h5 {
-    font-weight: 600;
-    font-size: .875rem;
-    text-align: right;
-    color: var(--forgetPass-anchor);
-    margin: .625rem 0 0;
+  font-weight: 600;
+  text-align: right;
+  color: var(--forgetPass-anchor);
+  margin: 0.625rem 0 0;
+
+  @media all and (max-width: 31.25rem) {
+    font-size: 0.625rem;
+  }
+  @media all and (min-width: 31.25rem) {
+    font-size: 0.875rem;
+  }
 }
 
 :host-context([dir="rtl"]) h5 {
-    text-align: left !important;
+  text-align: left !important;
 }
