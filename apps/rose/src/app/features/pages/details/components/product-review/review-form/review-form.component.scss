@@ -6,12 +6,16 @@
   label,
   .rateLabel {
     font-size: 14px;
-    color: #27272A;
+    color: var(--label-color);
   }
 
   .field :last-child {
     padding: 16px !important;
     border-radius: 10px;
+    background-color: var(--input-bg) !important;
+    color: var(--input-text-color);
+    border: var(--input-border-color);
+
 
     &::placeholder {
       text-transform: capitalize;
