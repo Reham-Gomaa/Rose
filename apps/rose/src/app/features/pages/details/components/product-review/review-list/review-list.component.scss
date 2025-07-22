@@ -18,5 +18,20 @@
       color: #A1A1AA;
       font-size: 14px;
     }
+
+
+
+  }
+    .owner-name span,
+    .review-rate span ,
+    .review-content h3 {
+      color: var(--details-header-color);
+    }
+
+  .review-content
+  {
+    p{
+      color: var(--review-desc)
+    }
   }
 }

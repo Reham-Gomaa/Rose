@@ -56,21 +56,21 @@
     </div>
   </div>
 
-  <p-dialog 
-  header="Preview"
+  <p-dialog
+  [header]="productDetails().slug.toUpperCase()"
   [(visible)]="showModal"
   [modal]="true"
   [dismissableMask]="true"
   [closable]="true"
-  [style]="{ width: '60vw' }"
+  [style.maxWidth]="'50vw'"
   [contentStyle]="{ 'text-align': 'center' }">
-  
+
   @if (currentImage()) {
-    <img 
-      [src]="currentImage()" 
+    <img
+      [src]="currentImage()"
       alt="Zoomed Image"
-      class="w-full h-auto"
-      style="max-height: 70vh; object-fit: contain; border-radius: 12px;" />
+      class="w-full h-auto block"
+      style="max-height: 70vh; object-fit: cover;" />
   }
 </p-dialog>
 </section>

@@ -1,12 +1,12 @@
 
 import { Component, inject, OnInit,OnDestroy } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ProductReviewComponent } from "./product-review/product-review.component";
+import { ProductReviewComponent } from "./components/product-review/product-review.component";
 import { ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs";
 import { ProductsService } from "../../../shared/services/products/products.service";
 import { Product } from "../../../core/interfaces/carditem.interface";
-import { ProductDetailsComponent } from "./product-details/product-details.component";
+import { ProductDetailsComponent } from "./components/product-details/product-details.component";
 import { RelatedProductsComponent } from "./components/related-products/related-products.component";
 
 @Component({
