@@ -1,21 +1,9 @@
 <div class="input-button-wrapper" [class.disable-mobile]="disableMobileStyles">
-  <input
-    [id]="inputId"
-    [type]="type"
-    [name]="name"
-    [placeholder]="placeholder"
-    class="input-field"
-    [ngModel]="inputValue"
-    (ngModelChange)="onInputChange($event)"
-    required
-    aria-required="true"
-  />
+  <input [id]="inputId" [type]="type" [name]="name" [placeholder]="placeholder" class="input-field"
+    [ngModel]="inputValue" (ngModelChange)="onInputChange($event)" required aria-required="true" />
   @if (showBtn) {
-  <button
-    [type]="buttonType"
-    class="input-button flex align-items-center justify-content-center"
-    (click)="onButtonClick()"
-  >
+  <button [type]="buttonType" class="input-button flex align-items-center justify-content-center"
+    (click)="onButtonClick()">
     {{ buttonText }}
     @if (showIcon) {
     <i class="pi pi-arrow-right px-2" aria-hidden="true"></i>

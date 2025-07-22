@@ -1,0 +1,195 @@
+// toast.styles.scss
+:host ::ng-deep {
+  /* Base toast container - mobile first (bottom-right) */
+  .p-toast {
+    width: calc(100% - 2rem);
+    max-width: 100%;
+    padding: 0.5rem;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    left: auto;
+    transform: none;
+    z-index: 1100;
+
+    .p-toast-message {
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      margin-bottom: 0.75rem;
+      border: none;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      backdrop-filter: blur(8px);
+
+      /* Message content container - simplified */
+      &-content {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        gap: 0.75rem;
+      }
+
+      /* Single message text styling */
+      .p-toast-detail {
+        font-family: var(--font-family-1);
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 140%;
+        margin: 0;
+        flex: 1;
+      }
+
+      /* Icon styling */
+      .p-toast-message-icon {
+        font-size: 1.1rem;
+        flex-shrink: 0;
+      }
+
+      /* Close button styling */
+      .p-toast-icon-close {
+        transition: all 0.2s ease;
+        background: none;
+        border: none;
+        width: 1.5rem;
+        height: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        flex-shrink: 0;
+        opacity: 0.7;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        .p-icon {
+          width: 14px;
+          height: 14px;
+        }
+      }
+
+      /* Success toast specific styles */
+      &-success {
+        background: rgba(94, 233, 181, 0.9);
+        border-left: 4px solid#5ee9b5;
+        color: #27272a;
+
+        .p-toast-detail,
+        .p-toast-message-icon,
+        .p-icon {
+          color: #27272a;
+        }
+
+        .p-toast-icon-close:hover {
+          background: rgba(0, 0, 0, 0.08);
+        }
+      }
+
+      /* Error toast specific styles */
+      &-error {
+        background: var(--maroon-500);
+        border-left: 4px solid var(--maroon-500);
+        color: white;
+
+        .p-toast-detail,
+        .p-toast-message-icon,
+        .p-icon {
+          color: white;
+        }
+
+        .p-toast-icon-close:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      /* Progress bar animation */
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 4px;
+        width: 100%;
+        animation: toastProgress linear forwards;
+      }
+
+      &.p-toast-message-success::after {
+        background: rgba(0, 0, 0, 0.15);
+      }
+
+      &.p-toast-message-error::after {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+
+    /* Responsive breakpoints */
+    @media (min-width: 400px) {
+      width: 90%;
+      right: 1rem;
+
+      .p-toast-message {
+        .p-toast-detail {
+          font-size: 14px;
+        }
+      }
+    }
+
+    @media (min-width: 576px) {
+      width: 380px;
+      bottom: 1rem;
+      right: 1.5rem;
+
+      .p-toast-message {
+        border-radius: 10px;
+        margin-bottom: 1rem;
+
+        .p-toast-detail {
+          font-size: 14px;
+          line-height: 150%;
+        }
+
+        .p-toast-message-icon {
+          font-size: 1.3rem;
+        }
+
+        .p-toast-icon-close {
+          width: 1.75rem;
+          height: 1.75rem;
+
+          .p-icon {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+
+    @media (min-width: 992px) {
+      width: 420px;
+      bottom: 2rem;
+      right: 2rem;
+    }
+  }
+
+  /* Animation for toast entry */
+  @keyframes toastProgress {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0%;
+    }
+  }
+
+  .p-toast-message-enter {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  .p-toast-message-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.4, 1);
+  }
+}

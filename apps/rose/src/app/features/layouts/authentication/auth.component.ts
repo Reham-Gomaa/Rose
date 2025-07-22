@@ -1,5 +1,5 @@
 // @angular
-import { Component, input, InputSignal } from "@angular/core";
+import { Component, inject, input, InputSignal } from "@angular/core";
 import { RouterLink } from "@angular/router";
 
 // @ngx
@@ -12,24 +12,30 @@ import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/bu
 
 @Component({
   selector: "app-auth",
-  imports: [ TranslateToggleComponent, SeparatorComponent, TranslatePipe, ButtonThemeComponent, RouterLink],
+  imports: [
+    TranslateToggleComponent,
+    SeparatorComponent,
+    TranslatePipe,
+    ButtonThemeComponent,
+    RouterLink,
+  ],
   templateUrl: "./auth.component.html",
   styleUrl: "./auth.component.scss",
 })
 export class AuthComponent {
-  process :InputSignal<string> = input('');
-  title :InputSignal<string> = input('');
-  titleParagraph :InputSignal<string> = input('');
-  paragraphSpan :InputSignal<string> = input('');
-  heading5 :InputSignal<string> = input('');
-  heading3 :InputSignal<string> = input('');
-  heading3span :InputSignal<string> = input('');
-  button :InputSignal<string> = input('');
-  formType :InputSignal<any> = input('');
+  process: InputSignal<string> = input("");
+  title: InputSignal<string> = input("");
+  titleParagraph: InputSignal<string> = input("");
+  paragraphSpan: InputSignal<string> = input("");
+  heading5: InputSignal<string> = input("");
+  heading3: InputSignal<string> = input("");
+  heading3span: InputSignal<string> = input("");
+  button: InputSignal<string> = input("");
+  formType: InputSignal<any> = input("");
 
   // loginForm :FormGroup = new FormGroup({
   //   email: new FormControl(null),
-  //   password: new FormControl(null) 
+  //   password: new FormControl(null)
   // });
 
   // registerForm :FormGroup = new FormGroup({
@@ -45,7 +51,4 @@ export class AuthComponent {
   // forgetPassForm :FormGroup = new FormGroup({
   //   email: new FormControl(null)
   // });
-
-  
-
 }

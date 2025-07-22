@@ -1,0 +1,13 @@
+<form [formGroup]="forgetPassForm" (ngSubmit)="forgetpasswordSubmit()">
+  <!-- Email -->
+  <app-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email"
+    labelText="{{'auth.inputs.email' |translate}}" [errorHandilgControl]="forgetPassForm.get('email')!"
+    class="w-full mb-3" />
+
+  @if (apiError()) {
+  <div class="error-message">{{ apiError() }}</div>
+  }
+
+  <app-form-button [text]="'auth.forget-pass.button' |translate" [disabled]="forgetPassForm.invalid"
+    [isLoading]="isLoading()" type="submit" />
+</form>

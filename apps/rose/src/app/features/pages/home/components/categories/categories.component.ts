@@ -31,7 +31,6 @@ import { Skeleton } from "primeng/skeleton";
   ],
   templateUrl: "./categories.component.html",
   styleUrls: ["./categories.component.scss"],
-  providers: [MessageService],
   animations: [fadeTransition],
 })
 export class CategoriesComponent implements OnInit {

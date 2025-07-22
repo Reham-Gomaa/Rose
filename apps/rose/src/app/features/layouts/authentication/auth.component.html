@@ -1,25 +1,28 @@
 <section class="grid h-screen">
-    <div id="auth" class="col-12 lg:col-6">
-        <div id="lang-toggle" class="flex justify-content-end align-items-center">
-            <app-button-theme />
-            <app-translate-toggle />
-        </div>
-        <div>
-            <app-separator></app-separator>
-            @if (process() === 'forgetPass') {
-                <h1 class="forget">{{ title() |translate }}</h1>
-                <p class="forget">{{ titleParagraph() |translate }} 
-                    @if (paragraphSpan() !== '') {<span>{{ paragraphSpan() |translate }}</span>} 
-                </p>
-            }
-            @else {<h1>{{ title() |translate }}</h1>}
-            <div id="form-wrapper">
-                <ng-content />
-            </div>
-            <h3 [routerLink]="process() === 'register' ? '/login' : '/register'" class="cursor-pointer">{{heading3() | translate}}
-                <span>{{heading3span() |translate}}</span> </h3>
-            <app-separator></app-separator>
-        </div>
+  <div id="auth" class="col-12 lg:col-6">
+    <div id="lang-toggle" class="flex justify-content-end align-items-center">
+      <app-button-theme />
+      <app-translate-toggle />
     </div>
-    <div id="photo" class="hidden lg:block lg:col-6" style="background-image: url('./images/auth/gifts.WebP')"></div>
+    <div>
+      <app-separator></app-separator>
+      @if (process() === 'forgetPass') {
+      <h1 class="forget">{{ title() |translate }}</h1>
+      <p class="forget">{{ titleParagraph() |translate }}
+        @if (paragraphSpan() !== '') {<span>{{ paragraphSpan() |translate }}</span>}
+      </p>
+      }
+      @else {<h1>{{ title() |translate }}</h1>}
+      <div id="form-wrapper">
+        <ng-content />
+      </div>
+      <h3 [routerLink]="process() === 'register' ? '/login' : '/register'" class="cursor-pointer">{{heading3() |
+        translate}}
+        <span>{{heading3span() |translate}}</span>
+      </h3>
+      <app-separator></app-separator>
+    </div>
+  </div>
+  <div id="photo" class="hidden lg:block lg:col-6" style="background-image: url('./images/auth/gifts.WebP')"></div>
+
 </section>

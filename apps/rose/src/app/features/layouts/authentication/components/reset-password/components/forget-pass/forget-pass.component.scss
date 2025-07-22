@@ -1,0 +1,20 @@
+.otp-wrapper {
+  padding-inline: 2.8125rem;
+}
+
+.otp {
+  width: 2.8125rem;
+}
+
+// Send Code
+h5.sendCode {
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-align: right;
+  color: var(--forgetPass-anchor);
+  margin: 0.625rem 0 0;
+}
+
+:host-context([dir="rtl"]) h5 {
+  text-align: left !important;
+}

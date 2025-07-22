@@ -1,78 +1,77 @@
 #auth {
-    font-family: var(--font-family-1);
-    padding: 3.125rem 4.375rem;
+  font-family: var(--font-family-1);
+  padding: 3.125rem 4.375rem;
 
-    #lang-toggle {
-        padding-bottom: 1.5625rem;
+  #lang-toggle {
+    padding-bottom: 1.5625rem;
+  }
+
+  #form-wrapper {
+    border-top: 0.0625rem solid var(--zinc-300);
+    border-bottom: 0.0625rem solid var(--zinc-300);
+    padding: 1.5rem 0 0;
+  }
+
+  h1 {
+    margin-top: 2.5rem;
+  }
+
+  // WELCOME TITLE
+  h1 {
+    font-weight: 400;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--auth-title);
+  }
+
+  h1.forget {
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: left;
+    color: var(--forget-pass-title);
+    margin-bottom: 0;
+  }
+
+  p.forget {
+    font-weight: 400;
+    font-size: 1rem;
+    text-align: left;
+    color: var(--forget-pass-title);
+    margin-top: 0;
+
+    span {
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--edit);
+      text-decoration: underline;
+      cursor: pointer;
     }
+  }
 
-    #form-wrapper {
-        border-top: .0625rem solid var(--zinc-300);
-        border-bottom: .0625rem solid var(--zinc-300);
-        padding: 1.5rem 0 0;
+  // CREATE ACCOUNT
+  h3 {
+    font-weight: 500;
+    font-size: 0.875rem;
+    text-align: center;
+    color: var(--register-anchor);
+    margin-bottom: 2.5rem;
+
+    span {
+      font-weight: 700;
+      color: var(--register-span-anchor);
     }
-
-    h1{
-        margin-top: 2.5rem;
-    }
-
-    // WELCOME TITLE
-    h1 {
-        font-weight: 400;
-        font-size: 3rem;
-        text-align: center;
-        color: var(--auth-title);
-    }
-
-    h1.forget {
-        font-weight: 600;
-        font-size: 1.5rem;
-        text-align: left;
-        color: var(--forget-pass-title);
-        margin-bottom: 0;
-    }
-
-    p.forget {
-        font-weight: 400;
-        font-size: 1rem;
-        text-align: left;
-        color: var(--forget-pass-title);
-        margin-top: 0;
-
-        span {
-            font-weight: 500;
-            font-size: 1rem;
-            color: var(--edit);
-            text-decoration: underline;
-            cursor: pointer;
-        }
-    }
-
-    // CREATE ACCOUNT
-    h3 {
-        font-weight: 500;
-        font-size: .875rem;
-        text-align: center;
-        color: var(--register-anchor);
-        margin-bottom: 2.5rem;
-
-        span {
-            font-weight: 700;
-            color: var(--register-span-anchor);
-        }
-    }
-
+  }
 }
 
 :host-context([dir="rtl"]) h1.forget,
 :host-context([dir="rtl"]) p.forget {
-    text-align: right !important;
+  text-align: right !important;
 }
 
 #photo {
-    padding: 3.75rem 1.25rem;
-    gap: .625rem;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  padding: 3.75rem 1.25rem;
+  gap: 0.625rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

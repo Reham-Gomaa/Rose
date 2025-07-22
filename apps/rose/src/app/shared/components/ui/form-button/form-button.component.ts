@@ -1,4 +1,12 @@
-import { Component, input, InputSignal } from "@angular/core";
+import {
+  booleanAttribute,
+  Component,
+  EventEmitter,
+  Input,
+  input,
+  InputSignal,
+  Output,
+} from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 @Component({
@@ -8,5 +16,20 @@ import { CommonModule } from "@angular/common";
   styleUrl: "./form-button.component.scss",
 })
 export class FormButtonComponent {
-  text : InputSignal<string> = input('');
+  @Input({ required: true }) text!: string;
+  @Input() type: "submit" | "button" | "reset" = "submit";
+  @Input() icon?: string;
+  @Input() loadingText?: string;
+  @Input() ariaLive: "polite" | "assertive" | "off" = "polite";
+  @Input({ transform: booleanAttribute }) disabled = false;
+  @Input({ transform: booleanAttribute }) isLoading = false;
+  @Input({ transform: booleanAttribute }) fullWidth = true;
+
+  @Output() onClick = new EventEmitter<Event>();
+
+  getButtonClasses(): string {
+    const fullWidthClass = this.fullWidth ? "w-full" : "";
+
+    return [fullWidthClass].filter(Boolean).join(" ");
+  }
 }

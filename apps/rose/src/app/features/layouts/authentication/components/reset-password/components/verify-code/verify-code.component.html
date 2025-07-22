@@ -1,0 +1,31 @@
+<form [formGroup]="verifyCodeForm" (ngSubmit)="verifyCodeSubmit()">
+  <p-inputOtp formControlName="otpCode" [length]="6" [integerOnly]="true" inputStyleClass="otp-input"
+    (onComplete)="verifyCodeSubmit()"></p-inputOtp>
+
+  @if (apiError()) {
+  <div class="error-message">{{ apiError() }}</div>
+  }
+
+  <h5 class="sendCode mt-3">
+    {{ 'auth.verify.h5' | translate}}
+    @if (cooldownSeconds() > 0) {
+    ({{ cooldownSeconds() }}s)
+    } @else {
+    <button class="resend-button" (click)="resendVerificationCode()" (keyup.enter)="resendVerificationCode()"
+      (keyup.space)="resendVerificationCode()" [disabled]="isResending() || cooldownSeconds() > 0"
+      aria-label="Resend verification code">
+      {{ 'auth.verify.resend' | translate }}
+    </button>
+    }
+  </h5>
+
+  <app-form-button [text]="'auth.verify.button' | translate" [disabled]="verifyCodeForm.invalid"
+    [isLoading]="isLoading()" type="submit" />
+
+  <div class="back-link">
+    <button class="back-button" (click)="goBack.emit()" (keyup.enter)="goBack.emit()" (keyup.space)="goBack.emit()"
+      aria-label="Go back to previous step">
+      {{ 'auth.verify.back' | translate }}
+    </button>
+  </div>
+</form>

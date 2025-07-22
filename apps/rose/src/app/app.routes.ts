@@ -5,7 +5,6 @@ import { DetailsComponent } from "./features/pages/details/details.component";
 import { DashboardComponent } from "@rose/features_layouts/dashboard/dashboard.component";
 import path from "path";
 
-
 export const appRoutes: Route[] = [
   {
     path: "",
@@ -50,26 +49,32 @@ export const appRoutes: Route[] = [
         title: "Product Details",
         loadComponent: () =>
           import("@rose/features_pages/details/details.component").then((c) => c.DetailsComponent),
-      }
+      },
     ],
   },
   {
     path: "login",
     title: "Log-in",
     loadComponent: () =>
-      import("@rose/features_layouts/authentication/components/login/login.component").then((c) => c.LoginComponent)
+      import("@rose/features_layouts/authentication/components/login/login.component").then(
+        (c) => c.LoginComponent
+      ),
   },
   {
     path: "register",
     title: "Register",
     loadComponent: () =>
-      import("@rose/features_layouts/authentication/components/register/register.component").then((c) => c.RegisterComponent)
+      import("@rose/features_layouts/authentication/components/register/register.component").then(
+        (c) => c.RegisterComponent
+      ),
   },
   {
-    path: "forget-pass",
+    path: "reset-password",
     title: "Forget Password",
     loadComponent: () =>
-      import("@rose/features_layouts/authentication/components/forget-pass/forget-pass.component").then((c) => c.ForgetPassComponent)
+      import(
+        "@rose/features_layouts/authentication/components/reset-password/reset-password.component"
+      ).then((c) => c.ResetPasswordComponent),
   },
   {
     path: "**",
