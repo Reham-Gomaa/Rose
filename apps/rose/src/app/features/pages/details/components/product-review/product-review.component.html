@@ -1,11 +1,14 @@
 <section class="product-review my-5">
 
   <div class="product-review-header pb-5">
-    <h2 id="review-header" class="capitalize">
-      {{ 'Details.productReviews' | translate }}
-      <span class="bottom-rect"></span>
-    </h2>
-
+    <div class="p-relative d-inline-block details-title-wrapper">
+      <h2 id="details-heading" class="details-title" itemprop="name">
+        {{ "Details.productReviews" | translate }}
+      </h2>
+      <div class="details-bg-shape" aria-hidden="true"></div>
+      <div class="details-underline-bar" aria-hidden="true"></div>
+      <meta itemprop="description" content="Browse related products" />
+    </div>
     <div class="general-rating">
       <h3 class="mb-2">
         {{ 'Details.generalRating' | translate }}:

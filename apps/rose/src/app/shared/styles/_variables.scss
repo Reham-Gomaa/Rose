@@ -218,6 +218,17 @@
   --input-border-color: var(--zinc-300);
   --selected-color-input: var(--gray-950);
   --border-active-color: var(--maroon-700);
+
+  /*details*/
+  /*1- reviews */
+  --details-header-color : var(--zinc-800);
+  --review-desc:var(--zinc-600);
+  --details-desc:var(--zinc-600);
+  --input-bg:var(--white);
+  /*img preview*/
+  --preview-bg:var(--white);
+  --preview-color:var(--zinc-800);
+
 }
 
 /* Dark theme overrides */
@@ -393,10 +404,20 @@
   /* Ratings-filter */
   --star-color: var(--yellow);
   /* Custom Input */
-  --input-color: var(--zinc-700);
-  --input-text-color: var(--zinc-400);
+  --input-color: var(--white);
+  --input-text-color: var(--white);
   --label-color: var(--white);
   --input-border-color: var(--zinc-600);
   --selected-color-input: var(--white);
   --border-active-color: var(--soft-pink-600);
+    /*details*/
+      /*1- reviews */
+  --details-header-color: var(--zinc-50);
+  --review-desc: var(--zinc-300);
+  --details-desc: var(--zinc-400);
+  --input-bg: var(--zinc-600);
+
+
+  --preview-bg: var(--zinc-600);
+  --preview-color: var(--white);
 }
