@@ -1,5 +1,6 @@
 import { inject } from "@angular/core";
 import { CanActivateFn, Router, UrlTree } from "@angular/router";
+// Services
 import { PlatformService } from "@rose/core_services/platform/platform.service";
 
 export const loggedGuard: CanActivateFn = (route, state): boolean | UrlTree => {

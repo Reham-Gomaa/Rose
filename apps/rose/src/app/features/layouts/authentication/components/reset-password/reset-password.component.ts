@@ -1,10 +1,15 @@
 import { Component, inject, signal } from "@angular/core";
+// Translation
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Components
 import { AuthComponent } from "../../auth.component";
+// Components-Flow
 import { VerifyCodeComponent } from "./components/verify-code/verify-code.component";
 import { SetPasswordComponent } from "./components/set-password/set-password.component";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
-import { forgetFlowDetails } from "@rose/core_interfaces/forget-flow-details.interface";
 import { ForgetPasswordComponent } from "./components/forget-password/forget-password.component";
+// Interfaces
+import { forgetFlowDetails } from "@rose/core_interfaces/forget-flow-details.interface";
+// Animations
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 
 @Component({

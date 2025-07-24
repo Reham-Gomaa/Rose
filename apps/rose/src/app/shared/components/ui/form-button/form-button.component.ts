@@ -1,10 +1,4 @@
-import {
-  booleanAttribute,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-} from "@angular/core";
+import { booleanAttribute, Component, EventEmitter, Input, Output } from "@angular/core";
 
 @Component({
   selector: "app-form-button",

@@ -8,6 +8,8 @@ import { TranslatePipe } from "@ngx-translate/core";
 import { AuthComponent } from "@rose/features_layouts/authentication/auth.component";
 import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
 import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
+// services
+import { PlatformService } from "@rose/core_services/platform/platform.service";
 // shared-service
 import { TranslationService } from "@rose/core_services/translation/translation.service";
 // Animation
@@ -16,7 +18,6 @@ import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 import { MessageService } from "primeng/api";
 // Auth lib
 import { AuthApiKpService } from "auth-api-kp";
-import { PlatformService } from "@rose/core_services/platform/platform.service";
 
 @Component({
   selector: "app-login",

@@ -7,13 +7,16 @@ import {
   Validators,
 } from "@angular/forms";
 import { Router } from "@angular/router";
-import { AuthApiKpService } from "auth-api-kp";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+// Translation
+import { TranslatePipe } from "@ngx-translate/core";
+// shared-components
 import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
 import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
-import { TranslatePipe } from "@ngx-translate/core";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+// PrimeNG
 import { MessageService } from "primeng/api";
-
+// Auth lib
+import { AuthApiKpService } from "auth-api-kp";
 @Component({
   selector: "app-set-password",
   imports: [ReactiveFormsModule, FormButtonComponent, CustomInputComponent, TranslatePipe],
