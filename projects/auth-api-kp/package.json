@@ -1,0 +1,13 @@
+{
+  "name": "auth-api-kp",
+  "version": "0.0.9",
+  "peerDependencies": {
+    "@angular/common": "^19.2.0",
+    "@angular/core": "^19.2.0"
+  },
+  "dependencies": {
+    "auth-api-kp": "file:",
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
