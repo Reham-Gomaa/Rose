@@ -1,16 +1,15 @@
 .separator {
-  img {
-    display: block;
-    margin: auto;
+  width: 100%;
+  height: 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
 
-    @media all and (max-width: 31.25rem) {
-      width: 7.5rem;
-      height: 1.5625rem;
-    }
+.separator.up {
+  background-image: var(--auth-separator-up);
+}
 
-    @media all and (min-width: 31.25rem) {
-      width: 17.5rem;
-      height: 2.8125rem;
-    }
-  }
+.separator.down {
+  background-image: var(--auth-separator-down);
 }

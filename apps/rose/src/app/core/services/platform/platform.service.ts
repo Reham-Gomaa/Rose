@@ -8,4 +8,11 @@ export class PlatformService {
   isBrowser(): boolean {
     return isPlatformBrowser(this.platformId);
   }
+    isServer(): boolean {
+    return !this.isBrowser();
+  }
+
+  checkPlatform(): "Browser" | "Server" {
+    return this.isBrowser() ? "Browser" : "Server";
+  }
 }

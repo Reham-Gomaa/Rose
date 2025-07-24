@@ -21,6 +21,9 @@ import { InputTextModule } from "primeng/inputtext";
 import { Menubar } from "primeng/menubar";
 import { OverlayBadgeModule } from "primeng/overlaybadge";
 
+import { isPlatformBrowser } from "@angular/common";
+import { PLATFORM_ID } from "@angular/core";
+
 type modalPosition =
   | "left"
   | "right"
@@ -56,6 +59,7 @@ type modalPosition =
 })
 export class NavbarComponent implements OnInit {
   readonly translationService = inject(TranslationService);
+  private readonly platformId = inject(PLATFORM_ID);
   isLoggedIn: WritableSignal<boolean> = signal<boolean>(false);
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
   items: MenuItem[] | undefined;
@@ -84,6 +88,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isLogin();
     this.items = [
       {
         label: "navbar.home",
@@ -102,5 +107,12 @@ export class NavbarComponent implements OnInit {
         route: "contact",
       },
     ];
+  }
+
+  isLogin(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    const token = localStorage.getItem("authToken");
+    this.isLoggedIn.set(!!token);
   }
 }

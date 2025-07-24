@@ -179,17 +179,17 @@
   },
   "auth": {
     "inputs": {
-    "email": "البريد الإلكتروني",
-    "password": "كلمة المرور",
-    "confirmPassword": "تأكيد كلمة المرور",
-    "firstName": "الاسم الأول",
-    "firstNamePlaceholder": "أحمد",
-    "lastName": "اسم العائلة",
-    "lastNamePlaceholder": "مصطفي",
-    "phone": "رقم الهاتف",
-    "gender": "النوع",
-    "genderPlaceholder": "اختر النوع"
-  },
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "firstName": "الاسم الأول",
+      "firstNamePlaceholder": "أحمد",
+      "lastName": "اسم العائلة",
+      "lastNamePlaceholder": "مصطفي",
+      "phone": "رقم الهاتف",
+      "gender": "النوع",
+      "genderPlaceholder": "اختر النوع"
+    },
     "login": {
       "h3": "ليس لديك حساب بعد؟",
       "span": "أنشئ واحدًا الآن!",
@@ -201,7 +201,11 @@
       "h3": "هل لديك حساب بالفعل؟",
       "span": "تسجيل الدخول",
       "h1": "انضم إلى عائلتنا!",
-      "button": "إنشاء حساب"
+      "button": "إنشاء حساب",
+      "gender": {
+        "male": "ذكر",
+        "female": "أنثى"
+      }
     },
     "forget-pass": {
       "h3": "ليس لديك حساب بعد؟",

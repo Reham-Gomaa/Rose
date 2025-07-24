@@ -1,0 +1,73 @@
+.otp-wrapper {
+  padding-inline: 2.8125rem;
+  margin-bottom: 1rem;
+}
+
+.otp {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2.75rem;
+}
+
+:host ::ng-deep .p-inputtext {
+  width: 2.8125rem !important;
+  height: 3.125rem;
+  font-size: 1.25rem;
+  text-align: center;
+  background-color: var(--input-color) !important;
+  border: 0.0625rem solid var(--input-border-color) !important;
+  color: var(--input-text-color);
+  border-radius: 0.625rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: var(--border-active-color) !important;
+    box-shadow: 0 0 0 0.0625rem var(--border-active-color) !important;
+  }
+}
+
+.send-code-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  text-align: end;
+  margin-top: 1rem;
+}
+
+.sendCode {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--resend-code-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  &:hover:not(:disabled) {
+    text-decoration: underline;
+  }
+
+  &:disabled {
+    color: var(--disable-resend-code-color);
+    cursor: not-allowed;
+    text-decoration: none;
+  }
+}
+
+/* RTL Support */
+:host-context([dir="rtl"]) {
+  .sendCode,
+  .error-message {
+    text-align: right;
+  }
+}

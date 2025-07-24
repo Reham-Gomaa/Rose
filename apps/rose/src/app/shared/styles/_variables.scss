@@ -1,18 +1,34 @@
 :root {
-  /* Fonts */
+  // Fonts
   --font-family-1: "Inter", sans-serif;
   --font-family-2: "Roboto", sans-serif;
-  --font-family-3: "Tajawal", sans-serif;
+  --font-family-3: "Mulish", sans-serif;
+  --font-family-4: "Sarabun", sans-serif;
+  --font-family-5: "Pinyon Script", sans-serif;
+  --font-family-ar: "Tajawal", sans-serif;
 
   &[dir="rtl"] {
-    --font-family-1: var(--font-family-3);
-    --font-family-2: var(--font-family-3);
+    --font-family-1: var(--font-family-ar);
+    --font-family-2: var(--font-family-ar);
+    --font-family-3: var(--font-family-ar);
+    --font-family-4: var(--font-family-ar);
+    --font-family-5: var(--font-family-ar);
   }
 
-  /* Light theme colors */
+  --separator-up: url("/images/auth/separatorUP.svg");
+  --separator-down: url("/images/auth/separatorDown.svg");
+
+  --dark-separator-up: url("/images/auth/darkSeparatorUP.svg");
+  --dark-separator-down: url("/images/auth/darkSeparatorDown.svg");
+
+  // Light theme colors
   --white: #ffffff;
   --black: #000000;
   --shadow-black: #0000000d;
+  --shadow-black-opacity: #0000001a;
+
+  --shadow-error: #ffffff4d;
+  --shadow-success: #00000026;
 
   --zinc-900: #18181b;
   --zinc-800: #27272a;
@@ -37,14 +53,22 @@
   --soft-pink-200: #ffc2d0;
   --soft-pink-100: #ffe0e7;
   --soft-pink-50: #fff1f5;
-  --yellow: #fba707;
   --hover-card-shape: #e6507380;
-  --blue-700: #1447E6;
+
+  --emerald-50: #ecfdf5;
+  --emerald-300: #5ee9b5;
+  --emerald-700: #007a55;
+
+  --blue-400: #50a2ff;
+  --blue-700: #1447e6;
+
   --gray-950: #323639;
 
-  /* Body */
+  --yellow: #fba707;
+
+  // Body
   --body-color: var(--white);
-  /* Navbar */
+  // Navbar
   --background-navbar: var(--white);
   --color-navbar: var(--zinc-700);
   --hover-navbar: var(--maroon-600);
@@ -58,14 +82,14 @@
   --close-btn-color: var(--zinc-700);
   --close-btn-hover: var(--maroon-600);
   --close-btn-border: var(--maroon-600);
-  /* DarkMode Toggle */
+  // DarkMode Toggle
   --toggle-color: var(--zinc-700);
   --toggle-hover: var(--maroon-600);
-  /* Search Toggle */
+  // Search Toggle
   --Search-bg: var(--maroon-700);
   --Search-color: var(--maroon-50);
   --Search-hover: var(--maroon-500);
-  /* Footer */
+  // Footer
   --footer-background: var(--zinc-800);
   --footer-tabs-color: var(--zinc-100);
   --footer-tabs-hover-color: var(--soft-pink-300);
@@ -77,34 +101,34 @@
   --footer-input-focus: var(--maroon-600);
   --footer-btn-background: var(--maroon-600);
   --footer-btn-hover: var(--maroon-500);
-  /* Shared Input */
+  // Shared Input
   --input-background: var(--white);
   --input-color: var(--white);
   --input-focus: var(--soft-pink-300);
-  --input-placeholder-color: var(--zinc-400);
+  --input-placeholder-color: var(--zinc-500);
 
   --input-btn-background: var(--maroon-50);
   --input-btn-color: var(--maroon-700);
   --input-btn-hover: var(--soft-pink-300);
-  /* Not-Found-Product */
+  // Not-Found-Product
   --not-found-Product-color: var(--zinc-500);
-  /* Not-Found */
+  // Not-Found
   --not-found-title-color: var(--maroon-600);
   --not-found-p-color: var(--zinc-500);
-  /* Scrollbar */
+  // Scrollbar
   --scrollbar-width: 0.625rem;
   --scrollbar-height: 0.625rem;
   --scrollbar-track-color: var(--white);
   --scrollbar-thumb-color: var(--maroon-600);
   --scrollbar-thumb-hover-color: var(--maroon-500);
 
-  /* Home Components */
-  /* Categories */
+  // Home Components
+  // Categories
   --card-category-background: var(--maroon-50);
   --icon-category-background: var(--maroon-600);
   --card-title-category-color: var(--maroon-600);
   --card-p-category-color: var(--zinc-500);
-  /* Gift */
+  // Gift
   --h2-color-gift: var(--maroon-600);
   --h2-background-gift: var(--maroon-50);
   --h1-color-gift: var(--white);
@@ -118,19 +142,19 @@
   --carousel-indicator-button-gift-active: var(--maroon-600);
   --carousel-indicator-button-gift-hover: var(--maroon-500);
   --carousel-button-gift-hover: var(--maroon-500);
-  /* BTN-Shared */
+  // BTN-Shared
   --btn-shared-color: var(--white);
   --btn-shared-i-color: var(--white);
   --btn-shared-background: var(--maroon-600);
   --btn-shared-background-hover: var(--maroon-500);
-  /* Our Services */
+  // Our Services
   --our-services-color: var(--maroon-50);
   --our-services-background: var(--maroon-50);
   --our-services-icon-background: var(--maroon-600);
   --our-services-icon-color: var(--white);
   --our-services-title-color: var(--maroon-600);
   --our-services-p-color: var(--zinc-500);
-  /* Best Sellers */
+  // Best Sellers
   --title-best-sellers-color: var(--maroon-700);
   --highlight-best-sellers-color: var(--soft-pink-500);
   --subtitle-best-sellers-color: var(--maroon-700);
@@ -138,7 +162,7 @@
   --carousel-i-color-best-sellers: var(--maroon-50);
   --carousel-button-best-sellers-background: var(--maroon-600);
   --carousel-button-best-sellers-hover: var(--maroon-500);
-  /* Popular Items */
+  // Popular Items
   --title-popular-items-color: var(--maroon-700);
   --shape-popular-items-background: var(--soft-pink-100);
   --underline-bar-popular-items-color: var(--soft-pink-600);
@@ -146,7 +170,7 @@
   --popular-items-tabs-color: var(--zinc-700);
   --popular-items-tabs-active-color: var(--maroon-600);
   --popular-items-tabs-hover-color: var(--maroon-600);
-  /* Card Item */
+  // Card Item
   --card-item-background: var(--white);
   --title-card-item-color: var(--maroon-700);
   --shape-card-item-background: var(--hover-card-shape);
@@ -158,7 +182,7 @@
   --btn-shopping-card-item-background: var(--maroon-600);
   --btn-shopping-card-item-hover-background: var(--maroon-500);
   --btn-shopping-card-item-color: var(--white);
-  /* About Us */
+  // About Us
   --title-about-us-color: var(--soft-pink-500);
   --subtitle-about-us-color: var(--maroon-700);
   --highlight-about-us-color: var(--soft-pink-500);
@@ -166,12 +190,12 @@
   --checker-about-us-color: var(--maroon-700);
   --checker-p-about-us-color: var(--zinc-800);
   --border-img-about-us-color: var(--maroon-600);
-  /* Gallery */
+  // Gallery
   --title-gallery-color: var(--soft-pink-500);
   --subtitle-gallery-color: var(--maroon-700);
   --shape-gallery-background: var(--soft-pink-100);
   --underline-bar-gallery-color: var(--soft-pink-600);
-  /* Testimonials */
+  // Testimonials
   --testimonials-background: var(--maroon-50);
   --testimonials-title-color: var(--zinc-800);
   --testimonials-subtitle-color: var(--zinc-400);
@@ -185,24 +209,24 @@
   --testimonials-carousel-indicator-button-color: var(--maroon-400);
   --testimonials-carousel-indicator-button-active: var(--maroon-600);
   --testimonials-carousel-indicator-button-hover: var(--maroon-500);
-  /* Trusted By */
+  // Trusted By
   --trusted-by-background: var(--maroon-50);
   --trusted-by-title-color: var(--maroon-700);
   --trusted-by-highlight-color: var(--soft-pink-500);
   --trusted-by-underline-color: var(--soft-pink-600);
 
-  /* All-Categories Components */
-  /* Card Filters */
+  // All-Categories Components
+  // Card Filters
   --bg-card-filter: var(--white);
   --color-title-card-filter: var(--zinc-800);
   --color-card-filter: var(--zinc-700);
   --checked-filter: var(--maroon-600);
   --check-border-filter: var(--zinc-800);
   --check-icon-border-filter: var(--white);
-  /* Btn-Clear-Filters */
+  // Btn-Clear-Filters
   --btn-clear-filters-color: var(--maroon-600);
   --btn-clear-filters-hover: var(--maroon-500);
-  /* Btn-SideBar-Filters */
+  // Btn-SideBar-Filters
   --btn-clear-filters-color-icon: var(--maroon-50);
   --btn-SideBar-filters-color: var(--maroon-600);
   --btn-SideBar-filters-hover: var(--maroon-500);
@@ -210,14 +234,19 @@
   --btn-close-SideBar-color: var(--zinc-800);
   --btn-close-SideBar-border: var(--maroon-500);
   --btn-close-SideBar-hover: var(--maroon-600);
-  /* Price Filter */
+  // Price Filter
   --text-price-rating: var(--maroon-600);
   --p-slider-background: var(--zinc-400);
   --p-slider-range-color: var(--maroon-600);
   --point-slider-color: var(--maroon-600);
   --point-slider-hover: var(--maroon-500);
-  /* Ratings-filter */
+  // Ratings-filter
   --star-color: var(--yellow);
+
+  // Auth
+  // Separator
+  --auth-separator-up: var(--separator-up);
+  --auth-separator-down: var(--separator-down);
   // Login
   --auth-title: var(--maroon-700);
   --forgetPass-anchor: var(--maroon-700);
@@ -227,36 +256,47 @@
   --forget-pass-title: var(--zinc-800);
   // Verify OTP
   --edit: var(--blue-700);
+
+  --resend-code-color: var(--maroon-600);
+  --disable-resend-code-color: var(--zinc-800);
   // Auth-Button
   --form-button-bg: var(--maroon-600);
+  --form-button-disabled: var(--maroon-800);
   --form-button-hover: var(--maroon-500);
   --form-button-color: var(--white);
   // Custom Input
-  /* Custom Input */
   --input-color: var(--white);
   --input-text-color: var(--zinc-400);
+  --input-placeholder-text-color: var(--zinc-500);
   --label-color: var(--zinc-800);
   --input-border-color: var(--zinc-300);
   --selected-color-input: var(--gray-950);
   --border-active-color: var(--maroon-700);
+  // Notification-Toast
+  --toast-error-bg: var(--maroon-50);
+  --toast-error-color: var(--zinc-800);
+  --toast-error-i-color: var(--maroon-500);
+  --toast-success-bg: var(--emerald-50);
+  --toast-success-color: var(--zinc-800);
+  --toast-success-i-color: var(--emerald-700);
+  --toast-btn-close-color: var(--zinc-400);
 
-  /*details*/
-  /*1- reviews */
-  --details-header-color : var(--zinc-800);
-  --review-desc:var(--zinc-600);
-  --details-desc:var(--zinc-600);
-  --input-bg:var(--white);
-  /*img preview*/
-  --preview-bg:var(--white);
-  --preview-color:var(--zinc-800);
-
+  //details
+  //1- reviews
+  --details-header-color: var(--zinc-800);
+  --review-desc: var(--zinc-600);
+  --details-desc: var(--zinc-600);
+  --input-bg: var(--white);
+  //img preview
+  --preview-bg: var(--white);
+  --preview-color: var(--zinc-800);
 }
 
-/* Dark theme overrides */
+// Dark theme overrides
 .dark-mode {
-  /* Body */
+  // Body
   --body-color: var(--zinc-800);
-  /* Navbar */
+  // Navbar
   --background-navbar: var(--zinc-800);
   --color-navbar: var(--zinc-100);
   --hover-navbar: var(--soft-pink-200);
@@ -270,21 +310,21 @@
   --close-btn-color: var(--zinc-100);
   --close-btn-hover: var(--soft-pink-200);
   --close-btn-border: var(--soft-pink-200);
-  /* DarkMode Toggle */
+  // DarkMode Toggle
   --toggle-color: var(--zinc-100);
   --toggle-hover: var(--soft-pink-200);
-  /* Search Toggle */
+  // Search Toggle
   --Search-bg: var(--soft-pink-200);
   --Search-color: var(--zinc-700);
   --Search-hover: var(--soft-pink-300);
-  /* Footer */
+  // Footer
   --footer-background: var(--zinc-900);
   --footer-input-background: var(--zinc-800);
   --footer-input-color: var(--zinc-700);
   --footer-input-focus: var(--soft-pink-200);
   --footer-btn-background: var(--soft-pink-200);
   --footer-btn-hover: var(--maroon-500);
-  /* Shared Input */
+  // Shared Input
   --input-background: var(--zinc-800);
   --input-color: var(--white);
   --input-focus: var(--soft-pink-200);
@@ -293,30 +333,30 @@
   --input-btn-background: var(--soft-pink-300);
   --input-btn-color: var(--zinc-800);
   --input-btn-hover: var(--soft-pink-400);
-  /* Not-Found-Product */
+  // Not-Found-Product
   --not-found-Product-color: var(--zinc-400);
-  /* Not-Found */
+  // Not-Found
   --not-found-title-color: var(--soft-pink-200);
   --not-found-p-color: var(--zinc-400);
-  /* Scrollbar */
+  // Scrollbar
   --scrollbar-width: 0.625rem;
   --scrollbar-height: 0.625rem;
   --scrollbar-track-color: var(--zinc-800);
   --scrollbar-thumb-color: var(--soft-pink-200);
   --scrollbar-thumb-hover-color: var(--soft-pink-300);
 
-  /* Home Components */
-  /* Categories */
+  // Home Components
+  // Categories
   --card-category-background: var(--zinc-700);
   --icon-category-background: var(--soft-pink-200);
   --card-title-category-color: var(--soft-pink-200);
   --card-p-category-color: var(--zinc-300);
-  /* BTN-Shared */
+  // BTN-Shared
   --btn-shared-color: var(--zinc-800);
   --btn-shared-i-color: var(--zinc-800);
   --btn-shared-background: var(--soft-pink-200);
   --btn-shared-background-hover: var(--soft-pink-300);
-  /* Gift */
+  // Gift
   --h2-color-gift: var(--maroon-600);
   --h2-background-gift: var(--maroon-50);
   --h1-color-gift: var(--white);
@@ -329,14 +369,14 @@
   --carousel-indicator-button-gift-active: var(--maroon-600);
   --carousel-indicator-button-gift-hover: var(--maroon-500);
   --carousel-button-gift-hover: var(--maroon-500);
-  /* Our Services */
+  // Our Services
   --our-services-color: var(--zinc-700);
   --our-services-background: var(--soft-pink-200);
   --our-services-icon-background: var(--soft-pink-200);
   --our-services-icon-color: var(--zinc-800);
   --our-services-title-color: var(--soft-pink-200);
   --our-services-p-color: var(--zinc-400);
-  /* Best Sellers */
+  // Best Sellers
   --title-best-sellers-color: var(--maroon-400);
   --highlight-best-sellers-color: var(--soft-pink-200);
   --subtitle-best-sellers-color: var(--maroon-400);
@@ -344,7 +384,7 @@
   --carousel-i-color-best-sellers: var(--maroon-700);
   --carousel-button-best-sellers-background: var(--maroon-50);
   --carousel-button-best-sellers-hover: var(--soft-pink-200);
-  /* Popular Items */
+  // Popular Items
   --title-popular-items-color: var(--soft-pink-200);
   --shape-popular-items-background: var(--zinc-700);
   --underline-bar-popular-items-color: var(--soft-pink-500);
@@ -352,7 +392,7 @@
   --popular-items-tabs-color: var(--zinc-400);
   --popular-items-tabs-active-color: var(--soft-pink-200);
   --popular-items-tabs-hover-color: var(--soft-pink-200);
-  /* Card Item */
+  // Card Item
   --card-item-background: var(--zinc-800);
   --title-card-item-color: var(--soft-pink-200);
   --shape-card-item-background: var(--hover-card-shape);
@@ -364,7 +404,7 @@
   --btn-shopping-card-item-background: var(--maroon-500);
   --btn-shopping-card-item-hover-background: var(--maroon-600);
   --btn-shopping-card-item-color: var(--white);
-  /* About Us */
+  // About Us
   --title-about-us-color: var(--maroon-400);
   --subtitle-about-us-color: var(--soft-pink-200);
   --highlight-about-us-color: var(--maroon-400);
@@ -372,12 +412,12 @@
   --checker-about-us-color: var(--soft-pink-400);
   --checker-p-about-us-color: var(--zinc-50);
   --border-img-about-us-color: var(--soft-pink-400);
-  /* Gallery */
+  // Gallery
   --title-gallery-color: var(--maroon-400);
   --subtitle-gallery-color: var(--soft-pink-200);
   --shape-gallery-background: var(--zinc-700);
   --underline-bar-gallery-color: var(--soft-pink-500);
-  /* Testimonials */
+  // Testimonials
   --testimonials-background: var(--zinc-700);
   --testimonials-title-color: var(--zinc-800);
   --testimonials-subtitle-color: var(--zinc-800);
@@ -391,24 +431,24 @@
   --testimonials-carousel-indicator-button-color: var(--soft-pink-300);
   --testimonials-carousel-indicator-button-active: var(--soft-pink-500);
   --testimonials-carousel-indicator-button-hover: var(--soft-pink-500);
-  /* Trusted By */
+  // Trusted By
   --trusted-by-background: var(--zinc-700);
   --trusted-by-title-color: var(--soft-pink-200);
   --trusted-by-highlight-color: var(--maroon-400);
   --trusted-by-underline-color: var(--soft-pink-500);
 
-  /* All-Categories Components */
-  /* Card Filters */
+  // All-Categories Components
+  // Card Filters
   --bg-card-filter: var(--zinc-700);
   --color-title-card-filter: var(--zinc-50);
   --color-card-filter: var(--zinc-50);
   --checked-filter: var(--soft-pink-300);
   --check-border-filter: var(--zinc-50);
   --check-icon-border-filter: var(--white);
-  /* Btn-Clear-Filters */
+  // Btn-Clear-Filters
   --btn-clear-filters-color: var(--soft-pink-300);
   --btn-clear-filters-hover: var(--soft-pink-400);
-  /* Btn-SideBar-Filters */
+  // Btn-SideBar-Filters
   --btn-clear-filters-color-icon: var(--maroon-50);
   --btn-SideBar-filters-color: var(--maroon-500);
   --btn-SideBar-filters-hover: var(--maroon-600);
@@ -416,28 +456,60 @@
   --btn-close-SideBar-color: var(--zinc-50);
   --btn-close-SideBar-border: var(--soft-pink-200);
   --btn-close-SideBar-hover: var(--soft-pink-200);
-  /* Price Filter */
+  // Price Filter
   --text-price-rating: var(--soft-pink-200);
   --p-slider-background: var(--zinc-50);
   --p-slider-range-color: var(--soft-pink-300);
   --point-slider-color: var(--soft-pink-300);
   --point-slider-hover: var(--soft-pink-400);
-  /* Ratings-filter */
+  // Ratings-filter
   --star-color: var(--yellow);
-  /* Custom Input */
-  --input-color: var(--white);
+
+  // Auth
+  // Separator
+  --auth-separator-up: var(--dark-separator-up);
+  --auth-separator-down: var(--dark-separator-down);
+  // Login
+  --auth-title: var(--soft-pink-300);
+  --forgetPass-anchor: var(--soft-pink-300);
+  --register-anchor: var(--zinc-50);
+  --register-span-anchor: var(--soft-pink-300);
+  // Forget pass
+  --forget-pass-title: var(--zinc-50);
+  // Verify OTP
+  --edit: var(--blue-400);
+
+  --resend-code-color: var(--soft-pink-300);
+  --disable-resend-code-color: var(--zinc-50);
+  // Auth-Button
+  --form-button-bg: var(--soft-pink-300);
+  --form-button-disabled: var(--soft-pink-600);
+  --form-button-hover: var(--soft-pink-400);
+  --form-button-color: var(--zinc-800);
+  // Custom Input
+  --input-color: var(--zinc-700);
   --input-text-color: var(--white);
+  --input-placeholder-text-color: var(--zinc-400);
   --label-color: var(--white);
   --input-border-color: var(--zinc-600);
   --selected-color-input: var(--white);
   --border-active-color: var(--soft-pink-600);
-    /*details*/
-      /*1- reviews */
+  // Notification-Toast
+  --toast-error-bg: var(--maroon-500);
+  --toast-error-color: var(--zinc-100);
+  --toast-error-i-color: var(--zinc-50);
+
+  --toast-success-bg: var(--emerald-300);
+  --toast-success-color: var(--zinc-800);
+  --toast-success-i-color: var(--zinc-700);
+  --toast-btn-close-color: var(--zinc-600);
+
+  //details
+  //1- reviews
   --details-header-color: var(--zinc-50);
   --review-desc: var(--zinc-300);
   --details-desc: var(--zinc-400);
   --input-bg: var(--zinc-600);
-
 
   --preview-bg: var(--zinc-600);
   --preview-color: var(--white);

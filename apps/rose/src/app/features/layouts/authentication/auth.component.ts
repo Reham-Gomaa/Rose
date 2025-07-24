@@ -1,15 +1,11 @@
-// @angular
 import { Component, input, InputSignal } from "@angular/core";
 import { RouterLink } from "@angular/router";
-
 // @ngx
 import { TranslatePipe } from "@ngx-translate/core";
-
 // shared-components
 import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";
 import { SeparatorComponent } from "@rose/shared_Components_ui/auth-separator/separator.component";
 import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
-import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 
 @Component({
   selector: "app-auth",
@@ -19,7 +15,6 @@ import { ButtonComponent } from "@rose/shared_Components_ui/button/button.compon
     TranslatePipe,
     ButtonThemeComponent,
     RouterLink,
-    ButtonComponent,
   ],
   templateUrl: "./auth.component.html",
   styleUrl: "./auth.component.scss",
