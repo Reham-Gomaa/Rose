@@ -1,4 +1,4 @@
-import { Component, input, InputSignal } from "@angular/core";
+import { Component, Input, input, InputSignal } from "@angular/core";
 import { RouterLink } from "@angular/router";
 // @ngx
 import { TranslatePipe } from "@ngx-translate/core";
@@ -29,5 +29,7 @@ export class AuthComponent {
   heading3span: InputSignal<string> = input("");
   button: InputSignal<string> = input("");
   formType: InputSignal<any> = input("");
-  goBackToForget: InputSignal<() => void> = input(() => {});
+  // goBackToForget: InputSignal<() => void> = input(() => {});
+
+  @Input() goBackToForget: () => void = () => {};
 }
