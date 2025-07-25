@@ -101,7 +101,7 @@
       },
       "customer3": {
         "heading2": "Max Turner",
-        "paragraph": "The team truly cares about every order. I always feel confident when I buy flowers from here. The checkout process was sup..."
+        "paragraph": "The team truly cares about every order. I always feel confident when I buy flowers from here."
       }
     },
     "trustedBy": {
@@ -201,7 +201,11 @@
       "h3": "Already have an account? ",
       "span": "Login",
       "h1": "Become part of our family!",
-      "button": "Create Account"
+      "button": "Create Account",
+      "gender": {
+        "male": "Male",
+        "female": "Female"
+      }
     },
     "forget-pass": {
       "h3": "Don’t have an account yet? ",
@@ -247,6 +251,4 @@
       "noItemsMessage": "No related products available!"
     }
   }
-
 }
-

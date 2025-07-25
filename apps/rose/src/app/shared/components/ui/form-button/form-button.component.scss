@@ -16,4 +16,9 @@ button {
   &:hover {
     background-color: var(--form-button-hover);
   }
+
+  &:disabled {
+    background-color: var(--form-button-disabled);
+    cursor: not-allowed;
+  }
 }

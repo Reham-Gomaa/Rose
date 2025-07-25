@@ -1,8 +1,4 @@
-// @angular
-import { Component, inject } from "@angular/core";
-
-// shared-service
-import { DarkModeService } from "@rose/core_services/darkmode/darkmode.service";
+import { Component, Input } from "@angular/core";
 
 @Component({
   selector: "app-separator",
@@ -11,7 +7,5 @@ import { DarkModeService } from "@rose/core_services/darkmode/darkmode.service";
   styleUrl: "./separator.component.scss",
 })
 export class SeparatorComponent {
-   readonly darkModeService = inject(DarkModeService);
-
-  
+  @Input() position: "up" | "down" = "up";
 }

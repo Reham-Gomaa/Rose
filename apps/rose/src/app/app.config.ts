@@ -21,13 +21,39 @@ import { sortEffects } from "@rose/store_sort/store.effects";
 import { MessageService } from "primeng/api";
 import { providePrimeNG } from "primeng/config";
 import Aura from "@primeng/themes/aura";
-
+import { ToastModule } from "primeng/toast";
+// Auth LIB
+import { API_CONFIG } from "auth-api-kp";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
 }
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideHttpClient(),
+    {
+      provide: API_CONFIG,
+      useValue: {
+        baseUrl: "https://flower.elevateegy.com/api/",
+        apiVersion: "v1",
+        endpoints: {
+          auth: {
+            login: "auth/signin",
+            register: "auth/signup",
+            logout: "auth/logout",
+            forgotPassword: "auth/forgotPassword",
+            verifyResetCode: "auth/verifyResetCode",
+            resetPassword: "auth/resetPassword",
+            profileData: "auth/profileData",
+            editProfile: "auth/editProfile",
+            changePassword: "auth/changePassword",
+            deleteMe: "auth/deleteMe",
+            uploadPhoto: "auth/uploadPhoto",
+            forgetPasswordForm: "auth/forgetPasswordForm",
+          },
+        },
+      },
+    },
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(
@@ -39,7 +65,7 @@ export const appConfig: ApplicationConfig = {
     ),
     provideHttpClient(withFetch()),
     MessageService,
-
+    importProvidersFrom(ToastModule),
     provideAnimationsAsync(),
     provideAnimations(),
     providePrimeNG({
