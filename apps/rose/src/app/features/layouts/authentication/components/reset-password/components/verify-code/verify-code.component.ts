@@ -8,13 +8,16 @@ import {
   Validators,
 } from "@angular/forms";
 import { Router } from "@angular/router";
-import { TranslatePipe } from "@ngx-translate/core";
-import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
-import { AuthApiKpService } from "auth-api-kp";
-import { MessageService } from "primeng/api";
 import { interval } from "rxjs";
+// Translation
+import { TranslatePipe } from "@ngx-translate/core";
+// shared-components
+import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
+// PrimeNG
+import { MessageService } from "primeng/api";
 import { InputOtpModule } from "primeng/inputotp";
-
+// Auth lib
+import { AuthApiKpService } from "auth-api-kp";
 @Component({
   selector: "app-verify-code",
   imports: [ReactiveFormsModule, FormButtonComponent, TranslatePipe, InputOtpModule],
@@ -77,7 +80,6 @@ export class VerifyCodeComponent {
       .subscribe({
         next: (res) => {
           if ("error" in res) {
-            // ❌ It's an ErrorResponse
             this.apiError.set(res.error || "Failed to resend verification code.");
             this._messageService.add({
               severity: "error",
@@ -85,7 +87,6 @@ export class VerifyCodeComponent {
               life: 3000,
             });
           } else {
-            // ✅ It's a ForgotPasswordResponse
             if (res.message === "success") {
               this.resendSuccess.set(true);
               this.startCooldownTimer();
@@ -133,7 +134,6 @@ export class VerifyCodeComponent {
       .subscribe({
         next: (res) => {
           if ("error" in res) {
-            // ❌ It's an ErrorResponse
             this._messageService.add({
               severity: "error",
               detail: res.error || "Verification failed.",
@@ -141,7 +141,6 @@ export class VerifyCodeComponent {
             });
             this.apiError.set(res.error || "Verification failed.");
           } else {
-            // ✅ It's a VerifyResetCodeResponse
             if (res.status === "Success") {
               this.codeVerified.emit();
               this._messageService.add({
