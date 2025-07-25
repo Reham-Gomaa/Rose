@@ -2,7 +2,7 @@
   <label [for]="id()" class="label-color mt-3">{{labelText()}}</label>
   <div class="input-phone-container">
     <div class="custom-country-dropdown">
-      <div class="selected-country" (click;keyup)="toggleDropdown()">
+      <div class="selected-country" (click)="toggleDropdown()" (keyup)="toggleDropdown()">
         <img class="country-flag" [src]="baseFlagUrl+selectedCountry.flag" alt="image for flag" />
         <p>{{selectedCountry.name}} {{selectedCountry.code}}</p>
         <div class="flex flex-column gap-1">
