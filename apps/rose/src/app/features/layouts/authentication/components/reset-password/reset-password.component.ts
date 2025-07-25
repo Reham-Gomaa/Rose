@@ -74,4 +74,8 @@ export class ResetPasswordComponent {
     this.email.set("");
     this.forgetFlow.set("forget");
   }
+
+  goBackToForget = () => {
+    this.forgetFlow.set("forget");
+  };
 }

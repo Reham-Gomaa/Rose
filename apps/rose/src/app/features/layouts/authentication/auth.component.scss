@@ -72,6 +72,7 @@
   }
 
   h1.forget {
+    font-family: var(--font-family-4);
     margin-top: 1.5rem;
     font-weight: 600;
     font-size: 1.5rem;
@@ -87,12 +88,37 @@
     color: var(--forget-pass-title);
     margin-top: 0;
 
-    span {
+    // span {
+    //   font-weight: 500;
+    //   font-size: 1rem;
+    //   color: var(--edit);
+    //   text-decoration: underline;
+    //   cursor: pointer;
+    // }
+
+    .edit-link {
       font-weight: 500;
       font-size: 1rem;
       color: var(--edit);
       text-decoration: underline;
       cursor: pointer;
+
+      // Reset default button styles
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      font-family: inherit;
+
+      // Optional: remove focus ring unless focused with keyboard
+      &:focus {
+        outline: 2px solid var(--edit); // Or custom focus style
+        outline-offset: 2px;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 }

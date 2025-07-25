@@ -20,7 +20,10 @@
       @if (process() === 'forgetPass') {
       <h1 class="forget">{{ title() | translate }}</h1>
       <p class="forget">{{ titleParagraph() | translate }}
-        @if (paragraphSpan() !== '') {<span>{{ paragraphSpan() | translate }}</span>}
+        @if (paragraphSpan() !== '') {<button type="button" class="edit-link" (click)="goBackToForget()"
+          (keydown)="goBackToForget()" aria-label="Edit email">
+          {{ paragraphSpan() | translate }}
+        </button>}
       </p>
       }
       @else {
