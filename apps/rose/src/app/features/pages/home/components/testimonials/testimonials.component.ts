@@ -40,7 +40,7 @@ export class TestimonialsComponent {
       heading2: "home.testimonials.customer3.heading2",
       paragraph: "home.testimonials.customer3.paragraph",
       heading3: "home.testimonials.heading3",
-    }
+    },
   ];
 
   responsiveOptions: responsiveOption[] | undefined = [

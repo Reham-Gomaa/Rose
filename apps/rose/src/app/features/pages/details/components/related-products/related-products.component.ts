@@ -1,24 +1,37 @@
+// @angular
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+import { HttpErrorResponse } from "@angular/common/http";
 import { Component, inject, Input, OnDestroy, OnInit } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { ActivatedRoute } from '@angular/router';
+
+// @ngx
 import { TranslatePipe } from "@ngx-translate/core";
-import { ProductDetail, ProductDetailsRes } from "@rose/core_interfaces/details.interface"; 
-import { Product, ProductRes } from "@rose/core_interfaces/carditem.interface"; 
-import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
+
+// rxjs
+import { Subscription } from 'rxjs';
+
+// PrimeNg
 import { CarouselModule } from "primeng/carousel";
 import { SkeletonModule } from "primeng/skeleton";
-import { ProductsService } from "@rose/shared_services/products/products.service";
-import { HttpErrorResponse } from "@angular/common/http";
-import { ActivatedRoute } from '@angular/router';
-import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+
+// shared-interfaces
+import { Product, ProductRes } from "@rose/core_interfaces/carditem.interface";
+import { ProductDetail, ProductDetailsRes } from "@rose/core_interfaces/details.interface";
+
+// shared-services
 import { TranslationService } from "@rose/core_services/translation/translation.service";
-import { Subscription } from 'rxjs';
+import { ProductsService } from "@rose/shared_services/products/products.service";
+
+// shared-component
+import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
+
+// Animation
+import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 
 @Component({
   selector: "app-related-products",
   standalone: true,
   imports: [
-    CommonModule,
     TranslatePipe,
     CardItemComponent,
     CarouselModule,

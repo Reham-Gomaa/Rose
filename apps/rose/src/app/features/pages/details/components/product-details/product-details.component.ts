@@ -31,7 +31,7 @@ export class ProductDetailsComponent {
   }
 
   openImageModal(): void {
-    
+
     this.showModal.set(true);
   }
 }

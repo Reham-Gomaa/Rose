@@ -3,7 +3,9 @@ import { Route } from "@angular/router";
 import { DetailsComponent } from "./features/pages/details/details.component";
 
 import { DashboardComponent } from "@rose/features_layouts/dashboard/dashboard.component";
-
+import path from "path";
+import { loggedGuard } from "./core/guards/logged-user/logged.guard";
+import { authGuard } from "./core/guards/auth/auth.guard";
 
 export const appRoutes: Route[] = [
   {
@@ -43,13 +45,41 @@ export const appRoutes: Route[] = [
         loadComponent: () =>
           import("@rose/features_pages/contact/contact.component").then((c) => c.ContactComponent),
       },
+
       {
         path: "details/:id",
         title: "Product Details",
         loadComponent: () =>
           import("@rose/features_pages/details/details.component").then((c) => c.DetailsComponent),
-      }
+      },
     ],
+  },
+  {
+    path: "login",
+    title: "Log-in",
+    canActivate: [loggedGuard],
+    loadComponent: () =>
+      import("@rose/features_layouts/authentication/components/login/login.component").then(
+        (c) => c.LoginComponent
+      ),
+  },
+  {
+    path: "register",
+    title: "Register",
+    canActivate: [loggedGuard],
+    loadComponent: () =>
+      import("@rose/features_layouts/authentication/components/register/register.component").then(
+        (c) => c.RegisterComponent
+      ),
+  },
+  {
+    path: "reset-password",
+    title: "Forget Password",
+    canActivate: [loggedGuard],
+    loadComponent: () =>
+      import(
+        "@rose/features_layouts/authentication/components/reset-password/reset-password.component"
+      ).then((c) => c.ResetPasswordComponent),
   },
   {
     path: "**",

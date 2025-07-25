@@ -26,19 +26,25 @@
   }
 }
 
+:host ::ng-deep .input-style::placeholder {
+  color: var(--input-placeholder-color);
+}
+
 .input-style:focus {
   outline: none;
   border-color: var(--border-active-color);
   box-shadow: 0 0 0 2px var(--border-active-color);
 }
 
-.password-eye{
+.password-eye {
   font-size: 1.3rem;
   color: var(--input-text-color);
-
 }
 
-.label-color{
+.label-color {
   color: var(--label-color);
 }
 
+:host-context([dir="rtl"]) .eye-btn {
+  right: calc(100% - 4.375rem);
+}

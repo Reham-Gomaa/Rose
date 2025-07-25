@@ -1,0 +1,26 @@
+<form [formGroup]="verifyCodeForm" (ngSubmit)="verifyCodeSubmit()" role="form" aria-label="Verification code form">
+  <!-- OTP Input Section -->
+  <div class="otp-wrapper flex justify-content-between align-items-center" role="group"
+    aria-label="6-digit verification code input">
+    <p-inputOtp class="otp" formControlName="otpCode" [length]="6" [integerOnly]="true" inputStyleClass="otp-input"
+      (onComplete)="verifyCodeSubmit()" aria-required="true" aria-labelledby="otp-label" inputId="otp-input">
+    </p-inputOtp>
+  </div>
+
+  <!-- Resend Code Section -->
+  <div class="send-code-wrapper">
+    <button class="sendCode resend-button" (click)="resendVerificationCode()" (keyup.enter)="resendVerificationCode()"
+      (keyup.space)="resendVerificationCode()" [disabled]="isResending() || cooldownSeconds() > 0"
+      aria-label="Resend verification code" aria-describedby="resend-instructions">
+      {{ 'auth.verify.h5' | translate }}
+      @if (cooldownSeconds() > 0) {
+      ({{ cooldownSeconds() }}s)
+      }
+    </button>
+  </div>
+
+  <!-- Submit Button -->
+  <app-form-button [text]="'auth.verify.button' | translate" [disabled]="verifyCodeForm.invalid"
+    [isLoading]="isLoading()" type="submit" aria-label="Submit verification code">
+  </app-form-button>
+</form>

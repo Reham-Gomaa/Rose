@@ -1,0 +1,173 @@
+.auth-grid-container {
+  display: grid;
+  grid-template-columns: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  @media (min-width: 992px) {
+    grid-template-columns: 50% 50%;
+  }
+}
+
+.auth-form-section {
+  font-family: var(--font-family-1);
+  padding: 3.125rem 3.75rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+
+  @media all and (max-width: 18.75rem) {
+    padding: 3.125rem 1.25rem;
+  }
+
+  @media all and (min-width: 18.75rem) {
+    padding: 3.125rem;
+  }
+
+  @media all and (min-width: 31.25rem) {
+    padding: 3.125rem 6.25rem;
+  }
+
+  @media all and (min-width: 48rem) {
+    padding: 3.125rem 9.1875rem;
+  }
+
+  @media all and (62rem <= width <= 81.25rem) {
+    padding: 3.125rem 80px;
+  }
+
+  @media all and (min-width: 81.25rem) {
+    padding: 3.125rem 9.1875rem;
+  }
+
+  #lang-toggle {
+    padding-bottom: 1.5625rem;
+  }
+
+  .auth-form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #form-wrapper {
+    border-top: 0.0625rem solid var(--zinc-300);
+    border-bottom: 0.0625rem solid var(--zinc-300);
+  }
+
+  h1 {
+    font-family: var(--font-family-5);
+    font-weight: 400;
+    text-align: center;
+    color: var(--auth-title);
+
+    @media all and (max-width: 31.25rem) {
+      font-size: 1.25rem;
+    }
+    @media all and (min-width: 31.25rem) {
+      font-size: 3rem;
+    }
+  }
+
+  h1.forget {
+    font-family: var(--font-family-4);
+    margin-top: 1.5rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: left;
+    color: var(--forget-pass-title);
+    margin-bottom: 0;
+  }
+
+  p.forget {
+    font-weight: 400;
+    font-size: 1rem;
+    text-align: left;
+    color: var(--forget-pass-title);
+    margin-top: 0;
+
+    .edit-link {
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--edit);
+      text-decoration: underline;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      font-family: inherit;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.auth-image-section {
+  display: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media (min-width: 992px) {
+    display: block;
+    height: 100%;
+    min-height: 100vh;
+  }
+}
+
+:host-context([dir="rtl"]) h1.forget,
+:host-context([dir="rtl"]) p.forget {
+  text-align: right !important;
+}
+
+.create-account {
+  margin-top: 1.25rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  color: var(--register-anchor);
+  font-family: var(--font-family-4);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 100%;
+  cursor: pointer;
+
+  span {
+    color: var(--register-span-anchor);
+    font-weight: 700;
+  }
+
+  @media all and (max-width: 31.25rem) {
+    font-size: 0.625rem;
+  }
+  @media all and (min-width: 31.25rem) {
+    font-size: 0.875rem;
+  }
+}
+
+.btn-home {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.pi {
+  font-size: 1.4rem;
+  color: var(--toggle-color);
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    color: var(--toggle-hover);
+  }
+}

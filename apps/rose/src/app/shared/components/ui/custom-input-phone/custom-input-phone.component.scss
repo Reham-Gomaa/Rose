@@ -14,7 +14,8 @@
 }
 
 .country-select {
-  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Segoe UI', 'Arial', sans-serif;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Segoe UI", "Arial",
+    sans-serif;
   background: transparent !important;
   border: none;
   color: var(--input-text-color);
@@ -40,6 +41,10 @@
   height: 100%;
 }
 
+::placeholder {
+  color: var(--input-placeholder-color);
+}
+
 .input-phone-container:focus-within {
   border-color: var(--border-active-color);
   box-shadow: 0 0 0 2px var(--border-active-color);
@@ -60,26 +65,23 @@
   padding: 15px;
 }
 
-.label-color{
+.label-color {
   color: var(--label-color);
 }
 
-
-
 // country drop down
-
 
 .custom-country-dropdown {
   position: relative;
   min-width: 7.5rem;
 }
+
 .selected-country {
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
   cursor: pointer;
   color: var(--selected-color-input);
-
 }
 .country-flag {
   width: 20px;
@@ -113,7 +115,10 @@
   color: var(--soft-pink-600);
 }
 
+:host-context([dir="rtl"]) .custom-country-dropdown {
+  display: inline-block;
+}
 
-
-
-
+:host-context([dir="rtl"]) .phone-input {
+  text-align: right;
+}
