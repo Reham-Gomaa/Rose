@@ -54,25 +54,33 @@ export class ForgetPasswordComponent {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (res) => {
-          if (res && res?.message === "success") {
-            this.emailSubmitted.emit(email);
+          if ("error" in res) {
             this._messageService.add({
-              severity: "success",
-              detail: "OTP sent to your email Please check your inbox.",
+              severity: "error",
+              detail: res.error || "Failed to send verification code.",
               life: 3000,
             });
           } else {
-            this._messageService.add({
-              severity: "error",
-              detail: "Failed to send verification code. Please try again.",
-              life: 3000,
-            });
+            if (res.message === "success") {
+              this.emailSubmitted.emit(email);
+              this._messageService.add({
+                severity: "success",
+                detail: "OTP sent to your email. Please check your inbox.",
+                life: 3000,
+              });
+            } else {
+              this._messageService.add({
+                severity: "error",
+                detail: res.message || "Verification code could not be sent.",
+                life: 3000,
+              });
+            }
           }
         },
-        error: (err) => {
+        error: () => {
           this._messageService.add({
             severity: "error",
-            detail: "An error occurred. Please try again.",
+            detail: "An unexpected error occurred. Please try again.",
             life: 3000,
           });
         },

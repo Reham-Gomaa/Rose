@@ -60,6 +60,10 @@ export class SetPasswordComponent {
     if (this.resetPasswordForm.invalid || this.isLoading()) return;
 
     const newPassword = this.resetPasswordForm.get("password")?.value;
+    if (!newPassword) {
+      this.apiError.set("Password is required.");
+      return;
+    }
 
     this.isLoading.set(true);
     this.apiError.set("");
@@ -74,7 +78,7 @@ export class SetPasswordComponent {
         next: () => {
           this._messageService.add({
             severity: "success",
-            detail: "reset password successfully!",
+            detail: "Reset password successfully!",
             life: 3000,
           });
           this.passwordReset.emit();

@@ -1,6 +1,6 @@
 {
   "name": "auth-api-kp",
-  "version": "0.0.9",
+  "version": "0.1.1",
   "peerDependencies": {
     "@angular/common": "^19.2.0",
     "@angular/core": "^19.2.0"

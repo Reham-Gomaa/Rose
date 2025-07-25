@@ -76,20 +76,41 @@ export class VerifyCodeComponent {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (res) => {
-          if (res?.message === "success") {
-            this.resendSuccess.set(true);
-            this.startCooldownTimer();
+          if ("error" in res) {
+            // ❌ It's an ErrorResponse
+            this.apiError.set(res.error || "Failed to resend verification code.");
             this._messageService.add({
-              severity: "success",
-              detail: "A new OTP code has been sent to your email.",
+              severity: "error",
+              detail: res.error || "Failed to resend verification code.",
               life: 3000,
             });
           } else {
-            this.apiError.set("Failed to resend verification code.");
+            // ✅ It's a ForgotPasswordResponse
+            if (res.message === "success") {
+              this.resendSuccess.set(true);
+              this.startCooldownTimer();
+              this._messageService.add({
+                severity: "success",
+                detail: "A new OTP code has been sent to your email.",
+                life: 3000,
+              });
+            } else {
+              this.apiError.set("Failed to resend verification code.");
+              this._messageService.add({
+                severity: "error",
+                detail: res.message || "Failed to resend verification code.",
+                life: 3000,
+              });
+            }
           }
         },
-        error: (err) => {
-          this.apiError.set(err?.error?.message || "Error resending code.");
+        error: () => {
+          this.apiError.set("Unexpected error. Please try again.");
+          this._messageService.add({
+            severity: "error",
+            detail: "Unexpected error. Please try again.",
+            life: 3000,
+          });
         },
         complete: () => {
           this.isResending.set(false);
@@ -111,24 +132,40 @@ export class VerifyCodeComponent {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (res) => {
-          if (res?.status === "Success") {
-            this.codeVerified.emit();
-            this._messageService.add({
-              severity: "success",
-              detail: "Code verified successfully!",
-              life: 3000,
-            });
-          } else {
+          if ("error" in res) {
+            // ❌ It's an ErrorResponse
             this._messageService.add({
               severity: "error",
-              detail: "Invalid verification code.",
+              detail: res.error || "Verification failed.",
               life: 3000,
             });
-            this.apiError.set("Invalid verification code.");
+            this.apiError.set(res.error || "Verification failed.");
+          } else {
+            // ✅ It's a VerifyResetCodeResponse
+            if (res.status === "Success") {
+              this.codeVerified.emit();
+              this._messageService.add({
+                severity: "success",
+                detail: "Code verified successfully!",
+                life: 3000,
+              });
+            } else {
+              this._messageService.add({
+                severity: "error",
+                detail: "Invalid verification code.",
+                life: 3000,
+              });
+              this.apiError.set("Invalid verification code.");
+            }
           }
         },
-        error: (err) => {
-          this.apiError.set(err?.error?.message || "Verification failed.");
+        error: () => {
+          this.apiError.set("Something went wrong. Please try again.");
+          this._messageService.add({
+            severity: "error",
+            detail: "Something went wrong. Please try again.",
+            life: 3000,
+          });
         },
         complete: () => {
           this.isLoading.set(false);

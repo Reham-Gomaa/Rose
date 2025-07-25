@@ -1,3 +1,4 @@
+import { AuthEndPoint } from '../enums/AuthAPI.endPoint';
 import { ApiConfig } from '../interface/api-config.interface';
 
 export const DEFAULT_API_CONFIG: ApiConfig = {
@@ -5,18 +6,18 @@ export const DEFAULT_API_CONFIG: ApiConfig = {
   apiVersion: 'v1',
   endpoints: {
     auth: {
-      login: 'auth/signin',
-      register: 'auth/signup',
-      logout: 'auth/logout',
-      forgotPassword: 'auth/forgotPassword',
-      verifyResetCode: 'auth/verifyResetCode',
-      resetPassword: 'auth/resetPassword',
-      profileData: 'auth/profileData',
-      editProfile: 'auth/editProfile',
-      changePassword: 'auth/changePassword',
-      deleteMe: 'auth/deleteMe',
-      uploadPhoto: 'auth/uploadPhoto',
-      forgetPasswordForm: 'auth/forgetPasswordForm'
-    }
-  }
+      login: AuthEndPoint.LOGIN,
+      register: AuthEndPoint.REGISTER,
+      logout: AuthEndPoint.LOGOUT,
+      forgotPassword: AuthEndPoint.FORGOT_PASSWORD,
+      verifyResetCode: AuthEndPoint.VERIFY_CODE,
+      resetPassword: AuthEndPoint.RESET_PASSWORD,
+      profileData: AuthEndPoint.PROFILE_DATA,
+      editProfile: AuthEndPoint.EDIT_PROFILE,
+      changePassword: AuthEndPoint.CHANGE_PASSWORD,
+      deleteMe: AuthEndPoint.DELETE_ACCOUNT,
+      uploadPhoto: AuthEndPoint.UPLOAD_PHOTO,
+      forgetPasswordForm: AuthEndPoint.FORGOT_PASSWORD,
+    },
+  },
 };
