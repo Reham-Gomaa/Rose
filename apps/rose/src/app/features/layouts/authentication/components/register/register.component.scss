@@ -40,3 +40,19 @@
     color: var(--input-placeholder-text-color);
   }
 }
+
+.error-item {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--border-active-color);
+}
+
+@media (max-width: 700px) {
+  .error-item {
+    font-size: 0.85rem;
+  }
+}
+.error-list {
+  list-style: none;
+  padding: 0;
+}

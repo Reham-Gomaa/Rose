@@ -23,8 +23,6 @@
         <li class="error-item"><i class="pi pi-delete-left"></i> {{ 'inputErrors.passwordPattern' | translate }}</li>
       } @else if (control.hasError("pattern") && control.getError("pattern").requiredPattern===phonePattern) {
         <li class="error-item"><i class="pi pi-delete-left"></i> {{ 'inputErrors.onlyNumbers' | translate }}</li>
-      }@else if (control.getError('misMatch')) {
-        <li class="error-item"><i class="pi pi-delete-left"></i> {{ 'inputErrors.misMatch' | translate }}</li>
       }
     </ul>
   </div>
