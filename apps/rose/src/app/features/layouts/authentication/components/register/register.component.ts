@@ -25,6 +25,7 @@ import { MessageService } from "primeng/api";
 import { Select } from "primeng/select";
 // Auth lib
 import { AuthApiKpService } from "auth-api-kp";
+import { InputErrorHandlingComponent } from "@rose/shared_Components_business/input-error-handling/input-error-handling.component";
 
 @Component({
   selector: "app-register",
@@ -37,6 +38,7 @@ import { AuthApiKpService } from "auth-api-kp";
     TranslatePipe,
     ToastModule,
     Select,
+    InputErrorHandlingComponent,
   ],
 
   templateUrl: "./register.component.html",
@@ -95,6 +97,7 @@ export class RegisterComponent {
   }
 
   registerSubmit(): void {
+    console.log(this.registerForm)
     if (this.registerForm.invalid) {
       this.markAllAsTouched();
       this._messageService.add({
