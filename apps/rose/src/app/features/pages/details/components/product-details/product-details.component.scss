@@ -98,6 +98,15 @@
         background-color: #F4F4F5;
         color: black;
       }
+
+      .cart{
+        background-color: var(--btn-shared-background);
+        color: var(--btn-shared-color);
+        transition: all 0.3s;
+      }
+      .cart:hover{
+        background-color: var( --btn-shared-background-hover);
+      }
     }
   }
 
@@ -123,3 +132,21 @@
   border-bottom-right-radius: 12px;
   border-bottom-left-radius: 12px;
 }
+
+
+.image {
+  border: 2.5px solid transparent;
+  border-radius: 15px;
+  transition: border 0.3s, transform 0.2s;
+
+  &:hover {
+    border-color: #ccc;
+    transform: scale(1.05);
+  }
+
+  &.active-thumbnail {
+    border-color: var(--preview-color); 
+    box-shadow: 0 0 8px var(--preview-color)(0, 123, 255, 0.4);
+  }
+}
+

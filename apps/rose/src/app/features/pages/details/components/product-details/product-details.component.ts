@@ -1,5 +1,7 @@
 import { Component,input, signal, effect } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+import { NgClass } from '@angular/common';
+
 //interfaces
 import { Product } from '@rose/core_interfaces/carditem.interface';
 // PrimeNG
@@ -8,7 +10,7 @@ import { DialogModule } from 'primeng/dialog';
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [ NgOptimizedImage, DialogModule],
+  imports: [ NgOptimizedImage, DialogModule, NgClass ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss'
 })

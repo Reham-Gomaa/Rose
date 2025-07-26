@@ -50,4 +50,5 @@ export class ProductsService {
   getSpecificProduct(id: string): Observable<ProductDetailsRes> { //get specific product by id
     return this.httpClient.get<ProductDetailsRes>(`${EndPoint.PRODUCTS}/${id}`).pipe(shareReplay(1));
   }
+  
 }
