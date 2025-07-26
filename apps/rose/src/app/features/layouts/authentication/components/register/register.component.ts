@@ -97,7 +97,6 @@ export class RegisterComponent {
   }
 
   registerSubmit(): void {
-    console.log(this.registerForm)
     if (this.registerForm.invalid) {
       this.markAllAsTouched();
       this._messageService.add({
