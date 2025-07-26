@@ -13,14 +13,14 @@
         </div>
         <div class="others flex justify-content-center align-items-center gap-3">
           @for (image of productDetails().images; track $index) {
-          <div class="image flex justify-content-center cursor-pointer flex-wrap" (click)="onThumbnailClick(image)">
+          <div class="image flex justify-content-center cursor-pointer flex-wrap" [ngClass]="{ 'active-thumbnail': currentImage() === image }" (click)="onThumbnailClick(image)">
             <img class="object-cover" width="91" height="110" [ngSrc]="image" [alt]="productDetails().slug" />
           </div>
           }
         </div>
       </div>
     </div>
-    <div class="md:col-7 col-12 border">
+    <div class="md:col-6 col-12 border">
       <div class="product-info h-full flex flex-column justify-content-between">
         <div>
           <h2 class="font-semibold mb-1 mt-0">{{ productDetails().title }}</h2>
@@ -47,7 +47,7 @@
           <button class="submit-btn wish cursor-pointer flex-grow-0 w-fit capitalize">
             <i class="pi  pi-heart"></i>
           </button>
-          <button class="submit-btn cursor-pointer flex-grow-1 capitalize">
+          <button class="submit-btn cart cursor-pointer flex-grow-1 capitalize">
             <i class="pi pi-shopping-cart mr-1"></i>
             add to cart
           </button>

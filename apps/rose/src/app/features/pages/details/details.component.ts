@@ -1,13 +1,16 @@
 
 import { Component, inject, OnInit,OnDestroy } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ProductReviewComponent } from "./components/product-review/product-review.component";
 import { ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs";
-import { ProductsService } from "../../../shared/services/products/products.service";
-import { Product } from "../../../core/interfaces/carditem.interface";
+//Interfaces
+import { Product } from "@rose/core_interfaces/carditem.interface";
+//Components
 import { ProductDetailsComponent } from "./components/product-details/product-details.component";
 import { RelatedProductsComponent } from "./components/related-products/related-products.component";
+import { ProductReviewComponent } from "./components/product-review/product-review.component";
+//Shared Services
+import { ProductsService } from "@rose/shared_services/products/products.service";
 
 @Component({
   selector: "app-details",
@@ -24,14 +27,21 @@ export class DetailsComponent implements OnInit, OnDestroy {
   productDetails:Product = {} as Product;
 
 
-  getProductId(){
-    this._activatedRoute.params.subscribe({
-      next:(params)=>{
-        this.productId=params['id'];
-        this.getProductDetails()
-      }
-    })
-  }
+ getProductId() {
+  this._activatedRoute.params.subscribe({
+    next: (params) => {
+      setTimeout(() => {
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 0);
+
+      this.productId = params['id'];
+      this.getProductDetails();
+    }
+  });
+}
+
 
 
   getProductDetails(){

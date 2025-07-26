@@ -21,4 +21,13 @@
       text-transform: capitalize;
     }
   }
+
+  .review{
+        background-color: var(--btn-shared-background);
+        color: var(--btn-shared-color);
+        transition: all 0.3s;
+      }
+      .review:hover{
+        background-color: var( --btn-shared-background-hover);
+      }
 }
