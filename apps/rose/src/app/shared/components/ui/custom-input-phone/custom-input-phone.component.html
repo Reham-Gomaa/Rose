@@ -34,8 +34,9 @@
       maxlength="10"
       required
     />
-    @if(errorHandilgControl()){
-      <app-input-error-handling [control]="errorHandilgControl()!"></app-input-error-handling>
-    }
+ 
   </div>
 </div>
+   @if(errorHandilgControl()){
+      <app-input-error-handling [control]="errorHandilgControl()!"></app-input-error-handling>
+    }

@@ -34,9 +34,7 @@
         </p-select>
 
         @if(registerForm.get('gender')?.invalid && registerForm.get('gender')?.touched) {
-        <small class="p-error">
-          {{ 'auth.errors.genderRequired' | translate }}
-        </small>
+         <app-input-error-handling [control]="registerForm.get('gender')!"></app-input-error-handling>
         }
       </div>
       <!-- Password -->
@@ -49,8 +47,8 @@
         labelText="{{'auth.inputs.confirmPassword' |translate}}" [errorHandilgControl]="registerForm.get('rePassword')!"
         class="w-full" autocomplete="new-password" aria-required="true" />
 
-      <app-form-button [text]="'auth.register.button' |translate" [disabled]="registerForm.invalid"
-        [isLoading]="isLoading()" type="submit" />
+      <app-form-button [text]="'auth.register.button' |translate" 
+        [isLoading]="isLoading()" [disabled]="registerForm.invalid" type="submit" />
     </form>
   </div>
 </app-auth>
