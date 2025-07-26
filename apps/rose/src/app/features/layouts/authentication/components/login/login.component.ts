@@ -65,7 +65,7 @@ export class LoginComponent {
         next: (res) => {
           if ("token" in res && res.message === "success") {
             if (this._platform.isBrowser()) {
-              localStorage.setItem("authToken", res.token); // consistent token key
+              localStorage.setItem("authToken", res.token);
             }
             this._messageService.add({
               severity: "success",
