@@ -45,20 +45,11 @@ export class AuthApiKpService {
   private handleError = (message: string) => (error: any) =>
     of({ error: error?.message || message });
 
-  private storeUserToken(token: string): void {
-    localStorage.setItem('userToken', token);
-  }
-
-  private clearUserToken(): void {
-    localStorage.removeItem('userToken');
-  }
-
   login(data: SignInRequest): Observable<SignInResponse | ErrorResponse> {
     return this._http.post<SignInResponse>(this.fullUrl('login'), data).pipe(
       tap((res) => {
         if (res.token && res.user) {
           this.userData.next(res.user);
-          this.storeUserToken(res.token);
         }
       }),
       catchError(this.handleError('Login failed.'))
@@ -70,7 +61,6 @@ export class AuthApiKpService {
       tap((res) => {
         if (res.token && res.user) {
           this.userData.next(res.user);
-          this.storeUserToken(res.token);
         }
       }),
       catchError(this.handleError('Registration failed.'))
@@ -104,7 +94,6 @@ export class AuthApiKpService {
   logout(): Observable<LogoutResponse | ErrorResponse> {
     return this._http.get<LogoutResponse>(this.fullUrl('logout')).pipe(
       tap(() => {
-        this.clearUserToken();
         this.userData.next(null);
       }),
       map(() => ({ message: 'Logged out successfully.' })),
@@ -117,12 +106,7 @@ export class AuthApiKpService {
   ): Observable<ChangePasswordResponse | ErrorResponse> {
     return this._http
       .put<ChangePasswordResponse>(this.fullUrl('changePassword'), data)
-      .pipe(
-        tap((res) => {
-          if (res.token) this.storeUserToken(res.token);
-        }),
-        catchError(this.handleError('Change password failed.'))
-      );
+      .pipe(catchError(this.handleError('Change password failed.')));
   }
 
   uploadPhoto(
@@ -147,7 +131,7 @@ export class AuthApiKpService {
 
   deleteMe(): Observable<DeleteMeResponse | ErrorResponse> {
     return this._http.delete<DeleteMeResponse>(this.fullUrl('deleteMe')).pipe(
-      tap(() => this.clearUserToken()),
+      tap(() => this.userData.next(null)),
       catchError(this.handleError('Delete account failed.'))
     );
   }
