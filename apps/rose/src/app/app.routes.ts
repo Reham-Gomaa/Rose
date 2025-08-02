@@ -1,11 +1,7 @@
 import { Route } from "@angular/router";
 
-import { DetailsComponent } from "./features/pages/details/details.component";
-
 import { DashboardComponent } from "@rose/features_layouts/dashboard/dashboard.component";
-import path from "path";
 import { loggedGuard } from "./core/guards/logged-user/logged.guard";
-import { authGuard } from "./core/guards/auth/auth.guard";
 
 export const appRoutes: Route[] = [
   {
@@ -80,6 +76,39 @@ export const appRoutes: Route[] = [
       import(
         "@rose/features_layouts/authentication/components/reset-password/reset-password.component"
       ).then((c) => c.ResetPasswordComponent),
+  },
+  {
+    path: "order-flow",
+    loadComponent: () =>
+      import("@rose/features_layouts/order-flow/order-flow.component").then(
+        (c) => c.OrderFlowComponent
+      ),
+    children: [
+      {
+        path: "cart",
+        loadComponent: () =>
+          import("@rose/features_layouts/order-flow/components/cart/cart.component").then(
+            (c) => c.CartComponent
+          ),
+        title: "Cart",
+      },
+      {
+        path: "address",
+        loadComponent: () =>
+          import(
+            "@rose/features_layouts/order-flow/components/user-address/user-address.component"
+          ).then((c) => c.UserAddressComponent),
+        title: "Address",
+      },
+      {
+        path: "orders",
+        loadComponent: () =>
+          import("@rose/features_layouts/order-flow/components/orders/orders.component").then(
+            (c) => c.OrdersComponent
+          ),
+        title: "Orders",
+      },
+    ],
   },
   {
     path: "**",
