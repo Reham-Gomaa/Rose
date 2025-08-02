@@ -1,5 +1,12 @@
-import { DOCUMENT, isPlatformBrowser } from "@angular/common";
-import { inject, Injectable, PLATFORM_ID, signal, WritableSignal } from "@angular/core";
+import { DOCUMENT } from "@angular/common";
+import {
+  inject,
+  Injectable,
+  Renderer2,
+  RendererFactory2,
+  signal,
+  WritableSignal,
+} from "@angular/core";
 //Translation
 import { TranslateService } from "@ngx-translate/core";
 // SSR Cookie Service
@@ -14,8 +21,10 @@ export class TranslationService {
   private readonly translateService = inject(TranslateService);
   private readonly document = inject(DOCUMENT);
   private readonly ssrCookieService = inject(SsrCookieService);
+  private readonly rendererFactory2 = inject(RendererFactory2);
 
   private readonly cookieName = "lng";
+  renderer!: Renderer2;
   defaultLang = "en";
 
   constructor() {
@@ -23,6 +32,7 @@ export class TranslationService {
     if (savedLang) {
       this.defaultLang = savedLang;
     }
+    this.renderer = this.rendererFactory2.createRenderer(null, null);
     this.translateService.setDefaultLang(this.defaultLang);
     this.translateService.use(this.defaultLang);
     this.changeDir();
@@ -43,11 +53,11 @@ export class TranslationService {
     const html = this.document.documentElement;
 
     if (savedLang == "en") {
-      html.setAttribute("dir", "ltr");
-      html.setAttribute("lang", "en");
+      this.renderer.setAttribute(html, "dir", "ltr");
+      this.renderer.setAttribute(html, "lang", "en");
     } else if (savedLang == "ar") {
-      html.setAttribute("dir", "rtl");
-      html.setAttribute("lang", "ar");
+      this.renderer.setAttribute(html, "dir", "rtl");
+      this.renderer.setAttribute(html, "lang", "ar");
     }
   }
 
