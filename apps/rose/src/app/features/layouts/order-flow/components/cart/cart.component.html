@@ -1,1 +1,32 @@
-<p>cart works!</p>
+<section>
+    <div id="parent" class="flex flex-column justify-content-between  h-screen border-round-2xl">
+        <div class="flex flex-row justify-content-between align-items-center">
+            <div>
+                <h1>Cart <span>0 Products</span> </h1>
+            </div>
+            <div>
+                <app-button [isBgMaroon]="false" [isTextWhite]="false" [text]="'Clear Cart'" [padding]="'cart-padding'"
+                    [borderRadius]="'cart-radius'">
+                    <img src="./images/cart/brush-cleaning.WebP" alt="clear cart">
+                </app-button>
+            </div>
+        </div>
+
+
+        <div id="content" class="flex flex-column justify-content-center align-items-center">
+            <div>
+                <img class="block" src="./images/cart/no-cart.WebP" alt="empty cart">
+            </div>
+            <div>
+                <h2>Your cart is empty, wanna try shopping?</h2>
+            </div>
+        </div>
+
+
+        <div class="flex justify-content-start align-items-center">
+            <app-button [rowReverse]="'flex flex-row-reverse align-items-center justify-content-between'"
+                [backIcon]="true" [isBgMaroon]="true" [isTextWhite]="true" [text]="'Continue Shopping'"
+                [padding]="'cart-padding'" [borderRadius]="'cart-radius'" />
+        </div>
+    </div>
+</section>

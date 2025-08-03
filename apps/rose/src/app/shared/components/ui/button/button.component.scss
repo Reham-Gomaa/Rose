@@ -1,7 +1,7 @@
 button {
   display: block;
-  color: var(--btn-shared-color);
-  background-color: var(--btn-shared-background);
+  //color: var(--btn-shared-color);
+  //background-color: var(--btn-shared-background);
   border: none;
   box-shadow: 0px 0px 37.28px 4.66px #0000000d;
   font-family: var(--font-family-2);
@@ -114,4 +114,12 @@ button {
 
 .back-to-home-p {
   padding: 5px 15px;
+}
+
+// cart
+.cart-padding {
+  padding: 0.625rem 1rem;
+}
+.cart-radius {
+  border-radius: 0.625rem;
 }

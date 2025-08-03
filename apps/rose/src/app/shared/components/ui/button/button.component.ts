@@ -15,4 +15,7 @@ export class ButtonComponent {
   @Input() padding!: string;
   @Input() margin!: string;
   @Input() transition!: string;
+  @Input() rowReverse!: string;
+  @Input() isBgMaroon!: boolean;
+  @Input() isTextWhite!: boolean;
 }

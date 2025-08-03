@@ -1,0 +1,41 @@
+#parent {
+  font-family: var(--font-family-4);
+  padding: 0.375rem 1rem;
+
+  h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    vertical-align: middle;
+    color: var(--cart-title);
+
+    span {
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--cart-text-color);
+    }
+  }
+
+  #content {
+    border-radius: 0.75rem;
+    border: 1px solid var(--cart-content-border);
+    padding: 1.25rem;
+
+    img {
+      width: 15.625rem;
+      height: 13.375rem;
+    }
+
+    h2 {
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 1.125rem;
+      line-height: 100%;
+      letter-spacing: 0%;
+      color: var(--cart-text-color);
+    }
+  }
+
+  .button {
+    transform: rotateY(180deg);
+  }
+}

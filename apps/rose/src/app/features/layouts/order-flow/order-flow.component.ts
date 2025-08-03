@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { RouterLink } from "@angular/router";
+import { CartComponent } from "./components/cart/cart.component";
 
 @Component({
   selector: "app-order-flow",
-  imports: [CommonModule],
+  imports: [RouterLink, CartComponent],
   templateUrl: "./order-flow.component.html",
   styleUrl: "./order-flow.component.scss",
 })

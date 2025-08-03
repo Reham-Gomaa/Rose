@@ -1,10 +1,14 @@
-<button [class]="margin + ' ' + padding + ' ' + borderRadius + ' ' + transition">
+<button [style]="{
+  'background-color': isBgMaroon ? 'var(--btn-shared-background)' : 'var(--cart-clearBtn-bg)' ,
+  'color': isTextWhite ? 'var(--btn-shared-color)' : 'var(--cart-clearBtn-test)'
+}" [class]="margin + ' ' + padding + ' ' + borderRadius + ' ' + transition + ' ' + rowReverse">
+  <ng-content />
   {{ text }}
   @if (isIcon === true) {
   <i class="pi pi-arrow-right arrowicon"></i>
   } @if (isRefresh === true) {
   <i class="pi pi-refresh arrowicon"></i>
   } @if (backIcon === true) {
-  <i class="pi pi-arrow-left arrowicon"></i>
+  <i class="pi pi-arrow-left arrowicon mr-2"></i>
   }
 </button>
