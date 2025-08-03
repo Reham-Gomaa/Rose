@@ -258,12 +258,20 @@
       "suffix": "characters required"
     },
     "maxlength": {
-      "prefix": "Maximum", 
+      "prefix": "Maximum",
       "suffix": "characters allowed"
     },
     "email": "Invalid email format (e.g., example@example.com)",
     "passwordPattern": "Password must be at least 8 characters, include uppercase, lowercase, and a special character.",
     "onlyNumbers": "This number is not valid",
-    "misMatch":"Passwords do not match"
+    "misMatch": "Passwords do not match"
+  },
+  "order-flow": {
+    "cart": {
+      "title": "Cart",
+      "clear-cart": "Clear Cart",
+      "empty": "Your cart is empty, wanna try shopping?",
+      "continue-shopping": "Continue Shopping"
+    }
   }
 }
