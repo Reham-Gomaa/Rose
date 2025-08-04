@@ -7,10 +7,11 @@ export const headingInterceptor: HttpInterceptorFn = (req, next) => {
   const _platformService = inject(PlatformService);
 
   if (_platformService.checkPlatform() === "Browser") {
-    const token = localStorage.getItem("userToken");
+    let token = localStorage.getItem("authToken");
+    token=`Bearer ${token}`
     if (token) {
       req = req.clone({
-        setHeaders: { token },
+        setHeaders: { Authorization:token },
       });
     }
   }

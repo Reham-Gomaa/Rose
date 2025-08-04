@@ -1,0 +1,28 @@
+*{
+  font-family: var(--font-family-4);
+}
+.add-button{
+    border-radius: .625rem;
+    padding: .875rem 1rem;
+    color: var(--maroon-600);
+    background-color: var(--maroon-50);
+    border: 0px;
+    
+}
+
+.title{
+    color: var(--address-body);
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+
+@media (max-width: 620px) {
+    .title{
+      font-size: 1rem;  
+    }
+
+    .add-button{
+        padding: .432rem 0.5rem;
+
+    }
+}

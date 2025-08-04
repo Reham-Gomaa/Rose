@@ -1,0 +1,30 @@
+<div class="address-card">
+  <div class="address-card__header">
+   
+    <div class="address-card__left">
+       <p class="username">{{address().username}}</p>
+      <div class="address-card__icon">
+        <i class="pi pi-map-marker"></i>
+      </div>
+      <div class="address-card__city">{{address().city}}</div>
+    
+    </div>
+    <div class="address-card__right">
+      <i class="pi pi-phone"></i>
+      <span class="address-card__phone px-2">{{address().phone}}</span>
+      <div class="address-card__to-button">
+        <button class="icon-button edit">
+        <i class="pi pi-pencil"></i>
+      </button>
+      <button class="icon-button delete">
+        <i class="pi pi-trash"></i>
+      </button>
+
+      </div>
+    </div>
+  </div>
+  <div class="address-card__body">
+    {{address().street}}
+  </div>
+</div>
+

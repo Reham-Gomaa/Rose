@@ -290,6 +290,27 @@
   //img preview
   --preview-bg: var(--white);
   --preview-color: var(--zinc-800);
+  // PrimeNg Button
+  --p-button-primary-background:var(--maroon-600) !important;
+  --p-button-primary-hover-border-color:var(--maroon-600) !important;
+  --p-button-primary-border-color:var(--maroon-600) !important;
+  --p-button-primary-hover-background:var(--maroon-500) !important;
+  --p-button-padding-x:1rem !important;
+  --p-button-padding-y:.625rem !important;
+  // stepper
+  --p-stepper-separator-active-background:var(--maroon-600) !important;
+  --p-stepper-step-gap:0rem !important;
+  --p-stepper-step-header-gap:0rem !important;
+  --p-stepper-step-padding:0rem !important;
+  --p-stepper-step-number-active-color:var(--white) !important;
+  --p-stepper-step-number-active-background:var(--maroon-600) !important;
+  --p-stepper-step-number-active-border-color:var(--maroon-600) !important;
+  --p-stepper-separator-size:.375rem !important;
+  // Address item
+  --address-name:var(--maroon-600);
+  --address-name-background:var(--white);
+  --address-body:var(--zinc-800);
+  --loading-color:var(--maroon-500);
 }
 
 // Dark theme overrides
@@ -513,4 +534,26 @@
 
   --preview-bg: var(--zinc-600);
   --preview-color: var(--white);
+
+  // PrimeNg Button
+  --p-button-primary-background:var(--soft-pink-500) !important;
+  --p-button-primary-hover-border-color:var(--soft-pink-500) !important;
+  --p-button-primary-border-color:var(--soft-pink-500) !important;
+  --p-button-primary-hover-background:var(--soft-pink-400) !important;
+  --p-button-padding-x:1rem !important;
+  --p-button-padding-y:.625rem !important;
+  // stepper
+  --p-stepper-separator-active-background:var(--soft-pink-500) !important;
+  --p-stepper-step-gap:0rem !important;
+  --p-stepper-step-header-gap:0rem !important;
+  --p-stepper-step-padding:0rem !important;
+  --p-stepper-step-number-active-color:var(--white) !important;
+  --p-stepper-step-number-active-background:var(--soft-pink-500) !important;
+  --p-stepper-step-number-active-border-color:var(--soft-pink-500) !important;
+  --p-stepper-separator-size:.375rem !important;
+  // Address item
+  --address-name:var(--soft-pink-500);
+  --address-name-background:var(--zinc-800);
+  --address-body:var(--white);
+  --loading-color:var(--soft-pink-500);
 }
