@@ -271,7 +271,9 @@
       "title": "Cart",
       "clear-cart": "Clear Cart",
       "empty": "Your cart is empty, wanna try shopping?",
-      "continue-shopping": "Continue Shopping"
+      "continue-shopping": "Continue Shopping",
+      "remove": "Remove",
+      "rating": "rating"
     }
   }
 }

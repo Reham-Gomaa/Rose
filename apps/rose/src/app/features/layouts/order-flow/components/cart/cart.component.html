@@ -23,35 +23,45 @@
             </div>
             }
             @else {
-            <div class="pdt-wrapper flex flex-wrap bg-pink-300">
+            <div class="pdt-wrapper flex flex-wrap">
                 <div class="w-3 pr-3">
-                    <img class="block w-full h-full pr-3 border-round-lg surface-900" src="" alt="product">
+                    <img class="block w-full h-full pr-3 border-round-lg" src="" alt="product">
                 </div>
-                <div class="w-9 flex flex-column justify-content-between bg-primary">
+                <div class="w-9 flex flex-column justify-content-between">
                     <!-- Right - UP -->
                     <div class="flex justify-content-between align-items-center">
                         <div>
-                            <h2 class="pdt-name">Dreamy White Roses Bouquet</h2>
+                            <h2 class="pdt-name">Product-Name</h2>
                             <h3 class="pdt-rating">
                                 <i class="pi pi-star-fill" style="color: var(--cart-star)"></i>
-                                Rating: <span class="rating">4.5/5</span>
-                                <span class="rating-num">(8 ratings)</span>
+                                {{'order-flow.cart.rating' |translate}}: <span class="rating">rating-num/5</span>
+                                <span class="rating-num">(num-of-rating {{'order-flow.cart.rating' |translate}})</span>
                             </h3>
                         </div>
                         <div>
-                            <app-button></app-button>
+                            <app-button [bgColor]="'var(--cart-deleteBtn-bg)'" [textColor]="'var(--btn-shared-color)'"
+                                [icon]="'pi pi-trash'" [padding]="'cart-delete-padding'" [borderRadius]="'cart-radius'"
+                                [text]="'order-flow.cart.remove' |translate"
+                                [rowReverse]="'flex flex-row-reverse align-items-center'" />
                         </div>
                     </div>
 
                     <!-- Right - Down -->
                     <div class="flex justify-content-between align-items-center">
                         <div>
-                            <h2>price</h2>
+                            <h3 class="pdt-price"> <span class="qty">(xNum-of-items)</span>
+                                199.95
+                                <span class="egp">{{ 'EGP' |translate }}</span>
+                            </h3>
                         </div>
-                        <div class="flex justify-content-between align-items-center">
-                            <button>num</button>
-                            <button>num</button>
-                            <button>num</button>
+                        <div class="flex justify-content-between align-items-end">
+                            <app-button [padding]="'cart-padding'" [borderRadius]="'cart-radius'"
+                                [bgColor]="'var(--cart-clearBtn-bg)'" [textColor]="'var(--cart-clearBtn-text)'"
+                                [icon]="'pi pi-minus'" />
+                            <app-custom-input type="number" id="quantity" class="w-6rem mx-2" />
+                            <app-button [padding]="'cart-padding'" [borderRadius]="'cart-radius'"
+                                [bgColor]="'var(--cart-clearBtn-bg)'" [textColor]="'var(--cart-clearBtn-text)'"
+                                [icon]="'pi pi-plus'" />
                         </div>
                     </div>
                 </div>
@@ -60,7 +70,7 @@
         </div>
 
         <div class="flex justify-content-start align-items-center">
-            <app-button [rowReverse]="'flex flex-row-reverse align-items-center'"
+            <app-button [routerLink]="'/dashboard/home'" [rowReverse]="'flex flex-row-reverse align-items-center'"
                 [icon]="'pi pi-arrow-left arrowicon mr-2'" [bgColor]="'var(--btn-shared-background)'"
                 [textColor]="'var(--btn-shared-color)'" [text]="'order-flow.cart.continue-shopping' |translate"
                 [padding]="'cart-padding'" [borderRadius]="'cart-radius'" />

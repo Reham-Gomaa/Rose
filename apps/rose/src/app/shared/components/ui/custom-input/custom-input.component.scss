@@ -5,7 +5,7 @@
   background: transparent;
   border: none;
   position: absolute;
-  right: .625rem;
+  right: 0.625rem;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
@@ -13,10 +13,10 @@
 .input-wrapper {
   position: relative;
   .input-style {
-    border: .0625rem solid var(--input-border-color);
-    border-radius: .625rem;
+    border: 0.0625rem solid var(--input-border-color);
+    border-radius: 0.625rem;
     padding: 1rem;
-    padding-right: 2.75rem; 
+    padding-right: 2.75rem;
     background: var(--input-color);
     color: var(--input-text-color);
     transition: border-color 0.2s;
@@ -47,4 +47,16 @@
 
 :host-context([dir="rtl"]) .eye-btn {
   right: calc(100% - 4.375rem);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
