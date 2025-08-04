@@ -1,13 +1,9 @@
-<section
-  [@fadeTransition]="translationService.fadeState()"
-  class="grid mt-8"
-  aria-labelledby="premium-gifts-heading"
->
+<section [@fadeTransition]="translationService.fadeState()" class="grid mt-8" aria-labelledby="premium-gifts-heading">
   <!-- Header Section -->
   <div class="header text-left col-12 md:col-6 lg:col-4">
     <span class="text-base mb-5 font-bold premium">{{
       "home.bestSeller.left.span" | translate
-    }}</span>
+      }}</span>
     <h2 id="premium-gifts-heading" class="gifts text-4xl font-bold mb-2">
       <span class="dark">{{ "home.bestSeller.left.heading2span1" | translate }}</span>
       {{ "home.bestSeller.left.heading2" | translate }}
@@ -18,30 +14,19 @@
       {{ "home.bestSeller.left.paragraph" | translate }}
     </p>
 
-    <app-button
-      [text]="'home.bestSeller.left.btn' | translate"
-      [isIcon]="true"
-      [borderRadius]="'btn-bestseller-radius'"
-      [padding]="'btn-bestseller-padding'"
-      [transition]="'btn-bestseller-transition'"
-      aria-label="Explore more best seller gifts and products"
-    />
+    <app-button [text]="'home.bestSeller.left.btn' | translate" [icon]="'pi pi-arrow-right arrowicon'"
+      [bgColor]="'var(--btn-shared-background)'" [textColor]="'var(--btn-shared-color)'"
+      [borderRadius]="'btn-bestseller-radius'" [padding]="'btn-bestseller-padding'"
+      [transition]="'btn-bestseller-transition'" aria-label="Explore more best seller gifts and products" />
   </div>
 
   <!-- Carousel/Product Grid Section -->
   <div class="product-carousel col-12 md:col-6 lg:col-8">
-    <p-carousel
-      [value]="bestSellers()"
-      [numVisible]="3"
-      [numScroll]="1"
-      [circular]="true"
-      [responsiveOptions]="responsiveOptions"
-      [showIndicators]="false"
-      class="custom-carousel"
+    <p-carousel [value]="bestSellers()" [numVisible]="3" [numScroll]="1" [circular]="true"
+      [responsiveOptions]="responsiveOptions" [showIndicators]="false" class="custom-carousel"
       [prevButtonProps]="{ styleClass: 'p-button-rounded custom-best-prev' }"
       [nextButtonProps]="{ styleClass: 'p-button-rounded custom-best-next' }"
-      aria-label="Best seller products carousel"
-    >
+      aria-label="Best seller products carousel">
       <ng-template let-product pTemplate="item">
         @if (showSkeleton()) { @for (item of skeletonItems(); track $index) {
         <div class="carousel-card-wrapper">

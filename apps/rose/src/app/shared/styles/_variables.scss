@@ -61,6 +61,7 @@
   --emerald-700: #007a55;
 
   --blue-400: #50a2ff;
+  --blue-600: #155dfc;
   --blue-700: #1447e6;
 
   --gray-950: #323639;
@@ -295,9 +296,13 @@
   // Cart
   --cart-title: var(--zinc-800);
   --cart-text-color: var(--zinc-400);
+  --cart-text-color-2: var(--maroon-700);
+  --cart-text-color-3: var(--black);
+  --cart-text-color-4: var(--blue-600);
   --cart-clearBtn-bg: var(--maroon-50);
-  --cart-clearBtn-test: var(--maroon-600);
+  --cart-clearBtn-text: var(--maroon-600);
   --cart-content-border: var(--zinc-200);
+  --cart-star: var(--yellow);
 }
 
 // Dark theme overrides

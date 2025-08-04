@@ -2,11 +2,12 @@
 import { Component, inject } from "@angular/core";
 // @ngx
 import { TranslatePipe } from "@ngx-translate/core";
+// shared-services
+import { TranslationService } from "@rose/core_services/translation/translation.service";
 // shared-comp
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 // Animation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
 
 @Component({
   selector: "app-cart",
@@ -17,4 +18,6 @@ import { TranslationService } from "@rose/core_services/translation/translation.
 })
 export class CartComponent {
   readonly translationService = inject(TranslationService);
+
+  empty: boolean = false;
 }

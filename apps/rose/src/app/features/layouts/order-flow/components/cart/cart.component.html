@@ -1,32 +1,69 @@
-<section>
+<section [@fadeTransition]="translationService.fadeState()">
     <div id="parent" class="flex flex-column justify-content-between  h-screen border-round-2xl">
-        <div class="flex flex-row justify-content-between align-items-center">
+        <div id="header" class="flex flex-row justify-content-between align-items-center">
             <div>
                 <h1>{{'order-flow.cart.title' |translate}} <span>0 Products</span> </h1>
             </div>
             <div>
-                <app-button [isBgMaroon]="false" [isTextWhite]="false" [text]="'order-flow.cart.clear-cart' |translate"
-                    [padding]="'cart-padding'" [borderRadius]="'cart-radius'">
+                <app-button [bgColor]="'var(--cart-clearBtn-bg)'" [textColor]="'var(--cart-clearBtn-text)'"
+                    [text]="'order-flow.cart.clear-cart' |translate" [padding]="'cart-padding'"
+                    [borderRadius]="'cart-radius'">
                     <img src="./images/cart/brush-cleaning.WebP" alt="clear cart">
                 </app-button>
             </div>
         </div>
 
+        <div id="content" class="flex flex-column justify-content-center">
+            @if (empty) {
+            <div>
+                <img class="empty block" src="./images/cart/no-cart.WebP" alt="empty cart">
+            </div>
+            <div>
+                <h2 class="empty">{{ 'order-flow.cart.empty' |translate}}</h2>
+            </div>
+            }
+            @else {
+            <div class="pdt-wrapper flex flex-wrap bg-pink-300">
+                <div class="w-3 pr-3">
+                    <img class="block w-full h-full pr-3 border-round-lg surface-900" src="" alt="product">
+                </div>
+                <div class="w-9 flex flex-column justify-content-between bg-primary">
+                    <!-- Right - UP -->
+                    <div class="flex justify-content-between align-items-center">
+                        <div>
+                            <h2 class="pdt-name">Dreamy White Roses Bouquet</h2>
+                            <h3 class="pdt-rating">
+                                <i class="pi pi-star-fill" style="color: var(--cart-star)"></i>
+                                Rating: <span class="rating">4.5/5</span>
+                                <span class="rating-num">(8 ratings)</span>
+                            </h3>
+                        </div>
+                        <div>
+                            <app-button></app-button>
+                        </div>
+                    </div>
 
-        <div id="content" class="flex flex-column justify-content-center align-items-center">
-            <div>
-                <img class="block" src="./images/cart/no-cart.WebP" alt="empty cart">
+                    <!-- Right - Down -->
+                    <div class="flex justify-content-between align-items-center">
+                        <div>
+                            <h2>price</h2>
+                        </div>
+                        <div class="flex justify-content-between align-items-center">
+                            <button>num</button>
+                            <button>num</button>
+                            <button>num</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h2>{{ 'order-flow.cart.empty' |translate}}</h2>
-            </div>
+            }
         </div>
 
-
         <div class="flex justify-content-start align-items-center">
-            <app-button [rowReverse]="'flex flex-row-reverse align-items-center'" [backIcon]="true" [isBgMaroon]="true"
-                [isTextWhite]="true" [text]="'order-flow.cart.continue-shopping' |translate" [padding]="'cart-padding'"
-                [borderRadius]="'cart-radius'" />
+            <app-button [rowReverse]="'flex flex-row-reverse align-items-center'"
+                [icon]="'pi pi-arrow-left arrowicon mr-2'" [bgColor]="'var(--btn-shared-background)'"
+                [textColor]="'var(--btn-shared-color)'" [text]="'order-flow.cart.continue-shopping' |translate"
+                [padding]="'cart-padding'" [borderRadius]="'cart-radius'" />
         </div>
     </div>
 </section>

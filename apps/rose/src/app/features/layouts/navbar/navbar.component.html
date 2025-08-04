@@ -21,7 +21,8 @@
 
           @if (!isLoggedIn()) {
 
-          <app-button [routerLink]="'/login'" [text]="'navbar.login' | translate" [isIcon]="false"
+          <app-button [routerLink]="'/login'" [bgColor]="'var(--btn-shared-background)'"
+            [textColor]="'var(--btn-shared-color)'" [text]="'navbar.login' | translate"
             [borderRadius]="'btn-login-radius'" [padding]="'btn-login-padding'" aria-label="Signup" />
 
           }@else {
