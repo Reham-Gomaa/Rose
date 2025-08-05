@@ -92,19 +92,19 @@ export class NavbarComponent implements OnInit {
     this.items = [
       {
         label: "navbar.home",
-        route: "home",
+        route: "/dashboard/home",
       },
       {
         label: "navbar.allcategory",
-        route: "all-categories",
+        route: "/dashboard/all-categories",
       },
       {
         label: "navbar.about",
-        route: "about",
+        route: "/dashboard/about",
       },
       {
         label: "navbar.contact",
-        route: "contact",
+        route: "/dashboard/contact",
       },
     ];
   }

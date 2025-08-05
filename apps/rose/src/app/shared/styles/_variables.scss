@@ -290,6 +290,17 @@
   //img preview
   --preview-bg: var(--white);
   --preview-color: var(--zinc-800);
+
+  //Order Flow
+  //Summary
+  --summary-background-color: var(--zinc-50);
+  --summary-title-color: var(--black);
+  --total-row-color: var(--black);
+  --summary-button-color: var(--maroon-600);
+  --summary-button-hover: var(--maroon-500);
+  --summary-button-text-color: var(--white);
+  --coupon-border-color: var(--zinc-300);
+
 }
 
 // Dark theme overrides
@@ -513,4 +524,16 @@
 
   --preview-bg: var(--zinc-600);
   --preview-color: var(--white);
+
+
+  //Order Flow
+  //Summary
+  --summary-background-color: var(--white);
+  --summary-title-color: var(--white);
+  --total-row-color: var(--zinc-800);
+  --summary-button-color: var(--soft-pink-200);
+  --summary-button-hover: var(--soft-pink-300);
+  --summary-button-text-color: var(--zinc-800);
+  --coupon-border-color: var(--soft-pink-200);
+
 }
