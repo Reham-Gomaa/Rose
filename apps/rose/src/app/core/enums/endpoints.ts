@@ -7,4 +7,5 @@ export class EndPoint {
   static BESTSELLER = `${environment.baseApiUrl}api/v1/best-seller`;
   static OCCASION = `${environment.baseApiUrl}api/v1/occasions`;
   static ADD_REVIEW = `${environment.baseApiUrl}api/v1/reviews`;
+  static CART = `${environment.baseApiUrl}api/v1/cart`;
 }

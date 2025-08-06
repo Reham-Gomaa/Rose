@@ -1,18 +1,28 @@
-import { Component, inject, OnInit, signal, ViewChild, WritableSignal } from "@angular/core";
+// @angular
+import { isPlatformBrowser } from "@angular/common";
+import {
+  Component,
+  inject,
+  OnInit,
+  PLATFORM_ID,
+  signal,
+  ViewChild,
+  WritableSignal,
+} from "@angular/core";
 // Router
 import { RouterLink, RouterLinkActive } from "@angular/router";
 // Images
-import { NgOptimizedImage } from "@angular/common";
-// Translation
+import { AsyncPipe, NgOptimizedImage } from "@angular/common";
+// Services
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
 // Animations_Translation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Shared_Components
-import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
-import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
-import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
 import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";
+import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
+import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
+import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
 // primeNg
 import { MenuItem } from "primeng/api";
 import { ButtonModule } from "primeng/button";
@@ -20,9 +30,11 @@ import { Dialog } from "primeng/dialog";
 import { InputTextModule } from "primeng/inputtext";
 import { Menubar } from "primeng/menubar";
 import { OverlayBadgeModule } from "primeng/overlaybadge";
-
-import { isPlatformBrowser } from "@angular/common";
-import { PLATFORM_ID } from "@angular/core";
+// Cart store
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
+import { selectCartItemsNum } from "../../../store/cart/cart-selectors";
+import { getUserCart } from "../../../store/cart/cart-actions";
 
 type modalPosition =
   | "left"
@@ -51,6 +63,7 @@ type modalPosition =
     ButtonComponent,
     TranslateToggleComponent,
     NgOptimizedImage,
+    AsyncPipe,
   ],
   templateUrl: "./navbar.component.html",
   styleUrl: "./navbar.component.scss",
@@ -60,11 +73,15 @@ type modalPosition =
 export class NavbarComponent implements OnInit {
   readonly translationService = inject(TranslationService);
   private readonly platformId = inject(PLATFORM_ID);
+
   isLoggedIn: WritableSignal<boolean> = signal<boolean>(false);
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
   items: MenuItem[] | undefined;
   btnClass = "loginBtn";
   currentLang!: string;
+  cartItemsNum$!: Observable<number>;
+
+  constructor(private store: Store) {}
 
   visible = false;
   inSearch = false;
@@ -89,6 +106,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
     this.isLogin();
+    this.getUserCart();
     this.items = [
       {
         label: "navbar.home",
@@ -107,6 +125,13 @@ export class NavbarComponent implements OnInit {
         route: "contact",
       },
     ];
+  }
+
+  getUserCart() {
+    if (this.isLoggedIn()) {
+      this.store.dispatch(getUserCart());
+    }
+    this.cartItemsNum$ = this.store.select(selectCartItemsNum);
   }
 
   isLogin(): void {

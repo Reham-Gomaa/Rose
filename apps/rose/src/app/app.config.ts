@@ -17,6 +17,8 @@ import { FilterEffects } from "@rose/store_filter/filter.effect";
 import { sortReducer } from "@rose/store_sort/sort.reducer";
 import { filterReduser } from "@rose/store_filter/filter.reducer";
 import { sortEffects } from "@rose/store_sort/store.effects";
+import { cartReducer } from "./store/cart/cart-reducers";
+import { CartEffects } from "./store/cart/cart-effects";
 // primeng imports
 import { MessageService } from "primeng/api";
 import { providePrimeNG } from "primeng/config";
@@ -91,7 +93,8 @@ export const appConfig: ApplicationConfig = {
     provideStore({
       sort: sortReducer,
       filter: filterReduser,
+      cart: cartReducer,
     }),
-    provideEffects(sortEffects, FilterEffects),
+    provideEffects(sortEffects, FilterEffects, CartEffects),
   ],
 };

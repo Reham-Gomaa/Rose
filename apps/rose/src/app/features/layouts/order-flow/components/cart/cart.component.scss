@@ -16,6 +16,7 @@
   }
 
   #content {
+    height: fit-content;
     border-radius: 0.75rem;
     border: 0.0625rem solid var(--cart-content-border);
     padding: 1.25rem;
@@ -35,8 +36,13 @@
     }
 
     .pdt-wrapper {
-      padding-bottom: 1.25rem;
+      padding: 1.25rem 0;
       border-bottom: 0.0625rem solid var(--cart-content-border);
+
+      img.pdt {
+        width: 7.3125rem;
+        height: 8.75rem;
+      }
 
       h2.pdt-name {
         color: var(--cart-text-color-2);
