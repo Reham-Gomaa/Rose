@@ -1,1 +1,117 @@
-<p>order-flow works!</p>
+<app-navbar/>
+
+
+<div class="contain mx-auto mb-8">
+
+  <!-- Payment and Summary -->
+  <div class="grid mb-8">
+    <div class="col-12 md:col-7">
+      <router-outlet />
+    </div>
+    
+    <!-- Summary -->
+    <div class="col-12 md:col-5">
+         <h2 class="summary-title">{{"orderFlow.summaryTitle" | translate}}</h2>
+         <div class="summary-box">
+             
+              <div class="flex gap-2 align-items-center justify-content-center">
+                 <app-custom-input
+                    [id]="'coupon-code'"
+                    [labelText]="''"
+                    [placeholder]="'orderFlow.couponCode' | translate"
+                     [type]="'text'">
+                  </app-custom-input>
+
+                  <button type="button" class="buttons">
+                    <i class="pi pi-ticket"></i>
+                     {{"orderFlow.applyCoupon" | translate}}
+                   </button>
+               </div>
+ 
+
+               <div class="coupon-box mx-auto flex align-items-center justify-content-center">
+                   <p>{{"orderFlow.couponMessage" | translate}}</p>
+               </div>
+
+               <div class="total-row flex justify-content-between">
+               <span>{{"orderFlow.Total" | translate}}</span>
+                <span>{{"orderFlow.price" | translate}}</span>
+               </div>
+
+                <app-button
+                  [text]="'orderFlow.checkoutButton' | translate"
+                  [isIcon]="true"
+                  [borderRadius]="'btn-summary-radius'"
+                  [padding]="'btn-summary-padding w-full'"
+                  [transition]="'btn-summary-transition'"
+                  aria-label="checkout and place order"
+                />
+          </div>
+
+
+
+
+    </div>
+  </div>
+
+  <!-- Best Seller -->
+    <div class="mb-8">
+
+        <div class="p-relative d-inline-block details-title-wrapper">
+             <h2 id="details-heading" class="details-title" itemprop="name">
+            <span>{{ "home.bestSeller.left.heading2span1" | translate }}</span>
+             {{ "home.bestSeller.left.heading2" | translate }}
+            <span>{{ "home.bestSeller.left.heading2span2" | translate }}</span>
+            </h2>
+             <div class="details-bg-shape" aria-hidden="true"></div>
+            <div class="details-underline-bar" aria-hidden="true"></div>
+            <meta itemprop="description" content="Browse Best Sellers" />
+        </div>
+
+        <div class="product-carousel col-12 md:col-6 lg:col-8 mb-8" >
+    <p-carousel
+      [value]="bestSellers()"
+      [numVisible]="4"
+      [numScroll]="1"
+      [circular]="true"
+      [responsiveOptions]="responsiveOptions"
+      [showIndicators]="false"
+      class="custom-carousel"
+      [prevButtonProps]="{ styleClass: 'p-button-rounded custom-best-prev' }"
+      [nextButtonProps]="{ styleClass: 'p-button-rounded custom-best-next' }"
+      aria-label="Best seller products carousel"
+    >
+      <ng-template let-product pTemplate="item">
+        @if (showSkeleton()) { @for (item of skeletonItems(); track $index) {
+        <div class="carousel-card-wrapper">
+          <div class="image-wrapper">
+            <p-skeleton width="100%" height="200px"></p-skeleton>
+          </div>
+          <div class="flex flex-column p-3 mt-3 flex-grow">
+            <p-skeleton width="50%" height="1.5rem" class="mb-2"></p-skeleton>
+            <div class="flex align-items-center justify-content-between pt-2">
+              <div class="flex flex-column">
+                <p-skeleton width="6rem" height="1.5rem" class="mb-2"></p-skeleton>
+                <p-skeleton width="4rem" height="1.25rem"></p-skeleton>
+              </div>
+              <p-skeleton shape="circle" size="2.5rem"></p-skeleton>
+            </div>
+          </div>
+        </div>
+        } } @else {
+        <div class="carousel-card-wrapper">
+          <app-card-item [productInfo]="product" />
+        </div>
+        }
+      </ng-template>
+    </p-carousel>
+        </div>
+
+    </div>
+    
+</div>
+
+
+
+
+<app-footer/>

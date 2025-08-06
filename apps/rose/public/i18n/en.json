@@ -265,5 +265,17 @@
     "passwordPattern": "Password must be at least 8 characters, include uppercase, lowercase, and a special character.",
     "onlyNumbers": "This number is not valid",
     "misMatch":"Passwords do not match"
+  },
+
+  "orderFlow": {
+      "summaryTitle": "Summary",
+      "couponCode": "Coupon Code",
+      "applyCoupon": "Apply Coupon",
+      "couponMessage": "No coupon applied",
+      "Total": "Total:",
+      "price": "{{price}} EGP",
+      "checkoutButton": "Checkout"
   }
+
+  
 }
