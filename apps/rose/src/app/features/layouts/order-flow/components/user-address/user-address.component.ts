@@ -1,37 +1,41 @@
-import { Component, EventEmitter, inject, input,OnInit,Output } from "@angular/core";
+import { Component, EventEmitter, inject, input,OnInit,Output, signal } from "@angular/core";
 import { ButtonModule } from "primeng/button";
 import { InputTextModule } from "primeng/inputtext";
 import { AvatarModule } from "primeng/avatar";
 import { CustomMainDialogComponent } from "@rose/shared_Components_ui/custom-main-dialog/custom-main-dialog.component";
-import { UserAddressService } from "@rose/shared_services/user-address/user-address.service";
 import { Address } from "@rose/core_interfaces/user-address.interface";
 import { AddressItemComponent } from "./components/address-item/address-item.component";
 import { HeadAddressComponent } from "./components/head-address/head-address.component";
 import { Store } from "@ngrx/store";
-import { selectAddressCount, selectAddressError, selectAddressLoading, selectAllAddresses, selectHasAddresses } from "apps/rose/src/app/store/address/address.selector";
-import { showAddresses } from "apps/rose/src/app/store/address/address.actions";
-import { AsyncPipe, JsonPipe, NgIf, NgFor } from '@angular/common';
+import { selectAddressError, selectAddressLoading, selectAddressState, selectAllAddresses } from "apps/rose/src/app/store/address/address.selector";
+import { setAddressState, showAddresses } from "apps/rose/src/app/store/address/address.actions";
+import { DeleteDialogComponent } from "./components/delete-dialog/delete-dialog.component";
+import { AddressSituations } from "apps/rose/src/app/store/address/addresses.state";
 
 
 @Component({
   selector: "app-user-address",
-  imports: [ButtonModule, InputTextModule, AvatarModule, CustomMainDialogComponent, AddressItemComponent, HeadAddressComponent],
+  imports: [ButtonModule, InputTextModule, AvatarModule, CustomMainDialogComponent, AddressItemComponent, HeadAddressComponent, DeleteDialogComponent],
   templateUrl: "./user-address.component.html",
   styleUrl: "./user-address.component.scss",
 })
 export class UserAddressComponent implements OnInit {
+  private readonly _store = inject(Store);
   @Output() closed = new EventEmitter<void>();
-  private store = inject(Store);
   visible = input.required<boolean>();
   address!:Array<Address>;
   loading!:boolean;
   error!:any;
+  addressState!:AddressSituations;
+  deletedId!:string;
+  
+
 
   
-  addresses$ = this.store.select(selectAllAddresses);
-  loading$ = this.store.select(selectAddressLoading);
-  error$ = this.store.select(selectAddressError);
-
+  addresses$ = this._store.select(selectAllAddresses);
+  loading$ = this._store.select(selectAddressLoading);
+  error$ = this._store.select(selectAddressError);
+  addressState$=this._store.select(selectAddressState);
 
   ngOnInit(): void {
     this.loadAddresses()
@@ -44,15 +48,29 @@ export class UserAddressComponent implements OnInit {
     this.error$.subscribe(error=>{
       this.error=error;
     })
+    this.addressState$.subscribe(
+      addressState=>{
+        this.addressState=addressState
+      }
+    )
     
   }
 
   close() {
     this.closed.emit();
   }
+
+setAddressId(addressID: string): void {
+  console.log('Received address ID:', addressID);
+  this.deletedId = addressID;
+}
+
+  closeDeleteDialog(){
+    this._store.dispatch(setAddressState({addressState:1}))
+  }
    
   
   loadAddresses() {
-    this.store.dispatch(showAddresses());
+    this._store.dispatch(showAddresses());
   }
 }

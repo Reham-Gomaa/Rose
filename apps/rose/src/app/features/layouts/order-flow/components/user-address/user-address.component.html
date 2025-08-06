@@ -1,4 +1,3 @@
-@if(visible()){
 <app-custom-main-dialog [visable]="visible()" (closed)="close()">
   <div head>
     <app-head-address head></app-head-address>
@@ -12,7 +11,7 @@
     }@else{
     <div class="flex flex-column gap-5">
       @for (item of address; track $index) {
-      <app-address-item [address]="item"></app-address-item>
+      <app-address-item [address]="item" (deletedId)="setAddressId($event)"></app-address-item>
       }@empty{
       <div class="flex justify-content-center align-items-center text-2xl">No Address Found</div>
       }
@@ -20,4 +19,7 @@
     }
   </div>
 </app-custom-main-dialog>
-}
+
+
+
+<app-delete-dialog [visible]="addressState===6" [addressId]="deletedId" (closed)="closeDeleteDialog()"></app-delete-dialog>

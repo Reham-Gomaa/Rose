@@ -1,30 +1,73 @@
 import { createReducer, on } from "@ngrx/store";
 import { AddressSituations, AddressState } from "./addresses.state";
-import { showAddresses, showAddressesFailure, showAddressesSuccess } from "./address.actions";
+import {
+  deleteAddressesFailure,
+  deleteAddressesSuccess,
+  DeletedAddress,
+  setAddressState,
+  setDeletedAddress,
+  showAddresses,
+  showAddressesFailure,
+  showAddressesSuccess,
+} from "./address.actions";
 
 export const initalState: AddressState = {
   addressState: AddressSituations.showAddress,
   address: [],
   loading: false,
-  error: null
+  error: null,
+  selectedAdddressId: "",
 };
 
 export const addressReducer = createReducer(
-    initalState,
-    on(showAddresses, (state) => ({
-    ...state,
-    loading: true,
-    error: null
-  })),
-  on(showAddressesSuccess, (state, { addresses }) => ({
-    ...state,
-    address: addresses,
-    loading: false,
-    error: null
-  })),
-  on(showAddressesFailure, (state, { error }) => ({
-    ...state,
-    loading: false,
-    error: error
-  }))
+  initalState,
+  on(setAddressState, (state, { addressState }) => {
+    return {
+      ...state,
+      addressState: addressState,
+    };
+  }),
+  on(showAddresses, (state) => {
+    return {
+      ...state,
+      loading: true,
+      error: null,
+    };
+  }),
+  on(showAddressesSuccess, (state, { addresses }) => {
+    return {
+      ...state,
+      address: addresses,
+      loading: false,
+      error: null,
+    };
+  }),
+  on(showAddressesFailure, (state, { error }) => {
+    return {
+      ...state,
+      loading: false,
+      error: error,
+    };
+  }),
+
+  on(DeletedAddress, (state) => {
+    return {
+      ...state,
+      loading: true,
+    };
+  }),
+  on(deleteAddressesSuccess, (state,) => {
+    return {
+      ...state,
+      loading: false,
+      addressState: AddressSituations.showAddress,
+    };
+  }),
+  on(deleteAddressesFailure, (state, { error }) => {
+    return {
+      ...state,
+      loading: false,
+      error: error,
+    };
+  })
 );

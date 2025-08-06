@@ -25,13 +25,8 @@ export const selectAddressState = createSelector(
   (state: AddressState) => state.addressState
 );
 
-// Computed selectors
-export const selectAddressCount = createSelector(
-  selectAllAddresses,
-  (addresses) => addresses.length
-);
 
-export const selectHasAddresses = createSelector(
-  selectAllAddresses,
-  (addresses) => addresses.length > 0
+export const selectAddressId = createSelector(
+  selectAddressFeature,
+  (state: AddressState) => state.selectedAdddressId
 );

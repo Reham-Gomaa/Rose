@@ -6,6 +6,7 @@ export enum AddressSituations {
   addLocation=3,
   updateAddress=4,
   updateLocation=5,
+  deleteAddress=6,
 }
 
 
@@ -14,6 +15,7 @@ export interface AddressState{
     address:Address[],
     loading: boolean,
     error: any;
+    selectedAdddressId:string,
 
     
 }
