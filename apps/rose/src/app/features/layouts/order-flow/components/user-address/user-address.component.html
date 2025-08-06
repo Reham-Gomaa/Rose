@@ -1,1 +1,25 @@
-<p>user-address works!</p>
+<app-custom-main-dialog [visable]="visible()" (closed)="close()">
+  <div head>
+    <app-head-address head></app-head-address>
+  </div>
+  <div body>
+    @if(loading){
+    <div class="flex justify-content-center align-items-center loading">
+      <i class="pi pi-spin pi-spinner" style="font-size: 4rem"></i>
+    </div>
+
+    }@else{
+    <div class="flex flex-column gap-5">
+      @for (item of address; track $index) {
+      <app-address-item [address]="item" (deletedId)="setAddressId($event)"></app-address-item>
+      }@empty{
+      <div class="flex justify-content-center align-items-center text-2xl">No Address Found</div>
+      }
+    </div>
+    }
+  </div>
+</app-custom-main-dialog>
+
+
+
+<app-delete-dialog [visible]="addressState===6" [addressId]="deletedId" (closed)="closeDeleteDialog()"></app-delete-dialog>

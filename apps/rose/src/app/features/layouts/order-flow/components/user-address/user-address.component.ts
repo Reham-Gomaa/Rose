@@ -1,10 +1,76 @@
-import { Component } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { Component, EventEmitter, inject, input,OnInit,Output, signal } from "@angular/core";
+import { ButtonModule } from "primeng/button";
+import { InputTextModule } from "primeng/inputtext";
+import { AvatarModule } from "primeng/avatar";
+import { CustomMainDialogComponent } from "@rose/shared_Components_ui/custom-main-dialog/custom-main-dialog.component";
+import { Address } from "@rose/core_interfaces/user-address.interface";
+import { AddressItemComponent } from "./components/address-item/address-item.component";
+import { HeadAddressComponent } from "./components/head-address/head-address.component";
+import { Store } from "@ngrx/store";
+import { selectAddressError, selectAddressLoading, selectAddressState, selectAllAddresses } from "apps/rose/src/app/store/address/address.selector";
+import { setAddressState, showAddresses } from "apps/rose/src/app/store/address/address.actions";
+import { DeleteDialogComponent } from "./components/delete-dialog/delete-dialog.component";
+import { AddressSituations } from "apps/rose/src/app/store/address/addresses.state";
+
 
 @Component({
   selector: "app-user-address",
-  imports: [CommonModule],
+  imports: [ButtonModule, InputTextModule, AvatarModule, CustomMainDialogComponent, AddressItemComponent, HeadAddressComponent, DeleteDialogComponent],
   templateUrl: "./user-address.component.html",
   styleUrl: "./user-address.component.scss",
 })
-export class UserAddressComponent {}
+export class UserAddressComponent implements OnInit {
+  private readonly _store = inject(Store);
+  @Output() closed = new EventEmitter<void>();
+  visible = input.required<boolean>();
+  address!:Array<Address>;
+  loading!:boolean;
+  error!:any;
+  addressState!:AddressSituations;
+  deletedId!:string;
+  
+
+
+  
+  addresses$ = this._store.select(selectAllAddresses);
+  loading$ = this._store.select(selectAddressLoading);
+  error$ = this._store.select(selectAddressError);
+  addressState$=this._store.select(selectAddressState);
+
+  ngOnInit(): void {
+    this.loadAddresses()
+    this.addresses$.subscribe(addresses => {
+      this.address=addresses
+    });
+    this.loading$.subscribe(loading=>{
+      this.loading=loading;
+    })
+    this.error$.subscribe(error=>{
+      this.error=error;
+    })
+    this.addressState$.subscribe(
+      addressState=>{
+        this.addressState=addressState
+      }
+    )
+    
+  }
+
+  close() {
+    this.closed.emit();
+  }
+
+setAddressId(addressID: string): void {
+  console.log('Received address ID:', addressID);
+  this.deletedId = addressID;
+}
+
+  closeDeleteDialog(){
+    this._store.dispatch(setAddressState({addressState:1}))
+  }
+   
+  
+  loadAddresses() {
+    this._store.dispatch(showAddresses());
+  }
+}
