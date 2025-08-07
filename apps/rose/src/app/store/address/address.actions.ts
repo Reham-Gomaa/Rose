@@ -6,7 +6,7 @@ import { AddressSituations } from "./addresses.state";
 
 
 export const setAddressState = createAction(
-  "[ADDRESS] Show Address",
+  "[ADDRESS] Set Show Address",
   props<{ addressState: AddressSituations }>()
 );
 
@@ -34,12 +34,14 @@ export const setDeletedAddress = createAction(
 );
 
 export const DeletedAddress = createAction(
-  "[ADDRESS] Set Address Id",
+  "[ADDRESS] Delete Address",
    props<{ addressId: string }>()
 );
 
 export const deleteAddressesSuccess = createAction(
   "[ADDRESS] delete Address Success",
+  props<{ addressId: string }>()
+
 );
 
 export const deleteAddressesFailure = createAction(

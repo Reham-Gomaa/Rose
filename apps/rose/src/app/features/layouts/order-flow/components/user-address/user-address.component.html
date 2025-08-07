@@ -4,22 +4,26 @@
   </div>
   <div body>
     @if(loading){
-    <div class="flex justify-content-center align-items-center loading">
-      <i class="pi pi-spin pi-spinner" style="font-size: 4rem"></i>
-    </div>
+    <app-spinner></app-spinner>
 
     }@else{
     <div class="flex flex-column gap-5">
       @for (item of address; track $index) {
-      <app-address-item [address]="item" (deletedId)="setAddressId($event)"></app-address-item>
+      <app-address-item [address]="item"></app-address-item>
       }@empty{
-      <div class="flex justify-content-center align-items-center text-2xl">No Address Found</div>
+      <div class="flex flex-column justify-content-center align-items-center text-center text-2xl">
+        <img class="w-62px" src="/images/no-product-available.webp" alt="image for not avaliable"  loading="lazy">
+        <p class="notfound-p">
+          {{ "addressList.noAddress" | translate }}
+        </p>
+      </div>
       }
     </div>
     }
   </div>
 </app-custom-main-dialog>
 
-
-
-<app-delete-dialog [visible]="addressState===6" [addressId]="deletedId" (closed)="closeDeleteDialog()"></app-delete-dialog>
+<app-delete-dialog
+  [visible]="addressState === 6"
+  (closed)="closeDeleteDialog()"
+></app-delete-dialog>

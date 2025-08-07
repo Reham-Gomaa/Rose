@@ -1,3 +1,8 @@
+.container-button{
+  display: flex;
+  flex-direction: row;
+}
+
 button {
   padding: 0.75rem 2rem;
   border-radius: 8px;
@@ -18,7 +23,7 @@ button {
   }
 
   &.confirm {
-    background-color: #d32f2f;
+    background-color: #DC2626;
     color: #fff;
 
     &:hover {
@@ -35,15 +40,16 @@ button {
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem auto;
-  background-color: #2E2E300D;
-  box-shadow: 0 8px 20px #2E2E300D;
+  background-color: var(--dialog-out-shadow);
+  // box-shadow: 0 8px 20px var(--dialog-out-shadow);
 }
 
 .dialog-icon {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background-color: #2E2E3026;
+  // color: var(--dialog-p);
+  background-color: var(--dialog-icon);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,4 +62,12 @@ button {
 p {
   font-size: 1.125rem;
   margin-bottom: 2rem;
+  color: var(--dialog-p);
+}
+
+@media (max-width: 620px) {
+    .container-button{
+      gap:1rem;
+      flex-direction: column;
+    }
 }
