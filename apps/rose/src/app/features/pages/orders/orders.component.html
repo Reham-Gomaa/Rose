@@ -1,0 +1,69 @@
+<app-navbar/>
+
+<section class="orders-page">
+  <h2 class="ordersTitle">Orders</h2>
+
+  @if (orders.length) {
+  <div class="orders-container bg-green-100">
+    @for (order of paginatedOrders(); track order._id) {
+      <div class="order-card ">
+        <div class="order-header ">
+          <span class="order-number">{{ order.orderNumber }}</span>
+          <span class="order-date">{{ order.createdAt | date: 'mediumDate' }}</span>
+        </div>
+
+         <div class="orderStatus flex justify-content-between align-items-center">
+          <p>Total: {{ order.totalPrice | currency:'EGP' }}</p>
+          <p>Status: {{ order.state }}</p>
+        </div>
+
+        <div class="order-content bg-yellow-200">
+
+          <div class="order-items">
+          @for (
+            item of expandedOrders[order._id] 
+              ? order.orderItems 
+              : order.orderItems.slice(0, 4); 
+            track item._id
+          ) {
+            <div class="order-item">
+              <img [src]="item.product.imgCover" [alt]="item.product.title" />
+              <div>
+                <p>{{ item.product.title }}</p>
+                <p>Qty: {{ item.quantity }}</p>
+              </div>
+            </div>
+          }
+        </div>
+
+        <button (click)="toggleShowAllItems(order._id)">
+          {{ expandedOrders[order._id] ? 'Show Less' : 'Show All' }}
+        </button>
+
+        <div class="order-footer">
+          <p>Total: {{ order.totalPrice | currency:'EGP' }}</p>
+          <p>Payment: {{ order.isPaid ? 'Paid' : 'Pending' }}</p>
+          <p>Status: {{ order.state }}</p>
+        </div>
+
+        </div>
+      </div>
+    }
+
+    <div class="pagination">
+      <button (click)="prevPage()" [disabled]="currentPage === 1">Prev</button>
+      <span>Page {{ currentPage }}</span>
+      <button (click)="nextPage()" 
+        [disabled]="currentPage * ordersPerPage >= orders.length">
+        Next
+      </button>
+    </div>
+  </div>
+} @else {
+  <p>No orders found.</p>
+}
+
+</section>
+
+
+<app-footer/>
