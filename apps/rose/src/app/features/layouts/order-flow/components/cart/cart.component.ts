@@ -1,12 +1,12 @@
 // @angular
-import { AsyncPipe } from "@angular/common";
+import { AsyncPipe, CommonModule } from "@angular/common";
 import { Component, DestroyRef, inject, OnInit } from "@angular/core";
 import { RouterLink } from "@angular/router";
 // @ngx
 import { TranslatePipe } from "@ngx-translate/core";
 // rxjs
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { Observable, take } from "rxjs";
+import { catchError, Observable, of, take, tap } from "rxjs";
 // shared Interfaces
 import { cartItems } from "@rose/core_interfaces/cart.interface";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -14,7 +14,8 @@ import { TranslationService } from "@rose/core_services/translation/translation.
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 // Animation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
-// Cart Data from store
+// primeng
+import { Skeleton } from "primeng/skeleton"; // Cart Data from store
 import { Store } from "@ngrx/store";
 import {
   clearCart,
@@ -30,7 +31,7 @@ import {
 
 @Component({
   selector: "app-cart",
-  imports: [RouterLink, ButtonComponent, TranslatePipe, AsyncPipe],
+  imports: [RouterLink, ButtonComponent, TranslatePipe, AsyncPipe, Skeleton],
   templateUrl: "./cart.component.html",
   styleUrl: "./cart.component.scss",
   animations: [fadeTransition],
@@ -43,10 +44,21 @@ export class CartComponent implements OnInit {
   cartItems$!: Observable<cartItems[]>;
   cartItemsNum$!: Observable<number>;
   totalPrice$!: Observable<number>;
+  isLoading: boolean = true;
 
   ngOnInit(): void {
     this.getLoggedUserCart();
     this.selectData();
+
+    this.cartItems$
+      .pipe(
+        take(1),
+        catchError(() => {
+          this.isLoading = false;
+          return of([]); // Return empty array on error
+        })
+      )
+      .subscribe();
   }
 
   getLoggedUserCart() {
@@ -54,7 +66,12 @@ export class CartComponent implements OnInit {
   }
 
   selectData() {
-    this.cartItems$ = this.store.select(selectCartItems);
+    this.cartItems$ = this.store.select(selectCartItems).pipe(
+      tap(() => {
+        this.isLoading = false;
+      }),
+      takeUntilDestroyed(this.destroyRef)
+    );
     this.cartItemsNum$ = this.store.select(selectCartItemsNum);
     this.totalPrice$ = this.store.select(selectTotalPrice);
   }
