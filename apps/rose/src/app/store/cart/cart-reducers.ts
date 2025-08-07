@@ -3,6 +3,7 @@ import { cartItems } from "@rose/core_interfaces/cart.interface";
 import {
   addProductToCartSuccess,
   clearCart,
+  clearCartSuccess,
   deleteSpecificItemSuccess,
   getUserCartSuccess,
   updateQuantitySuccess,
@@ -46,9 +47,9 @@ export const cartReducer = createReducer(
     totalPrice: cart.cart.totalPrice,
   })),
 
-  on(clearCart, (state) => ({
+  on(clearCartSuccess, (state, { cart }) => ({
     ...state,
-    cartItems: [],
+    cartItems: [] as cartItems[],
     cartItemsNum: 0,
     totalPrice: 0,
   }))

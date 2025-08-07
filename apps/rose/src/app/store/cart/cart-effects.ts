@@ -7,6 +7,7 @@ import {
   addProductToCart,
   addProductToCartSuccess,
   clearCart,
+  clearCartSuccess,
   deleteSpecificItem,
   deleteSpecificItemSuccess,
   getUserCart,
@@ -62,7 +63,7 @@ export class CartEffects {
     this.actions$.pipe(
       ofType(deleteSpecificItem),
       switchMap((action) =>
-        this.cartService.removeSpecificCartItem(action.c_id).pipe(
+        this.cartService.removeSpecificCartItem(action.p_id).pipe(
           map((cart) => deleteSpecificItemSuccess({ cart })),
           catchError((error) => of(getUserCartFailure({ error: error.message })))
         )
@@ -75,7 +76,7 @@ export class CartEffects {
       ofType(clearCart),
       switchMap(() =>
         this.cartService.clearUserCart().pipe(
-          map(() => clearCart()),
+          map((cart) => clearCartSuccess({ cart })),
           catchError((error) => of(getUserCartFailure({ error: error.message })))
         )
       )

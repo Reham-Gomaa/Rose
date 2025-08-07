@@ -44,9 +44,9 @@
                             </h3>
                         </div>
                         <div>
-                            <app-button (click)="removeCartItem(item._id)" [bgColor]="'var(--cart-deleteBtn-bg)'"
-                                [textColor]="'var(--btn-shared-color)'" [icon]="'pi pi-trash'"
-                                [padding]="'cart-delete-padding'" [borderRadius]="'cart-radius'"
+                            <app-button (click)="removeCartItem(item.product._id)"
+                                [bgColor]="'var(--cart-deleteBtn-bg)'" [textColor]="'var(--btn-shared-color)'"
+                                [icon]="'pi pi-trash'" [padding]="'cart-delete-padding'" [borderRadius]="'cart-radius'"
                                 [text]="'order-flow.cart.remove' |translate"
                                 [rowReverse]="'flex flex-row-reverse align-items-center'" />
                         </div>
@@ -60,12 +60,15 @@
                                 <span class="egp">{{ 'EGP' |translate }}</span>
                             </h3>
                         </div>
-                        <div class=" flex justify-content-center md:justify-content-between align-items-end">
-                            <app-button (click)="updateProductQuantity(item._id,-1)" [padding]="'cart-padding'"
+                        <div class=" flex justify-content-center md:justify-content-between align-items-center">
+                            <app-button (click)="updateProductQuantity(item.product._id,-1)" [padding]="'cart-padding'"
                                 [borderRadius]="'cart-radius'" [bgColor]="'var(--cart-clearBtn-bg)'"
                                 [textColor]="'var(--cart-clearBtn-text)'" [icon]="'pi pi-minus'" />
-                            <app-custom-input type="number" id="quantity" class="w-4 md:w-6rem mx-2" />
-                            <app-button (click)="updateProductQuantity(item._id,1)" [padding]="'cart-padding'"
+                            <input type="number" id="quantity" class="w-4 md:w-6rem mx-2" [value]="item.quantity"
+                                min="1" [max]="item.product.quantity"
+                                (change)="onQuantityChange(item.product._id, $event)"
+                                (keyup.enter)="onQuantityChange(item.product._id, $event)" />
+                            <app-button (click)="updateProductQuantity(item.product._id,+1)" [padding]="'cart-padding'"
                                 [borderRadius]="'cart-radius'" [bgColor]="'var(--cart-clearBtn-bg)'"
                                 [textColor]="'var(--cart-clearBtn-text)'" [icon]="'pi pi-plus'" />
                         </div>

@@ -35,7 +35,7 @@ export const updateQuantitySuccess = createAction(
 
 export const deleteSpecificItem = createAction(
   "[Cart] delete specific cart item",
-  props<{ c_id: string }>()
+  props<{ p_id: string }>()
 );
 
 export const deleteSpecificItemSuccess = createAction(
@@ -44,3 +44,8 @@ export const deleteSpecificItemSuccess = createAction(
 );
 
 export const clearCart = createAction("[Cart] clear cart");
+
+export const clearCartSuccess = createAction(
+  "[Cart] clear cart success",
+  props<{ cart: CartResponse }>()
+);
