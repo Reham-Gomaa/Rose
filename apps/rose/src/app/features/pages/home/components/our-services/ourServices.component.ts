@@ -1,4 +1,13 @@
-import { Component, inject } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  effect,
+  EffectRef,
+  inject,
+  OnDestroy,
+  OnInit,
+} from "@angular/core";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -13,9 +22,12 @@ import { ServicesInterface } from "@rose/core_interfaces/services.interface";
   templateUrl: "./ourServices.component.html",
   styleUrl: "./ourServices.component.scss",
   animations: [fadeTransition],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OurServicesComponent {
+export class OurServicesComponent implements OnInit, OnDestroy {
   translationService = inject(TranslationService);
+  private cdr = inject(ChangeDetectorRef);
+  private fadeEffectRef?: EffectRef;
 
   services: ServicesInterface[] = [
     {
@@ -43,4 +55,17 @@ export class OurServicesComponent {
       paragraph: "home.services.support.paragraph",
     },
   ];
+
+  ngOnInit() {
+    this.fadeEffectRef = effect(() => {
+      const fadeState = this.translationService.fadeState();
+      if (fadeState === "visible") {
+        this.cdr.markForCheck();
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.fadeEffectRef?.destroy();
+  }
 }
