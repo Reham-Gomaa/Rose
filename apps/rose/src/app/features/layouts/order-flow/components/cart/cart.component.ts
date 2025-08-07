@@ -1,5 +1,5 @@
 // @angular
-import { AsyncPipe, CommonModule } from "@angular/common";
+import { AsyncPipe } from "@angular/common";
 import { Component, DestroyRef, inject, OnInit } from "@angular/core";
 import { RouterLink } from "@angular/router";
 // @ngx
@@ -15,7 +15,8 @@ import { ButtonComponent } from "@rose/shared_Components_ui/button/button.compon
 // Animation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // primeng
-import { Skeleton } from "primeng/skeleton"; // Cart Data from store
+import { Skeleton } from "primeng/skeleton";
+// Cart Data from store
 import { Store } from "@ngrx/store";
 import {
   clearCart,
@@ -55,7 +56,7 @@ export class CartComponent implements OnInit {
         take(1),
         catchError(() => {
           this.isLoading = false;
-          return of([]); // Return empty array on error
+          return of([]);
         })
       )
       .subscribe();

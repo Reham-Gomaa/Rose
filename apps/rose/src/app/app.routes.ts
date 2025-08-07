@@ -84,6 +84,7 @@ export const appRoutes: Route[] = [
         (c) => c.OrderFlowComponent
       ),
     children: [
+      { path: "", redirectTo: "cart", pathMatch: "full" },
       {
         path: "cart",
         loadComponent: () =>
