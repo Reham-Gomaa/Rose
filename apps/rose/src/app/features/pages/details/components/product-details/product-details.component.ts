@@ -30,7 +30,6 @@ export class ProductDetailsComponent {
   currentImage = signal<string>("");
   showModal = signal<boolean>(false);
   cartItems$!: Observable<cartItems[]>;
-  soldOut = signal<boolean>(false);
 
   constructor() {
     // Watch for input changes
@@ -46,14 +45,11 @@ export class ProductDetailsComponent {
   addProductToCart(p_id: string) {
     this.cartItems$.pipe(take(1), takeUntilDestroyed(this.destroyRef)).subscribe((cartItems) => {
       const existingItem = cartItems.find((item) => item.product._id === p_id);
-
+      if (!existingItem) return;
       const productQuantity = this.productDetails()?.quantity || 0;
 
       if ((!existingItem || existingItem.quantity > 0) && productQuantity > 0) {
         this.store.dispatch(addProductToCart({ p_id: p_id, qty: 1 }));
-        this.soldOut.set(false);
-      } else {
-        this.soldOut.set(true);
       }
     });
   }

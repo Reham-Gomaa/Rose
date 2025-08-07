@@ -49,7 +49,7 @@
           <button class="submit-btn wish cursor-pointer flex-grow-0 w-fit capitalize">
             <i class="pi  pi-heart"></i>
           </button>
-          <button [disabled]="soldOut()" [class.disableCart]="soldOut()"
+          <button [disabled]="productDetails().quantity <= 0" [class.disableCart]="productDetails().quantity <= 0"
             (click)="addProductToCart(productDetails()._id)"
             class="submit-btn cart cursor-pointer flex-grow-1 capitalize">
             <i class="pi pi-shopping-cart mr-1"></i>
