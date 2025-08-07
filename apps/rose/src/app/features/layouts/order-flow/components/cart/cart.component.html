@@ -45,7 +45,7 @@
                         </div>
                         <div>
                             <app-button (click)="removeCartItem(item.product._id)"
-                                [bgColor]="'var(--cart-deleteBtn-bg)'" [textColor]="'var(--btn-shared-color)'"
+                                [bgColor]="'var(--cart-deleteBtn-bg)'" [textColor]="'var(--cart-deleteBtn-text)'"
                                 [icon]="'pi pi-trash'" [padding]="'cart-delete-padding'" [borderRadius]="'cart-radius'"
                                 [text]="'order-flow.cart.remove' |translate"
                                 [rowReverse]="'flex flex-row-reverse align-items-center'" />
@@ -82,7 +82,7 @@
         <div class="flex justify-content-start align-items-center mt-4">
             <app-button [routerLink]="'/dashboard/home'" [rowReverse]="'flex flex-row-reverse align-items-center'"
                 [icon]="'pi pi-arrow-left arrowicon mr-2'" [bgColor]="'var(--btn-shared-background)'"
-                [textColor]="'var(--btn-shared-color)'" [text]="'order-flow.cart.continue-shopping' |translate"
+                [textColor]="'var(--cart-continueBtn-text)'" [text]="'order-flow.cart.continue-shopping' |translate"
                 [padding]="'cart-padding'" [borderRadius]="'cart-radius'" />
         </div>
     </div>
