@@ -301,7 +301,9 @@
   --cart-text-color-4: var(--blue-600);
   --cart-clearBtn-bg: var(--maroon-50);
   --cart-deleteBtn-bg: var(--red-600);
+  --cart-deleteBtn-text: var(--zinc-50);
   --cart-clearBtn-text: var(--maroon-600);
+  --cart-continueBtn-text: var(--white);
   --cart-content-border: var(--zinc-200);
   --cart-input-border: var(--zinc-300);
   --cart-star: var(--yellow);
@@ -528,4 +530,18 @@
 
   --preview-bg: var(--zinc-600);
   --preview-color: var(--white);
+  // Cart
+  --cart-title: var(--zinc-50);
+  --cart-text-color: var(--zinc-50);
+  --cart-text-color-2: var(--soft-pink-200);
+  --cart-text-color-3: var(--white);
+  --cart-text-color-4: var(--blue-600);
+  --cart-clearBtn-bg: var(--soft-pink-200);
+  --cart-deleteBtn-bg: var(--red-600);
+  --cart-deleteBtn-text: var(--zinc-50);
+  --cart-clearBtn-text: var(--maroon-600);
+  --cart-continueBtn-text: var(--maroon-600);
+  --cart-content-border: var(--zinc-200);
+  --cart-input-border: var(--zinc-300);
+  --cart-star: var(--yellow);
 }
