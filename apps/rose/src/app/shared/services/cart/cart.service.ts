@@ -24,8 +24,8 @@ export class CartService {
 
   getToken() {
     if (isPlatformBrowser(this.pLATFORM_ID)) {
-      if (localStorage.getItem("userToken")) {
-        this.token = localStorage.getItem("userToken")!;
+      if (localStorage.getItem("authToken")) {
+        this.token = localStorage.getItem("authToken")!;
         this.headers = new HttpHeaders({
           Authorization: `Bearer ${this.token}`,
           "Content-Type": "application/json",
