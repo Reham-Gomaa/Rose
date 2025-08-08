@@ -35,6 +35,7 @@ import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { selectCartItemsNum } from "../../../store/cart/cart-selectors";
 import { getUserCart } from "../../../store/cart/cart-actions";
+import { selectWishlistCount } from "../../../store/wishlist/wishlist-selectors";
 
 type modalPosition =
   | "left"
@@ -73,6 +74,7 @@ type modalPosition =
 export class NavbarComponent implements OnInit {
   readonly translationService = inject(TranslationService);
   private readonly platformId = inject(PLATFORM_ID);
+  private readonly store = inject(Store);
 
   isLoggedIn: WritableSignal<boolean> = signal<boolean>(false);
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
@@ -80,8 +82,7 @@ export class NavbarComponent implements OnInit {
   btnClass = "loginBtn";
   currentLang!: string;
   cartItemsNum$!: Observable<number>;
-
-  constructor(private store: Store) {}
+  favouriteItemsNum$!: Observable<number>;
 
   visible = false;
   inSearch = false;
@@ -107,6 +108,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.isLogin();
     this.getUserCart();
+    this.favouriteItemsNum$ = this.store.select(selectWishlistCount);
     this.items = [
       {
         label: "navbar.home",

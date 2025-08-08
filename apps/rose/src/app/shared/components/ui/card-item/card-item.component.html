@@ -8,7 +8,7 @@
     <div class="bg-shape"></div>
     <div class="overlay-icons">
       <i [routerLink]="['/dashboard/details',productInfo._id]" class="pi pi-eye icon-circle"></i>
-      <i class="pi pi-heart icon-circle"></i>
+      <i [appWishlistToggle]="productInfo" class="pi pi-heart icon-circle" [activeClass]="'wishlist-active'"></i>
     </div>
     }
   </div>

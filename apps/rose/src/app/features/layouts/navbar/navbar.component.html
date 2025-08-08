@@ -27,7 +27,8 @@
 
           }@else {
 
-          <p-overlaybadge value="2" [badgeSize]="'small'" [style]="{
+          <p-overlaybadge [routerLink]="'wishlist'" [value]="(favouriteItemsNum$ | async)" [badgeSize]="'small'"
+            [style]="{
               'background-color': 'var(--overlaybadge-bg)',
               'outline':'none',
               'top': '-10px',

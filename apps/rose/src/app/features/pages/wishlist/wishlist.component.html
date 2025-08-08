@@ -1,0 +1,16 @@
+<section>
+    <div class="heading mt-8 text-left">
+        <div class="p-relative d-inline-block wishlist-title-wrapper mb-3">
+            <h2 id="wishlist-heading" class="wishlist-title" itemprop="name">
+                {{ "wishlist.title" | translate }}
+            </h2>
+            <div class="wishlist-bg-shape" aria-hidden="true"></div>
+            <div class="wishlist-underline-bar" aria-hidden="true"></div>
+        </div>
+    </div>
+    <div class="grid">
+        @for (item of favouriteItems$ |async; track $index) {
+        <app-card-item class="col-3" />
+        }
+    </div>
+</section>

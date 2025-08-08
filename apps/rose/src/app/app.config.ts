@@ -19,6 +19,7 @@ import { filterReduser } from "@rose/store_filter/filter.reducer";
 import { sortEffects } from "@rose/store_sort/store.effects";
 import { cartReducer } from "./store/cart/cart-reducers";
 import { CartEffects } from "./store/cart/cart-effects";
+import { wishlistReducer } from "./store/wishlist/wishlist-reducers";
 // primeng imports
 import { MessageService } from "primeng/api";
 import { providePrimeNG } from "primeng/config";
@@ -94,6 +95,7 @@ export const appConfig: ApplicationConfig = {
       sort: sortReducer,
       filter: filterReduser,
       cart: cartReducer,
+      wishlist: wishlistReducer,
     }),
     provideEffects(sortEffects, FilterEffects, CartEffects),
   ],

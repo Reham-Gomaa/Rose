@@ -14,11 +14,12 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { Store } from "@ngrx/store";
 import { selectCartItems } from "apps/rose/src/app/store/cart/cart-selectors";
 import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
+import { WishlistToggleDirective } from "apps/rose/src/app/shared/directives/wishlistToggle.directive";
 
 @Component({
   selector: "app-product-details",
   standalone: true,
-  imports: [NgOptimizedImage, DialogModule, NgClass],
+  imports: [NgOptimizedImage, DialogModule, NgClass, WishlistToggleDirective],
   templateUrl: "./product-details.component.html",
   styleUrl: "./product-details.component.scss",
 })

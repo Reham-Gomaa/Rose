@@ -46,7 +46,8 @@
           </p>
         </div>
         <div class="wish-and-cart text-lg w-full flex gap-2">
-          <button class="submit-btn wish cursor-pointer flex-grow-0 w-fit capitalize">
+          <button [appWishlistToggle]="productDetails()"
+            class="submit-btn wish cursor-pointer flex-grow-0 w-fit capitalize" [activeClass]="'wishlist-active'">
             <i class="pi  pi-heart"></i>
           </button>
           <button [disabled]="productDetails().quantity <= 0" [class.disableCart]="productDetails().quantity <= 0"
@@ -60,7 +61,7 @@
     </div>
   </div>
 
-  <p-dialog [header]="productDetails().slug.toUpperCase()" [(visible)]="showModal" [modal]="true"
+  <p-dialog [header]="productDetails().slug?.toUpperCase()" [(visible)]="showModal" [modal]="true"
     [dismissableMask]="true" [closable]="true" [style.maxWidth]="'50vw'" [contentStyle]="{ 'text-align': 'center' }">
 
     @if (currentImage()) {

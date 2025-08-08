@@ -11,7 +11,8 @@ import { Product } from "@rose/core_interfaces/carditem.interface";
 //PrimeNg
 import { RatingModule } from "primeng/rating";
 import { SkeletonModule } from "primeng/skeleton";
-// rxjs
+// shared-Directive
+import { WishlistToggleDirective } from "./../../../directives/wishlistToggle.directive";
 // cart store
 import { Store } from "@ngrx/store";
 import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
@@ -26,6 +27,7 @@ import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
     TranslatePipe,
     RouterLink,
     NgOptimizedImage,
+    WishlistToggleDirective,
   ],
   templateUrl: "./card-item.component.html",
   styleUrl: "./card-item.component.scss",
