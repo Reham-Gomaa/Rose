@@ -175,7 +175,7 @@ export class NavbarComponent implements OnInit {
       {
         label: "Log out",
         icon: "pi pi-sign-out",
-        command: () => this.logout(),
+        //command: () => this.logout(),
       },
     ]);
   }
@@ -187,32 +187,32 @@ export class NavbarComponent implements OnInit {
     this.isLoggedIn.set(!!token);
   }
 
-  logout(): void {
-    this._auth
-      .logout()
-      .pipe(takeUntilDestroyed(this._destroyRef))
-      .subscribe({
-        next: (res) => {
-          if ("message" in res && res.message === "Logged out successfully.") {
-            localStorage.removeItem("authToken");
-            this.isLoggedIn.set(false);
-            this._msg.add({ severity: "success", detail: res.message, life: 3000 });
-            this._router.navigate(["/"]);
-          } else {
-            this._msg.add({
-              severity: "error",
-              detail: "Logout failed. Please try again.",
-              life: 5000,
-            });
-          }
-        },
-        error: () => {
-          this._msg.add({
-            severity: "error",
-            detail: "Logout failed. Please try again.",
-            life: 5000,
-          });
-        },
-      });
-  }
+  // logout(): void {
+  //   this._auth
+  //     .logout()
+  //     .pipe(takeUntilDestroyed(this._destroyRef))
+  //     .subscribe({
+  //       next: (res) => {
+  //         if ("message" in res && res.message === "Logged out successfully.") {
+  //           localStorage.removeItem("authToken");
+  //           this.isLoggedIn.set(false);
+  //           this._msg.add({ severity: "success", detail: res.message, life: 3000 });
+  //           this._router.navigate(["/"]);
+  //         } else {
+  //           this._msg.add({
+  //             severity: "error",
+  //             detail: "Logout failed. Please try again.",
+  //             life: 5000,
+  //           });
+  //         }
+  //       },
+  //       error: () => {
+  //         this._msg.add({
+  //           severity: "error",
+  //           detail: "Logout failed. Please try again.",
+  //           life: 5000,
+  //         });
+  //       },
+  //     });
+  // }
 }
