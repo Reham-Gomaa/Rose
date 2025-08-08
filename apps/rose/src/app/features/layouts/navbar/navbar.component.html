@@ -32,32 +32,22 @@
         <i class="pi pi-bell cursor-pointer text-md"></i>
       </div>
       } @else {
-      <p-splitbutton [label]="'Hello ' + userName" [model]="userDropDown()" styleClass="user-greeting-btn">
-
+      <p-splitButton [label]="'Hello ' + userName" [model]="userDropDown()" styleClass="user-greeting-btn"
+        menuStyleClass="user-menu-overlay">
         <ng-template pTemplate="content">
           <div class="flex flex-column align-items-start">
             Hello
-            <span class="user-name">{{userName()}}</span>
+            <span class="user-name">{{ userName() }}</span>
           </div>
         </ng-template>
+      </p-splitButton>
 
-      </p-splitbutton>
       <div class="icons">
         <i class="pi pi-heart cursor-pointer text-lg"></i>
-        <p-overlaybadge value="2" [badgeSize]="'small'" [style]="{
-            'background-color': 'var(--red-600)',
-            'outline':'none',
-            'top': '8px',
-            'right': '8px',
-          }">
+        <p-overlaybadge value="2" class="custom-badge" [badgeSize]="'small'">
           <i class="pi pi-shopping-cart cursor-pointer text-md"></i>
         </p-overlaybadge>
-        <p-overlaybadge value="4" [badgeSize]="'small'" [style]="{
-            'background-color': 'var(--red-600)',
-            'outline':'none',
-            'top': '8px',
-            'right': '8px',
-          }">
+        <p-overlaybadge value="4" class="custom-badge" [badgeSize]="'small'">
           <i class="pi pi-bell cursor-pointer text-md"></i>
         </p-overlaybadge>
       </div>

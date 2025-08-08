@@ -3,6 +3,7 @@ button {
   height: 2.5rem;
   border-radius: 100%;
   text-align: center;
+  color: var(--translate-toggle-color);
   font-family: var(--font-family-1);
   font-weight: 500;
   font-size: 1rem;
@@ -12,7 +13,7 @@ button {
   transition: all 0.3s ease;
 
   &:hover {
-    color: var(--maroon-500);
+    color: var(--translate-toggle-hover);
   }
 
   &[dir="rtl"] {

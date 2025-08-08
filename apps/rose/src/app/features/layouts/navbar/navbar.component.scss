@@ -30,7 +30,7 @@
         margin-left: 1rem;
 
         .location-header {
-          color: var(--zinc-500);
+          color: var(--color-navbar-text);
           font-family: var(--font-family-4);
           font-weight: 400;
           font-size: 0.875rem;
@@ -42,7 +42,7 @@
           display: flex;
           align-items: center;
           gap: 0.375rem;
-          color: var(--maroon-700);
+          color: var(--color-navbar-highlight);
           font-family: var(--font-family-4);
           font-weight: 500;
           font-size: 1rem;
@@ -67,14 +67,19 @@
         flex: 1;
         width: 100%;
         padding: 0.75rem 1.5rem 0.75rem 2.5rem;
-        border: 1px solid var(--zinc-300);
-        background-color: var(--background-input);
+        border: 1px solid var(--color-navbar-input-border);
+        background-color: var(--background-navbar-input);
+        color: var(--color-navbar-input-text);
+        font-family: var(--font-family-4);
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 100%;
         transition: all 0.3s ease;
         border-radius: 0.625rem;
 
         &::placeholder {
-          color: var(--zinc-400);
-          font-family: var(--font-family-4);
+          color: var(--color-navbar-input-text);
+          font-family: var(--font-family-1);
           font-weight: 400;
           font-size: 0.875rem;
           line-height: 100%;
@@ -82,15 +87,15 @@
 
         &:focus-visible {
           outline: none;
-          box-shadow: 0 0 0 2px var(--primary-color-10);
-          border-color: var(--primary-color);
+          box-shadow: 0 0 0 2px var(--color-navbar-input-shadow);
+          border-color: var(--color-navbar-input-shadow-border);
         }
       }
 
       .pi-search {
-        position: absolute; /* Keep it inside input if needed */
+        position: absolute;
         left: 1rem;
-        color: var(--zinc-500);
+        color: var(--color-navbar-input-text);
         pointer-events: none;
       }
     }
@@ -99,19 +104,19 @@
       background: none;
       border: none;
       cursor: pointer;
-      color: var(--zinc-700);
+      color: var(--color-navbar-text);
       font-family: var(--font-family-4);
       font-weight: 400;
       font-size: 1rem;
       line-height: 100%;
-      transition: color 0.3s ease;
       display: inline-flex;
       align-items: center;
       gap: 0.375rem;
+      transition: all 0.3s ease;
 
       &:hover i,
       &:hover span {
-        color: var(--maroon-700);
+        color: var(--color-hover-navbar-text);
       }
     }
 
@@ -122,7 +127,7 @@
       min-width: max-content;
 
       .pi {
-        color: var(--color-icon-navbar);
+        color: var(--color-icons-navbar);
         transition: all 0.3s ease;
         cursor: pointer;
         font-size: 1.25rem;
@@ -130,8 +135,7 @@
         border-radius: 50%;
 
         &:hover {
-          color: var(--hover-icon-navbar);
-          background-color: var(--hover-bg);
+          color: var(--color-hover-icons-navbar);
         }
       }
 
@@ -151,7 +155,7 @@
 
   .second-row {
     padding: 0.75rem 2rem;
-    background-color: var(--maroon-700) !important;
+    background-color: var(--background-navbar-second-row) !important;
     display: flex;
     justify-content: center;
     max-height: 2.75rem;
@@ -174,7 +178,7 @@
         }
         .p-menubar-root-list {
           gap: 2rem;
-          background-color: var(--maroon-700);
+          background-color: var(--background-navbar-second-row);
           border: none;
         }
 
@@ -193,23 +197,23 @@
           .nav-items {
             text-align: center;
             background: transparent;
-            color: var(--zinc-50);
+            color: var(--color-navbar-second-row);
             text-decoration: none;
-            font-family: var(--font-family-2);
+            font-family: var(--font-family-4);
             font-weight: 500;
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             position: relative;
             transition: all 0.3s ease;
-            padding: 6.3px !important;
+            padding: 0.3312rem !important;
 
             &:hover {
-              color: var(--soft-pink-200);
+              color: var(--color-hover-navbar-second-row);
             }
 
             &.active {
-              color: var(--soft-pink-200);
+              color: var(--color-active-navbar-second-row);
 
               &::after {
                 content: "";
@@ -218,7 +222,7 @@
                 left: 0;
                 width: 100%;
                 height: 0.25rem;
-                background-color: var(--soft-pink-200);
+                background-color: var(--color-underline-navbar-second-row);
               }
             }
           }
@@ -240,14 +244,14 @@
       align-items: center;
       gap: 0.375rem;
       padding: 0;
-      color: var(--zinc-500);
+      color: var(--color-arrow-user-navbar);
       font-family: var(--font-family-4);
       font-weight: 400;
       font-size: 0.75rem;
       line-height: 100%;
 
       .user-name {
-        color: var(--maroon-700) !important;
+        color: var(--color-navbar-highlight) !important;
         font-weight: 500;
         font-size: 1rem;
         line-height: 100%;
@@ -257,12 +261,12 @@
     .p-splitbutton-dropdown.p-button {
       background: none;
       border: none;
-      color: var(--text-color);
+      color: var(--color-arrow-user-navbar);
       display: flex;
       align-items: center;
 
       &:hover {
-        color: var(--maroon-500);
+        color: var(--color-hover-arrow-user-navbar);
       }
     }
 
@@ -280,24 +284,34 @@
 .icons {
   display: flex;
   align-items: center;
-  border-right: 0.0625rem solid var(--zinc-200);
-  border-left: 0.0625rem solid var(--zinc-200);
+  color: var(--color-icons-navbar);
+  border-right: 0.0625rem solid var(--color-border-icons-navbar);
+  border-left: 0.0625rem solid var(--color-border-icons-navbar);
   padding: 0 0.8rem;
+}
+
+:host ::ng-deep .p-overlaybadge .p-badge {
+  background-color: var(--background-badges-icons-navbar);
+  color: var(--color-badges-icons-navbar);
+  outline: none;
+  top: 8px;
+  right: 8px;
 }
 
 .toggle-menu {
   background: none;
   border: none;
+  color: var(--color-icons-navbar);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: var(--hover-icon-navbar);
+    color: var(--color-hover-icons-navbar);
   }
 }
 
 .search-icon button {
-  color: var(--color-icon-navbar) !important;
+  color: var(--color-icons-navbar) !important;
   background: none;
   border: none;
   cursor: pointer;
@@ -308,7 +322,7 @@
   }
 
   &:hover {
-    color: var(--hover-icon-navbar) !important;
+    color: var(--color-hover-icons-navbar) !important;
     background: none;
     border: none;
   }
@@ -322,6 +336,9 @@
     }
     .second-row {
       padding: 0.75rem 1.5rem;
+    }
+    .custom-badge {
+      top: 15px;
     }
   }
 }
@@ -385,6 +402,9 @@
         }
       }
     }
+    .custom-badge {
+      top: 2px;
+    }
   }
 }
 
@@ -409,21 +429,30 @@
       }
     }
   }
+  :host ::ng-deep .p-overlaybadge .p-badge {
+    top: 2px;
+  }
 }
 
 /* Ultra-small (≤ 350px) */
 @media (max-width: 350px) {
   .navbar-container {
     .first-row {
-      flex-direction: column;
       align-items: center;
       gap: 0.5rem;
 
       .icons-section {
         justify-content: center;
         gap: 0.4rem;
+        .pi {
+          padding: 5px;
+          font-size: 1rem;
+        }
       }
     }
+  }
+  :host ::ng-deep .p-overlaybadge .p-badge {
+    top: 2px;
   }
 }
 
@@ -463,10 +492,10 @@
           color: var(--close-btn-color);
           font-size: 1rem;
           transition: all 0.3s ease;
-
-          &:hover {
-            color: var(--close-btn-hover);
-          }
+        }
+        &:hover {
+          color: var(--close-btn-hover);
+          border: 2px solid var(--close-btn-hover);
         }
       }
     }
@@ -482,19 +511,19 @@
         gap: 1.5rem;
         padding: 0;
         margin: 0;
-
+        color: var(--color-navbar-mobile);
         li a {
-          color: var(--color-navbar);
+          color: var(--color-navbar-mobile);
           text-decoration: none;
-          font-family: var(--font-family-2);
+          font-family: var(--font-family-4);
           font-weight: 500;
           font-size: 1.25rem;
           padding: 0.5rem 0;
           transition: all 0.3s ease;
 
           &:hover,
-          &.active {
-            color: var(--active-navbar);
+          &:active {
+            color: var(--color-hover-navbar-mobile);
           }
         }
       }

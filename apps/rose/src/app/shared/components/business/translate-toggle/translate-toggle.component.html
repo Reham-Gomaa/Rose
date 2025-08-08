@@ -1,7 +1,7 @@
 <button class="cursor-pointer font-medium" (click)="changeLang()" type="button"
   [attr.aria-label]="'Switch language to ' + (currentLang() === 'English' ? 'Arabic' : 'English')"
   [attr.title]="'Change language (current: ' + currentLang() + ')'">
-  <span>{{ currentLang() === 'English' ? 'English' : 'العربية' }}</span>
+  {{ currentLang() === 'English' ? 'English' : 'العربية' }}
 
   <span class="sr-only">Current language: {{ currentLang() }}</span>
 </button>

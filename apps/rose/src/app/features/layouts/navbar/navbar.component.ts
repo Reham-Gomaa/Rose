@@ -154,17 +154,20 @@ export class NavbarComponent implements OnInit {
       {
         label: "My Addresses",
         route: "user-addresses",
-        icon: "pi pi-map",
+        icon: "pi pi-map-marker",
       },
       {
         label: "My Orders",
         route: "user-orders",
-        icon: "pi pi-shopping-cart",
+        icon: "pi pi-receipt",
+      },
+      {
+        separator: true,
       },
       {
         label: "Dashboard",
         route: "user-dashboard",
-        icon: "pi pi-chart-line",
+        icon: "pi pi-cog",
       },
       {
         separator: true,
@@ -173,7 +176,6 @@ export class NavbarComponent implements OnInit {
         label: "Log out",
         icon: "pi pi-sign-out",
         command: () => this.logout(),
-        styleClass: "user-name",
       },
     ]);
   }
