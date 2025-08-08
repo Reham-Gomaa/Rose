@@ -1,149 +1,237 @@
-
-
-// import { Component, inject } from "@angular/core";
+// import { Component, OnInit, inject } from "@angular/core";
 // import { CommonModule } from "@angular/common";
 // import { OrdersService } from "@rose/shared_services/orders/orders.service";
-// import { Orders } from "@rose/core_interfaces/orders";
+// import { Orders, OrderRes } from "@rose/core_interfaces/orders";
+// import { NavbarComponent } from "@rose/features_layouts/navbar/navbar.component";
+// import { FooterComponent } from "@rose/features_layouts/footer/footer.component";
 
 // @Component({
 //   selector: "app-orders",
 //   standalone: true,
-//   imports: [CommonModule],
+//   imports: [CommonModule, NavbarComponent, FooterComponent],
 //   templateUrl: "./orders.component.html",
 //   styleUrls: ["./orders.component.scss"],
 // })
-// export class OrdersComponent {
+// export class OrdersComponent implements OnInit {
 //   orders: Orders[] = [];
-//   currentPage = 1;
-//   ordersPerPage = 3;
-//   expandedOrders: { [orderId: string]: boolean } = {}; // track toggles per order
+//   // track expansion per order id (no interface changes)
+//   expandedOrders: { [orderId: string]: boolean } = {};
 
 //   private readonly ordersService = inject(OrdersService);
 
 //   ngOnInit(): void {
-//     this.getOrders();
+//     this.loadFromApi();
 //   }
 
-//   getOrders(): void {
+//   private loadFromApi(): void {
 //     this.ordersService.getUserOrders().subscribe({
-//       next: (res) => {
-//         this.orders = res.orders || [];
+//       next: (res: OrderRes) => {
+//         // get the orders array from the response
+//         this.orders = res && res.orders ? res.orders : [];
+//         // initialize expansion state
+//         this.orders.forEach(o => (this.expandedOrders[o._id] = false));
 //       },
 //       error: (err) => {
-//         console.log(err);
-//       },
+//         console.error("Failed to load orders:", err);
+//       }
 //     });
 //   }
 
-//   paginatedOrders(): Orders[] {
-//     const startIndex = (this.currentPage - 1) * this.ordersPerPage;
-//     return this.orders.slice(startIndex, startIndex + this.ordersPerPage);
+//   // toggle with immutable update so Angular reliably detects change
+//   toggleShowAll(orderId: string): void {
+//     this.expandedOrders = { ...this.expandedOrders, [orderId]: !this.expandedOrders[orderId] };
 //   }
 
-//   toggleShowAllItems(orderId: string): void {
-//     this.expandedOrders[orderId] = !this.expandedOrders[orderId];
+//   isExpanded(orderId: string): boolean {
+//     return !!this.expandedOrders[orderId];
 //   }
 
-//   nextPage(): void {
-//     if (this.currentPage * this.ordersPerPage < this.orders.length) {
-//       this.currentPage++;
-//     }
-//   }
-
-//   prevPage(): void {
-//     if (this.currentPage > 1) {
-//       this.currentPage--;
-//     }
+//   // returns either first 4 or all items (returns new array to ensure re-render)
+//   getVisibleOrderItems(order: Orders) {
+//     return this.isExpanded(order._id) ? order.orderItems.slice() : order.orderItems.slice(0, 4);
 //   }
 // }
 
-import { Component, inject } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { Orders } from "@rose/core_interfaces/orders";
-import { Product } from "@rose/core_interfaces/carditem.interface";
-import { NavbarComponent } from "@rose/features_layouts/navbar/navbar.component";
-import { FooterComponent } from "@rose/features_layouts/footer/footer.component";
+
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NavbarComponent } from '@rose/features_layouts/navbar/navbar.component';
+import { FooterComponent } from '@rose/features_layouts/footer/footer.component';
+
+interface Product {
+  _id: string;
+  title: string;
+  imgCover: string;
+  rateAvg?: number;
+  rateCount?: number;
+}
+
+interface OrderItem {
+  _id: string;
+  product: Product;
+  quantity: number;
+  price: number;
+}
+
+interface Orders {
+  _id: string;
+  orderNumber: string;
+  createdAt: Date;
+  totalPrice: number;
+  isPaid: boolean;
+  state: 'done' | 'in progress' | 'cancelled';
+  paymentType: string;
+  isDelivered: boolean;
+  orderItems: OrderItem[];
+}
 
 @Component({
-  selector: "app-orders",
+  selector: 'app-orders',
   standalone: true,
-  imports: [CommonModule,NavbarComponent, FooterComponent],
-  templateUrl: "./orders.component.html",
-  styleUrls: ["./orders.component.scss"],
+  imports: [CommonModule, NavbarComponent, FooterComponent],
+  templateUrl: './orders.component.html',
+  styleUrls: ['./orders.component.scss'],
 })
 export class OrdersComponent {
-  orders: Orders[] = [];
-  currentPage = 1;
-  ordersPerPage = 3;
+  orders: Orders[] = [
+    // Order with 1 item (shows fully)
+    {
+      _id: 'order1',
+      orderNumber: 'ORD-1001',
+      createdAt: new Date('2023-05-15T10:30:00'),
+      totalPrice: 799.99,
+      isPaid: true,
+      state: 'done',
+      paymentType: 'Credit Card',
+      isDelivered: true,
+      orderItems: [
+        {
+          _id: 'item1',
+          product: {
+            _id: 'prod1',
+            title: 'Premium Wireless Earbuds',
+            imgCover: 'https://example.com/images/earbuds.jpg',
+            rateAvg: 4.8,
+            rateCount: 215
+          },
+          quantity: 1,
+          price: 799.99
+        }
+      ]
+    },
+    // Order with 2 items (shows fully)
+    {
+      _id: 'order2',
+      orderNumber: 'ORD-1002',
+      createdAt: new Date('2023-06-10T14:20:00'),
+      totalPrice: 325.50,
+      isPaid: true,
+      state: 'in progress',
+      paymentType: 'PayPal',
+      isDelivered: false,
+      orderItems: [
+        {
+          _id: 'item2',
+          product: {
+            _id: 'prod2',
+            title: 'Smartphone Case',
+            imgCover: 'https://example.com/images/case.jpg',
+            rateAvg: 4.2,
+            rateCount: 85
+          },
+          quantity: 1,
+          price: 125.50
+        },
+        {
+          _id: 'item3',
+          product: {
+            _id: 'prod3',
+            title: 'Screen Protector',
+            imgCover: 'https://example.com/images/protector.jpg',
+            rateAvg: 4.0,
+            rateCount: 62
+          },
+          quantity: 2,
+          price: 200.00
+        }
+      ]
+    },
+    // Order with 3 items (shows 2 + "Show All" button)
+    {
+      _id: 'order3',
+      orderNumber: 'ORD-1003',
+      createdAt: new Date('2023-07-05T09:15:00'),
+      totalPrice: 450.25,
+      isPaid: false,
+      state: 'cancelled',
+      paymentType: 'Cash on Delivery',
+      isDelivered: false,
+      orderItems: [
+        {
+          _id: 'item4',
+          product: {
+            _id: 'prod4',
+            title: 'USB-C Cable',
+            imgCover: 'https://example.com/images/cable.jpg',
+            rateAvg: 3.5,
+            rateCount: 28
+          },
+          quantity: 2,
+          price: 150.25
+        },
+        {
+          _id: 'item5',
+          product: {
+            _id: 'prod5',
+            title: 'Power Bank',
+            imgCover: 'https://example.com/images/powerbank.jpg',
+            rateAvg: 4.8,
+            rateCount: 195
+          },
+          quantity: 1,
+          price: 300.00
+        },
+        {
+          _id: 'item6',
+          product: {
+            _id: 'prod6',
+            title: 'Phone Stand',
+            imgCover: 'https://example.com/images/stand.jpg',
+            rateAvg: 4.3,
+            rateCount: 42
+          },
+          quantity: 1,
+          price: 89.99
+        }
+      ]
+    }
+  ];
+
   expandedOrders: { [orderId: string]: boolean } = {};
 
-  ngOnInit(): void {
-    this.loadMockOrders(); 
-  }
-
-  loadMockOrders(): void {
-    const sampleProduct = (id: string, title: string, img: string): Product => ({
-      rateAvg: 5,
-      rateCount: 0,
-      _id: id,
-      title,
-      slug: title.toLowerCase().replace(/\s+/g, "-"),
-      description: "Mock product description",
-      imgCover: img,
-      images: [],
-      price: 100,
-      priceAfterDiscount: 90,
-      quantity: 10,
-      category: "cat1",
-      occasion: "occ1",
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      __v: 0,
-      isSuperAdmin: false,
-      sold: 5,
-      id
+  constructor() {
+    this.orders.forEach(order => {
+      this.expandedOrders[order._id] = false;
     });
-
-    this.orders = Array.from({ length: 6 }).map((_, i) => ({
-      _id: `order${i + 1}`,
-      user: "user1",
-      orderItems: [
-        { product: sampleProduct("p1", "Red Roses", "https://via.placeholder.com/150/FF0000/FFFFFF"), price: 100, quantity: 2, _id: "oi1" },
-        { product: sampleProduct("p2", "White Tulips", "https://via.placeholder.com/150/FFFFFF/000000"), price: 150, quantity: 1, _id: "oi2" },
-        { product: sampleProduct("p3", "Sunflowers", "https://via.placeholder.com/150/FFFF00/000000"), price: 120, quantity: 3, _id: "oi3" },
-        { product: sampleProduct("p4", "Orchids", "https://via.placeholder.com/150/800080/FFFFFF"), price: 180, quantity: 1, _id: "oi4" },
-        { product: sampleProduct("p4", "Orchids", "https://via.placeholder.com/150/800080/FFFFFF"), price: 180, quantity: 1, _id: "oi4" }
-      ],
-      totalPrice: 550,
-      paymentType: "cash",
-      isPaid: i % 2 === 0,
-      isDelivered: false,
-      state: "pending",
-      createdAt: new Date(),
-      updatedAt: new Date(),
-      orderNumber: `#1000${i + 1}`,
-      __v: 0
-    }));
   }
 
-  paginatedOrders(): Orders[] {
-    const startIndex = (this.currentPage - 1) * this.ordersPerPage;
-    return this.orders.slice(startIndex, startIndex + this.ordersPerPage);
+  toggleShowAll(orderId: string): void {
+    this.expandedOrders = { 
+      ...this.expandedOrders, 
+      [orderId]: !this.expandedOrders[orderId] 
+    };
   }
 
-  toggleShowAllItems(orderId: string): void {
-    this.expandedOrders[orderId] = !this.expandedOrders[orderId];
+  isExpanded(orderId: string): boolean {
+    return !!this.expandedOrders[orderId];
   }
 
-  nextPage(): void {
-    if (this.currentPage * this.ordersPerPage < this.orders.length) {
-      this.currentPage++;
+  getVisibleOrderItems(order: Orders) {
+    if (order.orderItems.length <= 2) {
+      return [...order.orderItems];
     }
-  }
-
-  prevPage(): void {
-    if (this.currentPage > 1) {
-      this.currentPage--;
-    }
+    return this.isExpanded(order._id) 
+      ? [...order.orderItems] 
+      : order.orderItems.slice(0, 2);
   }
 }
