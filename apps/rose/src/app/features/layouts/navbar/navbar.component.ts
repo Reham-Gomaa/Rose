@@ -1,14 +1,6 @@
-import {
-  Component,
-  DestroyRef,
-  inject,
-  OnInit,
-  signal,
-  ViewChild,
-  WritableSignal,
-} from "@angular/core";
+import { Component, inject, OnInit, signal, ViewChild, WritableSignal } from "@angular/core";
 // Router
-import { Router, RouterLink, RouterLinkActive } from "@angular/router";
+import { RouterLink, RouterLinkActive } from "@angular/router";
 // Images
 import { NgOptimizedImage } from "@angular/common";
 // Translation
@@ -17,6 +9,7 @@ import { TranslationService } from "@rose/core_services/translation/translation.
 // Animations_Translation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Shared_Components
+import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
 import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
 import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";
@@ -30,13 +23,13 @@ import { OverlayBadgeModule } from "primeng/overlaybadge";
 
 import { isPlatformBrowser } from "@angular/common";
 import { PLATFORM_ID } from "@angular/core";
-import { FormsModule } from "@angular/forms";
 
 import { InputIcon } from "primeng/inputicon";
 import { IconField } from "primeng/iconfield";
 import { SplitButton } from "primeng/splitbutton";
 import { AuthApiKpService } from "auth-api-kp";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { FormsModule } from "@angular/forms";
 
 type modalPosition =
   | "left"
@@ -77,9 +70,6 @@ type modalPosition =
 })
 export class NavbarComponent implements OnInit {
   readonly translationService = inject(TranslationService);
-  private readonly _auth = inject(AuthApiKpService);
-  private readonly _router = inject(Router);
-  private readonly _destroyRef = inject(DestroyRef);
   private readonly platformId = inject(PLATFORM_ID);
 
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
@@ -93,7 +83,6 @@ export class NavbarComponent implements OnInit {
 
   items = signal<MenuItem[]>([]);
   userDropDown = signal<MenuItem[]>([]);
-  private _msg: any;
 
   showDialog(position: modalPosition) {
     this.position.set(position);
@@ -179,40 +168,10 @@ export class NavbarComponent implements OnInit {
       },
     ]);
   }
-
   isLogin(): void {
     if (!isPlatformBrowser(this.platformId)) return;
 
     const token = localStorage.getItem("authToken");
     this.isLoggedIn.set(!!token);
   }
-
-  // logout(): void {
-  //   this._auth
-  //     .logout()
-  //     .pipe(takeUntilDestroyed(this._destroyRef))
-  //     .subscribe({
-  //       next: (res) => {
-  //         if ("message" in res && res.message === "Logged out successfully.") {
-  //           localStorage.removeItem("authToken");
-  //           this.isLoggedIn.set(false);
-  //           this._msg.add({ severity: "success", detail: res.message, life: 3000 });
-  //           this._router.navigate(["/"]);
-  //         } else {
-  //           this._msg.add({
-  //             severity: "error",
-  //             detail: "Logout failed. Please try again.",
-  //             life: 5000,
-  //           });
-  //         }
-  //       },
-  //       error: () => {
-  //         this._msg.add({
-  //           severity: "error",
-  //           detail: "Logout failed. Please try again.",
-  //           life: 5000,
-  //         });
-  //       },
-  //     });
-  // }
 }
