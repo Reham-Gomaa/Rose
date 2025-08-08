@@ -13,16 +13,14 @@
       </div>
     </div>
 
-    <div class="search-section">
+    <div class="search-section ">
       <p-iconfield>
         <p-inputicon styleClass="pi pi-search" />
-        <input type="text" pInputText placeholder="What awesome gift are you looking for?" class="search-input" />
+        <input type="text" pInputText placeholder="What awesome gift are you looking for?" class="search-input w-100" />
       </p-iconfield>
     </div>
 
     <div class="icons-section">
-
-
       @if (!isLoggedIn()) {
       <button [routerLink]="'/login'" class="login-btn" aria-label="Signup">
         <i class="pi pi-user cursor-pointer text-lg"></i>
@@ -65,7 +63,7 @@
       </div>
       }
       <app-translate-toggle class="hidden sm:flex" />
-      <app-button-theme />
+      <app-button-theme class="hidden sm:flex" />
       <div class="smallNav-toggle">
         <button (click)="showDialog('topleft')" class="toggle-menu">
           <i class="pi pi-align-right"></i>
@@ -90,18 +88,6 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="smallNav">
   <p-dialog ngSkipHydration [modal]="true" [(visible)]="visible" [position]="position()" [style]="{ width: '25rem' }">
     <div class="flex align-items-center justify-content-between mb-4">
@@ -110,18 +96,25 @@
           decoding="async" />
       </div>
 
-      <div class="flex align-items-center gap-5">
+
+      <div class="flex align-items-center gap-1">
         <app-translate-toggle class="sm:hidden" />
 
-        <p-button icon="pi pi-times" [style]="{
-            'background-color': 'transparent'
-          }" styleClass="cursor-pointer border-gray-300" />
+        <app-button-theme />
+
+        <div class="search-icon">
+          <button (click)="openSearch()">
+            <i class="pi pi-search"></i>
+          </button>
+        </div>
+
       </div>
     </div>
 
     <ul class="navList">
       @for (item of items(); track $index;) { @let label = item['label']!; @let route = item['route'];
       <li>
+        <i [class]="item.icon" class="menu-icon mr-2"></i>
         <a [routerLink]="route" routerLinkActive="active" class="text-decoration-none nav-items">
           {{ label | translate }}
         </a>

@@ -1,7 +1,8 @@
 button {
-  width: 2.1875rem;
-  height: 1.5625rem;
+  width: 4.0625rem;
+  height: 2.5rem;
   border-radius: 100%;
+  text-align: center;
   font-family: var(--font-family-1);
   font-weight: 500;
   font-size: 1rem;
@@ -19,7 +20,7 @@ button {
   }
 
   @media all and (min-width: 48rem) {
-    width: 2.8125rem;
-    height: 2.1875rem;
+    width: 3.75rem;
+    height: 2.5rem;
   }
 }

@@ -1,4 +1,12 @@
-import { Component, inject, OnInit, signal, ViewChild, WritableSignal } from "@angular/core";
+import {
+  Component,
+  DestroyRef,
+  inject,
+  OnInit,
+  signal,
+  ViewChild,
+  WritableSignal,
+} from "@angular/core";
 // Router
 import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 // Images
@@ -28,6 +36,7 @@ import { InputIcon } from "primeng/inputicon";
 import { IconField } from "primeng/iconfield";
 import { SplitButton } from "primeng/splitbutton";
 import { AuthApiKpService } from "auth-api-kp";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
 type modalPosition =
   | "left"
@@ -70,6 +79,7 @@ export class NavbarComponent implements OnInit {
   readonly translationService = inject(TranslationService);
   private readonly _auth = inject(AuthApiKpService);
   private readonly _router = inject(Router);
+  private readonly _destroyRef = inject(DestroyRef);
   private readonly platformId = inject(PLATFORM_ID);
 
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
@@ -176,28 +186,31 @@ export class NavbarComponent implements OnInit {
   }
 
   logout(): void {
-    this._auth.logout().subscribe({
-      next: (res) => {
-        if ("message" in res && res.message === "Logged out successfully.") {
-          localStorage.removeItem("authToken");
-          this.isLoggedIn.set(false);
-          this._msg.add({ severity: "success", detail: res.message, life: 3000 });
-          this._router.navigate(["/"]);
-        } else {
+    this._auth
+      .logout()
+      .pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe({
+        next: (res) => {
+          if ("message" in res && res.message === "Logged out successfully.") {
+            localStorage.removeItem("authToken");
+            this.isLoggedIn.set(false);
+            this._msg.add({ severity: "success", detail: res.message, life: 3000 });
+            this._router.navigate(["/"]);
+          } else {
+            this._msg.add({
+              severity: "error",
+              detail: "Logout failed. Please try again.",
+              life: 5000,
+            });
+          }
+        },
+        error: () => {
           this._msg.add({
             severity: "error",
             detail: "Logout failed. Please try again.",
             life: 5000,
           });
-        }
-      },
-      error: () => {
-        this._msg.add({
-          severity: "error",
-          detail: "Logout failed. Please try again.",
-          life: 5000,
-        });
-      },
-    });
+        },
+      });
   }
 }
