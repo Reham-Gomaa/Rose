@@ -1,4 +1,4 @@
-<div [@fadeTransition]="translationService.fadeState()" class="navbar-container">
+<div [@fadeTransition]="_translationService.fadeState()" class="navbar-container">
   <!-- First Row: Logo, Search, Icons -->
   <div class="first-row">
     <div class="logo-section">
@@ -32,7 +32,7 @@
         <i class="pi pi-bell cursor-pointer text-md"></i>
       </div>
       } @else {
-      <p-splitButton [label]="'Hello ' + userName" [model]="userDropDown()" styleClass="user-greeting-btn"
+      <p-splitButton [label]="'Hello ' + userName()" [model]="userDropDown()" styleClass="user-greeting-btn"
         menuStyleClass="user-menu-overlay">
         <ng-template pTemplate="content">
           <div class="flex flex-column align-items-start">
