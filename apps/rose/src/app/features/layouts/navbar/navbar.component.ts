@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal, ViewChild, WritableSignal } from "@angular/core";
 // Router
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 // Images
 import { NgOptimizedImage } from "@angular/common";
 // Translation
@@ -9,7 +9,6 @@ import { TranslationService } from "@rose/core_services/translation/translation.
 // Animations_Translation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Shared_Components
-import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
 import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
 import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";
@@ -23,6 +22,12 @@ import { OverlayBadgeModule } from "primeng/overlaybadge";
 
 import { isPlatformBrowser } from "@angular/common";
 import { PLATFORM_ID } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+
+import { InputIcon } from "primeng/inputicon";
+import { IconField } from "primeng/iconfield";
+import { SplitButton } from "primeng/splitbutton";
+import { AuthApiKpService } from "auth-api-kp";
 
 type modalPosition =
   | "left"
@@ -48,9 +53,13 @@ type modalPosition =
     Dialog,
     InputTextModule,
     SearchModalComponent,
-    ButtonComponent,
     TranslateToggleComponent,
     NgOptimizedImage,
+    InputIcon,
+    IconField,
+    InputTextModule,
+    FormsModule,
+    SplitButton,
   ],
   templateUrl: "./navbar.component.html",
   styleUrl: "./navbar.component.scss",
@@ -59,21 +68,26 @@ type modalPosition =
 })
 export class NavbarComponent implements OnInit {
   readonly translationService = inject(TranslationService);
+  private readonly _auth = inject(AuthApiKpService);
+  private readonly _router = inject(Router);
   private readonly platformId = inject(PLATFORM_ID);
-  isLoggedIn: WritableSignal<boolean> = signal<boolean>(false);
+
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
-  items: MenuItem[] | undefined;
-  btnClass = "loginBtn";
-  currentLang!: string;
+  isLoggedIn: WritableSignal<boolean> = signal<boolean>(false);
+  btnClass = signal("loginBtn");
+  currentLang = signal("");
+  userName = signal("John Doe");
+  visible = signal(false);
+  inSearch = signal(false);
+  position = signal<modalPosition>("center");
 
-  visible = false;
-  inSearch = false;
-
-  position: modalPosition = "center";
+  items = signal<MenuItem[]>([]);
+  userDropDown = signal<MenuItem[]>([]);
+  private _msg: any;
 
   showDialog(position: modalPosition) {
-    this.position = position;
-    this.visible = true;
+    this.position.set(position);
+    this.visible.set(true);
   }
 
   changeLang(event: Event) {
@@ -83,30 +97,75 @@ export class NavbarComponent implements OnInit {
   }
 
   openSearch() {
-    this.inSearch = true;
+    this.inSearch.set(true);
     this.searchModal.closeSearch = false;
   }
 
   ngOnInit() {
     this.isLogin();
-    this.items = [
+    this.items.set([
       {
         label: "navbar.home",
         route: "home",
+        icon: "pi pi-home",
       },
       {
         label: "navbar.allcategory",
         route: "all-categories",
+        icon: "pi pi-clipboard",
       },
       {
         label: "navbar.about",
         route: "about",
+        icon: "pi pi-info-circle",
       },
       {
         label: "navbar.contact",
         route: "contact",
+        icon: "pi pi-headphones",
       },
-    ];
+    ]);
+
+    this.userDropDown.set([
+      {
+        label: this.userName(),
+        route: "",
+        icon: "",
+        escape: false,
+      },
+      {
+        separator: true,
+      },
+      {
+        label: "My Profile",
+        route: "user-profile",
+        icon: "pi pi-user",
+      },
+      {
+        label: "My Addresses",
+        route: "user-addresses",
+        icon: "pi pi-map",
+      },
+      {
+        label: "My Orders",
+        route: "user-orders",
+        icon: "pi pi-shopping-cart",
+      },
+      {
+        label: "Dashboard",
+        route: "user-dashboard",
+        icon: "pi pi-chart-line",
+      },
+      {
+        separator: true,
+      },
+      {
+        label: "Log out",
+        icon: "pi pi-sign-out",
+        command: () => this.logout(),
+        styleClass: "user-name",
+      },
+    ]);
   }
 
   isLogin(): void {
@@ -114,5 +173,31 @@ export class NavbarComponent implements OnInit {
 
     const token = localStorage.getItem("authToken");
     this.isLoggedIn.set(!!token);
+  }
+
+  logout(): void {
+    this._auth.logout().subscribe({
+      next: (res) => {
+        if ("message" in res && res.message === "Logged out successfully.") {
+          localStorage.removeItem("authToken");
+          this.isLoggedIn.set(false);
+          this._msg.add({ severity: "success", detail: res.message, life: 3000 });
+          this._router.navigate(["/"]);
+        } else {
+          this._msg.add({
+            severity: "error",
+            detail: "Logout failed. Please try again.",
+            life: 5000,
+          });
+        }
+      },
+      error: () => {
+        this._msg.add({
+          severity: "error",
+          detail: "Logout failed. Please try again.",
+          life: 5000,
+        });
+      },
+    });
   }
 }
