@@ -41,7 +41,7 @@ export class AddressEffect {
         switchMap(({ addressId }) => {
           return this._userAddressService.deleteAddress(addressId).pipe(
             map(() => {
-              return deleteAddressesSuccess();
+              return deleteAddressesSuccess({addressId:addressId});
             }),
             catchError((error) => of(deleteAddressesFailure({ error })))
           );

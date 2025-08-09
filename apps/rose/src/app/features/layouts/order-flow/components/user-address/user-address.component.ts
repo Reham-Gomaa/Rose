@@ -11,11 +11,13 @@ import { selectAddressError, selectAddressLoading, selectAddressState, selectAll
 import { setAddressState, showAddresses } from "apps/rose/src/app/store/address/address.actions";
 import { DeleteDialogComponent } from "./components/delete-dialog/delete-dialog.component";
 import { AddressSituations } from "apps/rose/src/app/store/address/addresses.state";
+import { SpinnerComponent } from "@rose/shared_Components_ui/spinner/spinner.component";
+import { TranslatePipe } from "@ngx-translate/core";
 
 
 @Component({
   selector: "app-user-address",
-  imports: [ButtonModule, InputTextModule, AvatarModule, CustomMainDialogComponent, AddressItemComponent, HeadAddressComponent, DeleteDialogComponent],
+  imports: [ButtonModule, InputTextModule, AvatarModule, CustomMainDialogComponent, AddressItemComponent, TranslatePipe,HeadAddressComponent, DeleteDialogComponent, SpinnerComponent],
   templateUrl: "./user-address.component.html",
   styleUrl: "./user-address.component.scss",
 })
@@ -27,7 +29,6 @@ export class UserAddressComponent implements OnInit {
   loading!:boolean;
   error!:any;
   addressState!:AddressSituations;
-  deletedId!:string;
   
 
 
@@ -39,7 +40,27 @@ export class UserAddressComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadAddresses()
-    this.addresses$.subscribe(addresses => {
+    this.initSelectors()
+   
+    
+  }
+
+  close() {
+    this.closed.emit();
+  }
+
+
+  closeDeleteDialog(){
+    this._store.dispatch(setAddressState({addressState:1}))
+  }
+   
+  
+  loadAddresses() {
+    this._store.dispatch(showAddresses());
+  }
+
+  initSelectors(){
+     this.addresses$.subscribe(addresses => {
       this.address=addresses
     });
     this.loading$.subscribe(loading=>{
@@ -53,24 +74,5 @@ export class UserAddressComponent implements OnInit {
         this.addressState=addressState
       }
     )
-    
-  }
-
-  close() {
-    this.closed.emit();
-  }
-
-setAddressId(addressID: string): void {
-  console.log('Received address ID:', addressID);
-  this.deletedId = addressID;
-}
-
-  closeDeleteDialog(){
-    this._store.dispatch(setAddressState({addressState:1}))
-  }
-   
-  
-  loadAddresses() {
-    this._store.dispatch(showAddresses());
   }
 }
