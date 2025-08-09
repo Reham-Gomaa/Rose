@@ -1,13 +1,5 @@
-import {
-  Component,
-  DestroyRef,
-  inject,
-  OnInit,
-  signal,
-  ViewChild,
-  WritableSignal,
-} from "@angular/core";
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Component, DestroyRef, inject, OnInit, signal, ViewChild } from "@angular/core";
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { NgOptimizedImage } from "@angular/common";
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -27,26 +19,9 @@ import { InputIcon } from "primeng/inputicon";
 import { IconField } from "primeng/iconfield";
 import { SplitButton } from "primeng/splitbutton";
 import { AuthApiKpService } from "auth-api-kp";
+import { User } from "auth-api-kp";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { FormsModule } from "@angular/forms";
-
-interface UserProfile {
-  _id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  gender: string;
-  phone: string;
-  photo: string;
-  role: string;
-  wishlist: any[];
-  addresses: any[];
-  createdAt: string;
-  passwordResetCode?: string;
-  passwordResetExpires?: string;
-  resetCodeVerified?: boolean;
-  passwordChangedAt?: string;
-}
 
 type modalPosition =
   | "left"
@@ -90,6 +65,7 @@ export class NavbarComponent implements OnInit {
   private readonly _platformId = inject(PLATFORM_ID);
   private readonly _authApiService = inject(AuthApiKpService);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly _router = inject(Router);
   private readonly _messageService = inject(MessageService);
 
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
@@ -104,7 +80,7 @@ export class NavbarComponent implements OnInit {
   position = signal<modalPosition>("center");
   items = signal<MenuItem[]>([]);
   userDropDown = signal<MenuItem[]>([]);
-  user = signal<UserProfile | null>(null);
+  user = signal<User | null>(null);
   loading = signal(false);
 
   showDialog(position: modalPosition) {
@@ -161,30 +137,28 @@ export class NavbarComponent implements OnInit {
     this.userDropDown.set([
       {
         label: user ? `${user.firstName} ${user.lastName}` : "Guest",
-        route: "",
-        icon: "",
-        escape: false,
+        escape: true,
       },
       {
         separator: true,
       },
       {
         label: "My Profile",
-        route: "user-profile",
         icon: "pi pi-user",
         visible: !!user,
+        command: () => this._router.navigate(["/dashboard/user-profile"]),
       },
       {
         label: "My Addresses",
-        route: "user-addresses",
         icon: "pi pi-map-marker",
         visible: !!user,
+        command: () => this._router.navigate(["/dashboard/address"]),
       },
       {
         label: "My Orders",
-        route: "user-orders",
         icon: "pi pi-receipt",
         visible: !!user,
+        command: () => this._router.navigate(["/order-flow/orders"]),
       },
       {
         separator: true,
@@ -192,8 +166,8 @@ export class NavbarComponent implements OnInit {
       },
       {
         label: "Dashboard",
-        route: "user-dashboard",
         icon: "pi pi-cog",
+        command: () => this._router.navigate(["/user-dashboard"]),
       },
       {
         separator: true,
@@ -206,7 +180,6 @@ export class NavbarComponent implements OnInit {
       },
     ]);
   }
-
   isLogin(): void {
     if (!isPlatformBrowser(this._platformId)) return;
 
