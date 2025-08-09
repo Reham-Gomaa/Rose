@@ -152,13 +152,13 @@ export class NavbarComponent implements OnInit {
         label: "My Addresses",
         icon: "pi pi-map-marker",
         visible: !!user,
-        command: () => this._router.navigate(["/dashboard/address"]),
+        command: () => this._router.navigate(["/dashboard/order-flow/address"]),
       },
       {
         label: "My Orders",
         icon: "pi pi-receipt",
         visible: !!user,
-        command: () => this._router.navigate(["/order-flow/orders"]),
+        command: () => this._router.navigate(["/dashboard/order-flow/orders"]),
       },
       {
         separator: true,
@@ -167,7 +167,7 @@ export class NavbarComponent implements OnInit {
       {
         label: "Dashboard",
         icon: "pi pi-cog",
-        command: () => this._router.navigate(["/user-dashboard"]),
+        command: () => this._router.navigate(["/dashboard/user-dashboard"]),
       },
       {
         separator: true,
