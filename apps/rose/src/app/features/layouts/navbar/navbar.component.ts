@@ -233,6 +233,7 @@ export class NavbarComponent implements OnInit {
           this.user.set(null);
           this.userName.set("Guest");
           this.updateUserDropdown();
+          this._router.navigate(["/dashboard/home"]);
 
           if (isPlatformBrowser(this._platformId)) {
             localStorage.removeItem("authToken");
