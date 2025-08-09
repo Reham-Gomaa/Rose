@@ -332,9 +332,13 @@
   --p-stepper-separator-size: 0.375rem !important;
   // Address item
   --address-name: var(--maroon-600);
-  --address-name-background: var(--white);
+  --address-name-background: var(--zinc-50);
   --address-body: var(--zinc-800);
   --loading-color: var(--maroon-500);
+  // Delete dialog
+  --dialog-p: var(--zinc-800);
+  --dialog-out-shadow: #2e2e300d;
+  --dialog-icon: #2e2e3026;
 }
 
 // Dark theme overrides
@@ -602,4 +606,8 @@
   --address-name-background: var(--zinc-800);
   --address-body: var(--white);
   --loading-color: var(--soft-pink-500);
+  // Delete dialog
+  --dialog-p: var(--zinc-50);
+  --dialog-out-shadow: var(--soft-pink-600);
+  --dialog-icon: var(--soft-pink-100);
 }

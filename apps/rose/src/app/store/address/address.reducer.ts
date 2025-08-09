@@ -49,18 +49,24 @@ export const addressReducer = createReducer(
       error: error,
     };
   }),
-
+  on(setDeletedAddress, (state, { addressId }) => {
+    return {
+      ...state,
+      selectedAdddressId: addressId,
+    };
+  }),
   on(DeletedAddress, (state) => {
     return {
       ...state,
       loading: true,
     };
   }),
-  on(deleteAddressesSuccess, (state,) => {
+  on(deleteAddressesSuccess, (state, { addressId }) => {
     return {
       ...state,
       loading: false,
       addressState: AddressSituations.showAddress,
+      address: state.address.filter((value) => value._id !== addressId),
     };
   }),
   on(deleteAddressesFailure, (state, { error }) => {
