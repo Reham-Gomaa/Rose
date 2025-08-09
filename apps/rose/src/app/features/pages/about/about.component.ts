@@ -1,16 +1,15 @@
 import { Component } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 // shared-components
-import { StepDefinition, StepperComponent } from "@rose/shared_Components_ui/stepper/stepper.component";
+import { StepDefinition } from "@rose/shared_Components_ui/stepper/stepper.component";
 import { ContactComponent } from "../contact/contact.component";
 import { UserAddressComponent } from "@rose/features_layouts/order-flow/components/user-address/user-address.component";
-import { CustomMainDialogComponent } from "@rose/shared_Components_ui/custom-main-dialog/custom-main-dialog.component";
 
 @Component({
   selector: "app-about",
   templateUrl: "./about.component.html",
   styleUrl: "./about.component.scss",
-  imports: [ReactiveFormsModule, StepperComponent, UserAddressComponent, CustomMainDialogComponent],
+  imports: [ReactiveFormsModule, UserAddressComponent],
 })
 export class AboutComponent {
  steps: StepDefinition[] = [

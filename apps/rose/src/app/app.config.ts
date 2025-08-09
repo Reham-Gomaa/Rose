@@ -1,4 +1,4 @@
-import { Address } from './core/interfaces/user-address.interface';
+import { Address } from "./core/interfaces/user-address.interface";
 import { appRoutes } from "./app.routes";
 // @angular imports
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
@@ -26,15 +26,15 @@ import { ToastModule } from "primeng/toast";
 // Auth LIB
 import { API_CONFIG } from "auth-api-kp";
 import { headingInterceptor } from "./core/interceptors/header.interceptor";
-import { addressReducer } from './store/address/address.reducer';
-import { AddressEffect } from './store/address/address.effect';
+import { addressReducer } from "./store/address/address.reducer";
+import { AddressEffect } from "./store/address/address.effect";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
 }
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(withFetch(),withInterceptors([headingInterceptor])),
+    provideHttpClient(withFetch(), withInterceptors([headingInterceptor])),
     {
       provide: API_CONFIG,
       useValue: {
@@ -48,11 +48,11 @@ export const appConfig: ApplicationConfig = {
             forgotPassword: "auth/forgotPassword",
             verifyResetCode: "auth/verifyResetCode",
             resetPassword: "auth/resetPassword",
-            profileData: "auth/profileData",
+            profileData: "auth/profile-data",
             editProfile: "auth/editProfile",
-            changePassword: "auth/changePassword",
+            changePassword: "auth/change-password",
             deleteMe: "auth/deleteMe",
-            uploadPhoto: "auth/uploadPhoto",
+            uploadPhoto: "auth/upload-photo",
             forgetPasswordForm: "auth/forgetPasswordForm",
           },
         },
@@ -97,6 +97,6 @@ export const appConfig: ApplicationConfig = {
       filter: filterReduser,
       Address: addressReducer,
     }),
-    provideEffects(sortEffects, FilterEffects,AddressEffect),
+    provideEffects(sortEffects, FilterEffects, AddressEffect),
   ],
 };
