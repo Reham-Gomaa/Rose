@@ -331,10 +331,14 @@
   --p-stepper-step-number-active-border-color: var(--maroon-600) !important;
   --p-stepper-separator-size: 0.375rem !important;
   // Address item
-  --address-name: var(--maroon-600);
-  --address-name-background: var(--white);
-  --address-body: var(--zinc-800);
-  --loading-color: var(--maroon-500);
+  --address-name:var(--maroon-600);
+  --address-name-background:var(--zinc-50);
+  --address-body:var(--zinc-800);
+  --loading-color:var(--maroon-500);
+  // Delete dialog
+  --dialog-p:var(--zinc-800);
+  --dialog-out-shadow:#2E2E300D;
+  --dialog-icon:#2E2E3026;
 }
 
 // Dark theme overrides
@@ -598,8 +602,12 @@
   --p-stepper-step-number-active-border-color: var(--soft-pink-500) !important;
   --p-stepper-separator-size: 0.375rem !important;
   // Address item
-  --address-name: var(--soft-pink-500);
-  --address-name-background: var(--zinc-800);
-  --address-body: var(--white);
-  --loading-color: var(--soft-pink-500);
+  --address-name:var(--soft-pink-500);
+  --address-name-background:var(--zinc-800);
+  --address-body:var(--white);
+  --loading-color:var(--soft-pink-500);
+  // Delete dialog
+  --dialog-p:var(--zinc-50);
+  --dialog-out-shadow:var(--soft-pink-600);
+  --dialog-icon:var(--soft-pink-100);
 }
