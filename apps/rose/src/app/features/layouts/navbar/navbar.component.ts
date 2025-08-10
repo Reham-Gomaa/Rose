@@ -134,22 +134,18 @@ export class NavbarComponent implements OnInit {
       {
         label: "navbar.home",
         route: "/dashboard/home",
-        icon: "pi pi-home",
       },
       {
         label: "navbar.allcategory",
         route: "/dashboard/all-categories",
-        icon: "pi pi-clipboard",
       },
       {
         label: "navbar.about",
         route: "/dashboard/about",
-        icon: "pi pi-info-circle",
       },
       {
         label: "navbar.contact",
         route: "/dashboard/contact",
-        icon: "pi pi-headphones",
       },
     ]);
 
