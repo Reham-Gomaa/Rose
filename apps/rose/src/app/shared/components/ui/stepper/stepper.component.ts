@@ -1,8 +1,6 @@
 import { Component, Input, Type } from "@angular/core";
-import { ButtonModule } from 'primeng/button';
-import { StepperModule } from 'primeng/stepper';
-import { ContactComponent } from "@rose/features_pages/contact/contact.component";
-
+import { ButtonModule } from "primeng/button";
+import { StepperModule } from "primeng/stepper";
 
 export interface StepDefinition {
   label: string;
@@ -18,5 +16,4 @@ export interface StepDefinition {
 })
 export class StepperComponent {
   @Input() steps: StepDefinition[] = [];
-
 }
