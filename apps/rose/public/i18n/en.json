@@ -279,5 +279,29 @@
       "cancel": "Cancel",
       "confirm": "Confirm"
     }
+  },
+  "addressStepper": {
+    "step1": {
+      "titleAdd": "Add a New Address",
+      "titleupdate": "Update Address Info",
+
+      "street": "Street",
+      "city": "City",
+      "phone": "Phone Number",
+      "placeholders": {
+        "street": "Enter your street name",
+        "city": "Enter your city",
+        "phone": "Enter your phone number"
+      }
+    },
+    "step2": {
+      "title": "Select Location",
+      "instruction": "Click on the map to set your address location"
+    },
+    "buttons": {
+      "next": "Next",
+      "previous": "Previous",
+      "submit": "Save Address"
+    }
   }
 }

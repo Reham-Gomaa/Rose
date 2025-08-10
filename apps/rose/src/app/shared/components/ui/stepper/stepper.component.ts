@@ -12,7 +12,7 @@ export interface StepDefinition {
 
 @Component({
   selector: "app-stepper",
-  imports: [ButtonModule, StepperModule, ContactComponent],
+  imports: [ButtonModule, StepperModule],
   templateUrl: "./stepper.component.html",
   styleUrl: "./stepper.component.scss",
 })

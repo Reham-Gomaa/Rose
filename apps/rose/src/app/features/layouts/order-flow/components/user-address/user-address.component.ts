@@ -13,11 +13,12 @@ import { DeleteDialogComponent } from "./components/delete-dialog/delete-dialog.
 import { AddressSituations } from "apps/rose/src/app/store/address/addresses.state";
 import { SpinnerComponent } from "@rose/shared_Components_ui/spinner/spinner.component";
 import { TranslatePipe } from "@ngx-translate/core";
+import { AddressStepperComponent } from "./components/address-stepper/address-stepper.component";
 
 
 @Component({
   selector: "app-user-address",
-  imports: [ButtonModule, InputTextModule, AvatarModule, CustomMainDialogComponent, AddressItemComponent, TranslatePipe,HeadAddressComponent, DeleteDialogComponent, SpinnerComponent],
+  imports: [ButtonModule, InputTextModule, AvatarModule, CustomMainDialogComponent, AddressItemComponent, TranslatePipe, HeadAddressComponent, DeleteDialogComponent, SpinnerComponent, AddressStepperComponent],
   templateUrl: "./user-address.component.html",
   styleUrl: "./user-address.component.scss",
 })
@@ -29,6 +30,8 @@ export class UserAddressComponent implements OnInit {
   loading!:boolean;
   error!:any;
   addressState!:AddressSituations;
+  myAddress!: Address;
+
   
 
 
@@ -51,6 +54,10 @@ export class UserAddressComponent implements OnInit {
 
 
   closeDeleteDialog(){
+    this._store.dispatch(setAddressState({addressState:1}))
+  }
+
+  closeStepperDialog(){
     this._store.dispatch(setAddressState({addressState:1}))
   }
    
