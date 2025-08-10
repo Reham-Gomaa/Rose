@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, input, OnInit, Output } from "@angular/core";
+import { Component, DestroyRef, EventEmitter, inject, input, OnInit, Output } from "@angular/core";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { GoogleMapsModule } from "@angular/google-maps";
 import { ButtonModule } from "primeng/button";
@@ -6,11 +6,12 @@ import { StepperModule } from "primeng/stepper";
 import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
 import { CustomInputPhoneComponent } from "@rose/shared_Components_ui/custom-input-phone/custom-input-phone.component";
 import { Store } from "@ngrx/store";
-import { AddAddress, setAddressState, showAddresses, updateAddress } from "apps/rose/src/app/store/address/address.actions";
+import { AddAddress, setAddressState, updateAddress } from "apps/rose/src/app/store/address/address.actions";
 import { Address } from "@rose/core_interfaces/user-address.interface";
-import { selectAddress, selectAddressId } from "apps/rose/src/app/store/address/address.selector";
+import { selectAddress, selectAddressId, selectUserName } from "apps/rose/src/app/store/address/address.selector";
 import { CustomMainDialogComponent } from "@rose/shared_Components_ui/custom-main-dialog/custom-main-dialog.component";
 import { TranslatePipe } from "@ngx-translate/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
 @Component({
   selector: "app-address-stepper",
@@ -29,14 +30,21 @@ import { TranslatePipe } from "@ngx-translate/core";
 })
 export class AddressStepperComponent implements OnInit {
   private readonly _store = inject(Store);
+  private readonly destroyRef = inject(DestroyRef);
+  @Output() closed = new EventEmitter<void>();
   isUpdate = input<boolean>();
-  address!: Address;
   visible = input.required<boolean>();
 
-  @Output() closed = new EventEmitter<void>();
+
+  address!: Address;
   center = { lat: 30.0444, lng: 31.2357 };
   addressId!: string;
+  userName!:string;
+
+
   addressId$ = this._store.select(selectAddressId);
+  address$ = this._store.select(selectAddress);
+  userName$ = this._store.select(selectUserName);
 
   addressForm: FormGroup = new FormGroup({
     city: new FormControl("", [Validators.required]),
@@ -46,15 +54,6 @@ export class AddressStepperComponent implements OnInit {
       Validators.pattern(/^(\+201|01)[0125][0-9]{8}$/),
     ]),
   });
-
-  // onMapClick(event: google.maps.MapMouseEvent) {
-  //   if (event.latLng) {
-  //     this.selected = {
-  //       lat: event.latLng.lat(),
-  //       lng: event.latLng.lng(),
-  //     };
-  //   }
-  // }
 
   ngOnInit(): void {
     this.init();
@@ -89,7 +88,7 @@ export class AddressStepperComponent implements OnInit {
       ...this.addressForm.value,
       lat: this.center.lat.toString(),
       long: this.center.lng.toString(),
-      username: "maher",
+      username: this.userName,
     };
     this._store.dispatch(AddAddress({ address }));
   }
@@ -99,17 +98,17 @@ export class AddressStepperComponent implements OnInit {
       ...this.addressForm.value,
       lat: this.address?.lat,
       long: this.address?.long,
-      username: "maher",
+      username: this.userName,
     };
     this._store.dispatch(updateAddress({ address: address, addressId: this.addressId }));
   }
 
   init() {
-    this.addressId$.subscribe((addressId) => {
+
+    this.addressId$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((addressId) => {
       this.addressId = addressId;
-      this._store.select(selectAddress).subscribe((address) => {
+      this.address$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((address) => {
         this.address = address;
-        console.log(address);
         if (this.isUpdate()) {
           this.addressForm.patchValue({
             street: this.address?.street,
@@ -119,5 +118,12 @@ export class AddressStepperComponent implements OnInit {
         }
       });
     });
+
+    this.userName$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((userName)=>{
+      this.userName=userName;
+    });
+
   }
+
+
 }

@@ -87,3 +87,8 @@ export const setAddress = createAction(
   "[ADDRESS] Set Address ",
   props<{ address: Address }>()
 );
+// set userName 
+export const setUserName = createAction(
+  "[ADDRESS] Set UserName ",
+  props<{ userName: string }>()
+);

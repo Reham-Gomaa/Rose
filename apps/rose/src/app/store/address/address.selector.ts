@@ -35,3 +35,8 @@ export const selectAddress = createSelector(
   selectAddressFeature,
   (state: AddressState) => state.address
 );
+
+export const selectUserName = createSelector(
+  selectAddressFeature,
+  (state: AddressState) => state.userName
+);

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, input,OnInit,Output, signal } from "@angular/core";
+import { Component, DestroyRef, EventEmitter, inject, input,OnInit,Output, signal } from "@angular/core";
 import { ButtonModule } from "primeng/button";
 import { InputTextModule } from "primeng/inputtext";
 import { AvatarModule } from "primeng/avatar";
@@ -14,6 +14,7 @@ import { AddressSituations } from "apps/rose/src/app/store/address/addresses.sta
 import { SpinnerComponent } from "@rose/shared_Components_ui/spinner/spinner.component";
 import { TranslatePipe } from "@ngx-translate/core";
 import { AddressStepperComponent } from "./components/address-stepper/address-stepper.component";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
 
 @Component({
@@ -24,8 +25,12 @@ import { AddressStepperComponent } from "./components/address-stepper/address-st
 })
 export class UserAddressComponent implements OnInit {
   private readonly _store = inject(Store);
+  private readonly destroyRef = inject(DestroyRef);
+
   @Output() closed = new EventEmitter<void>();
   visible = input.required<boolean>();
+
+
   address!:Array<Address>;
   loading!:boolean;
   error!:any;
@@ -67,16 +72,16 @@ export class UserAddressComponent implements OnInit {
   }
 
   initSelectors(){
-     this.addresses$.subscribe(addresses => {
+     this.addresses$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(addresses => {
       this.address=addresses
     });
-    this.loading$.subscribe(loading=>{
+    this.loading$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(loading=>{
       this.loading=loading;
     })
-    this.error$.subscribe(error=>{
+    this.error$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(error=>{
       this.error=error;
     })
-    this.addressState$.subscribe(
+    this.addressState$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(
       addressState=>{
         this.addressState=addressState
       }

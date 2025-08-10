@@ -62,7 +62,6 @@ export class AddressEffect {
     (): Observable<Action> =>
       this._actions$.pipe(
         ofType(AddAddress),
-        tap(()=>console.log("add effect")),
         switchMap(({ address }) => {
           return this._userAddressService.addAddress(address).pipe(
             map(() => {

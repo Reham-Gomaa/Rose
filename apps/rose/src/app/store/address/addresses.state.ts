@@ -18,6 +18,7 @@ export interface AddressState{
     error: any;
     selectedAdddressId:string,
     address:Address,
+    userName:string
 
     
 }

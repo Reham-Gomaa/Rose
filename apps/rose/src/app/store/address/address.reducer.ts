@@ -13,6 +13,7 @@ import {
   AddAddressesFailure,
   setAddressId,
   setAddress,
+  setUserName,
 } from "./address.actions";
 import { Address } from "@rose/core_interfaces/user-address.interface";
 
@@ -22,7 +23,8 @@ export const initalState: AddressState = {
   loading: false,
   error: null,
   selectedAdddressId: "",
-  address:{} as Address
+  address: {} as Address,
+  userName: "",
 };
 
 export const addressReducer = createReducer(
@@ -109,13 +111,17 @@ export const addressReducer = createReducer(
   }),
 
   // set address
-  on(setAddress,(state,{address})=>{
-     return {
+  on(setAddress, (state, { address }) => {
+    return {
       ...state,
       address: address,
     };
-  }
-
-)
-
+  }),
+  // set user name
+  on(setUserName, (state, { userName }) => {
+    return {
+      ...state,
+      userName: userName,
+    };
+  })
 );

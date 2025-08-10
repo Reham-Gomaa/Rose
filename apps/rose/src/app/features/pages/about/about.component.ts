@@ -4,11 +4,10 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { UserAddressComponent } from "@rose/features_layouts/order-flow/components/user-address/user-address.component";
 import { ButtonModule } from "primeng/button";
 import { StepperModule } from "primeng/stepper";
-import { AddressStepperComponent } from "@rose/features_layouts/order-flow/components/user-address/components/address-stepper/address-stepper.component";
 import { Address } from "@rose/core_interfaces/user-address.interface";
 import { Store } from "@ngrx/store";
 import { selectAddress, selectAddressState } from "../../../store/address/address.selector";
-import { AddressSituations, AddressState } from "../../../store/address/addresses.state";
+import { AddressSituations } from "../../../store/address/addresses.state";
 import { setAddressState, showAddresses } from "../../../store/address/address.actions";
 @Component({
   selector: "app-about",
@@ -19,7 +18,6 @@ import { setAddressState, showAddresses } from "../../../store/address/address.a
     StepperModule,
     ReactiveFormsModule,
     UserAddressComponent,
-    AddressStepperComponent,
   ],
 })
 export class AboutComponent implements OnInit {
