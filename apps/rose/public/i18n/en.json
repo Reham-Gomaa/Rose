@@ -275,6 +275,54 @@
       "Total": "Total:",
       "price": "{{price}} EGP",
       "checkoutButton": "Checkout"
+  },
+  "orders":{
+    "title": "Orders",
+    "orderNumber": "Order # ",
+    "totalPrice": "Total Price:",
+    "orderDate": "Created in ",
+    "at": "at",
+    "paid": "Paid",
+    "status": "Status:",
+    "paymentMethod": "Payment Method:",
+    "deliveryStatus": "Delivery Status:",
+    "orderItems": "Order Items:",
+    "delivered": "Delivered",
+    "canceled": "Canceled",
+    
+    "rating": "Rating:",
+    "notRatedYet": "Not rated yet",
+    "showAll": "Show All",
+      "showLess": "Show Less",
+      "noOrdersFound": "No orders found.",
+      "states": {
+         "done": {
+        "text": "Done",
+        "class": "green"
+    },
+    "in progress": {
+      "text": "In Progress",
+      "class": "blue"
+    },
+    "cancelled": {
+      "text": "Cancelled", 
+      "class": "red"
+    }
+      },
+      "deliveryStatuses": {
+      "delivered": {
+        "text": "Delivered",
+        "class": "green"
+      },
+      "canceled": {
+        "text": "Canceled",
+        "class": "red"
+      }
+    },
+      "paymentTypes": {
+        "creditCard": "Credit Card",
+        "cash": "Cash"
+      }
   }
 
   
