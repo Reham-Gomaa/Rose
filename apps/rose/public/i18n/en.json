@@ -279,5 +279,17 @@
       "cancel": "Cancel",
       "confirm": "Confirm"
     }
+  },
+
+  "orderFlow": {
+      "summaryTitle": "Summary",
+      "couponCode": "Coupon Code",
+      "applyCoupon": "Apply Coupon",
+      "couponMessage": "No coupon applied",
+      "Total": "Total:",
+      "price": "{{price}} EGP",
+      "checkoutButton": "Checkout"
   }
+
+  
 }

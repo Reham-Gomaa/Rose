@@ -1,0 +1,40 @@
+
+  <p-carousel
+    [value]="items()"
+    [numVisible]="numVisible"
+    [numScroll]="numScroll"
+    [circular]="true"
+    [responsiveOptions]="responsiveOptions"
+    [showIndicators]="false"
+    class="custom-carousel"
+    [prevButtonProps]="{ styleClass: 'p-button-rounded custom-best-prev' }"
+    [nextButtonProps]="{ styleClass: 'p-button-rounded custom-best-next' }"
+    [attr.aria-label]="ariaLabel"
+  >
+    <ng-template let-item pTemplate="item">
+      @if (showSkeleton()) { 
+        @for (skeleton of skeletonItems(); track $index) {
+          <div class="carousel-card-wrapper">
+            <div class="image-wrapper">
+              <p-skeleton width="100%" height="200px"></p-skeleton>
+            </div>
+            <div class="flex flex-column p-3 mt-3 flex-grow">
+              <p-skeleton width="50%" height="1.5rem" class="mb-2"></p-skeleton>
+              <div class="flex align-items-center justify-content-between pt-2">
+                <div class="flex flex-column">
+                  <p-skeleton width="6rem" height="1.5rem" class="mb-2"></p-skeleton>
+                  <p-skeleton width="4rem" height="1.25rem"></p-skeleton>
+                </div>
+                <p-skeleton shape="circle" size="2.5rem"></p-skeleton>
+              </div>
+            </div>
+          </div>
+        }
+      } @else {
+        <div class="carousel-card-wrapper">
+          <app-card-item [productInfo]="item" />
+        </div>
+      }
+    </ng-template>
+  </p-carousel>
+

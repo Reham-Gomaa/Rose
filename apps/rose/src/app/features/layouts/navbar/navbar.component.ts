@@ -133,23 +133,19 @@ export class NavbarComponent implements OnInit {
     this.items.set([
       {
         label: "navbar.home",
-        route: "home",
-        icon: "pi pi-home",
+        route: "/dashboard/home",
       },
       {
         label: "navbar.allcategory",
-        route: "all-categories",
-        icon: "pi pi-clipboard",
+        route: "/dashboard/all-categories",
       },
       {
         label: "navbar.about",
-        route: "about",
-        icon: "pi pi-info-circle",
+        route: "/dashboard/about",
       },
       {
         label: "navbar.contact",
-        route: "contact",
-        icon: "pi pi-headphones",
+        route: "/dashboard/contact",
       },
     ]);
 
