@@ -258,13 +258,27 @@
       "suffix": "characters required"
     },
     "maxlength": {
-      "prefix": "Maximum", 
+      "prefix": "Maximum",
       "suffix": "characters allowed"
     },
     "email": "Invalid email format (e.g., example@example.com)",
     "passwordPattern": "Password must be at least 8 characters, include uppercase, lowercase, and a special character.",
     "onlyNumbers": "This number is not valid",
-    "misMatch":"Passwords do not match"
+    "misMatch": "Passwords do not match"
+  },
+  "addressList": {
+    "noAddress": "No Address Found"
+  },
+  "headAddress": {
+    "title": "My Addresses",
+    "addButton": "Add a New Address"
+  },
+  "dialog": {
+    "deleteAddress": {
+      "confirmationMessage": "Are you sure you want to delete this address?",
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    }
   },
 
   "orderFlow": {
