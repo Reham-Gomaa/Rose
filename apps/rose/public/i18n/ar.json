@@ -289,13 +289,12 @@
         "confirm": "تأكيد"
       }
     },
-    "orderFlow": {
+    "summary": {
       "summaryTitle": "الملخص",
       "couponCode": "كود الخصم",
       "applyCoupon": "تطبيق الكود",
       "couponMessage": "لا يوجد كود خصم مطبق",
       "Total": "السعر الإجمالي:",
-      "price": "{{price}} ج.م",
       "checkoutButton": "الدفع"
     }
   }
