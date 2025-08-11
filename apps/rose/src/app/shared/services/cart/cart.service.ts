@@ -13,57 +13,29 @@ import { CartResponse } from "@rose/core_interfaces/cart.interface";
 })
 export class CartService {
   private readonly httpClient = inject(HttpClient);
-  private readonly pLATFORM_ID = inject(PLATFORM_ID);
-
-  token!: string;
-  headers!: HttpHeaders;
-
-  constructor() {
-    this.getToken();
-  }
-
-  getToken() {
-    if (isPlatformBrowser(this.pLATFORM_ID)) {
-      if (localStorage.getItem("authToken")) {
-        this.token = localStorage.getItem("authToken")!;
-        this.headers = new HttpHeaders({
-          Authorization: `Bearer ${this.token}`,
-          "Content-Type": "application/json",
-        });
-      }
-    }
-  }
 
   getLoggedUserCart(): Observable<CartResponse> {
-    return this.httpClient.get<CartResponse>(`${EndPoint.CART}`, { headers: this.headers });
+    return this.httpClient.get<CartResponse>(`${EndPoint.CART}`);
   }
 
   addProductToCart(p_id: string, quantity: number): Observable<CartResponse> {
-    return this.httpClient.post<CartResponse>(
-      `${EndPoint.CART}`,
-      {
-        product: p_id,
-        quantity: quantity,
-      },
-      { headers: this.headers }
-    );
+    return this.httpClient.post<CartResponse>(`${EndPoint.CART}`, {
+      product: p_id,
+      quantity: quantity,
+    });
   }
 
   updateCartProductQuantity(p_id: string, quantity: number): Observable<CartResponse> {
-    return this.httpClient.put<CartResponse>(
-      `${EndPoint.CART}/${p_id}`,
-      {
-        quantity: quantity,
-      },
-      { headers: this.headers }
-    );
+    return this.httpClient.put<CartResponse>(`${EndPoint.CART}/${p_id}`, {
+      quantity: quantity,
+    });
   }
 
   removeSpecificCartItem(c_id: string): Observable<any> {
-    return this.httpClient.delete<any>(`${EndPoint.CART}/${c_id}`, { headers: this.headers });
+    return this.httpClient.delete<any>(`${EndPoint.CART}/${c_id}`);
   }
 
   clearUserCart(): Observable<any> {
-    return this.httpClient.delete<any>(`${EndPoint.CART}`, { headers: this.headers });
+    return this.httpClient.delete<any>(`${EndPoint.CART}`);
   }
 }
