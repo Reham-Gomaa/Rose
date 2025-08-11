@@ -1,7 +1,6 @@
 // @angular
-import { isPlatformBrowser } from "@angular/common";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { inject, Injectable, PLATFORM_ID } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { inject, Injectable } from "@angular/core";
 // rxjs
 import { Observable } from "rxjs";
 // shared

@@ -2,24 +2,29 @@
 import { AsyncPipe } from "@angular/common";
 import { Component, inject, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { RouterOutlet } from "@angular/router";
+import { RouterLink, RouterOutlet } from "@angular/router";
 // Components
 import { BestsellerSliderComponent } from "@rose/shared_Components_ui/bestseller-slider/bestseller-slider.component";
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
+import { CartComponent } from "./components/cart/cart.component";
+import { UserAddressComponent } from "./components/user-address/user-address.component";
 // Animation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 // Store
+import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
 import { selectTotalPrice } from "../../../store/cart/cart-selectors";
-import { Observable } from "rxjs";
+import { toCartState, toPaymentState } from "../../../store/orderFlow-states/orderflow.action";
+import { selectOrderFlow } from "../../../store/orderFlow-states/orderflow.selector";
 
 @Component({
   selector: "app-order-flow",
   imports: [
+    RouterLink,
     RouterOutlet,
     TranslatePipe,
     CustomInputComponent,
@@ -27,6 +32,8 @@ import { Observable } from "rxjs";
     ButtonComponent,
     BestsellerSliderComponent,
     AsyncPipe,
+    CartComponent,
+    UserAddressComponent,
   ],
   templateUrl: "./order-flow.component.html",
   styleUrl: "./order-flow.component.scss",
@@ -37,6 +44,15 @@ export class OrderFlowComponent implements OnInit {
   private readonly store = inject(Store);
 
   totalPrice$!: Observable<number>;
+  orderFlow$!: Observable<any>;
+
+  goToPayment() {
+    this.store.dispatch(toPaymentState());
+  }
+
+  goToCart() {
+    this.store.dispatch(toCartState());
+  }
 
   responsiveOptions = [
     { breakpoint: "1024px", numVisible: 3, numScroll: 1 },
@@ -45,6 +61,8 @@ export class OrderFlowComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    this.goToCart();
     this.totalPrice$ = this.store.select(selectTotalPrice);
+    this.orderFlow$ = this.store.select(selectOrderFlow);
   }
 }

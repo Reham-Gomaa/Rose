@@ -22,6 +22,7 @@ import { CartEffects } from "./store/cart/cart-effects";
 import { cartReducer } from "./store/cart/cart-reducers";
 import { AddressEffect } from "./store/address/address.effect";
 import { addressReducer } from "./store/address/address.reducer";
+import { orderFlowReducer } from "./store/orderFlow-states/orderflow.reducer";
 // primeng imports
 import Aura from "@primeng/themes/aura";
 import { MessageService } from "primeng/api";
@@ -99,6 +100,7 @@ export const appConfig: ApplicationConfig = {
       sort: sortReducer,
       filter: filterReduser,
       cart: cartReducer,
+      orderFlowState: orderFlowReducer,
       Address: addressReducer,
     }),
     provideEffects(sortEffects, FilterEffects, CartEffects, AddressEffect),

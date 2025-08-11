@@ -3,7 +3,8 @@
     <!-- Payment and Summary -->
     <div class="grid mb-8">
       <div class="col-12 md:col-7">
-        <router-outlet />
+        <router-outlet></router-outlet>
+        <!-- @if ((orderFlow$ | async) === 'cart') {<app-cart />} -->
       </div>
       <!-- Summary -->
       <div class="col-12 md:col-5">
@@ -27,10 +28,14 @@
             <span>{{"order-flow.summary.Total" | translate}}</span>
             <span>{{totalPrice$ |async}}{{"EGP" | translate}}</span>
           </div>
-          <app-button [text]="'order-flow.summary.checkoutButton' | translate" [icon]="'pi pi-arrow-right arrowicon'"
-            [textColor]="'var(--btn-shared-color)'" [bgColor]="'var(--btn-shared-background)'"
-            [borderRadius]="'btn-summary-radius'" [padding]="'btn-summary-padding w-full'"
-            [transition]="'btn-summary-transition'" aria-label="checkout and place order" />
+          <!-- @if ((orderFlow$ | async) === 'cart'){ -->
+          <app-button [routerLink]="'address'" [text]="'order-flow.summary.checkoutButton' | translate"
+            [icon]="'pi pi-arrow-right arrowicon'" [textColor]="'var(--btn-shared-color)'"
+            [bgColor]="'var(--btn-shared-background)'" [borderRadius]="'btn-summary-radius'"
+            [padding]="'btn-summary-padding w-full'" [transition]="'btn-summary-transition'"
+            aria-label="checkout and place order" />
+          <!-- } -->
+
         </div>
       </div>
     </div>
