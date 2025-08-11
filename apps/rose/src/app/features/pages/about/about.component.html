@@ -1,44 +1,5 @@
-<form [formGroup]="aboutForm" (ngSubmit)="onSubmit()" class="container">
-  <app-custom-input
-    formControlName="name"
-    type="text"
-    placeholder="Name"
-    id="name"
-    labelText="Name"
-    [errorHandilgControl]="aboutForm.get('name')!"
-    class="w-full"
-  ></app-custom-input>
+@if(visible){
+    <app-user-address [visible]="visible" (closed)="close()"></app-user-address>
+}
 
-  <app-custom-input
-    formControlName="email"
-    type="email"
-    placeholder="Email"
-    id="email"
-    labelText="Email"
-    [errorHandilgControl]="aboutForm.get('email')!"
-    class="w-full"
-  ></app-custom-input>
-
-  <app-custom-input-phone
-    formControlName="phone"
-    placeholder="1558889635"
-    labelText="Phone"
-    id="phone"
-    class="w-full"
-    [errorHandilgControl]="aboutForm.get('phone')!"
-  ></app-custom-input-phone>
-
-  <app-custom-input
-    formControlName="password"
-    type="password"
-    placeholder="password"
-    id="password"
-    labelText="Password"
-    class="w-full"
-    [errorHandilgControl]="aboutForm.get('password')!"
-  ></app-custom-input>
-
-
-
-  <button type="submit">Submit</button>
-</form>
+<button (click)="visible=true">Press</button>

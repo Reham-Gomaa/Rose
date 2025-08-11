@@ -274,6 +274,29 @@
       "continue-shopping": "Continue Shopping",
       "remove": "Remove",
       "rating": "rating"
+    },
+    "addressList": {
+      "noAddress": "No Address Found"
+    },
+    "headAddress": {
+      "title": "My Addresses",
+      "addButton": "Add a New Address"
+    },
+    "dialog": {
+      "deleteAddress": {
+        "confirmationMessage": "Are you sure you want to delete this address?",
+        "cancel": "Cancel",
+        "confirm": "Confirm"
+      }
+    },
+    "orderFlow": {
+      "summaryTitle": "Summary",
+      "couponCode": "Coupon Code",
+      "applyCoupon": "Apply Coupon",
+      "couponMessage": "No coupon applied",
+      "Total": "Total:",
+      "price": "{{price}} EGP",
+      "checkoutButton": "Checkout"
     }
   }
 }

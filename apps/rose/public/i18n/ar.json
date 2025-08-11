@@ -274,6 +274,29 @@
       "continue-shopping": "متابعة التسوق",
       "remove": "حذف",
       "rating": "التقييم"
+    },
+    "addressList": {
+      "noAddress": "لم يتم العثور على عناوين"
+    },
+    "headAddress": {
+      "title": "عناويني",
+      "addButton": "إضافة عنوان جديد"
+    },
+    "dialog": {
+      "deleteAddress": {
+        "confirmationMessage": "هل أنت متأكد أنك تريد حذف هذا العنوان؟",
+        "cancel": "إلغاء",
+        "confirm": "تأكيد"
+      }
+    },
+    "orderFlow": {
+      "summaryTitle": "الملخص",
+      "couponCode": "كود الخصم",
+      "applyCoupon": "تطبيق الكود",
+      "couponMessage": "لا يوجد كود خصم مطبق",
+      "Total": "السعر الإجمالي:",
+      "price": "{{price}} ج.م",
+      "checkoutButton": "الدفع"
     }
   }
 }

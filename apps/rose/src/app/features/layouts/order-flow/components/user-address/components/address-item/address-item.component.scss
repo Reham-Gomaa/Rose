@@ -1,0 +1,159 @@
+.address-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  color: var(--address-body);
+  font-family: var(--font-family-4);
+
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    gap: 10.125rem;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .address-card__icon {
+      background-color: #22c55e;
+      color: white;
+      border-radius: 50%;
+      width: 1.75rem;
+      height: 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: .0625rem;
+    }
+
+    .address-card__city {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+
+    .address-card__phone {
+      font-size: 0.9rem;
+    }
+
+    .icon-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.25rem;
+      border-radius: 50%;
+      transition: background-color 0.2s;
+
+      &.edit{
+        color: var(--address-body);
+
+      }
+
+      &.edit:hover {
+        background-color: #f3f4f6;
+      }
+
+      &.delete {
+        background-color: #ef4444;
+        color: white;
+
+        &:hover {
+          background-color: #dc2626;
+        }
+      }
+    }
+  }
+
+  &__body {
+    background-color: #f1f5f9;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    color: #374151;
+    width: fit-content;
+  }
+
+  .username {
+    position: absolute;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--address-name);
+    top: -200%;
+    background-color: var(--address-name-background);
+    padding: .0625rem;
+    
+  }
+
+  .address-card__to-button {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1875rem;
+    position: absolute;
+    right: 0;
+    transform: translateX(110%);
+    top: 10%;
+    color: var(--address-body);
+  }
+
+  .icon-button {
+    border: 1px solid gray;
+    border-radius: 50%;
+  }
+
+  // Media Query for responsiveness
+  @media (max-width: 620px) {
+    &__header {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 0.5rem;
+    }
+
+
+    &__right {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    &__left {
+      flex-direction: column;
+
+    }
+    .address-card__icon {
+      margin-top: 0px;
+    }
+
+    .address-card__city{
+      font-size: .75rem;
+    }
+
+    .address-card__to-button {
+      position: static;
+      flex-direction: row;
+      gap: .3125rem;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .username {
+      position: static;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+  }
+}
+

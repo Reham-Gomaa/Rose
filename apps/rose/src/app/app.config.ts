@@ -1,38 +1,43 @@
 import { appRoutes } from "./app.routes";
 // @angular imports
-import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
-import { provideRouter, withInMemoryScrolling, withViewTransitions } from "@angular/router";
-import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
-import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
-import { HttpClient, provideHttpClient, withFetch } from "@angular/common/http";
+import { HttpClient, provideHttpClient, withFetch, withInterceptors } from "@angular/common/http";
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
+import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
 import { provideAnimations } from "@angular/platform-browser/animations";
+import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
+import { provideRouter, withInMemoryScrolling, withViewTransitions } from "@angular/router";
 // @ngx imports
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 // ngrx imports
-import { provideStore } from "@ngrx/store";
 import { provideEffects } from "@ngrx/effects";
+import { provideStore } from "@ngrx/store";
+// Store
 import { FilterEffects } from "@rose/store_filter/filter.effect";
-import { sortReducer } from "@rose/store_sort/sort.reducer";
 import { filterReduser } from "@rose/store_filter/filter.reducer";
+import { sortReducer } from "@rose/store_sort/sort.reducer";
 import { sortEffects } from "@rose/store_sort/store.effects";
-import { cartReducer } from "./store/cart/cart-reducers";
 import { CartEffects } from "./store/cart/cart-effects";
+import { cartReducer } from "./store/cart/cart-reducers";
+import { AddressEffect } from "./store/address/address.effect";
+import { addressReducer } from "./store/address/address.reducer";
 // primeng imports
+import Aura from "@primeng/themes/aura";
 import { MessageService } from "primeng/api";
 import { providePrimeNG } from "primeng/config";
-import Aura from "@primeng/themes/aura";
 import { ToastModule } from "primeng/toast";
 // Auth LIB
 import { API_CONFIG } from "auth-api-kp";
+import { headingInterceptor } from "./core/interceptors/header.interceptor";
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
 }
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(),
+    provideHttpClient(withFetch(), withInterceptors([headingInterceptor])),
     {
       provide: API_CONFIG,
       useValue: {
@@ -46,11 +51,11 @@ export const appConfig: ApplicationConfig = {
             forgotPassword: "auth/forgotPassword",
             verifyResetCode: "auth/verifyResetCode",
             resetPassword: "auth/resetPassword",
-            profileData: "auth/profileData",
+            profileData: "auth/profile-data",
             editProfile: "auth/editProfile",
-            changePassword: "auth/changePassword",
+            changePassword: "auth/change-password",
             deleteMe: "auth/deleteMe",
-            uploadPhoto: "auth/uploadPhoto",
+            uploadPhoto: "auth/upload-photo",
             forgetPasswordForm: "auth/forgetPasswordForm",
           },
         },
@@ -94,7 +99,8 @@ export const appConfig: ApplicationConfig = {
       sort: sortReducer,
       filter: filterReduser,
       cart: cartReducer,
+      Address: addressReducer,
     }),
-    provideEffects(sortEffects, FilterEffects, CartEffects),
+    provideEffects(sortEffects, FilterEffects, CartEffects, AddressEffect),
   ],
 };

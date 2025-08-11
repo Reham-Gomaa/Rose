@@ -1,39 +1,28 @@
 import { Component } from "@angular/core";
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { ReactiveFormsModule } from "@angular/forms";
 // shared-components
-import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
-import { CustomInputPhoneComponent } from "@rose/shared_Components_ui/custom-input-phone/custom-input-phone.component";
+import { StepDefinition } from "@rose/shared_Components_ui/stepper/stepper.component";
+import { ContactComponent } from "../contact/contact.component";
+import { UserAddressComponent } from "@rose/features_layouts/order-flow/components/user-address/user-address.component";
 
 @Component({
   selector: "app-about",
   templateUrl: "./about.component.html",
   styleUrl: "./about.component.scss",
-  imports: [CustomInputComponent, CustomInputPhoneComponent, ReactiveFormsModule],
+  imports: [ReactiveFormsModule, UserAddressComponent],
 })
 export class AboutComponent {
-  aboutForm: FormGroup;
+ steps: StepDefinition[] = [
+  { label: 'Header I', component: AboutComponent, value: 1 },
+  { label: 'Header II', component: ContactComponent, value: 2 },
+  { label: 'Header III', component: AboutComponent, value: 3 }
+];
+ visible: boolean=false
 
-  constructor(private fb: FormBuilder) {
-    this.aboutForm = this.fb.group({
-      name: ["", [Validators.required, Validators.minLength(2)]],
-      email: ["", [Validators.required, Validators.email]],
-      phone: ["", [Validators.required,]],
-      password: [
-        "",
-        [
-          Validators.required,
-          Validators.pattern(
-            "^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\"\\|,.<>/?]).{8,}$"
-          )
-        ]
-      ],
-    });
-  }
+ close(){
+  this.visible=false;
+ }
 
-  onSubmit() {
-      console.log(this.aboutForm.value);
-      console.log(this.aboutForm)
-      console.log(this.aboutForm.get('name'))
 
-  }
+
 }

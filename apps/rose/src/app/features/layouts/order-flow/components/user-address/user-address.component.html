@@ -1,1 +1,29 @@
-<p>user-address works!</p>
+<app-custom-main-dialog [visable]="visible()" (closed)="close()">
+  <div head>
+    <app-head-address head></app-head-address>
+  </div>
+  <div body>
+    @if(loading){
+    <app-spinner></app-spinner>
+
+    }@else{
+    <div class="flex flex-column gap-5">
+      @for (item of address; track $index) {
+      <app-address-item [address]="item"></app-address-item>
+      }@empty{
+      <div class="flex flex-column justify-content-center align-items-center text-center text-2xl">
+        <img class="w-62px" src="/images/no-product-available.webp" alt="image for not avaliable"  loading="lazy">
+        <p class="notfound-p">
+          {{ "addressList.noAddress" | translate }}
+        </p>
+      </div>
+      }
+    </div>
+    }
+  </div>
+</app-custom-main-dialog>
+
+<app-delete-dialog
+  [visible]="addressState === 6"
+  (closed)="closeDeleteDialog()"
+></app-delete-dialog>

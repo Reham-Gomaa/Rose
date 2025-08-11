@@ -29,7 +29,6 @@ export class AuthComponent {
   heading3span: InputSignal<string> = input("");
   button: InputSignal<string> = input("");
   formType: InputSignal<any> = input("");
-  // goBackToForget: InputSignal<() => void> = input(() => {});
 
   @Input() goBackToForget: () => void = () => {};
 }
