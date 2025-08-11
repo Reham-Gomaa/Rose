@@ -1,6 +1,6 @@
 <section [@fadeTransition]="translationService.fadeState()">
-    <div id="parent" class="flex flex-column justify-content-between border-round-2xl md:w-6">
-        <div id="header" class="flex flex-row justify-content-between align-items-center">
+    <div id="cartParent" class="flex flex-column justify-content-between border-round-2xl md:w-6">
+        <div class="flex flex-row justify-content-between align-items-center">
             <div>
                 <h1>{{'order-flow.cart.title' |translate}} <span>{{cartItemsNum$ |async}} Products</span> </h1>
             </div>
@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div id="content">
+        <div id="cartContent">
             @if (isLoading) {
             <ng-container>
                 @for(item of [1,2,3];track $index){
@@ -32,8 +32,9 @@
             </ng-container>
             }
             @else {
-            @for (item of cartItems$ |async; track $index) {
-            <div [class.border-none]="(cartItemsNum$ |async) === $index + 1" class="pdt-wrapper flex flex-wrap">
+            @for (item of userCartItems; track $index) {
+            @if (cartItemsNum$ |async; as cartItemsNum) {
+            <div [class.border-none]="cartItemsNum === $index + 1" class="pdt-wrapper flex flex-wrap">
                 <div class="w-4 md:w-3">
                     <img class="pdt block border-round-lg" [src]="item.product.imgCover" alt="product">
                 </div>
@@ -71,17 +72,17 @@
                             <app-button (click)="updateProductQuantity(item.product._id,-1)" [padding]="'cart-padding'"
                                 [borderRadius]="'cart-radius'" [bgColor]="'var(--cart-clearBtn-bg)'"
                                 [textColor]="'var(--cart-clearBtn-text)'" [icon]="'pi pi-minus'" />
-                            <input type="number" id="quantity" class="w-4 md:w-6rem mx-2" [value]="item.quantity"
-                                min="1" [max]="item.product.quantity"
-                                (change)="onQuantityChange(item.product._id, $event)"
+                            <input type="number" class="w-4 md:w-6rem mx-2" [value]="item.quantity" min="1"
+                                [max]="item.product.quantity" (change)="onQuantityChange(item.product._id, $event)"
                                 (keyup.enter)="onQuantityChange(item.product._id, $event)" />
-                            <app-button (click)="updateProductQuantity(item.product._id,+1)" [padding]="'cart-padding'"
+                            <app-button (click)="updateProductQuantity(item.product._id,1)" [padding]="'cart-padding'"
                                 [borderRadius]="'cart-radius'" [bgColor]="'var(--cart-clearBtn-bg)'"
                                 [textColor]="'var(--cart-clearBtn-text)'" [icon]="'pi pi-plus'" />
                         </div>
                     </div>
                 </div>
             </div>
+            }
             }@empty {
             <div class="flex flex-column justify-content-center align-items-center">
                 <div>

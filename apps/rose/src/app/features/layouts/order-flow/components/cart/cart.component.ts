@@ -43,6 +43,7 @@ export class CartComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
 
   cartItems$!: Observable<cartItems[]>;
+  userCartItems!: cartItems[];
   cartItemsNum$!: Observable<number>;
   totalPrice$!: Observable<number>;
   isLoading: boolean = true;
@@ -50,16 +51,6 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.getLoggedUserCart();
     this.selectData();
-
-    this.cartItems$
-      .pipe(
-        take(1),
-        catchError(() => {
-          this.isLoading = false;
-          return of([]);
-        })
-      )
-      .subscribe();
   }
 
   getLoggedUserCart() {
@@ -67,32 +58,40 @@ export class CartComponent implements OnInit {
   }
 
   selectData() {
-    this.cartItems$ = this.store.select(selectCartItems).pipe(
-      tap(() => {
-        this.isLoading = false;
-      }),
-      takeUntilDestroyed(this.destroyRef)
-    );
+    this.store
+      .select(selectCartItems)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (items) => {
+          this.userCartItems = items;
+          this.isLoading = false;
+        },
+        error: (err) => {
+          this.isLoading = false;
+        },
+      });
     this.cartItemsNum$ = this.store.select(selectCartItemsNum);
     this.totalPrice$ = this.store.select(selectTotalPrice);
   }
 
+  findItem(p_id: string): cartItems | undefined {
+    return this.userCartItems.find((item) => item.product._id === p_id);
+  }
+
   updateProductQuantity(p_id: string, qty: number) {
-    this.cartItems$.pipe(take(1), takeUntilDestroyed(this.destroyRef)).subscribe((cartItems) => {
-      const item = cartItems.find((item) => item.product._id === p_id);
-      if (!item) return;
+    const item = this.findItem(p_id);
+    if (!item) return;
 
-      const currentQty = item.quantity;
-      const productQty = item.product.quantity;
+    const currentQty = item.quantity;
+    const productQty = item.product.quantity;
 
-      if (qty === +1 && productQty > currentQty) {
-        this.store.dispatch(updateQuantity({ p_id: item.product._id, qty: +1 }));
-      }
+    if (qty === 1 && productQty > currentQty) {
+      this.store.dispatch(updateQuantity({ p_id: item.product._id, qty: 1 }));
+    }
 
-      if (qty === -1 && currentQty > 1) {
-        this.store.dispatch(updateQuantity({ p_id: item.product._id, qty: -1 }));
-      }
-    });
+    if (qty === -1 && currentQty > 1) {
+      this.store.dispatch(updateQuantity({ p_id: item.product._id, qty: -1 }));
+    }
   }
 
   onQuantityChange(productId: string, event: Event): void {
@@ -100,40 +99,32 @@ export class CartComponent implements OnInit {
     const newQuantity = parseInt(input.value);
 
     if (isNaN(newQuantity) || newQuantity < 1) {
-      // Reset to current quantity if invalid
       input.value = this.getCurrentQuantity(productId).toString();
       return;
     }
 
-    this.cartItems$.pipe(take(1)).subscribe((cartItems) => {
-      const item = cartItems.find((i) => i.product._id === productId);
-      if (!item) return;
+    const item = this.findItem(productId);
+    if (!item) return;
 
-      // Check if quantity exceeds available stock
-      if (newQuantity > item.product.quantity) {
-        input.value = item.product.quantity.toString();
-        // You might want to show a toast/message here
-        return;
-      }
+    if (newQuantity > item.product.quantity) {
+      input.value = this.getCurrentQuantity(productId).toString();
+      return;
+    }
 
-      if (newQuantity !== item.quantity) {
-        this.store.dispatch(
-          updateQuantity({
-            p_id: productId,
-            qty: newQuantity - item.quantity,
-          })
-        );
-      }
-    });
+    if (newQuantity !== item.quantity) {
+      this.store.dispatch(
+        updateQuantity({
+          p_id: productId,
+          qty: newQuantity - item.quantity,
+        })
+      );
+    }
   }
 
-  // Helper method to get current quantity
   private getCurrentQuantity(productId: string): number {
     let currentQty = 1;
-    this.cartItems$.pipe(take(1)).subscribe((items) => {
-      const item = items.find((i) => i.product._id === productId);
-      currentQty = item?.quantity || 1;
-    });
+    const item = this.findItem(productId);
+    currentQty = item?.quantity || 1;
     return currentQty;
   }
 

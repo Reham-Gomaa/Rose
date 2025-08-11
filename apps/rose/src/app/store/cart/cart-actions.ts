@@ -24,12 +24,12 @@ export const addProductToCartSuccess = createAction(
 );
 
 export const updateQuantity = createAction(
-  "[Cart] add product to cart",
+  "[Cart] update product quantity in cart",
   props<{ p_id: string; qty: number }>()
 );
 
 export const updateQuantitySuccess = createAction(
-  "[Cart] add product to cart success",
+  "[Cart] update product quantity in cart success",
   props<{ cart: CartResponse }>()
 );
 
