@@ -84,13 +84,14 @@ export class CartComponent implements OnInit {
 
     const currentQty = item.quantity;
     const productQty = item.product.quantity;
+    const newQty = item.quantity + qty;
 
     if (qty === 1 && productQty > currentQty) {
-      this.store.dispatch(updateQuantity({ p_id: item.product._id, qty: 1 }));
+      this.store.dispatch(updateQuantity({ p_id: item.product._id, qty: newQty }));
     }
 
     if (qty === -1 && currentQty > 1) {
-      this.store.dispatch(updateQuantity({ p_id: item.product._id, qty: -1 }));
+      this.store.dispatch(updateQuantity({ p_id: item.product._id, qty: newQty }));
     }
   }
 
@@ -115,7 +116,7 @@ export class CartComponent implements OnInit {
       this.store.dispatch(
         updateQuantity({
           p_id: productId,
-          qty: newQuantity - item.quantity,
+          qty: newQuantity,
         })
       );
     }
