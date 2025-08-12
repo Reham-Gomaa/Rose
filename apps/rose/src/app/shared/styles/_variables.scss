@@ -339,6 +339,17 @@
   --dialog-p:var(--zinc-800);
   --dialog-out-shadow:#2E2E300D;
   --dialog-icon:#2E2E3026;
+
+  //Order Flow
+  //Summary
+  --summary-background-color: var(--zinc-50);
+  --summary-title-color: var(--black);
+  --total-row-color: var(--black);
+  --summary-button-color: var(--maroon-600);
+  --summary-button-hover: var(--maroon-500);
+  --summary-button-text-color: var(--white);
+  --coupon-border-color: var(--zinc-300);
+
 }
 
 // Dark theme overrides
@@ -610,4 +621,16 @@
   --dialog-p:var(--zinc-50);
   --dialog-out-shadow:var(--soft-pink-600);
   --dialog-icon:var(--soft-pink-100);
+
+
+  //Order Flow
+  //Summary
+  --summary-background-color: var(--white);
+  --summary-title-color: var(--white);
+  --total-row-color: var(--zinc-800);
+  --summary-button-color: var(--soft-pink-200);
+  --summary-button-hover: var(--soft-pink-300);
+  --summary-button-text-color: var(--zinc-800);
+  --coupon-border-color: var(--soft-pink-200);
+
 }
