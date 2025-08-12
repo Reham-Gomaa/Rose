@@ -21,6 +21,8 @@ import { selectTotalPrice } from "../../../store/cart/cart-selectors";
 import { toCartState, toPaymentState } from "../../../store/orderFlow-states/orderflow.action";
 import { selectOrderFlow } from "../../../store/orderFlow-states/orderflow.selector";
 
+export type orderFlowState = "cart" | "userAddress";
+
 @Component({
   selector: "app-order-flow",
   imports: [
@@ -45,13 +47,16 @@ export class OrderFlowComponent implements OnInit {
 
   totalPrice$!: Observable<number>;
   orderFlow$!: Observable<any>;
+  orderFlowState!: orderFlowState;
 
   goToPayment() {
-    this.store.dispatch(toPaymentState());
+    this.orderFlowState = "userAddress";
+    //this.store.dispatch(toPaymentState());
   }
 
   goToCart() {
-    this.store.dispatch(toCartState());
+    this.orderFlowState = "cart";
+    //this.store.dispatch(toCartState());
   }
 
   responsiveOptions = [
@@ -62,6 +67,7 @@ export class OrderFlowComponent implements OnInit {
 
   ngOnInit(): void {
     this.goToCart();
+    console.log(this.orderFlowState);
     this.totalPrice$ = this.store.select(selectTotalPrice);
     this.orderFlow$ = this.store.select(selectOrderFlow);
   }

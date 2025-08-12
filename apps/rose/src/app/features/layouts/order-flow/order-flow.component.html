@@ -3,8 +3,10 @@
     <!-- Payment and Summary -->
     <div class="grid mb-8">
       <div class="col-12 md:col-7">
-        <router-outlet></router-outlet>
+        <!-- <router-outlet></router-outlet> -->
         <!-- @if ((orderFlow$ | async) === 'cart') {<app-cart />} -->
+        @if (orderFlowState === 'cart') {<app-cart />}
+        <!-- @else if (orderFlowState === 'userAddress') {<app-user-address [visible]="true" />} -->
       </div>
       <!-- Summary -->
       <div class="col-12 md:col-5">
@@ -29,12 +31,13 @@
             <span>{{totalPrice$ |async}}{{"EGP" | translate}}</span>
           </div>
           <!-- @if ((orderFlow$ | async) === 'cart'){ -->
-          <app-button [routerLink]="'address'" [text]="'order-flow.summary.checkoutButton' | translate"
+          @if (orderFlowState === 'cart'){
+          <app-button (click)="goToPayment()" [text]="'order-flow.summary.checkoutButton' | translate"
             [icon]="'pi pi-arrow-right arrowicon'" [textColor]="'var(--btn-shared-color)'"
             [bgColor]="'var(--btn-shared-background)'" [borderRadius]="'btn-summary-radius'"
             [padding]="'btn-summary-padding w-full'" [transition]="'btn-summary-transition'"
             aria-label="checkout and place order" />
-          <!-- } -->
+          }
 
         </div>
       </div>
