@@ -301,8 +301,10 @@
       "next": "التالي",
       "previous": "السابق",
       "submit": "حفظ العنوان"
-    },
-    "orderFlow": {
+    }
+ 
+},
+   "orderFlow": {
       "summaryTitle": "الملخص",
       "couponCode": "كود الخصم",
       "applyCoupon": "تطبيق الكود",
@@ -359,5 +361,4 @@
         "cash": "نقدي"
       }
   }
-}
 }

@@ -302,8 +302,10 @@
       "next": "Next",
       "previous": "Previous",
       "submit": "Save Address"
-    },
-    "orderFlow": {
+    }
+    
+},
+  "orderFlow": {
       "summaryTitle": "Summary",
       "couponCode": "Coupon Code",
       "applyCoupon": "Apply Coupon",
@@ -360,7 +362,4 @@
         "cash": "Cash"
       }
   }
-
-  
-}
 }

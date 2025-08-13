@@ -181,7 +181,7 @@ export class NavbarComponent implements OnInit {
       },
       {
         label: "My Orders",
-        route: "user-orders",
+        routerLink: "/allorders",
         icon: "pi pi-receipt",
         visible: !!user,
       },
