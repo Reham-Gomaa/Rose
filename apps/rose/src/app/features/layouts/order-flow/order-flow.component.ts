@@ -1,26 +1,25 @@
 // @angular
 import { AsyncPipe } from "@angular/common";
-import { Component, DestroyRef, inject, OnInit } from "@angular/core";
+import { Component, DestroyRef, inject } from "@angular/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { FormsModule } from "@angular/forms";
 // Components
 import { BestsellerSliderComponent } from "@rose/shared_Components_ui/bestseller-slider/bestseller-slider.component";
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
 import { CartComponent } from "./components/cart/cart.component";
-import { UserAddressComponent } from "./components/user-address/user-address.component";
 // Animation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 // Store
 import { Store } from "@ngrx/store";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
-import { Observable } from "rxjs";
-import { selectCartItems, selectTotalPrice } from "../../../store/cart/cart-selectors";
-import { CartService } from "@rose/shared_services/cart/cart.service";
-import { deleteSpecificItem, getUserCart } from "../../../store/cart/cart-actions";
 import { cartItems } from "@rose/core_interfaces/cart.interface";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { CartService } from "@rose/shared_services/cart/cart.service";
+import { Observable } from "rxjs";
+import { deleteSpecificItem, getUserCart } from "../../../store/cart/cart-actions";
+import { selectCartItems, selectTotalPrice } from "../../../store/cart/cart-selectors";
 
 @Component({
   selector: "app-order-flow",
@@ -32,7 +31,6 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
     BestsellerSliderComponent,
     AsyncPipe,
     CartComponent,
-    UserAddressComponent,
   ],
   templateUrl: "./order-flow.component.html",
   styleUrl: "./order-flow.component.scss",
