@@ -317,7 +317,6 @@
     "applyCoupon": "Apply Coupon",
     "couponMessage": "No coupon applied",
     "Total": "Total:",
-    "price": "{{price}} EGP",
     "checkoutButton": "Checkout"
   },
   "orders": {
