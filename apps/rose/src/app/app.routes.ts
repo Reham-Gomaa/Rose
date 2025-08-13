@@ -100,15 +100,16 @@ export const appRoutes: Route[] = [
           ).then((c) => c.UserAddressComponent),
         title: "Address",
       },
-      {
-        path: "orders",
+     
+    ],
+  },
+  {
+        path: "allorders",
         loadComponent: () =>
-          import("@rose/features_layouts/order-flow/components/orders/orders.component").then(
+          import("@rose/features_pages/orders/orders.component").then(
             (c) => c.OrdersComponent
           ),
         title: "Orders",
-      },
-    ],
   },
   {
     path: "**",
