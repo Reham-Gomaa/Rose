@@ -192,6 +192,8 @@ input[type="number"] {
   border-radius: 0.625rem;
   padding: 0.625rem;
   border: 0.0625rem solid var(--cart-input-border);
+  background-color: var(--cart-input-bg);
+  color: var(--cart-title);
 
   @media all and (min-width: 48rem) {
     padding: 16px;
