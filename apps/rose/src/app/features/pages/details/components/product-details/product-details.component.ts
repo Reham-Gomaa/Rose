@@ -1,6 +1,5 @@
-import { Component, input, signal, effect, DestroyRef, inject } from "@angular/core";
-import { NgOptimizedImage } from "@angular/common";
-import { NgClass } from "@angular/common";
+import { NgClass, NgOptimizedImage } from "@angular/common";
+import { Component, effect, inject, input, signal } from "@angular/core";
 
 //interfaces
 import { Product } from "@rose/core_interfaces/carditem.interface";
@@ -9,12 +8,11 @@ import { cartItems } from "@rose/core_interfaces/cart.interface";
 import { DialogModule } from "primeng/dialog";
 // rxjs
 import { Observable, take } from "rxjs";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // cart store
 import { Store } from "@ngrx/store";
-import { selectCartItems } from "apps/rose/src/app/store/cart/cart-selectors";
 import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
 import { WishlistToggleDirective } from "apps/rose/src/app/shared/directives/wishlistToggle.directive";
+import { selectCartItems } from "apps/rose/src/app/store/cart/cart-selectors";
 
 @Component({
   selector: "app-product-details",
@@ -24,7 +22,6 @@ import { WishlistToggleDirective } from "apps/rose/src/app/shared/directives/wis
   styleUrl: "./product-details.component.scss",
 })
 export class ProductDetailsComponent {
-  private readonly destroyRef = inject(DestroyRef);
   private readonly store = inject(Store);
 
   productDetails = input.required<Product>();
@@ -44,12 +41,11 @@ export class ProductDetailsComponent {
   }
 
   addProductToCart(p_id: string) {
-    this.cartItems$.pipe(take(1), takeUntilDestroyed(this.destroyRef)).subscribe((cartItems) => {
+    this.cartItems$.pipe(take(1)).subscribe((cartItems) => {
       const existingItem = cartItems.find((item) => item.product._id === p_id);
-      if (!existingItem) return;
-      const productQuantity = this.productDetails()?.quantity || 0;
+      const storeQuantity = this.productDetails().quantity;
 
-      if ((!existingItem || existingItem.quantity > 0) && productQuantity > 0) {
+      if (existingItem ? storeQuantity > existingItem.quantity : storeQuantity > 0) {
         this.store.dispatch(addProductToCart({ p_id: p_id, qty: 1 }));
       }
     });

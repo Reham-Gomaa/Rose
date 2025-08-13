@@ -1,11 +1,9 @@
 import { Component, inject, OnInit, signal, WritableSignal } from "@angular/core";
-// Images
-import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslationService } from "@rose/core_services/translation/translation.service";
 @Component({
   selector: "app-translate-toggle",
-  imports: [NgOptimizedImage],
+  imports: [],
   templateUrl: "./translate-toggle.component.html",
   styleUrl: "./translate-toggle.component.scss",
 })

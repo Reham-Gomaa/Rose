@@ -48,6 +48,21 @@ export const appRoutes: Route[] = [
           import("@rose/features_pages/details/details.component").then((c) => c.DetailsComponent),
       },
       {
+        path: "order-flow",
+        loadComponent: () =>
+          import("@rose/features_layouts/order-flow/order-flow.component").then(
+            (c) => c.OrderFlowComponent
+          ),
+      },
+      {
+        path: "orders",
+        loadComponent: () =>
+          import("@rose/features_layouts/order-flow/components/orders/orders.component").then(
+            (c) => c.OrdersComponent
+          ),
+        title: "Orders",
+      },
+      {
         path: "wishlist",
         title: "Wishlist",
         loadComponent: () =>
@@ -83,41 +98,6 @@ export const appRoutes: Route[] = [
       import(
         "@rose/features_layouts/authentication/components/reset-password/reset-password.component"
       ).then((c) => c.ResetPasswordComponent),
-  },
-  {
-    path: "order-flow",
-    canActivate: [loggedGuard],
-    loadComponent: () =>
-      import("@rose/features_layouts/order-flow/order-flow.component").then(
-        (c) => c.OrderFlowComponent
-      ),
-    children: [
-      { path: "", redirectTo: "cart", pathMatch: "full" },
-      {
-        path: "cart",
-        loadComponent: () =>
-          import("@rose/features_layouts/order-flow/components/cart/cart.component").then(
-            (c) => c.CartComponent
-          ),
-        title: "Cart",
-      },
-      {
-        path: "address",
-        loadComponent: () =>
-          import(
-            "@rose/features_layouts/order-flow/components/user-address/user-address.component"
-          ).then((c) => c.UserAddressComponent),
-        title: "Address",
-      },
-      {
-        path: "orders",
-        loadComponent: () =>
-          import("@rose/features_layouts/order-flow/components/orders/orders.component").then(
-            (c) => c.OrdersComponent
-          ),
-        title: "Orders",
-      },
-    ],
   },
   {
     path: "**",

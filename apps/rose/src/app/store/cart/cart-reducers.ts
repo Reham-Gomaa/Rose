@@ -1,3 +1,4 @@
+import { state } from "@angular/animations";
 import { createReducer, on } from "@ngrx/store";
 import { cartItems } from "@rose/core_interfaces/cart.interface";
 import {
@@ -35,7 +36,7 @@ export const cartReducer = createReducer(
 
   on(updateQuantitySuccess, (state, { cart }) => ({
     ...state,
-    cartItems: cart.cart.cartItems,
+    cartItems: [...cart.cart.cartItems],
     cartItemsNum: cart.numOfCartItems,
     totalPrice: cart.cart.totalPrice,
   })),
@@ -47,10 +48,5 @@ export const cartReducer = createReducer(
     totalPrice: cart.cart.totalPrice,
   })),
 
-  on(clearCartSuccess, (state, { cart }) => ({
-    ...state,
-    cartItems: [] as cartItems[],
-    cartItemsNum: 0,
-    totalPrice: 0,
-  }))
+  on(clearCartSuccess, () => initialState)
 );

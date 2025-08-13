@@ -1,7 +1,6 @@
 // @angular
-import { isPlatformBrowser } from "@angular/common";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { inject, Injectable, PLATFORM_ID } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { inject, Injectable, signal } from "@angular/core";
 // rxjs
 import { Observable } from "rxjs";
 // shared
@@ -13,57 +12,31 @@ import { CartResponse } from "@rose/core_interfaces/cart.interface";
 })
 export class CartService {
   private readonly httpClient = inject(HttpClient);
-  private readonly pLATFORM_ID = inject(PLATFORM_ID);
 
-  token!: string;
-  headers!: HttpHeaders;
-
-  constructor() {
-    this.getToken();
-  }
-
-  getToken() {
-    if (isPlatformBrowser(this.pLATFORM_ID)) {
-      if (localStorage.getItem("userToken")) {
-        this.token = localStorage.getItem("userToken")!;
-        this.headers = new HttpHeaders({
-          Authorization: `Bearer ${this.token}`,
-          "Content-Type": "application/json",
-        });
-      }
-    }
-  }
+  orderFlowState = signal<"cart" | "userAddress">("cart");
 
   getLoggedUserCart(): Observable<CartResponse> {
-    return this.httpClient.get<CartResponse>(`${EndPoint.CART}`, { headers: this.headers });
+    return this.httpClient.get<CartResponse>(`${EndPoint.CART}`);
   }
 
   addProductToCart(p_id: string, quantity: number): Observable<CartResponse> {
-    return this.httpClient.post<CartResponse>(
-      `${EndPoint.CART}`,
-      {
-        product: p_id,
-        quantity: quantity,
-      },
-      { headers: this.headers }
-    );
+    return this.httpClient.post<CartResponse>(`${EndPoint.CART}`, {
+      product: p_id,
+      quantity: quantity,
+    });
   }
 
   updateCartProductQuantity(p_id: string, quantity: number): Observable<CartResponse> {
-    return this.httpClient.put<CartResponse>(
-      `${EndPoint.CART}/${p_id}`,
-      {
-        quantity: quantity,
-      },
-      { headers: this.headers }
-    );
+    return this.httpClient.put<CartResponse>(`${EndPoint.CART}/${p_id}`, {
+      quantity: quantity,
+    });
   }
 
-  removeSpecificCartItem(c_id: string): Observable<any> {
-    return this.httpClient.delete<any>(`${EndPoint.CART}/${c_id}`, { headers: this.headers });
+  removeSpecificCartItem(c_id: string): Observable<CartResponse> {
+    return this.httpClient.delete<CartResponse>(`${EndPoint.CART}/${c_id}`);
   }
 
-  clearUserCart(): Observable<any> {
-    return this.httpClient.delete<any>(`${EndPoint.CART}`, { headers: this.headers });
+  clearUserCart(): Observable<CartResponse> {
+    return this.httpClient.delete<CartResponse>(`${EndPoint.CART}`);
   }
 }

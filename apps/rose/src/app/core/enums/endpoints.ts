@@ -8,4 +8,5 @@ export class EndPoint {
   static OCCASION = `${environment.baseApiUrl}api/v1/occasions`;
   static ADD_REVIEW = `${environment.baseApiUrl}api/v1/reviews`;
   static CART = `${environment.baseApiUrl}api/v1/cart`;
+  static ADDRESSES = `${environment.baseApiUrl}api/v1/addresses`;
 }

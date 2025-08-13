@@ -266,15 +266,58 @@
     "onlyNumbers": "ادخل الرقم بطريقه الصحيحه",
     "misMatch": "كلمات المرور غير متطابقة"
   },
-  "order-flow": {
-    "cart": {
-      "title": "سلة التسوق",
-      "clear-cart": "إفراغ السلة",
-      "empty": "سلة التسوق فارغة، هل تريد تجربة التسوق؟",
-      "continue-shopping": "متابعة التسوق",
-      "remove": "حذف",
-      "rating": "التقييم"
+  "addressList": {
+    "noAddress": "لم يتم العثور على عناوين"
+  },
+  "headAddress": {
+    "title": "عناويني",
+    "addButton": "إضافة عنوان جديد"
+  },
+  "dialog": {
+    "deleteAddress": {
+      "confirmationMessage": "هل أنت متأكد أنك تريد حذف هذا العنوان؟",
+      "cancel": "إلغاء",
+      "confirm": "تأكيد"
     }
+  },
+  "addressStepper": {
+    "step1": {
+      "titleAdd": "إضافة عنوان جديد",
+      "titleupdate": "تحديث معلومات العنوان",
+      "street": "الشارع",
+      "city": "المدينة",
+      "phone": "رقم الهاتف",
+      "placeholders": {
+        "street": "أدخل اسم الشارع",
+        "city": "أدخل مدينتك",
+        "phone": "أدخل رقم الهاتف"
+      }
+    },
+    "step2": {
+      "title": "اختر الموقع",
+      "instruction": "اضغط على الخريطة لتحديد موقع العنوان"
+    },
+    "buttons": {
+      "next": "التالي",
+      "previous": "السابق",
+      "submit": "حفظ العنوان"
+    }
+  },
+  "orderFlow": {
+    "summaryTitle": "الملخص",
+    "couponCode": "كود الخصم",
+    "applyCoupon": "تطبيق الكود",
+    "couponMessage": "لا يوجد كود خصم مطبق",
+    "Total": "السعر الإجمالي:",
+    "checkoutButton": "الدفع"
+  },
+  "cart": {
+    "title": "سلة التسوق",
+    "clear-cart": "إفراغ السلة",
+    "empty": "سلة التسوق فارغة، هل تريد تجربة التسوق؟",
+    "continue-shopping": "متابعة التسوق",
+    "remove": "حذف",
+    "rating": "التقييم"
   },
   "favourites": {
     "title": "قائمتي المفضلة"
