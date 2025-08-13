@@ -1,44 +1,17 @@
-<form [formGroup]="aboutForm" (ngSubmit)="onSubmit()" class="container">
-  <app-custom-input
-    formControlName="name"
-    type="text"
-    placeholder="Name"
-    id="name"
-    labelText="Name"
-    [errorHandilgControl]="aboutForm.get('name')!"
-    class="w-full"
-  ></app-custom-input>
+<app-about-us></app-about-us>
+<app-testimonials></app-testimonials>
+<app-expert-team></app-expert-team>
+<app-our-services></app-our-services>
+<app-trusted-by></app-trusted-by>
+<!-- @if(visible){
+<app-user-address [visible]="visible" (closed)="close()"></app-user-address>
+}
 
-  <app-custom-input
-    formControlName="email"
-    type="email"
-    placeholder="Email"
-    id="email"
-    labelText="Email"
-    [errorHandilgControl]="aboutForm.get('email')!"
-    class="w-full"
-  ></app-custom-input>
+<button (click)="openAddress()">Press</button> -->
 
-  <app-custom-input-phone
-    formControlName="phone"
-    placeholder="1558889635"
-    labelText="Phone"
-    id="phone"
-    class="w-full"
-    [errorHandilgControl]="aboutForm.get('phone')!"
-  ></app-custom-input-phone>
+<!-- @if(addressState===4){
+<app-address-stepper [address]="myAddress"></app-address-stepper>
+}@else if(addressState===2){
+<app-address-stepper></app-address-stepper>
 
-  <app-custom-input
-    formControlName="password"
-    type="password"
-    placeholder="password"
-    id="password"
-    labelText="Password"
-    class="w-full"
-    [errorHandilgControl]="aboutForm.get('password')!"
-  ></app-custom-input>
-
-
-
-  <button type="submit">Submit</button>
-</form>
+} -->
