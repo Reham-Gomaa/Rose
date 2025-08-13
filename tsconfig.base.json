@@ -65,6 +65,9 @@
       ],
       "@rose/store_sort/*": [
         "./apps/rose/src/app/store/sort/*"
+      ],
+      "@rose/address/*": [
+        "./apps/rose/src/app/store/address/*"
       ]
     }
   },

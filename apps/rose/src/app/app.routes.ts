@@ -48,6 +48,11 @@ export const appRoutes: Route[] = [
         loadComponent: () =>
           import("@rose/features_pages/details/details.component").then((c) => c.DetailsComponent),
       },
+      {
+        path:'checkout',
+        title:'Checkout',
+        loadComponent:()=>import("../app/features/checkout/checkout.component").then(c=>c.CheckoutComponent)
+      }
     ],
   },
   {
