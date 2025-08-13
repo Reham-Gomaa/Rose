@@ -321,5 +321,52 @@
   },
   "favourites": {
     "title": "قائمتي المفضلة"
+  },
+  "orders": {
+    "title": "الطلبات",
+    "orderNumber": "طلب رقم #",
+    "totalPrice": "إجمالي السعر:",
+    "orderDate": "انشئ في:",
+    "at": "الساعه",
+    "paid": "مدفوع",
+    "status": "الحالة:",
+    "paymentMethod": "طريقة الدفع:",
+    "deliveryStatus": "حالة التوصيل:",
+    "orderItems": "عناصر الطلب:",
+    "delivered": "تم التوصيل",
+    "canceled": "ملغي",
+    "rating": "التقييم:",
+    "notRatedYet": "لم يتم التقييم بعد",
+    "ratings": "تقييمات",
+    "showAll": "عرض الكل",
+    "showLess": "عرض أقل",
+    "noOrdersFound": "لم يتم العثور على طلبات.",
+    "states": {
+      "done": {
+        "text": "مكتمل",
+        "class": "green"
+      },
+      "in progress": {
+        "text": "قيد التنفيذ",
+        "class": "blue"
+      },
+      "cancelled": {
+        "text": "ملغي",
+        "class": "red"
+      }
+    },
+    "deliveryStatuses": {
+      "delivered": {
+        "text": "تم التوصيل"
+      },
+
+      "canceled": {
+        "text": "ملغي"
+      }
+    },
+    "paymentTypes": {
+      "creditCard": "بطاقة ائتمان",
+      "cash": "نقدي"
+    }
   }
 }

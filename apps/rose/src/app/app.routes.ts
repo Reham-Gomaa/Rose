@@ -55,11 +55,9 @@ export const appRoutes: Route[] = [
           ),
       },
       {
-        path: "orders",
+        path: "allorders",
         loadComponent: () =>
-          import("@rose/features_layouts/order-flow/components/orders/orders.component").then(
-            (c) => c.OrdersComponent
-          ),
+          import("@rose/features_pages/orders/orders.component").then((c) => c.OrdersComponent),
         title: "Orders",
       },
       {

@@ -1,4 +1,4 @@
-<section [@fadeTransition]="translationService.fadeState()">
+<section>
   <div class="contain mx-auto mb-8">
     <!-- Payment and Summary -->
     <div class="grid mb-8 align-items-start">
@@ -6,7 +6,7 @@
         @if ( cartService.orderFlowState() === "cart") {<app-cart />}
       </div>
       <!-- Summary -->
-      <div class="col-12 md:col-5">
+      <div class="col-12 md:col-5" [@fadeTransition]="translationService.fadeState()">
         <h2 class="summary-title">{{"orderFlow.summaryTitle" | translate}}</h2>
         <div class="summary-box">
           <div class="flex gap-2 align-items-center justify-content-center">
