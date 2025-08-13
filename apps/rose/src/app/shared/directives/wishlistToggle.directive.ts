@@ -1,47 +1,45 @@
 import { isPlatformBrowser } from "@angular/common";
 import {
+  DestroyRef,
   Directive,
   ElementRef,
   HostListener,
-  Inject,
+  inject,
+  input,
   Input,
-  OnDestroy,
+  InputSignal,
   OnInit,
   PLATFORM_ID,
+  Renderer2,
+  RendererFactory2,
 } from "@angular/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { Store } from "@ngrx/store";
 import { Product } from "@rose/core_interfaces/cart.interface";
-import { Subscription, take } from "rxjs";
+import { take } from "rxjs";
 import { loadWishlist, toggleWishlistProduct } from "../../store/wishlist/wishlist-actions";
 import { selectIsInWishlist, selectWishlistItems } from "../../store/wishlist/wishlist-selectors";
 
 @Directive({
   selector: "[appWishlistToggle]",
 })
-export class WishlistToggleDirective implements OnInit, OnDestroy {
-  @Input() appWishlistToggle!: Product;
-  @Input() activeClass = "heart-active";
+export class WishlistToggleDirective implements OnInit {
+  appWishlistToggle: InputSignal<Product> = input.required<Product>();
+  activeClass: InputSignal<string> = input.required<string>();
 
-  isActive = false;
-  private wishlistSubscription!: Subscription;
-  private isBrowser: boolean;
+  private readonly store = inject(Store);
+  private readonly el = inject(ElementRef);
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly rendererFactory = inject(RendererFactory2);
+  private readonly platformId = inject(PLATFORM_ID);
 
-  constructor(
-    private store: Store,
-    private el: ElementRef,
-    @Inject(PLATFORM_ID) private platformId: Object
-  ) {
-    this.isBrowser = isPlatformBrowser(this.platformId);
-  }
+  isActive: boolean = false;
+  renderer: Renderer2 = this.rendererFactory.createRenderer(null, null);
 
   ngOnInit() {
     this.initializeWishlist();
     this.setupWishlistSubscription();
     this.setAccessibilityAttributes();
-  }
-
-  ngOnDestroy() {
-    this.wishlistSubscription?.unsubscribe();
   }
 
   @HostListener("click") onClick() {
@@ -53,25 +51,25 @@ export class WishlistToggleDirective implements OnInit, OnDestroy {
   }
 
   private initializeWishlist() {
-    if (!this.isBrowser) return;
+    if (!isPlatformBrowser(this.platformId)) return;
 
     const stored = localStorage.getItem("wishlist");
     if (stored) {
       const favourites = JSON.parse(stored) as Product[];
       this.store.dispatch(loadWishlist({ products: favourites }));
 
-      // Immediately check if current product exists in loaded wishlist
-      const exists = favourites.some((item) => item._id === this.appWishlistToggle._id);
+      const exists = favourites.some((item) => item._id === this.appWishlistToggle()._id);
       if (exists) {
-        this.el.nativeElement.classList.add(this.activeClass);
-        this.el.nativeElement.setAttribute("aria-pressed", "true");
+        this.renderer.addClass(this.el.nativeElement, this.activeClass());
+        this.renderer.setAttribute(this.el.nativeElement, "aria-pressed", "true");
       }
     }
   }
 
   private setupWishlistSubscription() {
-    this.wishlistSubscription = this.store
-      .select(selectIsInWishlist(this.appWishlistToggle._id))
+    this.store
+      .select(selectIsInWishlist(this.appWishlistToggle()._id))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((isActive) => {
         this.isActive = isActive;
         this.updateClass();
@@ -79,26 +77,27 @@ export class WishlistToggleDirective implements OnInit, OnDestroy {
   }
 
   private setAccessibilityAttributes() {
-    if (this.isBrowser) {
-      this.el.nativeElement.setAttribute("role", "button");
-      this.el.nativeElement.setAttribute("aria-pressed", this.isActive);
+    if (isPlatformBrowser(this.platformId)) {
+      this.renderer.setAttribute(this.el.nativeElement, "role", "button");
+      this.renderer.setAttribute(this.el.nativeElement, "aria-pressed", String(this.isActive));
     }
   }
 
   private toggleProductInWishlist() {
-    if (!this.isBrowser) return;
+    if (!isPlatformBrowser(this.platformId)) return;
 
     this.store.dispatch(
       toggleWishlistProduct({
-        product: this.appWishlistToggle,
+        product: this.appWishlistToggle(),
       })
     );
-    this.persistWishlist();
+    this.updateStorage();
+    this.initializeWishlist();
     this.setupWishlistSubscription();
     this.updateAriaPressed();
   }
 
-  private persistWishlist() {
+  private updateStorage() {
     this.store
       .select(selectWishlistItems)
       .pipe(take(1))
@@ -108,18 +107,18 @@ export class WishlistToggleDirective implements OnInit, OnDestroy {
   }
 
   private updateClass() {
-    if (!this.isBrowser) return;
+    if (!isPlatformBrowser(this.platformId)) return;
 
     if (this.isActive) {
-      this.el.nativeElement.classList.add(this.activeClass);
+      this.renderer.addClass(this.el.nativeElement, this.activeClass());
     } else {
-      this.el.nativeElement.classList.remove(this.activeClass);
+      this.renderer.removeClass(this.el.nativeElement, this.activeClass());
     }
   }
 
   private updateAriaPressed() {
-    if (this.isBrowser) {
-      this.el.nativeElement.setAttribute("aria-pressed", this.isActive);
+    if (isPlatformBrowser(this.platformId)) {
+      this.renderer.setAttribute(this.el.nativeElement, "aria-pressed", String(this.isActive));
     }
   }
 }

@@ -1,5 +1,6 @@
 .heading {
   margin-bottom: 2.5rem;
+  text-align: left;
 
   .wishlist-title-wrapper {
     position: relative;
@@ -19,11 +20,12 @@
   .wishlist-bg-shape {
     position: absolute;
     top: 2.6rem;
-    width: 21.125rem;
+    width: 8.125rem;
     height: 1.0625rem;
     border-radius: 0 1.25rem 1.25rem 0;
     z-index: 1;
     background-color: var(--shape-gallery-background);
+    opacity: 0.6;
   }
 
   .wishlist-underline-bar {
@@ -34,4 +36,8 @@
     z-index: 11;
     background-color: var(--underline-bar-gallery-color);
   }
+}
+
+:host-context([dir="rtl"]) .heading {
+  text-align: right;
 }

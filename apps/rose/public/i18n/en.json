@@ -275,5 +275,8 @@
       "remove": "Remove",
       "rating": "rating"
     }
+  },
+  "favourites": {
+    "title": "My Wishlist"
   }
 }

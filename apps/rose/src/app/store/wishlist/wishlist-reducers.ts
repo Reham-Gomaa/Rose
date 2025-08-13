@@ -17,12 +17,10 @@ export const wishlistReducer = createReducer(
     favouriteitemsNum: products.length,
   })),
 
-  // Toggle action - adds if not present, removes if present
   on(toggleWishlistProduct, (state, { product }) => {
     const productIndex = state.favouriteitems.findIndex((item) => item._id === product._id);
 
     if (productIndex >= 0) {
-      // Product exists - remove it
       const updatedItems = [
         ...state.favouriteitems.slice(0, productIndex),
         ...state.favouriteitems.slice(productIndex + 1),
@@ -34,7 +32,6 @@ export const wishlistReducer = createReducer(
         favouriteitemsNum: updatedItems.length,
       };
     } else {
-      // Product doesn't exist - add it
       return {
         ...state,
         favouriteitems: [...state.favouriteitems, product],
