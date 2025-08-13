@@ -1,6 +1,6 @@
 // @angular
 import { AsyncPipe } from "@angular/common";
-import { Component, DestroyRef, effect, inject } from "@angular/core";
+import { Component, DestroyRef, inject } from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { FormsModule } from "@angular/forms";
 // Components
@@ -47,9 +47,6 @@ export class OrderFlowComponent {
 
   constructor() {
     this.totalPrice$ = this.store.select(selectTotalPrice);
-    effect(() => {
-      console.log("Current order flow state:", this.cartService.orderFlowState());
-    });
   }
 
   responsiveOptions = [
