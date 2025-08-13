@@ -1,9 +1,9 @@
 <app-custom-main-dialog [visable]="visible()" (closed)="close()">
   <div head>
     @if(isUpdate()){
-      <p class="text-head">{{ 'addressStepper.step1.titleupdate' | translate }}</p>
+    <p class="text-head">{{ "addressStepper.step1.titleupdate" | translate }}</p>
     }@else {
-      <p class="text-head">{{ 'addressStepper.step1.titleAdd' | translate }}</p>
+    <p class="text-head">{{ "addressStepper.step1.titleAdd" | translate }}</p>
 
     }
   </div>
@@ -75,15 +75,15 @@
       <p-step-panel [value]="2">
         <ng-template #content let-activateCallback="activateCallback">
           <div class="pb-6">
-            <google-map height="400px" width="100%" [center]="center" [zoom]="12"> </google-map>
-          </div>
-
-          <div class="w-full">
-            <p-button
-              [label]="'addressStepper.buttons.submit' | translate"
-              (onClick)="onDone();"
-              styleClass="w-full"
-            />
+            <google-map
+              height="400px"
+              width="100%"
+              [center]="center"
+              [zoom]="12"
+              (mapClick)="addMarker($event)"
+            >
+              <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
+            </google-map>
           </div>
         </ng-template>
       </p-step-panel>

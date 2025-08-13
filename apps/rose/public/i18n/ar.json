@@ -302,13 +302,14 @@
       "previous": "السابق",
       "submit": "حفظ العنوان"
     },
-   "orderFlow": {
+    "orderFlow": {
       "summaryTitle": "الملخص",
       "couponCode": "كود الخصم",
       "applyCoupon": "تطبيق الكود",
       "couponMessage": "لا يوجد كود خصم مطبق",
-      "Total":"السعر الإجمالي:",
+      "Total": "السعر الإجمالي:",
       "price": "{{price}} ج.م",
       "checkoutButton": "الدفع"
+    }
   }
 }

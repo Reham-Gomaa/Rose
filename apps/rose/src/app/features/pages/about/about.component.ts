@@ -9,6 +9,11 @@ import { Store } from "@ngrx/store";
 import { selectAddress, selectAddressState } from "../../../store/address/address.selector";
 import { AddressSituations } from "../../../store/address/addresses.state";
 import { setAddressState, showAddresses } from "../../../store/address/address.actions";
+import { AboutUsComponent } from "../home/components/about-us/aboutUs.component";
+import { TestimonialsComponent } from "../home/components/testimonials/testimonials.component";
+import { ExpertTeamComponent } from "./components/expert-team/expert-team.component";
+import { OurServicesComponent } from "../home/components/our-services/ourServices.component";
+import { TrustedByComponent } from "../home/components/trusted-by/trustedBy.component";
 @Component({
   selector: "app-about",
   templateUrl: "./about.component.html",
@@ -18,7 +23,12 @@ import { setAddressState, showAddresses } from "../../../store/address/address.a
     StepperModule,
     ReactiveFormsModule,
     UserAddressComponent,
-  ],
+    AboutUsComponent,
+    TestimonialsComponent,
+    ExpertTeamComponent,
+    OurServicesComponent,
+    TrustedByComponent
+],
 })
 export class AboutComponent implements OnInit {
   visible: boolean = false;

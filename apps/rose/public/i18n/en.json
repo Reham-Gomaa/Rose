@@ -303,7 +303,7 @@
       "previous": "Previous",
       "submit": "Save Address"
     },
-  "orderFlow": {
+    "orderFlow": {
       "summaryTitle": "Summary",
       "couponCode": "Coupon Code",
       "applyCoupon": "Apply Coupon",
@@ -311,7 +311,6 @@
       "Total": "Total:",
       "price": "{{price}} EGP",
       "checkoutButton": "Checkout"
+    }
   }
-
-  
 }

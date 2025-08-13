@@ -37,7 +37,7 @@ export class AddressStepperComponent implements OnInit {
 
 
   address!: Address;
-  center = { lat: 30.0444, lng: 31.2357 };
+  // center = { lat: 30.0444, lng: 31.2357 };
   addressId!: string;
   userName!:string;
 
@@ -45,6 +45,10 @@ export class AddressStepperComponent implements OnInit {
   addressId$ = this._store.select(selectAddressId);
   address$ = this._store.select(selectAddress);
   userName$ = this._store.select(selectUserName);
+
+
+  center: google.maps.LatLngLiteral = { lat: 30.0444, lng: 31.2357 }; // Example: Cairo
+  markerPosition!: google.maps.LatLngLiteral;
 
   addressForm: FormGroup = new FormGroup({
     city: new FormControl("", [Validators.required]),
@@ -101,6 +105,16 @@ export class AddressStepperComponent implements OnInit {
       username: this.userName,
     };
     this._store.dispatch(updateAddress({ address: address, addressId: this.addressId }));
+  }
+
+   addMarker(event: google.maps.MapMouseEvent) {
+    if (event.latLng) {
+      this.markerPosition = {
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng(),
+      };
+      console.log('Marker placed at:', this.markerPosition);
+    }
   }
 
   init() {
