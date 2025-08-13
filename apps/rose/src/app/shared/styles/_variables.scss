@@ -319,6 +319,7 @@
   --order-ratings: var(--blue-700);
   --show-btn: var(--maroon-600);
   --rating-star: var(--yellow);
+  --fade-mask-base: 255, 255, 255; 
 
 }
 
@@ -561,18 +562,20 @@
   --order-title-color: var(--white);
   --order-header-bg: var(--soft-pink-300);
   --order-header-color: var(--zinc-700);
-  --order-total-color:var(--zinc-800);
+  --order-total-color:var(--zinc-100);
   --green-badge-bg: var(--emerald-500);
   --blue-badge-bg:var(--blue-700);
   --red-badge-bg:var(--red-600);
   --badge-color: var(--white);
-  --order-items-bg: var(--zinc-100);
+  --order-items-bg: var(--zinc-800);
   --payment-color: var(--zinc-500);
-  --order-item-bg: var(--white);
+  --order-item-bg: var(--zinc-600);
   --order-item-title: var(--soft-pink-400);
   --quantity-color: var(--soft-pink-400);
   --order-ratings: var(--blue-700);
   --show-btn: var(--soft-pink-300);
-   --rating-star: var(--yellow);
+  --rating-star: var(--yellow);
+   --fade-mask-base: 18, 18, 18; 
+
 
 }
