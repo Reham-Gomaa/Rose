@@ -1,1 +1,78 @@
-<p>contact works!</p>
+<section>
+    <h1>Contact Us</h1>
+    <div class="grid bg-yellow-100 mb-8 ">
+        <div class="contact-info col-12 md:col-6 lg:col-6">
+
+             <div class="contact-item">
+            <div class="contact-label">Call Anytime</div>
+            <div class="contact-detail">241-373-2123</div>
+        </div>
+        
+        <div class="contact-item">
+            <div class="contact-label">Send Email</div>
+            <div class="contact-detail">
+                <a href="">Dwight63.com</a>
+            </div>
+
+        </div>
+        
+        <div class="contact-item">
+            <div class="contact-label">Visit Us</div>
+            <div class="contact-detail">
+                20 Island Park Road,<br>
+                New Jersey, New York, USA
+            </div>
+        </div>
+
+        </div>
+
+        <div class="right col-12 md:col-6 lg:col-6">
+
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form mb-4">
+                  <app-custom-input
+                    [id]="'Name'"
+                    [labelText]="''"
+                    [placeholder]="'Name'"
+                     [type]="'text'">
+                  </app-custom-input>
+
+                <app-custom-input
+                    [id]="'Email'"
+                    [labelText]="''"
+                    [placeholder]="'Email'"
+                     [type]="'email'">
+                  </app-custom-input>
+
+                  <app-custom-input
+                    [id]="'Phone'"
+                    [labelText]="''"
+                    [placeholder]="'Phone'"
+                     [type]="'tel'">
+                  </app-custom-input>
+
+                   <app-custom-input
+                    [id]="'Message'"
+                    [labelText]="''"
+                    [placeholder]="'Message'"
+                     [type]="'text'">
+                  </app-custom-input>
+
+                  
+
+                   
+            </form>
+
+            <app-button
+                   [text]="'home.bestSeller.left.btn' | translate"
+                   [isIcon]="true"
+                   [borderRadius]="'btn-bestseller-radius'"
+                   [padding]="'btn-bestseller-padding'"
+                   [transition]="'btn-bestseller-transition'"
+                    aria-label="Submit contact form"
+                   />
+
+        </div>
+
+    </div>
+
+</section>
