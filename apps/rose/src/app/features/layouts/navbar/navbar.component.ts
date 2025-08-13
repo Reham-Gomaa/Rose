@@ -39,6 +39,7 @@ import { InputTextModule } from "primeng/inputtext";
 import { Menubar } from "primeng/menubar";
 import { OverlayBadgeModule } from "primeng/overlaybadge";
 import { SplitButton } from "primeng/splitbutton";
+import { CartService } from "@rose/shared_services/cart/cart.service";
 
 interface UserProfile {
   _id: string;
@@ -98,6 +99,7 @@ type modalPosition =
 })
 export class NavbarComponent implements OnInit {
   readonly _translationService = inject(TranslationService);
+  cartService = inject(CartService);
   private readonly _platformId = inject(PLATFORM_ID);
   private readonly _authApiService = inject(AuthApiKpService);
   private readonly destroyRef = inject(DestroyRef);

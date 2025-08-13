@@ -7,7 +7,7 @@
             <div>
                 <app-button (click)="clearCart()" [bgColor]="'var(--cart-clearBtn-bg)'"
                     [textColor]="'var(--cart-clearBtn-text)'" [text]="'order-flow.cart.clear-cart' |translate"
-                    [padding]="'cart-padding'" [borderRadius]="'cart-radius'">
+                    [padding]="'clear-cart-padding'" [borderRadius]="'cart-radius'">
                     <img src="./images/cart/brush-cleaning.WebP" alt="clear cart">
                 </app-button>
             </div>
@@ -34,13 +34,13 @@
             @else {
             @for (item of userCartItems; track $index) {
             @if (cartItemsNum$ |async; as cartItemsNum) {
-            <div [class.border-none]="cartItemsNum === $index + 1" class="pdt-wrapper flex flex-wrap">
-                <div class="w-4 md:w-3">
+            <div [class.border-none]="cartItemsNum === $index + 1" class="pdt-wrapper ">
+                <div class=" md:w-3">
                     <img class="pdt block border-round-lg" [src]="item.product.imgCover" alt="product">
                 </div>
-                <div class="w-8 md:w-9 flex flex-column justify-content-between">
+                <div class=" md:w-9 flex flex-column justify-content-between">
                     <!-- Right - UP -->
-                    <div class="flex justify-content-between align-items-center">
+                    <div class="pdt-title-rating">
                         <div>
                             <h2 class="pdt-name">{{item.product.title}}</h2>
                             <h3 class="pdt-rating">
@@ -51,7 +51,7 @@
                                     |translate}})</span>
                             </h3>
                         </div>
-                        <div>
+                        <div class="remove-btn">
                             <app-button (click)="removeCartItem(item.product._id)"
                                 [bgColor]="'var(--cart-deleteBtn-bg)'" [textColor]="'var(--cart-deleteBtn-text)'"
                                 [icon]="'pi pi-trash'" [padding]="'cart-delete-padding'" [borderRadius]="'cart-radius'"
@@ -61,7 +61,7 @@
                     </div>
 
                     <!-- Right - Down -->
-                    <div class="flex justify-content-between align-items-center">
+                    <div class="pdt-price-quantity">
                         <div>
                             <h3 class="pdt-price"> <span class="qty">(x{{item.quantity}})</span>
                                 {{item.product.price}}
@@ -69,15 +69,17 @@
                             </h3>
                         </div>
                         <div class=" flex justify-content-center md:justify-content-between align-items-center">
-                            <app-button (click)="updateProductQuantity(item.product._id,-1)" [padding]="'cart-padding'"
-                                [borderRadius]="'cart-radius'" [bgColor]="'var(--cart-clearBtn-bg)'"
-                                [textColor]="'var(--cart-clearBtn-text)'" [icon]="'pi pi-minus'" />
+                            <app-button (click)="updateProductQuantity(item.product._id,-1)"
+                                [padding]="'cart-qty-padding'" [borderRadius]="'cart-radius'"
+                                [bgColor]="'var(--cart-clearBtn-bg)'" [textColor]="'var(--cart-clearBtn-text)'"
+                                [icon]="'pi pi-minus'" />
                             <input type="number" class="w-4 md:w-6rem mx-2" [value]="item.quantity" min="1"
                                 [max]="item.product.quantity" (change)="onQuantityChange(item.product._id, $event)"
                                 (keyup.enter)="onQuantityChange(item.product._id, $event)" />
-                            <app-button (click)="updateProductQuantity(item.product._id,1)" [padding]="'cart-padding'"
-                                [borderRadius]="'cart-radius'" [bgColor]="'var(--cart-clearBtn-bg)'"
-                                [textColor]="'var(--cart-clearBtn-text)'" [icon]="'pi pi-plus'" />
+                            <app-button (click)="updateProductQuantity(item.product._id,1)"
+                                [padding]="'cart-qty-padding'" [borderRadius]="'cart-radius'"
+                                [bgColor]="'var(--cart-clearBtn-bg)'" [textColor]="'var(--cart-clearBtn-text)'"
+                                [icon]="'pi pi-plus'" />
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 // @angular
 import { HttpClient } from "@angular/common/http";
-import { inject, Injectable } from "@angular/core";
+import { inject, Injectable, signal } from "@angular/core";
 // rxjs
 import { Observable } from "rxjs";
 // shared
@@ -12,6 +12,8 @@ import { CartResponse } from "@rose/core_interfaces/cart.interface";
 })
 export class CartService {
   private readonly httpClient = inject(HttpClient);
+
+  orderFlowState = signal<"cart" | "userAddress">("cart");
 
   getLoggedUserCart(): Observable<CartResponse> {
     return this.httpClient.get<CartResponse>(`${EndPoint.CART}`);
@@ -30,11 +32,11 @@ export class CartService {
     });
   }
 
-  removeSpecificCartItem(c_id: string): Observable<any> {
-    return this.httpClient.delete<any>(`${EndPoint.CART}/${c_id}`);
+  removeSpecificCartItem(c_id: string): Observable<CartResponse> {
+    return this.httpClient.delete<CartResponse>(`${EndPoint.CART}/${c_id}`);
   }
 
-  clearUserCart(): Observable<any> {
-    return this.httpClient.delete<any>(`${EndPoint.CART}`);
+  clearUserCart(): Observable<CartResponse> {
+    return this.httpClient.delete<CartResponse>(`${EndPoint.CART}`);
   }
 }

@@ -1,12 +1,11 @@
 //summary
-.summary-box{
+.summary-box {
   background-color: var(--summary-background-color);
   border-radius: 10px;
-  padding:1rem;
-  
+  padding: 1rem;
 }
 
-.summary-title{
+.summary-title {
   color: var(--summary-title-color);
   font-family: var(--font-family-4);
   font-weight: 600;
@@ -14,7 +13,7 @@
   margin-bottom: 1.5rem;
 }
 
-.total-row{
+.total-row {
   color: var(--total-row-color);
   font-family: var(--font-family-4);
   font-weight: 700;
@@ -23,19 +22,19 @@
   margin-bottom: 2rem;
 }
 
-.coupon-box{
-  width:80%;
-  height:309px;
+.coupon-box {
+  width: 80%;
+  height: 309px;
   border: 1px solid var(--coupon-border-color);
   border-radius: 8px;
   font-style: italic;
   font-weight: 400;
   font-size: 1rem;
-  color:var(--zinc-500);
+  color: var(--zinc-500);
   margin-block: 1rem;
 }
 
-.buttons{
+.buttons {
   background-color: var(--summary-button-color);
   border-radius: 0.655rem;
   color: var(--summary-button-text-color);
@@ -48,17 +47,14 @@
   margin-top: 20px;
 }
 
-.buttons:hover{
+.buttons:hover {
   background-color: var(--summary-button-hover);
 }
-
-
 
 // slider
 .carousel-card-wrapper {
   padding: 0 0.5rem;
 }
-
 
 .custom-carousel .p-carousel-indicators {
   display: none !important;
@@ -129,7 +125,6 @@
     }
     ::ng-deep .p-carousel-indicators {
       padding: 0 2rem;
-
     }
   }
 }

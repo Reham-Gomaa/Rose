@@ -1,8 +1,7 @@
 // @angular
 import { AsyncPipe } from "@angular/common";
-import { Component, inject, OnInit } from "@angular/core";
+import { Component, DestroyRef, inject, OnInit } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { RouterLink, RouterOutlet } from "@angular/router";
 // Components
 import { BestsellerSliderComponent } from "@rose/shared_Components_ui/bestseller-slider/bestseller-slider.component";
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
@@ -14,20 +13,18 @@ import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 // Store
-import { Observable } from "rxjs";
 import { Store } from "@ngrx/store";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
-import { selectTotalPrice } from "../../../store/cart/cart-selectors";
-import { toCartState, toPaymentState } from "../../../store/orderFlow-states/orderflow.action";
-import { selectOrderFlow } from "../../../store/orderFlow-states/orderflow.selector";
-
-export type orderFlowState = "cart" | "userAddress";
+import { Observable } from "rxjs";
+import { selectCartItems, selectTotalPrice } from "../../../store/cart/cart-selectors";
+import { CartService } from "@rose/shared_services/cart/cart.service";
+import { deleteSpecificItem, getUserCart } from "../../../store/cart/cart-actions";
+import { cartItems } from "@rose/core_interfaces/cart.interface";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
 @Component({
   selector: "app-order-flow",
   imports: [
-    RouterLink,
-    RouterOutlet,
     TranslatePipe,
     CustomInputComponent,
     FormsModule,
@@ -41,22 +38,17 @@ export type orderFlowState = "cart" | "userAddress";
   styleUrl: "./order-flow.component.scss",
   animations: [fadeTransition],
 })
-export class OrderFlowComponent implements OnInit {
+export class OrderFlowComponent {
   translationService = inject(TranslationService);
+  cartService = inject(CartService);
   private readonly store = inject(Store);
+  private readonly destroyRef = inject(DestroyRef);
 
   totalPrice$!: Observable<number>;
-  orderFlow$!: Observable<any>;
-  orderFlowState!: orderFlowState;
+  userCartItems: cartItems[] = [];
 
-  goToPayment() {
-    this.orderFlowState = "userAddress";
-    //this.store.dispatch(toPaymentState());
-  }
-
-  goToCart() {
-    this.orderFlowState = "cart";
-    //this.store.dispatch(toCartState());
+  constructor() {
+    this.totalPrice$ = this.store.select(selectTotalPrice);
   }
 
   responsiveOptions = [
@@ -65,10 +57,25 @@ export class OrderFlowComponent implements OnInit {
     { breakpoint: "560px", numVisible: 1, numScroll: 1 },
   ];
 
-  ngOnInit(): void {
-    this.goToCart();
-    console.log(this.orderFlowState);
-    this.totalPrice$ = this.store.select(selectTotalPrice);
-    this.orderFlow$ = this.store.select(selectOrderFlow);
+  checkStoreQuantity() {
+    this.store.dispatch(getUserCart());
+    this.store
+      .select(selectCartItems)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe((items) => (this.userCartItems = items));
+
+    const invalidItems = this.userCartItems.filter((item) => item.quantity > item.product.quantity);
+
+    if (invalidItems.length > 0) {
+      for (let i = 0; i < invalidItems.length; i++) {
+        this.store.dispatch(deleteSpecificItem({ p_id: invalidItems[i].product._id }));
+      }
+      return;
+    }
+    this.goToPayment();
+  }
+
+  goToPayment() {
+    this.cartService.orderFlowState.set("userAddress");
   }
 }
