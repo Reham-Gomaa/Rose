@@ -9,7 +9,7 @@ import {
   signal,
   ViewChild,
 } from "@angular/core";
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 // rxjs
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
@@ -105,6 +105,7 @@ export class NavbarComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
   private readonly _messageService = inject(MessageService);
   private readonly _store = inject(Store);
+  private readonly router = inject(Router);
 
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
   cartItemsNum$!: Observable<number>;
@@ -282,6 +283,7 @@ export class NavbarComponent implements OnInit {
           if (isPlatformBrowser(this._platformId)) {
             localStorage.removeItem("authToken");
           }
+          this.router.navigate(["dashboard/home"]);
         },
         error: (err) => {
           this._messageService.add({
