@@ -18,14 +18,23 @@ export class CheckoutService {
 
 
   createCashOrder():Observable<any>{
+    const orderAddress = this.paymentInfo().shippingAddress
+
     return this.http.post(`${EndPoint.ORDERS}`,{
-      shippingAddress:this.paymentInfo().shippingAddress
+     shippingAddress:{
+         street: orderAddress.street,
+          phone:orderAddress.phone,
+          city:orderAddress.city,
+          lat:orderAddress.lat,
+          long:orderAddress.long,
+
+      }
     })
 
   }
 
   createCheckoutSession():Observable<any>{
-    const url = encodeURIComponent('http://localhost:4200/#')
+    const url = encodeURIComponent('http://localhost:4200/#/order-flow')
     const orderAddress = this.paymentInfo().shippingAddress
      return this.http.post(`${EndPoint.CHECKOUT_SESSION}?url=${url}`,{
       shippingAddress:{
@@ -34,8 +43,7 @@ export class CheckoutService {
           city:orderAddress.city,
           lat:orderAddress.lat,
           long:orderAddress.long,
-          username:orderAddress.username || " ",
-          _id:orderAddress._id
+
       }
     })
   }

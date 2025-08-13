@@ -7,6 +7,8 @@ import { progressStep } from "./models/progress.step";
 import { payInfo } from "./checkout/paymentInfo";
 import { Address } from "@rose/core_interfaces/user-address.interface";
 import { CheckoutService } from "./services/checkout/checkout.service";
+import { Router } from "@angular/router";
+// import { Router } from "express";
 
 @Component({
   selector: "app-checkout",
@@ -16,6 +18,7 @@ import { CheckoutService } from "./services/checkout/checkout.service";
 })
 export class CheckoutComponent {
   private checkOut = inject(CheckoutService)
+  private _router = inject(Router)
   checkoutSteps : progressStep[] =[
     {
       value:1,
@@ -43,7 +46,9 @@ export class CheckoutComponent {
     console.log(this.checkOut.paymentInfo().shippingAddress);
     this.checkOut.createCashOrder().subscribe({
       next: (response) => {
-        console.log(response);
+        if(response.message == "success") {
+          this._router.navigate(['/order-flow/orders'])
+        }
       }
     })
   }
@@ -52,7 +57,10 @@ export class CheckoutComponent {
 
     this.checkOut.createCheckoutSession().subscribe({
       next: (response) => {
-        console.log(response);
+        if(response.message == "success") {
+          const url = response.session.url
+          window.open(url)
+        }
       }
     })
 
