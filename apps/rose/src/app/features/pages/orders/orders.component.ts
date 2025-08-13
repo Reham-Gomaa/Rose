@@ -58,9 +58,7 @@ export class OrdersComponent implements OnInit {
   }
 
   loadOrders(): void {
-
     
-
       this.ordersService.getUserOrders()
       .pipe(takeUntil(this.destroy$))
       .subscribe({
