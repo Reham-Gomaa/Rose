@@ -29,6 +29,8 @@ import { SplitButton } from "primeng/splitbutton";
 import { AuthApiKpService } from "auth-api-kp";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { FormsModule } from "@angular/forms";
+import { Store } from "@ngrx/store";
+import { setUserName } from "../../../store/address/address.actions";
 
 interface UserProfile {
   _id: string;
@@ -91,6 +93,7 @@ export class NavbarComponent implements OnInit {
   private readonly _authApiService = inject(AuthApiKpService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly _messageService = inject(MessageService);
+  private readonly _store=inject(Store);
 
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
 
@@ -224,6 +227,7 @@ export class NavbarComponent implements OnInit {
         next: (res) => {
           this.user.set(res.user);
           this.userName.set(`${res.user.firstName} ${res.user.lastName}`);
+          this._store.dispatch(setUserName({userName:this.userName()}))
           this.updateUserDropdown();
           this.loading.set(false);
         },

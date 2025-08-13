@@ -7,7 +7,7 @@ export const selectAddressFeature = createFeatureSelector<AddressState>('Address
 // Individual selectors
 export const selectAllAddresses = createSelector(
   selectAddressFeature,
-  (state: AddressState) => state.address
+  (state: AddressState) => state.addresses
 );
 
 export const selectAddressLoading = createSelector(
@@ -29,4 +29,14 @@ export const selectAddressState = createSelector(
 export const selectAddressId = createSelector(
   selectAddressFeature,
   (state: AddressState) => state.selectedAdddressId
+);
+
+export const selectAddress = createSelector(
+  selectAddressFeature,
+  (state: AddressState) => state.address
+);
+
+export const selectUserName = createSelector(
+  selectAddressFeature,
+  (state: AddressState) => state.userName
 );

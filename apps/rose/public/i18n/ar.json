@@ -280,13 +280,36 @@
       "confirm": "تأكيد"
     }
   },
-   "orderFlow": {
+  "addressStepper": {
+    "step1": {
+      "titleAdd": "إضافة عنوان جديد",
+      "titleupdate": "تحديث معلومات العنوان",
+      "street": "الشارع",
+      "city": "المدينة",
+      "phone": "رقم الهاتف",
+      "placeholders": {
+        "street": "أدخل اسم الشارع",
+        "city": "أدخل مدينتك",
+        "phone": "أدخل رقم الهاتف"
+      }
+    },
+    "step2": {
+      "title": "اختر الموقع",
+      "instruction": "اضغط على الخريطة لتحديد موقع العنوان"
+    },
+    "buttons": {
+      "next": "التالي",
+      "previous": "السابق",
+      "submit": "حفظ العنوان"
+    },
+    "orderFlow": {
       "summaryTitle": "الملخص",
       "couponCode": "كود الخصم",
       "applyCoupon": "تطبيق الكود",
       "couponMessage": "لا يوجد كود خصم مطبق",
-      "Total":"السعر الإجمالي:",
+      "Total": "السعر الإجمالي:",
       "price": "{{price}} ج.م",
       "checkoutButton": "الدفع"
+    }
   }
 }
