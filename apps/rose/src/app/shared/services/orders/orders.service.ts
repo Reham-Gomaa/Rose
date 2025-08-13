@@ -15,9 +15,7 @@ export class OrdersService {
   constructor(private httpClient: HttpClient) { }
 
   getUserOrders(): Observable<OrderRes> {
-      const token = localStorage.getItem('authToken'); 
-      return this.httpClient.get<OrderRes>(`${EndPoint.ORDERS}`, {
-      headers: { Authorization: `Bearer ${token}` }
-    });
+    
+      return this.httpClient.get<OrderRes>(`${EndPoint.ORDERS}`);
   }
 }
