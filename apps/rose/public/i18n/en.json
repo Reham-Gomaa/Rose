@@ -266,36 +266,57 @@
     "onlyNumbers": "This number is not valid",
     "misMatch": "Passwords do not match"
   },
-  "order-flow": {
-    "cart": {
-      "title": "Cart",
-      "clear-cart": "Clear Cart",
-      "empty": "Your cart is empty, wanna try shopping?",
-      "continue-shopping": "Continue Shopping",
-      "remove": "Remove",
-      "rating": "rating"
-    },
-    "addressList": {
-      "noAddress": "No Address Found"
-    },
-    "headAddress": {
-      "title": "My Addresses",
-      "addButton": "Add a New Address"
-    },
-    "dialog": {
-      "deleteAddress": {
-        "confirmationMessage": "Are you sure you want to delete this address?",
-        "cancel": "Cancel",
-        "confirm": "Confirm"
+  "addressList": {
+    "noAddress": "No Address Found"
+  },
+  "headAddress": {
+    "title": "My Addresses",
+    "addButton": "Add a New Address"
+  },
+  "dialog": {
+    "deleteAddress": {
+      "confirmationMessage": "Are you sure you want to delete this address?",
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    }
+  },
+  "addressStepper": {
+    "step1": {
+      "titleAdd": "Add a New Address",
+      "titleupdate": "Update Address Info",
+      "street": "Street",
+      "city": "City",
+      "phone": "Phone Number",
+      "placeholders": {
+        "street": "Enter your street name",
+        "city": "Enter your city",
+        "phone": "Enter your phone number"
       }
     },
-    "summary": {
-      "summaryTitle": "Summary",
-      "couponCode": "Coupon Code",
-      "applyCoupon": "Apply Coupon",
-      "couponMessage": "No coupon applied",
-      "Total": "Total:",
-      "checkoutButton": "Checkout"
+    "step2": {
+      "title": "Select Location",
+      "instruction": "Click on the map to set your address location"
+    },
+    "buttons": {
+      "next": "Next",
+      "previous": "Previous",
+      "submit": "Save Address"
     }
+  },
+  "orderFlow": {
+    "summaryTitle": "Summary",
+    "couponCode": "Coupon Code",
+    "applyCoupon": "Apply Coupon",
+    "couponMessage": "No coupon applied",
+    "Total": "Total:",
+    "checkoutButton": "Checkout"
+  },
+  "cart": {
+    "title": "Cart",
+    "clear-cart": "Clear Cart",
+    "empty": "Your cart is empty, wanna try shopping?",
+    "continue-shopping": "Continue Shopping",
+    "remove": "Remove",
+    "rating": "rating"
   }
 }

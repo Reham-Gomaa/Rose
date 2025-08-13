@@ -22,8 +22,10 @@ import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 import { Store } from "@ngrx/store";
 import { getUserCart } from "../../../store/cart/cart-actions";
 import { selectCartItemsNum } from "../../../store/cart/cart-selectors";
+import { setUserName } from "../../../store/address/address.actions";
 // Shared Services and components
 import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { CartService } from "@rose/shared_services/cart/cart.service";
 import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";
 import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
 import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
@@ -39,7 +41,6 @@ import { InputTextModule } from "primeng/inputtext";
 import { Menubar } from "primeng/menubar";
 import { OverlayBadgeModule } from "primeng/overlaybadge";
 import { SplitButton } from "primeng/splitbutton";
-import { CartService } from "@rose/shared_services/cart/cart.service";
 
 interface UserProfile {
   _id: string;
@@ -247,6 +248,7 @@ export class NavbarComponent implements OnInit {
         next: (res) => {
           this.user.set(res.user);
           this.userName.set(`${res.user.firstName} ${res.user.lastName}`);
+          this._store.dispatch(setUserName({ userName: this.userName() }));
           this.updateUserDropdown();
           this.loading.set(false);
         },

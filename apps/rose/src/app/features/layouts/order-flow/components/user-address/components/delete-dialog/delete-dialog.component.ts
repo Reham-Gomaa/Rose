@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, input, OnInit, Output } from "@angular/core";
+import { Component, DestroyRef, EventEmitter, inject, input, OnInit, Output } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { CustomMainDialogComponent } from "@rose/shared_Components_ui/custom-main-dialog/custom-main-dialog.component";
 import { TranslatePipe } from "@ngx-translate/core";
@@ -11,6 +11,7 @@ import {
   selectAddressLoading,
 } from "apps/rose/src/app/store/address/address.selector";
 import { SpinnerComponent } from "@rose/shared_Components_ui/spinner/spinner.component";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
 @Component({
   selector: "app-delete-dialog",
@@ -20,9 +21,13 @@ import { SpinnerComponent } from "@rose/shared_Components_ui/spinner/spinner.com
 })
 export class DeleteDialogComponent implements OnInit {
   private readonly _store = inject(Store);
+  private readonly destroyRef = inject(DestroyRef);
+
   @Output() closed = new EventEmitter<void>();
-  addressId!: string;
   visible = input.required<boolean>();
+
+  
+  addressId!: string;
   loading!: boolean;
   error!: any;
 
@@ -44,13 +49,13 @@ export class DeleteDialogComponent implements OnInit {
   }
 
   initSelectors():void{
-  this.loading$.subscribe((loading) => {
+  this.loading$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((loading) => {
       this.loading = loading;
     });
-    this.error$.subscribe((error) => {
+    this.error$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((error) => {
       this.error = error;
     });
-    this.addressId$.subscribe((addressId) => {
+    this.addressId$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((addressId) => {
       this.addressId = addressId;
     });
   }
