@@ -1,78 +1,92 @@
-<section>
-    <h1>Contact Us</h1>
-    <div class="grid bg-yellow-100 mb-8 ">
-        <div class="contact-info col-12 md:col-6 lg:col-6">
-
-             <div class="contact-item">
-            <div class="contact-label">Call Anytime</div>
-            <div class="contact-detail">241-373-2123</div>
-        </div>
-        
-        <div class="contact-item">
-            <div class="contact-label">Send Email</div>
-            <div class="contact-detail">
-                <a href="">Dwight63.com</a>
+<section class="contact-section">
+    <h1 class="contact-title">CONTACT US</h1>
+    
+    <div class="grid">
+        <div class="contact-info col-12 lg:col-6">
+            <div class="contact-item">
+                <div class="contact-icon phone-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-label">Call Anytime</div>
+                    <div class="contact-detail">241-373-2123</div>
+                </div>
             </div>
-
-        </div>
-        
-        <div class="contact-item">
-            <div class="contact-label">Visit Us</div>
-            <div class="contact-detail">
-                20 Island Park Road,<br>
-                New Jersey, New York, USA
+            
+            <div class="contact-item">
+                <div class="contact-icon email-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-label">Send Email</div>
+                    <div class="contact-detail">Dwight63&#64;gmail.com</div>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon location-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-label">Visit Us</div>
+                    <div class="contact-detail">
+                        20 Island Park Road,<br>
+                        New Jersey, New York, USA
+                    </div>
+                </div>
             </div>
         </div>
 
-        </div>
-
-        <div class="right col-12 md:col-6 lg:col-6">
-
-            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form mb-4">
-                  <app-custom-input
-                    [id]="'Name'"
+      
+        <div class="contact-form-container col-12 lg:col-6">
+            <div class="contact-form">
+                <app-custom-input
+                    [id]="'name'"
                     [labelText]="''"
                     [placeholder]="'Name'"
-                     [type]="'text'">
-                  </app-custom-input>
+                    [type]="'text'">
+                </app-custom-input>
 
                 <app-custom-input
-                    [id]="'Email'"
+                    [id]="'email'"
                     [labelText]="''"
                     [placeholder]="'Email'"
-                     [type]="'email'">
-                  </app-custom-input>
+                    [type]="'email'">
+                </app-custom-input>
 
-                  <app-custom-input
-                    [id]="'Phone'"
+                <app-custom-input
+                    [id]="'phone'"
                     [labelText]="''"
                     [placeholder]="'Phone'"
-                     [type]="'tel'">
-                  </app-custom-input>
+                    [type]="'tel'">
+                </app-custom-input>
 
-                   <app-custom-input
-                    [id]="'Message'"
+                <app-custom-input
+                    [id]="'message'"
                     [labelText]="''"
-                    [placeholder]="'Message'"
-                     [type]="'text'">
-                  </app-custom-input>
+                    [placeholder]="'Your Message'"
+                    [type]="'text'">
+                </app-custom-input>
 
-                  
-
-                   
-            </form>
-
-            <app-button
-                   [text]="'home.bestSeller.left.btn' | translate"
-                   [isIcon]="true"
-                   [borderRadius]="'btn-bestseller-radius'"
-                   [padding]="'btn-bestseller-padding'"
-                   [transition]="'btn-bestseller-transition'"
-                    aria-label="Submit contact form"
-                   />
-
+                <div class="mt-4" >
+                    <app-button
+                        [text]="'Send'"
+                        [isIcon]="true"
+                        [borderRadius]="'btn-bestseller-radius'"
+                        [padding]="'btn-bestseller-padding'"
+                        [transition]="'btn-bestseller-transition'"
+                        aria-label="Explore more best seller gifts and products">
+                    </app-button>
+                </div>
+            </div>
         </div>
-
     </div>
-
 </section>
