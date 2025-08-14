@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
+import { setAddress, setAddressState } from 'apps/rose/src/app/store/address/address.actions';
 
 @Component({
   selector: 'app-head-address',
@@ -8,5 +10,9 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './head-address.component.scss'
 })
 export class HeadAddressComponent {
+    private readonly _store = inject(Store);
 
+  openAddDialog(){
+    this._store.dispatch(setAddressState({ addressState: 2 }));
+  }
 }

@@ -279,5 +279,87 @@
       "cancel": "Cancel",
       "confirm": "Confirm"
     }
+  },
+  "addressStepper": {
+    "step1": {
+      "titleAdd": "Add a New Address",
+      "titleupdate": "Update Address Info",
+
+      "street": "Street",
+      "city": "City",
+      "phone": "Phone Number",
+      "placeholders": {
+        "street": "Enter your street name",
+        "city": "Enter your city",
+        "phone": "Enter your phone number"
+      }
+    },
+    "step2": {
+      "title": "Select Location",
+      "instruction": "Click on the map to set your address location"
+    },
+    "buttons": {
+      "next": "Next",
+      "previous": "Previous",
+      "submit": "Save Address"
+    }
+    
+},
+  "orderFlow": {
+      "summaryTitle": "Summary",
+      "couponCode": "Coupon Code",
+      "applyCoupon": "Apply Coupon",
+      "couponMessage": "No coupon applied",
+      "Total": "Total:",
+      "price": "{{price}} EGP",
+      "checkoutButton": "Checkout"
+  },
+  "orders":{
+    "title": "Orders",
+    "orderNumber": "Order # ",
+    "totalPrice": "Total Price:",
+    "orderDate": "Created in ",
+    "at": "at",
+    "paid": "Paid",
+    "status": "Status:",
+    "paymentMethod": "Payment Method:",
+    "deliveryStatus": "Delivery Status:",
+    "orderItems": "Order Items:",
+    "delivered": "Delivered",
+    "canceled": "Canceled",
+    
+    "rating": "Rating:",
+    "notRatedYet": "Not rated yet",
+    "showAll": "Show All",
+      "showLess": "Show Less",
+      "noOrdersFound": "No orders found.",
+      "states": {
+         "done": {
+        "text": "Done",
+        "class": "green"
+    },
+    "in progress": {
+      "text": "In Progress",
+      "class": "blue"
+    },
+    "cancelled": {
+      "text": "Cancelled", 
+      "class": "red"
+    }
+      },
+      "deliveryStatuses": {
+      "delivered": {
+        "text": "Delivered",
+        "class": "green"
+      },
+      "canceled": {
+        "text": "Canceled",
+        "class": "red"
+      }
+    },
+      "paymentTypes": {
+        "creditCard": "Credit Card",
+        "cash": "Cash"
+      }
   }
 }

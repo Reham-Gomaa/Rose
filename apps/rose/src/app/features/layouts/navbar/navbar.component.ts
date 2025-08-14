@@ -22,6 +22,8 @@ import { AuthApiKpService } from "auth-api-kp";
 import { User } from "auth-api-kp";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { FormsModule } from "@angular/forms";
+import { Store } from "@ngrx/store";
+import { setUserName } from "../../../store/address/address.actions";
 
 type modalPosition =
   | "left"
@@ -67,6 +69,7 @@ export class NavbarComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
   private readonly _router = inject(Router);
   private readonly _messageService = inject(MessageService);
+  private readonly _store=inject(Store);
 
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
 
@@ -109,23 +112,19 @@ export class NavbarComponent implements OnInit {
     this.items.set([
       {
         label: "navbar.home",
-        route: "home",
-        icon: "pi pi-home",
+        route: "/dashboard/home",
       },
       {
         label: "navbar.allcategory",
-        route: "all-categories",
-        icon: "pi pi-clipboard",
+        route: "/dashboard/all-categories",
       },
       {
         label: "navbar.about",
-        route: "about",
-        icon: "pi pi-info-circle",
+        route: "/dashboard/about",
       },
       {
         label: "navbar.contact",
-        route: "contact",
-        icon: "pi pi-headphones",
+        route: "/dashboard/contact",
       },
     ]);
 
@@ -156,6 +155,7 @@ export class NavbarComponent implements OnInit {
       },
       {
         label: "My Orders",
+        routerLink: "/allorders",
         icon: "pi pi-receipt",
         visible: !!user,
         command: () => this._router.navigate(["/dashboard/order-flow/orders"]),
@@ -201,6 +201,7 @@ export class NavbarComponent implements OnInit {
         next: (res) => {
           this.user.set(res.user);
           this.userName.set(`${res.user.firstName} ${res.user.lastName}`);
+          this._store.dispatch(setUserName({userName:this.userName()}))
           this.updateUserDropdown();
           this.loading.set(false);
         },

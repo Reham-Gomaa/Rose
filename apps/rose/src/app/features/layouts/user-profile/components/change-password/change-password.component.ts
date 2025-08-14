@@ -10,7 +10,6 @@ import {
 } from "@angular/forms";
 import { AuthApiKpService } from "auth-api-kp";
 import { MessageService } from "primeng/api";
-import { Router } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { TranslatePipe } from "@ngx-translate/core";
 import { PlatformService } from "@rose/core_services/platform/platform.service";
@@ -24,7 +23,6 @@ import { PlatformService } from "@rose/core_services/platform/platform.service";
 export class ChangePasswordComponent {
   private readonly _authApiKpService = inject(AuthApiKpService);
   private readonly _messageService = inject(MessageService);
-  private readonly _router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
   private readonly _platformService = inject(PlatformService);
 
@@ -89,7 +87,6 @@ export class ChangePasswordComponent {
               });
             }
           }
-          this._router.navigate(["/dashboard/home"]);
         },
         error: (err) => {
           this._messageService.add({

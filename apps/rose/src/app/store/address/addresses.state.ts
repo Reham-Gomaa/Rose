@@ -1,6 +1,7 @@
 import { Address } from "@rose/core_interfaces/user-address.interface";
 
 export enum AddressSituations {
+  closeAddress=0,
   showAddress=1,
   addAddress=2,
   addLocation=3,
@@ -12,10 +13,12 @@ export enum AddressSituations {
 
 export interface AddressState{
     addressState:AddressSituations,
-    address:Address[],
+    addresses:Address[],
     loading: boolean,
     error: any;
     selectedAdddressId:string,
+    address:Address,
+    userName:string
 
     
 }
