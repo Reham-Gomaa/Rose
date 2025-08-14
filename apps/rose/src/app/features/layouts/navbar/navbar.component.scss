@@ -66,7 +66,7 @@
       .search-input {
         flex: 1;
         width: 100%;
-        padding: 0.75rem 1.5rem 0.75rem 2.5rem;
+        padding: 0.75rem 2rem 0.75rem 2.4375rem;
         border: 1px solid var(--color-navbar-input-border);
         background-color: var(--background-navbar-input);
         color: var(--color-navbar-input-text);
@@ -529,4 +529,28 @@
       }
     }
   }
+}
+
+:host
+  ::ng-deep
+  .p-menubar
+  .p-menubar-root-list
+  > .p-menubar-item.p-highlight
+  > .p-menubar-item-content,
+:host ::ng-deep .p-menubar .p-menubar-root-list > .p-menubar-item.p-focus > .p-menubar-item-content,
+:host
+  ::ng-deep
+  .p-menubar
+  .p-menubar-root-list
+  > .p-menubar-item.p-highlight
+  > .p-menubar-item-content
+  > .p-menubar-item-link,
+:host
+  ::ng-deep
+  .p-menubar
+  .p-menubar-root-list
+  > .p-menubar-item.p-focus
+  > .p-menubar-item-content
+  > .p-menubar-item-link {
+  background-color: transparent !important;
 }
