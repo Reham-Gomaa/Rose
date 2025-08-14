@@ -9,7 +9,8 @@ import { AuthComponent } from "@rose/features_layouts/authentication/auth.compon
 import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
 import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
 // services
-import { PlatformService } from "@rose/core_services/platform/platform.service";
+import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
+import { UserStateService } from "@rose/core_services/user-state/user-state.service";
 // shared-service
 import { TranslationService } from "@rose/core_services/translation/translation.service";
 // Animation
@@ -18,6 +19,9 @@ import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 import { MessageService } from "primeng/api";
 // Auth lib
 import { AuthApiKpService } from "auth-api-kp";
+// Store
+import { Store } from "@ngrx/store";
+import * as AuthActions from "@rose/store_auth/auth.actions";
 
 @Component({
   selector: "app-login",
@@ -39,7 +43,9 @@ export class LoginComponent {
   private readonly _authApiKpService = inject(AuthApiKpService);
   private readonly _router = inject(Router);
   public _messageService = inject(MessageService);
-  private readonly _platform = inject(PlatformService);
+  private readonly _storageManagerService = inject(StorageManagerService);
+  private readonly _userStateService = inject(UserStateService);
+  private readonly _store = inject(Store);
 
   apiError = signal<string>("");
   isLoading = signal<boolean>(false);
@@ -64,9 +70,10 @@ export class LoginComponent {
       .subscribe({
         next: (res) => {
           if ("token" in res && res.message === "success") {
-            if (this._platform.isBrowser()) {
-              localStorage.setItem("authToken", res.token);
-            }
+            this._store.dispatch(AuthActions.loginSuccess({ token: res.token }));
+            this._storageManagerService.setItem("authToken", res.token);
+            this._userStateService.setLoggedIn(true);
+
             this._messageService.add({
               severity: "success",
               detail: "Login successful!",

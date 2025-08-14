@@ -190,7 +190,6 @@ export class EditProfileComponent {
             summary: "Success",
             detail: "Account deleted successfully",
           });
-          // Add redirect or other logic here
         },
         error: (err) => {
           this._messageService.add({

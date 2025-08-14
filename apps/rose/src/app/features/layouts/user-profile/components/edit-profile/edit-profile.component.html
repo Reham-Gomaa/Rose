@@ -69,10 +69,6 @@
       <p-select [options]="genders" optionLabel="label" [disabled]="true" [placeholder]="user()?.gender"
         id="gender-dropdown" class="w-full">
       </p-select>
-
-      @if(profileForm.get('gender')?.invalid && profileForm.get('gender')?.touched) {
-      <app-input-error-handling [control]="profileForm.get('gender')!" />
-      }
     </div>
 
     <div class="container-btn">

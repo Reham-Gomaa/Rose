@@ -12,7 +12,7 @@ import { AuthApiKpService } from "auth-api-kp";
 import { MessageService } from "primeng/api";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { TranslatePipe } from "@ngx-translate/core";
-import { PlatformService } from "@rose/core_services/platform/platform.service";
+import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
 
 @Component({
   selector: "app-change-password",
@@ -24,9 +24,8 @@ export class ChangePasswordComponent {
   private readonly _authApiKpService = inject(AuthApiKpService);
   private readonly _messageService = inject(MessageService);
   private readonly destroyRef = inject(DestroyRef);
-  private readonly _platformService = inject(PlatformService);
+  private readonly storage = inject(StorageManagerService);
 
-  // Signals
   isLoading = signal(false);
   isSaving = signal(false);
 
@@ -74,18 +73,14 @@ export class ChangePasswordComponent {
       .subscribe({
         next: (res) => {
           if ("message" in res) {
-            if (
-              this._platformService.checkPlatform() === "Browser" &&
-              "token" in res &&
-              res.token
-            ) {
-              localStorage.setItem("authToken", res.token);
-              this._messageService.add({
-                severity: "success",
-                summary: "Success",
-                detail: res.message || "Password changed successfully",
-              });
+            if ("token" in res && res.token) {
+              this.storage.setItem("authToken", res.token);
             }
+            this._messageService.add({
+              severity: "success",
+              summary: "Success",
+              detail: res.message || "Password changed successfully",
+            });
           }
         },
         error: (err) => {

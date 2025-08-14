@@ -7,8 +7,7 @@
           (keyup.enter)="switchTab('profile')" tabindex="0" aria-label="Edit profile"></i>
         <i class="pi pi-lock" [class.active]="activeTab === 'password'" (click)="switchTab('password')"
           (keyup.enter)="switchTab('password')" tabindex="0" aria-label="Change password"></i>
-        <i class="pi pi-sign-out rtl" (click)="onLogout()" (keyup.enter)="onLogout()" tabindex="0"
-          aria-label="Logout"></i>
+        <i class="pi pi-sign-out rtl" (click)="logout()" (keyup.enter)="logout()" tabindex="0" aria-label="Logout"></i>
       </div>
     </div>
 
@@ -24,7 +23,7 @@
             Change Password
           </button>
         </div>
-        <button class="logout-btn" (click)="onLogout()">
+        <button class="logout-btn" (click)="logout()">
           <i class="pi pi-sign-out rtl"></i> Logout
         </button>
       </div>

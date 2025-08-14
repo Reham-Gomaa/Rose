@@ -12,6 +12,9 @@ import { User } from "auth-api-kp";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { EditProfileComponent } from "./components/edit-profile/edit-profile.component";
 import { ChangePasswordComponent } from "./components/change-password/change-password.component";
+import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
+import { Router } from "@angular/router";
+import { UserStateService } from "@rose/core_services/user-state/user-state.service";
 @Component({
   selector: "app-user-profile",
   standalone: true,
@@ -29,14 +32,18 @@ import { ChangePasswordComponent } from "./components/change-password/change-pas
   styleUrl: "./user-profile.component.scss",
 })
 export class UserProfileComponent implements OnInit {
-  readonly translationService = inject(TranslationService);
-  private translate = inject(TranslateService);
+  readonly _translationService = inject(TranslationService);
+  private readonly _router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
   private readonly _authApiKpService = inject(AuthApiKpService);
   private readonly _messageService = inject(MessageService);
+  private readonly _storageManagerService = inject(StorageManagerService);
+  private readonly _userStateService = inject(UserStateService);
 
   apiError = signal<string>("");
   isLoading = signal<boolean>(false);
+  isLoggedIn = signal<boolean>(false);
+  user = signal<User | null>(null);
 
   activeTab: "profile" | "password" = "profile";
 
@@ -44,9 +51,32 @@ export class UserProfileComponent implements OnInit {
     this.activeTab = tab;
   }
 
-  ngOnInit(): void {
-    this.onLogout();
-  }
+  ngOnInit(): void {}
 
-  onLogout(): void {}
+  logout() {
+    this._authApiKpService
+      .logout()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (res) => {
+          this._storageManagerService.removeItem("authToken");
+          this._userStateService.setLoggedIn(false);
+          this._messageService.add({
+            severity: "success",
+            detail: "Logged out successfully.",
+            life: 3000,
+          });
+
+          this.user.set(null);
+          this._router.navigate(["/dashboard/home"]);
+        },
+        error: (err) => {
+          this._messageService.add({
+            severity: "error",
+            detail: "Your session expired. Please login again to continue.",
+            life: 3000,
+          });
+        },
+      });
+  }
 }
