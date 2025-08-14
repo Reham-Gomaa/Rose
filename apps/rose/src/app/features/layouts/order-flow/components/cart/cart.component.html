@@ -36,7 +36,8 @@
             @if (cartItemsNum$ |async; as cartItemsNum) {
             <div [class.border-none]="cartItemsNum === $index + 1" class="pdt-wrapper ">
                 <div class=" md:w-3">
-                    <img class="pdt block border-round-lg" [src]="item.product.imgCover" alt="product">
+                    <img loading="lazy" class="pdt block border-round-lg" [src]="item.product.imgCover"
+                        [alt]="item.product.title">
                 </div>
                 <div class=" md:w-9 flex flex-column justify-content-between">
                     <!-- Right - UP -->
@@ -87,7 +88,7 @@
             }@empty {
             <div class="flex flex-column justify-content-center align-items-center">
                 <div>
-                    <img class="empty block" src="./images/cart/no-cart.WebP" alt="empty cart">
+                    <img loading="lazy" class="empty block" src="./images/cart/no-cart.WebP" alt="empty cart">
                 </div>
                 <div>
                     <h2 class="empty">{{ 'cart.empty' |translate}}</h2>
