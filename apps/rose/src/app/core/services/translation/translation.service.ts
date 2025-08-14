@@ -64,4 +64,10 @@ export class TranslationService {
   getCurrentLang(): string {
     return this.translateService.currentLang;
   }
+
+  
+instant(key: string): string {
+  return this.translateService.instant(key);
+}
+
 }

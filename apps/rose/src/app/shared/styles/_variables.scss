@@ -37,6 +37,7 @@
   --zinc-500: #71717a;
   --zinc-400: #a1a1aa;
   --zinc-300: #d4d4d8;
+  --zinc-200: #e4e4e7;
   --zinc-100: #f4f4f5;
   --zinc-50: #fafafa;
   --maroon-800: #501419;
@@ -57,6 +58,7 @@
 
   --emerald-50: #ecfdf5;
   --emerald-300: #5ee9b5;
+  --emerald-500: #00BC7D;
   --emerald-700: #007a55;
 
   --blue-400: #50a2ff;
@@ -70,21 +72,44 @@
   --body-color: var(--white);
   // Navbar
   --background-navbar: var(--white);
-  --color-navbar: var(--zinc-700);
-  --hover-navbar: var(--maroon-600);
-  --active-navbar: var(--maroon-600);
+  --color-navbar-text: var(--zinc-500);
+  --color-navbar-highlight: var(--maroon-700);
 
-  --color-icon-navbar: var(--zinc-700);
-  --hover-icon-navbar: var(--maroon-600);
-  --overlaybadge-bg: var(--soft-pink-200);
-  --overlaybadge-color: var(--soft-pink-200);
+  --background-navbar-input: var(--white);
+  --color-navbar-input-border: var(--zinc-300);
+  --color-navbar-input-text: var(--zinc-400);
+
+  --color-navbar-input-shadow: var(--maroon-700);
+  --color-navbar-input-shadow-border: var(--maroon-700);
+
+  --background-navbar-second-row: var(--maroon-700);
+  --color-navbar-second-row: var(--zinc-50);
+  --color-hover-navbar-second-row: var(--soft-pink-200);
+  --color-active-navbar-second-row: var(--soft-pink-200);
+  --color-underline-navbar-second-row: var(--soft-pink-200);
+
+  --color-arrow-user-navbar: var(--zinc-500);
+  --color-border-icons-navbar: var(--zinc-200);
+  --color-icons-navbar: var(--zinc-700);
+  --color-hover-icons-navbar: var(--maroon-700);
+
+  --background-badges-icons-navbar: var(--red-600);
+  --color-badges-icons-navbar: var(--zinc-50);
+
+  --color-hover-arrow-user-navbar: var(--maroon-700);
 
   --close-btn-color: var(--zinc-700);
-  --close-btn-hover: var(--maroon-600);
-  --close-btn-border: var(--maroon-600);
+  --close-btn-hover: var(--maroon-700);
+  --close-btn-border: var(--zinc-400);
+
+  --color-navbar-mobile: var(--zinc-700);
+  --color-hover-navbar-mobile: var(--soft-pink-300);
   // DarkMode Toggle
   --toggle-color: var(--zinc-700);
   --toggle-hover: var(--maroon-600);
+  // Translate Toggle
+  --translate-toggle-color: var(--zinc-700);
+  --translate-toggle-hover: var(--maroon-600);
   // Search Toggle
   --Search-bg: var(--maroon-700);
   --Search-color: var(--maroon-50);
@@ -293,6 +318,61 @@
   //img preview
   --preview-bg: var(--white);
   --preview-color: var(--zinc-800);
+  // PrimeNg Button
+  --p-button-primary-background: var(--maroon-600) !important;
+  --p-button-primary-hover-border-color: var(--maroon-600) !important;
+  --p-button-primary-border-color: var(--maroon-600) !important;
+  --p-button-primary-hover-background: var(--maroon-500) !important;
+  --p-button-padding-x: 1rem !important;
+  --p-button-padding-y: 0.625rem !important;
+  // stepper
+  --p-stepper-separator-active-background: var(--maroon-600) !important;
+  --p-stepper-step-gap: 0rem !important;
+  --p-stepper-step-header-gap: 0rem !important;
+  --p-stepper-step-padding: 0rem !important;
+  --p-stepper-step-number-active-color: var(--white) !important;
+  --p-stepper-step-number-active-background: var(--maroon-600) !important;
+  --p-stepper-step-number-active-border-color: var(--maroon-600) !important;
+  --p-stepper-separator-size: 0.375rem !important;
+  // Address item
+  --address-name:var(--maroon-600);
+  --address-name-background:var(--zinc-50);
+  --address-body:var(--zinc-800);
+  --loading-color:var(--maroon-500);
+  // Delete dialog
+  --dialog-p:var(--zinc-800);
+  --dialog-out-shadow:#2E2E300D;
+  --dialog-icon:#2E2E3026;
+
+  //Order Flow
+  //Summary
+  --summary-background-color: var(--zinc-50);
+  --summary-title-color: var(--black);
+  --total-row-color: var(--black);
+  --summary-button-color: var(--maroon-600);
+  --summary-button-hover: var(--maroon-500);
+  --summary-button-text-color: var(--white);
+  --coupon-border-color: var(--zinc-300);
+
+  //Orders
+  --order-title-color: var(--black);
+  --order-header-bg: var(--maroon-600);
+  --order-header-color: var(--white);
+  --order-total-color:var(--zinc-800);
+  --green-badge-bg: var(--emerald-500);
+  --blue-badge-bg:var(--blue-700);
+  --red-badge-bg:var(--red-600);
+  --badge-color: var(--white);
+  --order-items-bg: var(--zinc-100);
+  --payment-color: var(--zinc-500);
+  --order-item-bg: var(--white);
+  --order-item-title: var(--maroon-600);
+  --quantity-color: var(--maroon-600);
+  --order-ratings: var(--blue-700);
+  --show-btn: var(--maroon-600);
+  --rating-star: var(--yellow);
+  --fade-mask-base: 255, 255, 255; 
+
 }
 
 // Dark theme overrides
@@ -301,21 +381,43 @@
   --body-color: var(--zinc-800);
   // Navbar
   --background-navbar: var(--zinc-800);
-  --color-navbar: var(--zinc-100);
-  --hover-navbar: var(--soft-pink-200);
-  --active-navbar: var(--soft-pink-200);
+  --color-navbar-text: var(--zinc-400);
+  --color-navbar-highlight: var(--soft-pink-200);
 
-  --color-icon-navbar: var(--zinc-100);
-  --hover-icon-navbar: var(--soft-pink-200);
-  --overlaybadge-bg: var(--soft-pink-200);
-  --overlaybadge-color: var(--soft-pink-200);
+  --background-navbar-input: var(--zinc-700);
+  --color-navbar-input-border: var(--zinc-600);
+  --color-navbar-input-text: var(--zinc-400);
+  --color-navbar-input-shadow: var(--soft-pink-200);
+  --color-navbar-input-shadow-border: var(--soft-pink-200);
 
-  --close-btn-color: var(--zinc-100);
+  --background-navbar-second-row: var(--soft-pink-200);
+  --color-navbar-second-row: var(--zinc-800);
+  --color-hover-navbar-second-row: var(--maroon-800);
+  --color-active-navbar-second-row: var(--maroon-800);
+  --color-underline-navbar-second-row: var(--maroon-800);
+
+  --color-arrow-user-navbar: var(--zinc-400);
+  --color-border-icons-navbar: var(--zinc-200);
+  --color-icons-navbar: var(--zinc-50);
+  --color-hover-icons-navbar: var(--soft-pink-200);
+
+  --background-badges-icons-navbar: var(--soft-pink-200);
+  --color-badges-icons-navbar: var(--zinc-800);
+
+  --color-hover-arrow-user-navbar: var(--soft-pink-200);
+
+  --close-btn-color: var(--zinc-50);
   --close-btn-hover: var(--soft-pink-200);
-  --close-btn-border: var(--soft-pink-200);
+  --close-btn-border: var(--zinc-400);
+
+  --color-navbar-mobile: var(--zinc-50);
+  --color-hover-navbar-mobile: var(--maroon-500);
   // DarkMode Toggle
   --toggle-color: var(--zinc-100);
   --toggle-hover: var(--soft-pink-200);
+  // Translate Toggle
+  --translate-toggle-color: var(--zinc-100);
+  --translate-toggle-hover: var(--soft-pink-200);
   // Search Toggle
   --Search-bg: var(--soft-pink-200);
   --Search-color: var(--zinc-700);
@@ -519,4 +621,65 @@
 
   --preview-bg: var(--zinc-600);
   --preview-color: var(--white);
+
+  // PrimeNg Button
+  --p-button-primary-background: var(--soft-pink-500) !important;
+  --p-button-primary-hover-border-color: var(--soft-pink-500) !important;
+  --p-button-primary-border-color: var(--soft-pink-500) !important;
+  --p-button-primary-hover-background: var(--soft-pink-400) !important;
+  --p-button-padding-x: 1rem !important;
+  --p-button-padding-y: 0.625rem !important;
+  // stepper
+  --p-stepper-separator-active-background: var(--soft-pink-500) !important;
+  --p-stepper-step-gap: 0rem !important;
+  --p-stepper-step-header-gap: 0rem !important;
+  --p-stepper-step-padding: 0rem !important;
+  --p-stepper-step-number-active-color: var(--white) !important;
+  --p-stepper-step-number-active-background: var(--soft-pink-500) !important;
+  --p-stepper-step-number-active-border-color: var(--soft-pink-500) !important;
+  --p-stepper-separator-size: 0.375rem !important;
+  // Address item
+  --address-name:var(--soft-pink-500);
+  --address-name-background:var(--zinc-800);
+  --address-body:var(--white);
+  --loading-color:var(--soft-pink-500);
+  // Delete dialog
+  --dialog-p:var(--zinc-50);
+  --dialog-out-shadow:var(--soft-pink-600);
+  --dialog-icon:var(--soft-pink-100);
+
+
+  //Order Flow
+  //Summary
+  --summary-background-color: var(--white);
+  --summary-title-color: var(--white);
+  --total-row-color: var(--zinc-800);
+  --summary-button-color: var(--soft-pink-200);
+  --summary-button-hover: var(--soft-pink-300);
+  --summary-button-text-color: var(--zinc-800);
+  --coupon-border-color: var(--soft-pink-200);
+
+
+
+   //Orders
+  --order-title-color: var(--white);
+  --order-header-bg: var(--soft-pink-300);
+  --order-header-color: var(--zinc-700);
+  --order-total-color:var(--zinc-100);
+  --green-badge-bg: var(--emerald-500);
+  --blue-badge-bg:var(--blue-700);
+  --red-badge-bg:var(--red-600);
+  --badge-color: var(--white);
+  --order-items-bg: var(--zinc-800);
+  --payment-color: var(--zinc-300);
+  --order-item-bg: var(--zinc-600);
+  --order-items-color:var(--zinc-100);
+  --order-item-title: var(--soft-pink-400);
+  --quantity-color: var(--soft-pink-400);
+  --order-ratings: var(--blue-700);
+  --show-btn: var(--soft-pink-300);
+  --rating-star: var(--yellow);
+   --fade-mask-base: 18, 18, 18; 
+
+
 }

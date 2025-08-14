@@ -4,7 +4,6 @@ import { TranslationService } from "@rose/core_services/translation/translation.
 // Animations_Translation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Components
-import { CategoriesComponent } from "./components/categories/categories.component";
 import { GiftsComponent } from "./components/gifts/gifts.component";
 import { OurServicesComponent } from "./components/our-services/ourServices.component";
 import { BestSellerComponent } from "./components/best-seller/bestSeller.component";
@@ -17,7 +16,6 @@ import { TrustedByComponent } from "./components/trusted-by/trustedBy.component"
 @Component({
   selector: "app-home",
   imports: [
-    CategoriesComponent,
     GiftsComponent,
     OurServicesComponent,
     BestSellerComponent,

@@ -264,6 +264,101 @@
     "email": "تنسيق البريد الإلكتروني غير صحيح (مثال: example@example.com)",
     "passwordPattern": "كلمة المرور يجب أن تكون 8 أحرف على الأقل، وتشمل حروف كبيرة وصغيرة ورمز خاص.",
     "onlyNumbers": "ادخل الرقم بطريقه الصحيحه",
-    "misMatch":"كلمات المرور غير متطابقة"
+    "misMatch": "كلمات المرور غير متطابقة"
+  },
+  "addressList": {
+    "noAddress": "لم يتم العثور على عناوين"
+  },
+  "headAddress": {
+    "title": "عناويني",
+    "addButton": "إضافة عنوان جديد"
+  },
+  "dialog": {
+    "deleteAddress": {
+      "confirmationMessage": "هل أنت متأكد أنك تريد حذف هذا العنوان؟",
+      "cancel": "إلغاء",
+      "confirm": "تأكيد"
+    }
+  },
+  "addressStepper": {
+    "step1": {
+      "titleAdd": "إضافة عنوان جديد",
+      "titleupdate": "تحديث معلومات العنوان",
+      "street": "الشارع",
+      "city": "المدينة",
+      "phone": "رقم الهاتف",
+      "placeholders": {
+        "street": "أدخل اسم الشارع",
+        "city": "أدخل مدينتك",
+        "phone": "أدخل رقم الهاتف"
+      }
+    },
+    "step2": {
+      "title": "اختر الموقع",
+      "instruction": "اضغط على الخريطة لتحديد موقع العنوان"
+    },
+    "buttons": {
+      "next": "التالي",
+      "previous": "السابق",
+      "submit": "حفظ العنوان"
+    }
+ 
+},
+   "orderFlow": {
+      "summaryTitle": "الملخص",
+      "couponCode": "كود الخصم",
+      "applyCoupon": "تطبيق الكود",
+      "couponMessage": "لا يوجد كود خصم مطبق",
+      "Total": "السعر الإجمالي:",
+      "price": "{{price}} ج.م",
+      "checkoutButton": "الدفع"
+  },
+   "orders":{
+    "title": "الطلبات",
+    "orderNumber": "طلب رقم #",
+    "totalPrice": "إجمالي السعر:",
+    "orderDate": "انشئ في:",
+    "at": "الساعه",
+      "paid": "مدفوع",
+      "status": "الحالة:",
+      "paymentMethod": "طريقة الدفع:",
+      "deliveryStatus": "حالة التوصيل:",
+      "orderItems": "عناصر الطلب:",
+      "delivered": "تم التوصيل",
+      "canceled": "ملغي",
+     
+      "rating": "التقييم:",
+      "notRatedYet": "لم يتم التقييم بعد",
+      "ratings": "تقييمات",
+      "showAll": "عرض الكل",
+      "showLess": "عرض أقل",
+      "noOrdersFound": "لم يتم العثور على طلبات.",
+      "states": {
+        "done": {
+      "text": "مكتمل",
+      "class": "green"
+    },
+    "in progress": {
+      "text": "قيد التنفيذ",
+      "class": "blue"
+    },
+    "cancelled": {
+      "text": "ملغي", 
+      "class": "red"
+    }
+      },
+      "deliveryStatuses": {
+      "delivered": {
+        "text": "تم التوصيل"
+      },
+     
+      "canceled": {
+        "text": "ملغي"
+      }
+    },
+      "paymentTypes": {
+        "creditCard": "بطاقة ائتمان",
+        "cash": "نقدي"
+      }
   }
 }
