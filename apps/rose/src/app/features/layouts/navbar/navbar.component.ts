@@ -9,10 +9,10 @@ import { TranslationService } from "@rose/core_services/translation/translation.
 // Animations_Translation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Shared_Components
-import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
-import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
-import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
 import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";
+import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
+import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
+import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
 // primeNg
 import { MenuItem } from "primeng/api";
 import { ButtonModule } from "primeng/button";
@@ -60,11 +60,11 @@ type modalPosition =
 export class NavbarComponent implements OnInit {
   readonly translationService = inject(TranslationService);
   private readonly platformId = inject(PLATFORM_ID);
+
   isLoggedIn: WritableSignal<boolean> = signal<boolean>(false);
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
   items: MenuItem[] | undefined;
   btnClass = "loginBtn";
-  currentLang!: string;
 
   visible = false;
   inSearch = false;
@@ -74,12 +74,6 @@ export class NavbarComponent implements OnInit {
   showDialog(position: modalPosition) {
     this.position = position;
     this.visible = true;
-  }
-
-  changeLang(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    const lang = selectElement.value;
-    this.translationService.changeLang(lang);
   }
 
   openSearch() {

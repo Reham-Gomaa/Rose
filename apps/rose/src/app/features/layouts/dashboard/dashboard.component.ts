@@ -1,14 +1,16 @@
-import { Component } from "@angular/core";
+import { Component, inject, OnInit, PLATFORM_ID, signal, WritableSignal } from "@angular/core";
 // Router
 import { RouterOutlet } from "@angular/router";
 // Components
-import { NavbarComponent } from "../navbar/navbar.component";
 import { FooterComponent } from "../footer/footer.component";
+import { NavbarComponent } from "../navbar/navbar.component";
 // Primeng
 import { MenuItem, MessageService } from "primeng/api";
 import { SpeedDialModule } from "primeng/speeddial";
 import { ToastModule } from "primeng/toast";
-import { Router } from "@angular/router";
+import { isPlatformBrowser } from "@angular/common";
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { DarkModeService } from "@rose/core_services/darkmode/darkmode.service";
 
 @Component({
   selector: "app-dashboard",
@@ -17,39 +19,55 @@ import { Router } from "@angular/router";
   styleUrl: "./dashboard.component.scss",
   providers: [MessageService],
 })
-export class DashboardComponent {
-  items: MenuItem[] | undefined;
+export class DashboardComponent implements OnInit {
+  private messageService = inject(MessageService);
+  private pLATFORM_ID = inject(PLATFORM_ID);
+  private translationService = inject(TranslationService);
+  private darkModeService = inject(DarkModeService);
 
-  constructor(private messageService: MessageService, private router: Router) {}
+  items: MenuItem[] | undefined;
+  currentLang: WritableSignal<string> = signal("");
+
+  setLanguage() {
+    if (this.translationService.getCurrentLang() === "en") {
+      this.currentLang.set("English");
+    } else {
+      this.currentLang.set("العربيه");
+    }
+  }
 
   ngOnInit() {
+    this.setLanguage();
     this.items = [
       {
-        label: "Up",
-        icon: "pi pi-pencil",
+        icon: "pi pi-angle-double-up",
         command: () => {
-          this.messageService.add({ severity: "info", summary: "Add", detail: "Data Added" });
+          if (!isPlatformBrowser(this.pLATFORM_ID)) return;
+          document.body.scrollTo({ top: 0, behavior: "smooth" });
         },
       },
       {
-        label: "Update",
-        icon: "pi pi-refresh",
+        icon: "pi pi-globe",
         command: () => {
-          console.log("hiiiiii");
-          this.messageService.add({
-            severity: "success",
-            summary: "Update",
-            detail: "Data Updated",
-          });
+          this.changeLang();
         },
       },
       {
-        label: "Delete",
-        icon: "pi pi-trash",
+        icon: "pi pi-moon",
         command: () => {
-          this.messageService.add({ severity: "error", summary: "Delete", detail: "Data Deleted" });
+          this.darkModeService.toggle();
         },
       },
     ];
+  }
+
+  changeLang() {
+    if (this.currentLang() === "English") {
+      this.translationService.changeLang("ar");
+      this.currentLang.set("العربيه");
+    } else {
+      this.translationService.changeLang("en");
+      this.currentLang.set("English");
+    }
   }
 }
