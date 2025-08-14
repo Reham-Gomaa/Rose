@@ -93,7 +93,7 @@ export class NavbarComponent implements OnInit {
   private readonly _authApiService = inject(AuthApiKpService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly _messageService = inject(MessageService);
-  private readonly _store=inject(Store);
+  private readonly _store = inject(Store);
 
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
 
@@ -113,12 +113,6 @@ export class NavbarComponent implements OnInit {
   showDialog(position: modalPosition) {
     this.position.set(position);
     this.visible.set(true);
-  }
-
-  changeLang(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    const lang = selectElement.value;
-    this._translationService.changeLang(lang);
   }
 
   openSearch() {
@@ -227,7 +221,7 @@ export class NavbarComponent implements OnInit {
         next: (res) => {
           this.user.set(res.user);
           this.userName.set(`${res.user.firstName} ${res.user.lastName}`);
-          this._store.dispatch(setUserName({userName:this.userName()}))
+          this._store.dispatch(setUserName({ userName: this.userName() }));
           this.updateUserDropdown();
           this.loading.set(false);
         },

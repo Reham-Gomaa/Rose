@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 // Images
 import { NgOptimizedImage } from "@angular/common";
 // Translation
@@ -15,6 +15,10 @@ import { ButtonComponent } from "@rose/shared_Components_ui/button/button.compon
   templateUrl: "./trustedBy.component.html",
   styleUrl: "./trustedBy.component.scss",
   animations: [fadeTransition],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    "[@fadeTransition]": "translationService.fadeState()",
+  },
 })
 export class TrustedByComponent {
   translationService = inject(TranslationService);
