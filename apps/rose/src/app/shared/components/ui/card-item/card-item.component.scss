@@ -133,3 +133,8 @@
 :host ::ng-deep .p-rating .p-icon {
   color: var(--rating-card-item-color) !important;
 }
+
+.disableCart {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
