@@ -48,7 +48,7 @@ export const appRoutes: Route[] = [
         loadComponent: () =>
           import("@rose/features_pages/details/details.component").then((c) => c.DetailsComponent),
       }
-    ],
+    ]
   },
   {
     path: "login",
@@ -100,25 +100,30 @@ export const appRoutes: Route[] = [
           ).then((c) => c.UserAddressComponent),
         title: "Address",
       },
-      {
-        path: "allOrders",
+       {
+        path: "allorders",
+
         loadComponent: () =>
-          import("@rose/features_layouts/order-flow/components/orders/orders.component").then(
+          import("@rose/features_pages/orders/orders.component").then(
             (c) => c.OrdersComponent
           ),
         title: "Orders",
+
       },
-      {
+        {
         path:'checkout',
         title:'Checkout',
         loadComponent:()=>import("../app/features/checkout/checkout.component").then(c=>c.CheckoutComponent)
       }
-    ],
+
+
+     
+    ]
   },
   {
     path: "**",
     title: "Not Found",
     loadComponent: () =>
       import("@rose/features_pages/not-found/not-found.component").then((c) => c.NotFoundComponent),
-  },
+  }
 ];

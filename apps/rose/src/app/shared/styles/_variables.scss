@@ -58,6 +58,7 @@
 
   --emerald-50: #ecfdf5;
   --emerald-300: #5ee9b5;
+  --emerald-500: #00BC7D;
   --emerald-700: #007a55;
 
   --blue-400: #50a2ff;
@@ -341,6 +342,7 @@
   --dialog-icon:#2E2E3026;
 
 
+
     //shipping addresses
   --address-card-phone-color : var(--zinc-500);
   --address-card-details-color : var(--zinc-800);
@@ -372,6 +374,35 @@
 
 
 
+
+  //Order Flow
+  //Summary
+  --summary-background-color: var(--zinc-50);
+  --summary-title-color: var(--black);
+  --total-row-color: var(--black);
+  --summary-button-color: var(--maroon-600);
+  --summary-button-hover: var(--maroon-500);
+  --summary-button-text-color: var(--white);
+  --coupon-border-color: var(--zinc-300);
+
+  //Orders
+  --order-title-color: var(--black);
+  --order-header-bg: var(--maroon-600);
+  --order-header-color: var(--white);
+  --order-total-color:var(--zinc-800);
+  --green-badge-bg: var(--emerald-500);
+  --blue-badge-bg:var(--blue-700);
+  --red-badge-bg:var(--red-600);
+  --badge-color: var(--white);
+  --order-items-bg: var(--zinc-100);
+  --payment-color: var(--zinc-500);
+  --order-item-bg: var(--white);
+  --order-item-title: var(--maroon-600);
+  --quantity-color: var(--maroon-600);
+  --order-ratings: var(--blue-700);
+  --show-btn: var(--maroon-600);
+  --rating-star: var(--yellow);
+  --fade-mask-base: 255, 255, 255; 
 
 }
 
@@ -645,6 +676,7 @@
   --dialog-out-shadow:var(--soft-pink-600);
   --dialog-icon:var(--soft-pink-100);
 
+
   //shipping addresses
   --address-card-phone-color : var(--white);
   --address-card-details-bg : var(--zinc-100);
@@ -662,4 +694,35 @@
   --card-active-bg:var(--zinc-50);
   --card-active-title-color:var(--maroon-600);
 
+  //Order Flow
+  //Summary
+  --summary-background-color: var(--white);
+  --summary-title-color: var(--white);
+  --total-row-color: var(--zinc-800);
+  --summary-button-color: var(--soft-pink-200);
+  --summary-button-hover: var(--soft-pink-300);
+  --summary-button-text-color: var(--zinc-800);
+  --coupon-border-color: var(--soft-pink-200);
+
+
+
+   //Orders
+  --order-title-color: var(--white);
+  --order-header-bg: var(--soft-pink-300);
+  --order-header-color: var(--zinc-700);
+  --order-total-color:var(--zinc-100);
+  --green-badge-bg: var(--emerald-500);
+  --blue-badge-bg:var(--blue-700);
+  --red-badge-bg:var(--red-600);
+  --badge-color: var(--white);
+  --order-items-bg: var(--zinc-800);
+  --payment-color: var(--zinc-300);
+  --order-item-bg: var(--zinc-600);
+  --order-items-color:var(--zinc-100);
+  --order-item-title: var(--soft-pink-400);
+  --quantity-color: var(--soft-pink-400);
+  --order-ratings: var(--blue-700);
+  --show-btn: var(--soft-pink-300);
+  --rating-star: var(--yellow);
+   --fade-mask-base: 18, 18, 18; 
 }

@@ -1,4 +1,4 @@
-<app-custom-main-dialog [visable]="visible()" (closed)="close()">
+<app-custom-main-dialog [visable]="addressState === 1" (closed)="close()">
   <div head>
     <app-head-address head></app-head-address>
   </div>
@@ -27,3 +27,16 @@
   [visible]="addressState === 6"
   (closed)="closeDeleteDialog()"
 ></app-delete-dialog>
+
+@if(addressState === 4){
+<app-address-stepper [visible]="addressState === 4" [isUpdate]="true" (closed)="closeStepperDialog()"
+></app-address-stepper>
+}
+
+
+@if(addressState === 2){
+  <app-address-stepper [visible]="addressState === 2" (closed)="closeStepperDialog()"
+></app-address-stepper>
+}
+
+
