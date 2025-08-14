@@ -25,7 +25,7 @@ export class DashboardComponent {
   ngOnInit() {
     this.items = [
       {
-        label: "Add",
+        label: "Up",
         icon: "pi pi-pencil",
         command: () => {
           this.messageService.add({ severity: "info", summary: "Add", detail: "Data Added" });
@@ -35,6 +35,7 @@ export class DashboardComponent {
         label: "Update",
         icon: "pi pi-refresh",
         command: () => {
+          console.log("hiiiiii");
           this.messageService.add({
             severity: "success",
             summary: "Update",
@@ -48,19 +49,6 @@ export class DashboardComponent {
         command: () => {
           this.messageService.add({ severity: "error", summary: "Delete", detail: "Data Deleted" });
         },
-      },
-      {
-        label: "Upload",
-        icon: "pi pi-upload",
-        command: () => {
-          this.router.navigate(["/fileupload"]);
-        },
-      },
-      {
-        label: "Angular Website",
-        icon: "pi pi-external-link",
-        target: "_blank",
-        url: "http://angular.io",
       },
     ];
   }
