@@ -1,7 +1,16 @@
-<section class="dash">
+<section class="dash relative">
   <app-navbar />
   <div class="contain mx-auto">
     <router-outlet />
   </div>
   <app-footer />
+  <div class="card">
+    <div [style]="{ position: 'relative', height: '350px' }">
+      <p-toast />
+      <p-speeddial [model]="items!" direction="up" [style]="{ position: 'absolute', right: 0, bottom: 0 }"
+        [buttonProps]="{ severity: 'help', rounded: true }" [tooltipOptions]="{ tooltipPosition: 'left' }" />
+      <p-speeddial [model]="items!" direction="up" [style]="{ position: 'absolute', left: 0, bottom: 0 }"
+        [buttonProps]="{ severity: 'danger', rounded: true }" [tooltipOptions]="{ tooltipPosition: 'right' }" />
+    </div>
+  </div>
 </section>
