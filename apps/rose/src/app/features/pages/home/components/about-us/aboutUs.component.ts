@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 // Images
 import { NgOptimizedImage } from "@angular/common";
 // Translation
@@ -28,6 +28,10 @@ import { RippleModule } from "primeng/ripple";
   templateUrl: "./aboutUs.component.html",
   styleUrl: "./aboutUs.component.scss",
   animations: [fadeTransition],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    "[@fadeTransition]": "translationService.fadeState()",
+  },
 })
 export class AboutUsComponent {
   public darkMode = inject(DarkModeService);

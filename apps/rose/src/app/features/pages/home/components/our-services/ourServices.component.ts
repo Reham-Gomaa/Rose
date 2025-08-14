@@ -14,6 +14,9 @@ import { ServicesInterface } from "@rose/core_interfaces/services.interface";
   styleUrl: "./ourServices.component.scss",
   animations: [fadeTransition],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    "[@fadeTransition]": "translationService.fadeState()",
+  },
 })
 export class OurServicesComponent {
   translationService = inject(TranslationService);
