@@ -5,7 +5,10 @@
     "allcategory": "All Category",
     "about": "About",
     "contact": "Contact",
-    "login": "Login"
+    "login": "Login",
+    "hello": "Hello",
+    "search": "What awesome gift are you looking for?",
+    "deliver": "Deliver to:"
   },
   "home": {
     "categories": {
