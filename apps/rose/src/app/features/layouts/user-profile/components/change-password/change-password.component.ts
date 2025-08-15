@@ -11,7 +11,7 @@ import {
 import { AuthApiKpService } from "auth-api-kp";
 import { MessageService } from "primeng/api";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { TranslatePipe } from "@ngx-translate/core";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
 
 @Component({
@@ -21,6 +21,7 @@ import { StorageManagerService } from "@rose/core_services/storage-manager/stora
   styleUrl: "./change-password.component.scss",
 })
 export class ChangePasswordComponent {
+  private readonly _translate = inject(TranslateService);
   private readonly _authApiKpService = inject(AuthApiKpService);
   private readonly _messageService = inject(MessageService);
   private readonly destroyRef = inject(DestroyRef);
@@ -78,16 +79,19 @@ export class ChangePasswordComponent {
             }
             this._messageService.add({
               severity: "success",
-              summary: "Success",
-              detail: res.message || "Password changed successfully",
+              detail: this._translate.instant("messagesToast.passwordChangeSuccess"),
+            });
+          } else {
+            this._messageService.add({
+              severity: "error",
+              detail: this._translate.instant("messagesToast.passwordChangeFailed"),
             });
           }
         },
         error: (err) => {
           this._messageService.add({
             severity: "error",
-            summary: "Error",
-            detail: err?.error?.message || "Failed to change password",
+            detail: this._translate.instant("messagesToast.passwordChangeFailed"),
           });
         },
         complete: () => {
