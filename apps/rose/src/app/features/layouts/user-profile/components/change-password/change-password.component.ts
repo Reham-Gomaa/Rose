@@ -1,6 +1,4 @@
 import { Component, DestroyRef, inject, signal } from "@angular/core";
-import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
-import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
 import {
   AbstractControl,
   FormControl,
@@ -8,11 +6,18 @@ import {
   ReactiveFormsModule,
   Validators,
 } from "@angular/forms";
-import { AuthApiKpService } from "auth-api-kp";
-import { MessageService } from "primeng/api";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+// Translation
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
+// Services
 import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
+// Shared_Components
+import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
+import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
+// PrimeNg
+import { MessageService } from "primeng/api";
+// Auth_Lib
+import { AuthApiKpService } from "auth-api-kp";
 
 @Component({
   selector: "app-change-password",

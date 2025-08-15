@@ -1,11 +1,19 @@
 import { Component, DestroyRef, inject, signal, ViewChild } from "@angular/core";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { Router } from "@angular/router";
+// Translation
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Services
+import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
+import { UserStateService } from "@rose/core_services/user-state/user-state.service";
+// Shared_Components
 import { CustomInputPhoneComponent } from "@rose/shared_Components_ui/custom-input-phone/custom-input-phone.component";
 import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
-import { AuthApiKpService, User } from "auth-api-kp";
+import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
+import { ConfirmDialogComponent } from "@rose/shared_Components_business/confirm-dialog/confirm-dialog.component";
+// PrimeNg
 import { MessageService } from "primeng/api";
 import { ButtonModule } from "primeng/button";
 import { DropdownModule } from "primeng/dropdown";
@@ -13,12 +21,8 @@ import { FileUpload } from "primeng/fileupload";
 import { InputTextModule } from "primeng/inputtext";
 import { Select } from "primeng/select";
 import { SkeletonModule } from "primeng/skeleton";
-import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
-import { ConfirmDialogComponent } from "@rose/shared_Components_business/confirm-dialog/confirm-dialog.component";
-import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
-import { UserStateService } from "@rose/core_services/user-state/user-state.service";
-import { Router } from "@angular/router";
-
+// Auth_Lib
+import { AuthApiKpService, User } from "auth-api-kp";
 @Component({
   selector: "app-edit-profile",
   imports: [
