@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
+// PrimeNg
 import { DialogModule } from "primeng/dialog";
 import { ButtonModule } from "primeng/button";
 
@@ -9,8 +10,10 @@ import { ButtonModule } from "primeng/button";
   styleUrls: ["./confirm-dialog.component.scss"],
 })
 export class ConfirmDialogComponent {
-  @Input() header: string = "Confirmation";
   @Input() message: string = "Are you sure you want to proceed?";
+  @Input() subMessage: string = "This action cannot be undone.";
+  @Input() cancelLabel: string = "Cancel";
+  @Input() confirmLabel: string = "Confirm";
   @Input() visible: boolean = false;
   @Output() confirmed = new EventEmitter<boolean>();
 

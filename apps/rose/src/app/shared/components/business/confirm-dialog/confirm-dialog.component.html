@@ -1,26 +1,24 @@
-<p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '450px', borderRadius: '12px' }"
+<p-dialog [(visible)]="visible" [modal]="true"
+  [style]="{ width: '474px', borderRadius: '16px', textAlign: 'center' , border: 'none' , backgroundColor: 'var(--confirm-dialog-bg)'}"
   [breakpoints]="{ '960px': '75vw', '640px': '90vw' }" [draggable]="false" [resizable]="false">
 
-  <!-- Header with custom styling -->
-  <ng-template pTemplate="header">
-    <div class="dialog-header">
-      <i class="pi pi-exclamation-triangle mr-2"></i>
-      <span class="text-xl font-semibold">{{header}}</span>
+  <div class="dialog-container">
+    <!-- Body content -->
+    <div class="dialog-body">
+      <div class="icon-circle">
+        <div class="outer-circle">
+          <div class="inner-circle">
+            <i class="pi pi-trash"></i>
+          </div>
+        </div>
+      </div>
+      <p class="dialog-title">{{ message }}</p>
+      <p class="dialog-sub">{{ subMessage }}</p>
     </div>
-  </ng-template>
-
-  <!-- Body content -->
-  <div class="dialog-body">
-    <p class="text-gray-700 mb-4">{{message}}</p>
+    <div class="dialog-actions">
+      <p-button type="button" [label]="cancelLabel" (click)="onCancel()" styleClass="cancel-btn"></p-button>
+      <p-button type="button" [label]="confirmLabel" (click)="onConfirm()" styleClass="confirm-btn"></p-button>
+    </div>
   </div>
 
-  <!-- Footer with action buttons -->
-  <ng-template pTemplate="footer">
-    <div class="flex justify-end gap-3">
-      <p-button type="button" label="Cancel" icon="pi pi-times" (click)="onCancel()"
-        styleClass="p-button-outlined p-button-secondary" />
-
-      <p-button type="button" label="Confirm" icon="pi pi-check" (click)="onConfirm()" styleClass="p-button-danger" />
-    </div>
-  </ng-template>
 </p-dialog>
