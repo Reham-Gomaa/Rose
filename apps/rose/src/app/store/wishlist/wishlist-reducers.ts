@@ -21,10 +21,7 @@ export const wishlistReducer = createReducer(
     const productIndex = state.favouriteitems.findIndex((item) => item._id === product._id);
 
     if (productIndex >= 0) {
-      const updatedItems = [
-        ...state.favouriteitems.slice(0, productIndex),
-        ...state.favouriteitems.slice(productIndex + 1),
-      ];
+      const updatedItems = [...state.favouriteitems.filter((item) => item._id != product._id)];
 
       return {
         ...state,
