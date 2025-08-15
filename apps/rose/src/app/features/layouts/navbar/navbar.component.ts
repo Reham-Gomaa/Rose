@@ -241,6 +241,12 @@ export class NavbarComponent implements OnInit {
           });
           this.user.set(null);
           this._router.navigate(["/dashboard/home"]);
+
+          setTimeout(() => {
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }, 0);
         },
         error: (err) => {
           this._messageService.add({
