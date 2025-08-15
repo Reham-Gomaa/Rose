@@ -130,12 +130,6 @@ export class NavbarComponent implements OnInit {
     this.visible.set(true);
   }
 
-  changeLang(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    const lang = selectElement.value;
-    this._translationService.changeLang(lang);
-  }
-
   openSearch() {
     this.inSearch.set(true);
     this.searchModal.closeSearch = false;

@@ -147,6 +147,9 @@
   --scrollbar-track-color: var(--white);
   --scrollbar-thumb-color: var(--maroon-600);
   --scrollbar-thumb-hover-color: var(--maroon-500);
+  // speedDial
+  --speedDial-bg: var(--maroon-500);
+  --speedDial-hover: var(--maroon-700);
 
   // Home Components
   // Categories
@@ -463,6 +466,9 @@
   --scrollbar-track-color: var(--zinc-800);
   --scrollbar-thumb-color: var(--soft-pink-200);
   --scrollbar-thumb-hover-color: var(--soft-pink-300);
+  // speedDial
+  --speedDial-bg: var(--soft-pink-200);
+  --speedDial-hover: var(--soft-pink-400);
 
   // Home Components
   // Categories
@@ -481,13 +487,13 @@
   --h1-color-gift: var(--white);
   --dark-text-gift: var(--white);
   --highlight-color-gift: var(--maroon-600);
-  --carousel-i-color-gift: var(--maroon-50);
-  --carousel-button-gift-background: var(--maroon-600);
-  --carousel-button-gift-hover: var(--maroon-500);
-  --carousel-indicator-button-gift-color: var(--maroon-50);
-  --carousel-indicator-button-gift-active: var(--maroon-600);
-  --carousel-indicator-button-gift-hover: var(--maroon-500);
-  --carousel-button-gift-hover: var(--maroon-500);
+  --carousel-i-color-gift: var(--zinc-50);
+  --carousel-button-gift-background: var(--soft-pink-200);
+  --carousel-button-gift-hover: var(--soft-pink-300);
+  --carousel-indicator-button-gift-color: var(--soft-pink-200);
+  --carousel-indicator-button-gift-active: var(--soft-pink-300);
+  --carousel-indicator-button-gift-hover: var(--soft-pink-300);
+  --carousel-button-gift-hover: var(--soft-pink-300);
   // Our Services
   --our-services-color: var(--zinc-700);
   --our-services-background: var(--soft-pink-200);
