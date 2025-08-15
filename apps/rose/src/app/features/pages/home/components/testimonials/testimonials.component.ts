@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 // Images
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
@@ -16,8 +16,12 @@ import { CarouselModule } from "primeng/carousel";
   imports: [CarouselModule, ButtonModule, TranslatePipe],
   templateUrl: "./testimonials.component.html",
   styleUrl: "./testimonials.component.scss",
-  host: { ngSkipHydration: "true" },
+  host: {
+    ngSkipHydration: "true",
+    "[@fadeTransition]": "translationService.fadeState()",
+  },
   animations: [fadeTransition],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TestimonialsComponent {
   translationService = inject(TranslationService);

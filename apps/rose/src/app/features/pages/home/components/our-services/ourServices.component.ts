@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -13,6 +13,10 @@ import { ServicesInterface } from "@rose/core_interfaces/services.interface";
   templateUrl: "./ourServices.component.html",
   styleUrl: "./ourServices.component.scss",
   animations: [fadeTransition],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    "[@fadeTransition]": "translationService.fadeState()",
+  },
 })
 export class OurServicesComponent {
   translationService = inject(TranslationService);

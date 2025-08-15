@@ -1,4 +1,4 @@
-import { Injectable, effect, inject, signal } from "@angular/core";
+import { Injectable, Renderer2, RendererFactory2, effect, inject, signal } from "@angular/core";
 import { DOCUMENT } from "@angular/common";
 // SSR Cookie Service
 import { SsrCookieService } from "ngx-cookie-service-ssr";
@@ -7,12 +7,15 @@ import { SsrCookieService } from "ngx-cookie-service-ssr";
 export class DarkModeService {
   private readonly document = inject(DOCUMENT);
   private readonly ssrCookieService = inject(SsrCookieService);
+  private readonly rendererFactory2 = inject(RendererFactory2);
 
   private readonly STORAGE_KEY = "darkMode";
 
   isDark = signal<boolean>(false);
+  renderer!: Renderer2;
 
   constructor() {
+    this.renderer = this.rendererFactory2.createRenderer(null, null);
     this.initializeTheme();
     this.setupThemeListener();
   }
@@ -43,9 +46,9 @@ export class DarkModeService {
   private applyTheme(isDark: boolean): void {
     const html = this.document.documentElement;
     if (isDark) {
-      html.classList.add("dark-mode");
+      this.renderer.addClass(html, "dark-mode");
     } else {
-      html.classList.remove("dark-mode");
+      this.renderer.removeClass(html, "dark-mode");
     }
   }
 }
