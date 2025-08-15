@@ -4,86 +4,88 @@
   <h2 class="ordersTitle">{{"orders.title"| translate}}</h2>
 
   @if (orders && orders.length > 0) {
-    <div class="orders-container">
-      @for (order of orders; track order._id) {
-        <div class="order-card ">
-          <div class="order-header">
-            <span class="order-number">{{"orders.orderNumber"| translate}} {{ order.orderNumber }}</span>
-            <span class="order-date">{{"orders.orderDate"| translate}} {{ formatDate(order.createdAt) }}</span>
-          </div>
+  <div class="orders-container">
+    @for (order of orders; track order._id) {
+    <div class="order-card ">
+      <div class="order-header">
+        <span class="order-number">{{"orders.orderNumber"| translate}} {{ order.orderNumber }}</span>
+        <span class="order-date">{{"orders.orderDate"| translate}} {{ formatDate(order.createdAt) }}</span>
+      </div>
 
-          <div class="order-status-section">
-            <div class="status-left">
-              <span class="total-label">{{"orders.totalPrice"| translate}}</span>
-              <span class="bold">{{order.totalPrice}} {{"EGP" | translate}}</span>
-              @if (order.isPaid) {
-                <span class="paid-badge">
-                  <i [class]="PrimeIcons.CHECK"></i> {{"orders.paid"| translate}}
-                </span>
-              }
-            </div>
+      <div class="order-status-section">
+        <div class="status-left">
+          <span class="total-label">{{"orders.totalPrice"| translate}}</span>
+          <span class="bold">{{order.totalPrice}} {{"EGP" | translate}}</span>
+          @if (order.isPaid) {
+          <span class="paid-badge">
+            <i [class]="PrimeIcons.CHECK"></i> {{"orders.paid"| translate}}
+          </span>
+          }
+        </div>
 
-            <div class="status-right">
-              <span class="status-label">{{"orders.status"| translate}} </span>
-             <span class="state-badge"  [ngClass]="'orders.states.' + order.state + '.class' | translate">
-                {{ 'orders.states.' + order.state + '.text' | translate }}</span>
-            </div>
-          </div>
+        <div class="status-right">
+          <span class="status-label">{{"orders.status"| translate}} </span>
+          <span class="state-badge" [ngClass]="'orders.states.' + order.state + '.class' | translate">
+            {{ 'orders.states.' + order.state + '.text' | translate }}</span>
+        </div>
+      </div>
 
-          <div class="order-extra-details">
-            <p><strong>{{"orders.paymentMethod"| translate}} </strong><span class="payment"> <i [class]="
-              order.paymentType === 'cash' ? PrimeIcons.MONEY_BILL : 
-              order.paymentType === 'credit card' ? PrimeIcons.CREDIT_CARD : 
+      <div class="order-extra-details">
+        <p><strong>{{"orders.paymentMethod"| translate}} </strong><span class="payment"> <i [class]="
+              order.paymentType === 'cash' ? PrimeIcons.MONEY_BILL :
+              order.paymentType === 'credit card' ? PrimeIcons.CREDIT_CARD :
               PrimeIcons.WALLET "></i> {{ 'orders.paymentTypes.'+ order.paymentType | translate}}</span></p>
 
-            <p><strong>{{"orders.deliveryStatus"|translate}} </strong>
-           <span [ngClass]="order.isDelivered ? 'delivered' : 'cancelled'">
-               <i [class]="order.isDelivered ? PrimeIcons.CHECK : PrimeIcons.BAN"></i>
-              {{ order.isDelivered ? ('orders.deliveryStatuses.delivered.text' | translate) : ('orders.deliveryStatuses.canceled.text' | translate) }}
-           </span>
-            </p>
-            <p><strong>{{"orders.orderItems"| translate}}</strong></p>
-          </div>
+        <p><strong>{{"orders.deliveryStatus"|translate}} </strong>
+          <span [ngClass]="order.isDelivered ? 'delivered' : 'cancelled'">
+            <i [class]="order.isDelivered ? PrimeIcons.CHECK : PrimeIcons.BAN"></i>
+            {{ order.isDelivered ? ('orders.deliveryStatuses.delivered.text' | translate) :
+            ('orders.deliveryStatuses.canceled.text' | translate) }}
+          </span>
+        </p>
+        <p><strong>{{"orders.orderItems"| translate}}</strong></p>
+      </div>
 
-         <div class="order-content">             
-            <div class="order-items-wrapper"                  
-                [class.collapsed]="order.orderItems.length >= 3 && !isExpanded(order._id)"                  
-                [class.faded-mask]="order.orderItems.length >= 3 && !isExpanded(order._id)">               
-               <div class="order-items">                 
-                    @for (item of order.orderItems; track item._id; let i = $index) {                   
-                         @if (shouldShowItem(order.orderItems.length, i, order._id)) {                     
-                             <div class="order-item"                           
-                                [class.semi-visible]="isSemiVisible(order.orderItems.length, i, order._id)">                       
-                                <div class="item-image">                         
-                                     <img [src]="item.product.imgCover" [alt]="item.product.title" />                       
-                                </div>                       
-                                <div class="item-details">                         
-                                    <p class="item-title">{{ item.product.title }}</p>                         
-                                    <p class="item-rating"><i class="star" [class]="PrimeIcons.STAR_FILL"> </i> {{ 'orders.rating' | translate }} <span class="rating">{{ getProductRating(item.product) }} </span><span class="rate-count">({{item.product.rateCount}} Ratings )</span> </p>                         
-                                    <p class="item-price-quantity">                           
-                                        <span class="quantity">(x{{ item.quantity }})  </span>                           
-                                        <span class="price"><span class="item-total">{{ calculateItemTotal(item) }} </span>{{"EGP" | translate}}</span>                         
-                                    </p>                       
-                                 </div>                     
-                              </div>                   
-                           }                 
-                        }               
-                  </div>             
-              </div>              
-              @if (order.orderItems.length >= 3) {               
-                   <div class="show-more-container">                 
-                        <button class="show-more-btn" (click)="toggleShowAll(order._id)">                   
-                        {{ isExpanded(order._id) ? ('orders.showLess' | translate) : ('orders.showAll' | translate) }}  
-                        <i [class]="isExpanded(order._id) ? PrimeIcons.CHEVRON_UP : PrimeIcons.CHEVRON_DOWN"></i>             
-                        </button>               
-                    </div>             
-             }           
-         </div>
+      <div class="order-content">
+        <div class="order-items-wrapper" [class.collapsed]="order.orderItems.length >= 3 && !isExpanded(order._id)"
+          [class.faded-mask]="order.orderItems.length >= 3 && !isExpanded(order._id)">
+          <div class="order-items">
+            @for (item of order.orderItems; track item._id; let i = $index) {
+            @if (shouldShowItem(order.orderItems.length, i, order._id)) {
+            <div class="order-item" [class.semi-visible]="isSemiVisible(order.orderItems.length, i, order._id)">
+              <div class="item-image">
+                <img [src]="item.product.imgCover" [alt]="item.product.title" />
+              </div>
+              <div class="item-details">
+                <p class="item-title">{{ item.product.title }}</p>
+                <p class="item-rating"><i class="star" [class]="PrimeIcons.STAR_FILL"> </i> {{ 'orders.rating' |
+                  translate }} <span class="rating">{{ getProductRating(item.product) }} </span><span
+                    class="rate-count">({{item.product.rateCount}} Ratings )</span> </p>
+                <p class="item-price-quantity">
+                  <span class="quantity">(x{{ item.quantity }}) </span>
+                  <span class="price"><span class="item-total">{{ calculateItemTotal(item) }} </span>{{"EGP" |
+                    translate}}</span>
+                </p>
+              </div>
+            </div>
+            }
+            }
+          </div>
         </div>
-      }
+        @if (order.orderItems.length >= 3) {
+        <div class="show-more-container">
+          <button class="show-more-btn" (click)="toggleShowAll(order._id)">
+            {{ isExpanded(order._id) ? ('orders.showLess' | translate) : ('orders.showAll' | translate) }}
+            <i [class]="isExpanded(order._id) ? PrimeIcons.CHEVRON_UP : PrimeIcons.CHEVRON_DOWN"></i>
+          </button>
+        </div>
+        }
+      </div>
     </div>
+    }
+  </div>
   } @else {
-    <p class="no-orders">{{"orders.noOrdersFound"| translate}}</p>
+  <p class="no-orders">{{"orders.noOrdersFound"| translate}}</p>
   }
 </section>
 

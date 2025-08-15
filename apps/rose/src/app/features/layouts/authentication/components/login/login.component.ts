@@ -3,7 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angula
 import { Router, RouterLink } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
-import { TranslatePipe } from "@ngx-translate/core";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 // shared-components
 import { AuthComponent } from "@rose/features_layouts/authentication/auth.component";
 import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
@@ -39,6 +39,7 @@ import * as AuthActions from "@rose/store_auth/auth.actions";
 })
 export class LoginComponent {
   readonly translationService = inject(TranslationService);
+  private readonly _translate = inject(TranslateService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly _authApiKpService = inject(AuthApiKpService);
   private readonly _router = inject(Router);
@@ -76,14 +77,14 @@ export class LoginComponent {
 
             this._messageService.add({
               severity: "success",
-              detail: "Login successful!",
+              detail: this._translate.instant("messagesToast.loginSuccess"),
               life: 3000,
             });
             this._router.navigate(["/dashboard/home"]);
           } else {
             this._messageService.add({
               severity: "error",
-              detail: "Incorrect Email or Password. Please try again",
+              detail: this._translate.instant("messagesToast.loginFailed"),
               life: 5000,
             });
           }
@@ -91,7 +92,7 @@ export class LoginComponent {
         error: (err) => {
           this._messageService.add({
             severity: "error",
-            detail: "Incorrect Email or Password. Please try again",
+            detail: this._translate.instant("messagesToast.loginFailed"),
             life: 5000,
           });
         },

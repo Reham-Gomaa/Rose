@@ -1,4 +1,4 @@
-<app-auth [@fadeTransition]="translationService.fadeState()" [process]="'register'" [title]="'auth.register.h1'"
+<app-auth [@fadeTransition]="_translationService.fadeState()" [process]="'register'" [title]="'auth.register.h1'"
   [heading3]="'auth.register.h3'" [heading3span]="'auth.register.span'">
   <div class="flex-col ">
     <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()" role="form" aria-label="Registration Form">

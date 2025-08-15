@@ -4,7 +4,7 @@ import { NgOptimizedImage } from "@angular/common";
 import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translate
-import { TranslatePipe } from "@ngx-translate/core";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
 // Animation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
@@ -70,6 +70,7 @@ type modalPosition =
 })
 export class NavbarComponent implements OnInit {
   readonly _translationService = inject(TranslationService);
+  private readonly _translate = inject(TranslateService);
   private readonly _authApiService = inject(AuthApiKpService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly _router = inject(Router);
@@ -148,36 +149,38 @@ export class NavbarComponent implements OnInit {
     const user = this.user();
     this.userDropDown.set([
       {
-        label: user ? `${user.firstName} ${user.lastName}` : "Guest",
+        label: user
+          ? `${user.firstName} ${user.lastName}`
+          : this._translate.instant("navbar.menu.guest"),
         escape: true,
       },
       {
         separator: true,
       },
       {
-        label: "My Profile",
+        label: this._translate.instant("navbar.menu.myProfile"),
         icon: "pi pi-user",
         visible: !!user,
         command: () => this._router.navigate(["/dashboard/user-profile"]),
       },
       {
-        label: "My Addresses",
+        label: this._translate.instant("navbar.menu.myAddresses"),
         icon: "pi pi-map-marker",
         visible: !!user,
         command: () => this._router.navigate(["/dashboard/order-flow/address"]),
       },
       {
-        label: "My Orders",
+        label: this._translate.instant("navbar.menu.myOrders"),
         icon: "pi pi-receipt",
         visible: !!user,
-        command: () => this._router.navigate(["/dashboard/order-flow/orders"]),
+        command: () => this._router.navigate(["/dashboard/orders"]),
       },
       {
         separator: true,
         visible: !!user,
       },
       {
-        label: "Dashboard",
+        label: this._translate.instant("navbar.menu.dashboard"),
         icon: "pi pi-cog",
         command: () => this._router.navigate(["/dashboard/user-dashboard"]),
       },
@@ -186,7 +189,7 @@ export class NavbarComponent implements OnInit {
         visible: !!user,
       },
       {
-        label: "Log out",
+        label: this._translate.instant("navbar.menu.logout"),
         icon: "pi pi-sign-out",
         command: () => {
           this.logout();
@@ -216,8 +219,7 @@ export class NavbarComponent implements OnInit {
           this.updateUserDropdown();
           this._messageService.add({
             severity: "error",
-            summary: "Error",
-            detail: "Failed to load user profile",
+            detail: this._translate.instant("messagesToast.failedLoadProfile"),
             life: 3000,
           });
           this.loading.set(false);
@@ -244,7 +246,7 @@ export class NavbarComponent implements OnInit {
         error: (err) => {
           this._messageService.add({
             severity: "error",
-            detail: "Your session expired. Please login again to continue.",
+            detail: this._translate.instant("messagesToast.sessionExpired"),
             life: 3000,
           });
         },

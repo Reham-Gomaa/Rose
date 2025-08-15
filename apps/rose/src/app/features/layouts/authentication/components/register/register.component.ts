@@ -46,8 +46,8 @@ import { InputErrorHandlingComponent } from "@rose/shared_Components_business/in
   animations: [fadeTransition],
 })
 export class RegisterComponent {
-  readonly translationService = inject(TranslationService);
-  private translate = inject(TranslateService);
+  readonly _translationService = inject(TranslationService);
+  private readonly _translate = inject(TranslateService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly _authApiKpService = inject(AuthApiKpService);
   private readonly _router = inject(Router);
@@ -57,8 +57,8 @@ export class RegisterComponent {
   isLoading = signal<boolean>(false);
 
   genders = [
-    { value: "male", label: this.translate.instant("auth.register.gender.male") },
-    { value: "female", label: this.translate.instant("auth.register.gender.female") },
+    { value: "male", label: this._translate.instant("auth.register.gender.male") },
+    { value: "female", label: this._translate.instant("auth.register.gender.female") },
   ];
 
   registerForm: FormGroup = new FormGroup(
@@ -101,7 +101,7 @@ export class RegisterComponent {
       this.markAllAsTouched();
       this._messageService.add({
         severity: "warn",
-        detail: "Please fill all required fields correctly.",
+        detail: this._translate.instant("messagesToast.fillRequired"),
         life: 3000,
       });
       return;
@@ -118,7 +118,7 @@ export class RegisterComponent {
           if ("token" in res && res.message === "success") {
             this._messageService.add({
               severity: "success",
-              detail: "Registration successful!",
+              detail: this._translate.instant("messagesToast.registrationSuccess"),
               life: 3000,
             });
 
@@ -128,18 +128,18 @@ export class RegisterComponent {
           } else {
             this._messageService.add({
               severity: "error",
-              detail: "Registration failed.",
+              detail: this._translate.instant("messagesToast.registrationFailed"),
               life: 3000,
             });
           }
         },
         error: (err) => {
           this.apiError.set(
-            err.error?.message || "Registration failed. Please check your details and try again."
+            err.error?.message || this._translate.instant("messagesToast.registrationFailed")
           );
           this._messageService.add({
             severity: "error",
-            detail: err.error?.message || "Something went wrong!",
+            detail: err.error?.message || this._translate.instant("messagesToast.somethingWentWrong"),
             life: 3000,
           });
         },

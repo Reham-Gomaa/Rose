@@ -4,7 +4,7 @@ import { CommonModule } from "@angular/common";
 import { NgOptimizedImage } from "@angular/common";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
-import { TranslatePipe } from "@ngx-translate/core";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
 // Animations
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
@@ -35,6 +35,7 @@ import { Skeleton } from "primeng/skeleton";
   animations: [fadeTransition],
 })
 export class CategoriesComponent implements OnInit {
+  private readonly _translate = inject(TranslateService);
   private categoriesService = inject(CategoriesService);
   translationService = inject(TranslationService);
   private messageService = inject(MessageService);
@@ -65,8 +66,7 @@ export class CategoriesComponent implements OnInit {
           this.isLoading.set(false);
           this.messageService.add({
             severity: "error",
-            summary: "Error",
-            detail: "Failed to load categories",
+            detail: this._translate.instant("messagesToast.failedToLoadCategories"),
           });
         },
       });
