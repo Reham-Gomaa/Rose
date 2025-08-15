@@ -51,6 +51,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.getLoggedUserCart();
     this.selectData();
+    this.checkStoreQuantity();
   }
 
   getLoggedUserCart() {
@@ -76,6 +77,17 @@ export class CartComponent implements OnInit {
 
   findItem(p_id: string): cartItems | undefined {
     return this.userCartItems.find((item) => item.product._id === p_id);
+  }
+
+  checkStoreQuantity() {
+    const invalidItems = this.userCartItems.filter((item) => item.quantity > item.product.quantity);
+
+    if (invalidItems.length > 0) {
+      for (let i = 0; i < invalidItems.length; i++) {
+        this.store.dispatch(deleteSpecificItem({ p_id: invalidItems[i].product._id }));
+      }
+      return;
+    }
   }
 
   updateProductQuantity(p_id: string, qty: number) {
@@ -122,7 +134,7 @@ export class CartComponent implements OnInit {
     }
   }
 
-  private getCurrentQuantity(productId: string): number {
+  getCurrentQuantity(productId: string): number {
     let currentQty = 1;
     const item = this.findItem(productId);
     currentQty = item?.quantity || 1;
