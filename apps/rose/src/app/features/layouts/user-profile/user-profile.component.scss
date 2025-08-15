@@ -1,14 +1,8 @@
 .profile-container {
-  display: flex;
-  align-items: stretch;
-  width: 100%;
-  max-width: 56.25rem;
-  margin: auto;
-  overflow: hidden;
-  margin-bottom: 9.375rem;
-
+  width: 80rem;
+  margin: 2.25rem auto 18.9375rem auto;
   .sidebar-title {
-    color: var(--zinc-800);
+    color: var(--user-profile-sidebar-title);
     font-family: var(--font-family-4);
     font-size: 3rem;
     font-weight: 700;
@@ -19,12 +13,13 @@
   .sidebar {
     width: 18.6875rem;
     padding: 1rem;
-    background: var(--zinc-50);
-    border-right: 1px solid var(--zinc-100);
-    border-radius: 1rem;
+    background: var(--user-profile-sidebar-bg);
+    border: 0.0625rem solid var(--user-profile-sidebar-border) !important;
+    border-radius: 1rem !important;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-bottom: 2rem;
 
     .sidebar-menu {
       display: flex;
@@ -42,7 +37,7 @@
         border: none;
         cursor: pointer;
         font-size: 0.95rem;
-        color: var(--zinc-800);
+        color: var(--user-profile-sidebar-menu-item-color);
         transition: all 0.2s;
 
         i {
@@ -50,14 +45,14 @@
         }
 
         &.active {
-          background-color: var(--zinc-800);
-          color: var(--zinc-50);
+          background-color: var(--user-profile-sidebar-menu-item-bg-active);
+          color: var(--user-profile-sidebar-menu-item-color-active);
           font-weight: 500;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0.0625rem 0.1875rem var(--shadow-black-opacity);
         }
 
         &:hover:not(.active) {
-          background: #e9ecef;
+          background: var(--user-profile-sidebar-menu-item-hover);
         }
       }
     }
@@ -67,10 +62,10 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      background-color: var(--zinc-100);
+      background-color: var(--user-profile-sidebar-menu-item-btn-logout-bg);
       border: none;
       border-radius: 0.5rem;
-      color: var(--maroon-500);
+      color: var(--user-profile-sidebar-menu-item-btn-logout-color);
       font-family: var(--font-family-4);
       font-weight: 500;
       font-size: 1rem;
@@ -85,7 +80,7 @@
       }
 
       &:hover {
-        background-color: var(--zinc-200);
+        background-color: var(--user-profile-sidebar-menu-item-btn-logout-hover);
       }
     }
   }
@@ -107,43 +102,44 @@
     padding: 0.5rem;
     border-radius: 50%;
     transition: all 0.2s;
-    color: var(--zinc-800);
+    color: var(--user-profile-sidebar-menu-item-mobile-color);
 
-    &:hover,
-    &:focus {
-      background-color: var(--zinc-100);
+    &:hover {
+      background-color: var(--user-profile-sidebar-menu-item-mobile-hover);
     }
 
     &.active {
-      color: var(--primary-color);
+      color: var(--user-profile-sidebar-menu-item-mobile-active-color);
     }
   }
 }
 
 /* Responsive Adjustments */
-@media (max-width: 992px) {
+@media (max-width: 1183px) {
   .profile-container {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 0;
+  }
+
+  .sidebar {
+    display: none !important;
+  }
+
+  .content-area {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .mobile-header {
+    display: flex;
     flex-direction: column;
-    max-width: 100%;
-    margin: 0 auto 4rem;
-    border-radius: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
 
-    .sidebar {
-      width: 100%;
-      border-right: none;
-      border-bottom: 1px solid var(--zinc-100);
-      border-radius: 0;
-      padding: 1.5rem;
-
-      .sidebar-menu {
-        flex-direction: column;
-        flex-wrap: wrap;
-        margin-bottom: 1.5rem;
-
-        .menu-item {
-          flex: 1 0 auto;
-        }
-      }
+    .icon-group {
+      display: flex;
     }
   }
 }
@@ -182,25 +178,6 @@
 
     .icon-group {
       display: flex;
-      gap: 1rem;
-
-      i {
-        cursor: pointer;
-        font-size: 1.25rem;
-        padding: 0.5rem;
-        border-radius: 50%;
-        transition: all 0.2s;
-        color: var(--zinc-800);
-
-        &:hover,
-        &:focus {
-          background-color: var(--zinc-100);
-        }
-
-        &.active {
-          color: var(--primary-color);
-        }
-      }
     }
   }
 }
@@ -208,7 +185,6 @@
 @media (min-width: 993px) {
   .profile-container {
     min-height: calc(100vh - 8rem);
-
     .sidebar {
       height: auto;
     }
@@ -217,6 +193,6 @@
 
 /* Accessibility */
 [tabindex]:focus-visible {
-  outline: 2px solid var(--primary-color);
-  outline-offset: 2px;
+  outline: 0.125rem solid var(--zinc-200);
+  outline-offset: 0.125rem;
 }

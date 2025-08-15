@@ -1,20 +1,28 @@
-import { Component, DestroyRef, inject, OnInit, signal } from "@angular/core";
+import { Component, DestroyRef, inject, signal } from "@angular/core";
+import { ReactiveFormsModule } from "@angular/forms";
+import { Router } from "@angular/router";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+// Translation
+import { TranslateModule } from "@ngx-translate/core";
+import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Animation_Translation
+import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+// Services
+import { UserStateService } from "@rose/core_services/user-state/user-state.service";
+import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
+// Components
+import { EditProfileComponent } from "./components/edit-profile/edit-profile.component";
+import { ChangePasswordComponent } from "./components/change-password/change-password.component";
+// PrimeNG
+import { MessageService } from "primeng/api";
 import { SkeletonModule } from "primeng/skeleton";
 import { ButtonModule } from "primeng/button";
 import { InputTextModule } from "primeng/inputtext";
 import { DropdownModule } from "primeng/dropdown";
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
-import { TranslateService, TranslateModule } from "@ngx-translate/core";
+// Auth_Lib
 import { AuthApiKpService } from "auth-api-kp";
-import { MessageService } from "primeng/api";
 import { User } from "auth-api-kp";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { EditProfileComponent } from "./components/edit-profile/edit-profile.component";
-import { ChangePasswordComponent } from "./components/change-password/change-password.component";
-import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
-import { Router } from "@angular/router";
-import { UserStateService } from "@rose/core_services/user-state/user-state.service";
+
 @Component({
   selector: "app-user-profile",
   standalone: true,
@@ -30,8 +38,9 @@ import { UserStateService } from "@rose/core_services/user-state/user-state.serv
   ],
   templateUrl: "./user-profile.component.html",
   styleUrl: "./user-profile.component.scss",
+  animations: [fadeTransition],
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileComponent {
   readonly _translationService = inject(TranslationService);
   private readonly _router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
@@ -50,8 +59,6 @@ export class UserProfileComponent implements OnInit {
   switchTab(tab: "profile" | "password") {
     this.activeTab = tab;
   }
-
-  ngOnInit(): void {}
 
   logout() {
     this._authApiKpService

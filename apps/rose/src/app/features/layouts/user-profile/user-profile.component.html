@@ -1,7 +1,7 @@
-<div class="profile-container">
+<div [@fadeTransition]="_translationService.fadeState()" class="profile-container">
   <div>
     <div class="mobile-header">
-      <h2 class="sidebar-title">Update Profile</h2>
+      <h2 class="sidebar-title">{{ "edit-Profile.updateProfile" | translate }}</h2>
       <div class="icon-group">
         <i class="pi pi-user-edit" [class.active]="activeTab === 'profile'" (click)="switchTab('profile')"
           (keyup.enter)="switchTab('profile')" tabindex="0" aria-label="Edit profile"></i>
@@ -11,24 +11,24 @@
       </div>
     </div>
 
-    <div class="flex">
-      <div class="sidebar">
+    <div class="grid">
+      <div class="sidebar col-4">
         <div class="sidebar-menu">
           <button class="menu-item" [class.active]="activeTab === 'profile'" (click)="switchTab('profile')">
             <i class="pi pi-user-edit"></i>
-            My Account
+            {{ "edit-Profile.myAccount" | translate }}
           </button>
           <button class="menu-item" [class.active]="activeTab === 'password'" (click)="switchTab('password')">
             <i class="pi pi-lock"></i>
-            Change Password
+            {{ "edit-Profile.changePassword" | translate }}
           </button>
         </div>
         <button class="logout-btn" (click)="logout()">
-          <i class="pi pi-sign-out rtl"></i> Logout
+          <i class="pi pi-sign-out rtl"></i> {{ "edit-Profile.logout" | translate }}
         </button>
       </div>
 
-      <div class="content-area">
+      <div class="content-area col-8">
         @if (activeTab === 'profile') {
         <app-edit-profile />
         }

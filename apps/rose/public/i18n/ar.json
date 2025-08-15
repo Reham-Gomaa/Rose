@@ -364,6 +364,10 @@
     }
   },
   "edit-Profile": {
+    "updateProfile": "تحديث الملف الشخصي",
+    "myAccount": "حسابي",
+    "changePassword": "تغيير كلمة المرور",
+    "logout": "تسجيل الخروج",
     "confirm-dialog": {
       "confirmDelete": "نعم، احذف",
       "cancelDelete": "لا، احتفظ به",

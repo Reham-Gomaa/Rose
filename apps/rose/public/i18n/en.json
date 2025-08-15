@@ -365,6 +365,10 @@
     }
   },
   "edit-Profile": {
+    "updateProfile": "Update Profile",
+    "myAccount": "My Account",
+    "changePassword": "Change Password",
+    "logout": "Logout",
     "confirm-dialog": {
       "confirmDelete": "Yes, delete",
       "cancelDelete": "No, keep it",
