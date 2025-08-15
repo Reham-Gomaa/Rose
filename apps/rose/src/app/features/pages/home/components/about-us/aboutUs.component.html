@@ -38,7 +38,8 @@
       {{ "home.aboutUs.paragraph" | translate }}
     </p>
 
-    <app-button [text]="'home.aboutUs.btn' | translate" [isIcon]="true" [borderRadius]="'btn-about-radius'"
+    <app-button [text]="'home.aboutUs.btn' | translate" [bgColor]="'var(--btn-shared-background)'"
+      [icon]="'pi pi-arrow-right arrowicon'" [textColor]="'var(--btn-shared-color)'" [borderRadius]="'btn-about-radius'"
       [padding]="'btn-about-padding'" [transition]="'btn-about-transition'"
       aria-label="Discover more about our premium gift boxes" />
 

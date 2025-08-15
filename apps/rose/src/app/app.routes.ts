@@ -41,12 +41,32 @@ export const appRoutes: Route[] = [
         loadComponent: () =>
           import("@rose/features_pages/contact/contact.component").then((c) => c.ContactComponent),
       },
-
       {
         path: "details/:id",
         title: "Product Details",
         loadComponent: () =>
           import("@rose/features_pages/details/details.component").then((c) => c.DetailsComponent),
+      },
+      {
+        path: "order-flow",
+        loadComponent: () =>
+          import("@rose/features_layouts/order-flow/order-flow.component").then(
+            (c) => c.OrderFlowComponent
+          ),
+      },
+      {
+        path: "allorders",
+        loadComponent: () =>
+          import("@rose/features_pages/orders/orders.component").then((c) => c.OrdersComponent),
+        title: "Orders",
+      },
+      {
+        path: "wishlist",
+        title: "Wishlist",
+        loadComponent: () =>
+          import("@rose/features_pages/wishlist/wishlist.component").then(
+            (c) => c.WishlistComponent
+          ),
       },
     ],
   },
@@ -76,40 +96,6 @@ export const appRoutes: Route[] = [
       import(
         "@rose/features_layouts/authentication/components/reset-password/reset-password.component"
       ).then((c) => c.ResetPasswordComponent),
-  },
-  {
-    path: "order-flow",
-    loadComponent: () =>
-      import("@rose/features_layouts/order-flow/order-flow.component").then(
-        (c) => c.OrderFlowComponent
-      ),
-    children: [
-      {
-        path: "cart",
-        loadComponent: () =>
-          import("@rose/features_layouts/order-flow/components/cart/cart.component").then(
-            (c) => c.CartComponent
-          ),
-        title: "Cart",
-      },
-      {
-        path: "address",
-        loadComponent: () =>
-          import(
-            "@rose/features_layouts/order-flow/components/user-address/user-address.component"
-          ).then((c) => c.UserAddressComponent),
-        title: "Address",
-      },
-     
-    ],
-  },
-  {
-        path: "allorders",
-        loadComponent: () =>
-          import("@rose/features_pages/orders/orders.component").then(
-            (c) => c.OrdersComponent
-          ),
-        title: "Orders",
   },
   {
     path: "**",

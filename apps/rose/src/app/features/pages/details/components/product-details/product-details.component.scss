@@ -12,7 +12,6 @@
       border-radius: 12px;
       height: 400px;
       object-fit: cover;
-
     }
 
     svg {
@@ -28,7 +27,7 @@
       border-radius: 8px;
 
       &::after {
-        content: '';
+        content: "";
         display: block;
         top: 0;
         bottom: 0;
@@ -53,7 +52,7 @@
     }
     .price {
       .original {
-        color: #D4D4D8;
+        color: #d4d4d8;
         text-decoration: line-through;
       }
 
@@ -68,7 +67,7 @@
 
     .stock {
       font-size: 14px;
-      background-color: #F4F4F5;
+      background-color: #f4f4f5;
       border-radius: 16px;
       padding: 6px 12px;
     }
@@ -78,13 +77,12 @@
       color: var(--details-header-color);
 
       i {
-        color: #FFC107;
+        color: #ffc107;
       }
 
       .ratingCount {
-        color: #155DFC;
+        color: #155dfc;
       }
-
     }
 
     .description {
@@ -95,29 +93,30 @@
 
     .wish-and-cart {
       .wish {
-        background-color: #F4F4F5;
+        background-color: #f4f4f5;
         color: black;
+
+        &.wishlist-active,
+        &.wishlist-active i {
+          background-color: var(--shape-i-favourite-item-bg) !important;
+          color: var(--shape-i-favourite-item-color) !important;
+        }
       }
 
-      .cart{
+      .cart {
         background-color: var(--btn-shared-background);
         color: var(--btn-shared-color);
         transition: all 0.3s;
       }
-      .cart:hover{
-        background-color: var( --btn-shared-background-hover);
+      .cart:hover {
+        background-color: var(--btn-shared-background-hover);
       }
     }
   }
-
-
 }
-
-
 
 :host ::ng-deep.p-dialog-content {
   padding: 0 !important;
-
 }
 
 :host ::ng-deep.p-dialog-header {
@@ -127,12 +126,10 @@
   color: var(--preview-color);
 }
 
-
 :host ::ng-deep.p-dialog-content img {
   border-bottom-right-radius: 12px;
   border-bottom-left-radius: 12px;
 }
-
 
 .image {
   border: 2.5px solid transparent;
@@ -145,8 +142,12 @@
   }
 
   &.active-thumbnail {
-    border-color: var(--preview-color); 
-    box-shadow: 0 0 8px var(--preview-color)(0, 123, 255, 0.4);
+    border-color: var(--preview-color);
+    box-shadow: 0 0 8px var(--preview-color) (0, 123, 255, 0.4);
   }
 }
 
+.disableCart {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}

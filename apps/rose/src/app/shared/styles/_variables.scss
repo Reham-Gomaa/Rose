@@ -58,10 +58,11 @@
 
   --emerald-50: #ecfdf5;
   --emerald-300: #5ee9b5;
-  --emerald-500: #00BC7D;
+  --emerald-500: #00bc7d;
   --emerald-700: #007a55;
 
   --blue-400: #50a2ff;
+  --blue-600: #155dfc;
   --blue-700: #1447e6;
 
   --gray-950: #323639;
@@ -205,6 +206,8 @@
   --shape-i-card-item-background: var(--white);
   --shape-i-card-item-color: var(--maroon-600);
   --shape-i-card-item-hover-color: var(--maroon-50);
+  --shape-i-favourite-item-color: var(--zinc-50);
+  --shape-i-favourite-item-bg: var(--maroon-700);
   --price-card-item-color: var(--maroon-700);
   --rating-card-item-color: var(--yellow);
   --btn-shopping-card-item-background: var(--maroon-600);
@@ -335,14 +338,14 @@
   --p-stepper-step-number-active-border-color: var(--maroon-600) !important;
   --p-stepper-separator-size: 0.375rem !important;
   // Address item
-  --address-name:var(--maroon-600);
-  --address-name-background:var(--zinc-50);
-  --address-body:var(--zinc-800);
-  --loading-color:var(--maroon-500);
+  --address-name: var(--maroon-600);
+  --address-name-background: var(--zinc-50);
+  --address-body: var(--zinc-800);
+  --loading-color: var(--maroon-500);
   // Delete dialog
-  --dialog-p:var(--zinc-800);
-  --dialog-out-shadow:#2E2E300D;
-  --dialog-icon:#2E2E3026;
+  --dialog-p: var(--zinc-800);
+  --dialog-out-shadow: #2e2e300d;
+  --dialog-icon: #2e2e3026;
 
   //Order Flow
   //Summary
@@ -353,15 +356,30 @@
   --summary-button-hover: var(--maroon-500);
   --summary-button-text-color: var(--white);
   --coupon-border-color: var(--zinc-300);
+  // Cart
+  --cart-title: var(--zinc-800);
+  --cart-text-color: var(--zinc-400);
+  --cart-text-color-2: var(--maroon-700);
+  --cart-text-color-3: var(--black);
+  --cart-text-color-4: var(--blue-600);
+  --cart-clearBtn-bg: var(--maroon-50);
+  --cart-deleteBtn-bg: var(--red-600);
+  --cart-deleteBtn-text: var(--zinc-50);
+  --cart-clearBtn-text: var(--maroon-600);
+  --cart-continueBtn-text: var(--white);
+  --cart-content-border: var(--zinc-200);
+  --cart-input-border: var(--zinc-300);
+  --cart-input-bg: var(--zinc-50);
+  --cart-star: var(--yellow);
 
   //Orders
   --order-title-color: var(--black);
   --order-header-bg: var(--maroon-600);
   --order-header-color: var(--white);
-  --order-total-color:var(--zinc-800);
+  --order-total-color: var(--zinc-800);
   --green-badge-bg: var(--emerald-500);
-  --blue-badge-bg:var(--blue-700);
-  --red-badge-bg:var(--red-600);
+  --blue-badge-bg: var(--blue-700);
+  --red-badge-bg: var(--red-600);
   --badge-color: var(--white);
   --order-items-bg: var(--zinc-100);
   --payment-color: var(--zinc-500);
@@ -371,8 +389,7 @@
   --order-ratings: var(--blue-700);
   --show-btn: var(--maroon-600);
   --rating-star: var(--yellow);
-  --fade-mask-base: 255, 255, 255; 
-
+  --fade-mask-base: 255, 255, 255;
 }
 
 // Dark theme overrides
@@ -507,6 +524,8 @@
   --shape-i-card-item-background: var(--white);
   --shape-i-card-item-color: var(--maroon-600);
   --shape-i-card-item-hover-color: var(--maroon-50);
+  --shape-i-favourite-item-color: var(--zinc-50);
+  --shape-i-favourite-item-bg: var(--soft-pink-200);
   --price-card-item-color: var(--soft-pink-200);
   --rating-card-item-color: var(--yellow);
   --btn-shopping-card-item-background: var(--maroon-500);
@@ -618,10 +637,8 @@
   --review-desc: var(--zinc-300);
   --details-desc: var(--zinc-400);
   --input-bg: var(--zinc-600);
-
   --preview-bg: var(--zinc-600);
   --preview-color: var(--white);
-
   // PrimeNg Button
   --p-button-primary-background: var(--soft-pink-500) !important;
   --p-button-primary-hover-border-color: var(--soft-pink-500) !important;
@@ -639,15 +656,14 @@
   --p-stepper-step-number-active-border-color: var(--soft-pink-500) !important;
   --p-stepper-separator-size: 0.375rem !important;
   // Address item
-  --address-name:var(--soft-pink-500);
-  --address-name-background:var(--zinc-800);
-  --address-body:var(--white);
-  --loading-color:var(--soft-pink-500);
+  --address-name: var(--soft-pink-500);
+  --address-name-background: var(--zinc-800);
+  --address-body: var(--white);
+  --loading-color: var(--soft-pink-500);
   // Delete dialog
-  --dialog-p:var(--zinc-50);
-  --dialog-out-shadow:var(--soft-pink-600);
-  --dialog-icon:var(--soft-pink-100);
-
+  --dialog-p: var(--zinc-50);
+  --dialog-out-shadow: var(--soft-pink-600);
+  --dialog-icon: var(--soft-pink-100);
 
   //Order Flow
   //Summary
@@ -658,28 +674,39 @@
   --summary-button-hover: var(--soft-pink-300);
   --summary-button-text-color: var(--zinc-800);
   --coupon-border-color: var(--soft-pink-200);
+  // Cart
+  --cart-title: var(--zinc-50);
+  --cart-text-color: var(--zinc-50);
+  --cart-text-color-2: var(--soft-pink-200);
+  --cart-text-color-3: var(--white);
+  --cart-text-color-4: var(--blue-600);
+  --cart-clearBtn-bg: var(--soft-pink-200);
+  --cart-deleteBtn-bg: var(--red-600);
+  --cart-deleteBtn-text: var(--zinc-50);
+  --cart-clearBtn-text: var(--maroon-600);
+  --cart-continueBtn-text: var(--maroon-600);
+  --cart-content-border: var(--zinc-200);
+  --cart-input-border: var(--zinc-300);
+  --cart-input-bg: var(--zinc-800);
+  --cart-star: var(--yellow);
 
-
-
-   //Orders
+  //Orders
   --order-title-color: var(--white);
   --order-header-bg: var(--soft-pink-300);
   --order-header-color: var(--zinc-700);
-  --order-total-color:var(--zinc-100);
+  --order-total-color: var(--zinc-100);
   --green-badge-bg: var(--emerald-500);
-  --blue-badge-bg:var(--blue-700);
-  --red-badge-bg:var(--red-600);
+  --blue-badge-bg: var(--blue-700);
+  --red-badge-bg: var(--red-600);
   --badge-color: var(--white);
   --order-items-bg: var(--zinc-800);
   --payment-color: var(--zinc-300);
   --order-item-bg: var(--zinc-600);
-  --order-items-color:var(--zinc-100);
+  --order-items-color: var(--zinc-100);
   --order-item-title: var(--soft-pink-400);
   --quantity-color: var(--soft-pink-400);
   --order-ratings: var(--blue-700);
   --show-btn: var(--soft-pink-300);
   --rating-star: var(--yellow);
-   --fade-mask-base: 18, 18, 18; 
-
-
+  --fade-mask-base: 18, 18, 18;
 }
