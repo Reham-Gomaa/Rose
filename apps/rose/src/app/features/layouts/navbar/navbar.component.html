@@ -5,7 +5,7 @@
       <img [routerLink]="'/'" ngSrc="/images/navbar/Rose.WebP" width="85" height="80" alt="Rose logo" rel="preload"
         decoding="async" class="logo-img" />
       <div class="location">
-        <span class="location-header">Deliver to:</span>
+        <span class="location-header">{{"navbar.deliver"|translate}}</span>
         <div class="location-content">
           <i class="pi pi-map-marker"></i>
           <span class="logo-subtext">Cairo</span>
@@ -15,8 +15,8 @@
 
     <div class="search-section ">
       <p-iconfield>
-        <p-inputicon styleClass="pi pi-search" />
-        <input type="text" pInputText placeholder="What awesome gift are you looking for?" class="search-input w-100" />
+        <p-inputicon styleClass="pi pi-search ml-1" />
+        <input type="text" pInputText [placeholder]="'navbar.search'|translate" class="search-input w-100" />
       </p-iconfield>
     </div>
 
@@ -28,15 +28,15 @@
       </button>
       <div class="icons">
         <i class="pi pi-heart cursor-pointer text-md"></i>
-        <i class="pi pi-shopping-cart cursor-pointer text-md"></i>
+        <a routerLink="/order-flow/cart"><i class="pi pi-shopping-cart cursor-pointer text-md"></i></a>
         <i class="pi pi-bell cursor-pointer text-md"></i>
       </div>
       } @else {
-      <p-splitButton [label]="'Hello ' + userName()" [model]="userDropDown()" styleClass="user-greeting-btn"
-        menuStyleClass="user-menu-overlay">
+      <p-splitButton [label]="'Hello ' + userName()" aria-label="User Menu" [model]="userDropDown()"
+        styleClass="user-greeting-btn" menuStyleClass="user-menu-overlay">
         <ng-template pTemplate="content">
           <div class="flex flex-column align-items-start">
-            Hello
+            {{"navbar.hello" |translate}}
             <span class="user-name">{{ userName() }}</span>
           </div>
         </ng-template>

@@ -5,7 +5,18 @@
     "allcategory": "جميع الفئات",
     "about": "من نحن",
     "contact": "اتصل بنا",
-    "login": "تسجيل الدخول"
+    "login": "تسجيل الدخول",
+    "hello": "أهلا",
+    "search": "ما الهدية الرائعة التي تبحث عنها؟",
+    "deliver": "التوصيل إلى:",
+    "menu": {
+      "guest": "ضيف",
+      "myProfile": "ملفي الشخصي",
+      "myAddresses": "عناويني",
+      "myOrders": "طلباتي",
+      "dashboard": "لوحة التحكم",
+      "logout": "تسجيل الخروج"
+    }
   },
   "home": {
     "categories": {
@@ -302,63 +313,127 @@
       "previous": "السابق",
       "submit": "حفظ العنوان"
     }
- 
-},
-   "orderFlow": {
-      "summaryTitle": "الملخص",
-      "couponCode": "كود الخصم",
-      "applyCoupon": "تطبيق الكود",
-      "couponMessage": "لا يوجد كود خصم مطبق",
-      "Total": "السعر الإجمالي:",
-      "price": "{{price}} ج.م",
-      "checkoutButton": "الدفع"
   },
-   "orders":{
+  "orderFlow": {
+    "summaryTitle": "الملخص",
+    "couponCode": "كود الخصم",
+    "applyCoupon": "تطبيق الكود",
+    "couponMessage": "لا يوجد كود خصم مطبق",
+    "Total": "السعر الإجمالي:",
+    "price": "{{price}} ج.م",
+    "checkoutButton": "الدفع"
+  },
+  "orders": {
     "title": "الطلبات",
     "orderNumber": "طلب رقم #",
     "totalPrice": "إجمالي السعر:",
     "orderDate": "انشئ في:",
     "at": "الساعه",
-      "paid": "مدفوع",
-      "status": "الحالة:",
-      "paymentMethod": "طريقة الدفع:",
-      "deliveryStatus": "حالة التوصيل:",
-      "orderItems": "عناصر الطلب:",
-      "delivered": "تم التوصيل",
-      "canceled": "ملغي",
-     
-      "rating": "التقييم:",
-      "notRatedYet": "لم يتم التقييم بعد",
-      "ratings": "تقييمات",
-      "showAll": "عرض الكل",
-      "showLess": "عرض أقل",
-      "noOrdersFound": "لم يتم العثور على طلبات.",
-      "states": {
-        "done": {
-      "text": "مكتمل",
-      "class": "green"
-    },
-    "in progress": {
-      "text": "قيد التنفيذ",
-      "class": "blue"
-    },
-    "cancelled": {
-      "text": "ملغي", 
-      "class": "red"
-    }
+    "paid": "مدفوع",
+    "status": "الحالة:",
+    "paymentMethod": "طريقة الدفع:",
+    "deliveryStatus": "حالة التوصيل:",
+    "orderItems": "عناصر الطلب:",
+    "delivered": "تم التوصيل",
+    "canceled": "ملغي",
+
+    "rating": "التقييم:",
+    "notRatedYet": "لم يتم التقييم بعد",
+    "ratings": "تقييمات",
+    "showAll": "عرض الكل",
+    "showLess": "عرض أقل",
+    "noOrdersFound": "لم يتم العثور على طلبات.",
+    "states": {
+      "done": {
+        "text": "مكتمل",
+        "class": "green"
       },
-      "deliveryStatuses": {
+      "in progress": {
+        "text": "قيد التنفيذ",
+        "class": "blue"
+      },
+      "cancelled": {
+        "text": "ملغي",
+        "class": "red"
+      }
+    },
+    "deliveryStatuses": {
       "delivered": {
         "text": "تم التوصيل"
       },
-     
+
       "canceled": {
         "text": "ملغي"
       }
     },
-      "paymentTypes": {
-        "creditCard": "بطاقة ائتمان",
-        "cash": "نقدي"
-      }
+    "paymentTypes": {
+      "creditCard": "بطاقة ائتمان",
+      "cash": "نقدي"
+    }
+  },
+  "user-Profile": {
+    "updateProfile": "تحديث الملف الشخصي",
+    "myAccount": "حسابي",
+    "changePassword": "تغيير كلمة المرور",
+    "logout": "تسجيل الخروج",
+    "edit-Profile": {
+      "uploadPhoto": "رفع صورة",
+      "uploadPhotoInfo": "يمكنك رفع صورة بصيغة ‎.jpg‎ أو ‎.png‎ أو ‎.gif‎ بحجم أقصى 5 ميجابايت.",
+      "deleteMyAccount": "حذف حسابي",
+      "saveChanges": "حفظ التغييرات"
+    },
+    "changePasswordForm": {
+      "oldPassword": "كلمة المرور الحالية",
+      "newPassword": "كلمة المرور الجديدة",
+      "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
+      "changePasswordBtn": "تغيير كلمة المرور"
+    },
+    "confirm-dialog": {
+      "confirmDelete": "نعم، احذف",
+      "cancelDelete": "لا، احتفظ به",
+      "permanentActionWarning": "هذا الإجراء دائم ولا يمكن التراجع عنه.",
+      "deleteAccountConfirmation": "هل أنت متأكد أنك تريد حذف حسابك؟"
+    }
+  },
+  "messagesToast": {
+    "sessionExpired": "انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى للمتابعة.",
+    "logoutSuccess": "تم تسجيل الخروج بنجاح.",
+
+    "failedToLoadProfileData": "فشل في تحميل بيانات الملف الشخصي",
+    "fileSizeExceedsLimit": "حجم الملف يتجاوز الحد الأقصى المسموح به 5 ميجابايت",
+    "profilePhotoUploadedSuccessfully": "تم رفع صورة الملف الشخصي بنجاح",
+    "failedToUploadProfilePhoto": "فشل في رفع صورة الملف الشخصي",
+    "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح",
+    "failedToUpdateProfile": "فشل في تحديث الملف الشخصي",
+
+    "accountDeletedSuccessfully": "تم حذف الحساب بنجاح",
+    "failedToDeleteAccount": "فشل في حذف الحساب",
+
+    "passwordChangeFailed": "فشل تغيير كلمة المرور",
+    "passwordChangeSuccess": "تم تغيير كلمة المرور بنجاح",
+
+    "loginFailed": "البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى",
+    "loginSuccess": "تم تسجيل الدخول بنجاح!",
+
+    "fillRequired": "يرجى ملء جميع الحقول المطلوبة بشكل صحيح.",
+    "registrationSuccess": "تم التسجيل بنجاح!",
+    "registrationFailed": "فشل التسجيل. يرجى التحقق من التفاصيل والمحاولة مرة أخرى.",
+    "somethingWentWrong": "حدث خطأ ما!",
+
+    "failedSendCode": "فشل إرسال رمز التحقق.",
+    "otpSent": "تم إرسال رمز التحقق إلى بريدك الإلكتروني. يرجى التحقق من صندوق الوارد.",
+    "verificationFailed": "تعذر إرسال رمز التحقق.",
+    "unexpectedError": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
+
+    "failedResendCode": "فشل في إعادة إرسال رمز التحقق.",
+    "otpResent": "تم إرسال رمز تحقق جديد إلى بريدك الإلكتروني.",
+    "failedResendCodeAgain": "فشل في إعادة إرسال رمز التحقق.",
+    "codeVerified": "تم التحقق من الرمز بنجاح!",
+    "invalidCode": "رمز التحقق غير صحيح.",
+
+    "failedLoadProfile": "فشل في تحميل ملف المستخدم الشخصي",
+    "loggedOut": "تم تسجيل الخروج بنجاح.",
+
+    "failedToLoadCategories": "فشل في تحميل الفئات"
   }
 }
