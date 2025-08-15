@@ -5,7 +5,7 @@
   background: transparent;
   border: none;
   position: absolute;
-  right: .625rem;
+  right: 0.625rem;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
@@ -13,16 +13,21 @@
 .input-wrapper {
   position: relative;
   .input-style {
-    border: .0625rem solid var(--input-border-color);
-    border-radius: .625rem;
+    border: 0.0625rem solid var(--input-border-color);
+    border-radius: 0.625rem;
     padding: 1rem;
-    padding-right: 2.75rem; 
+    padding-right: 2.75rem;
     background: var(--input-color);
     color: var(--input-text-color);
     transition: border-color 0.2s;
     width: 100%;
     min-width: 0;
     box-sizing: border-box;
+
+    font-family: var(--font-family-4);
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 100%;
   }
 }
 
@@ -43,6 +48,11 @@
 
 .label-color {
   color: var(--label-color);
+
+  font-family: var(--font-family-4);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 100%;
 }
 
 :host-context([dir="rtl"]) .eye-btn {

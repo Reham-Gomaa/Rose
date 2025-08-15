@@ -48,6 +48,45 @@ export const appRoutes: Route[] = [
         loadComponent: () =>
           import("@rose/features_pages/details/details.component").then((c) => c.DetailsComponent),
       },
+      {
+        path: "order-flow",
+        loadComponent: () =>
+          import("@rose/features_layouts/order-flow/order-flow.component").then(
+            (c) => c.OrderFlowComponent
+          ),
+        children: [
+          {
+            path: "cart",
+            loadComponent: () =>
+              import("@rose/features_layouts/order-flow/components/cart/cart.component").then(
+                (c) => c.CartComponent
+              ),
+            title: "Cart",
+          },
+          {
+            path: "address",
+            loadComponent: () =>
+              import(
+                "@rose/features_layouts/order-flow/components/user-address/user-address.component"
+              ).then((c) => c.UserAddressComponent),
+            title: "Address",
+          },
+        ],
+      },
+      {
+        path: "orders",
+        loadComponent: () =>
+          import("@rose/features_pages/orders/orders.component").then((c) => c.OrdersComponent),
+        title: "Your Orders",
+      },
+      {
+        path: "user-profile",
+        loadComponent: () =>
+          import("@rose/features_layouts/user-profile/user-profile.component").then(
+            (c) => c.UserProfileComponent
+          ),
+        title: "User Profile",
+      },
     ],
   },
   {
@@ -100,15 +139,13 @@ export const appRoutes: Route[] = [
           ).then((c) => c.UserAddressComponent),
         title: "Address",
       },
-      {
-        path: "orders",
-        loadComponent: () =>
-          import("@rose/features_layouts/order-flow/components/orders/orders.component").then(
-            (c) => c.OrdersComponent
-          ),
-        title: "Orders",
-      },
     ],
+  },
+  {
+    path: "allorders",
+    loadComponent: () =>
+      import("@rose/features_pages/orders/orders.component").then((c) => c.OrdersComponent),
+    title: "Orders",
   },
   {
     path: "**",
