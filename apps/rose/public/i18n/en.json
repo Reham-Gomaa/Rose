@@ -306,18 +306,17 @@
       "previous": "Previous",
       "submit": "Save Address"
     }
-    
-},
-  "orderFlow": {
-      "summaryTitle": "Summary",
-      "couponCode": "Coupon Code",
-      "applyCoupon": "Apply Coupon",
-      "couponMessage": "No coupon applied",
-      "Total": "Total:",
-      "price": "{{price}} EGP",
-      "checkoutButton": "Checkout"
   },
-  "orders":{
+  "orderFlow": {
+    "summaryTitle": "Summary",
+    "couponCode": "Coupon Code",
+    "applyCoupon": "Apply Coupon",
+    "couponMessage": "No coupon applied",
+    "Total": "Total:",
+    "price": "{{price}} EGP",
+    "checkoutButton": "Checkout"
+  },
+  "orders": {
     "title": "Orders",
     "orderNumber": "Order # ",
     "totalPrice": "Total Price:",
@@ -330,27 +329,27 @@
     "orderItems": "Order Items:",
     "delivered": "Delivered",
     "canceled": "Canceled",
-    
+
     "rating": "Rating:",
     "notRatedYet": "Not rated yet",
     "showAll": "Show All",
-      "showLess": "Show Less",
-      "noOrdersFound": "No orders found.",
-      "states": {
-         "done": {
+    "showLess": "Show Less",
+    "noOrdersFound": "No orders found.",
+    "states": {
+      "done": {
         "text": "Done",
         "class": "green"
-    },
-    "in progress": {
-      "text": "In Progress",
-      "class": "blue"
-    },
-    "cancelled": {
-      "text": "Cancelled", 
-      "class": "red"
-    }
       },
-      "deliveryStatuses": {
+      "in progress": {
+        "text": "In Progress",
+        "class": "blue"
+      },
+      "cancelled": {
+        "text": "Cancelled",
+        "class": "red"
+      }
+    },
+    "deliveryStatuses": {
       "delivered": {
         "text": "Delivered",
         "class": "green"
@@ -360,9 +359,17 @@
         "class": "red"
       }
     },
-      "paymentTypes": {
-        "creditCard": "Credit Card",
-        "cash": "Cash"
-      }
+    "paymentTypes": {
+      "creditCard": "Credit Card",
+      "cash": "Cash"
+    }
+  },
+  "edit-Profile": {
+    "confirm-dialog": {
+      "confirmDelete": "Yes, delete",
+      "cancelDelete": "No, keep it",
+      "permanentActionWarning": "This action is permanent and cannot be undone.",
+      "deleteAccountConfirmation": "Are you sure you want to delete your account?"
+    }
   }
 }
