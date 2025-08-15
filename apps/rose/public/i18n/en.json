@@ -8,7 +8,15 @@
     "login": "Login",
     "hello": "Hello",
     "search": "What awesome gift are you looking for?",
-    "deliver": "Deliver to:"
+    "deliver": "Deliver to:",
+    "menu": {
+      "guest": "Guest",
+      "myProfile": "My Profile",
+      "myAddresses": "My Addresses",
+      "myOrders": "My Orders",
+      "dashboard": "Dashboard",
+      "logout": "Log out"
+    }
   },
   "home": {
     "categories": {
@@ -364,16 +372,71 @@
       "cash": "Cash"
     }
   },
-  "edit-Profile": {
+  "user-Profile": {
     "updateProfile": "Update Profile",
     "myAccount": "My Account",
     "changePassword": "Change Password",
     "logout": "Logout",
+    "edit-Profile": {
+      "uploadPhoto": "Upload Photo",
+      "uploadPhotoInfo": "You can upload a .jpg, .png, or .gif photo with max size of 5MB.",
+      "deleteMyAccount": "Delete My Account",
+      "saveChanges": "Save Changes"
+    },
+    "changePasswordForm": {
+      "oldPassword": "Old Password",
+      "newPassword": "New Password",
+      "confirmNewPassword": "Confirm New Password",
+      "changePasswordBtn": "Change Password"
+    },
     "confirm-dialog": {
       "confirmDelete": "Yes, delete",
       "cancelDelete": "No, keep it",
       "permanentActionWarning": "This action is permanent and cannot be undone.",
       "deleteAccountConfirmation": "Are you sure you want to delete your account?"
     }
+  },
+  "messagesToast": {
+    "sessionExpired": "Your session expired. Please login again to continue.",
+    "logoutSuccess": "Logged out successfully.",
+
+    "failedToLoadProfileData": "Failed to load profile data",
+    "fileSizeExceedsLimit": "File size exceeds 5MB limit",
+    "profilePhotoUploadedSuccessfully": "Profile photo uploaded successfully",
+    "failedToUploadProfilePhoto": "Failed to upload profile photo",
+    "profileUpdatedSuccessfully": "Profile updated successfully",
+    "failedToUpdateProfile": "Failed to update profile",
+    "accountDeletedSuccessfully": "Account deleted successfully",
+    "failedToDeleteAccount": "Failed to delete account",
+
+    "passwordChangeFailed": "Failed to change password",
+    "passwordChangeSuccess": "Password changed successfully",
+
+    "loginFailed": "Incorrect Email or Password. Please try again",
+    "loginSuccess": "Login successful!",
+
+    "fillRequired": "Please fill all required fields correctly.",
+    "registrationSuccess": "Registration successful!",
+    "registrationFailed": "Registration failed. Please check your details and try again.",
+    "somethingWentWrong": "Something went wrong!",
+
+    "failedSendCode": "Failed to send verification code.",
+    "otpSent": "OTP sent to your email. Please check your inbox.",
+    "verificationFailed": "Verification code could not be sent.",
+    "unexpectedError": "An unexpected error occurred. Please try again.",
+
+    "resetPasswordSuccess": "Reset password successfully!",
+    "resetPasswordFailed": "Failed to reset password.",
+
+    "failedResendCode": "Failed to resend verification code.",
+    "otpResent": "A new OTP code has been sent to your email.",
+    "failedResendCodeAgain": "Failed to resend verification code.",
+    "codeVerified": "Code verified successfully!",
+    "invalidCode": "Invalid verification code.",
+
+    "failedLoadProfile": "Failed to load user profile",
+    "loggedOut": "Logged out successfully.",
+
+    "failedToLoadCategories": "Failed to load categories"
   }
 }
