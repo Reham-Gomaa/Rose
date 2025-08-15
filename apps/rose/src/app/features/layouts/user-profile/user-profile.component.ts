@@ -3,7 +3,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { Router } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
-import { TranslateModule } from "@ngx-translate/core";
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
 // Animation_Translation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
@@ -42,6 +42,7 @@ import { User } from "auth-api-kp";
 })
 export class UserProfileComponent {
   readonly _translationService = inject(TranslationService);
+  private _translate = inject(TranslateService);
   private readonly _router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
   private readonly _authApiKpService = inject(AuthApiKpService);
@@ -70,7 +71,7 @@ export class UserProfileComponent {
           this._userStateService.setLoggedIn(false);
           this._messageService.add({
             severity: "success",
-            detail: "Logged out successfully.",
+            detail: this._translate.instant("messagesToast.logoutSuccess"),
             life: 3000,
           });
 
@@ -78,9 +79,11 @@ export class UserProfileComponent {
           this._router.navigate(["/dashboard/home"]);
         },
         error: (err) => {
+          this._storageManagerService.removeItem("authToken");
+          this._userStateService.setLoggedIn(false);
           this._messageService.add({
             severity: "error",
-            detail: "Your session expired. Please login again to continue.",
+            detail: this._translate.instant("messagesToast.sessionExpired"),
             life: 3000,
           });
         },

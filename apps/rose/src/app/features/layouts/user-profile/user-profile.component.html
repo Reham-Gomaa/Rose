@@ -1,7 +1,7 @@
 <div [@fadeTransition]="_translationService.fadeState()" class="profile-container">
   <div>
     <div class="mobile-header">
-      <h2 class="sidebar-title">{{ "edit-Profile.updateProfile" | translate }}</h2>
+      <h2 class="sidebar-title">{{ "user-Profile.updateProfile" | translate }}</h2>
       <div class="icon-group">
         <i class="pi pi-user-edit" [class.active]="activeTab === 'profile'" (click)="switchTab('profile')"
           (keyup.enter)="switchTab('profile')" tabindex="0" aria-label="Edit profile"></i>
@@ -16,15 +16,15 @@
         <div class="sidebar-menu">
           <button class="menu-item" [class.active]="activeTab === 'profile'" (click)="switchTab('profile')">
             <i class="pi pi-user-edit"></i>
-            {{ "edit-Profile.myAccount" | translate }}
+            {{ "user-Profile.myAccount" | translate }}
           </button>
           <button class="menu-item" [class.active]="activeTab === 'password'" (click)="switchTab('password')">
             <i class="pi pi-lock"></i>
-            {{ "edit-Profile.changePassword" | translate }}
+            {{ "user-Profile.changePassword" | translate }}
           </button>
         </div>
         <button class="logout-btn" (click)="logout()">
-          <i class="pi pi-sign-out rtl"></i> {{ "edit-Profile.logout" | translate }}
+          <i class="pi pi-sign-out rtl"></i> {{ "user-Profile.logout" | translate }}
         </button>
       </div>
 
