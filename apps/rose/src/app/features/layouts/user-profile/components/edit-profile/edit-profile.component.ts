@@ -3,7 +3,6 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
-import { InputErrorHandlingComponent } from "@rose/shared_Components_business/input-error-handling/input-error-handling.component";
 import { CustomInputPhoneComponent } from "@rose/shared_Components_ui/custom-input-phone/custom-input-phone.component";
 import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
 import { AuthApiKpService, User } from "auth-api-kp";
@@ -16,6 +15,9 @@ import { Select } from "primeng/select";
 import { SkeletonModule } from "primeng/skeleton";
 import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
 import { ConfirmDialogComponent } from "@rose/shared_Components_business/confirm-dialog/confirm-dialog.component";
+import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
+import { UserStateService } from "@rose/core_services/user-state/user-state.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-edit-profile",
@@ -29,7 +31,6 @@ import { ConfirmDialogComponent } from "@rose/shared_Components_business/confirm
     FileUpload,
     CustomInputComponent,
     CustomInputPhoneComponent,
-    InputErrorHandlingComponent,
     Select,
     FormButtonComponent,
     ConfirmDialogComponent,
@@ -38,14 +39,14 @@ import { ConfirmDialogComponent } from "@rose/shared_Components_business/confirm
   styleUrl: "./edit-profile.component.scss",
 })
 export class EditProfileComponent {
-  getErrorMessage(arg0: string) {
-    throw new Error("Method not implemented.");
-  }
   readonly translationService = inject(TranslationService);
-  private translate = inject(TranslateService);
+  private readonly _translate = inject(TranslateService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly _authApiKpService = inject(AuthApiKpService);
   private readonly _messageService = inject(MessageService);
+  private readonly _router = inject(Router);
+  private readonly _storageManagerService = inject(StorageManagerService);
+  private readonly _userStateService = inject(UserStateService);
 
   apiError = signal<string>("");
   isLoading = signal<boolean>(false);
@@ -55,8 +56,8 @@ export class EditProfileComponent {
   @ViewChild("deleteAccountDialog") deleteAccountDialog!: ConfirmDialogComponent;
 
   genders = [
-    { value: "male", label: this.translate.instant("auth.register.gender.male") },
-    { value: "female", label: this.translate.instant("auth.register.gender.female") },
+    { value: "male", label: this._translate.instant("auth.register.gender.male") },
+    { value: "female", label: this._translate.instant("auth.register.gender.female") },
   ];
 
   profileForm: FormGroup = new FormGroup({
@@ -100,8 +101,7 @@ export class EditProfileComponent {
         error: (err) => {
           this._messageService.add({
             severity: "error",
-            summary: "Error",
-            detail: "Failed to load profile data",
+            detail: this._translate.instant("messagesToast.failedToLoadProfileData"),
           });
           this.isLoading.set(false);
         },
@@ -116,8 +116,7 @@ export class EditProfileComponent {
     if (file.size > 5 * 1024 * 1024) {
       this._messageService.add({
         severity: "error",
-        summary: "Error",
-        detail: "File size exceeds 5MB limit",
+        detail: this._translate.instant("messagesToast.fileSizeExceedsLimit"),
       });
       return;
     }
@@ -129,16 +128,14 @@ export class EditProfileComponent {
         next: () => {
           this._messageService.add({
             severity: "success",
-            summary: "Success",
-            detail: "Profile photo uploaded successfully",
+            detail: this._translate.instant("messagesToast.profilePhotoUploadedSuccessfully"),
           });
           this.loadUserProfile();
         },
         error: () => {
           this._messageService.add({
             severity: "error",
-            summary: "Error",
-            detail: "Failed to upload profile photo",
+            detail: this._translate.instant("messagesToast.failedToUploadProfilePhoto"),
           });
         },
       });
@@ -160,8 +157,7 @@ export class EditProfileComponent {
         next: (response) => {
           this._messageService.add({
             severity: "success",
-            summary: "Success",
-            detail: "Profile updated successfully",
+            detail: this._translate.instant("messagesToast.profileUpdatedSuccessfully"),
           });
 
           this.isSaving.set(false);
@@ -169,8 +165,7 @@ export class EditProfileComponent {
         error: (err) => {
           this._messageService.add({
             severity: "error",
-            summary: "Error",
-            detail: err.error?.message || "Failed to update profile",
+            detail: this._translate.instant("messagesToast.failedToUpdateProfile"),
           });
           this.isSaving.set(false);
         },
@@ -179,23 +174,24 @@ export class EditProfileComponent {
 
   onDeleteAccountConfirmed(confirmed: boolean): void {
     if (!confirmed) return;
-
     this._authApiKpService
       .deleteMe()
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: () => {
+          this._storageManagerService.removeItem("authToken");
+          this._userStateService.setLoggedIn(false);
           this._messageService.add({
             severity: "success",
-            summary: "Success",
-            detail: "Account deleted successfully",
+            detail: this._translate.instant("messagesToast.accountDeletedSuccessfully"),
           });
+          this.user.set(null);
+          this._router.navigate(["/dashboard/home"]);
         },
         error: (err) => {
           this._messageService.add({
             severity: "error",
-            summary: "Error",
-            detail: err.error?.message || "Failed to delete account",
+            detail: this._translate.instant("messagesToast.failedToDeleteAccount"),
           });
         },
       });

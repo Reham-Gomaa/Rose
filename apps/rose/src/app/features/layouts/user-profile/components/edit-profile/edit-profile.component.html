@@ -33,8 +33,8 @@
         styleClass="upload-button p-button-rounded p-button-outlined"></p-fileupload>
     </div>
     <div class="upload-info">
-      <h3>Upload Photo</h3>
-      <p>You can upload a .jpg, .png, or .gif photo with max size of 5MB.</p>
+      <h3>{{"user-Profile.edit-Profile.uploadPhoto" | translate}}</h3>
+      <p>{{"user-Profile.edit-Profile.uploadPhotoInfo" | translate}}</p>
     </div>
   </div>
 
@@ -74,17 +74,20 @@
     <div class="container-btn">
       <!-- Delete Account Button (outside form) -->
       <button type="button" class="delete-account text-center" (click)="deleteAccountDialog.show()">
-        Delete My Account
+        {{ "user-Profile.edit-Profile.deleteMyAccount" | translate }}
       </button>
 
       <!-- Save Button (inside form) -->
-      <app-form-button [text]="'Save Changes' | translate" [disabled]="profileForm.invalid" [isLoading]="isSaving()"
-        type="submit" />
+      <app-form-button [text]="'user-Profile.edit-Profile.saveChanges' | translate" [disabled]="profileForm.invalid"
+        [isLoading]="isSaving()" type="submit" />
     </div>
 
     <!-- Confirmation Dialog (outside form) -->
-    <app-confirm-dialog #deleteAccountDialog header="Delete Account"
-      message="Are you sure you want to delete your account? This action cannot be undone."
+    <app-confirm-dialog #deleteAccountDialog
+      [message]="'user-Profile.confirm-dialog.deleteAccountConfirmation' | translate"
+      [subMessage]="'user-Profile.confirm-dialog.permanentActionWarning' | translate"
+      [cancelLabel]="'user-Profile.confirm-dialog.cancelDelete' | translate"
+      [confirmLabel]="'user-Profile.confirm-dialog.confirmDelete' | translate"
       (confirmed)="onDeleteAccountConfirmed($event)">
     </app-confirm-dialog>
   </form>
