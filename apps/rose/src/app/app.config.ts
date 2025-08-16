@@ -28,6 +28,8 @@ import { API_CONFIG } from "auth-api-kp";
 import { headingInterceptor } from "./core/interceptors/header.interceptor";
 import { addressReducer } from "./store/address/address.reducer";
 import { AddressEffect } from "./store/address/address.effect";
+import { checkoutReducer } from "./store/checkout/checkout.reducer";
+import { checkoutEffects } from "./store/checkout/checkout.effects";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
 }
@@ -96,7 +98,8 @@ export const appConfig: ApplicationConfig = {
       sort: sortReducer,
       filter: filterReduser,
       Address: addressReducer,
+      checkout:checkoutReducer
     }),
-    provideEffects(sortEffects, FilterEffects, AddressEffect),
+    provideEffects(sortEffects, FilterEffects, AddressEffect,checkoutEffects),
   ],
 };

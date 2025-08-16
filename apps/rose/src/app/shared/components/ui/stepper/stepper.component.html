@@ -8,7 +8,7 @@
   <p-step-panels>
     @for (item of steps; track $index) {
     <p-step-panel [value]="item.value">
-      <ng-template #content let-activateCallback="activateCallback">
+      <ng-template  #content let-activateCallback="activateCallback">
         {{item.component}}
         <div class="w-full">
           @if ($index===0) {
@@ -46,6 +46,6 @@
       </ng-template>
     </p-step-panel>
     }
-    
+
   </p-step-panels>
 </p-stepper>
