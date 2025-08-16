@@ -1,8 +1,8 @@
 <section class="contact-section">
-    <h1 class="contact-title">CONTACT US</h1>
+    <h1 class="contact-title">{{"contact.contact_us"| translate}}</h1>
     
     <div class="grid">
-        <div class="contact-info col-12 lg:col-6">
+        <div class="contact-info col-12 lg:col-4">
             <div class="contact-item">
                 <div class="contact-icon phone-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -10,8 +10,8 @@
                     </svg>
                 </div>
                 <div class="contact-content">
-                    <div class="contact-label">Call Anytime</div>
-                    <div class="contact-detail">241-373-2123</div>
+                    <div class="contact-label">{{"contact.call_anytime"| translate}}</div>
+                    <div class="contact-detail">{{"contact.phone_number"| translate}}</div>
                 </div>
             </div>
             
@@ -23,8 +23,8 @@
                     </svg>
                 </div>
                 <div class="contact-content">
-                    <div class="contact-label">Send Email</div>
-                    <div class="contact-detail">Dwight63&#64;gmail.com</div>
+                    <div class="contact-label">{{"contact.send_email"| translate}}</div>
+                    <div class="contact-detail">{{"contact.email_address"| translate}}</div>
                 </div>
             </div>
             
@@ -36,57 +36,58 @@
                     </svg>
                 </div>
                 <div class="contact-content">
-                    <div class="contact-label">Visit Us</div>
+                    <div class="contact-label">{{"contact.visit_us"| translate}}</div>
                     <div class="contact-detail">
-                        20 Island Park Road,<br>
-                        New Jersey, New York, USA
+                        {{"contact.address_line1"| translate}}<br>
+                        {{"contact.address_line2"| translate}}
                     </div>
                 </div>
             </div>
         </div>
 
       
-        <div class="contact-form-container col-12 lg:col-6">
+        <div class="contact-form-container col-12 lg:col-7">
             <div class="contact-form">
                 <app-custom-input
                     [id]="'name'"
                     [labelText]="''"
-                    [placeholder]="'Name'"
+                    [placeholder]="'contact.name' | translate"
                     [type]="'text'">
                 </app-custom-input>
 
                 <app-custom-input
                     [id]="'email'"
                     [labelText]="''"
-                    [placeholder]="'Email'"
+                    [placeholder]="'contact.email' | translate"
                     [type]="'email'">
                 </app-custom-input>
 
                 <app-custom-input
                     [id]="'phone'"
                     [labelText]="''"
-                    [placeholder]="'Phone'"
+                    [placeholder]="'contact.phone' | translate"
                     [type]="'tel'">
                 </app-custom-input>
 
                 <app-custom-input
                     [id]="'message'"
                     [labelText]="''"
-                    [placeholder]="'Your Message'"
+                    [placeholder]="'contact.message' | translate"
                     [type]="'text'">
                 </app-custom-input>
 
-                <div class="mt-4" >
+                
+            </div>
+            <div class="mt-4" >
                     <app-button
-                        [text]="'Send'"
+                        [text]="'contact.send' | translate"
                         [isIcon]="true"
-                        [borderRadius]="'btn-bestseller-radius'"
-                        [padding]="'btn-bestseller-padding'"
-                        [transition]="'btn-bestseller-transition'"
-                        aria-label="Explore more best seller gifts and products">
+                        [borderRadius]="'btn-contact-radius'"
+                        [padding]="'btn-contact-padding'"
+                        [transition]="'btn-contact-transition'"
+                        aria-label="Send your Contact Information">
                     </app-button>
                 </div>
-            </div>
         </div>
     </div>
 </section>

@@ -320,6 +320,12 @@
   --show-btn: var(--maroon-600);
   --rating-star: var(--yellow);
 
+  //Contact Page
+  --contact-title-color: var(--maroon-600);
+  --contact-icon-color: var(--maroon-600);
+  --contact-detail-color: var(--zinc-600);
+  --contact-shadow: 166, 37, 42;
+
 }
 
 // Dark theme overrides
@@ -574,5 +580,11 @@
   --order-ratings: var(--blue-700);
   --show-btn: var(--soft-pink-300);
    --rating-star: var(--yellow);
+
+   //Contact Page
+  --contact-title-color: var(--soft-pink-200);
+  --contact-icon-color: var(--soft-pink-200);
+  --contact-detail-color: var(--zinc-400);
+  --contact-shadow: 255, 194, 208;
 
 }

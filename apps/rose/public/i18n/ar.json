@@ -322,5 +322,20 @@
         "creditCard": "بطاقة ائتمان",
         "cash": "نقدي"
       }
-  }
+  },
+  "contact":{
+  "contact_us": "اتصل بنا",
+  "call_anytime": "اتصل في أي وقت",
+  "phone_number": "٢٤١-٣٧٣-٢١٢٣",
+  "send_email": "أرسل بريدًا إلكترونيًا",
+  "email_address": "Dwight63@gmail.com",
+  "visit_us": "زورنا",
+  "address_line1": "٢٠ جزيرة بارك رود،",
+  "address_line2": "نيوجيرسي، نيويورك، الولايات المتحدة الأمريكية",
+  "name": "الاسم",
+  "email": "البريد الإلكتروني",
+  "phone": "الهاتف",
+  "message": "رسالتك",
+  "send": "إرسال "
+}
 }
