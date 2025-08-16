@@ -54,27 +54,9 @@ export const appRoutes: Route[] = [
           import("@rose/features_layouts/order-flow/order-flow.component").then(
             (c) => c.OrderFlowComponent
           ),
-        children: [
-          {
-            path: "cart",
-            loadComponent: () =>
-              import("@rose/features_layouts/order-flow/components/cart/cart.component").then(
-                (c) => c.CartComponent
-              ),
-            title: "Cart",
-          },
-          {
-            path: "address",
-            loadComponent: () =>
-              import(
-                "@rose/features_layouts/order-flow/components/user-address/user-address.component"
-              ).then((c) => c.UserAddressComponent),
-            title: "Address",
-          },
-        ],
       },
       {
-        path: "orders",
+        path: "allorders",
         loadComponent: () =>
           import("@rose/features_pages/orders/orders.component").then((c) => c.OrdersComponent),
         title: "Your Orders",
