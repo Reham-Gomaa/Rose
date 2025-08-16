@@ -108,13 +108,15 @@ export const appRoutes: Route[] = [
           ),
         title: "Orders",
       },
-      {
+        {
         path:'checkout',
         title:'Checkout',
         loadComponent:()=>import("../app/features/checkout/checkout.component").then(c=>c.CheckoutComponent)
-      }
+  },
+
     ],
   },
+
   {
     path: "**",
     title: "Not Found",

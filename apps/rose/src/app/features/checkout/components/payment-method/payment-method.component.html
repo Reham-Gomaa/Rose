@@ -6,9 +6,9 @@
         <div class="col-12 lg:col-6" >
 
 
-            <button  (click)="setPaymentMethod(method.id)" class="d-block cursor-pointer card-btn w-full bg-transparent" >
+            <button  (click)="setPaymentMethod(method.title)" class="d-block cursor-pointer card-btn w-full bg-transparent" >
               <div [class]="{
-                'active':methodSelected().type === method.title
+                'active':(methodSelected) === method.title.split(' ')[0].toLowerCase()
               }" class="method-card flex flex-column align-items-center justify-content-center">
                 <div class="method-icon">
                   <img class="w-1/1" [src]="method.imageSrc" alt="{{method.title}}">
@@ -37,3 +37,5 @@
 
 
 </section>
+
+

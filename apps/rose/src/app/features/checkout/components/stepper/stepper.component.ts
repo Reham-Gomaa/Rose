@@ -1,27 +1,36 @@
-import { CommonModule } from "@angular/common";
-import { Component, computed, inject, input, output, OutputEmitterRef } from "@angular/core";
+import { AsyncPipe, CommonModule, JsonPipe } from "@angular/common";
+import { Component, inject, input, output, OutputEmitterRef } from "@angular/core";
+import { Store } from "@ngrx/store";
+import * as checkoutActions from "@rose/checkout/checkout.actions";
+import * as checkoutSelectors from "@rose/checkout/checkout.selectors";
+import { pMethod } from "@rose/checkout/checkout.state";
+import { Address } from "@rose/core_interfaces/user-address.interface";
 import { ButtonModule } from 'primeng/button';
 import { StepperModule } from 'primeng/stepper';
+import { Observable } from "rxjs";
 import { progressStep } from "../../models/progress.step";
-import { CheckoutService } from "../../services/checkout/checkout.service";
-import { payInfo } from "../../checkout/paymentInfo";
 @Component({
   selector: "app-stepper",
-  imports: [CommonModule, ButtonModule, StepperModule],
+  imports: [CommonModule, ButtonModule, StepperModule,JsonPipe,AsyncPipe],
   templateUrl: "./stepper.component.html",
   styleUrl: "./stepper.component.scss",
 })
 export class StepperComponent {
 
-  makeOrder:OutputEmitterRef<payInfo> = output()
+  makeOrder:OutputEmitterRef<void> = output()
 
-  private checkoutService = inject(CheckoutService)
+  private store = inject(Store)
   steps=input<progressStep[]>([])
-  addressSelected = computed(()=>Object.keys(this.checkoutService.shippingAddress()!).length == 0)
-  methodSelected = computed(()=> this.checkoutService.paymentInfo())
+  addressSelected$!:Observable<Address|null>
+  methodSelected$!:Observable<pMethod|null>
 
+
+  ngOnInit(){
+    this.addressSelected$ = this.store.select(checkoutSelectors.selectedShippingAdd)
+    this.methodSelected$ = this.store.select(checkoutSelectors.selectedPayMethod)
+  }
 startCheckOutProcess(){
-  this.makeOrder.emit(this.checkoutService.paymentInfo())
+  this.makeOrder.emit()
 }
 
 

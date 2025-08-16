@@ -68,6 +68,9 @@
       ],
       "@rose/address/*": [
         "./apps/rose/src/app/store/address/*"
+      ],
+      "@rose/checkout/*": [
+        "./apps/rose/src/app/store/checkout/*"
       ]
     }
   },

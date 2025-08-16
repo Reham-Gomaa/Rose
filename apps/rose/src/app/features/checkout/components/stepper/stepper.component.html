@@ -2,7 +2,7 @@
     <p-step-list>
       @for (step of steps(); track $index) {
 
-        <p-step [value]="step.value" [disabled]="addressSelected()" ></p-step>
+        <p-step [value]="step.value" [disabled]="(addressSelected$ | async | json ) === 'null'" ></p-step>
       }
     </p-step-list>
     <p-step-panels>
@@ -25,10 +25,10 @@
                 <div class="flex pt-6 w-full justify-between justify-content-end">
                   @if ($index < steps().length-1) {
 
-                    <p-button [label]=" 'Next'" [disabled]="addressSelected()"   icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(step.value + 1)" />
+                    <p-button [label]=" 'Next'" [disabled]="(addressSelected$ | async | json ) === 'null'"   icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(step.value + 1)" />
                   }@else {
 
-                    <p-button (click)="startCheckOutProcess()" [label]="'CheckOut'" [disabled]="!methodSelected().type"   icon="pi pi-arrow-right" iconPos="right" />
+                    <p-button (click)="startCheckOutProcess()" [label]="'CheckOut'" [disabled]="(methodSelected$ | async | json ) === 'null'"   icon="pi pi-arrow-right" iconPos="right" />
                   }
 
 
@@ -42,3 +42,5 @@
 </p-stepper>
 
 <!-- {{addressSelected()}} -->
+
+<!-- {{(addressSelected$ | async | json )}} -->

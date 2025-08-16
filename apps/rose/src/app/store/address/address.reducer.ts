@@ -16,7 +16,7 @@ export const initalState: AddressState = {
   address: [],
   loading: false,
   error: null,
-  selectedAdddressId: "",
+  selectedAddressId: "",
 };
 
 export const addressReducer = createReducer(

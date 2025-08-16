@@ -15,7 +15,7 @@ export interface AddressState{
     address:Address[],
     loading: boolean,
     error: any;
-    selectedAdddressId:string,
+    selectedAddressId:string,
 
-    
+
 }

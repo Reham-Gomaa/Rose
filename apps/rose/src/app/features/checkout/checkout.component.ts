@@ -1,13 +1,14 @@
-import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { Component, inject } from "@angular/core";
+import { Store } from "@ngrx/store";
+import * as checkoutActions from "@rose/checkout/checkout.actions";
+import * as checkoutSelectors from "@rose/checkout/checkout.selectors";
+
 import { AddressChoiceComponent } from "./components/address-choice/address-choice.component";
 import { PaymentMethodComponent } from "./components/payment-method/payment-method.component";
 import { StepperComponent } from "./components/stepper/stepper.component";
 import { progressStep } from "./models/progress.step";
-import { payInfo } from "./checkout/paymentInfo";
-import { Address } from "@rose/core_interfaces/user-address.interface";
-import { CheckoutService } from "./services/checkout/checkout.service";
-import { Router } from "@angular/router";
+import { pMethod } from "@rose/checkout/checkout.state";
 // import { Router } from "express";
 
 @Component({
@@ -17,8 +18,8 @@ import { Router } from "@angular/router";
   styleUrl: "./checkout.component.scss",
 })
 export class CheckoutComponent {
-  private checkOut = inject(CheckoutService)
-  private _router = inject(Router)
+  private store = inject(Store)
+  private selectedMethod!:pMethod | null
   checkoutSteps : progressStep[] =[
     {
       value:1,
@@ -32,10 +33,19 @@ export class CheckoutComponent {
     }
   ]
 
-  confirmCheckOutProcess(pInfo:payInfo){
-    if(pInfo.type?.toLowerCase().includes("cash")) {
+  ngOnInit(){
+    this.store.select(checkoutSelectors.selectedPayMethod).subscribe({
+      next:(selectedMethod) => {
+        this.selectedMethod = selectedMethod
+      }
+    })
+  }
+
+  confirmCheckOutProcess(){
+    if(this.selectedMethod!.toLowerCase() == pMethod.CASH) {
       this.makeCashOrder()
     }else {
+
      this.makeCreditOrder()
     }
   }
@@ -43,26 +53,9 @@ export class CheckoutComponent {
 
 
   makeCashOrder(){
-    console.log(this.checkOut.paymentInfo().shippingAddress);
-    this.checkOut.createCashOrder().subscribe({
-      next: (response) => {
-        if(response.message == "success") {
-          this._router.navigate(['/order-flow/orders'])
-        }
-      }
-    })
+   this.store.dispatch(checkoutActions.createCashOrder())
   }
   makeCreditOrder(){
-    console.log(this.checkOut.paymentInfo().shippingAddress);
-
-    this.checkOut.createCheckoutSession().subscribe({
-      next: (response) => {
-        if(response.message == "success") {
-          const url = response.session.url
-          window.open(url)
-        }
-      }
-    })
-
+   this.store.dispatch(checkoutActions.createCheckoutSession())
   }
 }

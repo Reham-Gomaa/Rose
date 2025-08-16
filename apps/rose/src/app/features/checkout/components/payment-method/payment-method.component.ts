@@ -1,7 +1,10 @@
 import { CommonModule } from "@angular/common";
-import { Component, computed, inject, signal, WritableSignal } from "@angular/core";
+import { Component, inject, signal, WritableSignal } from "@angular/core";
+import { Store } from "@ngrx/store";
+import * as checkoutActions from "@rose/checkout/checkout.actions";
+import * as checkoutSelectors from "@rose/checkout/checkout.selectors";
+import { pMethod } from "@rose/checkout/checkout.state";
 import { payMethod } from "../../models/payment";
-import { CheckoutService } from "../../services/checkout/checkout.service";
 
 @Component({
   selector: "app-payment-method",
@@ -12,9 +15,19 @@ import { CheckoutService } from "../../services/checkout/checkout.service";
 export class PaymentMethodComponent {
 
 
-  private checkOutService = inject(CheckoutService)
+  private store = inject(Store)
 
-  methodSelected = computed(()=> this.checkOutService.paymentInfo())
+  methodSelected!:pMethod|null
+
+
+  ngOnInit(){
+     this.store.select(checkoutSelectors.selectedPayMethod).subscribe({
+      next: (method) => {
+        this.methodSelected = method
+      }
+     })
+  }
+
 
   paymentMethods:WritableSignal<payMethod[]> = signal([
     {
@@ -31,13 +44,14 @@ export class PaymentMethodComponent {
     }
   ]);
 
-  setPaymentMethod(pId:number){
-    const selectedMethod = this.paymentMethods().find((m)=>{
-      return m.id === pId
-    })
-    this.checkOutService.paymentInfo().type = selectedMethod?.title!
-    // console.log(this.checkOutService.paymentInfo());
-    // console.log(selectedMethod);
+  setPaymentMethod(t:string){
+    const methodToStore = t.split(' ')[0].toLowerCase()
+    if(methodToStore == "cash") {
+
+      this.store.dispatch(checkoutActions.selectPayMethod({method:pMethod.CASH}))
+    }else {
+       this.store.dispatch(checkoutActions.selectPayMethod({method:pMethod.CREDIT}))
+    }
   }
 
 
