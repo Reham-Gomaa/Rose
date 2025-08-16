@@ -17,7 +17,6 @@ import { DarkModeService } from "@rose/core_services/darkmode/darkmode.service";
   imports: [RouterOutlet, NavbarComponent, FooterComponent, SpeedDialModule, ToastModule],
   templateUrl: "./dashboard.component.html",
   styleUrl: "./dashboard.component.scss",
-  providers: [MessageService],
 })
 export class DashboardComponent implements OnInit {
   private messageService = inject(MessageService);

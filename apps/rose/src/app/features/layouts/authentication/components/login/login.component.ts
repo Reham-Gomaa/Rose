@@ -58,7 +58,6 @@ export class LoginComponent {
       Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"),
     ]),
   });
-
   LoginSubmit(): void {
     if (this.loginForm.invalid || this.isLoading()) return;
 

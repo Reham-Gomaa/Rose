@@ -85,7 +85,7 @@ export class EditProfileComponent {
   ngOnInit(): void {
     this.loadUserProfile();
   }
-
+  
   loadUserProfile(): void {
     this.isLoading.set(true);
     this._authApiKpService
@@ -158,7 +158,8 @@ export class EditProfileComponent {
       .editProfile(formData)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
-        next: (response) => {
+        next: () => {
+          console.log("Toast fired!");
           this._messageService.add({
             severity: "success",
             detail: this._translate.instant("messagesToast.profileUpdatedSuccessfully"),
@@ -188,6 +189,7 @@ export class EditProfileComponent {
           this._messageService.add({
             severity: "success",
             detail: this._translate.instant("messagesToast.accountDeletedSuccessfully"),
+            life: 3000,
           });
           this.user.set(null);
           this._router.navigate(["/dashboard/home"]);

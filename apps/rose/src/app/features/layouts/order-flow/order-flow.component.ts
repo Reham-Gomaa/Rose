@@ -4,8 +4,6 @@ import { RouterOutlet } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 
 // Components
-import { NavbarComponent } from "../navbar/navbar.component";
-import { FooterComponent } from "../footer/footer.component";
 import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 import { BestsellerSliderComponent } from "@rose/shared_Components_ui/bestseller-slider/bestseller-slider.component";
@@ -19,8 +17,6 @@ import { TranslationService } from "@rose/core_services/translation/translation.
   imports: [
     CommonModule,
     RouterOutlet,
-    NavbarComponent,
-    FooterComponent,
     TranslatePipe,
     CustomInputComponent,
     FormsModule,
