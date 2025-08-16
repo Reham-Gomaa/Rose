@@ -10,4 +10,5 @@ export class EndPoint {
   static CART = `${environment.baseApiUrl}api/v1/cart`;
   static ADDRESSES = `${environment.baseApiUrl}api/v1/addresses`;
   static ORDERS = `${environment.baseApiUrl}api/v1/orders`;
+  static WISHLIST = `${environment.baseApiUrl}api/v1/wishlist`;
 }

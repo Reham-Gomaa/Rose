@@ -7,6 +7,7 @@ import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-ite
 import { WishlistToggleDirective } from "../../../shared/directives/wishlistToggle.directive";
 import { loadWishlist } from "../../../store/wishlist/wishlist-actions";
 import { selectWishlistItems } from "../../../store/wishlist/wishlist-selectors";
+import { WishlistService } from "@rose/shared_services/wishlist/wishlist.service";
 
 @Component({
   selector: "app-wishlist",
@@ -17,6 +18,7 @@ import { selectWishlistItems } from "../../../store/wishlist/wishlist-selectors"
 export class WishlistComponent implements OnInit {
   private readonly store = inject(Store);
   private readonly pLATFORM_ID = inject(PLATFORM_ID);
+  private readonly wishlistService = inject(WishlistService);
 
   favouriteItems: WritableSignal<Product[]> = signal([]);
 
