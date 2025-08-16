@@ -1,4 +1,4 @@
-<app-auth [@fadeTransition]="translationService.fadeState()" [process]="'register'" [title]="'auth.register.h1'"
+<app-auth [@fadeTransition]="_translationService.fadeState()" [process]="'register'" [title]="'auth.register.h1'"
   [heading3]="'auth.register.h3'" [heading3span]="'auth.register.span'">
   <div class="flex-col ">
     <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()" role="form" aria-label="Registration Form">
@@ -34,7 +34,7 @@
         </p-select>
 
         @if(registerForm.get('gender')?.invalid && registerForm.get('gender')?.touched) {
-         <app-input-error-handling [control]="registerForm.get('gender')!"></app-input-error-handling>
+        <app-input-error-handling [control]="registerForm.get('gender')!" />
         }
       </div>
       <!-- Password -->
@@ -46,12 +46,12 @@
       <app-custom-input formControlName="rePassword" type="password" placeholder="**************" id="rePassword"
         labelText="{{'auth.inputs.confirmPassword' |translate}}" [errorHandilgControl]="registerForm.get('rePassword')!"
         class="w-full" autocomplete="new-password" aria-required="true" />
-        @if(registerForm.hasError("misMatch") && this.registerForm.invalid){
-          <p class="error-item"><i class="pi pi-delete-left"></i> {{ 'inputErrors.misMatch' | translate }}</p>
-        }
+      @if(registerForm.hasError("misMatch") && this.registerForm.invalid){
+      <p class="error-item"><i class="pi pi-delete-left"></i> {{ 'inputErrors.misMatch' | translate }}</p>
+      }
 
-      <app-form-button [text]="'auth.register.button' |translate" 
-        [isLoading]="isLoading()" [disabled]="registerForm.invalid" type="submit" />
+      <app-form-button [text]="'auth.register.button' |translate" [isLoading]="isLoading()"
+        [disabled]="registerForm.invalid" type="submit" />
     </form>
   </div>
 </app-auth>

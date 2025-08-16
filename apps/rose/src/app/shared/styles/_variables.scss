@@ -37,6 +37,7 @@
   --zinc-500: #71717a;
   --zinc-400: #a1a1aa;
   --zinc-300: #d4d4d8;
+  --zinc-200: #e4e4e7;
   --zinc-100: #f4f4f5;
   --zinc-50: #fafafa;
   --maroon-800: #501419;
@@ -57,13 +58,20 @@
 
   --emerald-50: #ecfdf5;
   --emerald-300: #5ee9b5;
-  --emerald-500: #00BC7D;
+  --emerald-500: #00bc7d;
   --emerald-700: #007a55;
 
   --blue-400: #50a2ff;
   --blue-700: #1447e6;
 
+  --gray-200: #e9ecef;
+  --gray-900: #2e2e30;
   --gray-950: #323639;
+
+  --gray-900-01: #bfbfc50d;
+  --gray-900-11: #b1b1b426;
+  --gray-900-05: #2e2e300d;
+  --gray-900-15: #2e2e3026;
 
   --yellow: #fba707;
 
@@ -71,21 +79,44 @@
   --body-color: var(--white);
   // Navbar
   --background-navbar: var(--white);
-  --color-navbar: var(--zinc-700);
-  --hover-navbar: var(--maroon-600);
-  --active-navbar: var(--maroon-600);
+  --color-navbar-text: var(--zinc-500);
+  --color-navbar-highlight: var(--maroon-700);
 
-  --color-icon-navbar: var(--zinc-700);
-  --hover-icon-navbar: var(--maroon-600);
-  --overlaybadge-bg: var(--soft-pink-200);
-  --overlaybadge-color: var(--soft-pink-200);
+  --background-navbar-input: var(--white);
+  --color-navbar-input-border: var(--zinc-300);
+  --color-navbar-input-text: var(--zinc-400);
+
+  --color-navbar-input-shadow: var(--maroon-700);
+  --color-navbar-input-shadow-border: var(--maroon-700);
+
+  --background-navbar-second-row: var(--maroon-700);
+  --color-navbar-second-row: var(--zinc-50);
+  --color-hover-navbar-second-row: var(--soft-pink-200);
+  --color-active-navbar-second-row: var(--soft-pink-200);
+  --color-underline-navbar-second-row: var(--soft-pink-200);
+
+  --color-arrow-user-navbar: var(--zinc-500);
+  --color-border-icons-navbar: var(--zinc-200);
+  --color-icons-navbar: var(--zinc-700);
+  --color-hover-icons-navbar: var(--maroon-700);
+
+  --background-badges-icons-navbar: var(--red-600);
+  --color-badges-icons-navbar: var(--zinc-50);
+
+  --color-hover-arrow-user-navbar: var(--maroon-700);
 
   --close-btn-color: var(--zinc-700);
-  --close-btn-hover: var(--maroon-600);
-  --close-btn-border: var(--maroon-600);
+  --close-btn-hover: var(--maroon-700);
+  --close-btn-border: var(--zinc-400);
+
+  --color-navbar-mobile: var(--zinc-700);
+  --color-hover-navbar-mobile: var(--soft-pink-300);
   // DarkMode Toggle
   --toggle-color: var(--zinc-700);
   --toggle-hover: var(--maroon-600);
+  // Translate Toggle
+  --translate-toggle-color: var(--zinc-700);
+  --translate-toggle-hover: var(--maroon-600);
   // Search Toggle
   --Search-bg: var(--maroon-700);
   --Search-color: var(--maroon-50);
@@ -122,6 +153,9 @@
   --scrollbar-track-color: var(--white);
   --scrollbar-thumb-color: var(--maroon-600);
   --scrollbar-thumb-hover-color: var(--maroon-500);
+  // speedDial
+  --speedDial-bg: var(--maroon-500);
+  --speedDial-hover: var(--maroon-700);
 
   // Home Components
   // Categories
@@ -291,6 +325,31 @@
   //img preview
   --preview-bg: var(--white);
   --preview-color: var(--zinc-800);
+  // PrimeNg Button
+  --p-button-primary-background: var(--maroon-600) !important;
+  --p-button-primary-hover-border-color: var(--maroon-600) !important;
+  --p-button-primary-border-color: var(--maroon-600) !important;
+  --p-button-primary-hover-background: var(--maroon-500) !important;
+  --p-button-padding-x: 1rem !important;
+  --p-button-padding-y: 0.625rem !important;
+  // stepper
+  --p-stepper-separator-active-background: var(--maroon-600) !important;
+  --p-stepper-step-gap: 0rem !important;
+  --p-stepper-step-header-gap: 0rem !important;
+  --p-stepper-step-padding: 0rem !important;
+  --p-stepper-step-number-active-color: var(--white) !important;
+  --p-stepper-step-number-active-background: var(--maroon-600) !important;
+  --p-stepper-step-number-active-border-color: var(--maroon-600) !important;
+  --p-stepper-separator-size: 0.375rem !important;
+  // Address item
+  --address-name: var(--maroon-600);
+  --address-name-background: var(--zinc-50);
+  --address-body: var(--zinc-800);
+  --loading-color: var(--maroon-500);
+  // Delete dialog
+  --dialog-p: var(--zinc-800);
+  --dialog-out-shadow: var(--gray-900-05);
+  --dialog-icon: var(--gray-900-15);
 
   //Order Flow
   //Summary
@@ -301,15 +360,14 @@
   --summary-button-hover: var(--maroon-500);
   --summary-button-text-color: var(--white);
   --coupon-border-color: var(--zinc-300);
-
   //Orders
   --order-title-color: var(--black);
   --order-header-bg: var(--maroon-600);
   --order-header-color: var(--white);
-  --order-total-color:var(--zinc-800);
+  --order-total-color: var(--zinc-800);
   --green-badge-bg: var(--emerald-500);
-  --blue-badge-bg:var(--blue-700);
-  --red-badge-bg:var(--red-600);
+  --blue-badge-bg: var(--blue-700);
+  --red-badge-bg: var(--red-600);
   --badge-color: var(--white);
   --order-items-bg: var(--zinc-100);
   --payment-color: var(--zinc-500);
@@ -319,7 +377,52 @@
   --order-ratings: var(--blue-700);
   --show-btn: var(--maroon-600);
   --rating-star: var(--yellow);
+  --fade-mask-base: 255, 255, 255;
 
+  //User-Profile
+  --user-profile-sidebar-title: var(--zinc-800);
+  --user-profile-sidebar-bg: var(--zinc-50);
+  --user-profile-sidebar-border: var(--zinc-100);
+  --user-profile-sidebar-menu-item-color: var(--zinc-800);
+  --user-profile-sidebar-menu-item-hover: var(--gray-200);
+  --user-profile-sidebar-menu-item-bg-active: var(--zinc-800);
+  --user-profile-sidebar-menu-item-color-active: var(--zinc-50);
+  --user-profile-sidebar-menu-item-btn-logout-bg: var(--zinc-100);
+  --user-profile-sidebar-menu-item-btn-logout-color: var(--maroon-500);
+  --user-profile-sidebar-menu-item-btn-logout-hover: var(--zinc-200);
+  --user-profile-sidebar-menu-item-mobile-color: var(--zinc-800);
+  --user-profile-sidebar-menu-item-mobile-hover: var(--zinc-100);
+  --user-profile-sidebar-menu-item-mobile-active-color: var(--maroon-500);
+  //edit-user-profile
+  --edit-user-profile-skeleton-bg: var(--gray-200);
+  --edit-user-profile-label-disable-color: var(--zinc-400);
+  --edit-user-profile-input-disable-bg: var(--zinc-100);
+  --edit-user-profile-input-disable-color: var(--zinc-400);
+  --edit-user-profile-upload-btn-bg: var(--zinc-50);
+  --edit-user-profile-upload-btn-border: var(--zinc-200);
+  --edit-user-profile-upload-btn-color: var(--zinc-900);
+  --edit-user-profile-upload-title-color: var(--zinc-800);
+  --edit-user-profile-upload-p-color: var(--zinc-500);
+  --edit-user-profile-delete-btn-color: var(--maroon-500);
+  //Change-Password
+  --change-password-label-color: var(--zinc-800);
+  --change-password-divider-bg: var(--zinc-200);
+  //confirm-dialog
+  --confirm-dialog-border-icon-out: var(--gray-900-05);
+  --confirm-dialog-border-icon-in: var(--gray-900-15);
+  --confirm-dialog-border-icon-color: var(--gray-900);
+  --confirm-dialog-bg: var(--white);
+  --confirm-dialog-title: var(--gray-900);
+  --confirm-dialog-subtitle: var(--maroon-500);
+  // cancel button
+  --confirm-dialog-btn-cancel-bg: var(--zinc-50);
+  --confirm-dialog-btn-cancel-border-color: var(--zinc-400);
+  --confirm-dialog-btn-cancel-color: var(--zinc-800);
+  --confirm-dialog-btn-cancel-hover: var(--zinc-100);
+  // confirm button
+  --confirm-dialog-btn-confirm-bg: var(--red-600);
+  --confirm-dialog-btn-confirm-color: var(--white);
+  --confirm-dialog-btn-confirm-hover: var(--maroon-500);
   //Contact Page
   --contact-title-color: var(--maroon-600);
   --contact-icon-color: var(--maroon-600);
@@ -334,21 +437,43 @@
   --body-color: var(--zinc-800);
   // Navbar
   --background-navbar: var(--zinc-800);
-  --color-navbar: var(--zinc-100);
-  --hover-navbar: var(--soft-pink-200);
-  --active-navbar: var(--soft-pink-200);
+  --color-navbar-text: var(--zinc-400);
+  --color-navbar-highlight: var(--soft-pink-200);
 
-  --color-icon-navbar: var(--zinc-100);
-  --hover-icon-navbar: var(--soft-pink-200);
-  --overlaybadge-bg: var(--soft-pink-200);
-  --overlaybadge-color: var(--soft-pink-200);
+  --background-navbar-input: var(--zinc-700);
+  --color-navbar-input-border: var(--zinc-600);
+  --color-navbar-input-text: var(--zinc-400);
+  --color-navbar-input-shadow: var(--soft-pink-200);
+  --color-navbar-input-shadow-border: var(--soft-pink-200);
 
-  --close-btn-color: var(--zinc-100);
+  --background-navbar-second-row: var(--soft-pink-200);
+  --color-navbar-second-row: var(--zinc-800);
+  --color-hover-navbar-second-row: var(--maroon-800);
+  --color-active-navbar-second-row: var(--maroon-800);
+  --color-underline-navbar-second-row: var(--maroon-800);
+
+  --color-arrow-user-navbar: var(--zinc-400);
+  --color-border-icons-navbar: var(--zinc-200);
+  --color-icons-navbar: var(--zinc-50);
+  --color-hover-icons-navbar: var(--soft-pink-200);
+
+  --background-badges-icons-navbar: var(--soft-pink-200);
+  --color-badges-icons-navbar: var(--zinc-800);
+
+  --color-hover-arrow-user-navbar: var(--soft-pink-200);
+
+  --close-btn-color: var(--zinc-50);
   --close-btn-hover: var(--soft-pink-200);
-  --close-btn-border: var(--soft-pink-200);
+  --close-btn-border: var(--zinc-400);
+
+  --color-navbar-mobile: var(--zinc-50);
+  --color-hover-navbar-mobile: var(--maroon-500);
   // DarkMode Toggle
   --toggle-color: var(--zinc-100);
   --toggle-hover: var(--soft-pink-200);
+  // Translate Toggle
+  --translate-toggle-color: var(--zinc-100);
+  --translate-toggle-hover: var(--soft-pink-200);
   // Search Toggle
   --Search-bg: var(--soft-pink-200);
   --Search-color: var(--zinc-700);
@@ -380,6 +505,9 @@
   --scrollbar-track-color: var(--zinc-800);
   --scrollbar-thumb-color: var(--soft-pink-200);
   --scrollbar-thumb-hover-color: var(--soft-pink-300);
+  // speedDial
+  --speedDial-bg: var(--soft-pink-200);
+  --speedDial-hover: var(--soft-pink-400);
 
   // Home Components
   // Categories
@@ -398,13 +526,13 @@
   --h1-color-gift: var(--white);
   --dark-text-gift: var(--white);
   --highlight-color-gift: var(--maroon-600);
-  --carousel-i-color-gift: var(--maroon-50);
-  --carousel-button-gift-background: var(--maroon-600);
-  --carousel-button-gift-hover: var(--maroon-500);
-  --carousel-indicator-button-gift-color: var(--maroon-50);
-  --carousel-indicator-button-gift-active: var(--maroon-600);
-  --carousel-indicator-button-gift-hover: var(--maroon-500);
-  --carousel-button-gift-hover: var(--maroon-500);
+  --carousel-i-color-gift: var(--zinc-50);
+  --carousel-button-gift-background: var(--soft-pink-200);
+  --carousel-button-gift-hover: var(--soft-pink-300);
+  --carousel-indicator-button-gift-color: var(--soft-pink-200);
+  --carousel-indicator-button-gift-active: var(--soft-pink-300);
+  --carousel-indicator-button-gift-hover: var(--soft-pink-300);
+  --carousel-button-gift-hover: var(--soft-pink-300);
   // Our Services
   --our-services-color: var(--zinc-700);
   --our-services-background: var(--soft-pink-200);
@@ -500,7 +628,6 @@
   --point-slider-hover: var(--soft-pink-400);
   // Ratings-filter
   --star-color: var(--yellow);
-
   // Auth
   // Separator
   --auth-separator-up: var(--dark-separator-up);
@@ -539,7 +666,6 @@
   --toast-success-color: var(--zinc-800);
   --toast-success-i-color: var(--zinc-700);
   --toast-btn-close-color: var(--zinc-600);
-
   //details
   //1- reviews
   --details-header-color: var(--zinc-50);
@@ -549,8 +675,31 @@
 
   --preview-bg: var(--zinc-600);
   --preview-color: var(--white);
-
-
+  // PrimeNg Button
+  --p-button-primary-background: var(--soft-pink-500) !important;
+  --p-button-primary-hover-border-color: var(--soft-pink-500) !important;
+  --p-button-primary-border-color: var(--soft-pink-500) !important;
+  --p-button-primary-hover-background: var(--soft-pink-400) !important;
+  --p-button-padding-x: 1rem !important;
+  --p-button-padding-y: 0.625rem !important;
+  // stepper
+  --p-stepper-separator-active-background: var(--soft-pink-500) !important;
+  --p-stepper-step-gap: 0rem !important;
+  --p-stepper-step-header-gap: 0rem !important;
+  --p-stepper-step-padding: 0rem !important;
+  --p-stepper-step-number-active-color: var(--white) !important;
+  --p-stepper-step-number-active-background: var(--soft-pink-500) !important;
+  --p-stepper-step-number-active-border-color: var(--soft-pink-500) !important;
+  --p-stepper-separator-size: 0.375rem !important;
+  // Address item
+  --address-name: var(--soft-pink-500);
+  --address-name-background: var(--zinc-800);
+  --address-body: var(--white);
+  --loading-color: var(--soft-pink-500);
+  // Delete dialog
+  --dialog-p: var(--zinc-50);
+  --dialog-out-shadow: var(--soft-pink-600);
+  --dialog-icon: var(--soft-pink-100);
   //Order Flow
   //Summary
   --summary-background-color: var(--white);
@@ -560,27 +709,70 @@
   --summary-button-hover: var(--soft-pink-300);
   --summary-button-text-color: var(--zinc-800);
   --coupon-border-color: var(--soft-pink-200);
-
-
-
-   //Orders
+  //Orders
   --order-title-color: var(--white);
   --order-header-bg: var(--soft-pink-300);
   --order-header-color: var(--zinc-700);
-  --order-total-color:var(--zinc-800);
+  --order-total-color: var(--zinc-100);
   --green-badge-bg: var(--emerald-500);
-  --blue-badge-bg:var(--blue-700);
-  --red-badge-bg:var(--red-600);
+  --blue-badge-bg: var(--blue-700);
+  --red-badge-bg: var(--red-600);
   --badge-color: var(--white);
-  --order-items-bg: var(--zinc-100);
-  --payment-color: var(--zinc-500);
-  --order-item-bg: var(--white);
+  --order-items-bg: var(--zinc-800);
+  --payment-color: var(--zinc-300);
+  --order-item-bg: var(--zinc-600);
+  --order-items-color: var(--zinc-100);
   --order-item-title: var(--soft-pink-400);
   --quantity-color: var(--soft-pink-400);
   --order-ratings: var(--blue-700);
   --show-btn: var(--soft-pink-300);
-   --rating-star: var(--yellow);
+  --rating-star: var(--yellow);
+  --fade-mask-base: 18, 18, 18;
 
+  //User-Profile
+  --user-profile-sidebar-title: var(--zinc-50);
+  --user-profile-sidebar-bg: var(--zinc-700);
+  --user-profile-sidebar-border: var(--zinc-700);
+  --user-profile-sidebar-menu-item-color: var(--zinc-50);
+  --user-profile-sidebar-menu-item-hover: var(--zinc-600);
+  --user-profile-sidebar-menu-item-bg-active: var(--soft-pink-200);
+  --user-profile-sidebar-menu-item-color-active: var(--zinc-800);
+  --user-profile-sidebar-menu-item-btn-logout-bg: var(--zinc-600);
+  --user-profile-sidebar-menu-item-btn-logout-color: var(--soft-pink-400);
+  --user-profile-sidebar-menu-item-btn-logout-hover: var(--zinc-800);
+  --user-profile-sidebar-menu-item-mobile-color: var(--zinc-50);
+  --user-profile-sidebar-menu-item-mobile-hover: var(--zinc-600);
+  --user-profile-sidebar-menu-item-mobile-active-color: var(--soft-pink-200);
+  //edit-user-profile
+  --edit-user-profile-skeleton-bg: var(--zinc-500);
+  --edit-user-profile-label-disable-color: var(--zinc-500);
+  --edit-user-profile-input-disable-bg: var(--zinc-800);
+  --edit-user-profile-input-disable-color: var(--zinc-500);
+  --edit-user-profile-upload-btn-bg: var(--zinc-600);
+  --edit-user-profile-upload-btn-border: var(--zinc-700);
+  --edit-user-profile-upload-btn-color: var(--zinc-50);
+  --edit-user-profile-upload-title-color: var(--zinc-50);
+  --edit-user-profile-upload-p-color: var(--zinc-400);
+  --edit-user-profile-delete-btn-color: var(--soft-pink-400);
+  //Change-Password
+  --change-password-label-color: var(--zinc-50);
+  --change-password-divider-bg: var(--zinc-600);
+  //confirm-dialog
+  --confirm-dialog-border-icon-out: var(--gray-900-01);
+  --confirm-dialog-border-icon-in: var(--gray-900-11);
+  --confirm-dialog-border-icon-color: var(--zinc-50);
+  --confirm-dialog-bg: var(--zinc-700);
+  --confirm-dialog-title: var(--zinc-100);
+  --confirm-dialog-subtitle: var(--soft-pink-200);
+  // cancel button
+  --confirm-dialog-btn-cancel-bg: var(--zinc-100);
+  --confirm-dialog-btn-cancel-border-color: var(--zinc-200);
+  --confirm-dialog-btn-cancel-color: var(--zinc-800);
+  --confirm-dialog-btn-cancel-hover: var(--zinc-200);
+  // confirm button
+  --confirm-dialog-btn-confirm-bg: var(--soft-pink-200);
+  --confirm-dialog-btn-confirm-color: var(--zinc-800);
+  --confirm-dialog-btn-confirm-hover: var(--soft-pink-300);
    //Contact Page
   --contact-title-color: var(--soft-pink-200);
   --contact-icon-color: var(--soft-pink-200);

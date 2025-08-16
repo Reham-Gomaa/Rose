@@ -1,4 +1,4 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -22,8 +22,12 @@ import { TagModule } from "primeng/tag";
   imports: [CarouselModule, ButtonModule, TagModule, ButtonComponent, TranslatePipe],
   templateUrl: "./gifts.component.html",
   styleUrl: "./gifts.component.scss",
-  host: { ngSkipHydration: "true" },
+  host: {
+    ngSkipHydration: "true",
+    "[@fadeTransition]": "translationService.fadeState()",
+  },
   animations: [fadeTransition],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class GiftsComponent {
   translationService = inject(TranslationService);
@@ -38,7 +42,7 @@ export class GiftsComponent {
       id: 2,
       source: "./images/gifts/2$.WebP",
       title: "pink roses with box of chocolate",
-    }
+    },
   ];
 
   pics: picsInterface[] = [
@@ -47,7 +51,7 @@ export class GiftsComponent {
       source: "./images/gifts/Confetti lying near present.WebP",
       title: "christmas gift with red ribbon",
       heading2: "home.gifts.bottomImages.left.heading2",
-      heading1: "home.gifts.bottomImages.left.heading1"
+      heading1: "home.gifts.bottomImages.left.heading1",
     },
     {
       id: 2,

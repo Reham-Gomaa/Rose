@@ -1,3 +1,4 @@
+import { Address } from "./core/interfaces/user-address.interface";
 import { appRoutes } from "./app.routes";
 // @angular imports
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
@@ -5,7 +6,7 @@ import { provideRouter, withInMemoryScrolling, withViewTransitions } from "@angu
 import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
-import { HttpClient, provideHttpClient, withFetch } from "@angular/common/http";
+import { HttpClient, provideHttpClient, withFetch, withInterceptors } from "@angular/common/http";
 import { provideAnimations } from "@angular/platform-browser/animations";
 // @ngx imports
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
@@ -24,17 +25,20 @@ import Aura from "@primeng/themes/aura";
 import { ToastModule } from "primeng/toast";
 // Auth LIB
 import { API_CONFIG } from "auth-api-kp";
+import { headingInterceptor } from "./core/interceptors/header.interceptor";
+import { addressReducer } from "./store/address/address.reducer";
+import { AddressEffect } from "./store/address/address.effect";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
 }
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(),
+    provideHttpClient(withFetch(), withInterceptors([headingInterceptor])),
     {
       provide: API_CONFIG,
       useValue: {
-        baseUrl: "https://flower.elevateegy.com/api/",
+        baseUrl: "https://flower.elevateegy.com/api",
         apiVersion: "v1",
         endpoints: {
           auth: {
@@ -44,11 +48,11 @@ export const appConfig: ApplicationConfig = {
             forgotPassword: "auth/forgotPassword",
             verifyResetCode: "auth/verifyResetCode",
             resetPassword: "auth/resetPassword",
-            profileData: "auth/profileData",
+            profileData: "auth/profile-data",
             editProfile: "auth/editProfile",
-            changePassword: "auth/changePassword",
+            changePassword: "auth/change-password",
             deleteMe: "auth/deleteMe",
-            uploadPhoto: "auth/uploadPhoto",
+            uploadPhoto: "auth/upload-photo",
             forgetPasswordForm: "auth/forgetPasswordForm",
           },
         },
@@ -91,7 +95,8 @@ export const appConfig: ApplicationConfig = {
     provideStore({
       sort: sortReducer,
       filter: filterReduser,
+      Address: addressReducer,
     }),
-    provideEffects(sortEffects, FilterEffects),
+    provideEffects(sortEffects, FilterEffects, AddressEffect),
   ],
 };
