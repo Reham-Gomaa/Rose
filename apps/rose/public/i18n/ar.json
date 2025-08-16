@@ -425,6 +425,9 @@
     "verificationFailed": "تعذر إرسال رمز التحقق.",
     "unexpectedError": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
 
+    "resetPasswordSuccess": "تم إعادة تعيين كلمة المرور بنجاح!",
+    "resetPasswordFailed": "فشل في إعادة تعيين كلمة المرور.",
+
     "failedResendCode": "فشل في إعادة إرسال رمز التحقق.",
     "otpResent": "تم إرسال رمز تحقق جديد إلى بريدك الإلكتروني.",
     "failedResendCodeAgain": "فشل في إعادة إرسال رمز التحقق.",

@@ -22,13 +22,12 @@ import { TrustedByComponent } from "../home/components/trusted-by/trustedBy.comp
     ButtonModule,
     StepperModule,
     ReactiveFormsModule,
-    UserAddressComponent,
     AboutUsComponent,
     TestimonialsComponent,
     ExpertTeamComponent,
     OurServicesComponent,
-    TrustedByComponent
-],
+    TrustedByComponent,
+  ],
 })
 export class AboutComponent implements OnInit {
   visible: boolean = false;
@@ -36,24 +35,23 @@ export class AboutComponent implements OnInit {
   myAddress!: Address;
   addressState!: AddressSituations;
   close() {
-    this._store.dispatch(setAddressState({addressState:0}))
+    this._store.dispatch(setAddressState({ addressState: 0 }));
   }
 
   ngOnInit(): void {
     this._store.select(selectAddressState).subscribe((addressState) => {
-      this.addressState=addressState
+      this.addressState = addressState;
       console.log(this.addressState);
     });
     this._store.select(selectAddress).subscribe((address) => {
       this.myAddress = address;
-            console.log(address);
-
+      console.log(address);
     });
   }
 
-  openAddress(){
+  openAddress() {
     this.visible = true;
-    this._store.dispatch(setAddressState({addressState:1}))
-    this._store.dispatch(showAddresses())
+    this._store.dispatch(setAddressState({ addressState: 1 }));
+    this._store.dispatch(showAddresses());
   }
 }
