@@ -1,16 +1,10 @@
 import { Component, DestroyRef, EventEmitter, inject, Input, Output, signal } from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from "@angular/forms";
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { interval } from "rxjs";
 // Translation
-import { TranslatePipe } from "@ngx-translate/core";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 // shared-components
 import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
 // PrimeNG
@@ -25,7 +19,7 @@ import { AuthApiKpService } from "auth-api-kp";
   styleUrl: "./verify-code.component.scss",
 })
 export class VerifyCodeComponent {
-  private readonly fb = inject(FormBuilder);
+  private readonly _translate = inject(TranslateService);
   private readonly _router = inject(Router);
   private readonly _authApiKpService = inject(AuthApiKpService);
   private readonly _messageService = inject(MessageService);
@@ -80,10 +74,12 @@ export class VerifyCodeComponent {
       .subscribe({
         next: (res) => {
           if ("error" in res) {
-            this.apiError.set(res.error || "Failed to resend verification code.");
+            this.apiError.set(
+              res.error || this._translate.instant("messagesToast.failedResendCode")
+            );
             this._messageService.add({
               severity: "error",
-              detail: res.error || "Failed to resend verification code.",
+              detail: res.error || this._translate.instant("messagesToast.failedResendCode"),
               life: 3000,
             });
           } else {
@@ -92,24 +88,24 @@ export class VerifyCodeComponent {
               this.startCooldownTimer();
               this._messageService.add({
                 severity: "success",
-                detail: "A new OTP code has been sent to your email.",
+                detail: this._translate.instant("messagesToast.otpSent"),
                 life: 3000,
               });
             } else {
-              this.apiError.set("Failed to resend verification code.");
+              this.apiError.set(this._translate.instant("messagesToast.failedResendCode"));
               this._messageService.add({
                 severity: "error",
-                detail: res.message || "Failed to resend verification code.",
+                detail: res.message || this._translate.instant("messagesToast.failedResendCode"),
                 life: 3000,
               });
             }
           }
         },
         error: () => {
-          this.apiError.set("Unexpected error. Please try again.");
+          this.apiError.set(this._translate.instant("messagesToast.unexpectedError"));
           this._messageService.add({
             severity: "error",
-            detail: "Unexpected error. Please try again.",
+            detail: this._translate.instant("messagesToast.unexpectedError"),
             life: 3000,
           });
         },
@@ -136,33 +132,35 @@ export class VerifyCodeComponent {
           if ("error" in res) {
             this._messageService.add({
               severity: "error",
-              detail: res.error || "Verification failed.",
+              detail: res.error || this._translate.instant("messagesToast.verificationFailed"),
               life: 3000,
             });
-            this.apiError.set(res.error || "Verification failed.");
+            this.apiError.set(
+              res.error || this._translate.instant("messagesToast.verificationFailed")
+            );
           } else {
             if (res.status === "Success") {
               this.codeVerified.emit();
               this._messageService.add({
                 severity: "success",
-                detail: "Code verified successfully!",
+                detail: this._translate.instant("messagesToast.codeVerified"),
                 life: 3000,
               });
             } else {
               this._messageService.add({
                 severity: "error",
-                detail: "Invalid verification code.",
+                detail: this._translate.instant("messagesToast.invalidVerificationCode"),
                 life: 3000,
               });
-              this.apiError.set("Invalid verification code.");
+              this.apiError.set(this._translate.instant("messagesToast.invalidVerificationCode"));
             }
           }
         },
         error: () => {
-          this.apiError.set("Something went wrong. Please try again.");
+          this.apiError.set(this._translate.instant("messagesToast.unexpectedError"));
           this._messageService.add({
             severity: "error",
-            detail: "Something went wrong. Please try again.",
+            detail: this._translate.instant("messagesToast.unexpectedError"),
             life: 3000,
           });
         },

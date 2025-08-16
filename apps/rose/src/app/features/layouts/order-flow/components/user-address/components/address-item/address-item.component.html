@@ -13,7 +13,7 @@
       <i class="pi pi-phone"></i>
       <span class="address-card__phone px-2">{{address().phone}}</span>
       <div class="address-card__to-button">
-        <button class="icon-button edit">
+        <button class="icon-button edit" (click)="openUpdateDialog()">
         <i class="pi pi-pencil"></i>
       </button>
       <button class="icon-button delete" (click)="openDeleteDialog()">

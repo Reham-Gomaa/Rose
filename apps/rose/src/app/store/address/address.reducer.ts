@@ -5,22 +5,31 @@ import {
   deleteAddressesSuccess,
   DeletedAddress,
   setAddressState,
-  setDeletedAddress,
   showAddresses,
   showAddressesFailure,
   showAddressesSuccess,
+  AddAddress,
+  AddAddressesSuccess,
+  AddAddressesFailure,
+  setAddressId,
+  setAddress,
+  setUserName,
 } from "./address.actions";
+import { Address } from "@rose/core_interfaces/user-address.interface";
 
 export const initalState: AddressState = {
-  addressState: AddressSituations.showAddress,
-  address: [],
+  addressState: AddressSituations.closeAddress,
+  addresses: [],
   loading: false,
   error: null,
-  selectedAddressId: "",
+  selectedAdddressId: "",
+  address: {} as Address,
+  userName: "",
 };
 
 export const addressReducer = createReducer(
   initalState,
+  // Show Address
   on(setAddressState, (state, { addressState }) => {
     return {
       ...state,
@@ -37,7 +46,7 @@ export const addressReducer = createReducer(
   on(showAddressesSuccess, (state, { addresses }) => {
     return {
       ...state,
-      address: addresses,
+      addresses: addresses,
       loading: false,
       error: null,
     };
@@ -49,12 +58,14 @@ export const addressReducer = createReducer(
       error: error,
     };
   }),
-  on(setDeletedAddress, (state, { addressId }) => {
+  on(setAddressId, (state, { addressId }) => {
     return {
       ...state,
       selectedAdddressId: addressId,
     };
   }),
+
+  // Delete
   on(DeletedAddress, (state) => {
     return {
       ...state,
@@ -66,7 +77,7 @@ export const addressReducer = createReducer(
       ...state,
       loading: false,
       addressState: AddressSituations.showAddress,
-      address: state.address.filter((value) => value._id !== addressId),
+      addresses: state.addresses.filter((value) => value._id !== addressId),
     };
   }),
   on(deleteAddressesFailure, (state, { error }) => {
@@ -74,6 +85,43 @@ export const addressReducer = createReducer(
       ...state,
       loading: false,
       error: error,
+    };
+  }),
+
+  // Add address
+  on(AddAddress, (state) => {
+    return {
+      ...state,
+      loading: true,
+    };
+  }),
+  on(AddAddressesSuccess, (state) => {
+    return {
+      ...state,
+      loading: false,
+      addressState: AddressSituations.closeAddress,
+    };
+  }),
+  on(AddAddressesFailure, (state, { error }) => {
+    return {
+      ...state,
+      loading: false,
+      error: error,
+    };
+  }),
+
+  // set address
+  on(setAddress, (state, { address }) => {
+    return {
+      ...state,
+      address: address,
+    };
+  }),
+  // set user name
+  on(setUserName, (state, { userName }) => {
+    return {
+      ...state,
+      userName: userName,
     };
   })
 );

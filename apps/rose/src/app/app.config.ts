@@ -40,7 +40,7 @@ export const appConfig: ApplicationConfig = {
     {
       provide: API_CONFIG,
       useValue: {
-        baseUrl: "https://flower.elevateegy.com/api/",
+        baseUrl: "https://flower.elevateegy.com/api",
         apiVersion: "v1",
         endpoints: {
           auth: {

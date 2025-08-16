@@ -41,13 +41,60 @@ export const appRoutes: Route[] = [
         loadComponent: () =>
           import("@rose/features_pages/contact/contact.component").then((c) => c.ContactComponent),
       },
-
       {
         path: "details/:id",
         title: "Product Details",
         loadComponent: () =>
           import("@rose/features_pages/details/details.component").then((c) => c.DetailsComponent),
+
       }
+]
+      },
+      {
+        path: "order-flow",
+        loadComponent: () =>
+          import("@rose/features_layouts/order-flow/order-flow.component").then(
+            (c) => c.OrderFlowComponent
+          ),
+        children: [
+          {
+            path: "cart",
+            loadComponent: () =>
+              import("@rose/features_layouts/order-flow/components/cart/cart.component").then(
+                (c) => c.CartComponent
+              ),
+            title: "Cart",
+          },
+          {
+            path: "address",
+            loadComponent: () =>
+              import(
+                "@rose/features_layouts/order-flow/components/user-address/user-address.component"
+              ).then((c) => c.UserAddressComponent),
+            title: "Address",
+          },
+            {
+        path:'checkout',
+        title:'Checkout',
+        loadComponent:()=>import("../app/features/checkout/checkout.component").then(c=>c.CheckoutComponent)
+  },
+        ],
+      },
+      {
+        path: "allorders",
+        loadComponent: () =>
+          import("@rose/features_pages/orders/orders.component").then((c) => c.OrdersComponent),
+        title: "Your Orders",
+      },
+      {
+        path: "user-profile",
+        loadComponent: () =>
+          import("@rose/features_layouts/user-profile/user-profile.component").then(
+            (c) => c.UserProfileComponent
+          ),
+        title: "User Profile",
+      },
+
     ],
   },
   {
@@ -76,45 +123,6 @@ export const appRoutes: Route[] = [
       import(
         "@rose/features_layouts/authentication/components/reset-password/reset-password.component"
       ).then((c) => c.ResetPasswordComponent),
-  },
-  {
-    path: "order-flow",
-    loadComponent: () =>
-      import("@rose/features_layouts/order-flow/order-flow.component").then(
-        (c) => c.OrderFlowComponent
-      ),
-    children: [
-      {
-        path: "cart",
-        loadComponent: () =>
-          import("@rose/features_layouts/order-flow/components/cart/cart.component").then(
-            (c) => c.CartComponent
-          ),
-        title: "Cart",
-      },
-      {
-        path: "address",
-        loadComponent: () =>
-          import(
-            "@rose/features_layouts/order-flow/components/user-address/user-address.component"
-          ).then((c) => c.UserAddressComponent),
-        title: "Address",
-      },
-      {
-        path: "allOrders",
-        loadComponent: () =>
-          import("@rose/features_layouts/order-flow/components/orders/orders.component").then(
-            (c) => c.OrdersComponent
-          ),
-        title: "Orders",
-      },
-        {
-        path:'checkout',
-        title:'Checkout',
-        loadComponent:()=>import("../app/features/checkout/checkout.component").then(c=>c.CheckoutComponent)
-  },
-
-    ],
   },
 
   {

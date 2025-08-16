@@ -4,4 +4,17 @@
   justify-content: space-between;
   max-height: 100vh;
   max-width: 100%;
+  position: relative;
+}
+
+:host ::ng-deep .p-button-help {
+  background-color: var(--speedDial-bg);
+  border: none;
+}
+
+:host ::ng-deep .p-speeddial-button.p-button-help:not(:disabled):hover {
+  background-color: var(--speedDial-hover) !important;
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important; /* Remove hover shadow if any */
 }

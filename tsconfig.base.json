@@ -71,6 +71,9 @@
       ],
       "@rose/checkout/*": [
         "./apps/rose/src/app/store/checkout/*"
+
+      "@rose/store_auth/*": [
+        "./apps/rose/src/app/store/auth/*"
       ]
     }
   },
