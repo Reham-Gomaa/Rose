@@ -65,7 +65,6 @@ export class CartComponent implements OnInit {
       .subscribe({
         next: (items) => {
           this.userCartItems = items;
-          this.isLoading = false;
         },
         error: (err) => {
           this.isLoading = false;
@@ -86,8 +85,8 @@ export class CartComponent implements OnInit {
       for (let i = 0; i < invalidItems.length; i++) {
         this.store.dispatch(deleteSpecificItem({ p_id: invalidItems[i].product._id }));
       }
-      return;
     }
+    this.isLoading = false;
   }
 
   updateProductQuantity(p_id: string, qty: number) {
@@ -135,10 +134,7 @@ export class CartComponent implements OnInit {
   }
 
   getCurrentQuantity(productId: string): number {
-    let currentQty = 1;
-    const item = this.findItem(productId);
-    currentQty = item?.quantity || 1;
-    return currentQty;
+    return this.findItem(productId)?.quantity || 1;
   }
 
   removeCartItem(p_id: string) {
