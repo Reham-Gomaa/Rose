@@ -61,7 +61,7 @@
     </div>
   </div>
 
-  <p-dialog [header]="productDetails().slug?.toUpperCase()" [(visible)]="showModal" [modal]="true"
+  <p-dialog [header]="productDetails().slug.toUpperCase()" [(visible)]="showModal" [modal]="true"
     [dismissableMask]="true" [closable]="true" [style.maxWidth]="'50vw'" [contentStyle]="{ 'text-align': 'center' }">
 
     @if (currentImage()) {

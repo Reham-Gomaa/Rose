@@ -6,6 +6,7 @@ import {
   clearCart,
   clearCartSuccess,
   deleteSpecificItemSuccess,
+  getUserCart,
   getUserCartSuccess,
   updateQuantitySuccess,
 } from "./cart-actions";
@@ -15,16 +16,23 @@ export const initialState: cartState = {
   cartItems: [] as cartItems[],
   cartItemsNum: 0,
   totalPrice: 0,
+  loading: false,
 };
 
 export const cartReducer = createReducer(
   initialState,
+
+  on(getUserCart, (state) => ({
+    ...state,
+    loading: true,
+  })),
 
   on(getUserCartSuccess, (state, { cart }) => ({
     ...state,
     cartItems: cart.cart.cartItems,
     cartItemsNum: cart.numOfCartItems,
     totalPrice: cart.cart.totalPrice,
+    loading: false,
   })),
 
   on(addProductToCartSuccess, (state, { cart }) => ({

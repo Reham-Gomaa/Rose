@@ -8,13 +8,13 @@
                 <app-button (click)="clearCart()" [bgColor]="'var(--cart-clearBtn-bg)'"
                     [textColor]="'var(--cart-clearBtn-text)'" [text]="'cart.clear-cart' |translate"
                     [padding]="'clear-cart-padding'" [borderRadius]="'cart-radius'">
-                    <img src="./images/cart/brush-cleaning.WebP" alt="clear cart">
+                    <img loading="lazy" src="./images/cart/brush-cleaning.WebP" alt="clear cart">
                 </app-button>
             </div>
         </div>
-
+        <!-- Loading Skeleton -->
         <div id="cartContent">
-            @if (isLoading) {
+            @if (isLoading$ | async) {
             <ng-container>
                 @for(item of [1,2,3];track $index){
                 <div class="pdt-wrapper flex flex-wrap">
@@ -28,11 +28,10 @@
                     </div>
                 </div>
                 }
-
             </ng-container>
             }
             @else {
-            @for (item of userCartItems; track $index) {
+            @for (item of userCartItems(); track $index) {
             @if (cartItemsNum$ |async; as cartItemsNum) {
             <div [class.border-none]="cartItemsNum === $index + 1" class="pdt-wrapper ">
                 <div class=" md:w-3">
@@ -40,7 +39,7 @@
                         [alt]="item.product.title">
                 </div>
                 <div class=" md:w-9 flex flex-column justify-content-between">
-                    <!-- Right - UP -->
+                    <!-- pdt-Title and Delete -->
                     <div class="pdt-title-rating">
                         <div>
                             <h2 class="pdt-name">{{item.product.title}}</h2>
@@ -59,8 +58,7 @@
                                 [rowReverse]="'flex flex-row-reverse align-items-center'" />
                         </div>
                     </div>
-
-                    <!-- Right - Down -->
+                    <!-- pdt-Price and Update quantity -->
                     <div class="pdt-price-quantity">
                         <div>
                             <h3 class="pdt-price"> <span class="qty">(x{{item.quantity}})</span>
@@ -97,7 +95,7 @@
             }
             }
         </div>
-
+        <!-- Route to Home -->
         <div class="flex justify-content-start align-items-center mt-4">
             <app-button [routerLink]="'/dashboard/home'" [rowReverse]="'flex flex-row-reverse align-items-center'"
                 [icon]="'pi pi-arrow-left arrowicon mr-2'" [bgColor]="'var(--btn-shared-background)'"

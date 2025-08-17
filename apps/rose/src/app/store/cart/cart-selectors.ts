@@ -17,3 +17,5 @@ export const selectTotalPrice = createSelector(
   selectCartState,
   (state: cartState) => state.totalPrice
 );
+
+export const selectCartLoading = createSelector(selectCartState, (state) => state.loading);

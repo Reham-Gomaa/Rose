@@ -28,11 +28,11 @@
             <span>{{totalPrice$ |async}}{{"EGP" | translate}}</span>
           </div>
           @if (cartService.orderFlowState() === "cart"){
-          <app-button (click)="checkStoreQuantity()" [text]="'orderFlow.checkoutButton' | translate"
-            [icon]="'pi pi-arrow-right arrowicon'" [textColor]="'var(--btn-shared-color)'"
-            [bgColor]="'var(--btn-shared-background)'" [borderRadius]="'btn-summary-radius'"
-            [padding]="'btn-summary-padding w-full'" [transition]="'btn-summary-transition'"
-            aria-label="checkout and place order" />
+          <app-button [disable]="userCartItems().length === 0" (click)="checkStoreQuantity()"
+            [text]="'orderFlow.checkoutButton' | translate" [icon]="'pi pi-arrow-right arrowicon'"
+            [textColor]="'var(--btn-shared-color)'" [bgColor]="'var(--btn-shared-background)'"
+            [borderRadius]="'btn-summary-radius'" [padding]="'btn-summary-padding w-full'"
+            [transition]="'btn-summary-transition'" aria-label="checkout and place order" />
           }
 
         </div>

@@ -1,6 +1,6 @@
 // @angular
 import { HttpClient } from "@angular/common/http";
-import { inject, Injectable, signal } from "@angular/core";
+import { inject, Injectable, signal, WritableSignal } from "@angular/core";
 // rxjs
 import { Observable } from "rxjs";
 // shared

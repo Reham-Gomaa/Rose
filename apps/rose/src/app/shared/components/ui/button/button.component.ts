@@ -16,4 +16,5 @@ export class ButtonComponent {
   rowReverse: InputSignal<string> = input("");
   bgColor: InputSignal<string> = input("");
   textColor: InputSignal<string> = input("");
+  disable: InputSignal<boolean> = input(false);
 }

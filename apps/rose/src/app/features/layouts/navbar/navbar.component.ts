@@ -1,3 +1,4 @@
+import { AsyncPipe, isPlatformBrowser, NgOptimizedImage } from "@angular/common";
 import {
   Component,
   DestroyRef,
@@ -7,10 +8,9 @@ import {
   signal,
   ViewChild,
 } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { AsyncPipe, isPlatformBrowser, NgOptimizedImage } from "@angular/common";
-import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { FormsModule } from "@angular/forms";
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 // Translate
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -18,8 +18,8 @@ import { TranslationService } from "@rose/core_services/translation/translation.
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Services
 import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
-import { CartService } from "@rose/shared_services/cart/cart.service";
 import { UserStateService } from "@rose/core_services/user-state/user-state.service";
+import { CartService } from "@rose/shared_services/cart/cart.service";
 // Shared_UI_Components
 import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
 import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
@@ -29,11 +29,11 @@ import { TranslateToggleComponent } from "@rose/shared_Components_business/trans
 import { MenuItem, MessageService } from "primeng/api";
 import { ButtonModule } from "primeng/button";
 import { Dialog } from "primeng/dialog";
+import { IconField } from "primeng/iconfield";
+import { InputIcon } from "primeng/inputicon";
 import { InputTextModule } from "primeng/inputtext";
 import { Menubar } from "primeng/menubar";
 import { OverlayBadgeModule } from "primeng/overlaybadge";
-import { InputIcon } from "primeng/inputicon";
-import { IconField } from "primeng/iconfield";
 import { SplitButton } from "primeng/splitbutton";
 // Auth_Lib
 import { AuthApiKpService } from "auth-api-kp";
@@ -41,8 +41,8 @@ import { AuthApiKpService } from "auth-api-kp";
 import { User } from "auth-api-kp";
 // Ngrx
 import { Store } from "@ngrx/store";
-import { setUserName } from "../../../store/address/address.actions";
 import { Observable } from "rxjs";
+import { setUserName } from "../../../store/address/address.actions";
 import { getUserCart } from "../../../store/cart/cart-actions";
 import { selectCartItemsNum } from "../../../store/cart/cart-selectors";
 import { selectWishlistCount } from "../../../store/wishlist/wishlist-selectors";

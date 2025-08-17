@@ -173,3 +173,8 @@ button {
 .btn-contact-transition {
   transition: all 0.5s ease;
 }
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}

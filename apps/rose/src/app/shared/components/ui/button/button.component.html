@@ -1,5 +1,6 @@
-<button [style.backgroundColor]="bgColor()" [style.color]="textColor()"
-  [class]="margin() + ' ' + padding() + ' ' + borderRadius() + ' ' + transition() + ' ' + rowReverse()">
+<button [disabled]="disable()" [style.backgroundColor]="bgColor()" [style.color]="textColor()"
+  [class]="margin() + ' ' + padding() + ' ' + borderRadius() + ' ' + transition() + ' ' + rowReverse()"
+  [class.disabled]="disable()">
   <ng-content />
   {{ text() }}
   @if (icon() !== '') {

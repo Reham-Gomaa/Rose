@@ -1,6 +1,6 @@
 // @angular
 import { AsyncPipe } from "@angular/common";
-import { Component, DestroyRef, inject } from "@angular/core";
+import { Component, DestroyRef, inject, OnInit, signal, WritableSignal } from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { FormsModule } from "@angular/forms";
 // Components
@@ -36,17 +36,21 @@ import { selectCartItems, selectTotalPrice } from "../../../store/cart/cart-sele
   styleUrl: "./order-flow.component.scss",
   animations: [fadeTransition],
 })
-export class OrderFlowComponent {
+export class OrderFlowComponent implements OnInit {
   translationService = inject(TranslationService);
   cartService = inject(CartService);
   private readonly store = inject(Store);
   private readonly destroyRef = inject(DestroyRef);
 
   totalPrice$!: Observable<number>;
-  userCartItems: cartItems[] = [];
+  userCartItems: WritableSignal<cartItems[]> = signal<cartItems[]>([]);
 
   constructor() {
     this.totalPrice$ = this.store.select(selectTotalPrice);
+  }
+
+  ngOnInit(): void {
+    this.getCartItems();
   }
 
   responsiveOptions = [
@@ -55,22 +59,32 @@ export class OrderFlowComponent {
     { breakpoint: "560px", numVisible: 1, numScroll: 1 },
   ];
 
-  checkStoreQuantity() {
+  getCartItems() {
     this.store.dispatch(getUserCart());
     this.store
       .select(selectCartItems)
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((items) => (this.userCartItems = items));
+      .subscribe((items) => this.userCartItems.set(items));
+  }
 
-    const invalidItems = this.userCartItems.filter((item) => item.quantity > item.product.quantity);
+  checkStoreQuantity() {
+    const invalidItems = this.userCartItems().filter(
+      (item) => item.quantity > item.product.quantity
+    );
 
+    if (invalidItems.length === 0) {
+      this.goToPayment();
+      return;
+    }
     if (invalidItems.length > 0) {
       for (let i = 0; i < invalidItems.length; i++) {
         this.store.dispatch(deleteSpecificItem({ p_id: invalidItems[i].product._id }));
       }
-      return;
+      this.getCartItems();
+      if (this.userCartItems.length > 0) {
+        this.goToPayment();
+      }
     }
-    this.goToPayment();
   }
 
   goToPayment() {
