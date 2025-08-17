@@ -14,8 +14,7 @@
 }
 
 .country-select {
-  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Segoe UI", "Arial",
-    sans-serif;
+  font-family: var(--font-family-1);
   background: transparent !important;
   border: none;
   color: var(--input-text-color);
@@ -39,6 +38,11 @@
   flex: 1;
   outline: none;
   height: 100%;
+
+  font-family: var(--font-family-1);
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 100%;
 }
 
 ::placeholder {
@@ -67,6 +71,11 @@
 
 .label-color {
   color: var(--label-color);
+
+  font-family: var(--font-family-4);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 100%;
 }
 
 // country drop down

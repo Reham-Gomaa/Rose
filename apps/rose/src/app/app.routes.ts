@@ -58,15 +58,15 @@ export const appRoutes: Route[] = [
         path: "allorders",
         loadComponent: () =>
           import("@rose/features_pages/orders/orders.component").then((c) => c.OrdersComponent),
-        title: "Orders",
+        title: "Your Orders",
       },
       {
-        path: "wishlist",
-        title: "Wishlist",
+        path: "user-profile",
         loadComponent: () =>
-          import("@rose/features_pages/wishlist/wishlist.component").then(
-            (c) => c.WishlistComponent
+          import("@rose/features_layouts/user-profile/user-profile.component").then(
+            (c) => c.UserProfileComponent
           ),
+        title: "User Profile",
       },
     ],
   },

@@ -23,6 +23,11 @@
     width: 100%;
     min-width: 0;
     box-sizing: border-box;
+
+    font-family: var(--font-family-4);
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 100%;
   }
 }
 
@@ -43,6 +48,11 @@
 
 .label-color {
   color: var(--label-color);
+
+  font-family: var(--font-family-4);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 100%;
 }
 
 :host-context([dir="rtl"]) .eye-btn {
