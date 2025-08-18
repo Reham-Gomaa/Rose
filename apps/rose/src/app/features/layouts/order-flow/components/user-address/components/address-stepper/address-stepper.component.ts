@@ -23,7 +23,7 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
     CustomInputComponent,
     CustomInputPhoneComponent,
     CustomMainDialogComponent,
-    TranslatePipe
+    TranslatePipe,
   ],
   templateUrl: "./address-stepper.component.html",
   styleUrl: "./address-stepper.component.scss",

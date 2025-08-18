@@ -27,7 +27,8 @@ import { TrustedByComponent } from "../home/components/trusted-by/trustedBy.comp
     ExpertTeamComponent,
     OurServicesComponent,
     TrustedByComponent,
-  ],
+    UserAddressComponent
+],
 })
 export class AboutComponent implements OnInit {
   visible: boolean = false;

@@ -62,15 +62,15 @@ export const appRoutes: Route[] = [
               ),
             title: "Cart",
           },
-          {
-            path: "address",
-            loadComponent: () =>
-              import(
-                "@rose/features_layouts/order-flow/components/user-address/user-address.component"
-              ).then((c) => c.UserAddressComponent),
-            title: "Address",
-          },
         ],
+      },
+      {
+        path: "address",
+        loadComponent: () =>
+          import(
+            "@rose/features_pages/address/address.component"
+          ).then((c) => c.AddressComponent),
+        title: "Address",
       },
       {
         path: "allorders",
