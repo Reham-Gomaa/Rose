@@ -75,13 +75,13 @@
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  z-index: 9999;
-  width: 3.5rem;
-  height: 3.5rem;
+  z-index: 9998;
+  width: 2.5rem;
+  height: 4.5625rem;
   border: none;
-  border-radius: 50%;
+  border-radius: 0.625rem;
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
   box-shadow: 0 4px 10px #00000026;
   background-color: var(--btn-SideBar-filters-color);
@@ -90,11 +90,13 @@
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: var(--btn-SideBar-filters-hover);
+    //background-color: var(--btn-SideBar-filters-hover);
+    background-color: var(--btn-SideBar-filters-color);
   }
 
   &:active {
-    background-color: var(--btn-SideBar-filters-hover);
+    //background-color: var(--btn-SideBar-filters-hover);
+    background-color: var(--btn-SideBar-filters-color);
     border: none;
     outline: none;
   }
