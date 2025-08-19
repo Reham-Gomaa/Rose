@@ -54,8 +54,7 @@ export class checkoutEffects {
         )
 
       })
-    ),
-    {dispatch:false}
+    )
 
   )
 

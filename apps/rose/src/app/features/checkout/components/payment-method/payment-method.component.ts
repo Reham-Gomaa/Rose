@@ -44,9 +44,9 @@ export class PaymentMethodComponent {
     }
   ]);
 
-  setPaymentMethod(t:string){
-    const methodToStore = t.split(' ')[0].toLowerCase()
-    if(methodToStore == "cash") {
+  setPaymentMethod(methodName:string){
+    const methodToStore = methodName.split(' ')[0].toLowerCase()
+    if(methodToStore == pMethod.CASH) {
 
       this.store.dispatch(checkoutActions.selectPayMethod({method:pMethod.CASH}))
     }else {

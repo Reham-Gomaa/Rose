@@ -5,6 +5,7 @@ import { payInfo } from '../../checkout/paymentInfo';
 import { Observable } from 'rxjs';
 import { EndPoint } from '@rose/core_enums/endpoints';
 import { CashRes, CreditRes } from '../../models/CheckoutRes';
+import { environment } from '@rose/core_environment/baseurl.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,7 @@ export class CheckoutService {
   }
 
   createCheckoutSession(orderAddress:Address):Observable<CreditRes>{
-    const url = encodeURIComponent('http://localhost:4200/#/order-flow')
+    const url = encodeURIComponent(`${environment.baseApiUrl}/order-flow`)
      return this.http.post<CreditRes>(`${EndPoint.CHECKOUT_SESSION}?url=${url}`,{
       shippingAddress:{
          street: orderAddress.street,
