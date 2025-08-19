@@ -16,7 +16,7 @@ export class WishlistService {
 
   addToWishlist(p_id: string): Observable<wishlistResponse> {
     return this.httpClient.post<wishlistResponse>(
-      "https://ecommerce.routemisr.com/api/v1/wishlist",
+      EndPoint.WISHLIST,
       { productId: p_id },
       { headers: { "Content-Type": "application/json" } }
     );
