@@ -1,6 +1,5 @@
 import { Component, EventEmitter, inject, Output, signal, DestroyRef } from "@angular/core";
 import {
-  FormBuilder,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
@@ -8,7 +7,7 @@ import {
 } from "@angular/forms";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
-import { TranslatePipe } from "@ngx-translate/core";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
 // shared-components
 import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
@@ -27,9 +26,9 @@ import { AuthApiKpService } from "auth-api-kp";
 })
 export class ForgetPasswordComponent {
   readonly translationService = inject(TranslationService);
+  private readonly _translate = inject(TranslateService);
   private readonly _authApiKpService = inject(AuthApiKpService);
   private readonly _messageService = inject(MessageService);
-  private readonly fb = inject(FormBuilder);
   private readonly destroyRef = inject(DestroyRef);
 
   @Output() emailSubmitted = new EventEmitter<string>();
@@ -57,7 +56,7 @@ export class ForgetPasswordComponent {
           if ("error" in res) {
             this._messageService.add({
               severity: "error",
-              detail: res.error || "Failed to send verification code.",
+              detail: this._translate.instant("messagesToast.failedSendCode"),
               life: 3000,
             });
           } else {
@@ -65,13 +64,13 @@ export class ForgetPasswordComponent {
               this.emailSubmitted.emit(email);
               this._messageService.add({
                 severity: "success",
-                detail: "OTP sent to your email. Please check your inbox.",
+                detail: this._translate.instant("messagesToast.otpSent"),
                 life: 3000,
               });
             } else {
               this._messageService.add({
                 severity: "error",
-                detail: res.message || "Verification code could not be sent.",
+                detail: this._translate.instant("messagesToast.verificationFailed"),
                 life: 3000,
               });
             }
@@ -80,7 +79,7 @@ export class ForgetPasswordComponent {
         error: () => {
           this._messageService.add({
             severity: "error",
-            detail: "An unexpected error occurred. Please try again.",
+            detail: this._translate.instant("messagesToast.unexpectedError"),
             life: 3000,
           });
         },

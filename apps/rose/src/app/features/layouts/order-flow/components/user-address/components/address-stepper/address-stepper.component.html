@@ -1,0 +1,92 @@
+<app-custom-main-dialog [visable]="visible()" (closed)="close()">
+  <div head>
+    @if(isUpdate()){
+    <p class="text-head">{{ "addressStepper.step1.titleupdate" | translate }}</p>
+    }@else {
+    <p class="text-head">{{ "addressStepper.step1.titleAdd" | translate }}</p>
+
+    }
+  </div>
+
+  <p-stepper [value]="1" class="basis-[50rem]" body>
+    <p-step-list>
+      <p-step [value]="1"></p-step>
+      <p-step [value]="2"></p-step>
+    </p-step-list>
+
+    <p-step-panels>
+      <!-- Step 1 -->
+      <p-step-panel [value]="1">
+        <ng-template #content let-activateCallback="activateCallback">
+          <div class="pb-6">
+            <form [formGroup]="addressForm">
+              <app-custom-input
+                formControlName="city"
+                type="text"
+                placeholder="{{ 'addressStepper.step1.placeholders.city' | translate }}"
+                id="city"
+                labelText="{{ 'addressStepper.step1.city' | translate }}"
+                [errorHandilgControl]="addressForm.get('city')!"
+                class="w-full"
+                autocomplete="city"
+                aria-required="true"
+                aria-describedby="cityHelp"
+              />
+
+              <app-custom-input
+                formControlName="street"
+                type="text"
+                placeholder="{{ 'addressStepper.step1.placeholders.street' | translate }}"
+                id="street"
+                labelText="{{ 'addressStepper.step1.street' | translate }}"
+                [errorHandilgControl]="addressForm.get('street')!"
+                class="w-full"
+                autocomplete="street"
+                aria-required="true"
+                aria-describedby="streetHelp"
+              />
+
+              <app-custom-input-phone
+                formControlName="phone"
+                placeholder="{{ 'addressStepper.step1.placeholders.phone' | translate }}"
+                labelText="{{ 'addressStepper.step1.phone' | translate }}"
+                id="phone"
+                class="w-full"
+                [errorHandilgControl]="addressForm.get('phone')!"
+                autocomplete="tel"
+                aria-required="true"
+              />
+            </form>
+          </div>
+
+          <div class="w-full">
+            <p-button
+              [label]="'addressStepper.buttons.next' | translate"
+              icon="pi pi-arrow-right"
+              iconPos="right"
+              (onClick)="onNextClick(activateCallback)"
+              styleClass="w-full"
+            />
+          </div>
+        </ng-template>
+      </p-step-panel>
+
+      <!-- Step 2 -->
+      <p-step-panel [value]="2">
+        <ng-template #content let-activateCallback="activateCallback">
+          <div class="pb-6">
+            <google-map
+              height="400px"
+              width="100%"
+              [center]="center"
+              [zoom]="12"
+              (mapClick)="addMarker($event)"
+            >
+              <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
+            </google-map>
+          </div>
+        </ng-template>
+      </p-step-panel>
+    </p-step-panels>
+  </p-stepper>
+</app-custom-main-dialog>

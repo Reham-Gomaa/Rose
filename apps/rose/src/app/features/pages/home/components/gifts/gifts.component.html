@@ -1,5 +1,4 @@
-<section [@fadeTransition]="translationService.fadeState()" class="my-8"
-  aria-labelledby="special-gifts-section-heading">
+<section class="my-8" aria-labelledby="special-gifts-section-heading">
   <h2 id="special-gifts-section-heading" class="sr-only">Special Gifts Collection</h2>
   <div class="grid">
     <!-- image next to carousel -->
@@ -14,21 +13,22 @@
     </div>
     <!-- carousel -->
     <div class="card w-full md:w-6 lg:w-9">
-      <p-carousel ngSkipHydration [value]="carouselList" [numVisible]="1" [numScroll]="1" [circular]="true" class="relative"
-        aria-label="Gift Carousel" [prevButtonProps]="{ styleClass: 'p-button-rounded custom-gift-prev' }"
+      <p-carousel ngSkipHydration [value]="carouselList" [numVisible]="1" [numScroll]="1" [circular]="true"
+        class="relative" aria-label="Gift Carousel"
+        [prevButtonProps]="{ styleClass: 'p-button-rounded custom-gift-prev' }"
         [nextButtonProps]="{ styleClass: 'p-button-rounded custom-gift-next' }">
         <h3 id="carousel-heading" class="sr-only">Featured Gift Items</h3>
         <ng-template pTemplate="item" let-pic>
           <div class="carousel-content-parent border border-surface" role="group" aria-roledescription="slide"
             [style.backgroundImage]="'linear-gradient(to right , rgba(0 0 0 / 0.7) , rgba(0 0 0 / 0.5) 35%, rgba(0 0 0 / 0.3) 50% ) ,url(' + '\'' + pic.source + '\'' + ')'"
             [attr.aria-label]="pic.title">
-              <div class="carousel-content">
-                <h1>{{ "home.gifts.rightCarousel.heading1" | translate }}</h1>
-                <h2>{{ "home.gifts.rightCarousel.heading2" | translate }}</h2>
-                <app-button [text]="'home.gifts.rightCarousel.btn' | translate" [isIcon]="true"
-                  [borderRadius]="'btn-roundedBorderRadius'" [padding]="'btn-carousel-padding'"
-                  aria-label="Shop for Special Gifts Box" />
-              </div>
+            <div class="carousel-content">
+              <h1>{{ "home.gifts.rightCarousel.heading1" | translate }}</h1>
+              <h2>{{ "home.gifts.rightCarousel.heading2" | translate }}</h2>
+              <app-button [text]="'home.gifts.rightCarousel.btn' | translate" [isIcon]="true"
+                [borderRadius]="'btn-roundedBorderRadius'" [padding]="'btn-carousel-padding'"
+                aria-label="Shop for Special Gifts Box" />
+            </div>
           </div>
         </ng-template>
       </p-carousel>
@@ -38,8 +38,7 @@
   <div class="grid mt-4">
     @for (pic of pics; track pic.id) {
     <div class="col-12 md:col-4" [class.md:px-3]="pic.id === 2">
-      <div
-        class="bottom-content flex  justify-content-start align-items-end"
+      <div class="bottom-content flex  justify-content-start align-items-end"
         [style.backgroundImage]="'linear-gradient(to right , rgba(0 0 0 / 0.2) ) ,url(' + '\'' + pic.source + '\'' + ')'"
         role="img" [attr.aria-label]="pic.title">
         <div class="px-2">

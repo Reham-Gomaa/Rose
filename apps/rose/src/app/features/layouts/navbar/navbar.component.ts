@@ -1,52 +1,38 @@
-import {
-  Component,
-  DestroyRef,
-  inject,
-  OnInit,
-  signal,
-  ViewChild,
-  WritableSignal,
-} from "@angular/core";
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Component, DestroyRef, inject, OnInit, signal, ViewChild } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { NgOptimizedImage } from "@angular/common";
-import { TranslatePipe } from "@ngx-translate/core";
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+// Translate
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
+// Animation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+// Services
+import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
+import { UserStateService } from "@rose/core_services/user-state/user-state.service";
+// Shared_UI_Components
 import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
 import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
+// Shared_business_Components
 import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";
+// PrimeNg
 import { MenuItem, MessageService } from "primeng/api";
 import { ButtonModule } from "primeng/button";
 import { Dialog } from "primeng/dialog";
 import { InputTextModule } from "primeng/inputtext";
 import { Menubar } from "primeng/menubar";
 import { OverlayBadgeModule } from "primeng/overlaybadge";
-import { isPlatformBrowser } from "@angular/common";
-import { PLATFORM_ID } from "@angular/core";
 import { InputIcon } from "primeng/inputicon";
 import { IconField } from "primeng/iconfield";
 import { SplitButton } from "primeng/splitbutton";
+// Auth_Lib
 import { AuthApiKpService } from "auth-api-kp";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { FormsModule } from "@angular/forms";
-
-interface UserProfile {
-  _id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  gender: string;
-  phone: string;
-  photo: string;
-  role: string;
-  wishlist: any[];
-  addresses: any[];
-  createdAt: string;
-  passwordResetCode?: string;
-  passwordResetExpires?: string;
-  resetCodeVerified?: boolean;
-  passwordChangedAt?: string;
-}
+// Interface_Lib
+import { User } from "auth-api-kp";
+// Ngrx
+import { Store } from "@ngrx/store";
+import { setUserName } from "../../../store/address/address.actions";
 
 type modalPosition =
   | "left"
@@ -87,14 +73,17 @@ type modalPosition =
 })
 export class NavbarComponent implements OnInit {
   readonly _translationService = inject(TranslationService);
-  private readonly _platformId = inject(PLATFORM_ID);
+  private readonly _translate = inject(TranslateService);
   private readonly _authApiService = inject(AuthApiKpService);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly _router = inject(Router);
   private readonly _messageService = inject(MessageService);
+  private readonly _storageManagerService = inject(StorageManagerService);
+  private readonly _userStateService = inject(UserStateService);
+  private readonly _store = inject(Store);
 
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
 
-  // Signals
   isLoggedIn = signal<boolean>(false);
   btnClass = signal("loginBtn");
   currentLang = signal("");
@@ -104,18 +93,12 @@ export class NavbarComponent implements OnInit {
   position = signal<modalPosition>("center");
   items = signal<MenuItem[]>([]);
   userDropDown = signal<MenuItem[]>([]);
-  user = signal<UserProfile | null>(null);
+  user = signal<User | null>(null);
   loading = signal(false);
 
   showDialog(position: modalPosition) {
     this.position.set(position);
     this.visible.set(true);
-  }
-
-  changeLang(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    const lang = selectElement.value;
-    this._translationService.changeLang(lang);
   }
 
   openSearch() {
@@ -124,7 +107,11 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isLogin();
+    this._userStateService.loggedIn$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
+      const token = this._storageManagerService.getItem("authToken");
+      this.isLoggedIn.set(!!token);
+    });
+
     this.loadUserInfo();
     this.initializeMenuItems();
   }
@@ -160,64 +147,58 @@ export class NavbarComponent implements OnInit {
     const user = this.user();
     this.userDropDown.set([
       {
-        label: user ? `${user.firstName} ${user.lastName}` : "Guest",
-        route: "",
-        icon: "",
-        escape: false,
+        label: user
+          ? `${user.firstName} ${user.lastName}`
+          : this._translate.instant("navbar.menu.guest"),
+        escape: true,
       },
       {
         separator: true,
       },
       {
-        label: "My Profile",
-        route: "user-profile",
+        label: this._translate.instant("navbar.menu.myProfile"),
         icon: "pi pi-user",
         visible: !!user,
+        command: () => this._router.navigate(["/dashboard/user-profile"]),
       },
       {
-        label: "My Addresses",
-        route: "user-addresses",
+        label: this._translate.instant("navbar.menu.myAddresses"),
         icon: "pi pi-map-marker",
         visible: !!user,
+        command: () => this._router.navigate(["/dashboard/order-flow/address"]),
       },
       {
-        label: "My Orders",
-        route: "user-orders",
+        label: this._translate.instant("navbar.menu.myOrders"),
         icon: "pi pi-receipt",
         visible: !!user,
+        command: () => this._router.navigate(["/dashboard/allorders"]),
       },
       {
         separator: true,
         visible: !!user,
       },
       {
-        label: "Dashboard",
-        route: "user-dashboard",
+        label: this._translate.instant("navbar.menu.dashboard"),
         icon: "pi pi-cog",
+        command: () => this._router.navigate(["/dashboard/user-dashboard"]),
       },
       {
         separator: true,
         visible: !!user,
       },
       {
-        label: "Log out",
+        label: this._translate.instant("navbar.menu.logout"),
         icon: "pi pi-sign-out",
-        command: () => this.logout(),
+        command: () => {
+          this.logout();
+          this._storageManagerService.removeItem("authToken");
+        },
       },
     ]);
   }
 
-  isLogin(): void {
-    if (!isPlatformBrowser(this._platformId)) return;
-
-    const token = localStorage.getItem("authToken");
-    this.isLoggedIn.set(!!token);
-  }
-
   loadUserInfo(): void {
-    if (!isPlatformBrowser(this._platformId)) return;
-
-    const token = localStorage.getItem("authToken");
+    const token = this._storageManagerService.getItem("authToken");
     if (!token) return;
 
     this.loading.set(true);
@@ -228,15 +209,16 @@ export class NavbarComponent implements OnInit {
         next: (res) => {
           this.user.set(res.user);
           this.userName.set(`${res.user.firstName} ${res.user.lastName}`);
+          this._store.dispatch(setUserName({ userName: this.userName() }));
           this.updateUserDropdown();
           this.loading.set(false);
         },
         error: (err) => {
-          console.error("Failed to load profile:", err);
+          this.userName.set("Guest");
+          this.updateUserDropdown();
           this._messageService.add({
             severity: "error",
-            summary: "Error",
-            detail: "Failed to load user profile",
+            detail: this._translate.instant("messagesToast.failedLoadProfile"),
             life: 3000,
           });
           this.loading.set(false);
@@ -250,25 +232,26 @@ export class NavbarComponent implements OnInit {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (res) => {
+          this._userStateService.setLoggedIn(false);
+          this._storageManagerService.removeItem("authToken");
           this._messageService.add({
             severity: "success",
             detail: "Logged out successfully.",
             life: 3000,
           });
-
-          this.isLoggedIn.set(false);
           this.user.set(null);
-          this.userName.set("Guest");
-          this.updateUserDropdown();
+          this._router.navigate(["/dashboard/home"]);
 
-          if (isPlatformBrowser(this._platformId)) {
-            localStorage.removeItem("authToken");
-          }
+          setTimeout(() => {
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }, 0);
         },
         error: (err) => {
           this._messageService.add({
             severity: "error",
-            detail: "Your session expired. Please login again to continue.",
+            detail: this._translate.instant("messagesToast.sessionExpired"),
             life: 3000,
           });
         },
