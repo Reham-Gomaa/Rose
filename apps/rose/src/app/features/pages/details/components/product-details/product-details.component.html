@@ -46,8 +46,7 @@
           </p>
         </div>
         <div class="wish-and-cart text-lg w-full flex gap-2">
-          <button [appWishlistToggle]="productDetails()"
-            class="submit-btn wish cursor-pointer flex-grow-0 w-fit capitalize" [activeClass]="'wishlist-active'">
+          <button class="submit-btn wish cursor-pointer flex-grow-0 w-fit capitalize">
             <i class="pi  pi-heart"></i>
           </button>
           <button [disabled]="productDetails().quantity <= 0" [class.disableCart]="productDetails().quantity <= 0"

@@ -11,13 +11,12 @@ import { Observable, take } from "rxjs";
 // cart store
 import { Store } from "@ngrx/store";
 import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
-import { WishlistToggleDirective } from "apps/rose/src/app/shared/directives/wishlistToggle.directive";
 import { selectCartItems } from "apps/rose/src/app/store/cart/cart-selectors";
 
 @Component({
   selector: "app-product-details",
   standalone: true,
-  imports: [NgOptimizedImage, DialogModule, NgClass, WishlistToggleDirective],
+  imports: [NgOptimizedImage, DialogModule, NgClass],
   templateUrl: "./product-details.component.html",
   styleUrl: "./product-details.component.scss",
 })
