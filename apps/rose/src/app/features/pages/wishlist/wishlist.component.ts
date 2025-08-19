@@ -1,17 +1,15 @@
-import { isPlatformBrowser } from "@angular/common";
 import { Component, inject, OnInit, PLATFORM_ID, signal, WritableSignal } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { TranslatePipe } from "@ngx-translate/core";
 import { Product } from "@rose/core_interfaces/carditem.interface";
 import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
-import { WishlistToggleDirective } from "../../../shared/directives/wishlistToggle.directive";
-import { loadWishlist } from "../../../store/wishlist/wishlist-actions";
-import { selectWishlistItems } from "../../../store/wishlist/wishlist-selectors";
 import { WishlistService } from "@rose/shared_services/wishlist/wishlist.service";
+import { getUserWishlist } from "../../../store/wishlist/wishlist-actions";
+import { selectWishlistItems } from "../../../store/wishlist/wishlist-selectors";
 
 @Component({
   selector: "app-wishlist",
-  imports: [TranslatePipe, CardItemComponent, WishlistToggleDirective],
+  imports: [TranslatePipe, CardItemComponent],
   templateUrl: "./wishlist.component.html",
   styleUrl: "./wishlist.component.scss",
 })
@@ -23,26 +21,17 @@ export class WishlistComponent implements OnInit {
   favouriteItems: WritableSignal<Product[]> = signal([]);
 
   ngOnInit(): void {
-    this.initializeWishlist();
     this.setupWishlistSubscription();
+    this.loadInitialWishlist();
   }
 
-  initializeWishlist() {
-    if (!isPlatformBrowser(this.pLATFORM_ID)) return;
-    const stored = localStorage.getItem("wishlist");
-    if (stored) {
-      const parsedItems = JSON.parse(stored) as Product[];
-      this.favouriteItems.set(parsedItems);
-      this.store.dispatch(loadWishlist({ products: parsedItems }));
-    }
+  private loadInitialWishlist() {
+    this.store.dispatch(getUserWishlist());
   }
 
   setupWishlistSubscription() {
     this.store.select(selectWishlistItems).subscribe((items) => {
       this.favouriteItems.set(items);
-      if (isPlatformBrowser(this.pLATFORM_ID)) {
-        localStorage.setItem("wishlist", JSON.stringify(items));
-      }
     });
   }
 }

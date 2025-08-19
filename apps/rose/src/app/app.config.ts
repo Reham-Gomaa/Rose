@@ -23,6 +23,7 @@ import { addressReducer } from "./store/address/address.reducer";
 import { CartEffects } from "./store/cart/cart-effects";
 import { cartReducer } from "./store/cart/cart-reducers";
 import { wishlistReducer } from "./store/wishlist/wishlist-reducers";
+import { WishlistEffects } from "./store/wishlist/wishlist-effects";
 // primeng imports
 import Aura from "@primeng/themes/aura";
 import { MessageService } from "primeng/api";
@@ -71,7 +72,6 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: "enabled",
       })
     ),
-    provideHttpClient(withFetch()),
     MessageService,
     importProvidersFrom(ToastModule),
     provideAnimationsAsync(),
@@ -103,6 +103,6 @@ export const appConfig: ApplicationConfig = {
       wishlist: wishlistReducer,
       Address: addressReducer,
     }),
-    provideEffects(sortEffects, FilterEffects, CartEffects, AddressEffect),
+    provideEffects(sortEffects, FilterEffects, CartEffects, AddressEffect, WishlistEffects),
   ],
 };

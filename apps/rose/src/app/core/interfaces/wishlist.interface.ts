@@ -12,3 +12,8 @@ export interface Wishlist {
   updatedAt: string;
   __v: number;
 }
+
+export interface checkResponse {
+  message: string;
+  inWishlist: boolean;
+}
