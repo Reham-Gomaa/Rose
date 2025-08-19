@@ -8,7 +8,8 @@
     <div class="bg-shape"></div>
     <div class="overlay-icons">
       <i [routerLink]="['/dashboard/details',productInfo._id]" class="pi pi-eye icon-circle"></i>
-      <i [appWishlistToggle]="productInfo" class="pi pi-heart icon-circle" [activeClass]="'wishlist-active'"></i>
+      <i [class.Active]="isInWishlist$ |async" tabindex="0" (keydown)="toggleWishlist()" (click)="toggleWishlist()"
+        class="pi pi-heart icon-circle"></i>
     </div>
     }
   </div>
