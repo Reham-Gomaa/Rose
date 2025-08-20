@@ -351,6 +351,43 @@ $breakpoint-small: 620px;
   --address-body: var(--zinc-800);
   --loading-color: var(--maroon-500);
   // Delete dialog
+  --dialog-p:var(--zinc-800);
+  --dialog-out-shadow:#2E2E300D;
+  --dialog-icon:#2E2E3026;
+
+
+    //shipping addresses
+  --address-card-phone-color : var(--zinc-500);
+  --address-card-details-color : var(--zinc-800);
+  --address-card-details-bg : var(--zinc-100);
+  --address-phone-bg : var(--maroon-600);
+  --address-btn-bg : var(--maroon-50);
+  --address-btn-color : var(--maroon-600);
+
+
+  //payment methods & shipping
+  --card-border-color : var(--zinc-300);
+  --card-details-color : var(--zinc-800);
+   --card-bg:var(--white);
+  --card-header-color:var(--zinc-800);
+
+  //hover
+  --address-card-bg:var(--maroon-600);
+  --address-card-text-color:var(--white);
+  --address-card-details-hover-bg : var(--zinc-800);
+  --icon-hover-bg : var(--white);
+  --icon-hover-color : var(--maroon-600);
+
+
+
+   //paymentMethod
+  --card-active-bg:var(--zinc-100);
+  --card-active-title-color:var(--maroon-600);
+
+
+
+
+
   --dialog-p: var(--zinc-800);
   --dialog-out-shadow: var(--gray-900-05);
   --dialog-icon: var(--gray-900-15);
@@ -701,6 +738,27 @@ $breakpoint-small: 620px;
   --address-body: var(--white);
   --loading-color: var(--soft-pink-500);
   // Delete dialog
+  --dialog-p:var(--zinc-50);
+  --dialog-out-shadow:var(--soft-pink-600);
+  --dialog-icon:var(--soft-pink-100);
+
+  //shipping addresses
+  --address-card-phone-color : var(--white);
+  --address-card-details-bg : var(--zinc-100);
+  --address-phone-bg : var(--maroon-600);
+  --address-btn-bg : var(--maroon-50);
+  --address-btn-color : var(--maroon-600);
+
+    //payment methods & shipping
+  --card-border-color : var(--zinc-600);
+  --card-details-color : var(--zinc-800);
+  --card-bg:var(--zinc-500);
+  --card-header-color:var(--zinc-100);
+
+  //paymentMethod
+  --card-active-bg:var(--zinc-50);
+  --card-active-title-color:var(--maroon-600);
+
   --dialog-p: var(--zinc-50);
   --dialog-out-shadow: var(--soft-pink-600);
   --dialog-icon: var(--soft-pink-100);

@@ -20,5 +20,5 @@ export interface AddressState{
     address:Address,
     userName:string
 
-    
+
 }

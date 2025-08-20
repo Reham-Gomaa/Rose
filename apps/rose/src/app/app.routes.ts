@@ -46,6 +46,9 @@ export const appRoutes: Route[] = [
         title: "titles.details",
         loadComponent: () =>
           import("@rose/features_pages/details/details.component").then((c) => c.DetailsComponent),
+
+      }
+]
       },
       {
         path: "order-flow",
@@ -62,6 +65,11 @@ export const appRoutes: Route[] = [
               ),
             title: "titles.cart",
           },
+            {
+        path:'checkout',
+        title:'Checkout',
+        loadComponent:()=>import("../app/features/checkout/checkout.component").then(c=>c.CheckoutComponent)
+  },
         ],
       },
       {
@@ -84,6 +92,7 @@ export const appRoutes: Route[] = [
           ),
         title: "titles.user-profile",
       },
+
     ],
   },
   {
