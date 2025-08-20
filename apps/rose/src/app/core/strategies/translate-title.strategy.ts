@@ -1,4 +1,5 @@
-import { Injectable } from "@angular/core";
+import { DestroyRef, inject, Injectable } from "@angular/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { Title } from "@angular/platform-browser";
 import { RouterStateSnapshot, TitleStrategy } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
@@ -6,12 +7,13 @@ import { TranslateService } from "@ngx-translate/core";
 @Injectable({ providedIn: 'root' })
 export class TranslateTitleStrategy extends TitleStrategy {
   private lastTitleKey: string | null = null;
-  private langChangeSub: any;
+ private readonly destroyRef = inject(DestroyRef);
+
 
   constructor(private translate: TranslateService, private title: Title) {
     super();
-    // Subscribe to language changes
-    this.langChangeSub = this.translate.onLangChange.subscribe(() => {
+    
+    this.translate.onLangChange.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
       if (this.lastTitleKey) {
         this.setTranslatedTitle(this.lastTitleKey);
       }
@@ -32,10 +34,4 @@ export class TranslateTitleStrategy extends TitleStrategy {
     });
   }
 
-  // Clean up subscription if needed (not strictly necessary for root service)
-  ngOnDestroy() {
-    if (this.langChangeSub) {
-      this.langChangeSub.unsubscribe();
-    }
-  }
 }
