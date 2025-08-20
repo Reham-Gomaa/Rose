@@ -1,4 +1,8 @@
+// SCSS Breakpoint variables
+$breakpoint-mobile: 780px;
+$breakpoint-small: 620px;
 :root {
+
   // Fonts
   --font-family-1: "Inter", sans-serif;
   --font-family-2: "Roboto", sans-serif;
@@ -397,6 +401,7 @@
   --summary-button-hover: var(--maroon-500);
   --summary-button-text-color: var(--white);
   --coupon-border-color: var(--zinc-300);
+  --no-coupon-color: var(--zinc-500);
   //Orders
   --order-title-color: var(--black);
   --order-header-bg: var(--maroon-600);
@@ -465,7 +470,6 @@
   --contact-icon-color: var(--maroon-600);
   --contact-detail-color: var(--zinc-600);
   --contact-shadow: 166, 37, 42;
-
 }
 
 // Dark theme overrides
@@ -760,13 +764,14 @@
   --dialog-icon: var(--soft-pink-100);
   //Order Flow
   //Summary
-  --summary-background-color: var(--white);
+  --summary-background-color: var(--zinc-800);
   --summary-title-color: var(--white);
-  --total-row-color: var(--zinc-800);
+  --total-row-color: var(--zinc-200);
   --summary-button-color: var(--soft-pink-200);
   --summary-button-hover: var(--soft-pink-300);
   --summary-button-text-color: var(--zinc-800);
   --coupon-border-color: var(--soft-pink-200);
+  --no-coupon-color: var(--zinc-200);
   //Orders
   --order-title-color: var(--white);
   --order-header-bg: var(--soft-pink-300);
@@ -831,10 +836,9 @@
   --confirm-dialog-btn-confirm-bg: var(--soft-pink-200);
   --confirm-dialog-btn-confirm-color: var(--zinc-800);
   --confirm-dialog-btn-confirm-hover: var(--soft-pink-300);
-   //Contact Page
+  //Contact Page
   --contact-title-color: var(--soft-pink-200);
   --contact-icon-color: var(--soft-pink-200);
   --contact-detail-color: var(--zinc-400);
   --contact-shadow: 255, 194, 208;
-
 }

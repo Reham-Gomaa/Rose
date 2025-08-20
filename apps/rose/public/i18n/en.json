@@ -1,4 +1,20 @@
 {
+    "titles": {
+    "home": "Home",
+    "dashboard": "Dashboard Home",
+    "all-categories": "Our Categories",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "details": "Product Details",
+    "cart": "Cart",
+    "address": "My Addresses",
+    "allorders": "Your Orders",
+    "user-profile": "User Profile",
+    "login": "Log-in",
+    "register": "Register",
+    "reset-password": "Forget Password",
+    "not-found": "Not Found"
+  },
   "EGP": "EGP",
   "navbar": {
     "home": "Home",

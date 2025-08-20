@@ -31,7 +31,7 @@ img {
     border-radius: 1.25rem;
     font-family: var(--font-family-2);
     font-weight: 700;
-    font-size: .75rem;
+    font-size: 0.75rem;
     color: var(--h2-color-gift);
     line-height: 1.8875rem;
     letter-spacing: 0.2913rem;
@@ -41,7 +41,7 @@ img {
 
     // large screen 992px
     @media all and (min-width: 62rem) {
-      font-size: .75rem;
+      font-size: 0.75rem;
     }
   }
 
@@ -105,7 +105,7 @@ img {
     line-height: 100%;
     text-transform: capitalize;
     text-align: left;
-    margin: 1rem 0 .3125rem;
+    margin: 1rem 0 0.3125rem;
 
     @media all and (min-width: 62rem) {
       font-size: 2.25rem;
@@ -127,64 +127,44 @@ img {
     @media all and (min-width: 62rem) {
       margin-bottom: 3rem;
     }
-
   }
-
 }
 
-:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
+.carousel-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--carousel-button-gift-background);
+  width: 3.75rem;
+  height: 1.875rem;
+  border-radius: 62.4375rem;
+  position: absolute;
+  bottom: 1.7188rem;
   right: calc(100% - 95%);
-}
+  z-index: 20;
 
-:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
-  z-index: 10;
-  right: calc(100% - 89%);
+  .nav-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    color: var(--carousel-i-color-gift);
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  &:hover {
+    background-color: var(--carousel-button-gift-hover);
+  }
+  @media all and (min-width: 48rem) {
+    width: 4.625rem;
+  }
 }
 
 :host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next,
 :host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--carousel-button-gift-background);
-  width: 1.3125rem;
-  height: 1.3125rem;
-  position: absolute;
-  bottom: 1.5rem;
-  border-radius: 100%;
-
-  @media all and (min-width: 62rem) {
-    width: 2.5625rem;
-    height: 2.5625rem;
-  }
-
-  :host ::ng-deep .p-ripple {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1.1181rem;
-    height: 1.1181rem;
-
-    @media all and (min-width: 62rem) {
-      width: 0.9375rem;
-      height: 1.5rem;
-    }
-  }
-
-  .p-icon {
-    color: var(--carousel-i-color-gift);
-    width: 0.4094rem;
-    height: 0.6544rem;
-
-    @media all and (min-width: 62rem) {
-      width: 0.9375rem;
-      height: 1.5rem;
-    }
-  }
-
-  &:hover {
-    background-color: var(--carousel-button-gift-hover);
-  }
+  display: none;
 }
 
 :host ::ng-deep .p-carousel-indicator-list {
@@ -200,21 +180,19 @@ img {
 }
 
 :host ::ng-deep .p-carousel-indicator-button {
-  width: .625rem;
-  height: .625rem;
+  width: 0.625rem;
+  height: 0.625rem;
   border-radius: 2.9125rem;
   background-color: var(--carousel-indicator-button-gift-color);
   transition: all 0.3s ease-in-out;
-
-  &:hover {
-    color: var(--carousel-indicator-button-gift-hover) !important;
-  }
-
 }
 
-:host ::ng-deep .p-carousel-indicator-active>.p-carousel-indicator-button {
+:host ::ng-deep .p-carousel-indicator-active > .p-carousel-indicator-button {
   width: 2.25rem;
   background-color: var(--carousel-indicator-button-gift-active);
+  &:hover {
+    background-color: var(--carousel-indicator-button-gift-hover) !important;
+  }
 }
 
 // three bottom images ----------
@@ -237,7 +215,7 @@ img {
       border-radius: 1.25rem;
       font-family: var(--font-family-1);
       font-weight: 500;
-      font-size: .625rem;
+      font-size: 0.625rem;
       color: var(--h2-color-gift);
       line-height: 100%;
       text-transform: capitalize;
@@ -259,7 +237,6 @@ img {
         font-size: 1.5rem;
       }
     }
-
   }
 }
 
@@ -267,7 +244,7 @@ img {
 
 :host-context([dir="rtl"]) .top-left-parent {
   padding: 0 1rem 1.5rem 0;
-  h1{
+  h1 {
     text-align: right;
   }
 }
@@ -288,19 +265,28 @@ img {
   }
 }
 
-:host-context([dir="rtl"]) ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
-  right: calc(100% - 10%);
+:host-context([dir="rtl"]) .nav-btn i {
+  transform: rotateY(180deg);
 }
 
-:host-context([dir="rtl"]) ::ng-deep .p-ripple.p-button.p-component.custom-gift-next {
-  right: calc(100% - 16%);
+:host-context([dir="rtl"]) .carousel-nav {
+  right: 75%;
+  @media all and (min-width: 31.25rem) {
+    right: 83%;
+  }
+  @media all and (min-width: 48rem) {
+    right: 75%;
+  }
+  @media all and (min-width: 62rem) {
+    right: 86%;
+  }
 }
 
 :host-context([dir="rtl"]) ::ng-deep .p-carousel-indicator-list {
-   @media all and (min-width: 48rem) {
-     right: calc(100% - 17%);
-    }
-    @media all and (min-width: 62rem) {
-     right: calc(100% - 13%);
+  @media all and (min-width: 48rem) {
+    right: calc(100% - 17%);
+  }
+  @media all and (min-width: 62rem) {
+    right: calc(100% - 13%);
   }
 }

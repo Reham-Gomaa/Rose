@@ -17,7 +17,7 @@ import {
 } from "./address.actions";
 import { catchError, map, Observable, of, switchMap, tap } from "rxjs";
 import { UserAddressService } from "@rose/shared_services/user-address/user-address.service";
-import { AddressRes } from "@rose/core_interfaces/user-address.interface";
+import { AddressAddRes, AddressRes } from "@rose/core_interfaces/user-address.interface";
 
 export class AddressEffect {
   private readonly _actions$ = inject(Actions);
@@ -64,8 +64,8 @@ export class AddressEffect {
         ofType(AddAddress),
         switchMap(({ address }) => {
           return this._userAddressService.addAddress(address).pipe(
-            map(() => {
-              return AddAddressesSuccess();
+            map((addressRes: AddressAddRes) => {
+              return AddAddressesSuccess({ addresses: addressRes.address });
             }),
             catchError((error) => of(AddAddressesFailure({ error })))
           );
@@ -81,8 +81,8 @@ export class AddressEffect {
         ofType(updateAddress),
         switchMap(({ address,addressId }) => {
           return this._userAddressService.updateAddress(addressId,address).pipe(
-            map(() => {
-              return updateAddressesSuccess();
+            map((addressRes: AddressRes) => {
+              return updateAddressesSuccess({ addresses: addressRes.addresses });
             }),
             catchError((error) => of(updateAddressesFailure({ error })))
           );

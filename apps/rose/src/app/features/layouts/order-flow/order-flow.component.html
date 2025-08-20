@@ -7,11 +7,12 @@
     </div>
 
     <!-- Summary -->
-    <div class="col-12 md:col-5">
+    <div class=" summary-box-wrapper col-12 md:col-5">
       <h2 class="summary-title">{{"orderFlow.summaryTitle" | translate}}</h2>
       <div class="summary-box">
 
-        <div class="flex gap-2 align-items-center justify-content-center">
+        <div class="wrapper">
+          <div class=" coupon-content flex gap-2 align-items-center justify-content-between">
           <app-custom-input [id]="'coupon-code'" [labelText]="''" [placeholder]="'orderFlow.couponCode' | translate"
             [type]="'text'">
           </app-custom-input>
@@ -36,6 +37,8 @@
           [borderRadius]="'btn-summary-radius'" [padding]="'btn-summary-padding w-full'"
           [transition]="'btn-summary-transition'" aria-label="checkout and place order" />
       </div>
+
+        </div>
 
 
 

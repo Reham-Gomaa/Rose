@@ -2,7 +2,7 @@ import { Address } from "./core/interfaces/user-address.interface";
 import { appRoutes } from "./app.routes";
 // @angular imports
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
-import { provideRouter, withInMemoryScrolling, withViewTransitions } from "@angular/router";
+import { provideRouter, TitleStrategy, withInMemoryScrolling, withViewTransitions } from "@angular/router";
 import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
@@ -30,6 +30,10 @@ import { addressReducer } from "./store/address/address.reducer";
 import { AddressEffect } from "./store/address/address.effect";
 import { checkoutReducer } from "./store/checkout/checkout.reducer";
 import { checkoutEffects } from "./store/checkout/checkout.effects";
+
+
+// Transelate Title
+import { TranslateTitleStrategy } from "./core/strategies/translate-title.strategy";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
 }
@@ -69,6 +73,7 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: "enabled",
       })
     ),
+    { provide: TitleStrategy, useClass: TranslateTitleStrategy },
     provideHttpClient(withFetch()),
     MessageService,
     importProvidersFrom(ToastModule),

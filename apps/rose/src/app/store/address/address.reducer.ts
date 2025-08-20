@@ -14,6 +14,9 @@ import {
   setAddressId,
   setAddress,
   setUserName,
+  updateAddress,
+  updateAddressesSuccess,
+  updateAddressesFailure,
 } from "./address.actions";
 import { Address } from "@rose/core_interfaces/user-address.interface";
 
@@ -95,14 +98,38 @@ export const addressReducer = createReducer(
       loading: true,
     };
   }),
-  on(AddAddressesSuccess, (state) => {
+  on(AddAddressesSuccess, (state,{addresses}) => {
     return {
       ...state,
       loading: false,
       addressState: AddressSituations.closeAddress,
+      addresses:addresses,
     };
   }),
   on(AddAddressesFailure, (state, { error }) => {
+    return {
+      ...state,
+      loading: false,
+      error: error,
+    };
+  }),
+
+  // update address
+    on(updateAddress, (state) => {
+    return {
+      ...state,
+      loading: true,
+    };
+  }),
+  on(updateAddressesSuccess, (state,{addresses}) => {
+    return {
+      ...state,
+      loading: false,
+      addressState: AddressSituations.closeAddress,
+      addresses:addresses,
+    };
+  }),
+  on(updateAddressesFailure, (state, { error }) => {
     return {
       ...state,
       loading: false,
