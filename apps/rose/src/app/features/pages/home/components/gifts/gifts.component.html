@@ -12,8 +12,16 @@
         aria-label="Shop for Special Gifts Box" />
     </div>
     <!-- carousel -->
-    <div class="card w-full md:w-6 lg:w-9">
-      <p-carousel ngSkipHydration [value]="carouselList" [numVisible]="1" [numScroll]="1" [circular]="true"
+    <div class="card relative w-full md:w-6 lg:w-9">
+      <div class="carousel-nav">
+        <button class="nav-btn prev" (click)="onPrev()" aria-label="Previous">
+          <i class="pi pi-angle-left"></i>
+        </button>
+        <button class="nav-btn next" (click)="onNext()" aria-label="Next">
+          <i class="pi pi-angle-right"></i>
+        </button>
+      </div>
+      <p-carousel #carousel ngSkipHydration [value]="carouselList" [numVisible]="1" [numScroll]="1" [circular]="true"
         class="relative" aria-label="Gift Carousel"
         [prevButtonProps]="{ styleClass: 'p-button-rounded custom-gift-prev' }"
         [nextButtonProps]="{ styleClass: 'p-button-rounded custom-gift-next' }">
