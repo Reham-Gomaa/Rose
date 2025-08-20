@@ -360,6 +360,7 @@
   --summary-button-hover: var(--maroon-500);
   --summary-button-text-color: var(--white);
   --coupon-border-color: var(--zinc-300);
+  --no-coupon-color: var(--zinc-500);
   //Orders
   --order-title-color: var(--black);
   --order-header-bg: var(--maroon-600);
@@ -702,13 +703,14 @@
   --dialog-icon: var(--soft-pink-100);
   //Order Flow
   //Summary
-  --summary-background-color: var(--white);
+  --summary-background-color: var(--zinc-800);
   --summary-title-color: var(--white);
-  --total-row-color: var(--zinc-800);
+  --total-row-color: var(--zinc-200);
   --summary-button-color: var(--soft-pink-200);
   --summary-button-hover: var(--soft-pink-300);
   --summary-button-text-color: var(--zinc-800);
   --coupon-border-color: var(--soft-pink-200);
+  --no-coupon-color: var(--zinc-200);
   //Orders
   --order-title-color: var(--white);
   --order-header-bg: var(--soft-pink-300);
