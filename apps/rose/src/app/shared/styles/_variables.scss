@@ -1,4 +1,8 @@
+// SCSS Breakpoint variables
+$breakpoint-mobile: 780px;
+$breakpoint-small: 620px;
 :root {
+
   // Fonts
   --font-family-1: "Inter", sans-serif;
   --font-family-2: "Roboto", sans-serif;
@@ -429,7 +433,6 @@
   --contact-icon-color: var(--maroon-600);
   --contact-detail-color: var(--zinc-600);
   --contact-shadow: 166, 37, 42;
-
 }
 
 // Dark theme overrides
@@ -775,10 +778,9 @@
   --confirm-dialog-btn-confirm-bg: var(--soft-pink-200);
   --confirm-dialog-btn-confirm-color: var(--zinc-800);
   --confirm-dialog-btn-confirm-hover: var(--soft-pink-300);
-   //Contact Page
+  //Contact Page
   --contact-title-color: var(--soft-pink-200);
   --contact-icon-color: var(--soft-pink-200);
   --contact-detail-color: var(--zinc-400);
   --contact-shadow: 255, 194, 208;
-
 }

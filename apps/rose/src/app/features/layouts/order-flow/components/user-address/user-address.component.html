@@ -1,4 +1,4 @@
-<app-custom-main-dialog [visable]="addressState === 1" (closed)="close()">
+<app-custom-main-dialog [visable]="addressState === AddressSituations.showAddress" (closed)="close()">
   <div head>
     <app-head-address head></app-head-address>
   </div>
@@ -24,18 +24,18 @@
 </app-custom-main-dialog>
 
 <app-delete-dialog
-  [visible]="addressState === 6"
+  [visible]="addressState === AddressSituations.deleteAddress"
   (closed)="closeDeleteDialog()"
 ></app-delete-dialog>
 
-@if(addressState === 4){
-<app-address-stepper [visible]="addressState === 4" [isUpdate]="true" (closed)="closeStepperDialog()"
+@if(addressState === AddressSituations.updateAddress){
+<app-address-stepper [visible]="addressState === AddressSituations.updateAddress" [isUpdate]="true" (closed)="closeStepperDialog()"
 ></app-address-stepper>
 }
 
 
-@if(addressState === 2){
-  <app-address-stepper [visible]="addressState === 2" (closed)="closeStepperDialog()"
+@if(addressState === AddressSituations.addAddress){
+  <app-address-stepper [visible]="addressState === AddressSituations.addAddress" (closed)="closeStepperDialog()"
 ></app-address-stepper>
 }
 

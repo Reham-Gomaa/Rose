@@ -165,7 +165,7 @@ export class NavbarComponent implements OnInit {
         label: this._translate.instant("navbar.menu.myAddresses"),
         icon: "pi pi-map-marker",
         visible: !!user,
-        command: () => this._router.navigate(["/dashboard/order-flow/address"]),
+        command: () => this._router.navigate(["/dashboard/address"]),
       },
       {
         label: this._translate.instant("navbar.menu.myOrders"),

@@ -85,6 +85,13 @@
               <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
             </google-map>
           </div>
+          <div class="w-full">
+            <p-button
+              [label]="'addressStepper.buttons.submit' | translate"
+              (onClick)="onDone();"
+              styleClass="w-full"
+            />
+          </div>
         </ng-template>
       </p-step-panel>
     </p-step-panels>

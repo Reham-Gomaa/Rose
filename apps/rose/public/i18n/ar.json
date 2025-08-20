@@ -1,4 +1,20 @@
 {
+  "titles": {
+    "home": "الرئيسية",
+    "dashboard": "لوحة التحكم",
+    "all-categories": "جميع الفئات",
+    "about": "من نحن",
+    "contact": "اتصل بنا",
+    "details": "تفاصيل المنتج",
+    "cart": "عربة التسوق",
+    "address": "عناويني",
+    "allorders": "طلباتي",
+    "user-profile": "ملفي الشخصي",
+    "login": "تسجيل الدخول",
+    "register": "تسجيل حساب جديد",
+    "reset-password": "نسيت كلمة المرور",
+    "not-found": "غير موجود"
+  },
   "EGP": "ج.م",
   "navbar": {
     "home": "الرئيسية",
@@ -439,19 +455,19 @@
 
     "failedToLoadCategories": "فشل في تحميل الفئات"
   },
-  "contact":{
-  "contact_us": "اتصل بنا",
-  "call_anytime": "اتصل في أي وقت",
-  "phone_number": "٢٤١-٣٧٣-٢١٢٣",
-  "send_email": "أرسل بريدًا إلكترونيًا",
-  "email_address": "Dwight63@gmail.com",
-  "visit_us": "زورنا",
-  "address_line1": "٢٠ جزيرة بارك رود،",
-  "address_line2": "نيوجيرسي، نيويورك، الولايات المتحدة الأمريكية",
-  "name": "الاسم",
-  "email": "البريد الإلكتروني",
-  "phone": "الهاتف",
-  "message": "رسالتك",
-  "send": "إرسال "
-}
+  "contact": {
+    "contact_us": "اتصل بنا",
+    "call_anytime": "اتصل في أي وقت",
+    "phone_number": "٢٤١-٣٧٣-٢١٢٣",
+    "send_email": "أرسل بريدًا إلكترونيًا",
+    "email_address": "Dwight63@gmail.com",
+    "visit_us": "زورنا",
+    "address_line1": "٢٠ جزيرة بارك رود،",
+    "address_line2": "نيوجيرسي، نيويورك، الولايات المتحدة الأمريكية",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "phone": "الهاتف",
+    "message": "رسالتك",
+    "send": "إرسال "
+  }
 }

@@ -30,7 +30,7 @@ export class UserAddressComponent implements OnInit {
   @Output() closed = new EventEmitter<void>();
   visible = input.required<boolean>();
 
-
+  public AddressSituations = AddressSituations;
   address!:Array<Address>;
   loading!:boolean;
   error!:any;

@@ -58,6 +58,7 @@ export const AddAddress = createAction(
 
 export const AddAddressesSuccess = createAction(
   "[ADDRESS] Add Address Success",
+  props<{ addresses: Array<Address> }>()
 
 );
 
@@ -66,7 +67,7 @@ export const AddAddressesFailure = createAction(
   props<{ error: any }>()
 );
 
-// Add Actions
+// update Actions
 export const updateAddress = createAction(
   "[ADDRESS] update Address",
    props<{ address: Address,addressId: string }>()
@@ -74,6 +75,7 @@ export const updateAddress = createAction(
 
 export const updateAddressesSuccess = createAction(
   "[ADDRESS] update Address Success",
+  props<{ addresses: Array<Address> }>()
 
 );
 

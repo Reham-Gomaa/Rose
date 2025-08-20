@@ -2,6 +2,10 @@ export interface AddressRes {
   message: string
   addresses: Address[]
 }
+export interface AddressAddRes {
+  message: string
+  address: Address[]
+}
 
 export interface Address {
   street: string

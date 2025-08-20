@@ -14,7 +14,7 @@
       <div class="country-list ">
         <ul>
           @for (country of countries; track $index) {
-            <li class="country-item" (click;keyup)="selectCountry(country) ">
+            <li class="country-item" (click)="selectCountry(country)">
             <img class="country-flag" [src]="baseFlagUrl+country.flag" alt="image for flag" />
             <p>{{country.name}} {{country.code}}</p></li>
           }
