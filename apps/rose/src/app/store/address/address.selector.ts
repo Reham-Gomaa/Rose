@@ -28,7 +28,7 @@ export const selectAddressState = createSelector(
 
 export const selectAddressId = createSelector(
   selectAddressFeature,
-  (state: AddressState) => state.selectedAddressId
+  (state: AddressState) => state.selectedAdddressId
 );
 
 export const selectAddress = createSelector(
