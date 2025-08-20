@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject, ViewChild } from "@angular/core";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -8,13 +8,12 @@ import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 import {
   carouselListInterface,
   picsInterface,
-  responsiveOptionsInterface,
 } from "@rose/core_interfaces/special-gifts.interface";
 // Shared_Components
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 // primeNg ...
 import { ButtonModule } from "primeng/button";
-import { CarouselModule } from "primeng/carousel";
+import { Carousel, CarouselModule } from "primeng/carousel";
 import { TagModule } from "primeng/tag";
 
 @Component({
@@ -31,6 +30,7 @@ import { TagModule } from "primeng/tag";
 })
 export class GiftsComponent {
   translationService = inject(TranslationService);
+  @ViewChild("carousel") carousel!: Carousel;
 
   carouselList: carouselListInterface[] = [
     {
@@ -68,4 +68,12 @@ export class GiftsComponent {
       heading1: "home.gifts.bottomImages.right.heading1",
     },
   ];
+
+  onNext() {
+    (this.carousel as any).navForward();
+  }
+
+  onPrev() {
+    (this.carousel as any).navBackward();
+  }
 }
