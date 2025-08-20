@@ -27,6 +27,7 @@ export class AddressComponent {
   private readonly _store = inject(Store);
   private readonly destroyRef = inject(DestroyRef);
 
+  public AddressSituations = AddressSituations;
   address!: Array<Address>;
   loading!: boolean;
   error!: any;

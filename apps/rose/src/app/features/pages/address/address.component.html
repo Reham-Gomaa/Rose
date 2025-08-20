@@ -31,19 +31,19 @@
 </div>
 
 <app-delete-dialog
-  [visible]="addressState === 6"
+  [visible]="addressState === AddressSituations.deleteAddress"
   (closed)="closeDeleteDialog()"
 ></app-delete-dialog>
 
-@if(addressState === 4){
+@if(addressState === AddressSituations.updateAddress){
 <app-address-stepper
-  [visible]="addressState === 4"
+  [visible]="addressState === AddressSituations.updateAddress"
   [isUpdate]="true"
   (closed)="closeStepperDialog()"
 ></app-address-stepper>
-} @if(addressState === 2){
+} @if(addressState === AddressSituations.addAddress){
 <app-address-stepper
-  [visible]="addressState === 2"
+  [visible]="addressState === AddressSituations.addAddress"
   (closed)="closeStepperDialog()"
 ></app-address-stepper>
 }

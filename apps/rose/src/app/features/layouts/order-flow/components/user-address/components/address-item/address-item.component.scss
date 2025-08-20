@@ -1,3 +1,4 @@
+@use "../../../../../../../shared/styles/variables" as *;
 .address-card {
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -115,14 +116,14 @@
 
   // Media Query for responsiveness
 
-  @media (max-width: 780px) {
+  @media (max-width: #{$breakpoint-mobile}) {
     .address-card__phone {
       font-size: 0.7rem;
     }
   }
 
 
-  @media (max-width: 620px) {
+  @media (max-width: #{$breakpoint-small}) {
     &__header {
       flex-direction: column;
       justify-content: center;
