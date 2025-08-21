@@ -62,6 +62,7 @@
       .pdt-title-rating {
         display: flex;
         flex-direction: column;
+        align-items: center;
         padding: 1.25rem 0 0;
 
         @media all and (min-width: 31.25rem) {
