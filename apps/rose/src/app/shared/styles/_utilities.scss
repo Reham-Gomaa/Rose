@@ -55,7 +55,6 @@ body {
   background: var(--scrollbar-thumb-hover-color);
 }
 
-
 .details-title-wrapper {
   position: relative;
   display: inline-block;
@@ -88,4 +87,10 @@ body {
   height: 0.12rem;
   z-index: 11;
   background-color: var(--underline-bar-popular-items-color);
+}
+
+.wishlist-active,
+.wishlist-active i {
+  background-color: var(--shape-i-favourite-item-bg) !important;
+  color: var(--shape-i-favourite-item-color) !important;
 }

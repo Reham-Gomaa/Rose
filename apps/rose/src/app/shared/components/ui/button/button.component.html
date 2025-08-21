@@ -1,10 +1,9 @@
-<button [class]="margin + ' ' + padding + ' ' + borderRadius + ' ' + transition">
-  {{ text }}
-  @if (isIcon === true) {
-  <i class="pi pi-arrow-right arrowicon"></i>
-  } @if (isRefresh === true) {
-  <i class="pi pi-refresh arrowicon"></i>
-  } @if (backIcon === true) {
-  <i class="pi pi-arrow-left arrowicon"></i>
+<button [disabled]="disable()" [style.backgroundColor]="bgColor()" [style.color]="textColor()"
+  [class]="margin() + ' ' + padding() + ' ' + borderRadius() + ' ' + transition() + ' ' + rowReverse()"
+  [class.disabled]="disable()">
+  <ng-content />
+  {{ text() }}
+  @if (icon() !== '') {
+  <i [class]="icon()" class="mr-2" [style]="`color: ${textColor()};`"></i>
   }
 </button>

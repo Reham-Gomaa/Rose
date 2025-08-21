@@ -1,0 +1,43 @@
+.heading {
+  margin-bottom: 2.5rem;
+  text-align: left;
+
+  .wishlist-title-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .wishlist-title {
+    color: var(--subtitle-gallery-color);
+    font-family: var(--font-family-1);
+    font-weight: 700;
+    font-size: 1.87rem;
+    line-height: 100%;
+    position: relative;
+    z-index: 10;
+  }
+
+  .wishlist-bg-shape {
+    position: absolute;
+    top: 2.6rem;
+    width: 8.125rem;
+    height: 1.0625rem;
+    border-radius: 0 1.25rem 1.25rem 0;
+    z-index: 1;
+    background-color: var(--shape-gallery-background);
+    opacity: 0.6;
+  }
+
+  .wishlist-underline-bar {
+    position: absolute;
+    top: 3.6rem;
+    width: 10.0625rem;
+    height: 0.125rem;
+    z-index: 11;
+    background-color: var(--underline-bar-gallery-color);
+  }
+}
+
+:host-context([dir="rtl"]) .heading {
+  text-align: right;
+}

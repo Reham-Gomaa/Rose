@@ -1,8 +1,16 @@
-import { Component, DestroyRef, inject, OnInit, signal, ViewChild } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { NgOptimizedImage } from "@angular/common";
-import { Router, RouterLink, RouterLinkActive } from "@angular/router";
+import { AsyncPipe, isPlatformBrowser, NgOptimizedImage } from "@angular/common";
+import {
+  Component,
+  DestroyRef,
+  inject,
+  OnInit,
+  PLATFORM_ID,
+  signal,
+  ViewChild,
+} from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { FormsModule } from "@angular/forms";
+import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 // Translate
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -11,6 +19,7 @@ import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Services
 import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
 import { UserStateService } from "@rose/core_services/user-state/user-state.service";
+import { CartService } from "@rose/shared_services/cart/cart.service";
 // Shared_UI_Components
 import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
 import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
@@ -20,11 +29,11 @@ import { TranslateToggleComponent } from "@rose/shared_Components_business/trans
 import { MenuItem, MessageService } from "primeng/api";
 import { ButtonModule } from "primeng/button";
 import { Dialog } from "primeng/dialog";
+import { IconField } from "primeng/iconfield";
+import { InputIcon } from "primeng/inputicon";
 import { InputTextModule } from "primeng/inputtext";
 import { Menubar } from "primeng/menubar";
 import { OverlayBadgeModule } from "primeng/overlaybadge";
-import { InputIcon } from "primeng/inputicon";
-import { IconField } from "primeng/iconfield";
 import { SplitButton } from "primeng/splitbutton";
 // Auth_Lib
 import { AuthApiKpService } from "auth-api-kp";
@@ -32,7 +41,11 @@ import { AuthApiKpService } from "auth-api-kp";
 import { User } from "auth-api-kp";
 // Ngrx
 import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
 import { setUserName } from "../../../store/address/address.actions";
+import { getUserCart } from "../../../store/cart/cart-actions";
+import { selectCartItemsNum } from "../../../store/cart/cart-selectors";
+import { selectWishlistCount } from "../../../store/wishlist/wishlist-selectors";
 
 type modalPosition =
   | "left"
@@ -60,6 +73,7 @@ type modalPosition =
     SearchModalComponent,
     TranslateToggleComponent,
     NgOptimizedImage,
+    AsyncPipe,
     InputIcon,
     IconField,
     InputTextModule,
@@ -73,6 +87,8 @@ type modalPosition =
 })
 export class NavbarComponent implements OnInit {
   readonly _translationService = inject(TranslationService);
+  cartService = inject(CartService);
+  private readonly _platformId = inject(PLATFORM_ID);
   private readonly _translate = inject(TranslateService);
   private readonly _authApiService = inject(AuthApiKpService);
   private readonly destroyRef = inject(DestroyRef);
@@ -81,8 +97,12 @@ export class NavbarComponent implements OnInit {
   private readonly _storageManagerService = inject(StorageManagerService);
   private readonly _userStateService = inject(UserStateService);
   private readonly _store = inject(Store);
+  private readonly router = inject(Router);
 
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
+  cartItemsNum$!: Observable<number>;
+  favouriteItemsNum$!: Observable<number>;
+  // Signals
 
   isLoggedIn = signal<boolean>(false);
   btnClass = signal("loginBtn");
@@ -114,6 +134,8 @@ export class NavbarComponent implements OnInit {
 
     this.loadUserInfo();
     this.initializeMenuItems();
+    this.getUserCart();
+    this.favouriteItemsNum$ = this._store.select(selectWishlistCount);
   }
 
   private initializeMenuItems() {
@@ -195,6 +217,20 @@ export class NavbarComponent implements OnInit {
         },
       },
     ]);
+  }
+
+  getUserCart() {
+    if (this.isLoggedIn()) {
+      this._store.dispatch(getUserCart());
+    }
+    this.cartItemsNum$ = this._store.select(selectCartItemsNum);
+  }
+
+  isLogin(): void {
+    if (!isPlatformBrowser(this._platformId)) return;
+
+    const token = localStorage.getItem("authToken");
+    this.isLoggedIn.set(!!token);
   }
 
   loadUserInfo(): void {

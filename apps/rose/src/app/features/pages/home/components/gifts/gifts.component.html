@@ -7,7 +7,8 @@
       aria-hidden="true">
       <h2>{{ "home.gifts.leftImage.heading2" | translate }}</h2>
       <h1 class="white-space-normal">{{ "home.gifts.leftImage.heading1" | translate }}</h1>
-      <app-button [text]="'home.gifts.leftImage.btn' | translate" [isIcon]="true"
+      <app-button [bgColor]="'var(--btn-shared-background)'" [textColor]="'var(--btn-shared-color)'"
+        [text]="'home.gifts.leftImage.btn' | translate" [icon]="'pi pi-arrow-right arrowicon'"
         [borderRadius]="'btn-roundedBorderRadius'" [padding]="'btn-topLeft-padding'"
         aria-label="Shop for Special Gifts Box" />
     </div>
@@ -22,7 +23,7 @@
         </button>
       </div>
       <p-carousel #carousel ngSkipHydration [value]="carouselList" [numVisible]="1" [numScroll]="1" [circular]="true"
-        class="relative" aria-label="Gift Carousel"
+        [autoplayInterval]="autoScrollInterval" class="relative" aria-label="Gift Carousel"
         [prevButtonProps]="{ styleClass: 'p-button-rounded custom-gift-prev' }"
         [nextButtonProps]="{ styleClass: 'p-button-rounded custom-gift-next' }">
         <h3 id="carousel-heading" class="sr-only">Featured Gift Items</h3>
@@ -33,7 +34,8 @@
             <div class="carousel-content">
               <h1>{{ "home.gifts.rightCarousel.heading1" | translate }}</h1>
               <h2>{{ "home.gifts.rightCarousel.heading2" | translate }}</h2>
-              <app-button [text]="'home.gifts.rightCarousel.btn' | translate" [isIcon]="true"
+              <app-button [text]="'home.gifts.rightCarousel.btn' | translate" [icon]="'pi pi-arrow-right arrowicon'"
+                [textColor]="'var(--btn-shared-color)'" [bgColor]="'var(--btn-shared-background)'"
                 [borderRadius]="'btn-roundedBorderRadius'" [padding]="'btn-carousel-padding'"
                 aria-label="Shop for Special Gifts Box" />
             </div>

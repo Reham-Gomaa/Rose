@@ -43,9 +43,13 @@
       </p-splitButton>
 
       <div class="icons">
-        <i class="pi pi-heart cursor-pointer text-lg"></i>
-        <p-overlaybadge value="2" class="custom-badge" [badgeSize]="'small'">
-          <i [routerLink]="'order-flow'" class="pi pi-shopping-cart cursor-pointer text-md"></i>
+        <p-overlaybadge [routerLink]="'wishlist'" [value]="(favouriteItemsNum$ | async)" class="custom-badge"
+          [badgeSize]="'small'">
+          <i class="pi pi-heart cursor-pointer text-lg"></i>
+        </p-overlaybadge>
+        <p-overlaybadge [value]="cartItemsNum$ |async" class="custom-badge" [badgeSize]="'small'">
+          <i tabindex="0" [routerLink]="'order-flow'" (keydown)="cartService.orderFlowState.set('cart')"
+            (click)="cartService.orderFlowState.set('cart')" class="pi pi-shopping-cart cursor-pointer text-md"></i>
         </p-overlaybadge>
         <p-overlaybadge value="4" class="custom-badge" [badgeSize]="'small'">
           <i class="pi pi-bell cursor-pointer text-md"></i>

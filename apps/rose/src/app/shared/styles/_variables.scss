@@ -2,7 +2,6 @@
 $breakpoint-mobile: 780px;
 $breakpoint-small: 620px;
 :root {
-
   // Fonts
   --font-family-1: "Inter", sans-serif;
   --font-family-2: "Roboto", sans-serif;
@@ -66,6 +65,7 @@ $breakpoint-small: 620px;
   --emerald-700: #007a55;
 
   --blue-400: #50a2ff;
+  --blue-600: #155dfc;
   --blue-700: #1447e6;
 
   --gray-200: #e9ecef;
@@ -158,8 +158,8 @@ $breakpoint-small: 620px;
   --scrollbar-thumb-color: var(--maroon-600);
   --scrollbar-thumb-hover-color: var(--maroon-500);
   // speedDial
-  --speedDial-bg: var(--maroon-500);
-  --speedDial-hover: var(--maroon-700);
+  --speedDial-bg: var(--maroon-600);
+  --speedDial-hover: var(--maroon-500);
 
   // Home Components
   // Categories
@@ -216,6 +216,8 @@ $breakpoint-small: 620px;
   --shape-i-card-item-background: var(--white);
   --shape-i-card-item-color: var(--maroon-600);
   --shape-i-card-item-hover-color: var(--maroon-50);
+  --shape-i-favourite-item-color: var(--zinc-50);
+  --shape-i-favourite-item-bg: var(--maroon-700);
   --price-card-item-color: var(--maroon-700);
   --rating-card-item-color: var(--yellow);
   --btn-shopping-card-item-background: var(--maroon-600);
@@ -351,42 +353,34 @@ $breakpoint-small: 620px;
   --address-body: var(--zinc-800);
   --loading-color: var(--maroon-500);
   // Delete dialog
-  --dialog-p:var(--zinc-800);
-  --dialog-out-shadow:#2E2E300D;
-  --dialog-icon:#2E2E3026;
+  --dialog-p: var(--zinc-800);
+  --dialog-out-shadow: #2e2e300d;
+  --dialog-icon: #2e2e3026;
 
-
-    //shipping addresses
-  --address-card-phone-color : var(--zinc-500);
-  --address-card-details-color : var(--zinc-800);
-  --address-card-details-bg : var(--zinc-100);
-  --address-phone-bg : var(--maroon-600);
-  --address-btn-bg : var(--maroon-50);
-  --address-btn-color : var(--maroon-600);
-
+  //shipping addresses
+  --address-card-phone-color: var(--zinc-500);
+  --address-card-details-color: var(--zinc-800);
+  --address-card-details-bg: var(--zinc-100);
+  --address-phone-bg: var(--maroon-600);
+  --address-btn-bg: var(--maroon-50);
+  --address-btn-color: var(--maroon-600);
 
   //payment methods & shipping
-  --card-border-color : var(--zinc-300);
-  --card-details-color : var(--zinc-800);
-   --card-bg:var(--white);
-  --card-header-color:var(--zinc-800);
+  --card-border-color: var(--zinc-300);
+  --card-details-color: var(--zinc-800);
+  --card-bg: var(--white);
+  --card-header-color: var(--zinc-800);
 
   //hover
-  --address-card-bg:var(--maroon-600);
-  --address-card-text-color:var(--white);
-  --address-card-details-hover-bg : var(--zinc-800);
-  --icon-hover-bg : var(--white);
-  --icon-hover-color : var(--maroon-600);
+  --address-card-bg: var(--maroon-600);
+  --address-card-text-color: var(--white);
+  --address-card-details-hover-bg: var(--zinc-800);
+  --icon-hover-bg: var(--white);
+  --icon-hover-color: var(--maroon-600);
 
-
-
-   //paymentMethod
-  --card-active-bg:var(--zinc-100);
-  --card-active-title-color:var(--maroon-600);
-
-
-
-
+  //paymentMethod
+  --card-active-bg: var(--zinc-100);
+  --card-active-title-color: var(--maroon-600);
 
   --dialog-p: var(--zinc-800);
   --dialog-out-shadow: var(--gray-900-05);
@@ -401,6 +395,22 @@ $breakpoint-small: 620px;
   --summary-button-hover: var(--maroon-500);
   --summary-button-text-color: var(--white);
   --coupon-border-color: var(--zinc-300);
+  // Cart
+  --cart-title: var(--zinc-800);
+  --cart-text-color: var(--zinc-400);
+  --cart-text-color-2: var(--maroon-700);
+  --cart-text-color-3: var(--black);
+  --cart-text-color-4: var(--blue-600);
+  --cart-clearBtn-bg: var(--maroon-50);
+  --cart-deleteBtn-bg: var(--red-600);
+  --cart-deleteBtn-text: var(--zinc-50);
+  --cart-clearBtn-text: var(--maroon-600);
+  --cart-continueBtn-text: var(--white);
+  --cart-content-border: var(--zinc-200);
+  --cart-input-border: var(--zinc-300);
+  --cart-input-bg: var(--zinc-50);
+  --cart-star: var(--yellow);
+
   --no-coupon-color: var(--zinc-500);
   //Orders
   --order-title-color: var(--black);
@@ -547,8 +557,8 @@ $breakpoint-small: 620px;
   --scrollbar-thumb-color: var(--soft-pink-200);
   --scrollbar-thumb-hover-color: var(--soft-pink-300);
   // speedDial
-  --speedDial-bg: var(--soft-pink-200);
-  --speedDial-hover: var(--soft-pink-400);
+  --speedDial-bg: var(--maroon-500);
+  --speedDial-hover: var(--maroon-600);
 
   // Home Components
   // Categories
@@ -604,6 +614,8 @@ $breakpoint-small: 620px;
   --shape-i-card-item-background: var(--white);
   --shape-i-card-item-color: var(--maroon-600);
   --shape-i-card-item-hover-color: var(--maroon-50);
+  --shape-i-favourite-item-color: var(--zinc-50);
+  --shape-i-favourite-item-bg: var(--soft-pink-200);
   --price-card-item-color: var(--soft-pink-200);
   --rating-card-item-color: var(--yellow);
   --btn-shopping-card-item-background: var(--maroon-500);
@@ -713,7 +725,6 @@ $breakpoint-small: 620px;
   --review-desc: var(--zinc-300);
   --details-desc: var(--zinc-400);
   --input-bg: var(--zinc-600);
-
   --preview-bg: var(--zinc-600);
   --preview-color: var(--white);
   // PrimeNg Button
@@ -738,26 +749,26 @@ $breakpoint-small: 620px;
   --address-body: var(--white);
   --loading-color: var(--soft-pink-500);
   // Delete dialog
-  --dialog-p:var(--zinc-50);
-  --dialog-out-shadow:var(--soft-pink-600);
-  --dialog-icon:var(--soft-pink-100);
+  --dialog-p: var(--zinc-50);
+  --dialog-out-shadow: var(--soft-pink-600);
+  --dialog-icon: var(--soft-pink-100);
 
   //shipping addresses
-  --address-card-phone-color : var(--white);
-  --address-card-details-bg : var(--zinc-100);
-  --address-phone-bg : var(--maroon-600);
-  --address-btn-bg : var(--maroon-50);
-  --address-btn-color : var(--maroon-600);
+  --address-card-phone-color: var(--white);
+  --address-card-details-bg: var(--zinc-100);
+  --address-phone-bg: var(--maroon-600);
+  --address-btn-bg: var(--maroon-50);
+  --address-btn-color: var(--maroon-600);
 
-    //payment methods & shipping
-  --card-border-color : var(--zinc-600);
-  --card-details-color : var(--zinc-800);
-  --card-bg:var(--zinc-500);
-  --card-header-color:var(--zinc-100);
+  //payment methods & shipping
+  --card-border-color: var(--zinc-600);
+  --card-details-color: var(--zinc-800);
+  --card-bg: var(--zinc-500);
+  --card-header-color: var(--zinc-100);
 
   //paymentMethod
-  --card-active-bg:var(--zinc-50);
-  --card-active-title-color:var(--maroon-600);
+  --card-active-bg: var(--zinc-50);
+  --card-active-title-color: var(--maroon-600);
 
   --dialog-p: var(--zinc-50);
   --dialog-out-shadow: var(--soft-pink-600);
@@ -771,6 +782,22 @@ $breakpoint-small: 620px;
   --summary-button-hover: var(--soft-pink-300);
   --summary-button-text-color: var(--zinc-800);
   --coupon-border-color: var(--soft-pink-200);
+  // Cart
+  --cart-title: var(--zinc-50);
+  --cart-text-color: var(--zinc-50);
+  --cart-text-color-2: var(--soft-pink-200);
+  --cart-text-color-3: var(--white);
+  --cart-text-color-4: var(--blue-600);
+  --cart-clearBtn-bg: var(--soft-pink-200);
+  --cart-deleteBtn-bg: var(--red-600);
+  --cart-deleteBtn-text: var(--zinc-50);
+  --cart-clearBtn-text: var(--maroon-600);
+  --cart-continueBtn-text: var(--maroon-600);
+  --cart-content-border: var(--zinc-200);
+  --cart-input-border: var(--zinc-300);
+  --cart-input-bg: var(--zinc-800);
+  --cart-star: var(--yellow);
+
   --no-coupon-color: var(--zinc-200);
   //Orders
   --order-title-color: var(--white);

@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject, ViewChild } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  inject,
+  OnInit,
+  PLATFORM_ID,
+  ViewChild,
+} from "@angular/core";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -15,6 +23,7 @@ import { ButtonComponent } from "@rose/shared_Components_ui/button/button.compon
 import { ButtonModule } from "primeng/button";
 import { Carousel, CarouselModule } from "primeng/carousel";
 import { TagModule } from "primeng/tag";
+import { isPlatformBrowser } from "@angular/common";
 
 @Component({
   selector: "app-gifts",
@@ -28,9 +37,30 @@ import { TagModule } from "primeng/tag";
   animations: [fadeTransition],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GiftsComponent {
+export class GiftsComponent implements OnInit {
   translationService = inject(TranslationService);
+  private readonly pLATFORM_ID = inject(PLATFORM_ID);
   @ViewChild("carousel") carousel!: Carousel;
+
+  autoScrollInterval = 0;
+
+  ngOnInit() {
+    if (!isPlatformBrowser(this.pLATFORM_ID)) return;
+    this.setAutoScroll(window.innerWidth);
+  }
+
+  @HostListener("window:resize", ["$event"])
+  onResize(event: any) {
+    this.setAutoScroll(event.target.innerWidth);
+  }
+
+  private setAutoScroll(width: number) {
+    if (width < 768) {
+      this.autoScrollInterval = 3000;
+    } else {
+      this.autoScrollInterval = 0;
+    }
+  }
 
   carouselList: carouselListInterface[] = [
     {

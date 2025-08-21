@@ -1,36 +1,44 @@
-import { Address } from "./core/interfaces/user-address.interface";
 import { appRoutes } from "./app.routes";
 // @angular imports
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
-import { provideRouter, TitleStrategy, withInMemoryScrolling, withViewTransitions } from "@angular/router";
+import {
+  provideRouter,
+  TitleStrategy,
+  withInMemoryScrolling,
+  withViewTransitions,
+} from "@angular/router";
 import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 import { HttpClient, provideHttpClient, withFetch, withInterceptors } from "@angular/common/http";
 import { provideAnimations } from "@angular/platform-browser/animations";
 // @ngx imports
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 // ngrx imports
-import { provideStore } from "@ngrx/store";
 import { provideEffects } from "@ngrx/effects";
+import { provideStore } from "@ngrx/store";
+// Store
 import { FilterEffects } from "@rose/store_filter/filter.effect";
-import { sortReducer } from "@rose/store_sort/sort.reducer";
 import { filterReduser } from "@rose/store_filter/filter.reducer";
+import { sortReducer } from "@rose/store_sort/sort.reducer";
 import { sortEffects } from "@rose/store_sort/store.effects";
+import { AddressEffect } from "./store/address/address.effect";
+import { addressReducer } from "./store/address/address.reducer";
+import { CartEffects } from "./store/cart/cart-effects";
+import { cartReducer } from "./store/cart/cart-reducers";
+import { wishlistReducer } from "./store/wishlist/wishlist-reducers";
+import { checkoutReducer } from "./store/checkout/checkout.reducer";
+import { checkoutEffects } from "./store/checkout/checkout.effects";
 // primeng imports
+import Aura from "@primeng/themes/aura";
 import { MessageService } from "primeng/api";
 import { providePrimeNG } from "primeng/config";
-import Aura from "@primeng/themes/aura";
 import { ToastModule } from "primeng/toast";
 // Auth LIB
 import { API_CONFIG } from "auth-api-kp";
+// Header Interceptor
 import { headingInterceptor } from "./core/interceptors/header.interceptor";
-import { addressReducer } from "./store/address/address.reducer";
-import { AddressEffect } from "./store/address/address.effect";
-import { checkoutReducer } from "./store/checkout/checkout.reducer";
-import { checkoutEffects } from "./store/checkout/checkout.effects";
-
 
 // Transelate Title
 import { TranslateTitleStrategy } from "./core/strategies/translate-title.strategy";
@@ -102,9 +110,11 @@ export const appConfig: ApplicationConfig = {
     provideStore({
       sort: sortReducer,
       filter: filterReduser,
+      cart: cartReducer,
+      wishlist: wishlistReducer,
       Address: addressReducer,
-      checkout:checkoutReducer
+      checkout: checkoutReducer,
     }),
-    provideEffects(sortEffects, FilterEffects, AddressEffect,checkoutEffects),
+    provideEffects(sortEffects, FilterEffects, AddressEffect, checkoutEffects, CartEffects),
   ],
 };

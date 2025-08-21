@@ -1,5 +1,7 @@
-import { Component, Input } from "@angular/core";
-import { Router } from "@angular/router";
+// @angular
+import { Component, inject, Input } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { RouterLink } from "@angular/router";
 // Images
 import { CommonModule, NgOptimizedImage } from "@angular/common";
 // Translation
@@ -8,22 +10,37 @@ import { TranslatePipe } from "@ngx-translate/core";
 import { Product } from "@rose/core_interfaces/carditem.interface";
 //PrimeNg
 import { RatingModule } from "primeng/rating";
-import { FormsModule } from "@angular/forms";
 import { SkeletonModule } from "primeng/skeleton";
-import { RouterLink } from "@angular/router";
-
+// shared-Directive
+import { WishlistToggleDirective } from "./../../../directives/wishlistToggle.directive";
+// cart store
+import { Store } from "@ngrx/store";
+import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
 
 @Component({
   selector: "app-card-item",
-  imports: [CommonModule, RatingModule, FormsModule, SkeletonModule, TranslatePipe,RouterLink,NgOptimizedImage],
+  imports: [
+    CommonModule,
+    RatingModule,
+    FormsModule,
+    SkeletonModule,
+    TranslatePipe,
+    RouterLink,
+    NgOptimizedImage,
+    WishlistToggleDirective,
+  ],
   templateUrl: "./card-item.component.html",
   styleUrl: "./card-item.component.scss",
 })
 export class CardItemComponent {
+  private readonly store = inject(Store);
+
   @Input() productInfo: Product | undefined;
   @Input() loading = false;
 
-   constructor() {} //constructor to inject the Router service
-
-
+  addProductToCart(p_id: string) {
+    if (this.productInfo && this.productInfo.quantity > 0) {
+      this.store.dispatch(addProductToCart({ p_id: p_id, qty: 1 }));
+    }
+  }
 }

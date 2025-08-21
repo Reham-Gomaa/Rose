@@ -1,6 +1,4 @@
 {
-    "nxConsole.generateAiAgentRules": true
-}
-{
-  "CodeGPT.apiKey": "Ollama"
+  "CodeGPT.apiKey": "Ollama",
+  "nxConsole.generateAiAgentRules": true
 }

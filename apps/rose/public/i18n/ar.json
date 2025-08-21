@@ -336,8 +336,18 @@
     "applyCoupon": "تطبيق الكود",
     "couponMessage": "لا يوجد كود خصم مطبق",
     "Total": "السعر الإجمالي:",
-    "price": "{{price}} ج.م",
     "checkoutButton": "الدفع"
+  },
+  "cart": {
+    "title": "سلة التسوق",
+    "clear-cart": "إفراغ السلة",
+    "empty": "سلة التسوق فارغة، هل تريد تجربة التسوق؟",
+    "continue-shopping": "متابعة التسوق",
+    "remove": "حذف",
+    "rating": "التقييم"
+  },
+  "favourites": {
+    "title": "قائمتي المفضلة"
   },
   "orders": {
     "title": "الطلبات",
@@ -352,7 +362,6 @@
     "orderItems": "عناصر الطلب:",
     "delivered": "تم التوصيل",
     "canceled": "ملغي",
-
     "rating": "التقييم:",
     "notRatedYet": "لم يتم التقييم بعد",
     "ratings": "تقييمات",
@@ -377,7 +386,6 @@
       "delivered": {
         "text": "تم التوصيل"
       },
-
       "canceled": {
         "text": "ملغي"
       }

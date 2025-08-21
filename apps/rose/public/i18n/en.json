@@ -311,7 +311,6 @@
     "step1": {
       "titleAdd": "Add a New Address",
       "titleupdate": "Update Address Info",
-
       "street": "Street",
       "city": "City",
       "phone": "Phone Number",
@@ -337,8 +336,18 @@
     "applyCoupon": "Apply Coupon",
     "couponMessage": "No coupon applied",
     "Total": "Total:",
-    "price": "{{price}} EGP",
     "checkoutButton": "Checkout"
+  },
+  "cart": {
+    "title": "Cart",
+    "clear-cart": "Clear Cart",
+    "empty": "Your cart is empty, wanna try shopping?",
+    "continue-shopping": "Continue Shopping",
+    "remove": "Remove",
+    "rating": "rating"
+  },
+  "favourites": {
+    "title": "My Wishlist"
   },
   "orders": {
     "title": "Orders",
@@ -353,7 +362,6 @@
     "orderItems": "Order Items:",
     "delivered": "Delivered",
     "canceled": "Canceled",
-
     "rating": "Rating:",
     "notRatedYet": "Not rated yet",
     "showAll": "Show All",
@@ -455,22 +463,19 @@
 
     "failedToLoadCategories": "Failed to load categories"
   },
-  "contact":{
-  "contact_us": "CONTACT US",
-  "call_anytime": "Call Anytime",
-  "phone_number": "241-373-2123",
-  "send_email": "Send Email",
-  "email_address": "Dwight63@gmail.com",
-  "visit_us": "Visit Us",
-  "address_line1": "20 Island Park Road,",
-  "address_line2": "New Jersey, New York, USA",
-  "name": "Name",
-  "email": "Email",
-  "phone": "Phone",
-  "message": "Your Message",
-  "send": "Send "
-}
-
-
-  
+  "contact": {
+    "contact_us": "CONTACT US",
+    "call_anytime": "Call Anytime",
+    "phone_number": "241-373-2123",
+    "send_email": "Send Email",
+    "email_address": "Dwight63@gmail.com",
+    "visit_us": "Visit Us",
+    "address_line1": "20 Island Park Road,",
+    "address_line2": "New Jersey, New York, USA",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Your Message",
+    "send": "Send "
+  }
 }
