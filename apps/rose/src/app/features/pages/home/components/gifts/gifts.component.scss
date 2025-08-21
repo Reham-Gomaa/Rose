@@ -135,7 +135,7 @@ img {
   justify-content: space-between;
   align-items: center;
   background-color: var(--carousel-button-gift-background);
-  width: 3.75rem;
+  width: 4.625rem;
   height: 1.875rem;
   border-radius: 62.4375rem;
   position: absolute;
@@ -157,8 +157,8 @@ img {
   &:hover {
     background-color: var(--carousel-button-gift-hover);
   }
-  @media all and (min-width: 48rem) {
-    width: 4.625rem;
+  @media all and (max-width: 48rem) {
+    display: none;
   }
 }
 

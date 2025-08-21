@@ -23,7 +23,7 @@
         </button>
       </div>
       <p-carousel #carousel ngSkipHydration [value]="carouselList" [numVisible]="1" [numScroll]="1" [circular]="true"
-        class="relative" aria-label="Gift Carousel"
+        [autoplayInterval]="autoScrollInterval" class="relative" aria-label="Gift Carousel"
         [prevButtonProps]="{ styleClass: 'p-button-rounded custom-gift-prev' }"
         [nextButtonProps]="{ styleClass: 'p-button-rounded custom-gift-next' }">
         <h3 id="carousel-heading" class="sr-only">Featured Gift Items</h3>
