@@ -55,8 +55,7 @@
           ],
           "outputHashing": "all",
           "optimization": true,
-          "buildOptimizer": true,
-          "vendorChunk": false
+          "buildOptimizer": true
         },
         "development": {
           "optimization": false,
