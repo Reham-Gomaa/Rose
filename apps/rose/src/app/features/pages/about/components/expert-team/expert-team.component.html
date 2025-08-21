@@ -11,14 +11,13 @@
     </div>
   </div>
   
-<div class="flex gap-4">
+<div class="flex flex-wrap flex-column md:flex-row gap-4">
     @for (item of expertArr; track $index) {
       <div class="team-card">
   <div class="team-card-image">
     <img [src]="item.image" alt="Ahmed Mohamed">
   </div>
-
-     <div class="team-card-info">
+    <div class="team-card-info">
     <h3>{{item.name}}</h3>
     <p class="role">{{item.role}}</p>
     <div class="social-icons">

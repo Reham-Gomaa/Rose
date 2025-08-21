@@ -1,0 +1,17 @@
+#payment-methods {
+  .method-card {
+    border: 1px solid var(--card-border-color) ;
+    background-color: var(--card-bg);
+    border-radius: 5px;
+    padding: 16px;
+    &.active {
+      background-color: var(--card-active-bg);
+      h3 {
+        color: var(--card-active-title-color);
+      }
+    }
+
+  }
+
+
+}

@@ -1,4 +1,20 @@
 {
+  "titles": {
+    "home": "الرئيسية",
+    "dashboard": "لوحة التحكم",
+    "all-categories": "جميع الفئات",
+    "about": "من نحن",
+    "contact": "اتصل بنا",
+    "details": "تفاصيل المنتج",
+    "cart": "عربة التسوق",
+    "address": "عناويني",
+    "allorders": "طلباتي",
+    "user-profile": "ملفي الشخصي",
+    "login": "تسجيل الدخول",
+    "register": "تسجيل حساب جديد",
+    "reset-password": "نسيت كلمة المرور",
+    "not-found": "غير موجود"
+  },
   "EGP": "ج.م",
   "navbar": {
     "home": "الرئيسية",

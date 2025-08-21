@@ -66,6 +66,12 @@
       "@rose/store_sort/*": [
         "./apps/rose/src/app/store/sort/*"
       ],
+      "@rose/address/*": [
+        "./apps/rose/src/app/store/address/*"
+      ],
+      "@rose/checkout/*": [
+        "./apps/rose/src/app/store/checkout/*"
+      ],
       "@rose/store_auth/*": [
         "./apps/rose/src/app/store/auth/*"
       ]

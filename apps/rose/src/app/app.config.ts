@@ -1,12 +1,17 @@
 import { appRoutes } from "./app.routes";
 // @angular imports
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
+import {
+  provideRouter,
+  TitleStrategy,
+  withInMemoryScrolling,
+  withViewTransitions,
+} from "@angular/router";
+import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
+import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 import { HttpClient, provideHttpClient, withFetch, withInterceptors } from "@angular/common/http";
-import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
-import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
 import { provideAnimations } from "@angular/platform-browser/animations";
-import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
-import { provideRouter, withInMemoryScrolling, withViewTransitions } from "@angular/router";
 // @ngx imports
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
@@ -23,6 +28,8 @@ import { addressReducer } from "./store/address/address.reducer";
 import { CartEffects } from "./store/cart/cart-effects";
 import { cartReducer } from "./store/cart/cart-reducers";
 import { wishlistReducer } from "./store/wishlist/wishlist-reducers";
+import { checkoutReducer } from "./store/checkout/checkout.reducer";
+import { checkoutEffects } from "./store/checkout/checkout.effects";
 // primeng imports
 import Aura from "@primeng/themes/aura";
 import { MessageService } from "primeng/api";
@@ -30,8 +37,11 @@ import { providePrimeNG } from "primeng/config";
 import { ToastModule } from "primeng/toast";
 // Auth LIB
 import { API_CONFIG } from "auth-api-kp";
+// Header Interceptor
 import { headingInterceptor } from "./core/interceptors/header.interceptor";
 
+// Transelate Title
+import { TranslateTitleStrategy } from "./core/strategies/translate-title.strategy";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
 }
@@ -71,6 +81,7 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: "enabled",
       })
     ),
+    { provide: TitleStrategy, useClass: TranslateTitleStrategy },
     provideHttpClient(withFetch()),
     MessageService,
     importProvidersFrom(ToastModule),
@@ -102,7 +113,8 @@ export const appConfig: ApplicationConfig = {
       cart: cartReducer,
       wishlist: wishlistReducer,
       Address: addressReducer,
+      checkout: checkoutReducer,
     }),
-    provideEffects(sortEffects, FilterEffects, CartEffects, AddressEffect),
+    provideEffects(sortEffects, FilterEffects, AddressEffect, checkoutEffects, CartEffects),
   ],
 };

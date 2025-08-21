@@ -1,3 +1,4 @@
+@use "../../../../../../../shared/styles/variables" as *;
 .address-card {
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -93,7 +94,7 @@
     color: var(--address-name);
     top: -200%;
     background-color: var(--address-name-background);
-    padding: .0625rem;
+    padding:  0rem .0625rem;
     
   }
 
@@ -114,7 +115,15 @@
   }
 
   // Media Query for responsiveness
-  @media (max-width: 620px) {
+
+  @media (max-width: #{$breakpoint-mobile}) {
+    .address-card__phone {
+      font-size: 0.7rem;
+    }
+  }
+
+
+  @media (max-width: #{$breakpoint-small}) {
     &__header {
       flex-direction: column;
       justify-content: center;
@@ -142,10 +151,9 @@
     }
 
     .address-card__to-button {
-      position: static;
-      flex-direction: row;
-      gap: .3125rem;
+      gap: .4125rem;
       justify-content: center;
+      align-items: center;
       margin-top: 0.5rem;
     }
 

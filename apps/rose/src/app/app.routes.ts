@@ -12,18 +12,18 @@ export const appRoutes: Route[] = [
   {
     path: "dashboard",
     component: DashboardComponent,
-    title: "Dashboard Home",
+    title: "titles.dashboard",
     children: [
       { path: "", redirectTo: "home", pathMatch: "full" },
       {
         path: "home",
-        title: "Home",
+        title: "titles.home",
         loadComponent: () =>
           import("@rose/features_pages/home/home.component").then((c) => c.HomeComponent),
       },
       {
         path: "all-categories",
-        title: "Our Categories",
+        title: "titles.all-categories",
         loadComponent: () =>
           import("@rose/features_pages/all-categories/all-categories.component").then(
             (c) => c.AllCategoriesComponent
@@ -31,19 +31,19 @@ export const appRoutes: Route[] = [
       },
       {
         path: "about",
-        title: "About-Us",
+        title: "titles.about",
         loadComponent: () =>
           import("@rose/features_pages/about/about.component").then((c) => c.AboutComponent),
       },
       {
         path: "contact",
-        title: "Contact-Us",
+        title: "titles.contact",
         loadComponent: () =>
           import("@rose/features_pages/contact/contact.component").then((c) => c.ContactComponent),
       },
       {
         path: "details/:id",
-        title: "Product Details",
+        title: "titles.details",
         loadComponent: () =>
           import("@rose/features_pages/details/details.component").then((c) => c.DetailsComponent),
       },
@@ -55,10 +55,16 @@ export const appRoutes: Route[] = [
           ),
       },
       {
+        path: "address",
+        loadComponent: () =>
+          import("@rose/features_pages/address/address.component").then((c) => c.AddressComponent),
+        title: "titles.address",
+      },
+      {
         path: "allorders",
         loadComponent: () =>
           import("@rose/features_pages/orders/orders.component").then((c) => c.OrdersComponent),
-        title: "Your Orders",
+        title: "titles.allorders",
       },
       {
         path: "user-profile",
@@ -66,13 +72,13 @@ export const appRoutes: Route[] = [
           import("@rose/features_layouts/user-profile/user-profile.component").then(
             (c) => c.UserProfileComponent
           ),
-        title: "User Profile",
+        title: "titles.user-profile",
       },
     ],
   },
   {
     path: "login",
-    title: "Log-in",
+    title: "titles.login",
     canActivate: [loggedGuard],
     loadComponent: () =>
       import("@rose/features_layouts/authentication/components/login/login.component").then(
@@ -81,7 +87,7 @@ export const appRoutes: Route[] = [
   },
   {
     path: "register",
-    title: "Register",
+    title: "titles.register",
     canActivate: [loggedGuard],
     loadComponent: () =>
       import("@rose/features_layouts/authentication/components/register/register.component").then(
@@ -90,7 +96,7 @@ export const appRoutes: Route[] = [
   },
   {
     path: "reset-password",
-    title: "Forget Password",
+    title: "titles.reset-password",
     canActivate: [loggedGuard],
     loadComponent: () =>
       import(
@@ -99,7 +105,7 @@ export const appRoutes: Route[] = [
   },
   {
     path: "**",
-    title: "Not Found",
+    title: "titles.not-found",
     loadComponent: () =>
       import("@rose/features_pages/not-found/not-found.component").then((c) => c.NotFoundComponent),
   },
