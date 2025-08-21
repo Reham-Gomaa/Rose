@@ -62,6 +62,24 @@ export class GiftsComponent implements OnInit {
     }
   }
 
+  responsiveOptions = [
+    {
+      breakpoint: "1400px",
+      numVisible: 1,
+      numScroll: 1,
+    },
+    {
+      breakpoint: "768px",
+      numVisible: 1,
+      numScroll: 1,
+    },
+    {
+      breakpoint: "560px",
+      numVisible: 1,
+      numScroll: 1,
+    },
+  ];
+
   carouselList: carouselListInterface[] = [
     {
       id: 1,
@@ -70,7 +88,7 @@ export class GiftsComponent implements OnInit {
     },
     {
       id: 2,
-      source: "./images/gifts/2$.WebP",
+      source: "./images/gifts/2.WebP",
       title: "pink roses with box of chocolate",
     },
   ];
