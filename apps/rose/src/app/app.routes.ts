@@ -67,6 +67,14 @@ export const appRoutes: Route[] = [
         title: "titles.allorders",
       },
       {
+        path: "wishlist",
+        loadComponent: () =>
+          import("@rose/features_pages/wishlist/wishlist.component").then(
+            (c) => c.WishlistComponent
+          ),
+        title: "titles.wishlist",
+      },
+      {
         path: "user-profile",
         loadComponent: () =>
           import("@rose/features_layouts/user-profile/user-profile.component").then(
