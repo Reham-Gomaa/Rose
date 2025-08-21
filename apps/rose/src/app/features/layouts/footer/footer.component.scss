@@ -28,7 +28,11 @@
 
 .nav-list,
 .nav-list li {
-  text-align: start;
+  text-align: center;
+
+  @media all and (min-width: 48rem) {
+    text-align: start;
+  }
 }
 
 .tab-footer-scroll {
