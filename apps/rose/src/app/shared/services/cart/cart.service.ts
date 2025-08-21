@@ -13,7 +13,7 @@ import { CartResponse } from "@rose/core_interfaces/cart.interface";
 export class CartService {
   private readonly httpClient = inject(HttpClient);
 
-  orderFlowState = signal<"cart" | "userAddress">("cart");
+  orderFlowState = signal<"cart" | "checkout">("cart");
 
   getLoggedUserCart(): Observable<CartResponse> {
     return this.httpClient.get<CartResponse>(`${EndPoint.CART}`);

@@ -9,7 +9,6 @@ import { PaymentMethodComponent } from "./components/payment-method/payment-meth
 import { StepperComponent } from "./components/stepper/stepper.component";
 import { progressStep } from "./models/progress.step";
 import { pMethod } from "@rose/checkout/checkout.state";
-// import { Router } from "express";
 
 @Component({
   selector: "app-checkout",

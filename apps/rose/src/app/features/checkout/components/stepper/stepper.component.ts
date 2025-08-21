@@ -1,7 +1,6 @@
 import { AsyncPipe, CommonModule, JsonPipe } from "@angular/common";
 import { Component, inject, input, output, OutputEmitterRef } from "@angular/core";
 import { Store } from "@ngrx/store";
-import * as checkoutActions from "@rose/checkout/checkout.actions";
 import * as checkoutSelectors from "@rose/checkout/checkout.selectors";
 import { pMethod } from "@rose/checkout/checkout.state";
 import { Address } from "@rose/core_interfaces/user-address.interface";

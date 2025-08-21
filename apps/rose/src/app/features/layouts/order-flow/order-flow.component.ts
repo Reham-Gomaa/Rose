@@ -20,6 +20,7 @@ import { CartService } from "@rose/shared_services/cart/cart.service";
 import { Observable } from "rxjs";
 import { deleteSpecificItem, getUserCart } from "../../../store/cart/cart-actions";
 import { selectCartItems, selectTotalPrice } from "../../../store/cart/cart-selectors";
+import { CheckoutComponent } from "../../checkout/checkout.component";
 
 @Component({
   selector: "app-order-flow",
@@ -31,7 +32,8 @@ import { selectCartItems, selectTotalPrice } from "../../../store/cart/cart-sele
     BestsellerSliderComponent,
     AsyncPipe,
     CartComponent,
-  ],
+    CheckoutComponent
+],
   templateUrl: "./order-flow.component.html",
   styleUrl: "./order-flow.component.scss",
   animations: [fadeTransition],
@@ -88,6 +90,6 @@ export class OrderFlowComponent implements OnInit {
   }
 
   goToPayment() {
-    this.cartService.orderFlowState.set("userAddress");
+    this.cartService.orderFlowState.set("checkout");
   }
 }

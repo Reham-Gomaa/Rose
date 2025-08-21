@@ -4,6 +4,7 @@
     <div class="grid mb-8 align-items-start">
       <div class="col-12 md:col-7">
         @if ( cartService.orderFlowState() === "cart") {<app-cart />}
+        @if ( cartService.orderFlowState() === "checkout") {<app-checkout/>}
       </div>
       <!-- Summary -->
       <div class=" summary-box-wrapper col-12 md:col-5">
