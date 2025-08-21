@@ -17,44 +17,41 @@ import { pMethod } from "@rose/checkout/checkout.state";
   styleUrl: "./checkout.component.scss",
 })
 export class CheckoutComponent {
-  private store = inject(Store)
-  private selectedMethod!:pMethod | null
-  checkoutSteps : progressStep[] =[
+  private store = inject(Store);
+  private selectedMethod!: pMethod | null;
+  checkoutSteps: progressStep[] = [
     {
-      value:1,
+      value: 1,
       label: "Shipping Address",
-      component: AddressChoiceComponent
+      component: AddressChoiceComponent,
     },
     {
-      value:2,
+      value: 2,
       label: "Payment Method",
-      component:PaymentMethodComponent
-    }
-  ]
+      component: PaymentMethodComponent,
+    },
+  ];
 
-  ngOnInit(){
+  ngOnInit() {
     this.store.select(checkoutSelectors.selectedPayMethod).subscribe({
-      next:(selectedMethod) => {
-        this.selectedMethod = selectedMethod
-      }
-    })
+      next: (selectedMethod) => {
+        this.selectedMethod = selectedMethod;
+      },
+    });
   }
 
-  confirmCheckOutProcess(){
-    if(this.selectedMethod!.toLowerCase() == pMethod.CASH) {
-      this.makeCashOrder()
-    }else {
-
-     this.makeCreditOrder()
+  confirmCheckOutProcess() {
+    if (this.selectedMethod!.toLowerCase() == pMethod.CASH) {
+      this.makeCashOrder();
+    } else {
+      this.makeCreditOrder();
     }
   }
 
-
-
-  makeCashOrder(){
-   this.store.dispatch(checkoutActions.createCashOrder())
+  makeCashOrder() {
+    this.store.dispatch(checkoutActions.createCashOrder());
   }
-  makeCreditOrder(){
-   this.store.dispatch(checkoutActions.createCheckoutSession())
+  makeCreditOrder() {
+    this.store.dispatch(checkoutActions.createCheckoutSession());
   }
 }

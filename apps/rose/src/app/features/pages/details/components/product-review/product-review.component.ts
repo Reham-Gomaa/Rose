@@ -8,26 +8,19 @@ import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
   selector: "app-product-review",
-  imports: [CommonModule, RatingModule, FormsModule, TranslatePipe ,ReviewFormComponent, ReviewListComponent],
+  imports: [
+    CommonModule,
+    RatingModule,
+    FormsModule,
+    TranslatePipe,
+    ReviewFormComponent,
+    ReviewListComponent,
+  ],
   templateUrl: "./product-review.component.html",
   styleUrl: "./product-review.component.scss",
 })
 export class ProductReviewComponent {
-
-  value = 4.5
-
-
-
-
-
-
-
-
+  value = 4.5;
 
   //hooks
-
-
-
-
-
 }

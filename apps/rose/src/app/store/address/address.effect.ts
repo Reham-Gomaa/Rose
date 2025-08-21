@@ -40,7 +40,7 @@ export class AddressEffect {
         })
       )
   );
- 
+
   // Delete Effect
   readonly deleteAddress$ = createEffect(
     (): Observable<Action> =>
@@ -49,7 +49,7 @@ export class AddressEffect {
         switchMap(({ addressId }) => {
           return this._userAddressService.deleteAddress(addressId).pipe(
             map(() => {
-              return deleteAddressesSuccess({addressId:addressId});
+              return deleteAddressesSuccess({ addressId: addressId });
             }),
             catchError((error) => of(deleteAddressesFailure({ error })))
           );
@@ -73,14 +73,13 @@ export class AddressEffect {
       )
   );
 
-
   // update Effect
   readonly updateAddress$ = createEffect(
     (): Observable<Action> =>
       this._actions$.pipe(
         ofType(updateAddress),
-        switchMap(({ address,addressId }) => {
-          return this._userAddressService.updateAddress(addressId,address).pipe(
+        switchMap(({ address, addressId }) => {
+          return this._userAddressService.updateAddress(addressId, address).pipe(
             map((addressRes: AddressRes) => {
               return updateAddressesSuccess({ addresses: addressRes.addresses });
             }),

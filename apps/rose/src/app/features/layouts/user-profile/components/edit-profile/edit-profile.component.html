@@ -28,46 +28,91 @@
   <div class="upload-section">
     <div class="avatar-container">
       <img [src]="user()?.photo" alt="User Photo" class="avatar-img" />
-      <p-fileupload mode="basic" name="profilePhoto" chooseIcon="pi pi-cloud-upload" chooseLabel="" accept="image/*"
-        maxFileSize="5000000" [auto]="true" (onSelect)="onImageUpload($event)"
-        styleClass="upload-button p-button-rounded p-button-outlined"></p-fileupload>
+      <p-fileupload
+        mode="basic"
+        name="profilePhoto"
+        chooseIcon="pi pi-cloud-upload"
+        chooseLabel=""
+        accept="image/*"
+        maxFileSize="5000000"
+        [auto]="true"
+        (onSelect)="onImageUpload($event)"
+        styleClass="upload-button p-button-rounded p-button-outlined"
+      ></p-fileupload>
     </div>
     <div class="upload-info">
-      <h3>{{"user-Profile.edit-Profile.uploadPhoto" | translate}}</h3>
-      <p>{{"user-Profile.edit-Profile.uploadPhotoInfo" | translate}}</p>
+      <h3>{{ "user-Profile.edit-Profile.uploadPhoto" | translate }}</h3>
+      <p>{{ "user-Profile.edit-Profile.uploadPhotoInfo" | translate }}</p>
     </div>
   </div>
 
   <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profile-form">
     <div class="flex justify-content-between">
       <!-- First Name -->
-      <app-custom-input formControlName="firstName" type="text"
-        [placeholder]="'auth.inputs.firstNamePlaceholder' | translate" id="firstName"
-        [labelText]="'auth.inputs.firstName' | translate" class="col field" autocomplete="given-name"
-        [errorHandilgControl]="profileForm.get('firstName')!" aria-required="true" />
+      <app-custom-input
+        formControlName="firstName"
+        type="text"
+        [placeholder]="'auth.inputs.firstNamePlaceholder' | translate"
+        id="firstName"
+        [labelText]="'auth.inputs.firstName' | translate"
+        class="col field"
+        autocomplete="given-name"
+        [errorHandilgControl]="profileForm.get('firstName')!"
+        aria-required="true"
+      />
 
       <!-- Last Name -->
-      <app-custom-input formControlName="lastName" type="text"
-        placeholder="{{'auth.inputs.lastNamePlaceholder' |translate}}" id="lastName"
-        labelText="{{'auth.inputs.lastName' |translate}}" [errorHandilgControl]="profileForm.get('lastName')!"
-        class="col field " autocomplete="family-name" aria-required="true" />
+      <app-custom-input
+        formControlName="lastName"
+        type="text"
+        placeholder="{{ 'auth.inputs.lastNamePlaceholder' | translate }}"
+        id="lastName"
+        labelText="{{ 'auth.inputs.lastName' | translate }}"
+        [errorHandilgControl]="profileForm.get('lastName')!"
+        class="col field"
+        autocomplete="family-name"
+        aria-required="true"
+      />
     </div>
 
     <!-- Email -->
-    <app-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email"
-      labelText="{{'auth.inputs.email' |translate}}" [errorHandilgControl]="profileForm.get('email')!"
-      class="w-full mb-3" autocomplete="email" aria-required="true" />
+    <app-custom-input
+      formControlName="email"
+      type="text"
+      placeholder="user@example.com"
+      id="email"
+      labelText="{{ 'auth.inputs.email' | translate }}"
+      [errorHandilgControl]="profileForm.get('email')!"
+      class="w-full mb-3"
+      autocomplete="email"
+      aria-required="true"
+    />
 
     <!-- Phone -->
-    <app-custom-input-phone formControlName="phone" placeholder="1012345678"
-      labelText="{{'auth.inputs.phone' |translate}}" id="phone" class="w-full"
-      [errorHandilgControl]="profileForm.get('phone')!" autocomplete="tel" aria-required="true" />
+    <app-custom-input-phone
+      formControlName="phone"
+      placeholder="1012345678"
+      labelText="{{ 'auth.inputs.phone' | translate }}"
+      id="phone"
+      class="w-full"
+      [errorHandilgControl]="profileForm.get('phone')!"
+      autocomplete="tel"
+      aria-required="true"
+    />
 
     <!-- Gender -->
     <div class="field">
-      <label for="gender-dropdown" class="title-label">{{ 'auth.inputs.gender' | translate }}</label>
-      <p-select [options]="genders" optionLabel="label" [disabled]="true" [placeholder]="user()?.gender"
-        id="gender-dropdown" class="w-full">
+      <label for="gender-dropdown" class="title-label">{{
+        "auth.inputs.gender" | translate
+      }}</label>
+      <p-select
+        [options]="genders"
+        optionLabel="label"
+        [disabled]="true"
+        [placeholder]="user()?.gender"
+        id="gender-dropdown"
+        class="w-full"
+      >
       </p-select>
     </div>
 
@@ -78,17 +123,23 @@
       </button>
 
       <!-- Save Button (inside form) -->
-      <app-form-button [text]="'user-Profile.edit-Profile.saveChanges' | translate" [disabled]="profileForm.invalid"
-        [isLoading]="isSaving()" type="submit" />
+      <app-form-button
+        [text]="'user-Profile.edit-Profile.saveChanges' | translate"
+        [disabled]="profileForm.invalid"
+        [isLoading]="isSaving()"
+        type="submit"
+      />
     </div>
 
     <!-- Confirmation Dialog (outside form) -->
-    <app-confirm-dialog #deleteAccountDialog
+    <app-confirm-dialog
+      #deleteAccountDialog
       [message]="'user-Profile.confirm-dialog.deleteAccountConfirmation' | translate"
       [subMessage]="'user-Profile.confirm-dialog.permanentActionWarning' | translate"
       [cancelLabel]="'user-Profile.confirm-dialog.cancelDelete' | translate"
       [confirmLabel]="'user-Profile.confirm-dialog.confirmDelete' | translate"
-      (confirmed)="onDeleteAccountConfirmed($event)">
+      (confirmed)="onDeleteAccountConfirmed($event)"
+    >
     </app-confirm-dialog>
   </form>
   }

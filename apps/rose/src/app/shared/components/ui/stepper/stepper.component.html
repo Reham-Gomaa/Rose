@@ -1,15 +1,14 @@
 <p-stepper [value]="1" class="basis-[50rem]">
   <p-step-list>
     @for (step of steps; track $index) {
-            <p-step [value]="step.value"></p-step>
+    <p-step [value]="step.value"></p-step>
     }
-
   </p-step-list>
   <p-step-panels>
     @for (item of steps; track $index) {
     <p-step-panel [value]="item.value">
-      <ng-template  #content let-activateCallback="activateCallback">
-        {{item.component}}
+      <ng-template #content let-activateCallback="activateCallback">
+        {{ item.component }}
         <div class="w-full">
           @if ($index===0) {
           <p-button
@@ -31,12 +30,21 @@
 
           <div class="flex flex-row justify-content-between">
             <div>
-              <p-button label="Back" icon="pi pi-arrow-left" (onClick)="activateCallback(item.value - 1)">
+              <p-button
+                label="Back"
+                icon="pi pi-arrow-left"
+                (onClick)="activateCallback(item.value - 1)"
+              >
               </p-button>
             </div>
 
             <div>
-              <p-button label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(item.value + 1)">
+              <p-button
+                label="Next"
+                icon="pi pi-arrow-right"
+                iconPos="right"
+                (onClick)="activateCallback(item.value + 1)"
+              >
               </p-button>
             </div>
           </div>
@@ -46,6 +54,5 @@
       </ng-template>
     </p-step-panel>
     }
-
   </p-step-panels>
 </p-stepper>

@@ -2,17 +2,13 @@ import { createAction, props } from "@ngrx/store";
 import { Address } from "@rose/core_interfaces/user-address.interface";
 import { AddressSituations } from "./addresses.state";
 
-
-
 // Show Actions
 export const setAddressState = createAction(
   "[ADDRESS] Set Show Address",
   props<{ addressState: AddressSituations }>()
 );
 
-export const showAddresses = createAction(
-  "[ADDRESS] Show Address"
-);
+export const showAddresses = createAction("[ADDRESS] Show Address");
 
 export const showAddressesSuccess = createAction(
   "[ADDRESS] Show Address Success",
@@ -24,9 +20,6 @@ export const showAddressesFailure = createAction(
   props<{ error: any }>()
 );
 
-
-
-
 // Delete Actions
 export const setAddressId = createAction(
   "[ADDRESS] Set Address Id ",
@@ -35,13 +28,12 @@ export const setAddressId = createAction(
 
 export const DeletedAddress = createAction(
   "[ADDRESS] Delete Address",
-   props<{ addressId: string }>()
+  props<{ addressId: string }>()
 );
 
 export const deleteAddressesSuccess = createAction(
   "[ADDRESS] delete Address Success",
   props<{ addressId: string }>()
-
 );
 
 export const deleteAddressesFailure = createAction(
@@ -49,17 +41,12 @@ export const deleteAddressesFailure = createAction(
   props<{ error: any }>()
 );
 
-
 // Add Actions
-export const AddAddress = createAction(
-  "[ADDRESS] Add Address",
-   props<{ address: Address }>()
-);
+export const AddAddress = createAction("[ADDRESS] Add Address", props<{ address: Address }>());
 
 export const AddAddressesSuccess = createAction(
   "[ADDRESS] Add Address Success",
   props<{ addresses: Array<Address> }>()
-
 );
 
 export const AddAddressesFailure = createAction(
@@ -70,13 +57,12 @@ export const AddAddressesFailure = createAction(
 // update Actions
 export const updateAddress = createAction(
   "[ADDRESS] update Address",
-   props<{ address: Address,addressId: string }>()
+  props<{ address: Address; addressId: string }>()
 );
 
 export const updateAddressesSuccess = createAction(
   "[ADDRESS] update Address Success",
   props<{ addresses: Array<Address> }>()
-
 );
 
 export const updateAddressesFailure = createAction(
@@ -85,12 +71,6 @@ export const updateAddressesFailure = createAction(
 );
 
 // set one address
-export const setAddress = createAction(
-  "[ADDRESS] Set Address ",
-  props<{ address: Address }>()
-);
-// set userName 
-export const setUserName = createAction(
-  "[ADDRESS] Set UserName ",
-  props<{ userName: string }>()
-);
+export const setAddress = createAction("[ADDRESS] Set Address ", props<{ address: Address }>());
+// set userName
+export const setUserName = createAction("[ADDRESS] Set UserName ", props<{ userName: string }>());

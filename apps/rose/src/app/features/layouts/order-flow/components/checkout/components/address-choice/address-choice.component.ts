@@ -47,7 +47,6 @@ export class AddressChoiceComponent {
     });
   }
 
-  
   setShipAddress(addressId: string) {
     const add: Address = this.userAddresses().find((add) => {
       return add._id === addressId;

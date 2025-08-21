@@ -27,8 +27,6 @@ import { TrustedByComponent } from "../home/components/trusted-by/trustedBy.comp
     ExpertTeamComponent,
     OurServicesComponent,
     TrustedByComponent,
-],
+  ],
 })
-export class AboutComponent {
-
-}
+export class AboutComponent {}

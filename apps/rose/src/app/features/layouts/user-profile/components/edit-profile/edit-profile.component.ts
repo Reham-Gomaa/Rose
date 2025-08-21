@@ -85,7 +85,7 @@ export class EditProfileComponent {
   ngOnInit(): void {
     this.loadUserProfile();
   }
-  
+
   loadUserProfile(): void {
     this.isLoading.set(true);
     this._authApiKpService

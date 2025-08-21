@@ -2,6 +2,7 @@ import { Route } from "@angular/router";
 
 import { DashboardComponent } from "@rose/features_layouts/dashboard/dashboard.component";
 import { loggedGuard } from "./core/guards/logged-user/logged.guard";
+import { authGuard } from "./core/guards/auth/auth.guard";
 
 export const appRoutes: Route[] = [
   {
@@ -49,6 +50,8 @@ export const appRoutes: Route[] = [
       },
       {
         path: "order-flow",
+        title: "titles.cart",
+        canActivate: [authGuard],
         loadComponent: () =>
           import("@rose/features_layouts/order-flow/order-flow.component").then(
             (c) => c.OrderFlowComponent
@@ -56,18 +59,21 @@ export const appRoutes: Route[] = [
       },
       {
         path: "address",
+        canActivate: [authGuard],
         loadComponent: () =>
           import("@rose/features_pages/address/address.component").then((c) => c.AddressComponent),
         title: "titles.address",
       },
       {
-        path: "allOrders",
+        path: "orders",
+        canActivate: [authGuard],
         loadComponent: () =>
           import("@rose/features_pages/orders/orders.component").then((c) => c.OrdersComponent),
         title: "titles.allorders",
       },
       {
         path: "wishlist",
+        canActivate: [authGuard],
         loadComponent: () =>
           import("@rose/features_pages/wishlist/wishlist.component").then(
             (c) => c.WishlistComponent
@@ -76,6 +82,7 @@ export const appRoutes: Route[] = [
       },
       {
         path: "user-profile",
+        canActivate: [authGuard],
         loadComponent: () =>
           import("@rose/features_layouts/user-profile/user-profile.component").then(
             (c) => c.UserProfileComponent

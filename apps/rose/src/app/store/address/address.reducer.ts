@@ -98,12 +98,12 @@ export const addressReducer = createReducer(
       loading: true,
     };
   }),
-  on(AddAddressesSuccess, (state,{addresses}) => {
+  on(AddAddressesSuccess, (state, { addresses }) => {
     return {
       ...state,
       loading: false,
       addressState: AddressSituations.closeAddress,
-      addresses:addresses,
+      addresses: addresses,
     };
   }),
   on(AddAddressesFailure, (state, { error }) => {
@@ -115,18 +115,18 @@ export const addressReducer = createReducer(
   }),
 
   // update address
-    on(updateAddress, (state) => {
+  on(updateAddress, (state) => {
     return {
       ...state,
       loading: true,
     };
   }),
-  on(updateAddressesSuccess, (state,{addresses}) => {
+  on(updateAddressesSuccess, (state, { addresses }) => {
     return {
       ...state,
       loading: false,
       addressState: AddressSituations.closeAddress,
-      addresses:addresses,
+      addresses: addresses,
     };
   }),
   on(updateAddressesFailure, (state, { error }) => {

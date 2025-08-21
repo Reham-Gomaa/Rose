@@ -2,17 +2,17 @@
   & {
     font-family: var(--font-family-1);
   }
-  
+
   .address-card {
     padding: 14px 16px;
-    border: 1px solid var(--card-border-color) ;
+    border: 1px solid var(--card-border-color);
     background-color: var(--card-bg);
     border-radius: 5px;
     margin-bottom: 12px;
     .address-card-header {
       font-size: 24px;
     }
-    .phone  {
+    .phone {
       .phone-num {
         font-size: 18px;
         color: var(--address-card-phone-color);
@@ -25,11 +25,11 @@
         color: white;
       }
     }
-    .address-details  {
+    .address-details {
       span {
-         padding: 4px 12px;
-         background-color: var(--address-card-details-bg);
-         border-radius: 15px;
+        padding: 4px 12px;
+        background-color: var(--address-card-details-bg);
+        border-radius: 15px;
       }
     }
     & {
@@ -37,45 +37,33 @@
       cursor: pointer;
     }
 
-
-
-  &.active {
-    background-color: var(--address-card-bg);
+    &.active {
+      background-color: var(--address-card-bg);
       color: var(--address-card-text-color);
-      .phone  {
-      .phone-num {
-        color: var(--address-card-text-color);
+      .phone {
+        .phone-num {
+          color: var(--address-card-text-color);
+        }
+        .phone-icon {
+          background-color: var(--icon-hover-bg);
+          color: var(--icon-hover-color);
+        }
       }
-      .phone-icon {
-        background-color: var(--icon-hover-bg);
-        color: var(--icon-hover-color);
-
-      }
-      }
-    .address-details  {
-      span {
-        background-color: var(--address-card-details-hover-bg);
+      .address-details {
+        span {
+          background-color: var(--address-card-details-hover-bg);
+        }
       }
     }
   }
-
-
-
-
-
-}
-.or {
+  .or {
     span {
       font-size: 18px;
       margin: 12px 0px;
-      color:var(--card-header-color);
+      color: var(--card-header-color);
     }
   }
-
-
-
 }
-
 
 :host ::ng-deep app-button button {
   width: 100%;

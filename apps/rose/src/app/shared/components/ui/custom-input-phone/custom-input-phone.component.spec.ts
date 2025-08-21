@@ -1,23 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { CustomInputPhoneComponent } from './custom-input-phone.component';
+import { CustomInputPhoneComponent } from "./custom-input-phone.component";
 
-describe('CustomInputPhoneComponent', () => {
+describe("CustomInputPhoneComponent", () => {
   let component: CustomInputPhoneComponent;
   let fixture: ComponentFixture<CustomInputPhoneComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CustomInputPhoneComponent]
-    })
-    .compileComponents();
+      imports: [CustomInputPhoneComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(CustomInputPhoneComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

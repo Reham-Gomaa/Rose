@@ -1,33 +1,30 @@
-  <div class="heading mt-8 text-center">
-    <h5 class="title-h5 uppercase mb-2" itemprop="headline">
-      Our Team
-    </h5>
-    <div class="p-relative d-inline-block testimonials-title-wrapper mb-3">
-      <h2 id="testimonials-heading" class="testimonials-title" itemprop="name">
-        Meet Our Expert Team
-      </h2>
-      <div class="testimonials-bg-shape" aria-hidden="true"></div>
-      <div class="testimonials-underline-bar" aria-hidden="true"></div>
-    </div>
+<div class="heading mt-8 text-center">
+  <h5 class="title-h5 uppercase mb-2" itemprop="headline">Our Team</h5>
+  <div class="p-relative d-inline-block testimonials-title-wrapper mb-3">
+    <h2 id="testimonials-heading" class="testimonials-title" itemprop="name">
+      Meet Our Expert Team
+    </h2>
+    <div class="testimonials-bg-shape" aria-hidden="true"></div>
+    <div class="testimonials-underline-bar" aria-hidden="true"></div>
   </div>
-  
-<div class="flex flex-wrap flex-column md:flex-row gap-4">
-    @for (item of expertArr; track $index) {
-      <div class="team-card">
-  <div class="team-card-image">
-    <img [src]="item.image" alt="Ahmed Mohamed">
-  </div>
-    <div class="team-card-info">
-    <h3>{{item.name}}</h3>
-    <p class="role">{{item.role}}</p>
-    <div class="social-icons">
-      <a><i class="pi pi-facebook"></i></a>
-      <a><i class="pi pi-instagram"></i></a>
-      <a><i class="pi pi-twitter"></i></a>
-      <a><i class="pi pi-youtube"></i></a>
-    </div>
-  </div>
-  
 </div>
-}
+
+<div class="flex flex-wrap flex-column md:flex-row gap-4">
+  @for (item of expertArr; track $index) {
+  <div class="team-card">
+    <div class="team-card-image">
+      <img [src]="item.image" alt="Ahmed Mohamed" />
+    </div>
+    <div class="team-card-info">
+      <h3>{{ item.name }}</h3>
+      <p class="role">{{ item.role }}</p>
+      <div class="social-icons">
+        <a><i class="pi pi-facebook"></i></a>
+        <a><i class="pi pi-instagram"></i></a>
+        <a><i class="pi pi-twitter"></i></a>
+        <a><i class="pi pi-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+  }
 </div>
