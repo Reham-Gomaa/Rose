@@ -1,68 +1,61 @@
-import { Component, inject, OnInit,OnDestroy  } from '@angular/core';
-import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Component, inject, OnInit, OnDestroy } from "@angular/core";
+import { CommonModule, CurrencyPipe, DatePipe } from "@angular/common";
+import { RouterModule } from "@angular/router";
 //Translation
-import { TranslatePipe } from '@ngx-translate/core';
-import { TranslationService } from '@rose/core_services/translation/translation.service';
+import { TranslatePipe } from "@ngx-translate/core";
+import { TranslationService } from "@rose/core_services/translation/translation.service";
 // PrimeNG
-import { PrimeIcons } from 'primeng/api';
+import { PrimeIcons } from "primeng/api";
 //Interfaces
-import { OrderItem, OrderRes, Orders } from '@rose/core_interfaces/orders';
-import { Product } from '@rose/core_interfaces/carditem.interface';
+import { OrderItem, OrderRes, Orders } from "@rose/core_interfaces/orders";
+import { Product } from "@rose/core_interfaces/carditem.interface";
 // Shared Services
-import { OrdersService } from '@rose/shared_services/orders/orders.service';
+import { OrdersService } from "@rose/shared_services/orders/orders.service";
 // RxJS
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-
-
+import { Subject } from "rxjs";
+import { takeUntil } from "rxjs/operators";
 
 @Component({
-  selector: 'app-orders',
+  selector: "app-orders",
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    TranslatePipe
-  ],
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss'],
-  providers: [DatePipe, CurrencyPipe]
+  imports: [CommonModule, RouterModule, TranslatePipe],
+  templateUrl: "./orders.component.html",
+  styleUrls: ["./orders.component.scss"],
+  providers: [DatePipe, CurrencyPipe],
 })
 export class OrdersComponent implements OnInit {
   orders: Orders[] = [];
   expandedOrders: Set<string> = new Set();
   PrimeIcons = PrimeIcons;
-   private destroy$ = new Subject<void>();
+  private destroy$ = new Subject<void>();
 
   constructor(
     private ordersService: OrdersService,
     private datePipe: DatePipe,
-    private currencyPipe: CurrencyPipe
-
   ) {}
-   translationService = inject(TranslationService);
+  translationService = inject(TranslationService);
 
   ngOnInit(): void {
     this.loadOrders();
   }
 
-    ngOnDestroy(): void {
+  ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }
 
   loadOrders(): void {
-
-      this.ordersService.getUserOrders()
+    this.ordersService
+      .getUserOrders()
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (response: OrderRes) => {
           this.orders = response.orders;
+          console.log(this.orders)
         },
         error: (error) => {
-          console.error('Error loading orders:', error);
-        }
+          console.error("Error loading orders:", error);
+        },
       });
   }
 
@@ -79,35 +72,32 @@ export class OrdersComponent implements OnInit {
   }
 
   formatDate(date: Date): string {
-  const dateOnly = this.datePipe.transform(date, 'd MMMM, y') || '';
-  const timeOnly = this.datePipe.transform(date, 'h:mm a') || '';
-  const atWord = this.translationService.instant('orders.at');
+    const dateOnly = this.datePipe.transform(date, "d MMMM, y") || "";
+    const timeOnly = this.datePipe.transform(date, "h:mm a") || "";
+    const atWord = this.translationService.instant("orders.at");
 
-  return `${dateOnly} ${atWord} ${timeOnly}`;
-}
-
-getProductRating(product: Product): string {
-  if (!product.rateCount) {
-    return this.translationService.instant('orders.notRatedYet');
+    return `${dateOnly} ${atWord} ${timeOnly}`;
   }
-  return `${(product.rateAvg || 0).toFixed(1)}/5`;
-}
 
- calculateItemTotal(item: OrderItem): number {
-  return item.price * item.quantity;
-}
+  getProductRating(product: Product): string {
+    if (!product.rateCount) {
+      return this.translationService.instant("orders.notRatedYet");
+    }
+    return `${(product.rateAvg || 0).toFixed(1)}/5`;
+  }
+
+  calculateItemTotal(item: OrderItem): number {
+    return item.price * item.quantity;
+  }
 
   shouldShowItem(totalItems: number, index: number, orderId: string): boolean {
     if (totalItems <= 2) {
-
       return true;
     }
 
     if (this.isExpanded(orderId)) {
-
       return true;
     }
-
 
     return index < 4;
   }
@@ -116,7 +106,6 @@ getProductRating(product: Product): string {
     if (totalItems < 3 || this.isExpanded(orderId)) {
       return false;
     }
-
 
     return index == 2 || index == 3;
   }

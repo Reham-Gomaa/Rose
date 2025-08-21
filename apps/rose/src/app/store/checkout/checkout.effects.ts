@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
 import { catchError, map, of, switchMap, withLatestFrom } from "rxjs";
 import { CashRes, CreditRes } from "../../features/checkout/models/CheckoutRes";
-import { CheckoutService } from "../../features/checkout/services/checkout/checkout.service";
+import { CheckoutService } from "../../shared/services/checkout/checkout.service";
 import * as checkoutActions from './checkout.actions';
 import * as checkoutSelectors from './checkout.selectors';
 import { Router } from "@angular/router";

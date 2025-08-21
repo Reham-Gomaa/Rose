@@ -351,7 +351,7 @@
   },
   "orders": {
     "title": "Orders",
-    "orderNumber": "Order # ",
+    "orderNumber": "Order ",
     "totalPrice": "Total Price:",
     "orderDate": "Created in ",
     "at": "at",
@@ -379,7 +379,12 @@
       "cancelled": {
         "text": "Cancelled",
         "class": "red"
+      },
+      "pending": {
+        "text": "Pending",
+        "class": "yellow"
       }
+
     },
     "deliveryStatuses": {
       "delivered": {

@@ -380,6 +380,10 @@
       "cancelled": {
         "text": "ملغي",
         "class": "red"
+      },
+      "pending": {
+        "text": "قيد الانتظار",
+        "class": "yellow"
       }
     },
     "deliveryStatuses": {

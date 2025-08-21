@@ -4,13 +4,12 @@ import { Store } from "@ngrx/store";
 import { TranslatePipe } from "@ngx-translate/core";
 import { Product } from "@rose/core_interfaces/carditem.interface";
 import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
-import { WishlistToggleDirective } from "../../../shared/directives/wishlistToggle.directive";
 import { loadWishlist } from "../../../store/wishlist/wishlist-actions";
 import { selectWishlistItems } from "../../../store/wishlist/wishlist-selectors";
 
 @Component({
   selector: "app-wishlist",
-  imports: [TranslatePipe, CardItemComponent, WishlistToggleDirective],
+  imports: [TranslatePipe, CardItemComponent],
   templateUrl: "./wishlist.component.html",
   styleUrl: "./wishlist.component.scss",
 })

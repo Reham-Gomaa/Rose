@@ -23,7 +23,7 @@
 
         <div class="status-right">
           <span class="status-label">{{"orders.status"| translate}} </span>
-          <span class="state-badge" [ngClass]="'orders.states.' + order.state + '.class' | translate">
+          <span class="state-badge" [ngClass]="'state-badge ' + ('orders.states.' + order.state + '.class' | translate)">
             {{ 'orders.states.' + order.state + '.text' | translate }}</span>
         </div>
       </div>
