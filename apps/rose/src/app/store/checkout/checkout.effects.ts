@@ -2,11 +2,11 @@ import { inject } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
 import { catchError, map, of, switchMap, withLatestFrom } from "rxjs";
-import { CashRes, CreditRes } from "../../features/checkout/models/CheckoutRes";
 import { CheckoutService } from "../../shared/services/checkout/checkout.service";
 import * as checkoutActions from './checkout.actions';
 import * as checkoutSelectors from './checkout.selectors';
 import { Router } from "@angular/router";
+import { CashRes, CreditRes } from "@rose/features_layouts/order-flow/components/checkout/models/CheckoutRes";
 
 
 
@@ -45,7 +45,10 @@ export class checkoutEffects {
         return this._checkoutService.createCheckoutSession(checkoutInfo!).pipe(
           map((res:CreditRes)=>{
             if(res.message == 'success'){
-                  window.open(res.session.url,'_blank')
+
+              // Open the checkout session URL in a new tab
+                  window.open(res.session.url,'_self')
+
             }
             return checkoutActions.checkoutSessionOpened()
           }
