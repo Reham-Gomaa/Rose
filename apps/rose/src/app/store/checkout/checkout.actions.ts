@@ -1,7 +1,7 @@
 import { createAction, props } from "@ngrx/store";
 import { Address } from "@rose/core_interfaces/user-address.interface";
-import { checkoutFailureRes, Session } from "../../features/checkout/models/CheckoutRes";
 import { pMethod } from "./checkout.state";
+import { checkoutFailureRes } from "@rose/features_layouts/order-flow/components/checkout/models/CheckoutRes";
 
 
 

@@ -61,7 +61,7 @@ export const appRoutes: Route[] = [
         title: "titles.address",
       },
       {
-        path: "allorders",
+        path: "allOrders",
         loadComponent: () =>
           import("@rose/features_pages/orders/orders.component").then((c) => c.OrdersComponent),
         title: "titles.allorders",
