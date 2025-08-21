@@ -1,5 +1,5 @@
 {
-    "titles": {
+  "titles": {
     "home": "Home",
     "dashboard": "Dashboard Home",
     "all-categories": "Our Categories",
@@ -7,6 +7,7 @@
     "contact": "Contact Us",
     "details": "Product Details",
     "cart": "Cart",
+    "wishlist": "Wishlist",
     "address": "My Addresses",
     "allorders": "Your Orders",
     "user-profile": "User Profile",
@@ -140,13 +141,19 @@
     }
   },
   "footer": {
+    "rose": "Rose E-Commerce App",
+    "rights": "All rights reserved | 2025",
+    "navtitle": "Discover our website",
     "nav": {
-      "item1": "About Us",
-      "item2": "Store Location",
-      "item3": "Contact",
-      "item4": "Delivery",
-      "item5": "Policy",
-      "item6": "FAQs"
+      "item1": "Home",
+      "item2": "Products",
+      "item3": "Categories",
+      "item4": "Occasions",
+      "item5": "Contact",
+      "item6": "About",
+      "item7": "Terms & Conditions",
+      "item8": "Privacy Policy",
+      "item9": "FAQs"
     },
     "heading2part1": "Get",
     "heading2span": "20%",

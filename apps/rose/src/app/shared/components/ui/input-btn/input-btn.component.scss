@@ -24,6 +24,13 @@
     &:focus {
       outline: 1px solid var(--input-focus);
     }
+
+    @media all and (min-width: 48rem) {
+      width: 12.5rem;
+    }
+    @media all and (min-width: 62rem) {
+      width: 100%;
+    }
   }
 
   ::placeholder {
@@ -31,7 +38,7 @@
   }
 
   .input-button {
-    padding: 0.9rem 2rem;
+    padding: 0.9rem 1.25rem;
     background-color: var(--input-btn-background);
     color: var(--input-btn-color);
     border: none;
@@ -44,11 +51,15 @@
     &:hover {
       background-color: var(--input-btn-hover);
     }
+
+    @media all and (min-width: 62rem) {
+      padding: 0.9rem 2rem;
+    }
   }
 }
 
 /* Mobile Styles (only when ≤766px AND disableMobileStyles=false) */
-@media  (min-width: 300px) and (max-width: 766px) {
+@media (min-width: 300px) and (max-width: 766px) {
   .input-button-wrapper:not(.disable-mobile) {
     width: 15rem;
     height: 3rem;
