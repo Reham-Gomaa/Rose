@@ -31,8 +31,7 @@ export class CheckoutService {
   }
 
   createCheckoutSession(orderAddress:Address):Observable<CreditRes>{
-    // const url = encodeURIComponent(`${environment.baseApiUrl}/#/dashboard`)
-    const url = encodeURIComponent(`${environment.baseApiUrl}/#/dashboard`)
+    const url = encodeURIComponent(`${environment.baseApiUrl}#/dashboard`)
      return this.http.post<CreditRes>(`${EndPoint.CHECKOUT_SESSION}?url=${url}`,{
       shippingAddress:{
          street: orderAddress.street,
