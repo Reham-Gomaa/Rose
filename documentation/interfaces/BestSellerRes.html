@@ -122,7 +122,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>apps/rose/src/app/core/interfaces/best-seller.ts</code>
+            <code>apps/rose/src/app/core/interfaces/best-seller.interface.ts</code>
         </p>
 
 
@@ -235,32 +235,31 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface BestSellerRes {
-  message: string
-  bestSeller: BestSeller[]
+  message: string;
+  bestSeller: BestSeller[];
 }
 
 export interface BestSeller {
-  rateAvg: number
-  rateCount: number
-  _id: string
-  title: string
-  slug: string
-  description: string
-  imgCover: string
-  images: string[]
-  price: number
-  priceAfterDiscount: number
-  quantity: number
-  category: string
-  occasion: string
-  createdAt: string
-  updatedAt: string
-  __v: number
-  isSuperAdmin: boolean
-  sold?: number
-  id: string
+  rateAvg: number;
+  rateCount: number;
+  _id: string;
+  title: string;
+  slug: string;
+  description: string;
+  imgCover: string;
+  images: string[];
+  price: number;
+  priceAfterDiscount: number;
+  quantity: number;
+  category: string;
+  occasion: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+  isSuperAdmin: boolean;
+  sold?: number;
+  id: string;
 }
-
 </code></pre>
     </div>
 </div>
