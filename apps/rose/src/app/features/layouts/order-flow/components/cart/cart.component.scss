@@ -195,6 +195,10 @@ input[type="number"] {
   background-color: var(--cart-input-bg);
   color: var(--cart-title);
 
+  /* Firefox */
+  appearance: textfield;
+  -moz-appearance: textfield;
+
   @media all and (min-width: 48rem) {
     padding: 16px;
   }
@@ -210,8 +214,4 @@ input[type="number"] {
     -webkit-appearance: none;
     margin: 0;
   }
-
-  /* Firefox */
-  appearance: textfield;
-  -moz-appearance: textfield;
 }
