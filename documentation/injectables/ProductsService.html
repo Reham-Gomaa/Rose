@@ -151,7 +151,22 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#addProductReview" >addProductReview</a>
+                            </li>
+                            <li>
                                 <a href="#getAllProducts" >getAllProducts</a>
+                            </li>
+                            <li>
+                                <a href="#getcategoryProductCount" >getcategoryProductCount</a>
+                            </li>
+                            <li>
+                                <a href="#getProductDetails" >getProductDetails</a>
+                            </li>
+                            <li>
+                                <a href="#getProductReviews" >getProductReviews</a>
+                            </li>
+                            <li>
+                                <a href="#getSpecificProduct" >getSpecificProduct</a>
                             </li>
                         </ul>
                     </td>
@@ -175,6 +190,85 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="addProductReview"></a>
+                    <span class="name">
+                        <span ><b>addProductReview</b></span>
+                        <a href="#addProductReview"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addProductReview(reviewInfo: <a href="../interfaces/reviewData.html" target="_self">reviewData</a>, token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>reviewInfo</td>
+                                            <td>
+                                                            <code><a href="../interfaces/reviewData.html" target="_self" >reviewData</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getAllProducts"></a>
                     <span class="name">
                         <span ><b>getAllProducts</b></span>
@@ -184,15 +278,82 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getAllProducts()</code>
+<code>getAllProducts(categoryId?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="13"
-                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:13</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>categoryId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;ProductRes&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getcategoryProductCount"></a>
+                    <span class="name">
+                        <span ><b>getcategoryProductCount</b></span>
+                        <a href="#getcategoryProductCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getcategoryProductCount()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -201,9 +362,210 @@
                 <td class="col-md-4">
 
                         <div class="io-description">
-                            <b>Returns : </b>    <code>Observable&lt;ProductRes&gt;</code>
+                            <b>Returns : </b>        <code><a href="../interfaces/countBproduct.html" target="_self" >Observable&lt;countBproduct&gt;</a></code>
 
                         </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getProductDetails"></a>
+                    <span class="name">
+                        <span ><b>getProductDetails</b></span>
+                        <a href="#getProductDetails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getProductDetails(prodId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>prodId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;ProductDetails&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getProductReviews"></a>
+                    <span class="name">
+                        <span ><b>getProductReviews</b></span>
+                        <a href="#getProductReviews"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getProductReviews(prodId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>prodId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/reviewsResponse.html" target="_self" >Observable&lt;reviewsResponse&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSpecificProduct"></a>
+                    <span class="name">
+                        <span ><b>getSpecificProduct</b></span>
+                        <a href="#getSpecificProduct"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSpecificProduct(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;ProductDetailsRes&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -233,7 +595,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -246,23 +608,59 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { inject, Injectable } from &#x27;@angular/core&#x27;;
-import { Observable, shareReplay } from &#x27;rxjs&#x27;;
-import { EndPoint } from &#x27;../../../core/enums/endpoints&#x27;;
-import { ProductRes } from &#x27;../../../core/interfaces/carditem.interface&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpParams } from &quot;@angular/common/http&quot;;
+import { inject, Injectable } from &quot;@angular/core&quot;;
+import { Observable, shareReplay } from &quot;rxjs&quot;;
+import { EndPoint } from &quot;../../../core/enums/endpoints&quot;;
+import { ProductRes } from &quot;../../../core/interfaces/carditem.interface&quot;;
+import { countBproduct } from &quot;../../../core/interfaces/count-by-product.interface&quot;;
+import { reviewData, reviewsResponse } from &quot;../../../features/pages/details/interfaces/review.interface&quot;;
+import { ProductDetails } from &quot;../../../features/pages/details/interfaces/productDetails.interface&quot;;
+// Interfaces
+import { ProductDetailsRes } from &quot;@rose/core_interfaces/details.interface&quot;;
+// Enums
+
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &quot;root&quot;,
 })
 export class ProductsService {
   private httpClient &#x3D; inject(HttpClient);
 
-  getAllProducts(): Observable&lt;ProductRes&gt; {
-    return this.httpClient.get&lt;ProductRes&gt;(
-      &#x60;${EndPoint.PRODUCTS}&#x60;
-    ).pipe(shareReplay(1));
+    getAllProducts(categoryId?: string): Observable&lt;ProductRes&gt; {
+    let params &#x3D; new HttpParams();
+    if (categoryId) {
+      params &#x3D; params.append(&#x27;category&#x27;, categoryId);
+    }
+    
+    return this.httpClient
+      .get&lt;ProductRes&gt;(&#x60;${EndPoint.PRODUCTS}&#x60;, { params })
+      .pipe(shareReplay(1));
   }
+
+  getcategoryProductCount(): Observable&lt;countBproduct&gt; {
+    return this.httpClient.get&lt;countBproduct&gt;(&#x60;${EndPoint.CountPRODUCTSByCATEGORIES}&#x60;);
+  }
+
+  addProductReview(reviewInfo:reviewData,token:string):Observable&lt;any&gt;{
+    return this.httpClient.post(&#x60;${EndPoint.ADD_REVIEW}&#x60;,reviewInfo,{
+      headers:{
+        &quot;Authorization&quot;:&#x60;Bearer${token}&#x60;
+      }
+    })
+
+  }
+  getProductReviews(prodId:string):Observable&lt;reviewsResponse&gt;{
+    return this.httpClient.get&lt;reviewsResponse&gt;(&#x60;${EndPoint.PRODUCTS}/${prodId}/reviews&#x60;)
+  }
+
+  getProductDetails(prodId:string):Observable&lt;ProductDetails&gt; {
+     return this.httpClient.get&lt;ProductDetails&gt;(&#x60;${EndPoint.PRODUCTS}/${prodId}&#x60;)
+  }
+  getSpecificProduct(id: string): Observable&lt;ProductDetailsRes&gt; { //get specific product by id
+    return this.httpClient.get&lt;ProductDetailsRes&gt;(&#x60;${EndPoint.PRODUCTS}/${id}&#x60;).pipe(shareReplay(1));
+  }
+  
 }
 </code></pre>
     </div>

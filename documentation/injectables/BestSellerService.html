@@ -161,7 +161,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/rose/src/app/shared/services/best-seller/best-seller.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/rose/src/app/shared/services/best-seller/best-seller.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -224,8 +224,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="14"
-                                    class="link-to-prism">apps/rose/src/app/shared/services/best-seller/best-seller.service.ts:14</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="15"
+                                    class="link-to-prism">apps/rose/src/app/shared/services/best-seller/best-seller.service.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -247,24 +247,23 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
-import { BestSellerRes } from &#x27;../../../core/interfaces/best-seller&#x27;;
-import { EndPoint } from &#x27;../../../core/enums/endpoints&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
+import { HttpClient } from &quot;@angular/common/http&quot;;
+import { Observable } from &quot;rxjs&quot;;
+// Interfaces
+import { BestSellerRes } from &quot;@rose/core_interfaces/best-seller.interface&quot;;
+// Enums
+import { EndPoint } from &quot;@rose/core_enums/endpoints&quot;;
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &quot;root&quot;,
 })
 export class BestSellerService {
-  
   constructor(private httpClient: HttpClient) {}
 
   getBestSellers(): Observable&lt;BestSellerRes&gt; {
     return this.httpClient.get&lt;BestSellerRes&gt;(&#x60;${EndPoint.BESTSELLER}&#x60;);
   }
-
-  
 }
 </code></pre>
     </div>
