@@ -1,291 +1,293 @@
-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-// image next to carousel -------
-
-.top-left-parent {
-  height: 27.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  align-items: start;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 0.875rem;
-  overflow: hidden;
-  padding: 0 0 1.5rem 1rem;
-  margin-bottom: 1.5rem;
-
-  // medium screen 768px
-  @media all and (min-width: 48rem) {
-    margin-bottom: 0;
+app-gifts {
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
-  h2 {
-    background-color: var(--h2-background-gift);
-    padding: 0.125rem 0.5rem;
-    border-radius: 1.25rem;
-    font-family: var(--font-family-2);
-    font-weight: 700;
-    font-size: 0.75rem;
-    color: var(--h2-color-gift);
-    line-height: 1.8875rem;
-    letter-spacing: 0.2913rem;
-    text-transform: uppercase;
-    vertical-align: middle;
-    margin: 0;
+  // image next to carousel -------
 
-    // large screen 992px
-    @media all and (min-width: 62rem) {
-      font-size: 0.75rem;
-    }
-  }
-
-  h1 {
-    color: var(--h1-color-gift);
-    font-family: var(--font-family-1);
-    font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 1.9569rem;
-    text-transform: capitalize;
-    vertical-align: middle;
-    text-align: left;
-    margin: 0.6987rem 0;
-
-    // large screen 992px
-    @media all and (min-width: 62rem) {
-      font-size: 1.5rem;
-    }
-  }
-}
-
-// carousel -------
-
-:host ::ng-deep .carousel-content-parent {
-  display: flex;
-  align-items: end;
-  justify-content: start;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 1.25rem;
-  padding-left: 1rem;
-  height: 17rem;
-
-  @media all and (min-width: 48rem) {
+  .top-left-parent {
     height: 27.5rem;
-  }
-
-  @media all and (min-width: 62rem) {
-    padding-left: 3.5rem;
-  }
-}
-
-:host ::ng-deep .carousel-content {
-  padding-bottom: 1.5rem;
-
-  @media all and (max-width: 62rem) {
-    width: 18.75rem;
-  }
-
-  h1,
-  h2 {
-    font-family: var(--font-family-1);
-    vertical-align: middle;
-  }
-
-  h1 {
-    color: var(--h1-color-gift);
-    font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 100%;
-    text-transform: capitalize;
-    text-align: left;
-    margin-bottom: 13px;
-    @media all and (min-width: 62rem) {
-      font-size: 2.25rem;
-      margin: 1.5rem 0 1rem;
-    }
-  }
-
-  h2 {
-    border-radius: 1.25rem;
-    font-weight: 400;
-    font-size: 1rem;
-    color: var(--h2-carousel-color-gift);
-    letter-spacing: 0.1019rem;
-    text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: 2.375rem;
-    line-height: 1.6;
-
-    @media all and (min-width: 62rem) {
-      margin-bottom: 3rem;
-    }
-  }
-}
-
-.carousel-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--carousel-button-gift-background);
-  width: 4.625rem;
-  height: 1.875rem;
-  border-radius: 62.4375rem;
-  position: absolute;
-  bottom: 1.7188rem;
-  right: calc(100% - 95%);
-  z-index: 20;
-
-  .nav-btn {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    border: none;
-    color: var(--carousel-i-color-gift);
-    font-size: 1.25rem;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  &:hover {
-    background-color: var(--carousel-button-gift-hover);
-  }
-  @media all and (max-width: 48rem) {
-    display: none;
-  }
-}
+    flex-direction: column;
+    justify-content: end;
+    align-items: start;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0.875rem;
+    overflow: hidden;
+    padding: 0 0 1.5rem 1rem;
+    margin-bottom: 1.5rem;
 
-:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-next,
-:host ::ng-deep .p-ripple.p-button.p-component.custom-gift-prev {
-  display: none;
-}
-
-:host ::ng-deep .p-carousel-indicator-list {
-  padding: 0;
-  opacity: 0;
-  position: absolute;
-  top: 1.7188rem;
-
-  @media all and (min-width: 48rem) {
-    opacity: 1;
-    right: calc(100% - 95%);
-  }
-}
-
-:host ::ng-deep .p-carousel-indicator-button {
-  width: 0.625rem;
-  height: 0.625rem;
-  border-radius: 2.9125rem;
-  background-color: var(--carousel-indicator-button-gift-color);
-  transition: all 0.3s ease-in-out;
-}
-
-:host ::ng-deep .p-carousel-indicator-active > .p-carousel-indicator-button {
-  width: 2.25rem;
-  background-color: var(--carousel-indicator-button-gift-active);
-  &:hover {
-    background-color: var(--carousel-indicator-button-gift-hover) !important;
-  }
-}
-
-// three bottom images ----------
-
-.bottom-content {
-  height: 17rem;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-radius: 1.25rem;
-  padding-left: 1.5rem;
-  padding-bottom: 1.5rem;
-
-  div {
-    max-width: 22.5rem;
+    // medium screen 768px
+    @media all and (min-width: 48rem) {
+      margin-bottom: 0;
+    }
 
     h2 {
-      display: inline-block;
       background-color: var(--h2-background-gift);
-      border-radius: 1.25rem;
-      font-family: var(--font-family-1);
-      font-weight: 500;
-      font-size: 0.625rem;
-      color: var(--h2-color-gift);
-      line-height: 100%;
-      text-transform: capitalize;
       padding: 0.125rem 0.5rem;
+      border-radius: 1.25rem;
+      font-family: var(--font-family-2);
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: var(--h2-color-gift);
+      line-height: 1.8875rem;
+      letter-spacing: 0.2913rem;
+      text-transform: uppercase;
+      vertical-align: middle;
       margin: 0;
+
+      // large screen 992px
+      @media all and (min-width: 62rem) {
+        font-size: 0.75rem;
+      }
     }
 
     h1 {
+      color: var(--h1-color-gift);
       font-family: var(--font-family-1);
       font-weight: 600;
-      font-size: 1.125rem;
-      color: var(--h1-color-gift);
-      line-height: 100%;
+      font-size: 1.25rem;
+      line-height: 1.9569rem;
       text-transform: capitalize;
       vertical-align: middle;
-      margin: 0.875rem 0;
+      text-align: left;
+      margin: 0.6987rem 0;
 
+      // large screen 992px
       @media all and (min-width: 62rem) {
         font-size: 1.5rem;
       }
     }
   }
-}
 
-//  RTL direction styling
+  // carousel -------
 
-:host-context([dir="rtl"]) .top-left-parent {
-  padding: 0 1rem 1.5rem 0;
-  h1 {
-    text-align: right;
+  .carousel-content-parent {
+    display: flex;
+    align-items: end;
+    justify-content: start;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1.25rem;
+    padding-left: 1rem;
+    height: 17rem;
+
+    @media all and (min-width: 48rem) {
+      height: 27.5rem;
+    }
+
+    @media all and (min-width: 62rem) {
+      padding-left: 3.5rem;
+    }
   }
-}
 
-:host-context([dir="rtl"]) ::ng-deep .carousel-content-parent {
-  padding-right: 1rem;
-}
+  .carousel-content {
+    padding-bottom: 1.5rem;
 
-:host-context([dir="rtl"]) .carousel-content {
-  width: 10rem;
+    @media all and (max-width: 62rem) {
+      width: 18.75rem;
+    }
 
-  h1 {
-    text-align: right;
+    h1,
+    h2 {
+      font-family: var(--font-family-1);
+      vertical-align: middle;
+    }
+
+    h1 {
+      color: var(--h1-color-gift);
+      font-weight: 600;
+      font-size: 1.25rem;
+      line-height: 100%;
+      text-transform: capitalize;
+      text-align: left;
+      margin-bottom: 13px;
+      @media all and (min-width: 62rem) {
+        font-size: 2.25rem;
+        margin: 1.5rem 0 1rem;
+      }
+    }
+
+    h2 {
+      border-radius: 1.25rem;
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--h2-carousel-color-gift);
+      letter-spacing: 0.1019rem;
+      text-transform: uppercase;
+      margin-top: 0;
+      margin-bottom: 2.375rem;
+      line-height: 1.6;
+
+      @media all and (min-width: 62rem) {
+        margin-bottom: 3rem;
+      }
+    }
   }
 
-  @media all and (min-width: 62rem) {
-    width: 23.8125rem;
-  }
-}
+  .carousel-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--carousel-button-gift-background);
+    width: 4.625rem;
+    height: 1.875rem;
+    border-radius: 62.4375rem;
+    position: absolute;
+    bottom: 1.7188rem;
+    right: calc(100% - 95%);
+    z-index: 20;
 
-:host-context([dir="rtl"]) .nav-btn i {
-  transform: rotateY(180deg);
-}
-
-:host-context([dir="rtl"]) .carousel-nav {
-  right: 75%;
-  @media all and (min-width: 31.25rem) {
-    right: 83%;
+    .nav-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      border: none;
+      color: var(--carousel-i-color-gift);
+      font-size: 1.25rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    &:hover {
+      background-color: var(--carousel-button-gift-hover);
+    }
+    @media all and (max-width: 48rem) {
+      display: none;
+    }
   }
-  @media all and (min-width: 48rem) {
+
+  .p-ripple.p-button.p-component.custom-gift-next,
+  .p-ripple.p-button.p-component.custom-gift-prev {
+    display: none;
+  }
+
+  .p-carousel-indicator-list {
+    padding: 0;
+    opacity: 0;
+    position: absolute;
+    top: 1.7188rem;
+
+    @media all and (min-width: 48rem) {
+      opacity: 1;
+      right: calc(100% - 95%);
+    }
+  }
+
+  .p-carousel-indicator-button {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 2.9125rem;
+    background-color: var(--carousel-indicator-button-gift-color);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .p-carousel-indicator-active > .p-carousel-indicator-button {
+    width: 2.25rem;
+    background-color: var(--carousel-indicator-button-gift-active);
+    &:hover {
+      background-color: var(--carousel-indicator-button-gift-hover) !important;
+    }
+  }
+
+  // three bottom images ----------
+
+  .bottom-content {
+    height: 17rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1.25rem;
+    padding-left: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    div {
+      max-width: 22.5rem;
+
+      h2 {
+        display: inline-block;
+        background-color: var(--h2-background-gift);
+        border-radius: 1.25rem;
+        font-family: var(--font-family-1);
+        font-weight: 500;
+        font-size: 0.625rem;
+        color: var(--h2-color-gift);
+        line-height: 100%;
+        text-transform: capitalize;
+        padding: 0.125rem 0.5rem;
+        margin: 0;
+      }
+
+      h1 {
+        font-family: var(--font-family-1);
+        font-weight: 600;
+        font-size: 1.125rem;
+        color: var(--h1-color-gift);
+        line-height: 100%;
+        text-transform: capitalize;
+        vertical-align: middle;
+        margin: 0.875rem 0;
+
+        @media all and (min-width: 62rem) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  //  RTL direction styling
+
+  :host-context([dir="rtl"]) .top-left-parent {
+    padding: 0 1rem 1.5rem 0;
+    h1 {
+      text-align: right;
+    }
+  }
+
+  :host-context([dir="rtl"]) .carousel-content-parent {
+    padding-right: 1rem;
+  }
+
+  :host-context([dir="rtl"]) .carousel-content {
+    width: 10rem;
+
+    h1 {
+      text-align: right;
+    }
+
+    @media all and (min-width: 62rem) {
+      width: 23.8125rem;
+    }
+  }
+
+  :host-context([dir="rtl"]) .nav-btn i {
+    transform: rotateY(180deg);
+  }
+
+  :host-context([dir="rtl"]) .carousel-nav {
     right: 75%;
+    @media all and (min-width: 31.25rem) {
+      right: 83%;
+    }
+    @media all and (min-width: 48rem) {
+      right: 75%;
+    }
+    @media all and (min-width: 62rem) {
+      right: 86%;
+    }
   }
-  @media all and (min-width: 62rem) {
-    right: 86%;
-  }
-}
 
-:host-context([dir="rtl"]) ::ng-deep .p-carousel-indicator-list {
-  @media all and (min-width: 48rem) {
-    right: calc(100% - 17%);
-  }
-  @media all and (min-width: 62rem) {
-    right: calc(100% - 13%);
+  :host-context([dir="rtl"]) .p-carousel-indicator-list {
+    @media all and (min-width: 48rem) {
+      right: calc(100% - 17%);
+    }
+    @media all and (min-width: 62rem) {
+      right: calc(100% - 13%);
+    }
   }
 }

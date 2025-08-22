@@ -6,6 +6,7 @@ import {
   OnInit,
   PLATFORM_ID,
   ViewChild,
+  ViewEncapsulation,
 } from "@angular/core";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
@@ -19,15 +20,23 @@ import {
 } from "@rose/core_interfaces/special-gifts.interface";
 // Shared_Components
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
+import { LazyBackgroundDirective } from "./../../../../../shared/directives/lazyBackground/lazyBackground.directive";
 // primeNg ...
+import { isPlatformBrowser } from "@angular/common";
 import { ButtonModule } from "primeng/button";
 import { Carousel, CarouselModule } from "primeng/carousel";
 import { TagModule } from "primeng/tag";
-import { isPlatformBrowser } from "@angular/common";
 
 @Component({
   selector: "app-gifts",
-  imports: [CarouselModule, ButtonModule, TagModule, ButtonComponent, TranslatePipe],
+  imports: [
+    CarouselModule,
+    ButtonModule,
+    TagModule,
+    ButtonComponent,
+    TranslatePipe,
+    LazyBackgroundDirective,
+  ],
   templateUrl: "./gifts.component.html",
   styleUrl: "./gifts.component.scss",
   host: {
@@ -36,6 +45,7 @@ import { isPlatformBrowser } from "@angular/common";
   },
   animations: [fadeTransition],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class GiftsComponent implements OnInit {
   translationService = inject(TranslationService);
