@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
+  production: false,
   baseApiUrl: "https://flower.elevateegy.com/",
-  runUrl:"https://rose-chi-nine.vercel.app/"
+  runUrl:"http://localhost:4200/"
 };
