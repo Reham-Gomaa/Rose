@@ -17,9 +17,12 @@
       <div class="flex flex-column justify-content-center align-items-center text-center text-2xl">
         <img
           class="w-62px"
-          src="/images/no-product-available.webp"
+          width="62"
+          height="62"
+          ngSrc="/images/no-product-available.AVIF"
           alt="image for not avaliable"
           loading="lazy"
+          decoding="async"
         />
         <p class="notfound-p">
           {{ "addressList.noAddress" | translate }}

@@ -27,7 +27,15 @@
   } @else {
   <div class="upload-section">
     <div class="avatar-container">
-      <img [src]="user()?.photo" alt="User Photo" class="avatar-img" />
+      <img
+        [ngSrc]="user()?.photo"
+        width="120"
+        height="120"
+        alt="User Photo"
+        class="avatar-img"
+        loading="lazy"
+        decoding="async"
+      />
       <p-fileupload
         mode="basic"
         name="profilePhoto"

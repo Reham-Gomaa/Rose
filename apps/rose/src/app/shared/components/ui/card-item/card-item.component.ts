@@ -3,7 +3,7 @@ import { Component, inject, Input } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RouterLink } from "@angular/router";
 // Images
-import { CommonModule, NgOptimizedImage } from "@angular/common";
+import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 // Interfaces
@@ -20,7 +20,6 @@ import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
 @Component({
   selector: "app-card-item",
   imports: [
-    CommonModule,
     RatingModule,
     FormsModule,
     SkeletonModule,

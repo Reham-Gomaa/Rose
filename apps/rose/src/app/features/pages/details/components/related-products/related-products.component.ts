@@ -30,7 +30,6 @@ import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 
 @Component({
   selector: "app-related-products",
-  standalone: true,
   imports: [TranslatePipe, CardItemComponent, CarouselModule, SkeletonModule],
   templateUrl: "./related-products.component.html",
   styleUrls: ["./related-products.component.scss"],

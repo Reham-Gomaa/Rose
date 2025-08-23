@@ -29,7 +29,7 @@
           <span class="status-label">{{ "orders.status" | translate }} </span>
           <span
             class="state-badge"
-            [ngClass]="'state-badge ' + ('orders.states.' + order.state + '.class' | translate)"
+            [class]="'state-badge ' + ('orders.states.' + order.state + '.class' | translate)"
           >
             {{ "orders.states." + order.state + ".text" | translate }}</span
           >
@@ -55,7 +55,7 @@
 
         <p>
           <strong>{{ "orders.deliveryStatus" | translate }} </strong>
-          <span [ngClass]="order.isDelivered ? 'delivered' : 'cancelled'">
+          <span [class]="order.isDelivered ? 'delivered' : 'cancelled'">
             <i [class]="order.isDelivered ? PrimeIcons.CHECK : PrimeIcons.BAN"></i>
             {{
               order.isDelivered
@@ -83,7 +83,14 @@
               [class.semi-visible]="isSemiVisible(order.orderItems.length, i, order._id)"
             >
               <div class="item-image">
-                <img [src]="item.product.imgCover" [alt]="item.product.title" />
+                <img
+                  [ngSrc]="item.product.imgCover"
+                  width="117"
+                  height="142"
+                  [alt]="item.product.title"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="item-details">
                 <p class="item-title">{{ item.product.title }}</p>

@@ -15,7 +15,14 @@
           [padding]="'clear-cart-padding'"
           [borderRadius]="'cart-radius'"
         >
-          <img loading="lazy" src="./images/cart/brush-cleaning.WebP" alt="clear cart" />
+          <img
+            loading="lazy"
+            decoding="async"
+            width="20"
+            height="20"
+            ngSrc="./images/cart/brush-cleaning.AVIF"
+            alt="clear cart"
+          />
         </app-button>
       </div>
     </div>
@@ -42,8 +49,11 @@
         <div class="md:w-3">
           <img
             loading="lazy"
+            decoding="async"
             class="pdt block border-round-lg"
-            [src]="item.product.imgCover"
+            width="117"
+            height="140"
+            [ngSrc]="item.product.imgCover"
             [alt]="item.product.title"
           />
         </div>
@@ -118,8 +128,11 @@
         <div>
           <img
             loading="lazy"
+            decoding="async"
             class="empty block"
-            src="./images/cart/no-cart.WebP"
+            width="250"
+            height="214"
+            ngSrc="./images/cart/no-cart.png"
             alt="empty cart"
           />
         </div>

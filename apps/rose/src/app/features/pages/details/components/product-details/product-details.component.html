@@ -16,13 +16,21 @@
               d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM184 296c0 13.3 10.7 24 24 24s24-10.7 24-24l0-64 64 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-64 0 0-64c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 64-64 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l64 0 0 64z"
             />
           </svg>
-          <img class="w-full object-cover" [src]="currentImage()" [alt]="productDetails().slug" />
+          <img
+            class="w-full object-cover"
+            width="605"
+            height="402"
+            [ngSrc]="currentImage()"
+            loading="lazy"
+            decoding="async"
+            [alt]="productDetails().slug"
+          />
         </div>
         <div class="others flex justify-content-center align-items-center gap-3">
           @for (image of productDetails().images; track $index) {
           <div
             class="image flex justify-content-center cursor-pointer flex-wrap"
-            [ngClass]="{ 'active-thumbnail': currentImage() === image }"
+            [class]="{ 'active-thumbnail': currentImage() === image }"
             tabindex="0"
             (keydown)="onThumbnailClick(image)"
             (click)="onThumbnailClick(image)"
@@ -33,6 +41,8 @@
               height="110"
               [ngSrc]="image"
               [alt]="productDetails().slug"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           }
@@ -100,10 +110,14 @@
   >
     @if (currentImage()) {
     <img
-      [src]="currentImage()"
+      [ngSrc]="currentImage()"
+      width="100"
+      height="100"
       alt="Zoomed Image"
       class="w-full h-auto block"
       style="max-height: 70vh; object-fit: cover"
+      loading="lazy"
+      decoding="async"
     />
     }
   </p-dialog>

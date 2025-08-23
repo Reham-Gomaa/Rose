@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, signal, inject, DestroyRef } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { CarouselModule } from "primeng/carousel";
 import { SkeletonModule } from "primeng/skeleton";
 import { CardItemComponent } from "../card-item/card-item.component";
@@ -9,8 +8,7 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
 @Component({
   selector: "app-bestseller-slider",
-  standalone: true,
-  imports: [CommonModule, CarouselModule, SkeletonModule, CardItemComponent],
+  imports: [CarouselModule, SkeletonModule, CardItemComponent],
   templateUrl: "./bestseller-slider.component.html",
   styleUrls: ["./bestseller-slider.component.scss"],
 })

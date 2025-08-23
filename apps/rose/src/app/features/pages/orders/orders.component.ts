@@ -1,5 +1,5 @@
-import { Component, inject, OnInit, OnDestroy } from "@angular/core";
-import { CommonModule, CurrencyPipe, DatePipe } from "@angular/common";
+import { Component, inject, OnInit } from "@angular/core";
+import { CurrencyPipe, DatePipe, NgOptimizedImage } from "@angular/common";
 import { RouterModule } from "@angular/router";
 //Translation
 import { TranslatePipe } from "@ngx-translate/core";
@@ -17,8 +17,7 @@ import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: "app-orders",
-  standalone: true,
-  imports: [CommonModule, RouterModule, TranslatePipe],
+  imports: [NgOptimizedImage, RouterModule, TranslatePipe],
   templateUrl: "./orders.component.html",
   styleUrls: ["./orders.component.scss"],
   providers: [DatePipe, CurrencyPipe],

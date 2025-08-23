@@ -13,7 +13,15 @@
         class="method-card flex flex-column align-items-center justify-content-center"
       >
         <div class="method-icon">
-          <img class="w-1/1" [src]="method.imageSrc" alt="{{ method.title }}" />
+          <img
+            class="w-1/1"
+            [ngSrc]="method.imageSrc"
+            width="195"
+            height="195"
+            alt="{{ method.title }}"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
         <div class="method-info text-center">
           <h3 class="text-xl">{{ method.title }}</h3>

@@ -1,5 +1,4 @@
 import { Component, inject, OnInit, OnDestroy } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
 import { Subscription } from "rxjs";
 //Interfaces
@@ -13,12 +12,7 @@ import { ProductsService } from "@rose/shared_services/products/products.service
 
 @Component({
   selector: "app-details",
-  imports: [
-    CommonModule,
-    ProductReviewComponent,
-    ProductDetailsComponent,
-    RelatedProductsComponent,
-  ],
+  imports: [ProductReviewComponent, ProductDetailsComponent, RelatedProductsComponent],
   templateUrl: "./details.component.html",
   styleUrl: "./details.component.scss",
 })

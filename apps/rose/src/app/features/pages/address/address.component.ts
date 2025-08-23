@@ -16,6 +16,7 @@ import { SpinnerComponent } from "@rose/shared_Components_ui/spinner/spinner.com
 import { DeleteDialogComponent } from "@rose/features_layouts/order-flow/components/user-address/components/delete-dialog/delete-dialog.component";
 import { AddressStepperComponent } from "@rose/features_layouts/order-flow/components/user-address/components/address-stepper/address-stepper.component";
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
+import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: "app-address",
@@ -26,6 +27,7 @@ import { ButtonComponent } from "@rose/shared_Components_ui/button/button.compon
     DeleteDialogComponent,
     AddressStepperComponent,
     ButtonComponent,
+    NgOptimizedImage,
   ],
   templateUrl: "./address.component.html",
   styleUrl: "./address.component.scss",

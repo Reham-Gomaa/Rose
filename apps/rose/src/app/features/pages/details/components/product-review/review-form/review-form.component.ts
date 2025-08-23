@@ -1,12 +1,11 @@
 import { Component, inject, OnInit } from "@angular/core";
-import { CommonModule } from "@angular/common";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { RatingModule } from "primeng/rating";
 import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
   selector: "app-review-form",
-  imports: [CommonModule, ReactiveFormsModule, RatingModule, TranslatePipe],
+  imports: [ReactiveFormsModule, RatingModule, TranslatePipe],
   templateUrl: "./review-form.component.html",
   styleUrl: "./review-form.component.scss",
 })
