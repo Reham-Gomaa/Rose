@@ -5,6 +5,7 @@ import {
   inject,
   OnInit,
   PLATFORM_ID,
+  signal,
   ViewChild,
   ViewEncapsulation,
 } from "@angular/core";
@@ -52,7 +53,7 @@ export class GiftsComponent implements OnInit {
   private readonly pLATFORM_ID = inject(PLATFORM_ID);
   @ViewChild("carousel") carousel!: Carousel;
 
-  autoScrollInterval = 0;
+  autoScrollInterval = signal(0);
 
   ngOnInit() {
     if (!isPlatformBrowser(this.pLATFORM_ID)) return;
@@ -66,25 +67,25 @@ export class GiftsComponent implements OnInit {
 
   private setAutoScroll(width: number) {
     if (width < 768) {
-      this.autoScrollInterval = 3000;
+      this.autoScrollInterval.set(3000);
     } else {
-      this.autoScrollInterval = 0;
+      this.autoScrollInterval.set(0);
     }
   }
 
   responsiveOptions = [
     {
-      breakpoint: "1400px",
+      breakpoint: "87.5rem",
       numVisible: 1,
       numScroll: 1,
     },
     {
-      breakpoint: "768px",
+      breakpoint: "48rem",
       numVisible: 1,
       numScroll: 1,
     },
     {
-      breakpoint: "560px",
+      breakpoint: "35rem",
       numVisible: 1,
       numScroll: 1,
     },
@@ -93,12 +94,12 @@ export class GiftsComponent implements OnInit {
   carouselList: carouselListInterface[] = [
     {
       id: 1,
-      source: "./images/gifts/1.WebP",
+      source: "./images/gifts/1.AVIF",
       title: "pink roses in white vase with white and pink balloons",
     },
     {
       id: 2,
-      source: "./images/gifts/2.WebP",
+      source: "./images/gifts/2.AVIF",
       title: "pink roses with box of chocolate",
     },
   ];
@@ -106,21 +107,21 @@ export class GiftsComponent implements OnInit {
   pics: picsInterface[] = [
     {
       id: 1,
-      source: "./images/gifts/Confetti lying near present.WebP",
+      source: "./images/gifts/Confetti lying near present.AVIF",
       title: "christmas gift with red ribbon",
       heading2: "home.gifts.bottomImages.left.heading2",
       heading1: "home.gifts.bottomImages.left.heading1",
     },
     {
       id: 2,
-      source: "./images/gifts/Top view hand holding gift box on work space.WebP",
+      source: "./images/gifts/Top view hand holding gift box on work space.AVIF",
       title: "christmas gift with golden ribbon",
       heading2: "home.gifts.bottomImages.middle.heading2",
       heading1: "home.gifts.bottomImages.middle.heading1",
     },
     {
       id: 3,
-      source: "./images/gifts/Christmas shopping composition with presents and cart.WebP",
+      source: "./images/gifts/Christmas shopping composition with presents and cart.AVIF",
       title: "colorful christmas ribbons with shopping cart",
       heading2: "home.gifts.bottomImages.right.heading2",
       heading1: "home.gifts.bottomImages.right.heading1",
