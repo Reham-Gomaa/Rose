@@ -1,7 +1,7 @@
 // @use "/apps/rose/src/app/shared/styles/variables";
 .review-form {
-  &{
-    border-right: 1px solid #E4E4E7;
+  & {
+    border-right: 1px solid #e4e4e7;
   }
   label,
   .rateLabel {
@@ -16,18 +16,17 @@
     color: var(--input-text-color);
     border: var(--input-border-color);
 
-
     &::placeholder {
       text-transform: capitalize;
     }
   }
 
-  .review{
-        background-color: var(--btn-shared-background);
-        color: var(--btn-shared-color);
-        transition: all 0.3s;
-      }
-      .review:hover{
-        background-color: var( --btn-shared-background-hover);
-      }
+  .review {
+    background-color: var(--btn-shared-background);
+    color: var(--btn-shared-color);
+    transition: all 0.3s;
+  }
+  .review:hover {
+    background-color: var(--btn-shared-background-hover);
+  }
 }

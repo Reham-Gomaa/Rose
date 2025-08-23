@@ -141,6 +141,7 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
+                                            <span class="modifier">Optional</span>
                                         <a href="#btnText" 
 >
                                             btnText
@@ -214,6 +215,11 @@
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
 
 
 
@@ -391,23 +397,23 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface picsInterface {
-  id: number
-  source: string
-  title: string
-  heading2: string
-  heading1: string
-  btnText: string
+  id: number;
+  source: string;
+  title: string;
+  heading2: string;
+  heading1: string;
+  btnText?: string;
 }
 
 export interface carouselListInterface {
-  id: number
-  source: string
-  title: string
+  id: number;
+  source: string;
+  title: string;
 }
 export interface responsiveOptionsInterface {
-  breakpoint: string
-  numVisible: number
-  numScroll: number
+  breakpoint: string;
+  numVisible: number;
+  numScroll: number;
 }
 </code></pre>
     </div>

@@ -10,7 +10,6 @@
   color: var(--address-body);
   font-family: var(--font-family-4);
 
-
   &__header {
     display: flex;
     justify-content: space-between;
@@ -33,7 +32,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: .0625rem;
+      margin-top: 0.0625rem;
     }
 
     .address-card__city {
@@ -58,9 +57,8 @@
       border-radius: 50%;
       transition: background-color 0.2s;
 
-      &.edit{
+      &.edit {
         color: var(--address-body);
-
       }
 
       &.edit:hover {
@@ -94,8 +92,7 @@
     color: var(--address-name);
     top: -200%;
     background-color: var(--address-name-background);
-    padding:  0rem .0625rem;
-    
+    padding: 0rem 0.0625rem;
   }
 
   .address-card__to-button {
@@ -122,7 +119,6 @@
     }
   }
 
-
   @media (max-width: #{$breakpoint-small}) {
     &__header {
       flex-direction: column;
@@ -132,26 +128,24 @@
       gap: 0.5rem;
     }
 
-
     &__right {
       flex-direction: column;
       width: 100%;
     }
-    
+
     &__left {
       flex-direction: column;
-
     }
     .address-card__icon {
       margin-top: 0px;
     }
 
-    .address-card__city{
-      font-size: .75rem;
+    .address-card__city {
+      font-size: 0.75rem;
     }
 
     .address-card__to-button {
-      gap: .4125rem;
+      gap: 0.4125rem;
       justify-content: center;
       align-items: center;
       margin-top: 0.5rem;
@@ -164,4 +158,3 @@
     }
   }
 }
-

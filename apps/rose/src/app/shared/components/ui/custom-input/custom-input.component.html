@@ -1,8 +1,16 @@
 <div class="flex flex-column gap-2">
   <label [for]="id()" class="label-color mt-3">{{ labelText() }}</label>
   <div class="input-wrapper">
-    <input [id]="id()" [type]="inputType" [placeholder]="placeholder()" [value]="value" (input)="handleInput($event)"
-      (blur)="onTouched()" required class="input-style" />
+    <input
+      [id]="id()"
+      [type]="inputType"
+      [placeholder]="placeholder()"
+      [value]="value"
+      (input)="handleInput($event)"
+      (blur)="onTouched()"
+      required
+      class="input-style"
+    />
     @if(type() === 'password'){
     <button type="button" (click)="toggleShowPassword()" class="eye-btn">
       @if(!showPassword){
@@ -12,7 +20,6 @@
       }
     </button>
     }
-
   </div>
   @if(errorHandilgControl()){
   <app-input-error-handling [control]="errorHandilgControl()!"></app-input-error-handling>

@@ -1,5 +1,3 @@
-// @angular
-import { CommonModule } from "@angular/common";
 import { Component, forwardRef, input } from "@angular/core";
 import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 // shared-components
@@ -7,7 +5,7 @@ import { InputErrorHandlingComponent } from "@rose/shared_Components_business/in
 
 @Component({
   selector: "app-custom-input",
-  imports: [CommonModule, InputErrorHandlingComponent],
+  imports: [InputErrorHandlingComponent],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

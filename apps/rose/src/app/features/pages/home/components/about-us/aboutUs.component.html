@@ -1,23 +1,51 @@
-<section class="about-section flex flex-wrap lg:flex-nowrap gap-8 px-1 lg:px-6 py-2 md:py-8 mt-8"
-  aria-labelledby="about-heading" itemscope itemtype="https://schema.org/AboutPage">
+<section
+  class="about-section flex flex-wrap lg:flex-nowrap gap-8 px-1 lg:px-6 py-2 md:py-8 mt-8"
+  aria-labelledby="about-heading"
+  itemscope
+  itemtype="https://schema.org/AboutPage"
+>
   <!-- Left side images -->
   <div class="image-container mx-auto flex justify-content-center align-items-center gap-6">
     <!-- Main image with custom border and rotation -->
     <div class="border-box-container" aria-hidden="true">
       <div class="border-box-transform"></div>
-      <img ngSrc="/images/abouts/Rectangle 3.WebP" alt="Premium gift box with elegant wrapping"
-        class="border-image-main" loading="lazy" decoding="async" width="400" height="400" itemprop="image" />
+      <img
+        ngSrc="/images/abouts/Rectangle 3.AVIF"
+        alt="Premium gift box with elegant wrapping"
+        class="border-image-main"
+        loading="lazy"
+        decoding="async"
+        width="400"
+        height="400"
+        itemprop="image"
+      />
     </div>
 
     <!-- Secondary circular images -->
     <div class="flex flex-column px-3 gap-3">
       <div class="border-circle-second overflow-hidden">
-        <img ngSrc="/images/abouts/Rectangle 4.WebP" alt="Close-up of elegant gift packaging details"
-          class="border-image-second" loading="lazy" decoding="async" width="200" height="200" itemprop="image" />
+        <img
+          ngSrc="/images/abouts/Rectangle 4.AVIF"
+          alt="Close-up of elegant gift packaging details"
+          class="border-image-second"
+          loading="lazy"
+          decoding="async"
+          width="200"
+          height="200"
+          itemprop="image"
+        />
       </div>
       <div class="border-circle-third overflow-hidden">
-        <img ngSrc="/images/abouts/Rectangle 5.WebP" alt="Open luxury gift box showing interior"
-          class="border-image-third" loading="lazy" decoding="async" width="200" height="200" itemprop="image" />
+        <img
+          ngSrc="/images/abouts/Rectangle 5.AVIF"
+          alt="Open luxury gift box showing interior"
+          class="border-image-third"
+          loading="lazy"
+          decoding="async"
+          width="200"
+          height="200"
+          itemprop="image"
+        />
       </div>
     </div>
   </div>
@@ -31,17 +59,23 @@
       {{ "home.aboutUs.heading2part1" | translate }}
       <span class="p-strong" itemprop="keywords">{{
         "home.aboutUs.heading2span" | translate
-        }}</span>
+      }}</span>
       {{ "home.aboutUs.heading2part2" | translate }}
     </h2>
     <p class="p-about mb-4" itemprop="description">
       {{ "home.aboutUs.paragraph" | translate }}
     </p>
 
-    <app-button [text]="'home.aboutUs.btn' | translate" [bgColor]="'var(--btn-shared-background)'"
-      [icon]="'pi pi-arrow-right arrowicon'" [textColor]="'var(--btn-shared-color)'" [borderRadius]="'btn-about-radius'"
-      [padding]="'btn-about-padding'" [transition]="'btn-about-transition'"
-      aria-label="Discover more about our premium gift boxes" />
+    <app-button
+      [text]="'home.aboutUs.btn' | translate"
+      [bgColor]="'var(--btn-shared-background)'"
+      [icon]="'pi pi-arrow-right arrowicon'"
+      [textColor]="'var(--btn-shared-color)'"
+      [borderRadius]="'btn-about-radius'"
+      [padding]="'btn-about-padding'"
+      [transition]="'btn-about-transition'"
+      aria-label="Discover more about our premium gift boxes"
+    />
 
     <div class="flex flex-wrap w-50 gap-y-3 mt-3" role="list" aria-label="Product features">
       @for(item of items; track item){

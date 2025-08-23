@@ -54,12 +54,24 @@
             }
           ],
           "outputHashing": "all",
-          "optimization": true
+          "optimization": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/rose/src/app/core/environment/baseurl.dev.ts",
+              "with": "apps/rose/src/app/core/environment/baseurl.prod.ts"
+            }
+          ]
         },
         "development": {
           "optimization": false,
           "extractLicenses": false,
-          "sourceMap": true
+          "sourceMap": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/rose/src/app/core/environment/baseurl.prod.ts",
+              "with": "apps/rose/src/app/core/environment/baseurl.dev.ts"
+            }
+          ]
         },
         "analyze-bundle": {
           "sourceMap": true,

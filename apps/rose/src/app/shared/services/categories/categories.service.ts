@@ -16,6 +16,8 @@ export class CategoriesService {
   }
 
   getCategoryById(categoryId: string): Observable<CategoryRes> {
-    return this.httpClient.get<CategoryRes>(`${EndPoint.CATEGORIES}/${categoryId}`).pipe(shareReplay(1));
+    return this.httpClient
+      .get<CategoryRes>(`${EndPoint.CATEGORIES}/${categoryId}`)
+      .pipe(shareReplay(1));
   }
 }

@@ -2,6 +2,7 @@ import { Component, DestroyRef, inject, signal, ViewChild } from "@angular/core"
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { Router } from "@angular/router";
+import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
@@ -23,6 +24,7 @@ import { Select } from "primeng/select";
 import { SkeletonModule } from "primeng/skeleton";
 // Auth_Lib
 import { AuthApiKpService, User } from "auth-api-kp";
+
 @Component({
   selector: "app-edit-profile",
   imports: [
@@ -38,6 +40,7 @@ import { AuthApiKpService, User } from "auth-api-kp";
     Select,
     FormButtonComponent,
     ConfirmDialogComponent,
+    NgOptimizedImage,
   ],
   templateUrl: "./edit-profile.component.html",
   styleUrl: "./edit-profile.component.scss",
@@ -85,7 +88,7 @@ export class EditProfileComponent {
   ngOnInit(): void {
     this.loadUserProfile();
   }
-  
+
   loadUserProfile(): void {
     this.isLoading.set(true);
     this._authApiKpService

@@ -1,5 +1,4 @@
 <section class="product-review my-5">
-
   <div class="product-review-header pb-5">
     <div class="p-relative d-inline-block details-title-wrapper">
       <h2 id="details-heading" class="details-title" itemprop="name">
@@ -10,24 +9,24 @@
       <meta itemprop="description" content="Browse related products" />
     </div>
     <div class="general-rating">
-      <h3 class="mb-2">
-        {{ 'Details.generalRating' | translate }}:
-      </h3>
+      <h3 class="mb-2">{{ "Details.generalRating" | translate }}:</h3>
       <div class="rating-value">
-        <span class="rating-average mb-3 inline-block capitalize font-semibold  ">
-          <span class="font-bold rateVal">
-            4.5
-          </span>
+        <span class="rating-average mb-3 inline-block capitalize font-semibold">
+          <span class="font-bold rateVal"> 4.5 </span>
           <span class="numOfRating">
-            ({{ 'Details.ratingsCount' | translate:{ count: 8 } }})
+            ({{ "Details.ratingsCount" | translate : { count: 8 } }})
           </span>
         </span>
         <div class="rating-stars">
-          <p-rating [(ngModel)]="value" [iconOnStyle]="{
+          <p-rating
+            [(ngModel)]="value"
+            [iconOnStyle]="{
                   'color': '#FFD700',
-                }" [stars]="5" [readonly]="true" />
+                }"
+            [stars]="5"
+            [readonly]="true"
+          />
         </div>
-
       </div>
     </div>
   </div>
@@ -38,10 +37,8 @@
         <app-review-form></app-review-form>
       </div>
       <div class="md:col-6 col-12">
-       <app-review-list></app-review-list>
+        <app-review-list></app-review-list>
       </div>
-
     </div>
   </div>
-
 </section>

@@ -6,9 +6,17 @@ import { StepperModule } from "primeng/stepper";
 import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
 import { CustomInputPhoneComponent } from "@rose/shared_Components_ui/custom-input-phone/custom-input-phone.component";
 import { Store } from "@ngrx/store";
-import { AddAddress, setAddressState, updateAddress } from "apps/rose/src/app/store/address/address.actions";
+import {
+  AddAddress,
+  setAddressState,
+  updateAddress,
+} from "apps/rose/src/app/store/address/address.actions";
 import { Address } from "@rose/core_interfaces/user-address.interface";
-import { selectAddress, selectAddressId, selectUserName } from "apps/rose/src/app/store/address/address.selector";
+import {
+  selectAddress,
+  selectAddressId,
+  selectUserName,
+} from "apps/rose/src/app/store/address/address.selector";
 import { CustomMainDialogComponent } from "@rose/shared_Components_ui/custom-main-dialog/custom-main-dialog.component";
 import { TranslatePipe } from "@ngx-translate/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
@@ -35,17 +43,14 @@ export class AddressStepperComponent implements OnInit {
   isUpdate = input<boolean>();
   visible = input.required<boolean>();
 
-
   address!: Address;
   // center = { lat: 30.0444, lng: 31.2357 };
   addressId!: string;
-  userName!:string;
-
+  userName!: string;
 
   addressId$ = this._store.select(selectAddressId);
   address$ = this._store.select(selectAddress);
   userName$ = this._store.select(selectUserName);
-
 
   center: google.maps.LatLngLiteral = { lat: 30.0444, lng: 31.2357 }; // Example: Cairo
   markerPosition!: google.maps.LatLngLiteral;
@@ -84,7 +89,7 @@ export class AddressStepperComponent implements OnInit {
     } else {
       this.addAddress();
     }
-    this._store.dispatch(setAddressState({addressState:0}))
+    this._store.dispatch(setAddressState({ addressState: 0 }));
   }
 
   addAddress() {
@@ -107,18 +112,17 @@ export class AddressStepperComponent implements OnInit {
     this._store.dispatch(updateAddress({ address: address, addressId: this.addressId }));
   }
 
-   addMarker(event: google.maps.MapMouseEvent) {
+  addMarker(event: google.maps.MapMouseEvent) {
     if (event.latLng) {
       this.markerPosition = {
         lat: event.latLng.lat(),
         lng: event.latLng.lng(),
       };
-      console.log('Marker placed at:', this.markerPosition);
+      console.log("Marker placed at:", this.markerPosition);
     }
   }
 
   init() {
-
     this.addressId$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((addressId) => {
       this.addressId = addressId;
       this.address$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((address) => {
@@ -133,11 +137,8 @@ export class AddressStepperComponent implements OnInit {
       });
     });
 
-    this.userName$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((userName)=>{
-      this.userName=userName;
+    this.userName$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((userName) => {
+      this.userName = userName;
     });
-
   }
-
-
 }

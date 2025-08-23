@@ -3,19 +3,47 @@
     <div class="md:col-6 col-12">
       <div class="product-image">
         <div class="cover relative">
-          <svg xmlns="http://www.w3.org/2000/svg" class="absolute m-3 cursor-pointer" viewBox="0 0 512 512"
-            (click)="openImageModal()" tabindex="0" (keydown)="openImageModal()" width="30">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="absolute m-3 cursor-pointer"
+            viewBox="0 0 512 512"
+            (click)="openImageModal()"
+            tabindex="0"
+            (keydown)="openImageModal()"
+            width="30"
+          >
             <path
-              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM184 296c0 13.3 10.7 24 24 24s24-10.7 24-24l0-64 64 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-64 0 0-64c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 64-64 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l64 0 0 64z" />
+              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM184 296c0 13.3 10.7 24 24 24s24-10.7 24-24l0-64 64 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-64 0 0-64c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 64-64 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l64 0 0 64z"
+            />
           </svg>
-          <img class="w-full object-cover" [src]="currentImage()" [alt]="productDetails().slug">
+          <img
+            class="w-full object-cover"
+            width="605"
+            height="402"
+            [ngSrc]="currentImage()"
+            loading="lazy"
+            decoding="async"
+            [alt]="productDetails().slug"
+          />
         </div>
         <div class="others flex justify-content-center align-items-center gap-3">
           @for (image of productDetails().images; track $index) {
-          <div class="image flex justify-content-center cursor-pointer flex-wrap"
-            [ngClass]="{ 'active-thumbnail': currentImage() === image }" tabindex="0"
-            (keydown)="onThumbnailClick(image)" (click)="onThumbnailClick(image)">
-            <img class="object-cover" width="91" height="110" [ngSrc]="image" [alt]="productDetails().slug" />
+          <div
+            class="image flex justify-content-center cursor-pointer flex-wrap"
+            [class]="{ 'active-thumbnail': currentImage() === image }"
+            tabindex="0"
+            (keydown)="onThumbnailClick(image)"
+            (click)="onThumbnailClick(image)"
+          >
+            <img
+              class="object-cover"
+              width="91"
+              height="110"
+              [ngSrc]="image"
+              [alt]="productDetails().slug"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
           }
         </div>
@@ -27,32 +55,42 @@
           <h2 class="font-semibold mb-1 mt-0">{{ productDetails().title }}</h2>
           <div class="price-and-stock flex gap-3 align-items-center">
             <div class="price font-bold">
-              <span class="original mr-2 ">{{productDetails().price}}</span>
-              <span class="discounted">{{productDetails().priceAfterDiscount}} <span
-                  class="font-normal">EGP</span></span>
+              <span class="original mr-2">{{ productDetails().price }}</span>
+              <span class="discounted"
+                >{{ productDetails().priceAfterDiscount }}
+                <span class="font-normal">EGP</span></span
+              >
             </div>
             <div class="stock w-fit">
               <i class="pi pi-box"></i>
-              <span class="ml-1"> {{productDetails().quantity - productDetails().sold}} left in stock</span>
+              <span class="ml-1">
+                {{ productDetails().quantity - productDetails().sold }} left in stock</span
+              >
             </div>
           </div>
           <div class="rating my-5 font-bold">
             <i class="pi pi-star-fill"></i>
-            <span class="ml-2">Rating: {{productDetails().rateAvg}}/5</span>
-            <span class="ratingCount ml-2">({{productDetails().rateCount}} ratings)</span>
+            <span class="ml-2">Rating: {{ productDetails().rateAvg }}/5</span>
+            <span class="ratingCount ml-2">({{ productDetails().rateCount }} ratings)</span>
           </div>
           <p class="description">
-            {{productDetails().description}}
+            {{ productDetails().description }}
           </p>
         </div>
         <div class="wish-and-cart text-lg w-full flex gap-2">
-          <button [appWishlistToggle]="productDetails()"
-            class="submit-btn wish cursor-pointer flex-grow-0 w-fit capitalize" [activeClass]="'wishlist-active'">
-            <i class="pi  pi-heart"></i>
+          <button
+            [appWishlistToggle]="productDetails()"
+            class="submit-btn wish cursor-pointer flex-grow-0 w-fit capitalize"
+            [activeClass]="'wishlist-active'"
+          >
+            <i class="pi pi-heart"></i>
           </button>
-          <button [disabled]="productDetails().quantity <= 0" [class.disableCart]="productDetails().quantity <= 0"
+          <button
+            [disabled]="productDetails().quantity <= 0"
+            [class.disableCart]="productDetails().quantity <= 0"
             (click)="addProductToCart(productDetails()._id)"
-            class="submit-btn cart cursor-pointer flex-grow-1 capitalize">
+            class="submit-btn cart cursor-pointer flex-grow-1 capitalize"
+          >
             <i class="pi pi-shopping-cart mr-1"></i>
             add to cart
           </button>
@@ -61,12 +99,26 @@
     </div>
   </div>
 
-  <p-dialog [header]="productDetails().slug.toUpperCase()" [(visible)]="showModal" [modal]="true"
-    [dismissableMask]="true" [closable]="true" [style.maxWidth]="'50vw'" [contentStyle]="{ 'text-align': 'center' }">
-
+  <p-dialog
+    [header]="productDetails().slug.toUpperCase()"
+    [(visible)]="showModal"
+    [modal]="true"
+    [dismissableMask]="true"
+    [closable]="true"
+    [style.maxWidth]="'50vw'"
+    [contentStyle]="{ 'text-align': 'center' }"
+  >
     @if (currentImage()) {
-    <img [src]="currentImage()" alt="Zoomed Image" class="w-full h-auto block"
-      style="max-height: 70vh; object-fit: cover;" />
+    <img
+      [ngSrc]="currentImage()"
+      width="100"
+      height="100"
+      alt="Zoomed Image"
+      class="w-full h-auto block"
+      style="max-height: 70vh; object-fit: cover"
+      loading="lazy"
+      decoding="async"
+    />
     }
   </p-dialog>
 </section>

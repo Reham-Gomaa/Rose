@@ -1,13 +1,18 @@
 <section class="auth-grid-container" role="region" aria-label="Authentication Section">
   <div id="auth" class="auth-form-section">
     <div id="lang-toggle" class="grid" role="navigation" aria-label="Language and Theme Controls">
-      <div class="col-6">
-
-      </div>
+      <div class="col-6"></div>
       <div class="col-6">
         <div class="flex justify-content-end align-items-center">
-          <button routerLink="/dashboard/home" type="button" class="btn-home" aria-label="Back to homepage" role="link">
-            <i class="pi pi-home arrowicon"></i></button>
+          <button
+            routerLink="/dashboard/home"
+            type="button"
+            class="btn-home"
+            aria-label="Back to homepage"
+            role="link"
+          >
+            <i class="pi pi-home arrowicon"></i>
+          </button>
           <app-button-theme aria-label="Toggle Theme" />
           <app-translate-toggle aria-label="Toggle Language" />
         </div>
@@ -19,29 +24,41 @@
 
       @if (process() === 'forgetPass') {
       <h1 class="forget">{{ title() | translate }}</h1>
-      <p class="forget">{{ titleParagraph() | translate }}
-        @if (paragraphSpan() !== '') {<button type="button" class="edit-link" (click)="goBackToForget()"
-          (keydown)="goBackToForget()" aria-label="Edit email">
-          {{ paragraphSpan() | translate }}
-        </button>}
+      <p class="forget">
+        {{ titleParagraph() | translate }} @if (paragraphSpan() !== '') {<button
+          type="button"
+          class="edit-link"
+          (click)="goBackToForget()"
+          (keydown)="goBackToForget()"
+          aria-label="Edit email"
+        >
+          {{ paragraphSpan() | translate }}</button
+        >}
       </p>
-      }
-      @else {
+      } @else {
       <h1 tabindex="0">{{ title() | translate }}</h1>
       }
       <div id="form-wrapper" role="form">
         <ng-content />
       </div>
-      <h3 [routerLink]="process() === 'register' ? '/login' : '/register'" class="create-account" role="link"
-        tabindex="0" aria-label="Switch between login and registration">
+      <h3
+        [routerLink]="process() === 'register' ? '/login' : '/register'"
+        class="create-account"
+        role="link"
+        tabindex="0"
+        aria-label="Switch between login and registration"
+      >
         {{ heading3() | translate }}
         <span>{{ heading3span() | translate }}</span>
       </h3>
       <app-separator [position]="'down'" role="separator" aria-hidden="true"></app-separator>
-
     </div>
   </div>
-  <div id="photo" class="auth-image-section" role="img" aria-label="Decorative gift background image"
-    style="background-image: url('./images/auth/gifts.WebP')"></div>
+  <div
+    id="photo"
+    class="auth-image-section"
+    role="img"
+    aria-label="Decorative gift background image"
+    style="background-image: url('./images/auth/gifts.AVIF')"
+  ></div>
 </section>
-

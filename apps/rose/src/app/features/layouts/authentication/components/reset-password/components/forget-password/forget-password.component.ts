@@ -1,10 +1,5 @@
 import { Component, EventEmitter, inject, Output, signal, DestroyRef } from "@angular/core";
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from "@angular/forms";
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
@@ -19,7 +14,6 @@ import { AuthApiKpService } from "auth-api-kp";
 
 @Component({
   selector: "app-forget-password",
-  standalone: true,
   imports: [CustomInputComponent, FormButtonComponent, TranslatePipe, ReactiveFormsModule],
   templateUrl: "./forget-password.component.html",
   styleUrl: "./forget-password.component.scss",

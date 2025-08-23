@@ -2,9 +2,11 @@ import { Component } from "@angular/core";
 // Router
 import { RouterOutlet } from "@angular/router";
 // Components
-import { SpeedDialComponent } from "@rose/shared_Components_business/speedDial-btn/speedDial.component";
 import { FooterComponent } from "../footer/footer.component";
 import { NavbarComponent } from "../navbar/navbar.component";
+
+// Sheared Components
+import { SpeedDialComponent } from "@rose/shared_Components_business/speedDial-btn/speedDial.component";
 
 @Component({
   selector: "app-dashboard",

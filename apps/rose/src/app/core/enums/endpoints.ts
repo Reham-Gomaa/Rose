@@ -11,5 +11,4 @@ export class EndPoint {
   static ADDRESSES = `${environment.baseApiUrl}api/v1/addresses`;
   static ORDERS = `${environment.baseApiUrl}api/v1/orders`;
   static CHECKOUT_SESSION = `${environment.baseApiUrl}api/v1/orders/checkout`;
-
 }

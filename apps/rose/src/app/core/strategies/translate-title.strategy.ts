@@ -4,15 +4,14 @@ import { Title } from "@angular/platform-browser";
 import { RouterStateSnapshot, TitleStrategy } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class TranslateTitleStrategy extends TitleStrategy {
   private lastTitleKey: string | null = null;
- private readonly destroyRef = inject(DestroyRef);
-
+  private readonly destroyRef = inject(DestroyRef);
 
   constructor(private translate: TranslateService, private title: Title) {
     super();
-    
+
     this.translate.onLangChange.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
       if (this.lastTitleKey) {
         this.setTranslatedTitle(this.lastTitleKey);
@@ -33,5 +32,4 @@ export class TranslateTitleStrategy extends TitleStrategy {
       this.title.setTitle(translated || titleKey);
     });
   }
-
 }

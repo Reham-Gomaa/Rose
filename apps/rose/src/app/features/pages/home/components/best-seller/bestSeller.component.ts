@@ -7,11 +7,7 @@ import { BestsellerSliderComponent } from "@rose/shared_Components_ui/bestseller
 
 @Component({
   selector: "app-best-seller",
-  imports: [
-    ButtonComponent,
-    TranslatePipe,
-    BestsellerSliderComponent
-  ],
+  imports: [ButtonComponent, TranslatePipe, BestsellerSliderComponent],
   templateUrl: "./bestSeller.component.html",
   styleUrls: ["./bestSeller.component.scss"],
   animations: [fadeTransition],

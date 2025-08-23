@@ -20,7 +20,7 @@ import { CartService } from "@rose/shared_services/cart/cart.service";
 import { Observable } from "rxjs";
 import { deleteSpecificItem, getUserCart } from "../../../store/cart/cart-actions";
 import { selectCartItems, selectTotalPrice } from "../../../store/cart/cart-selectors";
-import { CheckoutComponent } from "../../checkout/checkout.component";
+import { CheckoutComponent } from "./components/checkout/checkout.component";
 
 @Component({
   selector: "app-order-flow",
@@ -32,8 +32,8 @@ import { CheckoutComponent } from "../../checkout/checkout.component";
     BestsellerSliderComponent,
     AsyncPipe,
     CartComponent,
-    CheckoutComponent
-],
+    CheckoutComponent,
+  ],
   templateUrl: "./order-flow.component.html",
   styleUrl: "./order-flow.component.scss",
   animations: [fadeTransition],

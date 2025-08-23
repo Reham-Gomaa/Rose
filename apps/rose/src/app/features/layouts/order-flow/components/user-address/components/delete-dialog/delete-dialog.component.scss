@@ -1,4 +1,4 @@
-.container-button{
+.container-button {
   display: flex;
   flex-direction: row;
 }
@@ -23,7 +23,7 @@ button {
   }
 
   &.confirm {
-    background-color: #DC2626;
+    background-color: #dc2626;
     color: #fff;
 
     &:hover {
@@ -66,8 +66,8 @@ p {
 }
 
 @media (max-width: 620px) {
-    .container-button{
-      gap:1rem;
-      flex-direction: column;
-    }
+  .container-button {
+    gap: 1rem;
+    flex-direction: column;
+  }
 }
