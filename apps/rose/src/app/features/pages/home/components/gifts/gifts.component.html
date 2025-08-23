@@ -25,7 +25,7 @@
       />
     </div>
     <!-- carousel -->
-    <div class="card relative w-full md:w-6 lg:w-9">
+    <div class="card relative col-12 md:col-6 lg:col-9">
       <div class="carousel-nav">
         <button class="nav-btn prev" (click)="onPrev()" aria-label="Previous">
           <i class="pi pi-angle-left"></i>
@@ -34,19 +34,10 @@
           <i class="pi pi-angle-right"></i>
         </button>
       </div>
-      <p-carousel
-        #carousel
-        ngSkipHydration
-        [value]="carouselList"
-        [numVisible]="1"
-        [numScroll]="1"
-        [circular]="true"
-        [autoplayInterval]="autoScrollInterval"
-        class="relative"
-        aria-label="Gift Carousel"
-        [prevButtonProps]="{ styleClass: 'p-button-rounded custom-gift-prev' }"
-        [nextButtonProps]="{ styleClass: 'p-button-rounded custom-gift-next' }"
-      >
+      <p-carousel #carousel ngSkipHydration [value]="carouselList" [numVisible]="1" [numScroll]="1" [circular]="true"
+        [autoplayInterval]="autoScrollInterval" [responsiveOptions]="responsiveOptions" class="relative"
+        aria-label="Gift Carousel" [prevButtonProps]="{ styleClass: 'p-button-rounded custom-gift-prev' }"
+        [nextButtonProps]="{ styleClass: 'p-button-rounded custom-gift-next' }">
         <h3 id="carousel-heading" class="sr-only">Featured Gift Items</h3>
         <ng-template pTemplate="item" let-pic>
           <div

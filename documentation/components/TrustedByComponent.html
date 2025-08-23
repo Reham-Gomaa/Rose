@@ -1,136 +1,221 @@
 <!doctype html>
 <html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@angular-monorepo/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@angular-monorepo/source documentation</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
 
-    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="../styles/dark.css">
-</head>
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
 
-<body>
-    <script>
-        // Blocking script to avoid flickering dark mode
-        // Dark mode toggle button
-        var useDark = window.matchMedia('(prefers-color-scheme: dark)');
-        var darkModeState = useDark.matches;
-        var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
-        var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
-        var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
 
-        function checkToggle(check) {
-            for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                $darkModeToggleSwitchers[i].checked = check;
-            }
-        }
+                    checkToggle(state);
 
-        function toggleDarkMode(state) {
-            if (window.localStorage) {
-                localStorage.setItem('compodoc_darkmode-state', state);
-            }
+                    const hasClass = document.body.classList.contains('dark');
 
-            checkToggle(state);
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
 
-            const hasClass = document.body.classList.contains('dark');
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
 
-            if (state) {
-                for (var i = 0; i < $darkModeToggles.length; i++) {
-                    $darkModeToggles[i].classList.add('dark');
-                }
-                if (!hasClass) {
-                    document.body.classList.add('dark');
-                }
-            } else {
-                for (var i = 0; i < $darkModeToggles.length; i++) {
-                    $darkModeToggles[i].classList.remove('dark');
-                }
-                if (hasClass) {
-                    document.body.classList.remove('dark');
-                }
-            }
-        }
-
-        useDark.addEventListener('change', function (evt) {
-            toggleDarkMode(evt.matches);
-        });
-        if (darkModeStateLocal) {
-            darkModeState = darkModeStateLocal === 'true';
-        }
-        toggleDarkMode(darkModeState);
-    </script>
-
-    <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
-        <div class="d-flex">
-            <a href="../" class="navbar-brand">@angular-monorepo/source documentation</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@angular-monorepo/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
         </div>
-    </div>
 
-    <div class="xs-menu menu" id="mobile-menu">
-        <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>
-        <compodoc-menu></compodoc-menu>
-    </div>
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
 
-    <div class="container-fluid main">
-        <div class="row main">
-            <div class="d-none d-md-block menu">
-                <compodoc-menu mode="normal"></compodoc-menu>
-            </div>
-            <!-- START CONTENT -->
-            <div class="content component">
-                <div class="content-data">
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
 
 
 
 
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">Components</li>
-                        <li class="breadcrumb-item">
-                            TrustedByComponent</li>
-                    </ol>
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  TrustedByComponent</li>
+</ol>
 
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="nav-item">
-                            <a href="#info" class="nav-link active" role="tab" id="info-tab" data-bs-toggle="tab"
-                                data-link="info">Info</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#source" class="nav-link" role="tab" id="source-tab" data-bs-toggle="tab"
-                                data-link="source">Source</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#templateData" class="nav-link" role="tab" id="templateData-tab"
-                                data-bs-toggle="tab" data-link="template">Template</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#tree" class="nav-link" role="tab" id="tree-tab" data-bs-toggle="tab"
-                                data-link="dom-tree">DOM Tree</a>
-                        </li>
-                    </ul>
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
 
-                    <div class="tab-content">
-                        <div class="tab-pane fade active in" id="info">
-                            <p class="comment">
-                            <h3>File</h3>
-                            </p>
-                            <p class="comment">
-                                <code>apps/rose/src/app/features/pages/home/components/trusted-by/trustedBy.component.ts</code>
-                            </p>
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/rose/src/app/features/pages/home/components/trusted-by/trustedBy.component.ts</code>
+</p>
 
 
 
 
 
 
-                            <section data-compodoc="block-metadata">
-                                <h3>Metadata</h3>
-                                <table class="table table-sm table-hover metadata">
-                                    <tbody>
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">host</td>
+                <td class="col-md-9"><code>{<br>}</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-trusted-by</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>TranslatePipe</code>
+                                <code><a href="../components/ButtonComponent.html" target="_self" >ButtonComponent</a></code>
+                            <code>NgOptimizedImage</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./trustedBy.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./trustedBy.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#companyLogos" >companyLogos</a>
+                            </li>
+                            <li>
+                                <a href="#translationService" >translationService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
 
 
 
@@ -138,300 +223,270 @@
 
 
 
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="companyLogos"></a>
+                    <span class="name">
+                        <span ><b>companyLogos</b></span>
+                        <a href="#companyLogos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
 
-
-
-
-
-                                        <tr>
-                                            <td class="col-md-3">selector</td>
-                                            <td class="col-md-9"><code>app-trusted-by</code></td>
-                                        </tr>
-
-
-
-
-
-
-                                        <tr>
-                                            <td class="col-md-3">templateUrl</td>
-                                            <td class="col-md-9"><code>./trustedBy.component.html</code></td>
-                                        </tr>
-
-
-
-                                        <tr>
-                                            <td class="col-md-3">styleUrl</td>
-                                            <td class="col-md-9"><code>./trustedBy.component.scss</code></td>
-                                        </tr>
-
-
-
-
-
-                                    </tbody>
-                                </table>
-                            </section>
-
-                            <section data-compodoc="block-index">
-                                <h3 id="index">Index</h3>
-                                <table class="table table-sm table-bordered index-table">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <h6><b>Properties</b></h6>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <ul class="index-list">
-                                                    <li>
-                                                        <a href="#companyLogos">companyLogos</a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr>
-
-
-
-
-
-
-                                    </tbody>
-                                </table>
-                            </section>
-
-
-
-
-
-
-
-                            <section data-compodoc="block-properties">
-
-                                <h3 id="inputs">
-                                    Properties
-                                </h3>
-                                <table class="table table-sm table-bordered">
-                                    <tbody>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <a name="companyLogos"></a>
-                                                <span class="name">
-                                                    <span><b>companyLogos</b></span>
-                                                    <a href="#companyLogos"><span class="icon ion-ios-link"></span></a>
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Type : </i> <code>string[]</code>
-
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <i>Default value : </i><code>[
-    &#x27;/images/trustedBy/image 36.WebP&#x27;,
-    &#x27;/images/trustedBy/image 40.WebP&#x27;,
-    &#x27;/images/trustedBy/image 41.WebP&#x27;,
-    &#x27;/images/trustedBy/image 38.WebP&#x27;,
-    &#x27;/images/trustedBy/image 39.WebP&#x27;,
-    &#x27;/images/trustedBy/image 37.WebP&#x27;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    &quot;/images/trustedBy/image 36.WebP&quot;,
+    &quot;/images/trustedBy/image 40.WebP&quot;,
+    &quot;/images/trustedBy/image 41.WebP&quot;,
+    &quot;/images/trustedBy/image 38.WebP&quot;,
+    &quot;/images/trustedBy/image 39.WebP&quot;,
+    &quot;/images/trustedBy/image 37.WebP&quot;,
   ]</code>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="col-md-4">
-                                                <div class="io-line">Defined in <a href="" data-line="12"
-                                                        class="link-to-prism">apps/rose/src/app/features/pages/home/components/trusted-by/trustedBy.component.ts:12</a>
-                                                </div>
-                                            </td>
-                                        </tr>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/rose/src/app/features/pages/home/components/trusted-by/trustedBy.component.ts:26</a></div>
+                        </td>
+                    </tr>
 
 
-                                    </tbody>
-                                </table>
-                            </section>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="translationService"></a>
+                    <span class="name">
+                        <span ><b>translationService</b></span>
+                        <a href="#translationService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslationService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/rose/src/app/features/pages/home/components/trusted-by/trustedBy.component.ts:24</a></div>
+                        </td>
+                    </tr>
 
-                        </div>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
 
 
-                        <div class="tab-pane fade  tab-source-code" id="source">
-                            <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, inject } from &quot;@angular/core&quot;;
+// Images
+import { NgOptimizedImage } from &quot;@angular/common&quot;;
+// Translation
+import { TranslatePipe } from &quot;@ngx-translate/core&quot;;
+import { TranslationService } from &quot;@rose/core_services/translation/translation.service&quot;;
+// Animations
+import { fadeTransition } from &quot;@rose/core_services/translation/fade.animation&quot;;
+// Shared_Components
+import { ButtonComponent } from &quot;@rose/shared_Components_ui/button/button.component&quot;;
 
 @Component({
-  selector: &#x27;app-trusted-by&#x27;,
-  imports: [],
-  templateUrl: &#x27;./trustedBy.component.html&#x27;,
-  styleUrl: &#x27;./trustedBy.component.scss&#x27;,
+  selector: &quot;app-trusted-by&quot;,
+  imports: [TranslatePipe, ButtonComponent, NgOptimizedImage],
+  templateUrl: &quot;./trustedBy.component.html&quot;,
+  styleUrl: &quot;./trustedBy.component.scss&quot;,
+  animations: [fadeTransition],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    &quot;[@fadeTransition]&quot;: &quot;translationService.fadeState()&quot;,
+  },
 })
 export class TrustedByComponent {
+  translationService &#x3D; inject(TranslationService);
 
-
-   companyLogos: string[] &#x3D; [
-    &#x27;/images/trustedBy/image 36.WebP&#x27;,
-    &#x27;/images/trustedBy/image 40.WebP&#x27;,
-    &#x27;/images/trustedBy/image 41.WebP&#x27;,
-    &#x27;/images/trustedBy/image 38.WebP&#x27;,
-    &#x27;/images/trustedBy/image 39.WebP&#x27;,
-    &#x27;/images/trustedBy/image 37.WebP&#x27;
+  companyLogos: string[] &#x3D; [
+    &quot;/images/trustedBy/image 36.WebP&quot;,
+    &quot;/images/trustedBy/image 40.WebP&quot;,
+    &quot;/images/trustedBy/image 41.WebP&quot;,
+    &quot;/images/trustedBy/image 38.WebP&quot;,
+    &quot;/images/trustedBy/image 39.WebP&quot;,
+    &quot;/images/trustedBy/image 37.WebP&quot;,
   ];
-
 }
 </code></pre>
-                        </div>
+    </div>
 
-                        <div class="tab-pane fade " id="templateData">
-                            <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;surface-0 py-6 md:py-8 width-full fontFamily1&quot; aria-labelledby&#x3D;&quot;trusted-companies-heading&quot;&gt;
-  &lt;div class&#x3D;&quot;content border-round-3xl mx-auto px-4 py-5 light-pink-bg&quot;&gt;
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;trusted-companies&quot; aria-labelledby&#x3D;&quot;trusted-companies-heading&quot;&gt;
+  &lt;div class&#x3D;&quot;trusted-companies-content&quot;&gt;
     &lt;!-- Title --&gt;
-    &lt;div class&#x3D;&quot;text-center mb-6&quot;&gt;
-      &lt;h2 id&#x3D;&quot;trusted-companies-heading&quot; class&#x3D;&quot;dark font-bold text-4xl&quot;&gt;&lt;span class&#x3D;&quot;relative writing&quot;&gt;Trusted By&lt;/span&gt; Over &lt;span class&#x3D;&quot;persian-rose-text&quot;&gt;4.5k+&lt;/span&gt; Companies&lt;/h2&gt;
+    &lt;div class&#x3D;&quot;trusted-companies-title&quot;&gt;
+      &lt;h2 id&#x3D;&quot;trusted-companies-heading&quot;&gt;
+        &lt;span class&#x3D;&quot;trusted-companies-underline&quot;&gt;&lt;/span&gt;
+        {{ &quot;home.trustedBy.span1&quot; | translate }}
+        {{ &quot;home.trustedBy.part1&quot; | translate }}
+        &lt;span class&#x3D;&quot;trusted-companies-strong&quot;&gt;{{ &quot;home.trustedBy.span2&quot; | translate }}&lt;/span&gt;
+        {{ &quot;home.trustedBy.part2&quot; | translate }}
+      &lt;/h2&gt;
     &lt;/div&gt;
 
     &lt;!-- Company Logos --&gt;
-    &lt;div class&#x3D;&quot;justify-content-evenly flex-wrap flex gap-4&quot; role&#x3D;&quot;list&quot; aria-label&#x3D;&quot;Trusted company logos&quot;&gt;
-
-       @for (logo of companyLogos; track logo) {
-        &lt;div role&#x3D;&quot;listitem&quot;&gt;
-          &lt;img loading&#x3D;&quot;lazy&quot; [src]&#x3D;&quot;logo&quot; alt&#x3D;&quot;Company Logo&quot; /&gt;
+    &lt;div class&#x3D;&quot;trusted-companies-logos-container&quot;&gt;
+      &lt;div class&#x3D;&quot;trusted-companies-logos&quot; role&#x3D;&quot;list&quot; aria-label&#x3D;&quot;Trusted company logos&quot;&gt;
+        @for (logo of companyLogos; track logo) {
+        &lt;div class&#x3D;&quot;trusted-companies-logo&quot; role&#x3D;&quot;listitem&quot;&gt;
+          &lt;img loading&#x3D;&quot;lazy&quot; decoding&#x3D;&quot;async&quot; [ngSrc]&#x3D;&quot;logo&quot; alt&#x3D;&quot;Company Logo&quot; class&#x3D;&quot;trusted-companies-logo-img&quot;
+            width&#x3D;&quot;100&quot; height&#x3D;&quot;50&quot; /&gt;
         &lt;/div&gt;
-      }
+        }
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;btn-res&quot;&gt;
+        &lt;app-button [text]&#x3D;&quot;&#x27;home.trustedBy.btn&#x27; | translate&quot; [icon]&#x3D;&quot;&#x27;pi pi-arrow-right arrowicon&#x27;&quot;
+          [bgColor]&#x3D;&quot;&#x27;var(--btn-shared-background)&#x27;&quot; [textColor]&#x3D;&quot;&#x27;var(--btn-shared-color)&#x27;&quot;
+          [borderRadius]&#x3D;&quot;&#x27;btn-about-radius&#x27;&quot; [padding]&#x3D;&quot;&#x27;btn-about-padding&#x27;&quot; [transition]&#x3D;&quot;&#x27;btn-about-transition&#x27;&quot;
+          [margin]&#x3D;&quot;&#x27;mx-auto&#x27;&quot; aria-label&#x3D;&quot;Discover more about our premium gift boxes&quot; /&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+    </div>
 
 
-&lt;/div&gt;
-&lt;/section&gt;
-
-
-
-
-
-</code></pre>
-                        </div>
-
-
-                        <div class="tab-pane fade " id="tree">
-                            <div id="tree-container"></div>
-                            <div class="tree-legend">
-                                <div class="title">
-                                    <b>Legend</b>
-                                </div>
-                                <div>
-                                    <div class="color htmlelement"></div><span>Html element</span>
-                                </div>
-                                <div>
-                                    <div class="color component"></div><span>Component</span>
-                                </div>
-                                <div>
-                                    <div class="color directive"></div><span>Html element with directive</span>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                    <script src="../js/libs/vis.min.js"></script>
-                    <script src="../js/libs/htmlparser.js"></script>
-                    <script src="../js/libs/deep-iterator.js"></script>
-                    <script>
-                        var COMPONENT_TEMPLATE = '<div><section class="surface-0 py-6 md:py-8 width-full fontFamily1" aria-labelledby="trusted-companies-heading">  <div class="content border-round-3xl mx-auto px-4 py-5 light-pink-bg">    <!-- Title -->    <div class="text-center mb-6">      <h2 id="trusted-companies-heading" class="dark font-bold text-4xl"><span class="relative writing">Trusted By</span> Over <span class="persian-rose-text">4.5k+</span> Companies</h2>    </div>        <!-- Company Logos -->    <div class="justify-content-evenly flex-wrap flex gap-4" role="list" aria-label="Trusted company logos">       @for (logo of companyLogos; track logo) {        <div role="listitem">          <img loading="lazy" [src]="logo" alt="Company Logo" />        </div>      }    </div>        </div></section></div>'
-                        var COMPONENTS = [{ 'name': 'AboutUsComponent', 'selector': 'app-about-us' }, { 'name': 'AppComponent', 'selector': 'app-root' }, { 'name': 'BestSellerComponent', 'selector': 'app-best-seller' }, { 'name': 'ButtonComponent', 'selector': 'app-button' }, { 'name': 'CardItemComponent', 'selector': 'app-card-item' }, { 'name': 'CategoriesComponent', 'selector': 'app-categories' }, { 'name': 'DashboardComponent', 'selector': 'app-dashboard' }, { 'name': 'FooterComponent', 'selector': 'app-footer' }, { 'name': 'GalleryComponent', 'selector': 'app-gallery' }, { 'name': 'GiftsComponent', 'selector': 'app-gifts' }, { 'name': 'HomeComponent', 'selector': 'app-home' }, { 'name': 'NavbarComponent', 'selector': 'app-navbar' }, { 'name': 'NotFoundComponent', 'selector': 'app-not-found' }, { 'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome' }, { 'name': 'OurServicesComponent', 'selector': 'app-our-services' }, { 'name': 'PopularItemsComponent', 'selector': 'app-popular-items' }, { 'name': 'TestimonialsComponent', 'selector': 'app-testimonials' }, { 'name': 'TrustedByComponent', 'selector': 'app-trusted-by' }];
-                        var DIRECTIVES = [];
-                        var ACTUAL_COMPONENT = { 'name': 'TrustedByComponent' };
-                    </script>
-                    <script src="../js/tree.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </div>
-                <div class="search-results">
-                    <div class="has-results">
-                        <h1 class="search-results-title"><span class='search-results-count'></span> results matching
-                            "<span class='search-query'></span>"</h1>
-                        <ul class="search-results-list"></ul>
-                    </div>
-                    <div class="no-results">
-                        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-                    </div>
-                </div>
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
             </div>
-            <!-- END CONTENT -->
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
         </div>
     </div>
 
-    <label class="dark-mode-switch">
-        <input type="checkbox">
-        <span class="slider">
-            <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round"
-                stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-            </svg>
-        </span>
-    </label>
+    
+</div>
 
-    <script>
-        var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-        var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-        var COMPODOC_CURRENT_PAGE_URL = 'TrustedByComponent.html';
-        var MAX_SEARCH_RESULTS = 15;
-    </script>
-
-    <script>
-        $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
-        checkToggle(darkModeState);
-        if ($darkModeToggleSwitchers.length > 0) {
-            for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
-                $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
-                    darkModeState = !darkModeState;
-                    toggleDarkMode(darkModeState);
-                });
-            }
-        }
-    </script>
-
-    <script src="../js/libs/custom-elements.min.js"></script>
-    <script src="../js/libs/lit-html.js"></script>
-
-    <script src="../js/menu-wc.js" defer></script>
-    <script nomodule src="../js/menu-wc_es5.js" defer></script>
-
-    <script src="../js/libs/bootstrap-native.js"></script>
-
-    <script src="../js/libs/es6-shim.min.js"></script>
-    <script src="../js/libs/EventDispatcher.js"></script>
-    <script src="../js/libs/promise.min.js"></script>
-
-    <script src="../js/compodoc.js"></script>
-
-    <script src="../js/tabs.js"></script>
-    <script src="../js/menu.js"></script>
-    <script src="../js/libs/clipboard.min.js"></script>
-    <script src="../js/libs/prism.js"></script>
-    <script src="../js/sourceCode.js"></script>
-    <script src="../js/search/search.js"></script>
-    <script src="../js/search/lunr.min.js"></script>
-    <script src="../js/search/search-lunr.js"></script>
-    <script src="../js/search/search_index.js"></script>
-    <script src="../js/lazy-load-graphs.js"></script>
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section class="trusted-companies" aria-labelledby="trusted-companies-heading">  <div class="trusted-companies-content">    <!-- Title -->    <div class="trusted-companies-title">      <h2 id="trusted-companies-heading">        <span class="trusted-companies-underline"></span>        {{ "home.trustedBy.span1" | translate }}        {{ "home.trustedBy.part1" | translate }}        <span class="trusted-companies-strong">{{ "home.trustedBy.span2" | translate }}</span>        {{ "home.trustedBy.part2" | translate }}      </h2>    </div>    <!-- Company Logos -->    <div class="trusted-companies-logos-container">      <div class="trusted-companies-logos" role="list" aria-label="Trusted company logos">        @for (logo of companyLogos; track logo) {        <div class="trusted-companies-logo" role="listitem">          <img loading="lazy" decoding="async" [ngSrc]="logo" alt="Company Logo" class="trusted-companies-logo-img"            width="100" height="50" />        </div>        }      </div>      <div class="btn-res">        <app-button [text]="\'home.trustedBy.btn\' | translate" [icon]="\'pi pi-arrow-right arrowicon\'"          [bgColor]="\'var(--btn-shared-background)\'" [textColor]="\'var(--btn-shared-color)\'"          [borderRadius]="\'btn-about-radius\'" [padding]="\'btn-about-padding\'" [transition]="\'btn-about-transition\'"          [margin]="\'mx-auto\'" aria-label="Discover more about our premium gift boxes" />      </div>    </div>  </div></section></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
+    var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
+    var ACTUAL_COMPONENT = {'name': 'TrustedByComponent'};
+</script>
+<script src="../js/tree.js"></script>
 
 
-</body>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'TrustedByComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
 </html>

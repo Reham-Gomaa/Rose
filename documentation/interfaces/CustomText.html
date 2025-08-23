@@ -1,0 +1,589 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@angular-monorepo/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@angular-monorepo/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  CustomText</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>apps/rose/src/app/features/layouts/order-flow/components/checkout/models/CheckoutRes.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#after_submit" 
+>
+                                            after_submit
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#shipping_address" 
+>
+                                            shipping_address
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#submit" 
+>
+                                            submit
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#terms_of_service_acceptance" 
+>
+                                            terms_of_service_acceptance
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="after_submit"></a>
+                                        <span class="name "><b>after_submit</b>
+                                            <a href="#after_submit">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>after_submit:         <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="shipping_address"></a>
+                                        <span class="name "><b>shipping_address</b>
+                                            <a href="#shipping_address">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>shipping_address:         <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="submit"></a>
+                                        <span class="name "><b>submit</b>
+                                            <a href="#submit">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>submit:         <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="terms_of_service_acceptance"></a>
+                                        <span class="name "><b>terms_of_service_acceptance</b>
+                                            <a href="#terms_of_service_acceptance">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>terms_of_service_acceptance:         <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Product } from &quot;@rose/core_interfaces/carditem.interface&quot;
+
+export interface CashRes {
+  message: string
+  order: Order
+}
+
+export interface Order {
+  user: string
+  orderItems: Product[]
+  totalPrice: number
+  paymentType: string
+  isPaid: boolean
+  isDelivered: boolean
+  state: string
+  _id: string
+  createdAt: string
+  updatedAt: string
+  orderNumber: string
+  __v: number
+}
+
+
+export interface CreditRes {
+  message: string
+  session: Session
+}
+
+export interface Session {
+  id: string
+  object: string
+  adaptive_pricing: AdaptivePricing
+  after_expiration: any
+  allow_promotion_codes: any
+  amount_subtotal: number
+  amount_total: number
+  automatic_tax: AutomaticTax
+  billing_address_collection: any
+  cancel_url: string
+  client_reference_id: string
+  client_secret: any
+  collected_information: CollectedInformation
+  consent: any
+  consent_collection: any
+  created: number
+  currency: string
+  currency_conversion: any
+  custom_fields: any[]
+  custom_text: CustomText
+  customer: any
+  customer_creation: string
+  customer_details: CustomerDetails
+  customer_email: string
+  discounts: any[]
+  expires_at: number
+  invoice: any
+  invoice_creation: InvoiceCreation
+  livemode: boolean
+  locale: any
+  metadata: Metadata2
+  mode: string
+  origin_context: any
+  payment_intent: any
+  payment_link: any
+  payment_method_collection: string
+  payment_method_configuration_details: PaymentMethodConfigurationDetails
+  payment_method_options: PaymentMethodOptions
+  payment_method_types: string[]
+  payment_status: string
+  permissions: any
+  phone_number_collection: PhoneNumberCollection
+  recovered_from: any
+  saved_payment_method_options: any
+  setup_intent: any
+  shipping_address_collection: any
+  shipping_cost: any
+  shipping_details: any
+  shipping_options: any[]
+  status: string
+  submit_type: any
+  subscription: any
+  success_url: string
+  total_details: TotalDetails
+  ui_mode: string
+  url: string
+  wallet_options: any
+}
+
+export interface AdaptivePricing {
+  enabled: boolean
+}
+
+export interface AutomaticTax {
+  enabled: boolean
+  liability: any
+  provider: any
+  status: any
+}
+
+export interface CollectedInformation {
+  shipping_details: any
+}
+
+export interface CustomText {
+  after_submit: any
+  shipping_address: any
+  submit: any
+  terms_of_service_acceptance: any
+}
+
+export interface CustomerDetails {
+  address: any
+  email: string
+  name: any
+  phone: any
+  tax_exempt: string
+  tax_ids: any
+}
+
+export interface InvoiceCreation {
+  enabled: boolean
+  invoice_data: InvoiceData
+}
+
+export interface InvoiceData {
+  account_tax_ids: any
+  custom_fields: any
+  description: any
+  footer: any
+  issuer: any
+  metadata: Metadata
+  rendering_options: any
+}
+
+export interface Metadata {}
+
+export interface Metadata2 {
+  city: string
+  lat: string
+  long: string
+  phone: string
+  street: string
+}
+
+export interface PaymentMethodConfigurationDetails {
+  id: string
+  parent: any
+}
+
+export interface PaymentMethodOptions {
+  card: Card
+}
+
+export interface Card {
+  request_three_d_secure: string
+}
+
+export interface PhoneNumberCollection {
+  enabled: boolean
+}
+
+export interface TotalDetails {
+  amount_discount: number
+  amount_shipping: number
+  amount_tax: number
+}
+
+
+
+export interface checkoutFailureRes {
+  headers: Headers
+  status: number
+  statusText: string
+  url: string
+  ok: boolean
+  name: string
+  message: string
+  error: Error
+}
+
+export interface Headers {
+  headers: Headers2
+  normalizedNames: NormalizedNames
+  lazyUpdate: any
+}
+
+export interface Headers2 {}
+
+export interface NormalizedNames {}
+
+export interface Error {
+  error: string
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'CustomText.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
