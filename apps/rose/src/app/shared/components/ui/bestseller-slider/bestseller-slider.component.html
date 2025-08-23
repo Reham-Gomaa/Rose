@@ -1,15 +1,7 @@
-<p-carousel
-  [value]="items()"
-  [numVisible]="numVisible"
-  [numScroll]="numScroll"
-  [circular]="true"
-  [responsiveOptions]="responsiveOptions"
-  [showIndicators]="false"
-  class="custom-carousel"
+<p-carousel id="bestseller-slider" [value]="items()" [numVisible]="numVisible()" [numScroll]="numScroll()"
+  [circular]="true" [responsiveOptions]="responsiveOptions()" [showIndicators]="false" class="custom-carousel"
   [prevButtonProps]="{ styleClass: 'p-button-rounded custom-best-prev' }"
-  [nextButtonProps]="{ styleClass: 'p-button-rounded custom-best-next' }"
-  [attr.aria-label]="ariaLabel"
->
+  [nextButtonProps]="{ styleClass: 'p-button-rounded custom-best-next' }" [attr.aria-label]="ariaLabel()">
   <ng-template let-item pTemplate="item">
     @if (showSkeleton()) { @for (skeleton of skeletonItems(); track $index) {
     <div class="carousel-card-wrapper">
