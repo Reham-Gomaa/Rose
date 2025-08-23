@@ -6,12 +6,7 @@ import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
   selector: "app-contact",
-  imports: [
-    ReactiveFormsModule,
-    CustomInputComponent,
-    ButtonComponent,
-    TranslatePipe,
-  ],
+  imports: [ReactiveFormsModule, CustomInputComponent, ButtonComponent, TranslatePipe],
   templateUrl: "./contact.component.html",
   styleUrl: "./contact.component.scss",
 })

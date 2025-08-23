@@ -12,11 +12,7 @@ import { ProductsService } from "@rose/shared_services/products/products.service
 
 @Component({
   selector: "app-details",
-  imports: [
-    ProductReviewComponent,
-    ProductDetailsComponent,
-    RelatedProductsComponent,
-  ],
+  imports: [ProductReviewComponent, ProductDetailsComponent, RelatedProductsComponent],
   templateUrl: "./details.component.html",
   styleUrl: "./details.component.scss",
 })

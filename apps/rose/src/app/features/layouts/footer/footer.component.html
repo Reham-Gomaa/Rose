@@ -1,9 +1,21 @@
-<footer class="footer grid mt-5" role="contentinfo" itemscope itemtype="https://schema.org/WPFooter">
+<footer
+  class="footer grid mt-5"
+  role="contentinfo"
+  itemscope
+  itemtype="https://schema.org/WPFooter"
+>
   <!-- Logo -->
   <div class="hidden md:col-3 text-center md:flex flex-column justify-content-between p-0">
     <div>
-      <img loading="lazy" decoding="async" width="240" height="225" class="block m-auto"
-        ngSrc="./images/navbar/Rose.AVIF" alt="rose logo" />
+      <img
+        loading="lazy"
+        decoding="async"
+        width="240"
+        height="225"
+        class="block m-auto"
+        ngSrc="./images/navbar/Rose.AVIF"
+        alt="rose logo"
+      />
     </div>
     <div>
       <h1 class="title">{{ "footer.rose" | translate }}</h1>
@@ -14,9 +26,15 @@
     <!-- Navigation Links -->
     <div class="nav-list">
       <h2 class="title">{{ "footer.navtitle" | translate }}</h2>
-      <nav aria-label="Footer navigation" itemscope itemtype="https://schema.org/SiteNavigationElement">
-        <ul class="list-none p-0 m-0 tab-footer tab-footer-scroll flex md:flex-column md:justify-content-center"
-          role="list">
+      <nav
+        aria-label="Footer navigation"
+        itemscope
+        itemtype="https://schema.org/SiteNavigationElement"
+      >
+        <ul
+          class="list-none p-0 m-0 tab-footer tab-footer-scroll flex md:flex-column md:justify-content-center"
+          role="list"
+        >
           <li itemprop="name">
             <a class="tab-footer no-underline" aria-label="About our company" itemprop="url">
               {{ "footer.nav.item1" | translate }}
@@ -24,7 +42,8 @@
           </li>
           <li itemprop="name">
             <a class="tab-footer no-underline" aria-label="Our store locations" itemprop="url">
-              {{ "footer.nav.item2" | translate }}</a>
+              {{ "footer.nav.item2" | translate }}</a
+            >
           </li>
           <li itemprop="name">
             <a class="tab-footer no-underline" aria-label="Contact us" itemprop="url">
@@ -34,7 +53,7 @@
           <li itemprop="name">
             <a class="tab-footer no-underline" aria-label="Delivery information" itemprop="url">{{
               "footer.nav.item4" | translate
-              }}</a>
+            }}</a>
           </li>
           <li itemprop="name">
             <a class="tab-footer no-underline" aria-label="Our policies" itemprop="url">
@@ -42,20 +61,36 @@
             </a>
           </li>
           <li itemprop="name">
-            <a class="tab-footer no-underline" aria-label="Frequently asked questions" itemprop="url">{{
-              "footer.nav.item6" | translate }}</a>
+            <a
+              class="tab-footer no-underline"
+              aria-label="Frequently asked questions"
+              itemprop="url"
+              >{{ "footer.nav.item6" | translate }}</a
+            >
           </li>
           <li itemprop="name">
-            <a class="tab-footer no-underline" aria-label="Frequently asked questions" itemprop="url">{{
-              "footer.nav.item7" | translate }}</a>
+            <a
+              class="tab-footer no-underline"
+              aria-label="Frequently asked questions"
+              itemprop="url"
+              >{{ "footer.nav.item7" | translate }}</a
+            >
           </li>
           <li itemprop="name">
-            <a class="tab-footer no-underline" aria-label="Frequently asked questions" itemprop="url">{{
-              "footer.nav.item8" | translate }}</a>
+            <a
+              class="tab-footer no-underline"
+              aria-label="Frequently asked questions"
+              itemprop="url"
+              >{{ "footer.nav.item8" | translate }}</a
+            >
           </li>
           <li itemprop="name">
-            <a class="tab-footer no-underline" aria-label="Frequently asked questions" itemprop="url">{{
-              "footer.nav.item9" | translate }}</a>
+            <a
+              class="tab-footer no-underline"
+              aria-label="Frequently asked questions"
+              itemprop="url"
+              >{{ "footer.nav.item9" | translate }}</a
+            >
           </li>
         </ul>
       </nav>
@@ -68,7 +103,11 @@
           {{ "footer.heading2part1" | translate }}
           <span class="highlight" aria-hidden="true">{{ "footer.heading2span" | translate }} </span>
           <span class="sr-only">20 percent</span>
-          <span itemprop="priceSpecification" itemscope itemtype="https://schema.org/UnitPriceSpecification">
+          <span
+            itemprop="priceSpecification"
+            itemscope
+            itemtype="https://schema.org/UnitPriceSpecification"
+          >
             <meta itemprop="priceCurrency" content="USD" />
             <meta itemprop="price" content="20" />
           </span>
@@ -82,10 +121,21 @@
       </div>
 
       <!-- Email Input -->
-      <form class="input-button-wrapper" aria-label="Newsletter subscription" itemprop="potentialAction" itemscope
-        itemtype="https://schema.org/SubscribeAction">
-        <app-input-btn [(inputValue)]="emailValue" [placeholder]="'footer.placeHolder' | translate"
-          [buttonText]="'footer.btn' | translate" [showIcon]="true" type="email" name="email" />
+      <form
+        class="input-button-wrapper"
+        aria-label="Newsletter subscription"
+        itemprop="potentialAction"
+        itemscope
+        itemtype="https://schema.org/SubscribeAction"
+      >
+        <app-input-btn
+          [(inputValue)]="emailValue"
+          [placeholder]="'footer.placeHolder' | translate"
+          [buttonText]="'footer.btn' | translate"
+          [showIcon]="true"
+          type="email"
+          name="email"
+        />
         <meta itemprop="actionStatus" content="PotentialActionStatus" />
       </form>
 
@@ -96,8 +146,15 @@
     <!-- Logo Small Screen -->
     <div class="md:hidden mt-3 text-center flex flex-column justify-content-between p-0">
       <div>
-        <img loading="lazy" decoding="async"  width="180" height="180" class="block m-auto" ngSrc="./images/navbar/Rose.AVIF"
-          alt="rose logo" />
+        <img
+          loading="lazy"
+          decoding="async"
+          width="180"
+          height="180"
+          class="block m-auto"
+          ngSrc="./images/navbar/Rose.AVIF"
+          alt="rose logo"
+        />
       </div>
       <div>
         <h1 class="title">{{ "footer.rose" | translate }}</h1>

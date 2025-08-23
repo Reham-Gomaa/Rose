@@ -10,7 +10,7 @@ import { Observable } from "rxjs";
 import { progressStep } from "../../models/progress.step";
 @Component({
   selector: "app-stepper",
-  imports: [ ButtonModule, StepperModule, JsonPipe, AsyncPipe],
+  imports: [ButtonModule, StepperModule, JsonPipe, AsyncPipe],
   templateUrl: "./stepper.component.html",
   styleUrl: "./stepper.component.scss",
 })

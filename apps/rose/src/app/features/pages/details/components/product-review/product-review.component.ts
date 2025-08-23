@@ -7,13 +7,7 @@ import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
   selector: "app-product-review",
-  imports: [
-    RatingModule,
-    FormsModule,
-    TranslatePipe,
-    ReviewFormComponent,
-    ReviewListComponent,
-  ],
+  imports: [RatingModule, FormsModule, TranslatePipe, ReviewFormComponent, ReviewListComponent],
   templateUrl: "./product-review.component.html",
   styleUrl: "./product-review.component.scss",
 })
