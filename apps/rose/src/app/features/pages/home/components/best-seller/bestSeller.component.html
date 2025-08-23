@@ -1,5 +1,4 @@
-<section #load [@fadeTransition]="translationService.fadeState()" class="grid mt-8"
-  aria-labelledby="premium-gifts-heading">
+<section [@fadeTransition]="translationService.fadeState()" class="grid mt-8" aria-labelledby="premium-gifts-heading">
   <!-- Header Section -->
   <div class="header text-left col-12 md:col-6 lg:col-4">
     <span class="text-base mb-5 font-bold premium">{{
@@ -20,7 +19,7 @@
   </div>
   <!-- Carousel/Product Grid Section -->
   <div class="product-carousel col-12 md:col-6 lg:col-8">
-    @defer (on viewport(load)) {
+    @defer (on timer(1000)) {
     <app-bestseller-slider [numVisible]="3" [responsiveOptions]="responsiveOptions" [skeletonCount]="3"
       ariaLabel="Best seller products carousel - variant" />
     }
