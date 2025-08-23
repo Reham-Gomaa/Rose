@@ -269,8 +269,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="31"
-                                    class="link-to-prism">apps/rose/src/app/core/strategies/translate-title.strategy.ts:31</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="30"
+                                    class="link-to-prism">apps/rose/src/app/core/strategies/translate-title.strategy.ts:30</a></div>
                         </td>
                     </tr>
 
@@ -338,8 +338,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="23"
-                                    class="link-to-prism">apps/rose/src/app/core/strategies/translate-title.strategy.ts:23</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="22"
+                                    class="link-to-prism">apps/rose/src/app/core/strategies/translate-title.strategy.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -462,15 +462,14 @@ import { Title } from &quot;@angular/platform-browser&quot;;
 import { RouterStateSnapshot, TitleStrategy } from &quot;@angular/router&quot;;
 import { TranslateService } from &quot;@ngx-translate/core&quot;;
 
-@Injectable({ providedIn: &#x27;root&#x27; })
+@Injectable({ providedIn: &quot;root&quot; })
 export class TranslateTitleStrategy extends TitleStrategy {
   private lastTitleKey: string | null &#x3D; null;
- private readonly destroyRef &#x3D; inject(DestroyRef);
-
+  private readonly destroyRef &#x3D; inject(DestroyRef);
 
   constructor(private translate: TranslateService, private title: Title) {
     super();
-    
+
     this.translate.onLangChange.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() &#x3D;&gt; {
       if (this.lastTitleKey) {
         this.setTranslatedTitle(this.lastTitleKey);
@@ -491,7 +490,6 @@ export class TranslateTitleStrategy extends TitleStrategy {
       this.title.setTitle(translated || titleKey);
     });
   }
-
 }
 </code></pre>
     </div>

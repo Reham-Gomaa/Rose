@@ -1636,7 +1636,7 @@ export class NavbarComponent implements OnInit {
         label: this._translate.instant(&quot;navbar.menu.myOrders&quot;),
         icon: &quot;pi pi-receipt&quot;,
         visible: !!user,
-        command: () &#x3D;&gt; this._router.navigate([&quot;/dashboard/allorders&quot;]),
+        command: () &#x3D;&gt; this._router.navigate([&quot;/dashboard/allOrders&quot;]),
       },
       {
         separator: true,
@@ -1745,10 +1745,18 @@ export class NavbarComponent implements OnInit {
   &lt;!-- First Row: Logo, Search, Icons --&gt;
   &lt;div class&#x3D;&quot;first-row&quot;&gt;
     &lt;div class&#x3D;&quot;logo-section&quot;&gt;
-      &lt;img [routerLink]&#x3D;&quot;&#x27;/&#x27;&quot; ngSrc&#x3D;&quot;/images/navbar/Rose.WebP&quot; width&#x3D;&quot;85&quot; height&#x3D;&quot;80&quot; alt&#x3D;&quot;Rose logo&quot; rel&#x3D;&quot;preload&quot;
-        decoding&#x3D;&quot;async&quot; class&#x3D;&quot;logo-img&quot; /&gt;
+      &lt;img
+        [routerLink]&#x3D;&quot;&#x27;/&#x27;&quot;
+        ngSrc&#x3D;&quot;/images/navbar/Rose.AVIF&quot;
+        width&#x3D;&quot;85&quot;
+        height&#x3D;&quot;80&quot;
+        alt&#x3D;&quot;Rose logo&quot;
+        rel&#x3D;&quot;preload&quot;
+        decoding&#x3D;&quot;async&quot;
+        class&#x3D;&quot;logo-img&quot;
+      /&gt;
       &lt;div class&#x3D;&quot;location&quot;&gt;
-        &lt;span class&#x3D;&quot;location-header&quot;&gt;{{&quot;navbar.deliver&quot;|translate}}&lt;/span&gt;
+        &lt;span class&#x3D;&quot;location-header&quot;&gt;{{ &quot;navbar.deliver&quot; | translate }}&lt;/span&gt;
         &lt;div class&#x3D;&quot;location-content&quot;&gt;
           &lt;i class&#x3D;&quot;pi pi-map-marker&quot;&gt;&lt;/i&gt;
           &lt;span class&#x3D;&quot;logo-subtext&quot;&gt;Cairo&lt;/span&gt;
@@ -1756,10 +1764,15 @@ export class NavbarComponent implements OnInit {
       &lt;/div&gt;
     &lt;/div&gt;
 
-    &lt;div class&#x3D;&quot;search-section &quot;&gt;
+    &lt;div class&#x3D;&quot;search-section&quot;&gt;
       &lt;p-iconfield&gt;
         &lt;p-inputicon styleClass&#x3D;&quot;pi pi-search ml-1&quot; /&gt;
-        &lt;input type&#x3D;&quot;text&quot; pInputText [placeholder]&#x3D;&quot;&#x27;navbar.search&#x27;|translate&quot; class&#x3D;&quot;search-input w-100&quot; /&gt;
+        &lt;input
+          type&#x3D;&quot;text&quot;
+          pInputText
+          [placeholder]&#x3D;&quot;&#x27;navbar.search&#x27; | translate&quot;
+          class&#x3D;&quot;search-input w-100&quot;
+        /&gt;
       &lt;/p-iconfield&gt;
     &lt;/div&gt;
 
@@ -1767,32 +1780,48 @@ export class NavbarComponent implements OnInit {
       @if (!isLoggedIn()) {
       &lt;button [routerLink]&#x3D;&quot;&#x27;/login&#x27;&quot; class&#x3D;&quot;login-btn&quot; aria-label&#x3D;&quot;Signup&quot;&gt;
         &lt;i class&#x3D;&quot;pi pi-user cursor-pointer text-lg&quot;&gt;&lt;/i&gt;
-        &lt;span&gt;{{&quot;navbar.login&quot; | translate}}&lt;/span&gt;
+        &lt;span&gt;{{ &quot;navbar.login&quot; | translate }}&lt;/span&gt;
       &lt;/button&gt;
       &lt;div class&#x3D;&quot;icons&quot;&gt;
-        &lt;i class&#x3D;&quot;pi pi-heart cursor-pointer text-md&quot;&gt;&lt;/i&gt;
-        &lt;a routerLink&#x3D;&quot;dashboard/order-flow/cart&quot;&gt;&lt;i class&#x3D;&quot;pi pi-shopping-cart cursor-pointer text-md&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;i [routerLink]&#x3D;&quot;&#x27;wishlist&#x27;&quot; class&#x3D;&quot;pi pi-heart cursor-pointer text-md&quot;&gt;&lt;/i&gt;
+        &lt;a [routerLink]&#x3D;&quot;&#x27;order-flow&#x27;&quot;
+          &gt;&lt;i class&#x3D;&quot;pi pi-shopping-cart cursor-pointer text-md&quot;&gt;&lt;/i
+        &gt;&lt;/a&gt;
         &lt;i class&#x3D;&quot;pi pi-bell cursor-pointer text-md&quot;&gt;&lt;/i&gt;
       &lt;/div&gt;
       } @else {
-      &lt;p-splitButton [label]&#x3D;&quot;&#x27;Hello &#x27; + userName()&quot; aria-label&#x3D;&quot;User Menu&quot; [model]&#x3D;&quot;userDropDown()&quot;
-        styleClass&#x3D;&quot;user-greeting-btn&quot; menuStyleClass&#x3D;&quot;user-menu-overlay&quot;&gt;
+      &lt;p-splitButton
+        [label]&#x3D;&quot;&#x27;Hello &#x27; + userName()&quot;
+        aria-label&#x3D;&quot;User Menu&quot;
+        [model]&#x3D;&quot;userDropDown()&quot;
+        styleClass&#x3D;&quot;user-greeting-btn&quot;
+        menuStyleClass&#x3D;&quot;user-menu-overlay&quot;
+      &gt;
         &lt;ng-template pTemplate&#x3D;&quot;content&quot;&gt;
           &lt;div class&#x3D;&quot;flex flex-column align-items-start&quot;&gt;
-            {{&quot;navbar.hello&quot; |translate}}
+            {{ &quot;navbar.hello&quot; | translate }}
             &lt;span class&#x3D;&quot;user-name&quot;&gt;{{ userName() }}&lt;/span&gt;
           &lt;/div&gt;
         &lt;/ng-template&gt;
       &lt;/p-splitButton&gt;
 
       &lt;div class&#x3D;&quot;icons&quot;&gt;
-        &lt;p-overlaybadge [routerLink]&#x3D;&quot;&#x27;wishlist&#x27;&quot; [value]&#x3D;&quot;(favouriteItemsNum$ | async)&quot; class&#x3D;&quot;custom-badge&quot;
-          [badgeSize]&#x3D;&quot;&#x27;small&#x27;&quot;&gt;
+        &lt;p-overlaybadge
+          [routerLink]&#x3D;&quot;&#x27;wishlist&#x27;&quot;
+          [value]&#x3D;&quot;favouriteItemsNum$ | async&quot;
+          class&#x3D;&quot;custom-badge&quot;
+          [badgeSize]&#x3D;&quot;&#x27;small&#x27;&quot;
+        &gt;
           &lt;i class&#x3D;&quot;pi pi-heart cursor-pointer text-lg&quot;&gt;&lt;/i&gt;
         &lt;/p-overlaybadge&gt;
-        &lt;p-overlaybadge [value]&#x3D;&quot;cartItemsNum$ |async&quot; class&#x3D;&quot;custom-badge&quot; [badgeSize]&#x3D;&quot;&#x27;small&#x27;&quot;&gt;
-          &lt;i tabindex&#x3D;&quot;0&quot; [routerLink]&#x3D;&quot;&#x27;order-flow&#x27;&quot; (keydown)&#x3D;&quot;cartService.orderFlowState.set(&#x27;cart&#x27;)&quot;
-            (click)&#x3D;&quot;cartService.orderFlowState.set(&#x27;cart&#x27;)&quot; class&#x3D;&quot;pi pi-shopping-cart cursor-pointer text-md&quot;&gt;&lt;/i&gt;
+        &lt;p-overlaybadge [value]&#x3D;&quot;cartItemsNum$ | async&quot; class&#x3D;&quot;custom-badge&quot; [badgeSize]&#x3D;&quot;&#x27;small&#x27;&quot;&gt;
+          &lt;i
+            tabindex&#x3D;&quot;0&quot;
+            [routerLink]&#x3D;&quot;&#x27;order-flow&#x27;&quot;
+            (keydown)&#x3D;&quot;cartService.orderFlowState.set(&#x27;cart&#x27;)&quot;
+            (click)&#x3D;&quot;cartService.orderFlowState.set(&#x27;cart&#x27;)&quot;
+            class&#x3D;&quot;pi pi-shopping-cart cursor-pointer text-md&quot;
+          &gt;&lt;/i&gt;
         &lt;/p-overlaybadge&gt;
         &lt;p-overlaybadge value&#x3D;&quot;4&quot; class&#x3D;&quot;custom-badge&quot; [badgeSize]&#x3D;&quot;&#x27;small&#x27;&quot;&gt;
           &lt;i class&#x3D;&quot;pi pi-bell cursor-pointer text-md&quot;&gt;&lt;/i&gt;
@@ -1813,8 +1842,12 @@ export class NavbarComponent implements OnInit {
   &lt;div class&#x3D;&quot;second-row&quot;&gt;
     &lt;p-menubar ngSkipHydration [model]&#x3D;&quot;items()&quot; class&#x3D;&quot;menu-bar&quot;&gt;
       &lt;ng-template #item let-item let-root&#x3D;&quot;root&quot;&gt;
-        &lt;a [routerLink]&#x3D;&quot;item.route&quot; routerLinkActive&#x3D;&quot;active&quot; pRipple
-          class&#x3D;&quot;flex items-center p-menubar-item-link nav-items&quot;&gt;
+        &lt;a
+          [routerLink]&#x3D;&quot;item.route&quot;
+          routerLinkActive&#x3D;&quot;active&quot;
+          pRipple
+          class&#x3D;&quot;flex items-center p-menubar-item-link nav-items&quot;
+        &gt;
           &lt;div class&#x3D;&quot;flex items-center&quot;&gt;
             &lt;i [class]&#x3D;&quot;item.icon&quot; class&#x3D;&quot;menu-icon mr-2&quot;&gt;&lt;/i&gt;
             &lt;span&gt;{{ item.label | translate }}&lt;/span&gt;
@@ -1826,13 +1859,25 @@ export class NavbarComponent implements OnInit {
 &lt;/div&gt;
 
 &lt;div class&#x3D;&quot;smallNav&quot;&gt;
-  &lt;p-dialog ngSkipHydration [modal]&#x3D;&quot;true&quot; [(visible)]&#x3D;&quot;visible&quot; [position]&#x3D;&quot;position()&quot; [style]&#x3D;&quot;{ width: &#x27;25rem&#x27; }&quot;&gt;
+  &lt;p-dialog
+    ngSkipHydration
+    [modal]&#x3D;&quot;true&quot;
+    [(visible)]&#x3D;&quot;visible&quot;
+    [position]&#x3D;&quot;position()&quot;
+    [style]&#x3D;&quot;{ width: &#x27;25rem&#x27; }&quot;
+  &gt;
     &lt;div class&#x3D;&quot;flex align-items-center justify-content-between mb-4&quot;&gt;
       &lt;div class&#x3D;&quot;smallNav-header&quot;&gt;
-        &lt;img [routerLink]&#x3D;&quot;&#x27;/&#x27;&quot; ngSrc&#x3D;&quot;/images/navbar/Rose.WebP&quot; width&#x3D;&quot;54&quot; height&#x3D;&quot;54&quot; alt&#x3D;&quot;Rose logo&quot; loading&#x3D;&quot;lazy&quot;
-          decoding&#x3D;&quot;async&quot; /&gt;
+        &lt;img
+          [routerLink]&#x3D;&quot;&#x27;/&#x27;&quot;
+          ngSrc&#x3D;&quot;/images/navbar/Rose.AVIF&quot;
+          width&#x3D;&quot;54&quot;
+          height&#x3D;&quot;54&quot;
+          alt&#x3D;&quot;Rose logo&quot;
+          loading&#x3D;&quot;lazy&quot;
+          decoding&#x3D;&quot;async&quot;
+        /&gt;
       &lt;/div&gt;
-
 
       &lt;div class&#x3D;&quot;flex align-items-center gap-1&quot;&gt;
         &lt;app-translate-toggle class&#x3D;&quot;sm:hidden&quot; /&gt;
@@ -1844,12 +1889,12 @@ export class NavbarComponent implements OnInit {
             &lt;i class&#x3D;&quot;pi pi-search&quot;&gt;&lt;/i&gt;
           &lt;/button&gt;
         &lt;/div&gt;
-
       &lt;/div&gt;
     &lt;/div&gt;
 
     &lt;ul class&#x3D;&quot;navList&quot;&gt;
-      @for (item of items(); track $index;) { @let label &#x3D; item[&#x27;label&#x27;]!; @let route &#x3D; item[&#x27;route&#x27;];
+      @for (item of items(); track $index;) { @let label &#x3D; item[&#x27;label&#x27;]!; @let route &#x3D;
+      item[&#x27;route&#x27;];
       &lt;li&gt;
         &lt;i [class]&#x3D;&quot;item.icon&quot; class&#x3D;&quot;menu-icon mr-2&quot;&gt;&lt;/i&gt;
         &lt;a [routerLink]&#x3D;&quot;route&quot; routerLinkActive&#x3D;&quot;active&quot; class&#x3D;&quot;text-decoration-none nav-items&quot;&gt;
@@ -1863,7 +1908,8 @@ export class NavbarComponent implements OnInit {
 
 @if (inSearch()) {
 &lt;app-search-modal /&gt;
-}</code></pre>
+}
+</code></pre>
     </div>
 
 
@@ -1892,7 +1938,7 @@ export class NavbarComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div [@fadeTransition]="_translationService.fadeState()" class="navbar-container">  <!-- First Row: Logo, Search, Icons -->  <div class="first-row">    <div class="logo-section">      <img [routerLink]="\'/\'" ngSrc="/images/navbar/Rose.WebP" width="85" height="80" alt="Rose logo" rel="preload"        decoding="async" class="logo-img" />      <div class="location">        <span class="location-header">{{"navbar.deliver"|translate}}</span>        <div class="location-content">          <i class="pi pi-map-marker"></i>          <span class="logo-subtext">Cairo</span>        </div>      </div>    </div>    <div class="search-section ">      <p-iconfield>        <p-inputicon styleClass="pi pi-search ml-1" />        <input type="text" pInputText [placeholder]="\'navbar.search\'|translate" class="search-input w-100" />      </p-iconfield>    </div>    <div class="icons-section">      @if (!isLoggedIn()) {      <button [routerLink]="\'/login\'" class="login-btn" aria-label="Signup">        <i class="pi pi-user cursor-pointer text-lg"></i>        <span>{{"navbar.login" | translate}}</span>      </button>      <div class="icons">        <i class="pi pi-heart cursor-pointer text-md"></i>        <a routerLink="dashboard/order-flow/cart"><i class="pi pi-shopping-cart cursor-pointer text-md"></i></a>        <i class="pi pi-bell cursor-pointer text-md"></i>      </div>      } @else {      <p-splitButton [label]="\'Hello \' + userName()" aria-label="User Menu" [model]="userDropDown()"        styleClass="user-greeting-btn" menuStyleClass="user-menu-overlay">        <ng-template pTemplate="content">          <div class="flex flex-column align-items-start">            {{"navbar.hello" |translate}}            <span class="user-name">{{ userName() }}</span>          </div>        </ng-template>      </p-splitButton>      <div class="icons">        <p-overlaybadge [routerLink]="\'wishlist\'" [value]="(favouriteItemsNum$ | async)" class="custom-badge"          [badgeSize]="\'small\'">          <i class="pi pi-heart cursor-pointer text-lg"></i>        </p-overlaybadge>        <p-overlaybadge [value]="cartItemsNum$ |async" class="custom-badge" [badgeSize]="\'small\'">          <i tabindex="0" [routerLink]="\'order-flow\'" (keydown)="cartService.orderFlowState.set(\'cart\')"            (click)="cartService.orderFlowState.set(\'cart\')" class="pi pi-shopping-cart cursor-pointer text-md"></i>        </p-overlaybadge>        <p-overlaybadge value="4" class="custom-badge" [badgeSize]="\'small\'">          <i class="pi pi-bell cursor-pointer text-md"></i>        </p-overlaybadge>      </div>      }      <app-translate-toggle class="hidden sm:flex" />      <app-button-theme class="hidden sm:flex" />      <div class="smallNav-toggle">        <button (click)="showDialog(\'topleft\')" class="toggle-menu">          <i class="pi pi-align-right"></i>        </button>      </div>    </div>  </div>  <!-- Second Row: Menu Items -->  <div class="second-row">    <p-menubar ngSkipHydration [model]="items()" class="menu-bar">      <ng-template #item let-item let-root="root">        <a [routerLink]="item.route" routerLinkActive="active" pRipple          class="flex items-center p-menubar-item-link nav-items">          <div class="flex items-center">            <i [class]="item.icon" class="menu-icon mr-2"></i>            <span>{{ item.label | translate }}</span>          </div>        </a>      </ng-template>    </p-menubar>  </div></div><div class="smallNav">  <p-dialog ngSkipHydration [modal]="true" [(visible)]="visible" [position]="position()" [style]="{ width: \'25rem\' }">    <div class="flex align-items-center justify-content-between mb-4">      <div class="smallNav-header">        <img [routerLink]="\'/\'" ngSrc="/images/navbar/Rose.WebP" width="54" height="54" alt="Rose logo" loading="lazy"          decoding="async" />      </div>      <div class="flex align-items-center gap-1">        <app-translate-toggle class="sm:hidden" />        <app-button-theme />        <div class="search-icon">          <button (click)="openSearch()">            <i class="pi pi-search"></i>          </button>        </div>      </div>    </div>    <ul class="navList">      @for (item of items(); track $index;) { @let label = item[\'label\']!; @let route = item[\'route\'];      <li>        <i [class]="item.icon" class="menu-icon mr-2"></i>        <a [routerLink]="route" routerLinkActive="active" class="text-decoration-none nav-items">          {{ label | translate }}        </a>      </li>      }    </ul>  </p-dialog></div>@if (inSearch()) {<app-search-modal />}</div>'
+        var COMPONENT_TEMPLATE = '<div><div [@fadeTransition]="_translationService.fadeState()" class="navbar-container">  <!-- First Row: Logo, Search, Icons -->  <div class="first-row">    <div class="logo-section">      <img        [routerLink]="\'/\'"        ngSrc="/images/navbar/Rose.AVIF"        width="85"        height="80"        alt="Rose logo"        rel="preload"        decoding="async"        class="logo-img"      />      <div class="location">        <span class="location-header">{{ "navbar.deliver" | translate }}</span>        <div class="location-content">          <i class="pi pi-map-marker"></i>          <span class="logo-subtext">Cairo</span>        </div>      </div>    </div>    <div class="search-section">      <p-iconfield>        <p-inputicon styleClass="pi pi-search ml-1" />        <input          type="text"          pInputText          [placeholder]="\'navbar.search\' | translate"          class="search-input w-100"        />      </p-iconfield>    </div>    <div class="icons-section">      @if (!isLoggedIn()) {      <button [routerLink]="\'/login\'" class="login-btn" aria-label="Signup">        <i class="pi pi-user cursor-pointer text-lg"></i>        <span>{{ "navbar.login" | translate }}</span>      </button>      <div class="icons">        <i [routerLink]="\'wishlist\'" class="pi pi-heart cursor-pointer text-md"></i>        <a [routerLink]="\'order-flow\'"          ><i class="pi pi-shopping-cart cursor-pointer text-md"></i        ></a>        <i class="pi pi-bell cursor-pointer text-md"></i>      </div>      } @else {      <p-splitButton        [label]="\'Hello \' + userName()"        aria-label="User Menu"        [model]="userDropDown()"        styleClass="user-greeting-btn"        menuStyleClass="user-menu-overlay"      >        <ng-template pTemplate="content">          <div class="flex flex-column align-items-start">            {{ "navbar.hello" | translate }}            <span class="user-name">{{ userName() }}</span>          </div>        </ng-template>      </p-splitButton>      <div class="icons">        <p-overlaybadge          [routerLink]="\'wishlist\'"          [value]="favouriteItemsNum$ | async"          class="custom-badge"          [badgeSize]="\'small\'"        >          <i class="pi pi-heart cursor-pointer text-lg"></i>        </p-overlaybadge>        <p-overlaybadge [value]="cartItemsNum$ | async" class="custom-badge" [badgeSize]="\'small\'">          <i            tabindex="0"            [routerLink]="\'order-flow\'"            (keydown)="cartService.orderFlowState.set(\'cart\')"            (click)="cartService.orderFlowState.set(\'cart\')"            class="pi pi-shopping-cart cursor-pointer text-md"          ></i>        </p-overlaybadge>        <p-overlaybadge value="4" class="custom-badge" [badgeSize]="\'small\'">          <i class="pi pi-bell cursor-pointer text-md"></i>        </p-overlaybadge>      </div>      }      <app-translate-toggle class="hidden sm:flex" />      <app-button-theme class="hidden sm:flex" />      <div class="smallNav-toggle">        <button (click)="showDialog(\'topleft\')" class="toggle-menu">          <i class="pi pi-align-right"></i>        </button>      </div>    </div>  </div>  <!-- Second Row: Menu Items -->  <div class="second-row">    <p-menubar ngSkipHydration [model]="items()" class="menu-bar">      <ng-template #item let-item let-root="root">        <a          [routerLink]="item.route"          routerLinkActive="active"          pRipple          class="flex items-center p-menubar-item-link nav-items"        >          <div class="flex items-center">            <i [class]="item.icon" class="menu-icon mr-2"></i>            <span>{{ item.label | translate }}</span>          </div>        </a>      </ng-template>    </p-menubar>  </div></div><div class="smallNav">  <p-dialog    ngSkipHydration    [modal]="true"    [(visible)]="visible"    [position]="position()"    [style]="{ width: \'25rem\' }"  >    <div class="flex align-items-center justify-content-between mb-4">      <div class="smallNav-header">        <img          [routerLink]="\'/\'"          ngSrc="/images/navbar/Rose.AVIF"          width="54"          height="54"          alt="Rose logo"          loading="lazy"          decoding="async"        />      </div>      <div class="flex align-items-center gap-1">        <app-translate-toggle class="sm:hidden" />        <app-button-theme />        <div class="search-icon">          <button (click)="openSearch()">            <i class="pi pi-search"></i>          </button>        </div>      </div>    </div>    <ul class="navList">      @for (item of items(); track $index;) { @let label = item[\'label\']!; @let route =      item[\'route\'];      <li>        <i [class]="item.icon" class="menu-icon mr-2"></i>        <a [routerLink]="route" routerLinkActive="active" class="text-decoration-none nav-items">          {{ label | translate }}        </a>      </li>      }    </ul>  </p-dialog></div>@if (inSearch()) {<app-search-modal />}</div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'NavbarComponent'};

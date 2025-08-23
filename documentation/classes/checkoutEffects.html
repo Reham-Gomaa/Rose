@@ -201,7 +201,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/rose/src/app/store/checkout/checkout.effects.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/rose/src/app/store/checkout/checkout.effects.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -227,7 +227,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/rose/src/app/store/checkout/checkout.effects.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/rose/src/app/store/checkout/checkout.effects.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -253,7 +253,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/rose/src/app/store/checkout/checkout.effects.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/rose/src/app/store/checkout/checkout.effects.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -274,24 +274,21 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>createEffect(
-    () &#x3D;&gt; this.action$.pipe(
+                        <i>Default value : </i><code>createEffect(() &#x3D;&gt;
+    this.action$.pipe(
       ofType(checkoutActions.createCashOrder),
       withLatestFrom(this._store.select(checkoutSelectors.selectedShippingAdd)),
-      switchMap(([_,checkoutInfo])&#x3D;&gt;{
+      switchMap(([_, checkoutInfo]) &#x3D;&gt; {
         return this._checkoutService.createCashOrder(checkoutInfo!).pipe(
-          map((res:CashRes)&#x3D;&gt;{
-            if(res.message &#x3D;&#x3D; &#x27;success&#x27;){
-              this.router.navigate([&#x27;/order-flow/cart&#x27;])
+          map((res: CashRes) &#x3D;&gt; {
+            if (res.message &#x3D;&#x3D; &quot;success&quot;) {
+              this.router.navigate([&quot;/order-flow&quot;]);
             }
-            return checkoutActions.createCashOrderSuccess()
+            return checkoutActions.createCashOrderSuccess();
           }),
-        catchError(error &#x3D;&gt; of(checkoutActions.checkoutFailed({failureRes:error})))
-
-        )
-
-      }),
-
+          catchError((error) &#x3D;&gt; of(checkoutActions.checkoutFailed({ failureRes: error })))
+        );
+      })
     )
   )</code>
                     </td>
@@ -319,34 +316,28 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>createEffect(
-    () &#x3D;&gt; this.action$.pipe(
+                        <i>Default value : </i><code>createEffect(() &#x3D;&gt;
+    this.action$.pipe(
       ofType(checkoutActions.createCheckoutSession),
       withLatestFrom(this._store.select(checkoutSelectors.selectedShippingAdd)),
-      switchMap(([_,checkoutInfo])&#x3D;&gt;{
+      switchMap(([_, checkoutInfo]) &#x3D;&gt; {
         return this._checkoutService.createCheckoutSession(checkoutInfo!).pipe(
-          map((res:CreditRes)&#x3D;&gt;{
-            if(res.message &#x3D;&#x3D; &#x27;success&#x27;){
-
-              // Open the checkout session URL in a new tab
-                  window.open(res.session.url,&#x27;_self&#x27;)
-
+          map((res: CreditRes) &#x3D;&gt; {
+            if (res.message &#x3D;&#x3D; &quot;success&quot;) {
+              window.open(res.session.url, &quot;_self&quot;);
             }
-            return checkoutActions.checkoutSessionOpened()
-          }
-        ),
-        catchError(error &#x3D;&gt; of(checkoutActions.checkoutFailed({failureRes:error})))
-        )
-
+            return checkoutActions.checkoutSessionOpened();
+          }),
+          catchError((error) &#x3D;&gt; of(checkoutActions.checkoutFailed({ failureRes: error })))
+        );
       })
     )
-
   )</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">apps/rose/src/app/store/checkout/checkout.effects.ts:40</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/rose/src/app/store/checkout/checkout.effects.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -372,7 +363,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/rose/src/app/store/checkout/checkout.effects.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/rose/src/app/store/checkout/checkout.effects.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -396,66 +387,54 @@ import { Actions, createEffect, ofType } from &quot;@ngrx/effects&quot;;
 import { Store } from &quot;@ngrx/store&quot;;
 import { catchError, map, of, switchMap, withLatestFrom } from &quot;rxjs&quot;;
 import { CheckoutService } from &quot;../../shared/services/checkout/checkout.service&quot;;
-import * as checkoutActions from &#x27;./checkout.actions&#x27;;
-import * as checkoutSelectors from &#x27;./checkout.selectors&#x27;;
+import * as checkoutActions from &quot;./checkout.actions&quot;;
+import * as checkoutSelectors from &quot;./checkout.selectors&quot;;
 import { Router } from &quot;@angular/router&quot;;
-import { CashRes, CreditRes } from &quot;@rose/features_layouts/order-flow/components/checkout/models/CheckoutRes&quot;;
-
-
+import {
+  CashRes,
+  CreditRes,
+} from &quot;@rose/features_layouts/order-flow/components/checkout/models/CheckoutRes&quot;;
 
 export class checkoutEffects {
-  private action$  &#x3D; inject(Actions)
-  private router  &#x3D; inject(Router)
-  private _store &#x3D; inject(Store)
-  private _checkoutService &#x3D; inject(CheckoutService)
+  private action$ &#x3D; inject(Actions);
+  private router &#x3D; inject(Router);
+  private _store &#x3D; inject(Store);
+  private _checkoutService &#x3D; inject(CheckoutService);
 
-
-  readonly cashOrderEffect$ &#x3D; createEffect(
-    () &#x3D;&gt; this.action$.pipe(
+  readonly cashOrderEffect$ &#x3D; createEffect(() &#x3D;&gt;
+    this.action$.pipe(
       ofType(checkoutActions.createCashOrder),
       withLatestFrom(this._store.select(checkoutSelectors.selectedShippingAdd)),
-      switchMap(([_,checkoutInfo])&#x3D;&gt;{
+      switchMap(([_, checkoutInfo]) &#x3D;&gt; {
         return this._checkoutService.createCashOrder(checkoutInfo!).pipe(
-          map((res:CashRes)&#x3D;&gt;{
-            if(res.message &#x3D;&#x3D; &#x27;success&#x27;){
-              this.router.navigate([&#x27;/order-flow/cart&#x27;])
+          map((res: CashRes) &#x3D;&gt; {
+            if (res.message &#x3D;&#x3D; &quot;success&quot;) {
+              this.router.navigate([&quot;/order-flow&quot;]);
             }
-            return checkoutActions.createCashOrderSuccess()
+            return checkoutActions.createCashOrderSuccess();
           }),
-        catchError(error &#x3D;&gt; of(checkoutActions.checkoutFailed({failureRes:error})))
-
-        )
-
-      }),
-
-    )
-  )
-  readonly creditOrderEffect$ &#x3D; createEffect(
-    () &#x3D;&gt; this.action$.pipe(
-      ofType(checkoutActions.createCheckoutSession),
-      withLatestFrom(this._store.select(checkoutSelectors.selectedShippingAdd)),
-      switchMap(([_,checkoutInfo])&#x3D;&gt;{
-        return this._checkoutService.createCheckoutSession(checkoutInfo!).pipe(
-          map((res:CreditRes)&#x3D;&gt;{
-            if(res.message &#x3D;&#x3D; &#x27;success&#x27;){
-
-              // Open the checkout session URL in a new tab
-                  window.open(res.session.url,&#x27;_self&#x27;)
-
-            }
-            return checkoutActions.checkoutSessionOpened()
-          }
-        ),
-        catchError(error &#x3D;&gt; of(checkoutActions.checkoutFailed({failureRes:error})))
-        )
-
+          catchError((error) &#x3D;&gt; of(checkoutActions.checkoutFailed({ failureRes: error })))
+        );
       })
     )
-
-  )
-
-
-
+  );
+  readonly creditOrderEffect$ &#x3D; createEffect(() &#x3D;&gt;
+    this.action$.pipe(
+      ofType(checkoutActions.createCheckoutSession),
+      withLatestFrom(this._store.select(checkoutSelectors.selectedShippingAdd)),
+      switchMap(([_, checkoutInfo]) &#x3D;&gt; {
+        return this._checkoutService.createCheckoutSession(checkoutInfo!).pipe(
+          map((res: CreditRes) &#x3D;&gt; {
+            if (res.message &#x3D;&#x3D; &quot;success&quot;) {
+              window.open(res.session.url, &quot;_self&quot;);
+            }
+            return checkoutActions.checkoutSessionOpened();
+          }),
+          catchError((error) &#x3D;&gt; of(checkoutActions.checkoutFailed({ failureRes: error })))
+        );
+      })
+    )
+  );
 }
 </code></pre>
     </div>

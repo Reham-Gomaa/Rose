@@ -149,7 +149,6 @@
             <tr>
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
-                            <code>CommonModule</code>
                             <code>RatingModule</code>
                             <code>FormsModule</code>
                             <code>TranslatePipe</code>
@@ -244,7 +243,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/rose/src/app/features/pages/details/components/product-review/product-review.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/rose/src/app/features/pages/details/components/product-review/product-review.component.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -257,8 +256,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &quot;@angular/common&quot;;
-import { Component } from &quot;@angular/core&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &quot;@angular/core&quot;;
 import { FormsModule } from &quot;@angular/forms&quot;;
 import { RatingModule } from &quot;primeng/rating&quot;;
 import { ReviewFormComponent } from &quot;./review-form/review-form.component&quot;;
@@ -267,35 +265,20 @@ import { TranslatePipe } from &quot;@ngx-translate/core&quot;;
 
 @Component({
   selector: &quot;app-product-review&quot;,
-  imports: [CommonModule, RatingModule, FormsModule, TranslatePipe ,ReviewFormComponent, ReviewListComponent],
+  imports: [RatingModule, FormsModule, TranslatePipe, ReviewFormComponent, ReviewListComponent],
   templateUrl: &quot;./product-review.component.html&quot;,
   styleUrl: &quot;./product-review.component.scss&quot;,
 })
 export class ProductReviewComponent {
-
-  value &#x3D; 4.5
-
-
-
-
-
-
-
-
+  value &#x3D; 4.5;
 
   //hooks
-
-
-
-
-
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;product-review my-5&quot;&gt;
-
   &lt;div class&#x3D;&quot;product-review-header pb-5&quot;&gt;
     &lt;div class&#x3D;&quot;p-relative d-inline-block details-title-wrapper&quot;&gt;
       &lt;h2 id&#x3D;&quot;details-heading&quot; class&#x3D;&quot;details-title&quot; itemprop&#x3D;&quot;name&quot;&gt;
@@ -306,24 +289,24 @@ export class ProductReviewComponent {
       &lt;meta itemprop&#x3D;&quot;description&quot; content&#x3D;&quot;Browse related products&quot; /&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;general-rating&quot;&gt;
-      &lt;h3 class&#x3D;&quot;mb-2&quot;&gt;
-        {{ &#x27;Details.generalRating&#x27; | translate }}:
-      &lt;/h3&gt;
+      &lt;h3 class&#x3D;&quot;mb-2&quot;&gt;{{ &quot;Details.generalRating&quot; | translate }}:&lt;/h3&gt;
       &lt;div class&#x3D;&quot;rating-value&quot;&gt;
-        &lt;span class&#x3D;&quot;rating-average mb-3 inline-block capitalize font-semibold  &quot;&gt;
-          &lt;span class&#x3D;&quot;font-bold rateVal&quot;&gt;
-            4.5
-          &lt;/span&gt;
+        &lt;span class&#x3D;&quot;rating-average mb-3 inline-block capitalize font-semibold&quot;&gt;
+          &lt;span class&#x3D;&quot;font-bold rateVal&quot;&gt; 4.5 &lt;/span&gt;
           &lt;span class&#x3D;&quot;numOfRating&quot;&gt;
-            ({{ &#x27;Details.ratingsCount&#x27; | translate:{ count: 8 } }})
+            ({{ &quot;Details.ratingsCount&quot; | translate : { count: 8 } }})
           &lt;/span&gt;
         &lt;/span&gt;
         &lt;div class&#x3D;&quot;rating-stars&quot;&gt;
-          &lt;p-rating [(ngModel)]&#x3D;&quot;value&quot; [iconOnStyle]&#x3D;&quot;{
+          &lt;p-rating
+            [(ngModel)]&#x3D;&quot;value&quot;
+            [iconOnStyle]&#x3D;&quot;{
                   &#x27;color&#x27;: &#x27;#FFD700&#x27;,
-                }&quot; [stars]&#x3D;&quot;5&quot; [readonly]&#x3D;&quot;true&quot; /&gt;
+                }&quot;
+            [stars]&#x3D;&quot;5&quot;
+            [readonly]&#x3D;&quot;true&quot;
+          /&gt;
         &lt;/div&gt;
-
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -334,12 +317,10 @@ export class ProductReviewComponent {
         &lt;app-review-form&gt;&lt;/app-review-form&gt;
       &lt;/div&gt;
       &lt;div class&#x3D;&quot;md:col-6 col-12&quot;&gt;
-       &lt;app-review-list&gt;&lt;/app-review-list&gt;
+        &lt;app-review-list&gt;&lt;/app-review-list&gt;
       &lt;/div&gt;
-
     &lt;/div&gt;
   &lt;/div&gt;
-
 &lt;/section&gt;
 </code></pre>
     </div>
@@ -370,7 +351,7 @@ export class ProductReviewComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="product-review my-5">  <div class="product-review-header pb-5">    <div class="p-relative d-inline-block details-title-wrapper">      <h2 id="details-heading" class="details-title" itemprop="name">        {{ "Details.productReviews" | translate }}      </h2>      <div class="details-bg-shape" aria-hidden="true"></div>      <div class="details-underline-bar" aria-hidden="true"></div>      <meta itemprop="description" content="Browse related products" />    </div>    <div class="general-rating">      <h3 class="mb-2">        {{ \'Details.generalRating\' | translate }}:      </h3>      <div class="rating-value">        <span class="rating-average mb-3 inline-block capitalize font-semibold  ">          <span class="font-bold rateVal">            4.5          </span>          <span class="numOfRating">            ({{ \'Details.ratingsCount\' | translate:{ count: 8 } }})          </span>        </span>        <div class="rating-stars">          <p-rating [(ngModel)]="value" [iconOnStyle]="{                  \'color\': \'#FFD700\',                }" [stars]="5" [readonly]="true" />        </div>      </div>    </div>  </div>  <div class="prod-review-content py-5">    <div class="grid">      <div class="md:col-6 col-12 sm:border-none md:flex-order-0 flex-order-1">        <app-review-form></app-review-form>      </div>      <div class="md:col-6 col-12">       <app-review-list></app-review-list>      </div>    </div>  </div></section></div>'
+        var COMPONENT_TEMPLATE = '<div><section class="product-review my-5">  <div class="product-review-header pb-5">    <div class="p-relative d-inline-block details-title-wrapper">      <h2 id="details-heading" class="details-title" itemprop="name">        {{ "Details.productReviews" | translate }}      </h2>      <div class="details-bg-shape" aria-hidden="true"></div>      <div class="details-underline-bar" aria-hidden="true"></div>      <meta itemprop="description" content="Browse related products" />    </div>    <div class="general-rating">      <h3 class="mb-2">{{ "Details.generalRating" | translate }}:</h3>      <div class="rating-value">        <span class="rating-average mb-3 inline-block capitalize font-semibold">          <span class="font-bold rateVal"> 4.5 </span>          <span class="numOfRating">            ({{ "Details.ratingsCount" | translate : { count: 8 } }})          </span>        </span>        <div class="rating-stars">          <p-rating            [(ngModel)]="value"            [iconOnStyle]="{                  \'color\': \'#FFD700\',                }"            [stars]="5"            [readonly]="true"          />        </div>      </div>    </div>  </div>  <div class="prod-review-content py-5">    <div class="grid">      <div class="md:col-6 col-12 sm:border-none md:flex-order-0 flex-order-1">        <app-review-form></app-review-form>      </div>      <div class="md:col-6 col-12">        <app-review-list></app-review-list>      </div>    </div>  </div></section></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'ProductReviewComponent'};

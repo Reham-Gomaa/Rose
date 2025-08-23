@@ -285,8 +285,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="20"
-                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:20</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="22"
+                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -389,8 +389,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="47"
-                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:47</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:46</a></div>
                         </td>
                     </tr>
 
@@ -456,8 +456,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="43"
-                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:43</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:42</a></div>
                         </td>
                     </tr>
 
@@ -523,8 +523,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="50"
-                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:50</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -595,7 +595,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/rose/src/app/shared/services/products/products.service.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -614,12 +614,14 @@ import { Observable, shareReplay } from &quot;rxjs&quot;;
 import { EndPoint } from &quot;../../../core/enums/endpoints&quot;;
 import { ProductRes } from &quot;../../../core/interfaces/carditem.interface&quot;;
 import { countBproduct } from &quot;../../../core/interfaces/count-by-product.interface&quot;;
-import { reviewData, reviewsResponse } from &quot;../../../features/pages/details/interfaces/review.interface&quot;;
+import {
+  reviewData,
+  reviewsResponse,
+} from &quot;../../../features/pages/details/interfaces/review.interface&quot;;
 import { ProductDetails } from &quot;../../../features/pages/details/interfaces/productDetails.interface&quot;;
 // Interfaces
 import { ProductDetailsRes } from &quot;@rose/core_interfaces/details.interface&quot;;
 // Enums
-
 
 @Injectable({
   providedIn: &quot;root&quot;,
@@ -627,40 +629,39 @@ import { ProductDetailsRes } from &quot;@rose/core_interfaces/details.interface&
 export class ProductsService {
   private httpClient &#x3D; inject(HttpClient);
 
-    getAllProducts(categoryId?: string): Observable&lt;ProductRes&gt; {
+  getAllProducts(categoryId?: string): Observable&lt;ProductRes&gt; {
     let params &#x3D; new HttpParams();
     if (categoryId) {
-      params &#x3D; params.append(&#x27;category&#x27;, categoryId);
+      params &#x3D; params.append(&quot;category&quot;, categoryId);
     }
-    
-    return this.httpClient
-      .get&lt;ProductRes&gt;(&#x60;${EndPoint.PRODUCTS}&#x60;, { params })
-      .pipe(shareReplay(1));
+
+    return this.httpClient.get&lt;ProductRes&gt;(&#x60;${EndPoint.PRODUCTS}&#x60;, { params }).pipe(shareReplay(1));
   }
 
   getcategoryProductCount(): Observable&lt;countBproduct&gt; {
     return this.httpClient.get&lt;countBproduct&gt;(&#x60;${EndPoint.CountPRODUCTSByCATEGORIES}&#x60;);
   }
 
-  addProductReview(reviewInfo:reviewData,token:string):Observable&lt;any&gt;{
-    return this.httpClient.post(&#x60;${EndPoint.ADD_REVIEW}&#x60;,reviewInfo,{
-      headers:{
-        &quot;Authorization&quot;:&#x60;Bearer${token}&#x60;
-      }
-    })
+  addProductReview(reviewInfo: reviewData, token: string): Observable&lt;any&gt; {
+    return this.httpClient.post(&#x60;${EndPoint.ADD_REVIEW}&#x60;, reviewInfo, {
+      headers: {
+        Authorization: &#x60;Bearer${token}&#x60;,
+      },
+    });
+  }
+  getProductReviews(prodId: string): Observable&lt;reviewsResponse&gt; {
+    return this.httpClient.get&lt;reviewsResponse&gt;(&#x60;${EndPoint.PRODUCTS}/${prodId}/reviews&#x60;);
+  }
 
+  getProductDetails(prodId: string): Observable&lt;ProductDetails&gt; {
+    return this.httpClient.get&lt;ProductDetails&gt;(&#x60;${EndPoint.PRODUCTS}/${prodId}&#x60;);
   }
-  getProductReviews(prodId:string):Observable&lt;reviewsResponse&gt;{
-    return this.httpClient.get&lt;reviewsResponse&gt;(&#x60;${EndPoint.PRODUCTS}/${prodId}/reviews&#x60;)
+  getSpecificProduct(id: string): Observable&lt;ProductDetailsRes&gt; {
+    //get specific product by id
+    return this.httpClient
+      .get&lt;ProductDetailsRes&gt;(&#x60;${EndPoint.PRODUCTS}/${id}&#x60;)
+      .pipe(shareReplay(1));
   }
-
-  getProductDetails(prodId:string):Observable&lt;ProductDetails&gt; {
-     return this.httpClient.get&lt;ProductDetails&gt;(&#x60;${EndPoint.PRODUCTS}/${prodId}&#x60;)
-  }
-  getSpecificProduct(id: string): Observable&lt;ProductDetailsRes&gt; { //get specific product by id
-    return this.httpClient.get&lt;ProductDetailsRes&gt;(&#x60;${EndPoint.PRODUCTS}/${id}&#x60;).pipe(shareReplay(1));
-  }
-  
 }
 </code></pre>
     </div>

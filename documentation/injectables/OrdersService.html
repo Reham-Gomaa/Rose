@@ -161,7 +161,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/rose/src/app/shared/services/orders/orders.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/rose/src/app/shared/services/orders/orders.service.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -224,8 +224,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="17"
-                                    class="link-to-prism">apps/rose/src/app/shared/services/orders/orders.service.ts:17</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="15"
+                                    class="link-to-prism">apps/rose/src/app/shared/services/orders/orders.service.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -247,25 +247,22 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
 import { HttpClient } from &quot;@angular/common/http&quot;;
 import { Observable } from &quot;rxjs&quot;;
 // Interfaces
-import { OrderRes } from &#x27;@rose/core_interfaces/orders&#x27;;
+import { OrderRes } from &quot;@rose/core_interfaces/orders&quot;;
 // Enums
 import { EndPoint } from &quot;@rose/core_enums/endpoints&quot;;
 
-
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &quot;root&quot;,
 })
 export class OrdersService {
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getUserOrders(): Observable&lt;OrderRes&gt; {
-    
-      return this.httpClient.get&lt;OrderRes&gt;(&#x60;${EndPoint.ORDERS}&#x60;);
+    return this.httpClient.get&lt;OrderRes&gt;(&#x60;${EndPoint.ORDERS}&#x60;);
   }
 }
 </code></pre>

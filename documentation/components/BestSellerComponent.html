@@ -251,7 +251,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/rose/src/app/features/pages/home/components/best-seller/bestSeller.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/rose/src/app/features/pages/home/components/best-seller/bestSeller.component.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -276,7 +276,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/rose/src/app/features/pages/home/components/best-seller/bestSeller.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/rose/src/app/features/pages/home/components/best-seller/bestSeller.component.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -298,11 +298,7 @@ import { BestsellerSliderComponent } from &quot;@rose/shared_Components_ui/bests
 
 @Component({
   selector: &quot;app-best-seller&quot;,
-  imports: [
-    ButtonComponent,
-    TranslatePipe,
-    BestsellerSliderComponent
-  ],
+  imports: [ButtonComponent, TranslatePipe, BestsellerSliderComponent],
   templateUrl: &quot;./bestSeller.component.html&quot;,
   styleUrls: [&quot;./bestSeller.component.scss&quot;],
   animations: [fadeTransition],
@@ -319,12 +315,16 @@ export class BestSellerComponent {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;section [@fadeTransition]&#x3D;&quot;translationService.fadeState()&quot; class&#x3D;&quot;grid mt-8&quot; aria-labelledby&#x3D;&quot;premium-gifts-heading&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;section
+  [@fadeTransition]&#x3D;&quot;translationService.fadeState()&quot;
+  class&#x3D;&quot;grid mt-8&quot;
+  aria-labelledby&#x3D;&quot;premium-gifts-heading&quot;
+&gt;
   &lt;!-- Header Section --&gt;
   &lt;div class&#x3D;&quot;header text-left col-12 md:col-6 lg:col-4&quot;&gt;
     &lt;span class&#x3D;&quot;text-base mb-5 font-bold premium&quot;&gt;{{
       &quot;home.bestSeller.left.span&quot; | translate
-      }}&lt;/span&gt;
+    }}&lt;/span&gt;
     &lt;h2 id&#x3D;&quot;premium-gifts-heading&quot; class&#x3D;&quot;gifts text-4xl font-bold mb-2&quot;&gt;
       &lt;span class&#x3D;&quot;dark&quot;&gt;{{ &quot;home.bestSeller.left.heading2span1&quot; | translate }}&lt;/span&gt;
       {{ &quot;home.bestSeller.left.heading2&quot; | translate }}
@@ -335,19 +335,29 @@ export class BestSellerComponent {
       {{ &quot;home.bestSeller.left.paragraph&quot; | translate }}
     &lt;/p&gt;
 
-    &lt;app-button [text]&#x3D;&quot;&#x27;home.bestSeller.left.btn&#x27; | translate&quot; [icon]&#x3D;&quot;&#x27;pi pi-arrow-right arrowicon&#x27;&quot;
-      [bgColor]&#x3D;&quot;&#x27;var(--btn-shared-background)&#x27;&quot; [textColor]&#x3D;&quot;&#x27;var(--btn-shared-color)&#x27;&quot;
-      [borderRadius]&#x3D;&quot;&#x27;btn-bestseller-radius&#x27;&quot; [padding]&#x3D;&quot;&#x27;btn-bestseller-padding&#x27;&quot;
-      [transition]&#x3D;&quot;&#x27;btn-bestseller-transition&#x27;&quot; aria-label&#x3D;&quot;Explore more best seller gifts and products&quot; /&gt;
+    &lt;app-button
+      [text]&#x3D;&quot;&#x27;home.bestSeller.left.btn&#x27; | translate&quot;
+      [icon]&#x3D;&quot;&#x27;pi pi-arrow-right arrowicon&#x27;&quot;
+      [bgColor]&#x3D;&quot;&#x27;var(--btn-shared-background)&#x27;&quot;
+      [textColor]&#x3D;&quot;&#x27;var(--btn-shared-color)&#x27;&quot;
+      [borderRadius]&#x3D;&quot;&#x27;btn-bestseller-radius&#x27;&quot;
+      [padding]&#x3D;&quot;&#x27;btn-bestseller-padding&#x27;&quot;
+      [transition]&#x3D;&quot;&#x27;btn-bestseller-transition&#x27;&quot;
+      aria-label&#x3D;&quot;Explore more best seller gifts and products&quot;
+    /&gt;
   &lt;/div&gt;
 
   &lt;!-- Carousel/Product Grid Section --&gt;
   &lt;div class&#x3D;&quot;product-carousel col-12 md:col-6 lg:col-8&quot;&gt;
-    &lt;app-bestseller-slider [numVisible]&#x3D;&quot;3&quot; [responsiveOptions]&#x3D;&quot;responsiveOptions&quot; [skeletonCount]&#x3D;&quot;3&quot;
-      ariaLabel&#x3D;&quot;Best seller products carousel - variant&quot;&gt;&lt;/app-bestseller-slider&gt;
-
+    &lt;app-bestseller-slider
+      [numVisible]&#x3D;&quot;3&quot;
+      [responsiveOptions]&#x3D;&quot;responsiveOptions&quot;
+      [skeletonCount]&#x3D;&quot;3&quot;
+      ariaLabel&#x3D;&quot;Best seller products carousel - variant&quot;
+    &gt;&lt;/app-bestseller-slider&gt;
   &lt;/div&gt;
-&lt;/section&gt;</code></pre>
+&lt;/section&gt;
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="styleData">
@@ -376,7 +386,8 @@ export class BestSellerComponent {
 
 .product-carousel {
   position: relative;
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="tree">
@@ -404,7 +415,7 @@ export class BestSellerComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section [@fadeTransition]="translationService.fadeState()" class="grid mt-8" aria-labelledby="premium-gifts-heading">  <!-- Header Section -->  <div class="header text-left col-12 md:col-6 lg:col-4">    <span class="text-base mb-5 font-bold premium">{{      "home.bestSeller.left.span" | translate      }}</span>    <h2 id="premium-gifts-heading" class="gifts text-4xl font-bold mb-2">      <span class="dark">{{ "home.bestSeller.left.heading2span1" | translate }}</span>      {{ "home.bestSeller.left.heading2" | translate }}      <span class="dark">{{ "home.bestSeller.left.heading2span2" | translate }}</span>    </h2>    <p class="gray mb-4 gifts">      {{ "home.bestSeller.left.paragraph" | translate }}    </p>    <app-button [text]="\'home.bestSeller.left.btn\' | translate" [icon]="\'pi pi-arrow-right arrowicon\'"      [bgColor]="\'var(--btn-shared-background)\'" [textColor]="\'var(--btn-shared-color)\'"      [borderRadius]="\'btn-bestseller-radius\'" [padding]="\'btn-bestseller-padding\'"      [transition]="\'btn-bestseller-transition\'" aria-label="Explore more best seller gifts and products" />  </div>  <!-- Carousel/Product Grid Section -->  <div class="product-carousel col-12 md:col-6 lg:col-8">    <app-bestseller-slider [numVisible]="3" [responsiveOptions]="responsiveOptions" [skeletonCount]="3"      ariaLabel="Best seller products carousel - variant"></app-bestseller-slider>  </div></section></div>'
+        var COMPONENT_TEMPLATE = '<div><section  [@fadeTransition]="translationService.fadeState()"  class="grid mt-8"  aria-labelledby="premium-gifts-heading">  <!-- Header Section -->  <div class="header text-left col-12 md:col-6 lg:col-4">    <span class="text-base mb-5 font-bold premium">{{      "home.bestSeller.left.span" | translate    }}</span>    <h2 id="premium-gifts-heading" class="gifts text-4xl font-bold mb-2">      <span class="dark">{{ "home.bestSeller.left.heading2span1" | translate }}</span>      {{ "home.bestSeller.left.heading2" | translate }}      <span class="dark">{{ "home.bestSeller.left.heading2span2" | translate }}</span>    </h2>    <p class="gray mb-4 gifts">      {{ "home.bestSeller.left.paragraph" | translate }}    </p>    <app-button      [text]="\'home.bestSeller.left.btn\' | translate"      [icon]="\'pi pi-arrow-right arrowicon\'"      [bgColor]="\'var(--btn-shared-background)\'"      [textColor]="\'var(--btn-shared-color)\'"      [borderRadius]="\'btn-bestseller-radius\'"      [padding]="\'btn-bestseller-padding\'"      [transition]="\'btn-bestseller-transition\'"      aria-label="Explore more best seller gifts and products"    />  </div>  <!-- Carousel/Product Grid Section -->  <div class="product-carousel col-12 md:col-6 lg:col-8">    <app-bestseller-slider      [numVisible]="3"      [responsiveOptions]="responsiveOptions"      [skeletonCount]="3"      ariaLabel="Best seller products carousel - variant"    ></app-bestseller-slider>  </div></section></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'BestSellerComponent'};

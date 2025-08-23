@@ -149,7 +149,7 @@
             <tr>
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
-                            <code>CommonModule</code>
+                            <code>NgOptimizedImage</code>
                 </td>
             </tr>
 
@@ -258,8 +258,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="23"
-                                    class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/checkout/components/payment-method/payment-method.component.ts:23</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/checkout/components/payment-method/payment-method.component.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -295,8 +295,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="47"
-                                    class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/checkout/components/payment-method/payment-method.component.ts:47</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/checkout/components/payment-method/payment-method.component.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -367,7 +367,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/checkout/components/payment-method/payment-method.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/checkout/components/payment-method/payment-method.component.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -395,23 +395,23 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>signal([
     {
-      id:1,
-      imageSrc:&quot;/images/payMethods/cash.png&quot;,
-      title:&quot;Cash on Delivery&quot;,
-      desc:&quot;You’ll pay in cash when your order is delivered.&quot;
+      id: 1,
+      imageSrc: &quot;/images/payMethods/cash.AVIF&quot;,
+      title: &quot;Cash on Delivery&quot;,
+      desc: &quot;You’ll pay in cash when your order is delivered.&quot;,
     },
     {
-      id:2,
-      imageSrc:&quot;/images/payMethods/credit.png&quot;,
-      title:&quot;Credit Card&quot;,
-      desc:&quot;You’ll be securely redirected to Stripe to complete your payment.&quot;
-    }
+      id: 2,
+      imageSrc: &quot;/images/payMethods/credit.AVIF&quot;,
+      title: &quot;Credit Card&quot;,
+      desc: &quot;You’ll be securely redirected to Stripe to complete your payment.&quot;,
+    },
   ])</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/checkout/components/payment-method/payment-method.component.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/checkout/components/payment-method/payment-method.component.ts:28</a></div>
                         </td>
                     </tr>
 
@@ -437,7 +437,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/checkout/components/payment-method/payment-method.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/checkout/components/payment-method/payment-method.component.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -450,109 +450,96 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &quot;@angular/common&quot;;
-import { Component, inject, signal, WritableSignal } from &quot;@angular/core&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, signal, WritableSignal } from &quot;@angular/core&quot;;
 import { Store } from &quot;@ngrx/store&quot;;
 import * as checkoutActions from &quot;@rose/checkout/checkout.actions&quot;;
 import * as checkoutSelectors from &quot;@rose/checkout/checkout.selectors&quot;;
 import { pMethod } from &quot;@rose/checkout/checkout.state&quot;;
 import { payMethod } from &quot;../../models/payment&quot;;
+import { NgOptimizedImage } from &quot;@angular/common&quot;;
 
 @Component({
   selector: &quot;app-payment-method&quot;,
-  imports: [CommonModule],
+  imports: [NgOptimizedImage],
   templateUrl: &quot;./payment-method.component.html&quot;,
   styleUrl: &quot;./payment-method.component.scss&quot;,
 })
 export class PaymentMethodComponent {
+  private store &#x3D; inject(Store);
 
+  methodSelected!: pMethod | null;
 
-  private store &#x3D; inject(Store)
-
-  methodSelected!:pMethod|null
-
-
-  ngOnInit(){
-     this.store.select(checkoutSelectors.selectedPayMethod).subscribe({
+  ngOnInit() {
+    this.store.select(checkoutSelectors.selectedPayMethod).subscribe({
       next: (method) &#x3D;&gt; {
-        this.methodSelected &#x3D; method
-      }
-     })
+        this.methodSelected &#x3D; method;
+      },
+    });
   }
 
-
-  paymentMethods:WritableSignal&lt;payMethod[]&gt; &#x3D; signal([
+  paymentMethods: WritableSignal&lt;payMethod[]&gt; &#x3D; signal([
     {
-      id:1,
-      imageSrc:&quot;/images/payMethods/cash.png&quot;,
-      title:&quot;Cash on Delivery&quot;,
-      desc:&quot;You’ll pay in cash when your order is delivered.&quot;
+      id: 1,
+      imageSrc: &quot;/images/payMethods/cash.AVIF&quot;,
+      title: &quot;Cash on Delivery&quot;,
+      desc: &quot;You’ll pay in cash when your order is delivered.&quot;,
     },
     {
-      id:2,
-      imageSrc:&quot;/images/payMethods/credit.png&quot;,
-      title:&quot;Credit Card&quot;,
-      desc:&quot;You’ll be securely redirected to Stripe to complete your payment.&quot;
-    }
+      id: 2,
+      imageSrc: &quot;/images/payMethods/credit.AVIF&quot;,
+      title: &quot;Credit Card&quot;,
+      desc: &quot;You’ll be securely redirected to Stripe to complete your payment.&quot;,
+    },
   ]);
 
-  setPaymentMethod(methodName:string){
-    const methodToStore &#x3D; methodName.split(&#x27; &#x27;)[0].toLowerCase()
-    if(methodToStore &#x3D;&#x3D; pMethod.CASH) {
-
-      this.store.dispatch(checkoutActions.selectPayMethod({method:pMethod.CASH}))
-    }else {
-       this.store.dispatch(checkoutActions.selectPayMethod({method:pMethod.CREDIT}))
+  setPaymentMethod(methodName: string) {
+    const methodToStore &#x3D; methodName.split(&quot; &quot;)[0].toLowerCase();
+    if (methodToStore &#x3D;&#x3D; pMethod.CASH) {
+      this.store.dispatch(checkoutActions.selectPayMethod({ method: pMethod.CASH }));
+    } else {
+      this.store.dispatch(checkoutActions.selectPayMethod({ method: pMethod.CREDIT }));
     }
   }
-
-
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;section id&#x3D;&quot;payment-methods&quot; class&#x3D;&quot;grid grid-cols-12&quot;&gt;
+  @for (method of paymentMethods(); track method.id) {
 
-
-      @for (method of paymentMethods(); track method.id) {
-
-        &lt;div class&#x3D;&quot;col-12 lg:col-6&quot; &gt;
-
-
-            &lt;button  (click)&#x3D;&quot;setPaymentMethod(method.title)&quot; class&#x3D;&quot;d-block cursor-pointer card-btn w-full bg-transparent&quot; &gt;
-              &lt;div [class]&#x3D;&quot;{
-                &#x27;active&#x27;:(methodSelected) &#x3D;&#x3D;&#x3D; method.title.split(&#x27; &#x27;)[0].toLowerCase()
-              }&quot; class&#x3D;&quot;method-card flex flex-column align-items-center justify-content-center&quot;&gt;
-                &lt;div class&#x3D;&quot;method-icon&quot;&gt;
-                  &lt;img class&#x3D;&quot;w-1/1&quot; [src]&#x3D;&quot;method.imageSrc&quot; alt&#x3D;&quot;{{method.title}}&quot;&gt;
-                &lt;/div&gt;
-                &lt;div class&#x3D;&quot;method-info text-center&quot;&gt;
-                  &lt;h3 class&#x3D;&quot;text-xl&quot;&gt;{{method.title}}&lt;/h3&gt;
-                  &lt;p class&#x3D;&quot;text-lg&quot;&gt;{{method.desc}}&lt;/p&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/button&gt;
-
-
+  &lt;div class&#x3D;&quot;col-12 lg:col-6&quot;&gt;
+    &lt;button
+      (click)&#x3D;&quot;setPaymentMethod(method.title)&quot;
+      class&#x3D;&quot;d-block cursor-pointer card-btn w-full bg-transparent&quot;
+    &gt;
+      &lt;div
+        [class]&#x3D;&quot;{
+          active: methodSelected &#x3D;&#x3D;&#x3D; method.title.split(&#x27; &#x27;)[0].toLowerCase()
+        }&quot;
+        class&#x3D;&quot;method-card flex flex-column align-items-center justify-content-center&quot;
+      &gt;
+        &lt;div class&#x3D;&quot;method-icon&quot;&gt;
+          &lt;img
+            class&#x3D;&quot;w-1/1&quot;
+            [ngSrc]&#x3D;&quot;method.imageSrc&quot;
+            width&#x3D;&quot;195&quot;
+            height&#x3D;&quot;195&quot;
+            alt&#x3D;&quot;{{ method.title }}&quot;
+            loading&#x3D;&quot;lazy&quot;
+            decoding&#x3D;&quot;async&quot;
+          /&gt;
         &lt;/div&gt;
+        &lt;div class&#x3D;&quot;method-info text-center&quot;&gt;
+          &lt;h3 class&#x3D;&quot;text-xl&quot;&gt;{{ method.title }}&lt;/h3&gt;
+          &lt;p class&#x3D;&quot;text-lg&quot;&gt;{{ method.desc }}&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
 
-
-
-
-      }
-
-
-
-
-
-
-
-
-
+  }
 &lt;/section&gt;
-
-
 </code></pre>
     </div>
 
@@ -582,7 +569,7 @@ export class PaymentMethodComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section id="payment-methods" class="grid grid-cols-12">      @for (method of paymentMethods(); track method.id) {        <div class="col-12 lg:col-6" >            <button  (click)="setPaymentMethod(method.title)" class="d-block cursor-pointer card-btn w-full bg-transparent" >              <div [class]="{                \'active\':(methodSelected) === method.title.split(\' \')[0].toLowerCase()              }" class="method-card flex flex-column align-items-center justify-content-center">                <div class="method-icon">                  <img class="w-1/1" [src]="method.imageSrc" alt="{{method.title}}">                </div>                <div class="method-info text-center">                  <h3 class="text-xl">{{method.title}}</h3>                  <p class="text-lg">{{method.desc}}</p>                </div>              </div>            </button>        </div>      }</section></div>'
+        var COMPONENT_TEMPLATE = '<div><section id="payment-methods" class="grid grid-cols-12">  @for (method of paymentMethods(); track method.id) {  <div class="col-12 lg:col-6">    <button      (click)="setPaymentMethod(method.title)"      class="d-block cursor-pointer card-btn w-full bg-transparent"    >      <div        [class]="{          active: methodSelected === method.title.split(\' \')[0].toLowerCase()        }"        class="method-card flex flex-column align-items-center justify-content-center"      >        <div class="method-icon">          <img            class="w-1/1"            [ngSrc]="method.imageSrc"            width="195"            height="195"            alt="{{ method.title }}"            loading="lazy"            decoding="async"          />        </div>        <div class="method-info text-center">          <h3 class="text-xl">{{ method.title }}</h3>          <p class="text-lg">{{ method.desc }}</p>        </div>      </div>    </button>  </div>  }</section></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'PaymentMethodComponent'};
