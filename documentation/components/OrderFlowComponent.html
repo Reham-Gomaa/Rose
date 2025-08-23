@@ -679,8 +679,8 @@ import { CheckoutComponent } from &quot;./components/checkout/checkout.component
     BestsellerSliderComponent,
     AsyncPipe,
     CartComponent,
-    CheckoutComponent
-],
+    CheckoutComponent,
+  ],
   templateUrl: &quot;./order-flow.component.html&quot;,
   styleUrl: &quot;./order-flow.component.scss&quot;,
   animations: [fadeTransition],
@@ -749,49 +749,54 @@ export class OrderFlowComponent implements OnInit {
     &lt;!-- Payment and Summary --&gt;
     &lt;div class&#x3D;&quot;grid mb-8 align-items-start&quot;&gt;
       &lt;div class&#x3D;&quot;col-12 md:col-7&quot;&gt;
-        @if ( cartService.orderFlowState() &#x3D;&#x3D;&#x3D; &quot;cart&quot;) {&lt;app-cart /&gt;}
-        @if ( cartService.orderFlowState() &#x3D;&#x3D;&#x3D; &quot;checkout&quot;) {&lt;app-checkout/&gt;}
+        @if ( cartService.orderFlowState() &#x3D;&#x3D;&#x3D; &quot;cart&quot;) {&lt;app-cart /&gt;} @if (
+        cartService.orderFlowState() &#x3D;&#x3D;&#x3D; &quot;checkout&quot;) {&lt;app-checkout /&gt;}
       &lt;/div&gt;
       &lt;!-- Summary --&gt;
-      &lt;div class&#x3D;&quot; summary-box-wrapper col-12 md:col-5&quot;&gt;
-        &lt;h2 class&#x3D;&quot;summary-title&quot;&gt;{{&quot;orderFlow.summaryTitle&quot; | translate}}&lt;/h2&gt;
+      &lt;div class&#x3D;&quot;summary-box-wrapper col-12 md:col-5&quot;&gt;
+        &lt;h2 class&#x3D;&quot;summary-title&quot;&gt;{{ &quot;orderFlow.summaryTitle&quot; | translate }}&lt;/h2&gt;
         &lt;div class&#x3D;&quot;summary-box&quot;&gt;
-
           &lt;div class&#x3D;&quot;wrapper&quot;&gt;
-            &lt;div class&#x3D;&quot; coupon-content flex gap-2 align-items-center justify-content-between&quot;&gt;
-              &lt;app-custom-input [id]&#x3D;&quot;&#x27;coupon-code&#x27;&quot; [labelText]&#x3D;&quot;&#x27;&#x27;&quot; [placeholder]&#x3D;&quot;&#x27;orderFlow.couponCode&#x27; | translate&quot;
-                [type]&#x3D;&quot;&#x27;text&#x27;&quot;&gt;
+            &lt;div class&#x3D;&quot;coupon-content flex gap-2 align-items-center justify-content-between&quot;&gt;
+              &lt;app-custom-input
+                [id]&#x3D;&quot;&#x27;coupon-code&#x27;&quot;
+                [labelText]&#x3D;&quot;&#x27;&#x27;&quot;
+                [placeholder]&#x3D;&quot;&#x27;orderFlow.couponCode&#x27; | translate&quot;
+                [type]&#x3D;&quot;&#x27;text&#x27;&quot;
+              &gt;
               &lt;/app-custom-input&gt;
 
               &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;buttons&quot;&gt;
                 &lt;i class&#x3D;&quot;pi pi-ticket&quot;&gt;&lt;/i&gt;
-                {{&quot;orderFlow.applyCoupon&quot; | translate}}
+                {{ &quot;orderFlow.applyCoupon&quot; | translate }}
               &lt;/button&gt;
             &lt;/div&gt;
 
-
             &lt;div class&#x3D;&quot;coupon-box mx-auto flex align-items-center justify-content-center&quot;&gt;
-              &lt;p&gt;{{&quot;orderFlow.couponMessage&quot; | translate}}&lt;/p&gt;
+              &lt;p&gt;{{ &quot;orderFlow.couponMessage&quot; | translate }}&lt;/p&gt;
             &lt;/div&gt;
 
             &lt;div class&#x3D;&quot;total-row flex justify-content-between&quot;&gt;
-              &lt;span&gt;{{&quot;orderFlow.Total&quot; | translate}}&lt;/span&gt;
-              &lt;span&gt;{{totalPrice$ |async}}{{&quot;EGP&quot; | translate}}&lt;/span&gt;
+              &lt;span&gt;{{ &quot;orderFlow.Total&quot; | translate }}&lt;/span&gt;
+              &lt;span&gt;{{ totalPrice$ | async }}{{ &quot;EGP&quot; | translate }}&lt;/span&gt;
             &lt;/div&gt;
 
             @if (cartService.orderFlowState() &#x3D;&#x3D;&#x3D; &quot;cart&quot;){
-            &lt;app-button [disable]&#x3D;&quot;userCartItems().length &#x3D;&#x3D;&#x3D; 0&quot; (click)&#x3D;&quot;checkStoreQuantity()&quot;
-              [text]&#x3D;&quot;&#x27;orderFlow.checkoutButton&#x27; | translate&quot; [icon]&#x3D;&quot;&#x27;pi pi-arrow-right arrowicon&#x27;&quot;
-              [textColor]&#x3D;&quot;&#x27;var(--btn-shared-color)&#x27;&quot; [bgColor]&#x3D;&quot;&#x27;var(--btn-shared-background)&#x27;&quot;
-              [borderRadius]&#x3D;&quot;&#x27;btn-summary-radius&#x27;&quot; [padding]&#x3D;&quot;&#x27;btn-summary-padding w-full&#x27;&quot;
-              [transition]&#x3D;&quot;&#x27;btn-summary-transition&#x27;&quot; aria-label&#x3D;&quot;checkout and place order&quot; /&gt;
+            &lt;app-button
+              [disable]&#x3D;&quot;userCartItems().length &#x3D;&#x3D;&#x3D; 0&quot;
+              (click)&#x3D;&quot;checkStoreQuantity()&quot;
+              [text]&#x3D;&quot;&#x27;orderFlow.checkoutButton&#x27; | translate&quot;
+              [icon]&#x3D;&quot;&#x27;pi pi-arrow-right arrowicon&#x27;&quot;
+              [textColor]&#x3D;&quot;&#x27;var(--btn-shared-color)&#x27;&quot;
+              [bgColor]&#x3D;&quot;&#x27;var(--btn-shared-background)&#x27;&quot;
+              [borderRadius]&#x3D;&quot;&#x27;btn-summary-radius&#x27;&quot;
+              [padding]&#x3D;&quot;&#x27;btn-summary-padding w-full&#x27;&quot;
+              [transition]&#x3D;&quot;&#x27;btn-summary-transition&#x27;&quot;
+              aria-label&#x3D;&quot;checkout and place order&quot;
+            /&gt;
             }
           &lt;/div&gt;
-
         &lt;/div&gt;
-
-
-
       &lt;/div&gt;
     &lt;/div&gt;
 
@@ -810,11 +815,20 @@ export class OrderFlowComponent implements OnInit {
 
       &lt;div class&#x3D;&quot;product-carousel col-12 md:col-6 lg:col-8 mb-8&quot;&gt;
         &lt;div class&#x3D;&quot;col-12&quot;&gt;
-          &lt;app-bestseller-slider [numVisible]&#x3D;&quot;4&quot; [numScroll]&#x3D;&quot;1&quot; [responsiveOptions]&#x3D;&quot;responsiveOptions&quot;
-            prevButtonClass&#x3D;&quot;p-button-rounded custom-best-prev&quot; nextButtonClass&#x3D;&quot;p-button-rounded custom-best-next&quot;
-            ariaLabel&#x3D;&quot;Best seller products carousel&quot;&gt;&lt;/app-bestseller-slider&gt;
+          &lt;app-bestseller-slider
+            [numVisible]&#x3D;&quot;4&quot;
+            [numScroll]&#x3D;&quot;1&quot;
+            [responsiveOptions]&#x3D;&quot;responsiveOptions&quot;
+            prevButtonClass&#x3D;&quot;p-button-rounded custom-best-prev&quot;
+            nextButtonClass&#x3D;&quot;p-button-rounded custom-best-next&quot;
+            ariaLabel&#x3D;&quot;Best seller products carousel&quot;
+          &gt;&lt;/app-bestseller-slider&gt;
         &lt;/div&gt;
-      &lt;/div&gt;</code></pre>
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
     </div>
 
 
@@ -843,7 +857,7 @@ export class OrderFlowComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section>  <div class="contain mx-auto mb-8">    <!-- Payment and Summary -->    <div class="grid mb-8 align-items-start">      <div class="col-12 md:col-7">        @if ( cartService.orderFlowState() === "cart") {<app-cart />}        @if ( cartService.orderFlowState() === "checkout") {<app-checkout/>}      </div>      <!-- Summary -->      <div class=" summary-box-wrapper col-12 md:col-5">        <h2 class="summary-title">{{"orderFlow.summaryTitle" | translate}}</h2>        <div class="summary-box">          <div class="wrapper">            <div class=" coupon-content flex gap-2 align-items-center justify-content-between">              <app-custom-input [id]="\'coupon-code\'" [labelText]="\'\'" [placeholder]="\'orderFlow.couponCode\' | translate"                [type]="\'text\'">              </app-custom-input>              <button type="button" class="buttons">                <i class="pi pi-ticket"></i>                {{"orderFlow.applyCoupon" | translate}}              </button>            </div>            <div class="coupon-box mx-auto flex align-items-center justify-content-center">              <p>{{"orderFlow.couponMessage" | translate}}</p>            </div>            <div class="total-row flex justify-content-between">              <span>{{"orderFlow.Total" | translate}}</span>              <span>{{totalPrice$ |async}}{{"EGP" | translate}}</span>            </div>            @if (cartService.orderFlowState() === "cart"){            <app-button [disable]="userCartItems().length === 0" (click)="checkStoreQuantity()"              [text]="\'orderFlow.checkoutButton\' | translate" [icon]="\'pi pi-arrow-right arrowicon\'"              [textColor]="\'var(--btn-shared-color)\'" [bgColor]="\'var(--btn-shared-background)\'"              [borderRadius]="\'btn-summary-radius\'" [padding]="\'btn-summary-padding w-full\'"              [transition]="\'btn-summary-transition\'" aria-label="checkout and place order" />            }          </div>        </div>      </div>    </div>    <!-- Best Seller -->    <div class="mb-8">      <div class="p-relative d-inline-block details-title-wrapper">        <h2 id="details-heading" class="details-title" itemprop="name">          <span>{{ "home.bestSeller.left.heading2span1" | translate }}</span>          {{ "home.bestSeller.left.heading2" | translate }}          <span>{{ "home.bestSeller.left.heading2span2" | translate }}</span>        </h2>        <div class="details-bg-shape" aria-hidden="true"></div>        <div class="details-underline-bar" aria-hidden="true"></div>        <meta itemprop="description" content="Browse Best Sellers" />      </div>      <div class="product-carousel col-12 md:col-6 lg:col-8 mb-8">        <div class="col-12">          <app-bestseller-slider [numVisible]="4" [numScroll]="1" [responsiveOptions]="responsiveOptions"            prevButtonClass="p-button-rounded custom-best-prev" nextButtonClass="p-button-rounded custom-best-next"            ariaLabel="Best seller products carousel"></app-bestseller-slider>        </div>      </div></div>'
+        var COMPONENT_TEMPLATE = '<div><section>  <div class="contain mx-auto mb-8">    <!-- Payment and Summary -->    <div class="grid mb-8 align-items-start">      <div class="col-12 md:col-7">        @if ( cartService.orderFlowState() === "cart") {<app-cart />} @if (        cartService.orderFlowState() === "checkout") {<app-checkout />}      </div>      <!-- Summary -->      <div class="summary-box-wrapper col-12 md:col-5">        <h2 class="summary-title">{{ "orderFlow.summaryTitle" | translate }}</h2>        <div class="summary-box">          <div class="wrapper">            <div class="coupon-content flex gap-2 align-items-center justify-content-between">              <app-custom-input                [id]="\'coupon-code\'"                [labelText]="\'\'"                [placeholder]="\'orderFlow.couponCode\' | translate"                [type]="\'text\'"              >              </app-custom-input>              <button type="button" class="buttons">                <i class="pi pi-ticket"></i>                {{ "orderFlow.applyCoupon" | translate }}              </button>            </div>            <div class="coupon-box mx-auto flex align-items-center justify-content-center">              <p>{{ "orderFlow.couponMessage" | translate }}</p>            </div>            <div class="total-row flex justify-content-between">              <span>{{ "orderFlow.Total" | translate }}</span>              <span>{{ totalPrice$ | async }}{{ "EGP" | translate }}</span>            </div>            @if (cartService.orderFlowState() === "cart"){            <app-button              [disable]="userCartItems().length === 0"              (click)="checkStoreQuantity()"              [text]="\'orderFlow.checkoutButton\' | translate"              [icon]="\'pi pi-arrow-right arrowicon\'"              [textColor]="\'var(--btn-shared-color)\'"              [bgColor]="\'var(--btn-shared-background)\'"              [borderRadius]="\'btn-summary-radius\'"              [padding]="\'btn-summary-padding w-full\'"              [transition]="\'btn-summary-transition\'"              aria-label="checkout and place order"            />            }          </div>        </div>      </div>    </div>    <!-- Best Seller -->    <div class="mb-8">      <div class="p-relative d-inline-block details-title-wrapper">        <h2 id="details-heading" class="details-title" itemprop="name">          <span>{{ "home.bestSeller.left.heading2span1" | translate }}</span>          {{ "home.bestSeller.left.heading2" | translate }}          <span>{{ "home.bestSeller.left.heading2span2" | translate }}</span>        </h2>        <div class="details-bg-shape" aria-hidden="true"></div>        <div class="details-underline-bar" aria-hidden="true"></div>        <meta itemprop="description" content="Browse Best Sellers" />      </div>      <div class="product-carousel col-12 md:col-6 lg:col-8 mb-8">        <div class="col-12">          <app-bestseller-slider            [numVisible]="4"            [numScroll]="1"            [responsiveOptions]="responsiveOptions"            prevButtonClass="p-button-rounded custom-best-prev"            nextButtonClass="p-button-rounded custom-best-next"            ariaLabel="Best seller products carousel"          ></app-bestseller-slider>        </div>      </div>    </div>  </div></section></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'OrderFlowComponent'};

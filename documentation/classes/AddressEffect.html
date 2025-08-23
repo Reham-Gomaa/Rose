@@ -298,7 +298,7 @@
         switchMap(({ addressId }) &#x3D;&gt; {
           return this._userAddressService.deleteAddress(addressId).pipe(
             map(() &#x3D;&gt; {
-              return deleteAddressesSuccess({addressId:addressId});
+              return deleteAddressesSuccess({ addressId: addressId });
             }),
             catchError((error) &#x3D;&gt; of(deleteAddressesFailure({ error })))
           );
@@ -375,8 +375,8 @@
     (): Observable&lt;Action&gt; &#x3D;&gt;
       this._actions$.pipe(
         ofType(updateAddress),
-        switchMap(({ address,addressId }) &#x3D;&gt; {
-          return this._userAddressService.updateAddress(addressId,address).pipe(
+        switchMap(({ address, addressId }) &#x3D;&gt; {
+          return this._userAddressService.updateAddress(addressId, address).pipe(
             map((addressRes: AddressRes) &#x3D;&gt; {
               return updateAddressesSuccess({ addresses: addressRes.addresses });
             }),
@@ -389,7 +389,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">apps/rose/src/app/store/address/address.effect.ts:78</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">apps/rose/src/app/store/address/address.effect.ts:77</a></div>
                         </td>
                     </tr>
 
@@ -450,7 +450,7 @@ export class AddressEffect {
         })
       )
   );
- 
+
   // Delete Effect
   readonly deleteAddress$ &#x3D; createEffect(
     (): Observable&lt;Action&gt; &#x3D;&gt;
@@ -459,7 +459,7 @@ export class AddressEffect {
         switchMap(({ addressId }) &#x3D;&gt; {
           return this._userAddressService.deleteAddress(addressId).pipe(
             map(() &#x3D;&gt; {
-              return deleteAddressesSuccess({addressId:addressId});
+              return deleteAddressesSuccess({ addressId: addressId });
             }),
             catchError((error) &#x3D;&gt; of(deleteAddressesFailure({ error })))
           );
@@ -483,14 +483,13 @@ export class AddressEffect {
       )
   );
 
-
   // update Effect
   readonly updateAddress$ &#x3D; createEffect(
     (): Observable&lt;Action&gt; &#x3D;&gt;
       this._actions$.pipe(
         ofType(updateAddress),
-        switchMap(({ address,addressId }) &#x3D;&gt; {
-          return this._userAddressService.updateAddress(addressId,address).pipe(
+        switchMap(({ address, addressId }) &#x3D;&gt; {
+          return this._userAddressService.updateAddress(addressId, address).pipe(
             map((addressRes: AddressRes) &#x3D;&gt; {
               return updateAddressesSuccess({ addresses: addressRes.addresses });
             }),

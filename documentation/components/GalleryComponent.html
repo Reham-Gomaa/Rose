@@ -247,11 +247,11 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>{
     url: [
-      &quot;images/gallery/Frame 74.WebP&quot;,
-      &quot;images/gallery/Frame 75.WebP&quot;,
-      &quot;images/gallery/Frame 76.WebP&quot;,
-      &quot;images/gallery/Frame 77.WebP&quot;,
-      &quot;images/gallery/Frame 78.WebP&quot;,
+      &quot;images/gallery/Frame 74.AVIF&quot;,
+      &quot;images/gallery/Frame 75.AVIF&quot;,
+      &quot;images/gallery/Frame 76.AVIF&quot;,
+      &quot;images/gallery/Frame 77.AVIF&quot;,
+      &quot;images/gallery/Frame 78.AVIF&quot;,
     ],
   }</code>
                     </td>
@@ -319,11 +319,11 @@ export class GalleryComponent {
 
   images &#x3D; {
     url: [
-      &quot;images/gallery/Frame 74.WebP&quot;,
-      &quot;images/gallery/Frame 75.WebP&quot;,
-      &quot;images/gallery/Frame 76.WebP&quot;,
-      &quot;images/gallery/Frame 77.WebP&quot;,
-      &quot;images/gallery/Frame 78.WebP&quot;,
+      &quot;images/gallery/Frame 74.AVIF&quot;,
+      &quot;images/gallery/Frame 75.AVIF&quot;,
+      &quot;images/gallery/Frame 76.AVIF&quot;,
+      &quot;images/gallery/Frame 77.AVIF&quot;,
+      &quot;images/gallery/Frame 78.AVIF&quot;,
     ],
   };
 }
@@ -331,8 +331,12 @@ export class GalleryComponent {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;gallery-container w-full sm:text-center text-left&quot; aria-labelledby&#x3D;&quot;gallery-heading&quot; itemscope
-  itemtype&#x3D;&quot;https://schema.org/ImageGallery&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;section
+  class&#x3D;&quot;gallery-container w-full sm:text-center text-left&quot;
+  aria-labelledby&#x3D;&quot;gallery-heading&quot;
+  itemscope
+  itemtype&#x3D;&quot;https://schema.org/ImageGallery&quot;
+&gt;
   &lt;!-- Title --&gt;
   &lt;h5 class&#x3D;&quot;title-h5 uppercase mb-2&quot; itemprop&#x3D;&quot;headline&quot;&gt;
     {{ &quot;home.gallery.heading5&quot; | translate }}
@@ -347,30 +351,53 @@ export class GalleryComponent {
   &lt;/div&gt;
 
   &lt;div class&#x3D;&quot;custom-gallery-grid grid-nogutter&quot; role&#x3D;&quot;list&quot; aria-live&#x3D;&quot;polite&quot;&gt;
-    @for (image of images.url; track image; let i &#x3D; $index) { @if (i &lt; 3) { &lt;!-- First row: 3 images --&gt;
-      &lt;div role&#x3D;&quot;listitem&quot; itemprop&#x3D;&quot;image&quot; itemscope itemtype&#x3D;&quot;https://schema.org/ImageObject&quot;&gt;
-        &lt;div class&#x3D;&quot;custom-img&quot; [style.backgroundImage]&#x3D;&quot;&#x27;url(&#x27; + &#x27;\&#x27;&#x27; + image + &#x27;\&#x27;&#x27; + &#x27;)&#x27;&quot; role&#x3D;&quot;img&quot;
-          [attr.aria-label]&#x3D;&quot;&#x27;Gallery image &#x27; + (i + 1)&quot; [attr.loading]&#x3D;&quot;i &gt; 1 ? &#x27;lazy&#x27; : &#x27;eager&#x27;&quot;
-          [attr.fetchpriority]&#x3D;&quot;i &lt; 2 ? &#x27;high&#x27; : &#x27;auto&#x27;&quot;&gt;&lt;/div&gt;
-        &lt;meta itemprop&#x3D;&quot;url&quot; [attr.content]&#x3D;&quot;image&quot; /&gt;
-      &lt;/div&gt;
-      } @if (i &#x3D;&#x3D;&#x3D; 3) {
-      &lt;!-- Second row: large image spanning 2 columns --&gt;
-      &lt;div class&#x3D;&quot;gallery-wide&quot; role&#x3D;&quot;listitem&quot; itemprop&#x3D;&quot;image&quot; itemscope itemtype&#x3D;&quot;https://schema.org/ImageObject&quot;&gt;
-        &lt;div class&#x3D;&quot;custom-img&quot; [style.backgroundImage]&#x3D;&quot;&#x27;url(&#x27; + &#x27;\&#x27;&#x27; + image + &#x27;\&#x27;&#x27; + &#x27;)&#x27;&quot; role&#x3D;&quot;img&quot;
-          [attr.aria-label]&#x3D;&quot;&#x27;Gallery image &#x27; + (i + 1)&quot; loading&#x3D;&quot;lazy&quot;&gt;&lt;/div&gt;
-        &lt;meta itemprop&#x3D;&quot;url&quot; [attr.content]&#x3D;&quot;image&quot; /&gt;
-      &lt;/div&gt;
-      } @if (i &#x3D;&#x3D;&#x3D; 4) {
-      &lt;!-- Second row: regular image --&gt;
-      &lt;div role&#x3D;&quot;listitem&quot; itemprop&#x3D;&quot;image&quot; itemscope itemtype&#x3D;&quot;https://schema.org/ImageObject&quot;&gt;
-        &lt;div class&#x3D;&quot;custom-img&quot; [style.backgroundImage]&#x3D;&quot;&#x27;url(&#x27; + &#x27;\&#x27;&#x27; + image + &#x27;\&#x27;&#x27; + &#x27;)&#x27;&quot; role&#x3D;&quot;img&quot;
-          [attr.aria-label]&#x3D;&quot;&#x27;Gallery image &#x27; + (i + 1)&quot; loading&#x3D;&quot;lazy&quot;&gt;&lt;/div&gt;
-        &lt;meta itemprop&#x3D;&quot;url&quot; [attr.content]&#x3D;&quot;image&quot; /&gt;
-      &lt;/div&gt;
-      } }
+    @for (image of images.url; track image; let i &#x3D; $index) { @if (i &lt; 3) {
+    &lt;!-- First row: 3 images --&gt;
+    &lt;div role&#x3D;&quot;listitem&quot; itemprop&#x3D;&quot;image&quot; itemscope itemtype&#x3D;&quot;https://schema.org/ImageObject&quot;&gt;
+      &lt;div
+        class&#x3D;&quot;custom-img&quot;
+        [style.backgroundImage]&#x3D;&quot;&#x27;url(&#x27; + &#x27;\&#x27;&#x27; + image + &#x27;\&#x27;&#x27; + &#x27;)&#x27;&quot;
+        role&#x3D;&quot;img&quot;
+        [attr.aria-label]&#x3D;&quot;&#x27;Gallery image &#x27; + (i + 1)&quot;
+        [attr.loading]&#x3D;&quot;i &gt; 1 ? &#x27;lazy&#x27; : &#x27;eager&#x27;&quot;
+        [attr.fetchpriority]&#x3D;&quot;i &lt; 2 ? &#x27;high&#x27; : &#x27;auto&#x27;&quot;
+      &gt;&lt;/div&gt;
+      &lt;meta itemprop&#x3D;&quot;url&quot; [attr.content]&#x3D;&quot;image&quot; /&gt;
+    &lt;/div&gt;
+    } @if (i &#x3D;&#x3D;&#x3D; 3) {
+    &lt;!-- Second row: large image spanning 2 columns --&gt;
+    &lt;div
+      class&#x3D;&quot;gallery-wide&quot;
+      role&#x3D;&quot;listitem&quot;
+      itemprop&#x3D;&quot;image&quot;
+      itemscope
+      itemtype&#x3D;&quot;https://schema.org/ImageObject&quot;
+    &gt;
+      &lt;div
+        class&#x3D;&quot;custom-img&quot;
+        [style.backgroundImage]&#x3D;&quot;&#x27;url(&#x27; + &#x27;\&#x27;&#x27; + image + &#x27;\&#x27;&#x27; + &#x27;)&#x27;&quot;
+        role&#x3D;&quot;img&quot;
+        [attr.aria-label]&#x3D;&quot;&#x27;Gallery image &#x27; + (i + 1)&quot;
+        loading&#x3D;&quot;lazy&quot;
+      &gt;&lt;/div&gt;
+      &lt;meta itemprop&#x3D;&quot;url&quot; [attr.content]&#x3D;&quot;image&quot; /&gt;
+    &lt;/div&gt;
+    } @if (i &#x3D;&#x3D;&#x3D; 4) {
+    &lt;!-- Second row: regular image --&gt;
+    &lt;div role&#x3D;&quot;listitem&quot; itemprop&#x3D;&quot;image&quot; itemscope itemtype&#x3D;&quot;https://schema.org/ImageObject&quot;&gt;
+      &lt;div
+        class&#x3D;&quot;custom-img&quot;
+        [style.backgroundImage]&#x3D;&quot;&#x27;url(&#x27; + &#x27;\&#x27;&#x27; + image + &#x27;\&#x27;&#x27; + &#x27;)&#x27;&quot;
+        role&#x3D;&quot;img&quot;
+        [attr.aria-label]&#x3D;&quot;&#x27;Gallery image &#x27; + (i + 1)&quot;
+        loading&#x3D;&quot;lazy&quot;
+      &gt;&lt;/div&gt;
+      &lt;meta itemprop&#x3D;&quot;url&quot; [attr.content]&#x3D;&quot;image&quot; /&gt;
+    &lt;/div&gt;
+    } }
   &lt;/div&gt;
-&lt;/section&gt;</code></pre>
+&lt;/section&gt;
+</code></pre>
     </div>
 
 
@@ -399,7 +426,7 @@ export class GalleryComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="gallery-container w-full sm:text-center text-left" aria-labelledby="gallery-heading" itemscope  itemtype="https://schema.org/ImageGallery">  <!-- Title -->  <h5 class="title-h5 uppercase mb-2" itemprop="headline">    {{ "home.gallery.heading5" | translate }}  </h5>  <div class="p-relative d-inline-block gallery-title-wrapper mb-3">    <h2 id="gallery-heading" class="gallery-title" itemprop="name">      {{ "home.gallery.title" | translate }}    </h2>    <div class="gallery-bg-shape" aria-hidden="true"></div>    <div class="gallery-underline-bar" aria-hidden="true"></div>  </div>  <div class="custom-gallery-grid grid-nogutter" role="list" aria-live="polite">    @for (image of images.url; track image; let i = $index) { @if (i < 3) { <!-- First row: 3 images -->      <div role="listitem" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">        <div class="custom-img" [style.backgroundImage]="\'url(\' + \'\\'\' + image + \'\\'\' + \')\'" role="img"          [attr.aria-label]="\'Gallery image \' + (i + 1)" [attr.loading]="i > 1 ? \'lazy\' : \'eager\'"          [attr.fetchpriority]="i < 2 ? \'high\' : \'auto\'"></div>        <meta itemprop="url" [attr.content]="image" />      </div>      } @if (i === 3) {      <!-- Second row: large image spanning 2 columns -->      <div class="gallery-wide" role="listitem" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">        <div class="custom-img" [style.backgroundImage]="\'url(\' + \'\\'\' + image + \'\\'\' + \')\'" role="img"          [attr.aria-label]="\'Gallery image \' + (i + 1)" loading="lazy"></div>        <meta itemprop="url" [attr.content]="image" />      </div>      } @if (i === 4) {      <!-- Second row: regular image -->      <div role="listitem" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">        <div class="custom-img" [style.backgroundImage]="\'url(\' + \'\\'\' + image + \'\\'\' + \')\'" role="img"          [attr.aria-label]="\'Gallery image \' + (i + 1)" loading="lazy"></div>        <meta itemprop="url" [attr.content]="image" />      </div>      } }  </div></section></div>'
+        var COMPONENT_TEMPLATE = '<div><section  class="gallery-container w-full sm:text-center text-left"  aria-labelledby="gallery-heading"  itemscope  itemtype="https://schema.org/ImageGallery">  <!-- Title -->  <h5 class="title-h5 uppercase mb-2" itemprop="headline">    {{ "home.gallery.heading5" | translate }}  </h5>  <div class="p-relative d-inline-block gallery-title-wrapper mb-3">    <h2 id="gallery-heading" class="gallery-title" itemprop="name">      {{ "home.gallery.title" | translate }}    </h2>    <div class="gallery-bg-shape" aria-hidden="true"></div>    <div class="gallery-underline-bar" aria-hidden="true"></div>  </div>  <div class="custom-gallery-grid grid-nogutter" role="list" aria-live="polite">    @for (image of images.url; track image; let i = $index) { @if (i < 3) {    <!-- First row: 3 images -->    <div role="listitem" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">      <div        class="custom-img"        [style.backgroundImage]="\'url(\' + \'\\'\' + image + \'\\'\' + \')\'"        role="img"        [attr.aria-label]="\'Gallery image \' + (i + 1)"        [attr.loading]="i > 1 ? \'lazy\' : \'eager\'"        [attr.fetchpriority]="i < 2 ? \'high\' : \'auto\'"      ></div>      <meta itemprop="url" [attr.content]="image" />    </div>    } @if (i === 3) {    <!-- Second row: large image spanning 2 columns -->    <div      class="gallery-wide"      role="listitem"      itemprop="image"      itemscope      itemtype="https://schema.org/ImageObject"    >      <div        class="custom-img"        [style.backgroundImage]="\'url(\' + \'\\'\' + image + \'\\'\' + \')\'"        role="img"        [attr.aria-label]="\'Gallery image \' + (i + 1)"        loading="lazy"      ></div>      <meta itemprop="url" [attr.content]="image" />    </div>    } @if (i === 4) {    <!-- Second row: regular image -->    <div role="listitem" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">      <div        class="custom-img"        [style.backgroundImage]="\'url(\' + \'\\'\' + image + \'\\'\' + \')\'"        role="img"        [attr.aria-label]="\'Gallery image \' + (i + 1)"        loading="lazy"      ></div>      <meta itemprop="url" [attr.content]="image" />    </div>    } }  </div></section></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'GalleryComponent'};

@@ -480,20 +480,20 @@ import { Observable } from &quot;rxjs&quot;;
 export class UserAddressService {
   private httpClient &#x3D; inject(HttpClient);
 
-  getAllUserAddress():Observable&lt;AddressRes&gt; {
+  getAllUserAddress(): Observable&lt;AddressRes&gt; {
     return this.httpClient.get&lt;AddressRes&gt;(&#x60;${EndPoint.ADDRESSES}&#x60;);
   }
 
-  deleteAddress(addressId: string):Observable&lt;void&gt;{
+  deleteAddress(addressId: string): Observable&lt;void&gt; {
     return this.httpClient.delete&lt;void&gt;(&#x60;${EndPoint.ADDRESSES}/${addressId}&#x60;);
   }
 
-  addAddress(address: Address):Observable&lt;AddressAddRes&gt;{
-    return this.httpClient.patch&lt;AddressAddRes&gt;(&#x60;${EndPoint.ADDRESSES}&#x60;,address);
+  addAddress(address: Address): Observable&lt;AddressAddRes&gt; {
+    return this.httpClient.patch&lt;AddressAddRes&gt;(&#x60;${EndPoint.ADDRESSES}&#x60;, address);
   }
 
-  updateAddress(addressId: string,address: Address):Observable&lt;AddressRes&gt;{
-    return this.httpClient.patch&lt;AddressRes&gt;(&#x60;${EndPoint.ADDRESSES}/${addressId}&#x60;,address);
+  updateAddress(addressId: string, address: Address): Observable&lt;AddressRes&gt; {
+    return this.httpClient.patch&lt;AddressRes&gt;(&#x60;${EndPoint.ADDRESSES}/${addressId}&#x60;, address);
   }
 }
 </code></pre>

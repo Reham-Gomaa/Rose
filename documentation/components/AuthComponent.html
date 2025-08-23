@@ -611,13 +611,18 @@ export class AuthComponent {
         <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;auth-grid-container&quot; role&#x3D;&quot;region&quot; aria-label&#x3D;&quot;Authentication Section&quot;&gt;
   &lt;div id&#x3D;&quot;auth&quot; class&#x3D;&quot;auth-form-section&quot;&gt;
     &lt;div id&#x3D;&quot;lang-toggle&quot; class&#x3D;&quot;grid&quot; role&#x3D;&quot;navigation&quot; aria-label&#x3D;&quot;Language and Theme Controls&quot;&gt;
-      &lt;div class&#x3D;&quot;col-6&quot;&gt;
-
-      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;col-6&quot;&gt;&lt;/div&gt;
       &lt;div class&#x3D;&quot;col-6&quot;&gt;
         &lt;div class&#x3D;&quot;flex justify-content-end align-items-center&quot;&gt;
-          &lt;button routerLink&#x3D;&quot;/dashboard/home&quot; type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-home&quot; aria-label&#x3D;&quot;Back to homepage&quot; role&#x3D;&quot;link&quot;&gt;
-            &lt;i class&#x3D;&quot;pi pi-home arrowicon&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+          &lt;button
+            routerLink&#x3D;&quot;/dashboard/home&quot;
+            type&#x3D;&quot;button&quot;
+            class&#x3D;&quot;btn-home&quot;
+            aria-label&#x3D;&quot;Back to homepage&quot;
+            role&#x3D;&quot;link&quot;
+          &gt;
+            &lt;i class&#x3D;&quot;pi pi-home arrowicon&quot;&gt;&lt;/i&gt;
+          &lt;/button&gt;
           &lt;app-button-theme aria-label&#x3D;&quot;Toggle Theme&quot; /&gt;
           &lt;app-translate-toggle aria-label&#x3D;&quot;Toggle Language&quot; /&gt;
         &lt;/div&gt;
@@ -629,32 +634,44 @@ export class AuthComponent {
 
       @if (process() &#x3D;&#x3D;&#x3D; &#x27;forgetPass&#x27;) {
       &lt;h1 class&#x3D;&quot;forget&quot;&gt;{{ title() | translate }}&lt;/h1&gt;
-      &lt;p class&#x3D;&quot;forget&quot;&gt;{{ titleParagraph() | translate }}
-        @if (paragraphSpan() !&#x3D;&#x3D; &#x27;&#x27;) {&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;edit-link&quot; (click)&#x3D;&quot;goBackToForget()&quot;
-          (keydown)&#x3D;&quot;goBackToForget()&quot; aria-label&#x3D;&quot;Edit email&quot;&gt;
-          {{ paragraphSpan() | translate }}
-        &lt;/button&gt;}
+      &lt;p class&#x3D;&quot;forget&quot;&gt;
+        {{ titleParagraph() | translate }} @if (paragraphSpan() !&#x3D;&#x3D; &#x27;&#x27;) {&lt;button
+          type&#x3D;&quot;button&quot;
+          class&#x3D;&quot;edit-link&quot;
+          (click)&#x3D;&quot;goBackToForget()&quot;
+          (keydown)&#x3D;&quot;goBackToForget()&quot;
+          aria-label&#x3D;&quot;Edit email&quot;
+        &gt;
+          {{ paragraphSpan() | translate }}&lt;/button
+        &gt;}
       &lt;/p&gt;
-      }
-      @else {
+      } @else {
       &lt;h1 tabindex&#x3D;&quot;0&quot;&gt;{{ title() | translate }}&lt;/h1&gt;
       }
       &lt;div id&#x3D;&quot;form-wrapper&quot; role&#x3D;&quot;form&quot;&gt;
         &lt;ng-content /&gt;
       &lt;/div&gt;
-      &lt;h3 [routerLink]&#x3D;&quot;process() &#x3D;&#x3D;&#x3D; &#x27;register&#x27; ? &#x27;/login&#x27; : &#x27;/register&#x27;&quot; class&#x3D;&quot;create-account&quot; role&#x3D;&quot;link&quot;
-        tabindex&#x3D;&quot;0&quot; aria-label&#x3D;&quot;Switch between login and registration&quot;&gt;
+      &lt;h3
+        [routerLink]&#x3D;&quot;process() &#x3D;&#x3D;&#x3D; &#x27;register&#x27; ? &#x27;/login&#x27; : &#x27;/register&#x27;&quot;
+        class&#x3D;&quot;create-account&quot;
+        role&#x3D;&quot;link&quot;
+        tabindex&#x3D;&quot;0&quot;
+        aria-label&#x3D;&quot;Switch between login and registration&quot;
+      &gt;
         {{ heading3() | translate }}
         &lt;span&gt;{{ heading3span() | translate }}&lt;/span&gt;
       &lt;/h3&gt;
       &lt;app-separator [position]&#x3D;&quot;&#x27;down&#x27;&quot; role&#x3D;&quot;separator&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/app-separator&gt;
-
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;div id&#x3D;&quot;photo&quot; class&#x3D;&quot;auth-image-section&quot; role&#x3D;&quot;img&quot; aria-label&#x3D;&quot;Decorative gift background image&quot;
-    style&#x3D;&quot;background-image: url(&#x27;./images/auth/gifts.WebP&#x27;)&quot;&gt;&lt;/div&gt;
+  &lt;div
+    id&#x3D;&quot;photo&quot;
+    class&#x3D;&quot;auth-image-section&quot;
+    role&#x3D;&quot;img&quot;
+    aria-label&#x3D;&quot;Decorative gift background image&quot;
+    style&#x3D;&quot;background-image: url(&#x27;./images/auth/gifts.AVIF&#x27;)&quot;
+  &gt;&lt;/div&gt;
 &lt;/section&gt;
-
 </code></pre>
     </div>
 
@@ -684,7 +701,7 @@ export class AuthComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="auth-grid-container" role="region" aria-label="Authentication Section">  <div id="auth" class="auth-form-section">    <div id="lang-toggle" class="grid" role="navigation" aria-label="Language and Theme Controls">      <div class="col-6">      </div>      <div class="col-6">        <div class="flex justify-content-end align-items-center">          <button routerLink="/dashboard/home" type="button" class="btn-home" aria-label="Back to homepage" role="link">            <i class="pi pi-home arrowicon"></i></button>          <app-button-theme aria-label="Toggle Theme" />          <app-translate-toggle aria-label="Toggle Language" />        </div>      </div>    </div>    <div class="auth-form-content">      <app-separator [position]="\'up\'" role="separator" aria-hidden="true"></app-separator>      @if (process() === \'forgetPass\') {      <h1 class="forget">{{ title() | translate }}</h1>      <p class="forget">{{ titleParagraph() | translate }}        @if (paragraphSpan() !== \'\') {<button type="button" class="edit-link" (click)="goBackToForget()"          (keydown)="goBackToForget()" aria-label="Edit email">          {{ paragraphSpan() | translate }}        </button>}      </p>      }      @else {      <h1 tabindex="0">{{ title() | translate }}</h1>      }      <div id="form-wrapper" role="form">        <ng-content />      </div>      <h3 [routerLink]="process() === \'register\' ? \'/login\' : \'/register\'" class="create-account" role="link"        tabindex="0" aria-label="Switch between login and registration">        {{ heading3() | translate }}        <span>{{ heading3span() | translate }}</span>      </h3>      <app-separator [position]="\'down\'" role="separator" aria-hidden="true"></app-separator>    </div>  </div>  <div id="photo" class="auth-image-section" role="img" aria-label="Decorative gift background image"    style="background-image: url(\'./images/auth/gifts.WebP\')"></div></section></div>'
+        var COMPONENT_TEMPLATE = '<div><section class="auth-grid-container" role="region" aria-label="Authentication Section">  <div id="auth" class="auth-form-section">    <div id="lang-toggle" class="grid" role="navigation" aria-label="Language and Theme Controls">      <div class="col-6"></div>      <div class="col-6">        <div class="flex justify-content-end align-items-center">          <button            routerLink="/dashboard/home"            type="button"            class="btn-home"            aria-label="Back to homepage"            role="link"          >            <i class="pi pi-home arrowicon"></i>          </button>          <app-button-theme aria-label="Toggle Theme" />          <app-translate-toggle aria-label="Toggle Language" />        </div>      </div>    </div>    <div class="auth-form-content">      <app-separator [position]="\'up\'" role="separator" aria-hidden="true"></app-separator>      @if (process() === \'forgetPass\') {      <h1 class="forget">{{ title() | translate }}</h1>      <p class="forget">        {{ titleParagraph() | translate }} @if (paragraphSpan() !== \'\') {<button          type="button"          class="edit-link"          (click)="goBackToForget()"          (keydown)="goBackToForget()"          aria-label="Edit email"        >          {{ paragraphSpan() | translate }}</button        >}      </p>      } @else {      <h1 tabindex="0">{{ title() | translate }}</h1>      }      <div id="form-wrapper" role="form">        <ng-content />      </div>      <h3        [routerLink]="process() === \'register\' ? \'/login\' : \'/register\'"        class="create-account"        role="link"        tabindex="0"        aria-label="Switch between login and registration"      >        {{ heading3() | translate }}        <span>{{ heading3span() | translate }}</span>      </h3>      <app-separator [position]="\'down\'" role="separator" aria-hidden="true"></app-separator>    </div>  </div>  <div    id="photo"    class="auth-image-section"    role="img"    aria-label="Decorative gift background image"    style="background-image: url(\'./images/auth/gifts.AVIF\')"  ></div></section></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'AuthComponent'};

@@ -680,12 +680,12 @@
                         <i>Default value : </i><code>[
     {
       id: 1,
-      source: &quot;./images/gifts/1.WebP&quot;,
+      source: &quot;./images/gifts/1.AVIF&quot;,
       title: &quot;pink roses in white vase with white and pink balloons&quot;,
     },
     {
       id: 2,
-      source: &quot;./images/gifts/2.WebP&quot;,
+      source: &quot;./images/gifts/2.AVIF&quot;,
       title: &quot;pink roses with box of chocolate&quot;,
     },
   ]</code>
@@ -722,21 +722,21 @@
                         <i>Default value : </i><code>[
     {
       id: 1,
-      source: &quot;./images/gifts/Confetti lying near present.WebP&quot;,
+      source: &quot;./images/gifts/Confetti lying near present.AVIF&quot;,
       title: &quot;christmas gift with red ribbon&quot;,
       heading2: &quot;home.gifts.bottomImages.left.heading2&quot;,
       heading1: &quot;home.gifts.bottomImages.left.heading1&quot;,
     },
     {
       id: 2,
-      source: &quot;./images/gifts/Top view hand holding gift box on work space.WebP&quot;,
+      source: &quot;./images/gifts/Top view hand holding gift box on work space.AVIF&quot;,
       title: &quot;christmas gift with golden ribbon&quot;,
       heading2: &quot;home.gifts.bottomImages.middle.heading2&quot;,
       heading1: &quot;home.gifts.bottomImages.middle.heading1&quot;,
     },
     {
       id: 3,
-      source: &quot;./images/gifts/Christmas shopping composition with presents and cart.WebP&quot;,
+      source: &quot;./images/gifts/Christmas shopping composition with presents and cart.AVIF&quot;,
       title: &quot;colorful christmas ribbons with shopping cart&quot;,
       heading2: &quot;home.gifts.bottomImages.right.heading2&quot;,
       heading1: &quot;home.gifts.bottomImages.right.heading1&quot;,
@@ -943,12 +943,12 @@ export class GiftsComponent implements OnInit {
   carouselList: carouselListInterface[] &#x3D; [
     {
       id: 1,
-      source: &quot;./images/gifts/1.WebP&quot;,
+      source: &quot;./images/gifts/1.AVIF&quot;,
       title: &quot;pink roses in white vase with white and pink balloons&quot;,
     },
     {
       id: 2,
-      source: &quot;./images/gifts/2.WebP&quot;,
+      source: &quot;./images/gifts/2.AVIF&quot;,
       title: &quot;pink roses with box of chocolate&quot;,
     },
   ];
@@ -956,21 +956,21 @@ export class GiftsComponent implements OnInit {
   pics: picsInterface[] &#x3D; [
     {
       id: 1,
-      source: &quot;./images/gifts/Confetti lying near present.WebP&quot;,
+      source: &quot;./images/gifts/Confetti lying near present.AVIF&quot;,
       title: &quot;christmas gift with red ribbon&quot;,
       heading2: &quot;home.gifts.bottomImages.left.heading2&quot;,
       heading1: &quot;home.gifts.bottomImages.left.heading1&quot;,
     },
     {
       id: 2,
-      source: &quot;./images/gifts/Top view hand holding gift box on work space.WebP&quot;,
+      source: &quot;./images/gifts/Top view hand holding gift box on work space.AVIF&quot;,
       title: &quot;christmas gift with golden ribbon&quot;,
       heading2: &quot;home.gifts.bottomImages.middle.heading2&quot;,
       heading1: &quot;home.gifts.bottomImages.middle.heading1&quot;,
     },
     {
       id: 3,
-      source: &quot;./images/gifts/Christmas shopping composition with presents and cart.WebP&quot;,
+      source: &quot;./images/gifts/Christmas shopping composition with presents and cart.AVIF&quot;,
       title: &quot;colorful christmas ribbons with shopping cart&quot;,
       heading2: &quot;home.gifts.bottomImages.right.heading2&quot;,
       heading1: &quot;home.gifts.bottomImages.right.heading1&quot;,
@@ -993,15 +993,27 @@ export class GiftsComponent implements OnInit {
   &lt;h2 id&#x3D;&quot;special-gifts-section-heading&quot; class&#x3D;&quot;sr-only&quot;&gt;Special Gifts Collection&lt;/h2&gt;
   &lt;div class&#x3D;&quot;grid&quot;&gt;
     &lt;!-- image next to carousel --&gt;
-    &lt;div class&#x3D;&quot;top-left-parent col-12 md:col-6 lg:col-3&quot; role&#x3D;&quot;img&quot; aria-label&#x3D;&quot;Red Christmas gifts with white ribbon&quot;
-      style&#x3D;&quot;background-image: linear-gradient(to right , rgba(0 0 0 / 0.2)) , url(&#x27;./images/gifts/Red christmas gifts with white ribbon.WebP&#x27;)&quot;
-      aria-hidden&#x3D;&quot;true&quot;&gt;
+    &lt;div
+      class&#x3D;&quot;top-left-parent col-12 md:col-6 lg:col-3&quot;
+      role&#x3D;&quot;img&quot;
+      aria-label&#x3D;&quot;Red Christmas gifts with white ribbon&quot;
+      style&#x3D;&quot;
+        background-image: linear-gradient(to right, rgba(0 0 0 / 0.2)),
+          url(&#x27;./images/gifts/Red christmas gifts with white ribbon.AVIF&#x27;);
+      &quot;
+      aria-hidden&#x3D;&quot;true&quot;
+    &gt;
       &lt;h2&gt;{{ &quot;home.gifts.leftImage.heading2&quot; | translate }}&lt;/h2&gt;
       &lt;h1 class&#x3D;&quot;white-space-normal&quot;&gt;{{ &quot;home.gifts.leftImage.heading1&quot; | translate }}&lt;/h1&gt;
-      &lt;app-button [bgColor]&#x3D;&quot;&#x27;var(--btn-shared-background)&#x27;&quot; [textColor]&#x3D;&quot;&#x27;var(--btn-shared-color)&#x27;&quot;
-        [text]&#x3D;&quot;&#x27;home.gifts.leftImage.btn&#x27; | translate&quot; [icon]&#x3D;&quot;&#x27;pi pi-arrow-right arrowicon&#x27;&quot;
-        [borderRadius]&#x3D;&quot;&#x27;btn-roundedBorderRadius&#x27;&quot; [padding]&#x3D;&quot;&#x27;btn-topLeft-padding&#x27;&quot;
-        aria-label&#x3D;&quot;Shop for Special Gifts Box&quot; /&gt;
+      &lt;app-button
+        [bgColor]&#x3D;&quot;&#x27;var(--btn-shared-background)&#x27;&quot;
+        [textColor]&#x3D;&quot;&#x27;var(--btn-shared-color)&#x27;&quot;
+        [text]&#x3D;&quot;&#x27;home.gifts.leftImage.btn&#x27; | translate&quot;
+        [icon]&#x3D;&quot;&#x27;pi pi-arrow-right arrowicon&#x27;&quot;
+        [borderRadius]&#x3D;&quot;&#x27;btn-roundedBorderRadius&#x27;&quot;
+        [padding]&#x3D;&quot;&#x27;btn-topLeft-padding&#x27;&quot;
+        aria-label&#x3D;&quot;Shop for Special Gifts Box&quot;
+      /&gt;
     &lt;/div&gt;
     &lt;!-- carousel --&gt;
     &lt;div class&#x3D;&quot;card relative col-12 md:col-6 lg:col-9&quot;&gt;
@@ -1013,22 +1025,47 @@ export class GiftsComponent implements OnInit {
           &lt;i class&#x3D;&quot;pi pi-angle-right&quot;&gt;&lt;/i&gt;
         &lt;/button&gt;
       &lt;/div&gt;
-      &lt;p-carousel #carousel ngSkipHydration [value]&#x3D;&quot;carouselList&quot; [numVisible]&#x3D;&quot;1&quot; [numScroll]&#x3D;&quot;1&quot; [circular]&#x3D;&quot;true&quot;
-        [autoplayInterval]&#x3D;&quot;autoScrollInterval&quot; [responsiveOptions]&#x3D;&quot;responsiveOptions&quot; class&#x3D;&quot;relative&quot;
-        aria-label&#x3D;&quot;Gift Carousel&quot; [prevButtonProps]&#x3D;&quot;{ styleClass: &#x27;p-button-rounded custom-gift-prev&#x27; }&quot;
-        [nextButtonProps]&#x3D;&quot;{ styleClass: &#x27;p-button-rounded custom-gift-next&#x27; }&quot;&gt;
+      &lt;p-carousel
+        #carousel
+        ngSkipHydration
+        [value]&#x3D;&quot;carouselList&quot;
+        [numVisible]&#x3D;&quot;1&quot;
+        [numScroll]&#x3D;&quot;1&quot;
+        [circular]&#x3D;&quot;true&quot;
+        [autoplayInterval]&#x3D;&quot;autoScrollInterval&quot;
+        [responsiveOptions]&#x3D;&quot;responsiveOptions&quot;
+        class&#x3D;&quot;relative&quot;
+        aria-label&#x3D;&quot;Gift Carousel&quot;
+        [prevButtonProps]&#x3D;&quot;{ styleClass: &#x27;p-button-rounded custom-gift-prev&#x27; }&quot;
+        [nextButtonProps]&#x3D;&quot;{ styleClass: &#x27;p-button-rounded custom-gift-next&#x27; }&quot;
+      &gt;
         &lt;h3 id&#x3D;&quot;carousel-heading&quot; class&#x3D;&quot;sr-only&quot;&gt;Featured Gift Items&lt;/h3&gt;
         &lt;ng-template pTemplate&#x3D;&quot;item&quot; let-pic&gt;
-          &lt;div class&#x3D;&quot;carousel-content-parent border border-surface&quot; role&#x3D;&quot;group&quot; aria-roledescription&#x3D;&quot;slide&quot;
-            [style.backgroundImage]&#x3D;&quot;&#x27;linear-gradient(to right , rgba(0 0 0 / 0.7) , rgba(0 0 0 / 0.5) 35%, rgba(0 0 0 / 0.3) 50% ) ,url(&#x27; + &#x27;\&#x27;&#x27; + pic.source + &#x27;\&#x27;&#x27; + &#x27;)&#x27;&quot;
-            [attr.aria-label]&#x3D;&quot;pic.title&quot;&gt;
+          &lt;div
+            class&#x3D;&quot;carousel-content-parent border border-surface&quot;
+            role&#x3D;&quot;group&quot;
+            aria-roledescription&#x3D;&quot;slide&quot;
+            [style.backgroundImage]&#x3D;&quot;
+              &#x27;linear-gradient(to right , rgba(0 0 0 / 0.7) , rgba(0 0 0 / 0.5) 35%, rgba(0 0 0 / 0.3) 50% ) ,url(&#x27; +
+              &#x27;\&#x27;&#x27; +
+              pic.source +
+              &#x27;\&#x27;&#x27; +
+              &#x27;)&#x27;
+            &quot;
+            [attr.aria-label]&#x3D;&quot;pic.title&quot;
+          &gt;
             &lt;div class&#x3D;&quot;carousel-content&quot;&gt;
               &lt;h1&gt;{{ &quot;home.gifts.rightCarousel.heading1&quot; | translate }}&lt;/h1&gt;
               &lt;h2&gt;{{ &quot;home.gifts.rightCarousel.heading2&quot; | translate }}&lt;/h2&gt;
-              &lt;app-button [text]&#x3D;&quot;&#x27;home.gifts.rightCarousel.btn&#x27; | translate&quot; [icon]&#x3D;&quot;&#x27;pi pi-arrow-right arrowicon&#x27;&quot;
-                [textColor]&#x3D;&quot;&#x27;var(--btn-shared-color)&#x27;&quot; [bgColor]&#x3D;&quot;&#x27;var(--btn-shared-background)&#x27;&quot;
-                [borderRadius]&#x3D;&quot;&#x27;btn-roundedBorderRadius&#x27;&quot; [padding]&#x3D;&quot;&#x27;btn-carousel-padding&#x27;&quot;
-                aria-label&#x3D;&quot;Shop for Special Gifts Box&quot; /&gt;
+              &lt;app-button
+                [text]&#x3D;&quot;&#x27;home.gifts.rightCarousel.btn&#x27; | translate&quot;
+                [icon]&#x3D;&quot;&#x27;pi pi-arrow-right arrowicon&#x27;&quot;
+                [textColor]&#x3D;&quot;&#x27;var(--btn-shared-color)&#x27;&quot;
+                [bgColor]&#x3D;&quot;&#x27;var(--btn-shared-background)&#x27;&quot;
+                [borderRadius]&#x3D;&quot;&#x27;btn-roundedBorderRadius&#x27;&quot;
+                [padding]&#x3D;&quot;&#x27;btn-carousel-padding&#x27;&quot;
+                aria-label&#x3D;&quot;Shop for Special Gifts Box&quot;
+              /&gt;
             &lt;/div&gt;
           &lt;/div&gt;
         &lt;/ng-template&gt;
@@ -1039,9 +1076,14 @@ export class GiftsComponent implements OnInit {
   &lt;div class&#x3D;&quot;grid mt-4&quot;&gt;
     @for (pic of pics; track pic.id) {
     &lt;div class&#x3D;&quot;col-12 md:col-4&quot; [class.md:px-3]&#x3D;&quot;pic.id &#x3D;&#x3D;&#x3D; 2&quot;&gt;
-      &lt;div class&#x3D;&quot;bottom-content flex  justify-content-start align-items-end&quot;
-        [style.backgroundImage]&#x3D;&quot;&#x27;linear-gradient(to right , rgba(0 0 0 / 0.2) ) ,url(&#x27; + &#x27;\&#x27;&#x27; + pic.source + &#x27;\&#x27;&#x27; + &#x27;)&#x27;&quot;
-        role&#x3D;&quot;img&quot; [attr.aria-label]&#x3D;&quot;pic.title&quot;&gt;
+      &lt;div
+        class&#x3D;&quot;bottom-content flex justify-content-start align-items-end&quot;
+        [style.backgroundImage]&#x3D;&quot;
+          &#x27;linear-gradient(to right , rgba(0 0 0 / 0.2) ) ,url(&#x27; + &#x27;\&#x27;&#x27; + pic.source + &#x27;\&#x27;&#x27; + &#x27;)&#x27;
+        &quot;
+        role&#x3D;&quot;img&quot;
+        [attr.aria-label]&#x3D;&quot;pic.title&quot;
+      &gt;
         &lt;div class&#x3D;&quot;px-2&quot;&gt;
           &lt;h2 class&#x3D;&quot;md:text-xs lg:text-base&quot;&gt;
             {{ pic.heading2 | translate }}
@@ -1054,7 +1096,8 @@ export class GiftsComponent implements OnInit {
     &lt;/div&gt;
     }
   &lt;/div&gt;
-&lt;/section&gt;</code></pre>
+&lt;/section&gt;
+</code></pre>
     </div>
 
 
@@ -1083,7 +1126,7 @@ export class GiftsComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="my-8" aria-labelledby="special-gifts-section-heading">  <h2 id="special-gifts-section-heading" class="sr-only">Special Gifts Collection</h2>  <div class="grid">    <!-- image next to carousel -->    <div class="top-left-parent col-12 md:col-6 lg:col-3" role="img" aria-label="Red Christmas gifts with white ribbon"      style="background-image: linear-gradient(to right , rgba(0 0 0 / 0.2)) , url(\'./images/gifts/Red christmas gifts with white ribbon.WebP\')"      aria-hidden="true">      <h2>{{ "home.gifts.leftImage.heading2" | translate }}</h2>      <h1 class="white-space-normal">{{ "home.gifts.leftImage.heading1" | translate }}</h1>      <app-button [bgColor]="\'var(--btn-shared-background)\'" [textColor]="\'var(--btn-shared-color)\'"        [text]="\'home.gifts.leftImage.btn\' | translate" [icon]="\'pi pi-arrow-right arrowicon\'"        [borderRadius]="\'btn-roundedBorderRadius\'" [padding]="\'btn-topLeft-padding\'"        aria-label="Shop for Special Gifts Box" />    </div>    <!-- carousel -->    <div class="card relative col-12 md:col-6 lg:col-9">      <div class="carousel-nav">        <button class="nav-btn prev" (click)="onPrev()" aria-label="Previous">          <i class="pi pi-angle-left"></i>        </button>        <button class="nav-btn next" (click)="onNext()" aria-label="Next">          <i class="pi pi-angle-right"></i>        </button>      </div>      <p-carousel #carousel ngSkipHydration [value]="carouselList" [numVisible]="1" [numScroll]="1" [circular]="true"        [autoplayInterval]="autoScrollInterval" [responsiveOptions]="responsiveOptions" class="relative"        aria-label="Gift Carousel" [prevButtonProps]="{ styleClass: \'p-button-rounded custom-gift-prev\' }"        [nextButtonProps]="{ styleClass: \'p-button-rounded custom-gift-next\' }">        <h3 id="carousel-heading" class="sr-only">Featured Gift Items</h3>        <ng-template pTemplate="item" let-pic>          <div class="carousel-content-parent border border-surface" role="group" aria-roledescription="slide"            [style.backgroundImage]="\'linear-gradient(to right , rgba(0 0 0 / 0.7) , rgba(0 0 0 / 0.5) 35%, rgba(0 0 0 / 0.3) 50% ) ,url(\' + \'\\'\' + pic.source + \'\\'\' + \')\'"            [attr.aria-label]="pic.title">            <div class="carousel-content">              <h1>{{ "home.gifts.rightCarousel.heading1" | translate }}</h1>              <h2>{{ "home.gifts.rightCarousel.heading2" | translate }}</h2>              <app-button [text]="\'home.gifts.rightCarousel.btn\' | translate" [icon]="\'pi pi-arrow-right arrowicon\'"                [textColor]="\'var(--btn-shared-color)\'" [bgColor]="\'var(--btn-shared-background)\'"                [borderRadius]="\'btn-roundedBorderRadius\'" [padding]="\'btn-carousel-padding\'"                aria-label="Shop for Special Gifts Box" />            </div>          </div>        </ng-template>      </p-carousel>    </div>  </div>  <!-- bottom images -->  <div class="grid mt-4">    @for (pic of pics; track pic.id) {    <div class="col-12 md:col-4" [class.md:px-3]="pic.id === 2">      <div class="bottom-content flex  justify-content-start align-items-end"        [style.backgroundImage]="\'linear-gradient(to right , rgba(0 0 0 / 0.2) ) ,url(\' + \'\\'\' + pic.source + \'\\'\' + \')\'"        role="img" [attr.aria-label]="pic.title">        <div class="px-2">          <h2 class="md:text-xs lg:text-base">            {{ pic.heading2 | translate }}          </h2>          <h1 class="md:text-base lg:text-xl">            {{ pic.heading1 | translate }}          </h1>        </div>      </div>    </div>    }  </div></section></div>'
+        var COMPONENT_TEMPLATE = '<div><section class="my-8" aria-labelledby="special-gifts-section-heading">  <h2 id="special-gifts-section-heading" class="sr-only">Special Gifts Collection</h2>  <div class="grid">    <!-- image next to carousel -->    <div      class="top-left-parent col-12 md:col-6 lg:col-3"      role="img"      aria-label="Red Christmas gifts with white ribbon"      style="        background-image: linear-gradient(to right, rgba(0 0 0 / 0.2)),          url(\'./images/gifts/Red christmas gifts with white ribbon.AVIF\');      "      aria-hidden="true"    >      <h2>{{ "home.gifts.leftImage.heading2" | translate }}</h2>      <h1 class="white-space-normal">{{ "home.gifts.leftImage.heading1" | translate }}</h1>      <app-button        [bgColor]="\'var(--btn-shared-background)\'"        [textColor]="\'var(--btn-shared-color)\'"        [text]="\'home.gifts.leftImage.btn\' | translate"        [icon]="\'pi pi-arrow-right arrowicon\'"        [borderRadius]="\'btn-roundedBorderRadius\'"        [padding]="\'btn-topLeft-padding\'"        aria-label="Shop for Special Gifts Box"      />    </div>    <!-- carousel -->    <div class="card relative col-12 md:col-6 lg:col-9">      <div class="carousel-nav">        <button class="nav-btn prev" (click)="onPrev()" aria-label="Previous">          <i class="pi pi-angle-left"></i>        </button>        <button class="nav-btn next" (click)="onNext()" aria-label="Next">          <i class="pi pi-angle-right"></i>        </button>      </div>      <p-carousel        #carousel        ngSkipHydration        [value]="carouselList"        [numVisible]="1"        [numScroll]="1"        [circular]="true"        [autoplayInterval]="autoScrollInterval"        [responsiveOptions]="responsiveOptions"        class="relative"        aria-label="Gift Carousel"        [prevButtonProps]="{ styleClass: \'p-button-rounded custom-gift-prev\' }"        [nextButtonProps]="{ styleClass: \'p-button-rounded custom-gift-next\' }"      >        <h3 id="carousel-heading" class="sr-only">Featured Gift Items</h3>        <ng-template pTemplate="item" let-pic>          <div            class="carousel-content-parent border border-surface"            role="group"            aria-roledescription="slide"            [style.backgroundImage]="              \'linear-gradient(to right , rgba(0 0 0 / 0.7) , rgba(0 0 0 / 0.5) 35%, rgba(0 0 0 / 0.3) 50% ) ,url(\' +              \'\\'\' +              pic.source +              \'\\'\' +              \')\'            "            [attr.aria-label]="pic.title"          >            <div class="carousel-content">              <h1>{{ "home.gifts.rightCarousel.heading1" | translate }}</h1>              <h2>{{ "home.gifts.rightCarousel.heading2" | translate }}</h2>              <app-button                [text]="\'home.gifts.rightCarousel.btn\' | translate"                [icon]="\'pi pi-arrow-right arrowicon\'"                [textColor]="\'var(--btn-shared-color)\'"                [bgColor]="\'var(--btn-shared-background)\'"                [borderRadius]="\'btn-roundedBorderRadius\'"                [padding]="\'btn-carousel-padding\'"                aria-label="Shop for Special Gifts Box"              />            </div>          </div>        </ng-template>      </p-carousel>    </div>  </div>  <!-- bottom images -->  <div class="grid mt-4">    @for (pic of pics; track pic.id) {    <div class="col-12 md:col-4" [class.md:px-3]="pic.id === 2">      <div        class="bottom-content flex justify-content-start align-items-end"        [style.backgroundImage]="          \'linear-gradient(to right , rgba(0 0 0 / 0.2) ) ,url(\' + \'\\'\' + pic.source + \'\\'\' + \')\'        "        role="img"        [attr.aria-label]="pic.title"      >        <div class="px-2">          <h2 class="md:text-xs lg:text-base">            {{ pic.heading2 | translate }}          </h2>          <h1 class="md:text-base lg:text-xl">            {{ pic.heading1 | translate }}          </h1>        </div>      </div>    </div>    }  </div></section></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'GiftsComponent'};

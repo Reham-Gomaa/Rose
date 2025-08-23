@@ -1019,30 +1019,56 @@ export class VerifyCodeComponent {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;form [formGroup]&#x3D;&quot;verifyCodeForm&quot; (ngSubmit)&#x3D;&quot;verifyCodeSubmit()&quot; role&#x3D;&quot;form&quot; aria-label&#x3D;&quot;Verification code form&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;form
+  [formGroup]&#x3D;&quot;verifyCodeForm&quot;
+  (ngSubmit)&#x3D;&quot;verifyCodeSubmit()&quot;
+  role&#x3D;&quot;form&quot;
+  aria-label&#x3D;&quot;Verification code form&quot;
+&gt;
   &lt;!-- OTP Input Section --&gt;
-  &lt;div class&#x3D;&quot;otp-wrapper flex justify-content-between align-items-center&quot; role&#x3D;&quot;group&quot;
-    aria-label&#x3D;&quot;6-digit verification code input&quot;&gt;
-    &lt;p-inputOtp class&#x3D;&quot;otp&quot; formControlName&#x3D;&quot;otpCode&quot; [length]&#x3D;&quot;6&quot; [integerOnly]&#x3D;&quot;true&quot; inputStyleClass&#x3D;&quot;otp-input&quot;
-      (onComplete)&#x3D;&quot;verifyCodeSubmit()&quot; aria-required&#x3D;&quot;true&quot; aria-labelledby&#x3D;&quot;otp-label&quot; inputId&#x3D;&quot;otp-input&quot;&gt;
+  &lt;div
+    class&#x3D;&quot;otp-wrapper flex justify-content-between align-items-center&quot;
+    role&#x3D;&quot;group&quot;
+    aria-label&#x3D;&quot;6-digit verification code input&quot;
+  &gt;
+    &lt;p-inputOtp
+      class&#x3D;&quot;otp&quot;
+      formControlName&#x3D;&quot;otpCode&quot;
+      [length]&#x3D;&quot;6&quot;
+      [integerOnly]&#x3D;&quot;true&quot;
+      inputStyleClass&#x3D;&quot;otp-input&quot;
+      (onComplete)&#x3D;&quot;verifyCodeSubmit()&quot;
+      aria-required&#x3D;&quot;true&quot;
+      aria-labelledby&#x3D;&quot;otp-label&quot;
+      inputId&#x3D;&quot;otp-input&quot;
+    &gt;
     &lt;/p-inputOtp&gt;
   &lt;/div&gt;
 
   &lt;!-- Resend Code Section --&gt;
   &lt;div class&#x3D;&quot;send-code-wrapper&quot;&gt;
-    &lt;button class&#x3D;&quot;sendCode resend-button&quot; (click)&#x3D;&quot;resendVerificationCode()&quot; (keyup.enter)&#x3D;&quot;resendVerificationCode()&quot;
-      (keyup.space)&#x3D;&quot;resendVerificationCode()&quot; [disabled]&#x3D;&quot;isResending() || cooldownSeconds() &gt; 0&quot;
-      aria-label&#x3D;&quot;Resend verification code&quot; aria-describedby&#x3D;&quot;resend-instructions&quot;&gt;
-      {{ &#x27;auth.verify.h5&#x27; | translate }}
-      @if (cooldownSeconds() &gt; 0) {
-      ({{ cooldownSeconds() }}s)
-      }
+    &lt;button
+      class&#x3D;&quot;sendCode resend-button&quot;
+      (click)&#x3D;&quot;resendVerificationCode()&quot;
+      (keyup.enter)&#x3D;&quot;resendVerificationCode()&quot;
+      (keyup.space)&#x3D;&quot;resendVerificationCode()&quot;
+      [disabled]&#x3D;&quot;isResending() || cooldownSeconds() &gt; 0&quot;
+      aria-label&#x3D;&quot;Resend verification code&quot;
+      aria-describedby&#x3D;&quot;resend-instructions&quot;
+    &gt;
+      {{ &quot;auth.verify.h5&quot; | translate }}
+      @if (cooldownSeconds() &gt; 0) { ({{ cooldownSeconds() }}s) }
     &lt;/button&gt;
   &lt;/div&gt;
 
   &lt;!-- Submit Button --&gt;
-  &lt;app-form-button [text]&#x3D;&quot;&#x27;auth.verify.button&#x27; | translate&quot; [disabled]&#x3D;&quot;verifyCodeForm.invalid&quot;
-    [isLoading]&#x3D;&quot;isLoading()&quot; type&#x3D;&quot;submit&quot; aria-label&#x3D;&quot;Submit verification code&quot;&gt;
+  &lt;app-form-button
+    [text]&#x3D;&quot;&#x27;auth.verify.button&#x27; | translate&quot;
+    [disabled]&#x3D;&quot;verifyCodeForm.invalid&quot;
+    [isLoading]&#x3D;&quot;isLoading()&quot;
+    type&#x3D;&quot;submit&quot;
+    aria-label&#x3D;&quot;Submit verification code&quot;
+  &gt;
   &lt;/app-form-button&gt;
 &lt;/form&gt;
 </code></pre>
@@ -1074,7 +1100,7 @@ export class VerifyCodeComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><form [formGroup]="verifyCodeForm" (ngSubmit)="verifyCodeSubmit()" role="form" aria-label="Verification code form">  <!-- OTP Input Section -->  <div class="otp-wrapper flex justify-content-between align-items-center" role="group"    aria-label="6-digit verification code input">    <p-inputOtp class="otp" formControlName="otpCode" [length]="6" [integerOnly]="true" inputStyleClass="otp-input"      (onComplete)="verifyCodeSubmit()" aria-required="true" aria-labelledby="otp-label" inputId="otp-input">    </p-inputOtp>  </div>  <!-- Resend Code Section -->  <div class="send-code-wrapper">    <button class="sendCode resend-button" (click)="resendVerificationCode()" (keyup.enter)="resendVerificationCode()"      (keyup.space)="resendVerificationCode()" [disabled]="isResending() || cooldownSeconds() > 0"      aria-label="Resend verification code" aria-describedby="resend-instructions">      {{ \'auth.verify.h5\' | translate }}      @if (cooldownSeconds() > 0) {      ({{ cooldownSeconds() }}s)      }    </button>  </div>  <!-- Submit Button -->  <app-form-button [text]="\'auth.verify.button\' | translate" [disabled]="verifyCodeForm.invalid"    [isLoading]="isLoading()" type="submit" aria-label="Submit verification code">  </app-form-button></form></div>'
+        var COMPONENT_TEMPLATE = '<div><form  [formGroup]="verifyCodeForm"  (ngSubmit)="verifyCodeSubmit()"  role="form"  aria-label="Verification code form">  <!-- OTP Input Section -->  <div    class="otp-wrapper flex justify-content-between align-items-center"    role="group"    aria-label="6-digit verification code input"  >    <p-inputOtp      class="otp"      formControlName="otpCode"      [length]="6"      [integerOnly]="true"      inputStyleClass="otp-input"      (onComplete)="verifyCodeSubmit()"      aria-required="true"      aria-labelledby="otp-label"      inputId="otp-input"    >    </p-inputOtp>  </div>  <!-- Resend Code Section -->  <div class="send-code-wrapper">    <button      class="sendCode resend-button"      (click)="resendVerificationCode()"      (keyup.enter)="resendVerificationCode()"      (keyup.space)="resendVerificationCode()"      [disabled]="isResending() || cooldownSeconds() > 0"      aria-label="Resend verification code"      aria-describedby="resend-instructions"    >      {{ "auth.verify.h5" | translate }}      @if (cooldownSeconds() > 0) { ({{ cooldownSeconds() }}s) }    </button>  </div>  <!-- Submit Button -->  <app-form-button    [text]="\'auth.verify.button\' | translate"    [disabled]="verifyCodeForm.invalid"    [isLoading]="isLoading()"    type="submit"    aria-label="Submit verification code"  >  </app-form-button></form></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'VerifyCodeComponent'};

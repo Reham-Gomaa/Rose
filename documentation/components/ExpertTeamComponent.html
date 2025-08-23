@@ -146,6 +146,12 @@
             </tr>
 
 
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>NgOptimizedImage</code>
+                </td>
+            </tr>
 
 
 
@@ -229,36 +235,32 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>[
-  {
-    name:&quot;Ahmed Mohamed&quot;,
-    role:&quot;Senior Manager&quot;,
-    image:&quot;images/abouts/expertTeam.jpg&quot;,
-
-  },
-  {
-    name:&quot;Ahmed Mohamed&quot;,
-    role:&quot;Senior Manager&quot;,
-    image:&quot;images/abouts/expertTeam2.jpg&quot;,
-
-  },
-  {
-    name:&quot;Ahmed Mohamed&quot;,
-    role:&quot;Senior Manager&quot;,
-    image:&quot;images/abouts/expetTeam3.jpg&quot;,
-
-  },
-  {
-    name:&quot;Ahmed Mohamed&quot;,
-    role:&quot;Senior Manager&quot;,
-    image:&quot;images/abouts/expertTeam4.jpg&quot;,
-
-  },
- ]</code>
+    {
+      name: &quot;Ahmed Mohamed&quot;,
+      role: &quot;Senior Manager&quot;,
+      image: &quot;images/abouts/expertTeam.AVIF&quot;,
+    },
+    {
+      name: &quot;Ahmed Mohamed&quot;,
+      role: &quot;Senior Manager&quot;,
+      image: &quot;images/abouts/expertTeam2.AVIF&quot;,
+    },
+    {
+      name: &quot;Ahmed Mohamed&quot;,
+      role: &quot;Senior Manager&quot;,
+      image: &quot;images/abouts/expetTeam3.AVIF&quot;,
+    },
+    {
+      name: &quot;Ahmed Mohamed&quot;,
+      role: &quot;Senior Manager&quot;,
+      image: &quot;images/abouts/expertTeam4.AVIF&quot;,
+    },
+  ]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">apps/rose/src/app/features/pages/about/components/expert-team/expert-team.component.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">apps/rose/src/app/features/pages/about/components/expert-team/expert-team.component.ts:11</a></div>
                         </td>
                     </tr>
 
@@ -271,78 +273,79 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &quot;@angular/core&quot;;
+import { NgOptimizedImage } from &quot;@angular/common&quot;;
 
 @Component({
-  selector: &#x27;app-expert-team&#x27;,
-  imports: [],
-  templateUrl: &#x27;./expert-team.component.html&#x27;,
-  styleUrl: &#x27;./expert-team.component.scss&#x27;
+  selector: &quot;app-expert-team&quot;,
+  imports: [NgOptimizedImage],
+  templateUrl: &quot;./expert-team.component.html&quot;,
+  styleUrl: &quot;./expert-team.component.scss&quot;,
 })
 export class ExpertTeamComponent {
- expertArr&#x3D;[
-  {
-    name:&quot;Ahmed Mohamed&quot;,
-    role:&quot;Senior Manager&quot;,
-    image:&quot;images/abouts/expertTeam.jpg&quot;,
-
-  },
-  {
-    name:&quot;Ahmed Mohamed&quot;,
-    role:&quot;Senior Manager&quot;,
-    image:&quot;images/abouts/expertTeam2.jpg&quot;,
-
-  },
-  {
-    name:&quot;Ahmed Mohamed&quot;,
-    role:&quot;Senior Manager&quot;,
-    image:&quot;images/abouts/expetTeam3.jpg&quot;,
-
-  },
-  {
-    name:&quot;Ahmed Mohamed&quot;,
-    role:&quot;Senior Manager&quot;,
-    image:&quot;images/abouts/expertTeam4.jpg&quot;,
-
-  },
- ];
+  expertArr &#x3D; [
+    {
+      name: &quot;Ahmed Mohamed&quot;,
+      role: &quot;Senior Manager&quot;,
+      image: &quot;images/abouts/expertTeam.AVIF&quot;,
+    },
+    {
+      name: &quot;Ahmed Mohamed&quot;,
+      role: &quot;Senior Manager&quot;,
+      image: &quot;images/abouts/expertTeam2.AVIF&quot;,
+    },
+    {
+      name: &quot;Ahmed Mohamed&quot;,
+      role: &quot;Senior Manager&quot;,
+      image: &quot;images/abouts/expetTeam3.AVIF&quot;,
+    },
+    {
+      name: &quot;Ahmed Mohamed&quot;,
+      role: &quot;Senior Manager&quot;,
+      image: &quot;images/abouts/expertTeam4.AVIF&quot;,
+    },
+  ];
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">  &lt;div class&#x3D;&quot;heading mt-8 text-center&quot;&gt;
-    &lt;h5 class&#x3D;&quot;title-h5 uppercase mb-2&quot; itemprop&#x3D;&quot;headline&quot;&gt;
-      Our Team
-    &lt;/h5&gt;
-    &lt;div class&#x3D;&quot;p-relative d-inline-block testimonials-title-wrapper mb-3&quot;&gt;
-      &lt;h2 id&#x3D;&quot;testimonials-heading&quot; class&#x3D;&quot;testimonials-title&quot; itemprop&#x3D;&quot;name&quot;&gt;
-        Meet Our Expert Team
-      &lt;/h2&gt;
-      &lt;div class&#x3D;&quot;testimonials-bg-shape&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/div&gt;
-      &lt;div class&#x3D;&quot;testimonials-underline-bar&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/div&gt;
-    &lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;heading mt-8 text-center&quot;&gt;
+  &lt;h5 class&#x3D;&quot;title-h5 uppercase mb-2&quot; itemprop&#x3D;&quot;headline&quot;&gt;Our Team&lt;/h5&gt;
+  &lt;div class&#x3D;&quot;p-relative d-inline-block testimonials-title-wrapper mb-3&quot;&gt;
+    &lt;h2 id&#x3D;&quot;testimonials-heading&quot; class&#x3D;&quot;testimonials-title&quot; itemprop&#x3D;&quot;name&quot;&gt;
+      Meet Our Expert Team
+    &lt;/h2&gt;
+    &lt;div class&#x3D;&quot;testimonials-bg-shape&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/div&gt;
+    &lt;div class&#x3D;&quot;testimonials-underline-bar&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/div&gt;
   &lt;/div&gt;
-  
-&lt;div class&#x3D;&quot;flex flex-wrap flex-column md:flex-row gap-4&quot;&gt;
-    @for (item of expertArr; track $index) {
-      &lt;div class&#x3D;&quot;team-card&quot;&gt;
-  &lt;div class&#x3D;&quot;team-card-image&quot;&gt;
-    &lt;img [src]&#x3D;&quot;item.image&quot; alt&#x3D;&quot;Ahmed Mohamed&quot;&gt;
-  &lt;/div&gt;
-    &lt;div class&#x3D;&quot;team-card-info&quot;&gt;
-    &lt;h3&gt;{{item.name}}&lt;/h3&gt;
-    &lt;p class&#x3D;&quot;role&quot;&gt;{{item.role}}&lt;/p&gt;
-    &lt;div class&#x3D;&quot;social-icons&quot;&gt;
-      &lt;a&gt;&lt;i class&#x3D;&quot;pi pi-facebook&quot;&gt;&lt;/i&gt;&lt;/a&gt;
-      &lt;a&gt;&lt;i class&#x3D;&quot;pi pi-instagram&quot;&gt;&lt;/i&gt;&lt;/a&gt;
-      &lt;a&gt;&lt;i class&#x3D;&quot;pi pi-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;
-      &lt;a&gt;&lt;i class&#x3D;&quot;pi pi-youtube&quot;&gt;&lt;/i&gt;&lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  
 &lt;/div&gt;
-}
+
+&lt;div class&#x3D;&quot;flex flex-wrap flex-column md:flex-row gap-4&quot;&gt;
+  @for (item of expertArr; track $index) {
+  &lt;div class&#x3D;&quot;team-card&quot;&gt;
+    &lt;div class&#x3D;&quot;team-card-image&quot;&gt;
+      &lt;img
+        [ngSrc]&#x3D;&quot;item.image&quot;
+        width&#x3D;&quot;250&quot;
+        height&#x3D;&quot;272&quot;
+        loading&#x3D;&quot;lazy&quot;
+        decoding&#x3D;&quot;async&quot;
+        alt&#x3D;&quot;Ahmed Mohamed&quot;
+      /&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;team-card-info&quot;&gt;
+      &lt;h3&gt;{{ item.name }}&lt;/h3&gt;
+      &lt;p class&#x3D;&quot;role&quot;&gt;{{ item.role }}&lt;/p&gt;
+      &lt;div class&#x3D;&quot;social-icons&quot;&gt;
+        &lt;a&gt;&lt;i class&#x3D;&quot;pi pi-facebook&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;a&gt;&lt;i class&#x3D;&quot;pi pi-instagram&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;a&gt;&lt;i class&#x3D;&quot;pi pi-twitter&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;a&gt;&lt;i class&#x3D;&quot;pi pi-youtube&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  }
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -373,7 +376,7 @@ export class ExpertTeamComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div>  <div class="heading mt-8 text-center">    <h5 class="title-h5 uppercase mb-2" itemprop="headline">      Our Team    </h5>    <div class="p-relative d-inline-block testimonials-title-wrapper mb-3">      <h2 id="testimonials-heading" class="testimonials-title" itemprop="name">        Meet Our Expert Team      </h2>      <div class="testimonials-bg-shape" aria-hidden="true"></div>      <div class="testimonials-underline-bar" aria-hidden="true"></div>    </div>  </div>  <div class="flex flex-wrap flex-column md:flex-row gap-4">    @for (item of expertArr; track $index) {      <div class="team-card">  <div class="team-card-image">    <img [src]="item.image" alt="Ahmed Mohamed">  </div>    <div class="team-card-info">    <h3>{{item.name}}</h3>    <p class="role">{{item.role}}</p>    <div class="social-icons">      <a><i class="pi pi-facebook"></i></a>      <a><i class="pi pi-instagram"></i></a>      <a><i class="pi pi-twitter"></i></a>      <a><i class="pi pi-youtube"></i></a>    </div>  </div>  </div>}</div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="heading mt-8 text-center">  <h5 class="title-h5 uppercase mb-2" itemprop="headline">Our Team</h5>  <div class="p-relative d-inline-block testimonials-title-wrapper mb-3">    <h2 id="testimonials-heading" class="testimonials-title" itemprop="name">      Meet Our Expert Team    </h2>    <div class="testimonials-bg-shape" aria-hidden="true"></div>    <div class="testimonials-underline-bar" aria-hidden="true"></div>  </div></div><div class="flex flex-wrap flex-column md:flex-row gap-4">  @for (item of expertArr; track $index) {  <div class="team-card">    <div class="team-card-image">      <img        [ngSrc]="item.image"        width="250"        height="272"        loading="lazy"        decoding="async"        alt="Ahmed Mohamed"      />    </div>    <div class="team-card-info">      <h3>{{ item.name }}</h3>      <p class="role">{{ item.role }}</p>      <div class="social-icons">        <a><i class="pi pi-facebook"></i></a>        <a><i class="pi pi-instagram"></i></a>        <a><i class="pi pi-twitter"></i></a>        <a><i class="pi pi-youtube"></i></a>      </div>    </div>  </div>  }</div></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'ExpertTeamComponent'};

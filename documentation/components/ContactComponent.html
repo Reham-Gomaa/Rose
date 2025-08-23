@@ -145,15 +145,10 @@
                 <td class="col-md-9"><code>app-contact</code></td>
             </tr>
 
-            <tr>
-                <td class="col-md-3">standalone</td>
-                <td class="col-md-9"><code>true</code></td>
-            </tr>
 
             <tr>
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
-                            <code>CommonModule</code>
                             <code>ReactiveFormsModule</code>
                                 <code><a href="../components/CustomInputComponent.html" target="_self" >CustomInputComponent</a></code>
                                 <code><a href="../components/ButtonComponent.html" target="_self" >ButtonComponent</a></code>
@@ -196,7 +191,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/rose/src/app/features/pages/contact/contact.component.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/rose/src/app/features/pages/contact/contact.component.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -215,118 +210,172 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &quot;@angular/core&quot;;
-import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { ReactiveFormsModule } from &quot;@angular/forms&quot;;
 import { CustomInputComponent } from &quot;@rose/shared_Components_ui/custom-input/custom-input.component&quot;;
 import { ButtonComponent } from &quot;@rose/shared_Components_ui/button/button.component&quot;;
 import { TranslatePipe } from &quot;@ngx-translate/core&quot;;
 
 @Component({
   selector: &quot;app-contact&quot;,
-  standalone: true,
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,   
-    CustomInputComponent,
-    ButtonComponent,
-    TranslatePipe
-  ],
+  imports: [ReactiveFormsModule, CustomInputComponent, ButtonComponent, TranslatePipe],
   templateUrl: &quot;./contact.component.html&quot;,
   styleUrl: &quot;./contact.component.scss&quot;,
 })
 export class ContactComponent {
-  constructor() {
-    
-  }
+  constructor() {}
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;contact-section&quot;&gt;
-    &lt;h1 class&#x3D;&quot;contact-title&quot;&gt;{{&quot;contact.contact_us&quot;| translate}}&lt;/h1&gt;
+  &lt;h1 class&#x3D;&quot;contact-title&quot;&gt;{{ &quot;contact.contact_us&quot; | translate }}&lt;/h1&gt;
 
-    &lt;div class&#x3D;&quot;grid&quot;&gt;
-        &lt;div class&#x3D;&quot;contact-info col-12 lg:col-4&quot;&gt;
-            &lt;div class&#x3D;&quot;contact-item&quot;&gt;
-                &lt;div class&#x3D;&quot;contact-icon phone-icon&quot;&gt;
-                    &lt;svg width&#x3D;&quot;24&quot; height&#x3D;&quot;24&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
-                        &lt;path
-                            d&#x3D;&quot;M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z&quot;
-                            stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot; /&gt;
-                    &lt;/svg&gt;
-                &lt;/div&gt;
-                &lt;div class&#x3D;&quot;contact-content&quot;&gt;
-                    &lt;div class&#x3D;&quot;contact-label&quot;&gt;{{&quot;contact.call_anytime&quot;| translate}}&lt;/div&gt;
-                    &lt;div class&#x3D;&quot;contact-detail&quot;&gt;{{&quot;contact.phone_number&quot;| translate}}&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;div class&#x3D;&quot;contact-item&quot;&gt;
-                &lt;div class&#x3D;&quot;contact-icon email-icon&quot;&gt;
-                    &lt;svg width&#x3D;&quot;24&quot; height&#x3D;&quot;24&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
-                        &lt;path d&#x3D;&quot;M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z&quot;
-                            stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot; /&gt;
-                        &lt;polyline points&#x3D;&quot;22,6 12,13 2,6&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; stroke-linecap&#x3D;&quot;round&quot;
-                            stroke-linejoin&#x3D;&quot;round&quot; /&gt;
-                    &lt;/svg&gt;
-                &lt;/div&gt;
-                &lt;div class&#x3D;&quot;contact-content&quot;&gt;
-                    &lt;div class&#x3D;&quot;contact-label&quot;&gt;{{&quot;contact.send_email&quot;| translate}}&lt;/div&gt;
-                    &lt;div class&#x3D;&quot;contact-detail&quot;&gt;{{&quot;contact.email_address&quot;| translate}}&lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;div class&#x3D;&quot;contact-item&quot;&gt;
-                &lt;div class&#x3D;&quot;contact-icon location-icon&quot;&gt;
-                    &lt;svg width&#x3D;&quot;24&quot; height&#x3D;&quot;24&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;none&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;&gt;
-                        &lt;path d&#x3D;&quot;M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot;
-                            stroke-linecap&#x3D;&quot;round&quot; stroke-linejoin&#x3D;&quot;round&quot; /&gt;
-                        &lt;circle cx&#x3D;&quot;12&quot; cy&#x3D;&quot;10&quot; r&#x3D;&quot;3&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; stroke-linecap&#x3D;&quot;round&quot;
-                            stroke-linejoin&#x3D;&quot;round&quot; /&gt;
-                    &lt;/svg&gt;
-                &lt;/div&gt;
-                &lt;div class&#x3D;&quot;contact-content&quot;&gt;
-                    &lt;div class&#x3D;&quot;contact-label&quot;&gt;{{&quot;contact.visit_us&quot;| translate}}&lt;/div&gt;
-                    &lt;div class&#x3D;&quot;contact-detail&quot;&gt;
-                        {{&quot;contact.address_line1&quot;| translate}}&lt;br&gt;
-                        {{&quot;contact.address_line2&quot;| translate}}
-                    &lt;/div&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
+  &lt;div class&#x3D;&quot;grid&quot;&gt;
+    &lt;div class&#x3D;&quot;contact-info col-12 lg:col-4&quot;&gt;
+      &lt;div class&#x3D;&quot;contact-item&quot;&gt;
+        &lt;div class&#x3D;&quot;contact-icon phone-icon&quot;&gt;
+          &lt;svg
+            width&#x3D;&quot;24&quot;
+            height&#x3D;&quot;24&quot;
+            viewBox&#x3D;&quot;0 0 24 24&quot;
+            fill&#x3D;&quot;none&quot;
+            xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+          &gt;
+            &lt;path
+              d&#x3D;&quot;M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z&quot;
+              stroke&#x3D;&quot;currentColor&quot;
+              stroke-width&#x3D;&quot;2&quot;
+              stroke-linecap&#x3D;&quot;round&quot;
+              stroke-linejoin&#x3D;&quot;round&quot;
+            /&gt;
+          &lt;/svg&gt;
         &lt;/div&gt;
-
-
-        &lt;div class&#x3D;&quot;contact-form-container col-12 lg:col-7&quot;&gt;
-            &lt;div class&#x3D;&quot;contact-form&quot;&gt;
-                &lt;app-custom-input [id]&#x3D;&quot;&#x27;name&#x27;&quot; [labelText]&#x3D;&quot;&#x27;&#x27;&quot; [placeholder]&#x3D;&quot;&#x27;contact.name&#x27; | translate&quot;
-                    [type]&#x3D;&quot;&#x27;text&#x27;&quot;&gt;
-                &lt;/app-custom-input&gt;
-
-                &lt;app-custom-input [id]&#x3D;&quot;&#x27;email&#x27;&quot; [labelText]&#x3D;&quot;&#x27;&#x27;&quot; [placeholder]&#x3D;&quot;&#x27;contact.email&#x27; | translate&quot;
-                    [type]&#x3D;&quot;&#x27;email&#x27;&quot;&gt;
-                &lt;/app-custom-input&gt;
-
-                &lt;app-custom-input [id]&#x3D;&quot;&#x27;phone&#x27;&quot; [labelText]&#x3D;&quot;&#x27;&#x27;&quot; [placeholder]&#x3D;&quot;&#x27;contact.phone&#x27; | translate&quot;
-                    [type]&#x3D;&quot;&#x27;tel&#x27;&quot;&gt;
-                &lt;/app-custom-input&gt;
-
-                &lt;app-custom-input [id]&#x3D;&quot;&#x27;message&#x27;&quot; [labelText]&#x3D;&quot;&#x27;&#x27;&quot; [placeholder]&#x3D;&quot;&#x27;contact.message&#x27; | translate&quot;
-                    [type]&#x3D;&quot;&#x27;text&#x27;&quot;&gt;
-                &lt;/app-custom-input&gt;
-
-
-            &lt;/div&gt;
-            &lt;div class&#x3D;&quot;mt-4&quot;&gt;
-                &lt;app-button [text]&#x3D;&quot;&#x27;contact.send&#x27; | translate&quot; [textColor]&#x3D;&quot;&#x27;var(--btn-shared-color)&#x27;&quot;
-                    [bgColor]&#x3D;&quot;&#x27;var(--btn-shared-background)&#x27;&quot; [icon]&#x3D;&quot;&#x27;pi pi-arrow-right arrowicon&#x27;&quot;
-                    [borderRadius]&#x3D;&quot;&#x27;btn-contact-radius&#x27;&quot; [padding]&#x3D;&quot;&#x27;btn-contact-padding&#x27;&quot;
-                    [transition]&#x3D;&quot;&#x27;btn-contact-transition&#x27;&quot; aria-label&#x3D;&quot;Send your Contact Information&quot;&gt;
-                &lt;/app-button&gt;
-            &lt;/div&gt;
+        &lt;div class&#x3D;&quot;contact-content&quot;&gt;
+          &lt;div class&#x3D;&quot;contact-label&quot;&gt;{{ &quot;contact.call_anytime&quot; | translate }}&lt;/div&gt;
+          &lt;div class&#x3D;&quot;contact-detail&quot;&gt;{{ &quot;contact.phone_number&quot; | translate }}&lt;/div&gt;
         &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;contact-item&quot;&gt;
+        &lt;div class&#x3D;&quot;contact-icon email-icon&quot;&gt;
+          &lt;svg
+            width&#x3D;&quot;24&quot;
+            height&#x3D;&quot;24&quot;
+            viewBox&#x3D;&quot;0 0 24 24&quot;
+            fill&#x3D;&quot;none&quot;
+            xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+          &gt;
+            &lt;path
+              d&#x3D;&quot;M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z&quot;
+              stroke&#x3D;&quot;currentColor&quot;
+              stroke-width&#x3D;&quot;2&quot;
+              stroke-linecap&#x3D;&quot;round&quot;
+              stroke-linejoin&#x3D;&quot;round&quot;
+            /&gt;
+            &lt;polyline
+              points&#x3D;&quot;22,6 12,13 2,6&quot;
+              stroke&#x3D;&quot;currentColor&quot;
+              stroke-width&#x3D;&quot;2&quot;
+              stroke-linecap&#x3D;&quot;round&quot;
+              stroke-linejoin&#x3D;&quot;round&quot;
+            /&gt;
+          &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;contact-content&quot;&gt;
+          &lt;div class&#x3D;&quot;contact-label&quot;&gt;{{ &quot;contact.send_email&quot; | translate }}&lt;/div&gt;
+          &lt;div class&#x3D;&quot;contact-detail&quot;&gt;{{ &quot;contact.email_address&quot; | translate }}&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div class&#x3D;&quot;contact-item&quot;&gt;
+        &lt;div class&#x3D;&quot;contact-icon location-icon&quot;&gt;
+          &lt;svg
+            width&#x3D;&quot;24&quot;
+            height&#x3D;&quot;24&quot;
+            viewBox&#x3D;&quot;0 0 24 24&quot;
+            fill&#x3D;&quot;none&quot;
+            xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+          &gt;
+            &lt;path
+              d&#x3D;&quot;M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z&quot;
+              stroke&#x3D;&quot;currentColor&quot;
+              stroke-width&#x3D;&quot;2&quot;
+              stroke-linecap&#x3D;&quot;round&quot;
+              stroke-linejoin&#x3D;&quot;round&quot;
+            /&gt;
+            &lt;circle
+              cx&#x3D;&quot;12&quot;
+              cy&#x3D;&quot;10&quot;
+              r&#x3D;&quot;3&quot;
+              stroke&#x3D;&quot;currentColor&quot;
+              stroke-width&#x3D;&quot;2&quot;
+              stroke-linecap&#x3D;&quot;round&quot;
+              stroke-linejoin&#x3D;&quot;round&quot;
+            /&gt;
+          &lt;/svg&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;contact-content&quot;&gt;
+          &lt;div class&#x3D;&quot;contact-label&quot;&gt;{{ &quot;contact.visit_us&quot; | translate }}&lt;/div&gt;
+          &lt;div class&#x3D;&quot;contact-detail&quot;&gt;
+            {{ &quot;contact.address_line1&quot; | translate }}&lt;br /&gt;
+            {{ &quot;contact.address_line2&quot; | translate }}
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
-&lt;/section&gt;</code></pre>
+
+    &lt;div class&#x3D;&quot;contact-form-container col-12 lg:col-7&quot;&gt;
+      &lt;div class&#x3D;&quot;contact-form&quot;&gt;
+        &lt;app-custom-input
+          [id]&#x3D;&quot;&#x27;name&#x27;&quot;
+          [labelText]&#x3D;&quot;&#x27;&#x27;&quot;
+          [placeholder]&#x3D;&quot;&#x27;contact.name&#x27; | translate&quot;
+          [type]&#x3D;&quot;&#x27;text&#x27;&quot;
+        &gt;
+        &lt;/app-custom-input&gt;
+
+        &lt;app-custom-input
+          [id]&#x3D;&quot;&#x27;email&#x27;&quot;
+          [labelText]&#x3D;&quot;&#x27;&#x27;&quot;
+          [placeholder]&#x3D;&quot;&#x27;contact.email&#x27; | translate&quot;
+          [type]&#x3D;&quot;&#x27;email&#x27;&quot;
+        &gt;
+        &lt;/app-custom-input&gt;
+
+        &lt;app-custom-input
+          [id]&#x3D;&quot;&#x27;phone&#x27;&quot;
+          [labelText]&#x3D;&quot;&#x27;&#x27;&quot;
+          [placeholder]&#x3D;&quot;&#x27;contact.phone&#x27; | translate&quot;
+          [type]&#x3D;&quot;&#x27;tel&#x27;&quot;
+        &gt;
+        &lt;/app-custom-input&gt;
+
+        &lt;app-custom-input
+          [id]&#x3D;&quot;&#x27;message&#x27;&quot;
+          [labelText]&#x3D;&quot;&#x27;&#x27;&quot;
+          [placeholder]&#x3D;&quot;&#x27;contact.message&#x27; | translate&quot;
+          [type]&#x3D;&quot;&#x27;text&#x27;&quot;
+        &gt;
+        &lt;/app-custom-input&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;mt-4&quot;&gt;
+        &lt;app-button
+          [text]&#x3D;&quot;&#x27;contact.send&#x27; | translate&quot;
+          [textColor]&#x3D;&quot;&#x27;var(--btn-shared-color)&#x27;&quot;
+          [bgColor]&#x3D;&quot;&#x27;var(--btn-shared-background)&#x27;&quot;
+          [icon]&#x3D;&quot;&#x27;pi pi-arrow-right arrowicon&#x27;&quot;
+          [borderRadius]&#x3D;&quot;&#x27;btn-contact-radius&#x27;&quot;
+          [padding]&#x3D;&quot;&#x27;btn-contact-padding&#x27;&quot;
+          [transition]&#x3D;&quot;&#x27;btn-contact-transition&#x27;&quot;
+          aria-label&#x3D;&quot;Send your Contact Information&quot;
+        &gt;
+        &lt;/app-button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
     </div>
 
 
@@ -355,7 +404,7 @@ export class ContactComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="contact-section">    <h1 class="contact-title">{{"contact.contact_us"| translate}}</h1>    <div class="grid">        <div class="contact-info col-12 lg:col-4">            <div class="contact-item">                <div class="contact-icon phone-icon">                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                        <path                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />                    </svg>                </div>                <div class="contact-content">                    <div class="contact-label">{{"contact.call_anytime"| translate}}</div>                    <div class="contact-detail">{{"contact.phone_number"| translate}}</div>                </div>            </div>            <div class="contact-item">                <div class="contact-icon email-icon">                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />                        <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round"                            stroke-linejoin="round" />                    </svg>                </div>                <div class="contact-content">                    <div class="contact-label">{{"contact.send_email"| translate}}</div>                    <div class="contact-detail">{{"contact.email_address"| translate}}</div>                </div>            </div>            <div class="contact-item">                <div class="contact-icon location-icon">                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"                            stroke-linecap="round" stroke-linejoin="round" />                        <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"                            stroke-linejoin="round" />                    </svg>                </div>                <div class="contact-content">                    <div class="contact-label">{{"contact.visit_us"| translate}}</div>                    <div class="contact-detail">                        {{"contact.address_line1"| translate}}<br>                        {{"contact.address_line2"| translate}}                    </div>                </div>            </div>        </div>        <div class="contact-form-container col-12 lg:col-7">            <div class="contact-form">                <app-custom-input [id]="\'name\'" [labelText]="\'\'" [placeholder]="\'contact.name\' | translate"                    [type]="\'text\'">                </app-custom-input>                <app-custom-input [id]="\'email\'" [labelText]="\'\'" [placeholder]="\'contact.email\' | translate"                    [type]="\'email\'">                </app-custom-input>                <app-custom-input [id]="\'phone\'" [labelText]="\'\'" [placeholder]="\'contact.phone\' | translate"                    [type]="\'tel\'">                </app-custom-input>                <app-custom-input [id]="\'message\'" [labelText]="\'\'" [placeholder]="\'contact.message\' | translate"                    [type]="\'text\'">                </app-custom-input>            </div>            <div class="mt-4">                <app-button [text]="\'contact.send\' | translate" [textColor]="\'var(--btn-shared-color)\'"                    [bgColor]="\'var(--btn-shared-background)\'" [icon]="\'pi pi-arrow-right arrowicon\'"                    [borderRadius]="\'btn-contact-radius\'" [padding]="\'btn-contact-padding\'"                    [transition]="\'btn-contact-transition\'" aria-label="Send your Contact Information">                </app-button>            </div>        </div>    </div></section></div>'
+        var COMPONENT_TEMPLATE = '<div><section class="contact-section">  <h1 class="contact-title">{{ "contact.contact_us" | translate }}</h1>  <div class="grid">    <div class="contact-info col-12 lg:col-4">      <div class="contact-item">        <div class="contact-icon phone-icon">          <svg            width="24"            height="24"            viewBox="0 0 24 24"            fill="none"            xmlns="http://www.w3.org/2000/svg"          >            <path              d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"              stroke="currentColor"              stroke-width="2"              stroke-linecap="round"              stroke-linejoin="round"            />          </svg>        </div>        <div class="contact-content">          <div class="contact-label">{{ "contact.call_anytime" | translate }}</div>          <div class="contact-detail">{{ "contact.phone_number" | translate }}</div>        </div>      </div>      <div class="contact-item">        <div class="contact-icon email-icon">          <svg            width="24"            height="24"            viewBox="0 0 24 24"            fill="none"            xmlns="http://www.w3.org/2000/svg"          >            <path              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"              stroke="currentColor"              stroke-width="2"              stroke-linecap="round"              stroke-linejoin="round"            />            <polyline              points="22,6 12,13 2,6"              stroke="currentColor"              stroke-width="2"              stroke-linecap="round"              stroke-linejoin="round"            />          </svg>        </div>        <div class="contact-content">          <div class="contact-label">{{ "contact.send_email" | translate }}</div>          <div class="contact-detail">{{ "contact.email_address" | translate }}</div>        </div>      </div>      <div class="contact-item">        <div class="contact-icon location-icon">          <svg            width="24"            height="24"            viewBox="0 0 24 24"            fill="none"            xmlns="http://www.w3.org/2000/svg"          >            <path              d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"              stroke="currentColor"              stroke-width="2"              stroke-linecap="round"              stroke-linejoin="round"            />            <circle              cx="12"              cy="10"              r="3"              stroke="currentColor"              stroke-width="2"              stroke-linecap="round"              stroke-linejoin="round"            />          </svg>        </div>        <div class="contact-content">          <div class="contact-label">{{ "contact.visit_us" | translate }}</div>          <div class="contact-detail">            {{ "contact.address_line1" | translate }}<br />            {{ "contact.address_line2" | translate }}          </div>        </div>      </div>    </div>    <div class="contact-form-container col-12 lg:col-7">      <div class="contact-form">        <app-custom-input          [id]="\'name\'"          [labelText]="\'\'"          [placeholder]="\'contact.name\' | translate"          [type]="\'text\'"        >        </app-custom-input>        <app-custom-input          [id]="\'email\'"          [labelText]="\'\'"          [placeholder]="\'contact.email\' | translate"          [type]="\'email\'"        >        </app-custom-input>        <app-custom-input          [id]="\'phone\'"          [labelText]="\'\'"          [placeholder]="\'contact.phone\' | translate"          [type]="\'tel\'"        >        </app-custom-input>        <app-custom-input          [id]="\'message\'"          [labelText]="\'\'"          [placeholder]="\'contact.message\' | translate"          [type]="\'text\'"        >        </app-custom-input>      </div>      <div class="mt-4">        <app-button          [text]="\'contact.send\' | translate"          [textColor]="\'var(--btn-shared-color)\'"          [bgColor]="\'var(--btn-shared-background)\'"          [icon]="\'pi pi-arrow-right arrowicon\'"          [borderRadius]="\'btn-contact-radius\'"          [padding]="\'btn-contact-padding\'"          [transition]="\'btn-contact-transition\'"          aria-label="Send your Contact Information"        >        </app-button>      </div>    </div>  </div></section></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'ContactComponent'};

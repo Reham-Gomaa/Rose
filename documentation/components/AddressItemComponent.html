@@ -252,7 +252,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/user-address/components/address-item/address-item.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/user-address/components/address-item/address-item.component.ts:18</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -286,8 +286,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="17"
-                                    class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/user-address/components/address-item/address-item.component.ts:17</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/user-address/components/address-item/address-item.component.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -323,8 +323,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="22"
-                                    class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/user-address/components/address-item/address-item.component.ts:22</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/user-address/components/address-item/address-item.component.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -366,7 +366,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/user-address/components/address-item/address-item.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/user-address/components/address-item/address-item.component.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -386,7 +386,7 @@
             </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/user-address/components/address-item/address-item.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/rose/src/app/features/layouts/order-flow/components/user-address/components/address-item/address-item.component.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -402,7 +402,11 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, input } from &quot;@angular/core&quot;;
 import { Store } from &quot;@ngrx/store&quot;;
 import { Address } from &quot;@rose/core_interfaces/user-address.interface&quot;;
-import { setAddress, setAddressId, setAddressState } from &quot;apps/rose/src/app/store/address/address.actions&quot;;
+import {
+  setAddress,
+  setAddressId,
+  setAddressState,
+} from &quot;apps/rose/src/app/store/address/address.actions&quot;;
 
 @Component({
   selector: &quot;app-address-item&quot;,
@@ -414,21 +418,16 @@ export class AddressItemComponent {
   private readonly _store &#x3D; inject(Store);
   address &#x3D; input.required&lt;Address&gt;();
 
-
   openDeleteDialog() {
-   this._store.dispatch(setAddressId({ addressId: this.address()._id}));
-   this._store.dispatch(setAddressState({ addressState: 6 }));
+    this._store.dispatch(setAddressId({ addressId: this.address()._id }));
+    this._store.dispatch(setAddressState({ addressState: 6 }));
   }
 
-  openUpdateDialog(){
+  openUpdateDialog() {
     this._store.dispatch(setAddress({ address: this.address() }));
-    this._store.dispatch(setAddressId({ addressId: this.address()._id}));
+    this._store.dispatch(setAddressId({ addressId: this.address()._id }));
     this._store.dispatch(setAddressState({ addressState: 4 }));
   }
-
-
-
-
 }
 </code></pre>
     </div>
@@ -436,34 +435,30 @@ export class AddressItemComponent {
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;address-card&quot;&gt;
   &lt;div class&#x3D;&quot;address-card__header&quot;&gt;
-   
     &lt;div class&#x3D;&quot;address-card__left&quot;&gt;
-       &lt;p class&#x3D;&quot;username&quot;&gt;{{address().username}}&lt;/p&gt;
+      &lt;p class&#x3D;&quot;username&quot;&gt;{{ address().username }}&lt;/p&gt;
       &lt;div class&#x3D;&quot;address-card__icon&quot;&gt;
         &lt;i class&#x3D;&quot;pi pi-map-marker&quot;&gt;&lt;/i&gt;
       &lt;/div&gt;
-      &lt;div class&#x3D;&quot;address-card__city&quot;&gt;{{address().city}}&lt;/div&gt;
-    
+      &lt;div class&#x3D;&quot;address-card__city&quot;&gt;{{ address().city }}&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;address-card__right&quot;&gt;
       &lt;i class&#x3D;&quot;pi pi-phone&quot;&gt;&lt;/i&gt;
-      &lt;span class&#x3D;&quot;address-card__phone px-2&quot;&gt;{{address().phone}}&lt;/span&gt;
+      &lt;span class&#x3D;&quot;address-card__phone px-2&quot;&gt;{{ address().phone }}&lt;/span&gt;
       &lt;div class&#x3D;&quot;address-card__to-button&quot;&gt;
         &lt;button class&#x3D;&quot;icon-button edit&quot; (click)&#x3D;&quot;openUpdateDialog()&quot;&gt;
-        &lt;i class&#x3D;&quot;pi pi-pencil&quot;&gt;&lt;/i&gt;
-      &lt;/button&gt;
-      &lt;button class&#x3D;&quot;icon-button delete&quot; (click)&#x3D;&quot;openDeleteDialog()&quot;&gt;
-        &lt;i class&#x3D;&quot;pi pi-trash&quot;&gt;&lt;/i&gt;
-      &lt;/button&gt;
-
+          &lt;i class&#x3D;&quot;pi pi-pencil&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+        &lt;button class&#x3D;&quot;icon-button delete&quot; (click)&#x3D;&quot;openDeleteDialog()&quot;&gt;
+          &lt;i class&#x3D;&quot;pi pi-trash&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class&#x3D;&quot;address-card__body&quot;&gt;
-    {{address().street}}
+    {{ address().street }}
   &lt;/div&gt;
 &lt;/div&gt;
-
 </code></pre>
     </div>
 
@@ -493,7 +488,7 @@ export class AddressItemComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="address-card">  <div class="address-card__header">       <div class="address-card__left">       <p class="username">{{address().username}}</p>      <div class="address-card__icon">        <i class="pi pi-map-marker"></i>      </div>      <div class="address-card__city">{{address().city}}</div>        </div>    <div class="address-card__right">      <i class="pi pi-phone"></i>      <span class="address-card__phone px-2">{{address().phone}}</span>      <div class="address-card__to-button">        <button class="icon-button edit" (click)="openUpdateDialog()">        <i class="pi pi-pencil"></i>      </button>      <button class="icon-button delete" (click)="openDeleteDialog()">        <i class="pi pi-trash"></i>      </button>      </div>    </div>  </div>  <div class="address-card__body">    {{address().street}}  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="address-card">  <div class="address-card__header">    <div class="address-card__left">      <p class="username">{{ address().username }}</p>      <div class="address-card__icon">        <i class="pi pi-map-marker"></i>      </div>      <div class="address-card__city">{{ address().city }}</div>    </div>    <div class="address-card__right">      <i class="pi pi-phone"></i>      <span class="address-card__phone px-2">{{ address().phone }}</span>      <div class="address-card__to-button">        <button class="icon-button edit" (click)="openUpdateDialog()">          <i class="pi pi-pencil"></i>        </button>        <button class="icon-button delete" (click)="openDeleteDialog()">          <i class="pi pi-trash"></i>        </button>      </div>    </div>  </div>  <div class="address-card__body">    {{ address().street }}  </div></div></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'AddressItemComponent'};

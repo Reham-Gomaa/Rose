@@ -149,7 +149,6 @@
             <tr>
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
-                            <code>CommonModule</code>
                             <code>RatingModule</code>
                             <code>FormsModule</code>
                             <code>SkeletonModule</code>
@@ -268,7 +267,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">apps/rose/src/app/shared/components/ui/card-item/card-item.component.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">apps/rose/src/app/shared/components/ui/card-item/card-item.component.ts:38</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -289,7 +288,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">apps/rose/src/app/shared/components/ui/card-item/card-item.component.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/rose/src/app/shared/components/ui/card-item/card-item.component.ts:37</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -323,8 +322,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="41"
-                                    class="link-to-prism">apps/rose/src/app/shared/components/ui/card-item/card-item.component.ts:41</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">apps/rose/src/app/shared/components/ui/card-item/card-item.component.ts:40</a></div>
                         </td>
                     </tr>
 
@@ -396,7 +395,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/rose/src/app/shared/components/ui/card-item/card-item.component.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/rose/src/app/shared/components/ui/card-item/card-item.component.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -413,7 +412,7 @@
 import { FormsModule } from &quot;@angular/forms&quot;;
 import { RouterLink } from &quot;@angular/router&quot;;
 // Images
-import { CommonModule, NgOptimizedImage } from &quot;@angular/common&quot;;
+import { NgOptimizedImage } from &quot;@angular/common&quot;;
 // Translation
 import { TranslatePipe } from &quot;@ngx-translate/core&quot;;
 // Interfaces
@@ -430,7 +429,6 @@ import { addProductToCart } from &quot;apps/rose/src/app/store/cart/cart-actions
 @Component({
   selector: &quot;app-card-item&quot;,
   imports: [
-    CommonModule,
     RatingModule,
     FormsModule,
     SkeletonModule,
@@ -463,12 +461,23 @@ export class CardItemComponent {
     @if (loading) {
     &lt;p-skeleton width&#x3D;&quot;100%&quot; height&#x3D;&quot;200px&quot;&gt;&lt;/p-skeleton&gt;
     } @else if (productInfo) {
-    &lt;img [ngSrc]&#x3D;&quot;productInfo.imgCover&quot; [alt]&#x3D;&quot;productInfo.title&quot; class&#x3D;&quot;product-image&quot; loading&#x3D;&quot;lazy&quot; decoding&#x3D;&quot;async&quot;
-      width&#x3D;&quot;100&quot; height&#x3D;&quot;50&quot; /&gt;
+    &lt;img
+      [ngSrc]&#x3D;&quot;productInfo.imgCover&quot;
+      [alt]&#x3D;&quot;productInfo.title&quot;
+      class&#x3D;&quot;product-image&quot;
+      loading&#x3D;&quot;lazy&quot;
+      decoding&#x3D;&quot;async&quot;
+      width&#x3D;&quot;100&quot;
+      height&#x3D;&quot;50&quot;
+    /&gt;
     &lt;div class&#x3D;&quot;bg-shape&quot;&gt;&lt;/div&gt;
     &lt;div class&#x3D;&quot;overlay-icons&quot;&gt;
-      &lt;i [routerLink]&#x3D;&quot;[&#x27;/dashboard/details&#x27;,productInfo._id]&quot; class&#x3D;&quot;pi pi-eye icon-circle&quot;&gt;&lt;/i&gt;
-      &lt;i [appWishlistToggle]&#x3D;&quot;productInfo&quot; class&#x3D;&quot;pi pi-heart icon-circle&quot; [activeClass]&#x3D;&quot;&#x27;wishlist-active&#x27;&quot;&gt;&lt;/i&gt;
+      &lt;i [routerLink]&#x3D;&quot;[&#x27;/dashboard/details&#x27;, productInfo._id]&quot; class&#x3D;&quot;pi pi-eye icon-circle&quot;&gt;&lt;/i&gt;
+      &lt;i
+        [appWishlistToggle]&#x3D;&quot;productInfo&quot;
+        class&#x3D;&quot;pi pi-heart icon-circle&quot;
+        [activeClass]&#x3D;&quot;&#x27;wishlist-active&#x27;&quot;
+      &gt;&lt;/i&gt;
     &lt;/div&gt;
     }
   &lt;/div&gt;
@@ -496,14 +505,18 @@ export class CardItemComponent {
           {{ productInfo.price.toFixed(2) }} {{ &quot;EGP&quot; | translate }}
         &lt;/span&gt;
       &lt;/div&gt;
-      &lt;i [class.disableCart]&#x3D;&quot;productInfo.quantity &lt;&#x3D; 0&quot; tabindex&#x3D;&quot;0&quot;
+      &lt;i
+        [class.disableCart]&#x3D;&quot;productInfo.quantity &lt;&#x3D; 0&quot;
+        tabindex&#x3D;&quot;0&quot;
         (click)&#x3D;&quot;productInfo.quantity &gt; 0 ? addProductToCart(productInfo._id) : null&quot;
         (keydown.enter)&#x3D;&quot;productInfo.quantity &gt; 0 ? addProductToCart(productInfo._id) : null&quot;
-        class&#x3D;&quot;pi pi-shopping-bag btn-shopping text-white violet-bg border-circle&quot;&gt;&lt;/i&gt;
+        class&#x3D;&quot;pi pi-shopping-bag btn-shopping text-white violet-bg border-circle&quot;
+      &gt;&lt;/i&gt;
       }
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</code></pre>
+&lt;/div&gt;
+</code></pre>
     </div>
 
 
@@ -532,7 +545,7 @@ export class CardItemComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="product-card group w-full max-w-[18.87rem] sm:w-[18.87rem] mx-auto">  <div class="image-wrapper">    @if (loading) {    <p-skeleton width="100%" height="200px"></p-skeleton>    } @else if (productInfo) {    <img [ngSrc]="productInfo.imgCover" [alt]="productInfo.title" class="product-image" loading="lazy" decoding="async"      width="100" height="50" />    <div class="bg-shape"></div>    <div class="overlay-icons">      <i [routerLink]="[\'/dashboard/details\',productInfo._id]" class="pi pi-eye icon-circle"></i>      <i [appWishlistToggle]="productInfo" class="pi pi-heart icon-circle" [activeClass]="\'wishlist-active\'"></i>    </div>    }  </div>  <div class="flex flex-column p-3 mt-3 flex-grow">    @if (loading) {    <p-skeleton width="100%" height="1.5rem" class="mb-2"></p-skeleton>    } @else if (productInfo) {    <h2 class="title pb-2">{{ productInfo.title }}</h2>    }    <div class="flex align-items-center justify-content-between pt-2">      @if (loading) {      <div class="flex flex-column">        <p-skeleton width="6rem" height="1.5rem" class="mb-2"></p-skeleton>        <p-skeleton width="4rem" height="1.25rem"></p-skeleton>      </div>      <p-skeleton shape="circle" size="2.5rem"></p-skeleton>      } @else if (productInfo) {      <div class="flex flex-column">        <div class="rating-container flex align-items-center">          <p-rating [(ngModel)]="productInfo.rateAvg" [readonly]="true" [stars]="5" />        </div>        <span class="price font-bold pt-2">          {{ productInfo.price.toFixed(2) }} {{ "EGP" | translate }}        </span>      </div>      <i [class.disableCart]="productInfo.quantity <= 0" tabindex="0"        (click)="productInfo.quantity > 0 ? addProductToCart(productInfo._id) : null"        (keydown.enter)="productInfo.quantity > 0 ? addProductToCart(productInfo._id) : null"        class="pi pi-shopping-bag btn-shopping text-white violet-bg border-circle"></i>      }    </div>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="product-card group w-full max-w-[18.87rem] sm:w-[18.87rem] mx-auto">  <div class="image-wrapper">    @if (loading) {    <p-skeleton width="100%" height="200px"></p-skeleton>    } @else if (productInfo) {    <img      [ngSrc]="productInfo.imgCover"      [alt]="productInfo.title"      class="product-image"      loading="lazy"      decoding="async"      width="100"      height="50"    />    <div class="bg-shape"></div>    <div class="overlay-icons">      <i [routerLink]="[\'/dashboard/details\', productInfo._id]" class="pi pi-eye icon-circle"></i>      <i        [appWishlistToggle]="productInfo"        class="pi pi-heart icon-circle"        [activeClass]="\'wishlist-active\'"      ></i>    </div>    }  </div>  <div class="flex flex-column p-3 mt-3 flex-grow">    @if (loading) {    <p-skeleton width="100%" height="1.5rem" class="mb-2"></p-skeleton>    } @else if (productInfo) {    <h2 class="title pb-2">{{ productInfo.title }}</h2>    }    <div class="flex align-items-center justify-content-between pt-2">      @if (loading) {      <div class="flex flex-column">        <p-skeleton width="6rem" height="1.5rem" class="mb-2"></p-skeleton>        <p-skeleton width="4rem" height="1.25rem"></p-skeleton>      </div>      <p-skeleton shape="circle" size="2.5rem"></p-skeleton>      } @else if (productInfo) {      <div class="flex flex-column">        <div class="rating-container flex align-items-center">          <p-rating [(ngModel)]="productInfo.rateAvg" [readonly]="true" [stars]="5" />        </div>        <span class="price font-bold pt-2">          {{ productInfo.price.toFixed(2) }} {{ "EGP" | translate }}        </span>      </div>      <i        [class.disableCart]="productInfo.quantity <= 0"        tabindex="0"        (click)="productInfo.quantity > 0 ? addProductToCart(productInfo._id) : null"        (keydown.enter)="productInfo.quantity > 0 ? addProductToCart(productInfo._id) : null"        class="pi pi-shopping-bag btn-shopping text-white violet-bg border-circle"      ></i>      }    </div>  </div></div></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'CardItemComponent'};

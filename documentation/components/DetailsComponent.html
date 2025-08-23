@@ -156,7 +156,6 @@
             <tr>
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
-                            <code>CommonModule</code>
                                 <code><a href="../components/ProductReviewComponent.html" target="_self" >ProductReviewComponent</a></code>
                                 <code><a href="../components/ProductDetailsComponent.html" target="_self" >ProductDetailsComponent</a></code>
                                 <code><a href="../components/RelatedProductsComponent.html" target="_self" >RelatedProductsComponent</a></code>
@@ -283,8 +282,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="47"
-                                    class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:47</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:41</a></div>
                         </td>
                     </tr>
 
@@ -320,8 +319,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="30"
-                                    class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:30</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="26"
+                                    class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -357,8 +356,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="63"
-                                    class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:63</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -394,8 +393,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="58"
-                                    class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:58</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:50</a></div>
                         </td>
                     </tr>
 
@@ -437,7 +436,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -464,7 +463,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:21</a></div>
                         </td>
                     </tr>
 
@@ -495,7 +494,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:24</a></div>
                         </td>
                     </tr>
 
@@ -521,7 +520,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -552,7 +551,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/rose/src/app/features/pages/details/details.component.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -565,8 +564,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, OnInit,OnDestroy } from &quot;@angular/core&quot;;
-import { CommonModule } from &quot;@angular/common&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, OnInit, OnDestroy } from &quot;@angular/core&quot;;
 import { ActivatedRoute } from &quot;@angular/router&quot;;
 import { Subscription } from &quot;rxjs&quot;;
 //Interfaces
@@ -580,73 +578,58 @@ import { ProductsService } from &quot;@rose/shared_services/products/products.se
 
 @Component({
   selector: &quot;app-details&quot;,
-  imports: [CommonModule, ProductReviewComponent, ProductDetailsComponent, RelatedProductsComponent],
+  imports: [ProductReviewComponent, ProductDetailsComponent, RelatedProductsComponent],
   templateUrl: &quot;./details.component.html&quot;,
   styleUrl: &quot;./details.component.scss&quot;,
 })
 export class DetailsComponent implements OnInit, OnDestroy {
+  private readonly _activatedRoute &#x3D; inject(ActivatedRoute);
+  private readonly _productService &#x3D; inject(ProductsService);
+  subscription: Subscription &#x3D; new Subscription();
+  productId!: string;
+  productDetails: Product &#x3D; {} as Product;
 
-  private readonly _activatedRoute &#x3D; inject(ActivatedRoute)
-  private readonly _productService &#x3D; inject(ProductsService)
-  subscription:Subscription &#x3D; new Subscription();
-  productId!:string;
-  productDetails:Product &#x3D; {} as Product;
+  getProductId() {
+    this._activatedRoute.params.subscribe({
+      next: (params) &#x3D;&gt; {
+        setTimeout(() &#x3D;&gt; {
+          document.documentElement.scrollTop &#x3D; 0;
+          document.body.scrollTop &#x3D; 0;
+          window.scrollTo({ top: 0, behavior: &quot;smooth&quot; });
+        }, 0);
 
-
- getProductId() {
-  this._activatedRoute.params.subscribe({
-    next: (params) &#x3D;&gt; {
-      setTimeout(() &#x3D;&gt; {
-        document.documentElement.scrollTop &#x3D; 0;
-        document.body.scrollTop &#x3D; 0;
-        window.scrollTo({ top: 0, behavior: &#x27;smooth&#x27; });
-      }, 0);
-
-      this.productId &#x3D; params[&#x27;id&#x27;];
-      this.getProductDetails();
-    }
-  });
-}
-
-
-
-  getProductDetails(){
-
-  this.subscription&#x3D;this._productService.getProductDetails(this.productId).subscribe({
-      next:(response)&#x3D;&gt;{
-        this.productDetails &#x3D; response.product
-        console.log(this.productDetails);
-      }
-    })
-
+        this.productId &#x3D; params[&quot;id&quot;];
+        this.getProductDetails();
+      },
+    });
   }
 
-  ngOnInit():void
-  {
+  getProductDetails() {
+    this.subscription &#x3D; this._productService.getProductDetails(this.productId).subscribe({
+      next: (response) &#x3D;&gt; {
+        this.productDetails &#x3D; response.product;
+        console.log(this.productDetails);
+      },
+    });
+  }
+
+  ngOnInit(): void {
     this.getProductId();
   }
 
-  ngOnDestroy():void{
-    this.subscription.unsubscribe()
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
-
-
-
-
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">
-
-
-&lt;app-product-details [productDetails]&#x3D;&quot;productDetails&quot;  &gt;&lt;/app-product-details&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;app-product-details [productDetails]&#x3D;&quot;productDetails&quot;&gt;&lt;/app-product-details&gt;
 
 &lt;app-product-review&gt;&lt;/app-product-review&gt;
 
-&lt;app-related-products [currentProductId]&#x3D;&quot;productId&quot;/&gt;
-
+&lt;app-related-products [currentProductId]&#x3D;&quot;productId&quot; /&gt;
 </code></pre>
     </div>
 
@@ -676,7 +659,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-product-details [productDetails]="productDetails"  ></app-product-details><app-product-review></app-product-review><app-related-products [currentProductId]="productId"/></div>'
+        var COMPONENT_TEMPLATE = '<div><app-product-details [productDetails]="productDetails"></app-product-details><app-product-review></app-product-review><app-related-products [currentProductId]="productId" /></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'DetailsComponent'};

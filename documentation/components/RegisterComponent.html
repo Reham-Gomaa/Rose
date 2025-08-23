@@ -374,8 +374,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="152"
-                                    class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/register/register.component.ts:152</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="153"
+                                    class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/register/register.component.ts:153</a></div>
                         </td>
                     </tr>
 
@@ -884,7 +884,8 @@ export class RegisterComponent {
           );
           this._messageService.add({
             severity: &quot;error&quot;,
-            detail: err.error?.message || this._translate.instant(&quot;messagesToast.somethingWentWrong&quot;),
+            detail:
+              err.error?.message || this._translate.instant(&quot;messagesToast.somethingWentWrong&quot;),
             life: 3000,
           });
         },
@@ -904,39 +905,87 @@ export class RegisterComponent {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;app-auth [@fadeTransition]&#x3D;&quot;_translationService.fadeState()&quot; [process]&#x3D;&quot;&#x27;register&#x27;&quot; [title]&#x3D;&quot;&#x27;auth.register.h1&#x27;&quot;
-  [heading3]&#x3D;&quot;&#x27;auth.register.h3&#x27;&quot; [heading3span]&#x3D;&quot;&#x27;auth.register.span&#x27;&quot;&gt;
-  &lt;div class&#x3D;&quot;flex-col &quot;&gt;
-    &lt;form [formGroup]&#x3D;&quot;registerForm&quot; (ngSubmit)&#x3D;&quot;registerSubmit()&quot; role&#x3D;&quot;form&quot; aria-label&#x3D;&quot;Registration Form&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;app-auth
+  [@fadeTransition]&#x3D;&quot;_translationService.fadeState()&quot;
+  [process]&#x3D;&quot;&#x27;register&#x27;&quot;
+  [title]&#x3D;&quot;&#x27;auth.register.h1&#x27;&quot;
+  [heading3]&#x3D;&quot;&#x27;auth.register.h3&#x27;&quot;
+  [heading3span]&#x3D;&quot;&#x27;auth.register.span&#x27;&quot;
+&gt;
+  &lt;div class&#x3D;&quot;flex-col&quot;&gt;
+    &lt;form
+      [formGroup]&#x3D;&quot;registerForm&quot;
+      (ngSubmit)&#x3D;&quot;registerSubmit()&quot;
+      role&#x3D;&quot;form&quot;
+      aria-label&#x3D;&quot;Registration Form&quot;
+    &gt;
       &lt;div class&#x3D;&quot;formgrid grid&quot;&gt;
         &lt;!-- First Name --&gt;
-        &lt;app-custom-input formControlName&#x3D;&quot;firstName&quot; type&#x3D;&quot;text&quot;
-          placeholder&#x3D;&quot;{{&#x27;auth.inputs.firstNamePlaceholder&#x27; |translate}}&quot; id&#x3D;&quot;firstName&quot;
-          labelText&#x3D;&quot;{{&#x27;auth.inputs.firstName&#x27; |translate}}&quot; [errorHandilgControl]&#x3D;&quot;registerForm.get(&#x27;firstName&#x27;)!&quot;
-          class&#x3D;&quot;col field &quot; autocomplete&#x3D;&quot;given-name&quot; aria-required&#x3D;&quot;true&quot; /&gt;
+        &lt;app-custom-input
+          formControlName&#x3D;&quot;firstName&quot;
+          type&#x3D;&quot;text&quot;
+          placeholder&#x3D;&quot;{{ &#x27;auth.inputs.firstNamePlaceholder&#x27; | translate }}&quot;
+          id&#x3D;&quot;firstName&quot;
+          labelText&#x3D;&quot;{{ &#x27;auth.inputs.firstName&#x27; | translate }}&quot;
+          [errorHandilgControl]&#x3D;&quot;registerForm.get(&#x27;firstName&#x27;)!&quot;
+          class&#x3D;&quot;col field&quot;
+          autocomplete&#x3D;&quot;given-name&quot;
+          aria-required&#x3D;&quot;true&quot;
+        /&gt;
 
         &lt;!-- Last Name --&gt;
-        &lt;app-custom-input formControlName&#x3D;&quot;lastName&quot; type&#x3D;&quot;text&quot;
-          placeholder&#x3D;&quot;{{&#x27;auth.inputs.lastNamePlaceholder&#x27; |translate}}&quot; id&#x3D;&quot;lastName&quot;
-          labelText&#x3D;&quot;{{&#x27;auth.inputs.lastName&#x27; |translate}}&quot; [errorHandilgControl]&#x3D;&quot;registerForm.get(&#x27;lastName&#x27;)!&quot;
-          class&#x3D;&quot;col field &quot; autocomplete&#x3D;&quot;family-name&quot; aria-required&#x3D;&quot;true&quot; /&gt;
+        &lt;app-custom-input
+          formControlName&#x3D;&quot;lastName&quot;
+          type&#x3D;&quot;text&quot;
+          placeholder&#x3D;&quot;{{ &#x27;auth.inputs.lastNamePlaceholder&#x27; | translate }}&quot;
+          id&#x3D;&quot;lastName&quot;
+          labelText&#x3D;&quot;{{ &#x27;auth.inputs.lastName&#x27; | translate }}&quot;
+          [errorHandilgControl]&#x3D;&quot;registerForm.get(&#x27;lastName&#x27;)!&quot;
+          class&#x3D;&quot;col field&quot;
+          autocomplete&#x3D;&quot;family-name&quot;
+          aria-required&#x3D;&quot;true&quot;
+        /&gt;
       &lt;/div&gt;
 
       &lt;!-- Email --&gt;
-      &lt;app-custom-input formControlName&#x3D;&quot;email&quot; type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;user@example.com&quot; id&#x3D;&quot;email&quot;
-        labelText&#x3D;&quot;{{&#x27;auth.inputs.email&#x27; |translate}}&quot; [errorHandilgControl]&#x3D;&quot;registerForm.get(&#x27;email&#x27;)!&quot;
-        class&#x3D;&quot;w-full mb-3&quot; autocomplete&#x3D;&quot;email&quot; aria-required&#x3D;&quot;true&quot; /&gt;
+      &lt;app-custom-input
+        formControlName&#x3D;&quot;email&quot;
+        type&#x3D;&quot;text&quot;
+        placeholder&#x3D;&quot;user@example.com&quot;
+        id&#x3D;&quot;email&quot;
+        labelText&#x3D;&quot;{{ &#x27;auth.inputs.email&#x27; | translate }}&quot;
+        [errorHandilgControl]&#x3D;&quot;registerForm.get(&#x27;email&#x27;)!&quot;
+        class&#x3D;&quot;w-full mb-3&quot;
+        autocomplete&#x3D;&quot;email&quot;
+        aria-required&#x3D;&quot;true&quot;
+      /&gt;
 
       &lt;!-- Phone --&gt;
-      &lt;app-custom-input-phone formControlName&#x3D;&quot;phone&quot; placeholder&#x3D;&quot;1012345678&quot;
-        labelText&#x3D;&quot;{{&#x27;auth.inputs.phone&#x27; |translate}}&quot; id&#x3D;&quot;phone&quot; class&#x3D;&quot;w-full&quot;
-        [errorHandilgControl]&#x3D;&quot;registerForm.get(&#x27;phone&#x27;)!&quot; autocomplete&#x3D;&quot;tel&quot; aria-required&#x3D;&quot;true&quot; /&gt;
+      &lt;app-custom-input-phone
+        formControlName&#x3D;&quot;phone&quot;
+        placeholder&#x3D;&quot;1012345678&quot;
+        labelText&#x3D;&quot;{{ &#x27;auth.inputs.phone&#x27; | translate }}&quot;
+        id&#x3D;&quot;phone&quot;
+        class&#x3D;&quot;w-full&quot;
+        [errorHandilgControl]&#x3D;&quot;registerForm.get(&#x27;phone&#x27;)!&quot;
+        autocomplete&#x3D;&quot;tel&quot;
+        aria-required&#x3D;&quot;true&quot;
+      /&gt;
 
       &lt;!-- Gender --&gt;
       &lt;div class&#x3D;&quot;field&quot;&gt;
-        &lt;label for&#x3D;&quot;gender-dropdown&quot; class&#x3D;&quot;title-label&quot;&gt;{{ &#x27;auth.inputs.gender&#x27; | translate }}&lt;/label&gt;
-        &lt;p-select formControlName&#x3D;&quot;gender&quot; [options]&#x3D;&quot;genders&quot; optionLabel&#x3D;&quot;label&quot; optionValue&#x3D;&quot;value&quot;
-          [placeholder]&#x3D;&quot;&#x27;auth.inputs.genderPlaceholder&#x27; | translate&quot; id&#x3D;&quot;gender-dropdown&quot; class&#x3D;&quot;w-full&quot;&gt;
+        &lt;label for&#x3D;&quot;gender-dropdown&quot; class&#x3D;&quot;title-label&quot;&gt;{{
+          &quot;auth.inputs.gender&quot; | translate
+        }}&lt;/label&gt;
+        &lt;p-select
+          formControlName&#x3D;&quot;gender&quot;
+          [options]&#x3D;&quot;genders&quot;
+          optionLabel&#x3D;&quot;label&quot;
+          optionValue&#x3D;&quot;value&quot;
+          [placeholder]&#x3D;&quot;&#x27;auth.inputs.genderPlaceholder&#x27; | translate&quot;
+          id&#x3D;&quot;gender-dropdown&quot;
+          class&#x3D;&quot;w-full&quot;
+        &gt;
         &lt;/p-select&gt;
 
         @if(registerForm.get(&#x27;gender&#x27;)?.invalid &amp;&amp; registerForm.get(&#x27;gender&#x27;)?.touched) {
@@ -944,23 +993,46 @@ export class RegisterComponent {
         }
       &lt;/div&gt;
       &lt;!-- Password --&gt;
-      &lt;app-custom-input formControlName&#x3D;&quot;password&quot; type&#x3D;&quot;password&quot; placeholder&#x3D;&quot;Password@12345&quot; id&#x3D;&quot;Password&quot;
-        labelText&#x3D;&quot;{{&#x27;auth.inputs.password&#x27; |translate}}&quot; [errorHandilgControl]&#x3D;&quot;registerForm.get(&#x27;password&#x27;)!&quot;
-        class&#x3D;&quot;w-full&quot; autocomplete&#x3D;&quot;new-password&quot; aria-required&#x3D;&quot;true&quot; /&gt;
+      &lt;app-custom-input
+        formControlName&#x3D;&quot;password&quot;
+        type&#x3D;&quot;password&quot;
+        placeholder&#x3D;&quot;Password@12345&quot;
+        id&#x3D;&quot;Password&quot;
+        labelText&#x3D;&quot;{{ &#x27;auth.inputs.password&#x27; | translate }}&quot;
+        [errorHandilgControl]&#x3D;&quot;registerForm.get(&#x27;password&#x27;)!&quot;
+        class&#x3D;&quot;w-full&quot;
+        autocomplete&#x3D;&quot;new-password&quot;
+        aria-required&#x3D;&quot;true&quot;
+      /&gt;
 
       &lt;!-- rePassword --&gt;
-      &lt;app-custom-input formControlName&#x3D;&quot;rePassword&quot; type&#x3D;&quot;password&quot; placeholder&#x3D;&quot;**************&quot; id&#x3D;&quot;rePassword&quot;
-        labelText&#x3D;&quot;{{&#x27;auth.inputs.confirmPassword&#x27; |translate}}&quot; [errorHandilgControl]&#x3D;&quot;registerForm.get(&#x27;rePassword&#x27;)!&quot;
-        class&#x3D;&quot;w-full&quot; autocomplete&#x3D;&quot;new-password&quot; aria-required&#x3D;&quot;true&quot; /&gt;
+      &lt;app-custom-input
+        formControlName&#x3D;&quot;rePassword&quot;
+        type&#x3D;&quot;password&quot;
+        placeholder&#x3D;&quot;**************&quot;
+        id&#x3D;&quot;rePassword&quot;
+        labelText&#x3D;&quot;{{ &#x27;auth.inputs.confirmPassword&#x27; | translate }}&quot;
+        [errorHandilgControl]&#x3D;&quot;registerForm.get(&#x27;rePassword&#x27;)!&quot;
+        class&#x3D;&quot;w-full&quot;
+        autocomplete&#x3D;&quot;new-password&quot;
+        aria-required&#x3D;&quot;true&quot;
+      /&gt;
       @if(registerForm.hasError(&quot;misMatch&quot;) &amp;&amp; this.registerForm.invalid){
-      &lt;p class&#x3D;&quot;error-item&quot;&gt;&lt;i class&#x3D;&quot;pi pi-delete-left&quot;&gt;&lt;/i&gt; {{ &#x27;inputErrors.misMatch&#x27; | translate }}&lt;/p&gt;
+      &lt;p class&#x3D;&quot;error-item&quot;&gt;
+        &lt;i class&#x3D;&quot;pi pi-delete-left&quot;&gt;&lt;/i&gt; {{ &quot;inputErrors.misMatch&quot; | translate }}
+      &lt;/p&gt;
       }
 
-      &lt;app-form-button [text]&#x3D;&quot;&#x27;auth.register.button&#x27; |translate&quot; [isLoading]&#x3D;&quot;isLoading()&quot;
-        [disabled]&#x3D;&quot;registerForm.invalid&quot; type&#x3D;&quot;submit&quot; /&gt;
+      &lt;app-form-button
+        [text]&#x3D;&quot;&#x27;auth.register.button&#x27; | translate&quot;
+        [isLoading]&#x3D;&quot;isLoading()&quot;
+        [disabled]&#x3D;&quot;registerForm.invalid&quot;
+        type&#x3D;&quot;submit&quot;
+      /&gt;
     &lt;/form&gt;
   &lt;/div&gt;
-&lt;/app-auth&gt;</code></pre>
+&lt;/app-auth&gt;
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="styleData">
@@ -1053,7 +1125,7 @@ export class RegisterComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-auth [@fadeTransition]="_translationService.fadeState()" [process]="\'register\'" [title]="\'auth.register.h1\'"  [heading3]="\'auth.register.h3\'" [heading3span]="\'auth.register.span\'">  <div class="flex-col ">    <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()" role="form" aria-label="Registration Form">      <div class="formgrid grid">        <!-- First Name -->        <app-custom-input formControlName="firstName" type="text"          placeholder="{{\'auth.inputs.firstNamePlaceholder\' |translate}}" id="firstName"          labelText="{{\'auth.inputs.firstName\' |translate}}" [errorHandilgControl]="registerForm.get(\'firstName\')!"          class="col field " autocomplete="given-name" aria-required="true" />        <!-- Last Name -->        <app-custom-input formControlName="lastName" type="text"          placeholder="{{\'auth.inputs.lastNamePlaceholder\' |translate}}" id="lastName"          labelText="{{\'auth.inputs.lastName\' |translate}}" [errorHandilgControl]="registerForm.get(\'lastName\')!"          class="col field " autocomplete="family-name" aria-required="true" />      </div>      <!-- Email -->      <app-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email"        labelText="{{\'auth.inputs.email\' |translate}}" [errorHandilgControl]="registerForm.get(\'email\')!"        class="w-full mb-3" autocomplete="email" aria-required="true" />      <!-- Phone -->      <app-custom-input-phone formControlName="phone" placeholder="1012345678"        labelText="{{\'auth.inputs.phone\' |translate}}" id="phone" class="w-full"        [errorHandilgControl]="registerForm.get(\'phone\')!" autocomplete="tel" aria-required="true" />      <!-- Gender -->      <div class="field">        <label for="gender-dropdown" class="title-label">{{ \'auth.inputs.gender\' | translate }}</label>        <p-select formControlName="gender" [options]="genders" optionLabel="label" optionValue="value"          [placeholder]="\'auth.inputs.genderPlaceholder\' | translate" id="gender-dropdown" class="w-full">        </p-select>        @if(registerForm.get(\'gender\')?.invalid && registerForm.get(\'gender\')?.touched) {        <app-input-error-handling [control]="registerForm.get(\'gender\')!" />        }      </div>      <!-- Password -->      <app-custom-input formControlName="password" type="password" placeholder="Password@12345" id="Password"        labelText="{{\'auth.inputs.password\' |translate}}" [errorHandilgControl]="registerForm.get(\'password\')!"        class="w-full" autocomplete="new-password" aria-required="true" />      <!-- rePassword -->      <app-custom-input formControlName="rePassword" type="password" placeholder="**************" id="rePassword"        labelText="{{\'auth.inputs.confirmPassword\' |translate}}" [errorHandilgControl]="registerForm.get(\'rePassword\')!"        class="w-full" autocomplete="new-password" aria-required="true" />      @if(registerForm.hasError("misMatch") && this.registerForm.invalid){      <p class="error-item"><i class="pi pi-delete-left"></i> {{ \'inputErrors.misMatch\' | translate }}</p>      }      <app-form-button [text]="\'auth.register.button\' |translate" [isLoading]="isLoading()"        [disabled]="registerForm.invalid" type="submit" />    </form>  </div></app-auth></div>'
+        var COMPONENT_TEMPLATE = '<div><app-auth  [@fadeTransition]="_translationService.fadeState()"  [process]="\'register\'"  [title]="\'auth.register.h1\'"  [heading3]="\'auth.register.h3\'"  [heading3span]="\'auth.register.span\'">  <div class="flex-col">    <form      [formGroup]="registerForm"      (ngSubmit)="registerSubmit()"      role="form"      aria-label="Registration Form"    >      <div class="formgrid grid">        <!-- First Name -->        <app-custom-input          formControlName="firstName"          type="text"          placeholder="{{ \'auth.inputs.firstNamePlaceholder\' | translate }}"          id="firstName"          labelText="{{ \'auth.inputs.firstName\' | translate }}"          [errorHandilgControl]="registerForm.get(\'firstName\')!"          class="col field"          autocomplete="given-name"          aria-required="true"        />        <!-- Last Name -->        <app-custom-input          formControlName="lastName"          type="text"          placeholder="{{ \'auth.inputs.lastNamePlaceholder\' | translate }}"          id="lastName"          labelText="{{ \'auth.inputs.lastName\' | translate }}"          [errorHandilgControl]="registerForm.get(\'lastName\')!"          class="col field"          autocomplete="family-name"          aria-required="true"        />      </div>      <!-- Email -->      <app-custom-input        formControlName="email"        type="text"        placeholder="user@example.com"        id="email"        labelText="{{ \'auth.inputs.email\' | translate }}"        [errorHandilgControl]="registerForm.get(\'email\')!"        class="w-full mb-3"        autocomplete="email"        aria-required="true"      />      <!-- Phone -->      <app-custom-input-phone        formControlName="phone"        placeholder="1012345678"        labelText="{{ \'auth.inputs.phone\' | translate }}"        id="phone"        class="w-full"        [errorHandilgControl]="registerForm.get(\'phone\')!"        autocomplete="tel"        aria-required="true"      />      <!-- Gender -->      <div class="field">        <label for="gender-dropdown" class="title-label">{{          "auth.inputs.gender" | translate        }}</label>        <p-select          formControlName="gender"          [options]="genders"          optionLabel="label"          optionValue="value"          [placeholder]="\'auth.inputs.genderPlaceholder\' | translate"          id="gender-dropdown"          class="w-full"        >        </p-select>        @if(registerForm.get(\'gender\')?.invalid && registerForm.get(\'gender\')?.touched) {        <app-input-error-handling [control]="registerForm.get(\'gender\')!" />        }      </div>      <!-- Password -->      <app-custom-input        formControlName="password"        type="password"        placeholder="Password@12345"        id="Password"        labelText="{{ \'auth.inputs.password\' | translate }}"        [errorHandilgControl]="registerForm.get(\'password\')!"        class="w-full"        autocomplete="new-password"        aria-required="true"      />      <!-- rePassword -->      <app-custom-input        formControlName="rePassword"        type="password"        placeholder="**************"        id="rePassword"        labelText="{{ \'auth.inputs.confirmPassword\' | translate }}"        [errorHandilgControl]="registerForm.get(\'rePassword\')!"        class="w-full"        autocomplete="new-password"        aria-required="true"      />      @if(registerForm.hasError("misMatch") && this.registerForm.invalid){      <p class="error-item">        <i class="pi pi-delete-left"></i> {{ "inputErrors.misMatch" | translate }}      </p>      }      <app-form-button        [text]="\'auth.register.button\' | translate"        [isLoading]="isLoading()"        [disabled]="registerForm.invalid"        type="submit"      />    </form>  </div></app-auth></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'RegisterComponent'};

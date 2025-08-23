@@ -270,15 +270,14 @@ export class StepperComponent {
         <pre class="line-numbers"><code class="language-html">&lt;p-stepper [value]&#x3D;&quot;1&quot; class&#x3D;&quot;basis-[50rem]&quot;&gt;
   &lt;p-step-list&gt;
     @for (step of steps; track $index) {
-            &lt;p-step [value]&#x3D;&quot;step.value&quot;&gt;&lt;/p-step&gt;
+    &lt;p-step [value]&#x3D;&quot;step.value&quot;&gt;&lt;/p-step&gt;
     }
-
   &lt;/p-step-list&gt;
   &lt;p-step-panels&gt;
     @for (item of steps; track $index) {
     &lt;p-step-panel [value]&#x3D;&quot;item.value&quot;&gt;
-      &lt;ng-template  #content let-activateCallback&#x3D;&quot;activateCallback&quot;&gt;
-        {{item.component}}
+      &lt;ng-template #content let-activateCallback&#x3D;&quot;activateCallback&quot;&gt;
+        {{ item.component }}
         &lt;div class&#x3D;&quot;w-full&quot;&gt;
           @if ($index&#x3D;&#x3D;&#x3D;0) {
           &lt;p-button
@@ -300,12 +299,21 @@ export class StepperComponent {
 
           &lt;div class&#x3D;&quot;flex flex-row justify-content-between&quot;&gt;
             &lt;div&gt;
-              &lt;p-button label&#x3D;&quot;Back&quot; icon&#x3D;&quot;pi pi-arrow-left&quot; (onClick)&#x3D;&quot;activateCallback(item.value - 1)&quot;&gt;
+              &lt;p-button
+                label&#x3D;&quot;Back&quot;
+                icon&#x3D;&quot;pi pi-arrow-left&quot;
+                (onClick)&#x3D;&quot;activateCallback(item.value - 1)&quot;
+              &gt;
               &lt;/p-button&gt;
             &lt;/div&gt;
 
             &lt;div&gt;
-              &lt;p-button label&#x3D;&quot;Next&quot; icon&#x3D;&quot;pi pi-arrow-right&quot; iconPos&#x3D;&quot;right&quot; (onClick)&#x3D;&quot;activateCallback(item.value + 1)&quot;&gt;
+              &lt;p-button
+                label&#x3D;&quot;Next&quot;
+                icon&#x3D;&quot;pi pi-arrow-right&quot;
+                iconPos&#x3D;&quot;right&quot;
+                (onClick)&#x3D;&quot;activateCallback(item.value + 1)&quot;
+              &gt;
               &lt;/p-button&gt;
             &lt;/div&gt;
           &lt;/div&gt;
@@ -315,7 +323,6 @@ export class StepperComponent {
       &lt;/ng-template&gt;
     &lt;/p-step-panel&gt;
     }
-
   &lt;/p-step-panels&gt;
 &lt;/p-stepper&gt;
 </code></pre>
@@ -347,7 +354,7 @@ export class StepperComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p-stepper [value]="1" class="basis-[50rem]">  <p-step-list>    @for (step of steps; track $index) {            <p-step [value]="step.value"></p-step>    }  </p-step-list>  <p-step-panels>    @for (item of steps; track $index) {    <p-step-panel [value]="item.value">      <ng-template  #content let-activateCallback="activateCallback">        {{item.component}}        <div class="w-full">          @if ($index===0) {          <p-button            label="Next"            icon="pi pi-arrow-right"            iconPos="right"            (onClick)="activateCallback(item.value + 1)"            styleClass="w-full"          />          }@else if($index===steps.length-1){          <p-button            label="Back"            icon="pi pi-arrow-left"            (onClick)="activateCallback(item.value - 1)"            styleClass="w-full"          />          }@else {          <div class="flex flex-row justify-content-between">            <div>              <p-button label="Back" icon="pi pi-arrow-left" (onClick)="activateCallback(item.value - 1)">              </p-button>            </div>            <div>              <p-button label="Next" icon="pi pi-arrow-right" iconPos="right" (onClick)="activateCallback(item.value + 1)">              </p-button>            </div>          </div>          }        </div>      </ng-template>    </p-step-panel>    }  </p-step-panels></p-stepper></div>'
+        var COMPONENT_TEMPLATE = '<div><p-stepper [value]="1" class="basis-[50rem]">  <p-step-list>    @for (step of steps; track $index) {    <p-step [value]="step.value"></p-step>    }  </p-step-list>  <p-step-panels>    @for (item of steps; track $index) {    <p-step-panel [value]="item.value">      <ng-template #content let-activateCallback="activateCallback">        {{ item.component }}        <div class="w-full">          @if ($index===0) {          <p-button            label="Next"            icon="pi pi-arrow-right"            iconPos="right"            (onClick)="activateCallback(item.value + 1)"            styleClass="w-full"          />          }@else if($index===steps.length-1){          <p-button            label="Back"            icon="pi pi-arrow-left"            (onClick)="activateCallback(item.value - 1)"            styleClass="w-full"          />          }@else {          <div class="flex flex-row justify-content-between">            <div>              <p-button                label="Back"                icon="pi pi-arrow-left"                (onClick)="activateCallback(item.value - 1)"              >              </p-button>            </div>            <div>              <p-button                label="Next"                icon="pi pi-arrow-right"                iconPos="right"                (onClick)="activateCallback(item.value + 1)"              >              </p-button>            </div>          </div>          }        </div>      </ng-template>    </p-step-panel>    }  </p-step-panels></p-stepper></div>'
     var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
     var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
     var ACTUAL_COMPONENT = {'name': 'StepperComponent'};

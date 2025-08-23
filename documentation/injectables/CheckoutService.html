@@ -179,7 +179,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/rose/src/app/shared/services/checkout/checkout.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/rose/src/app/shared/services/checkout/checkout.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -279,8 +279,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="33"
-                                    class="link-to-prism">apps/rose/src/app/shared/services/checkout/checkout.service.ts:33</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">apps/rose/src/app/shared/services/checkout/checkout.service.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -351,7 +351,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/rose/src/app/shared/services/checkout/checkout.service.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/rose/src/app/shared/services/checkout/checkout.service.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -364,50 +364,47 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { inject, Injectable } from &#x27;@angular/core&#x27;;
-import { EndPoint } from &#x27;@rose/core_enums/endpoints&#x27;;
-import { environment } from &#x27;@rose/core_environment/baseurl.dev&#x27;;
-import { Address } from &#x27;@rose/core_interfaces/user-address.interface&#x27;;
-import { CashRes, CreditRes } from &#x27;@rose/features_layouts/order-flow/components/checkout/models/CheckoutRes&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &quot;@angular/common/http&quot;;
+import { inject, Injectable } from &quot;@angular/core&quot;;
+import { EndPoint } from &quot;@rose/core_enums/endpoints&quot;;
+import { environment } from &quot;@rose/core_environment/baseurl.dev&quot;;
+import { Address } from &quot;@rose/core_interfaces/user-address.interface&quot;;
+import {
+  CashRes,
+  CreditRes,
+} from &quot;@rose/features_layouts/order-flow/components/checkout/models/CheckoutRes&quot;;
+import { Observable } from &quot;rxjs&quot;;
 
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &quot;root&quot;,
 })
 export class CheckoutService {
-  private http  &#x3D; inject(HttpClient)
-  constructor() {
-   }
+  private http &#x3D; inject(HttpClient);
+  constructor() {}
 
-
-
-  createCashOrder(orderAddress:Address):Observable&lt;CashRes&gt;{
-    return this.http.post&lt;CashRes&gt;(&#x60;${EndPoint.ORDERS}&#x60;,{
-     shippingAddress:{
-         street: orderAddress.street,
-          phone:orderAddress.phone,
-          city:orderAddress.city,
-          lat:orderAddress.lat,
-          long:orderAddress.long,
-
-      }
-    })
-
+  createCashOrder(orderAddress: Address): Observable&lt;CashRes&gt; {
+    return this.http.post&lt;CashRes&gt;(&#x60;${EndPoint.ORDERS}&#x60;, {
+      shippingAddress: {
+        street: orderAddress.street,
+        phone: orderAddress.phone,
+        city: orderAddress.city,
+        lat: orderAddress.lat,
+        long: orderAddress.long,
+      },
+    });
   }
 
-  createCheckoutSession(orderAddress:Address):Observable&lt;CreditRes&gt;{
-    const url &#x3D; encodeURIComponent(&#x60;${environment.runUrl}#/dashboard&#x60;)
-     return this.http.post&lt;CreditRes&gt;(&#x60;${EndPoint.CHECKOUT_SESSION}?url&#x3D;${url}&#x60;,{
-      shippingAddress:{
-         street: orderAddress.street,
-          phone:orderAddress.phone,
-          city:orderAddress.city,
-          lat:orderAddress.lat,
-          long:orderAddress.long,
-
-      }
-    })
+  createCheckoutSession(orderAddress: Address): Observable&lt;CreditRes&gt; {
+    const url &#x3D; encodeURIComponent(&#x60;${environment.runUrl}#/dashboard&#x60;);
+    return this.http.post&lt;CreditRes&gt;(&#x60;${EndPoint.CHECKOUT_SESSION}?url&#x3D;${url}&#x60;, {
+      shippingAddress: {
+        street: orderAddress.street,
+        phone: orderAddress.phone,
+        city: orderAddress.city,
+        lat: orderAddress.lat,
+        long: orderAddress.long,
+      },
+    });
   }
 }
 </code></pre>
