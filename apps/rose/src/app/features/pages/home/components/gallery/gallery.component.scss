@@ -75,7 +75,7 @@
 }
 
 /* Mobile view: 1 column layout */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 48rem) {
   .custom-gallery-grid {
     grid-template-columns: 1fr;
   }
@@ -108,7 +108,7 @@
 }
 
 /* Tablet view: 3 columns */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 48.0625rem) and (max-width: 64rem) {
   .custom-gallery-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -124,7 +124,7 @@
 }
 
 /* Large screens */
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 64.0625rem) {
   .custom-gallery-grid {
     grid-template-columns: repeat(3, 1fr);
   }

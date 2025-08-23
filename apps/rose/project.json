@@ -54,6 +54,7 @@
             }
           ],
           "outputHashing": "all",
+          "optimization": true,
           "fileReplacements": [
             {
               "replace": "apps/rose/src/app/core/environment/baseurl.dev.ts",
