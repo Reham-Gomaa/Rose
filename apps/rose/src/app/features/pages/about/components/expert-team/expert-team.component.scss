@@ -11,73 +11,72 @@
   background: var(--testimonials-background);
 }
 
-.heading{
+.heading {
   margin-bottom: 2.5rem;
 
   .title-h5 {
-  color: var(--title-gallery-color);
-  font-family: var(--font-family-2);
-  font-weight: 700;
-  font-size: 1.0625rem;
-  line-height: 1.9125rem;
-  letter-spacing: 0.25rem;
-}
+    color: var(--title-gallery-color);
+    font-family: var(--font-family-2);
+    font-weight: 700;
+    font-size: 1.0625rem;
+    line-height: 1.9125rem;
+    letter-spacing: 0.25rem;
+  }
 
-.testimonials-title-wrapper {
-  position: relative;
-  display: inline-block;
-}
+  .testimonials-title-wrapper {
+    position: relative;
+    display: inline-block;
+  }
 
-.testimonials-title {
-  color: var(--subtitle-gallery-color);
-  font-family: var(--font-family-1);
-  font-weight: 700;
-  font-size: 1.87rem;
-  line-height: 100%;
-  position: relative;
-  z-index: 10;
-}
+  .testimonials-title {
+    color: var(--subtitle-gallery-color);
+    font-family: var(--font-family-1);
+    font-weight: 700;
+    font-size: 1.87rem;
+    line-height: 100%;
+    position: relative;
+    z-index: 10;
+  }
 
-.testimonials-bg-shape {
-  position: absolute;
-  top: 2.6rem;
-  width: 21.125rem;
-  height: 1.0625rem;
-  border-radius: 0 1.25rem 1.25rem 0;
-  z-index: 1;
-  background-color: var(--shape-gallery-background);
-}
+  .testimonials-bg-shape {
+    position: absolute;
+    top: 2.6rem;
+    width: 21.125rem;
+    height: 1.0625rem;
+    border-radius: 0 1.25rem 1.25rem 0;
+    z-index: 1;
+    background-color: var(--shape-gallery-background);
+  }
 
-.testimonials-underline-bar {
-  position: absolute;
-  top: 3.6rem;
-  width: 10.0625rem;
-  height: 0.125rem;
-  z-index: 11;
-  background-color: var(--underline-bar-gallery-color);
-}
+  .testimonials-underline-bar {
+    position: absolute;
+    top: 3.6rem;
+    width: 10.0625rem;
+    height: 0.125rem;
+    z-index: 11;
+    background-color: var(--underline-bar-gallery-color);
+  }
 }
 .team-card {
   background: var(--body-color);
-  border-radius: 20px;
+  border-radius: 1.25rem;
   padding: 1rem;
   text-align: center;
-  width: 250px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  width: 15.625rem;
+  box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.1);
   margin: auto;
   transition: transform 0.3s ease;
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-0.3125rem);
   }
 
   .team-card-image {
     img {
       width: 100%;
-      border-radius: 15px;
+      border-radius: 0.9375rem;
       max-height: 10rem;
       object-fit: cover;
-
     }
   }
 
@@ -100,18 +99,18 @@
     .social-icons {
       display: flex;
       justify-content: center;
-      gap: 10px;
+      gap: 0.625rem;
 
       a {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 35px;
-        height: 35px;
+        width: 2.1875rem;
+        height: 2.1875rem;
         background: var(--address-name);
         border-radius: 50%;
         color: #fff;
-        font-size: 14px;
+        font-size: 0.875rem;
         transition: background 0.3s ease;
 
         &:hover {
@@ -121,7 +120,3 @@
     }
   }
 }
-
-
-
-
