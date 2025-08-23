@@ -41,7 +41,7 @@ To create a world-class e-commerce platform that combines beautiful design with 
 | 🗃️ **Project Structure** | [Project Structure](https://uithub.com/Reham-Gomaa/Rose) | Comprehensive docs |
 | 📂 **Source Code** | [GitHub Repository](https://github.com/Reham-Gomaa/Rose) | Full source code |
 | 🎨 **Design System** | [Figma Design](https://www.figma.com/design/q5TO5u0kOpfIZhoozTz0mB/Rose-App--Enhanced-?node-id=0-1&p=f&t=RtLlQvsxbbxyGBpF-0) | UI/UX designs |
-| 🎥 **Demo Video** | [Demo Video](https://rose-d2ff.vercel.app/demo.mp4) | Watch the full platform demonstration |
+| 🎥 **Demo Video** | [Demo Video](https://drive.google.com/file/d/1tF74Xi7E4HYe5v-xD7hWO5oEBEgLdnTb/view?usp=drive_linkhttps://drive.google.com/file/d/1tF74Xi7E4HYe5v-xD7hWO5oEBEgLdnTb/view?usp=drive_link) | Watch the full platform demonstration |
 
 ---
 
@@ -55,8 +55,8 @@ Meet the talented individuals behind Rose E-Commerce Platform:
 
 | Role | Name | Phone | Mail | LinkedIn | CV |
 |------|------|-------|------|--------|----|
-| **Frontend Developer** | Karim Ashraf Mohamed | 📞 [+201007101012](tel:+201007101012) | [📧 karimashraf000@gmail.com](mailto:karimashraf000@gmail.com) | [🔗 LinkedIn](https://www.linkedin.com/in/karimashraf13/) | [📄 CV](https://drive.google.com/file/d/1bKhJ2m1SGXU00Iik0QkASHUGlTXfc8rv/view?usp=drive_link) |
-| **Frontend Developer** | Reham Gomaa | 📞 [+201091628541](tel:+201091628541) | [📧 rehamgomaa686@gmail.com](mailto:rehamgomaa686@gmail.com) | [🔗 LinkedIn](https://www.linkedin.com/in/reham-gomaa48/) | [📄 CV](https://drive.google.com/file/d/1n56nM7Z4t9mMYM3E1c--fUg_IAabJmtM/view?usp=drivesdk) |
+| **Frontend Developer** | Karim Ashraf Mohamed | [+201007101012](tel:+201007101012) | [karimashraf000@gmail.com](mailto:karimashraf000@gmail.com) | [LinkedIn](https://www.linkedin.com/in/karimashraf13/) | [CV](https://drive.google.com/file/d/1bKhJ2m1SGXU00Iik0QkASHUGlTXfc8rv/view?usp=drive_link) |
+| **Frontend Developer** | Reham Gomaa | [+201091628541](tel:+201091628541) | [rehamgomaa686@gmail.com](mailto:rehamgomaa686@gmail.com) | [LinkedIn](https://www.linkedin.com/in/reham-gomaa48/) | [CV](https://drive.google.com/file/d/1n56nM7Z4t9mMYM3E1c--fUg_IAabJmtM/view?usp=drivesdk) |
 | **Frontend Developer** | Maher Samy | – | [📧 Email](mailto:maher@example.com) | [🔗 GitHub](https://github.com/maher) | – |
 | **Frontend Developer** | Mahmoud Mohamed | – | [📧 Email](mailto:mahmoud@example.com) | [🔗 GitHub](https://github.com/mahmoud) | – |
 | **Frontend Developer** | Habiba Ehab | – | [📧 Email](mailto:habiba@example.com) | [🔗 GitHub](https://github.com/habiba) | – |
