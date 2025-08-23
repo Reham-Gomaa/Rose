@@ -65,7 +65,7 @@ export const appRoutes: Route[] = [
         title: "titles.address",
       },
       {
-        path: "orders",
+        path: "allOrders",
         canActivate: [authGuard],
         loadComponent: () =>
           import("@rose/features_pages/orders/orders.component").then((c) => c.OrdersComponent),
