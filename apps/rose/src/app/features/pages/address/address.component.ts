@@ -19,7 +19,14 @@ import { ButtonComponent } from "@rose/shared_Components_ui/button/button.compon
 
 @Component({
   selector: "app-address",
-  imports: [AddressItemComponent, SpinnerComponent, TranslatePipe, DeleteDialogComponent, AddressStepperComponent, ButtonComponent],
+  imports: [
+    AddressItemComponent,
+    SpinnerComponent,
+    TranslatePipe,
+    DeleteDialogComponent,
+    AddressStepperComponent,
+    ButtonComponent,
+  ],
   templateUrl: "./address.component.html",
   styleUrl: "./address.component.scss",
 })
@@ -43,20 +50,19 @@ export class AddressComponent {
     this.loadAddresses();
     this.initSelectors();
   }
-  
-  openAddDialog(){
+
+  openAddDialog() {
     this._store.dispatch(setAddressState({ addressState: 2 }));
   }
 
-  closeDeleteDialog(){
-    this._store.dispatch(setAddressState({addressState:0}))
+  closeDeleteDialog() {
+    this._store.dispatch(setAddressState({ addressState: 0 }));
   }
 
-  closeStepperDialog(){
-    this._store.dispatch(setAddressState({addressState:0}))
+  closeStepperDialog() {
+    this._store.dispatch(setAddressState({ addressState: 0 }));
   }
-   
-  
+
   loadAddresses() {
     this._store.dispatch(showAddresses());
   }

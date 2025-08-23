@@ -8,42 +8,25 @@
     <app-address-item [address]="item"></app-address-item>
     }@empty{
     <div class="flex flex-column justify-content-center align-items-center text-center text-2xl">
-      <img
-        class="w-62px"
-        src="/images/no-product-available.webp"
-        alt="image for not avaliable"
-        loading="lazy"
-      />
+      <img class="w-62px" src="/images/no-product-available.webp" alt="image for not avaliable" loading="lazy" />
       <p class="notfound-p">
         {{ "addressList.noAddress" | translate }}
       </p>
     </div>
     }
-    <app-button
-      class="w-full"
-      padding="p-2"
-      borderRadius="border-round-lg"
-      [text]="'addressStepper.step1.titleAdd' | translate"
-      (click)="openAddDialog()"
-    ></app-button>
+    <app-button class="w-full" padding="p-2" borderRadius="border-round-lg"
+      [text]="'addressStepper.step1.titleAdd' | translate" (click)="openAddDialog()"></app-button>
   </div>
   }
 </div>
 
-<app-delete-dialog
-  [visible]="addressState === AddressSituations.deleteAddress"
-  (closed)="closeDeleteDialog()"
-></app-delete-dialog>
+<app-delete-dialog [visible]="addressState === AddressSituations.deleteAddress"
+  (closed)="closeDeleteDialog()"></app-delete-dialog>
 
 @if(addressState === AddressSituations.updateAddress){
-<app-address-stepper
-  [visible]="addressState === AddressSituations.updateAddress"
-  [isUpdate]="true"
-  (closed)="closeStepperDialog()"
-></app-address-stepper>
+<app-address-stepper [visible]="addressState === AddressSituations.updateAddress" [isUpdate]="true"
+  (closed)="closeStepperDialog()"></app-address-stepper>
 } @if(addressState === AddressSituations.addAddress){
-<app-address-stepper
-  [visible]="addressState === AddressSituations.addAddress"
-  (closed)="closeStepperDialog()"
-></app-address-stepper>
+<app-address-stepper [visible]="addressState === AddressSituations.addAddress"
+  (closed)="closeStepperDialog()"></app-address-stepper>
 }
