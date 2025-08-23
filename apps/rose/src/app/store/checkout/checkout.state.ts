@@ -6,6 +6,6 @@ export enum pMethod {
 }
 
 export interface checkoutState {
-  shippingAddress:Address | null,
-  paymentMethod:pMethod | null
+  shippingAddress: Address | null;
+  paymentMethod: pMethod | null;
 }

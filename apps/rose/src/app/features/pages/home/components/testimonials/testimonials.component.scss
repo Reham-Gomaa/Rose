@@ -11,54 +11,54 @@
   background: var(--testimonials-background);
 }
 
-.heading{
+.heading {
   margin-bottom: 2.5rem;
 
   .title-h5 {
-  color: var(--title-gallery-color);
-  font-family: var(--font-family-2);
-  font-weight: 700;
-  font-size: 1.0625rem;
-  line-height: 1.9125rem;
-  letter-spacing: 0.25rem;
+    color: var(--title-gallery-color);
+    font-family: var(--font-family-2);
+    font-weight: 700;
+    font-size: 1.0625rem;
+    line-height: 1.9125rem;
+    letter-spacing: 0.25rem;
+  }
+
+  .testimonials-title-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .testimonials-title {
+    color: var(--subtitle-gallery-color);
+    font-family: var(--font-family-1);
+    font-weight: 700;
+    font-size: 1.87rem;
+    line-height: 100%;
+    position: relative;
+    z-index: 10;
+  }
+
+  .testimonials-bg-shape {
+    position: absolute;
+    top: 2.6rem;
+    width: 21.125rem;
+    height: 1.0625rem;
+    border-radius: 0 1.25rem 1.25rem 0;
+    z-index: 1;
+    background-color: var(--shape-gallery-background);
+  }
+
+  .testimonials-underline-bar {
+    position: absolute;
+    top: 3.6rem;
+    width: 10.0625rem;
+    height: 0.125rem;
+    z-index: 11;
+    background-color: var(--underline-bar-gallery-color);
+  }
 }
 
-.testimonials-title-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.testimonials-title {
-  color: var(--subtitle-gallery-color);
-  font-family: var(--font-family-1);
-  font-weight: 700;
-  font-size: 1.87rem;
-  line-height: 100%;
-  position: relative;
-  z-index: 10;
-}
-
-.testimonials-bg-shape {
-  position: absolute;
-  top: 2.6rem;
-  width: 21.125rem;
-  height: 1.0625rem;
-  border-radius: 0 1.25rem 1.25rem 0;
-  z-index: 1;
-  background-color: var(--shape-gallery-background);
-}
-
-.testimonials-underline-bar {
-  position: absolute;
-  top: 3.6rem;
-  width: 10.0625rem;
-  height: 0.125rem;
-  z-index: 11;
-  background-color: var(--underline-bar-gallery-color);
-}
-}
-
-.card-container{
+.card-container {
   position: relative;
   display: flex;
   justify-content: center;
@@ -79,7 +79,7 @@
     transform: translateX(-50%);
     width: 7.5rem;
     height: 7.5rem;
-    border: .0625rem solid var(--white);
+    border: 0.0625rem solid var(--white);
     border-radius: 100%;
     display: flex;
     align-items: center;
@@ -96,15 +96,15 @@
     vertical-align: middle;
   }
 
-  h2{
+  h2 {
     font-size: 1rem;
     font-weight: 600;
     color: var(--testimonials-title-color);
-    margin: .75rem 0;
+    margin: 0.75rem 0;
   }
 
   h3 {
-    font-size: .75rem;
+    font-size: 0.75rem;
     font-weight: 500;
     color: var(--testimonials-subtitle-color);
     margin-top: 0.25rem;

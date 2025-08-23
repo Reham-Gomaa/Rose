@@ -32,8 +32,8 @@ import { CheckoutComponent } from "./components/checkout/checkout.component";
     BestsellerSliderComponent,
     AsyncPipe,
     CartComponent,
-    CheckoutComponent
-],
+    CheckoutComponent,
+  ],
   templateUrl: "./order-flow.component.html",
   styleUrl: "./order-flow.component.scss",
   animations: [fadeTransition],

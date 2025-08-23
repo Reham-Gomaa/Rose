@@ -1,7 +1,6 @@
-
 import { Component } from "@angular/core";
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from "@angular/common";
+import { ReactiveFormsModule } from "@angular/forms";
 import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 import { TranslatePipe } from "@ngx-translate/core";
@@ -11,16 +10,14 @@ import { TranslatePipe } from "@ngx-translate/core";
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule,   
+    ReactiveFormsModule,
     CustomInputComponent,
     ButtonComponent,
-    TranslatePipe
+    TranslatePipe,
   ],
   templateUrl: "./contact.component.html",
   styleUrl: "./contact.component.scss",
 })
 export class ContactComponent {
-  constructor() {
-    
-  }
+  constructor() {}
 }

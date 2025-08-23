@@ -391,7 +391,6 @@
         "text": "Pending",
         "class": "yellow"
       }
-
     },
     "deliveryStatuses": {
       "delivered": {

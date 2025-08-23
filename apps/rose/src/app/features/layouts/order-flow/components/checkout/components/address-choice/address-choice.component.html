@@ -29,9 +29,7 @@
   }
 
   <app-button [text]="'Add a New Address'" [icon]="" (click)="openAddress()"></app-button>
-  
-  <!-- address model -->
-  <app-user-address [visible]="addressState===1" (closed)="close()"></app-user-address>
-  
 
+  <!-- address model -->
+  <app-user-address [visible]="addressState === 1" (closed)="close()"></app-user-address>
 </section>

@@ -1,15 +1,18 @@
 import { inject } from "@angular/core";
-import { CanActivateFn, Router } from "@angular/router";
-import { PlatformService } from "@rose/core_services/platform/platform.service";
+import { CanActivateFn, Router, UrlTree } from "@angular/router";
+import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
 
-export const authGuard: CanActivateFn = (route, state) => {
+export const authGuard: CanActivateFn = (route, state): boolean | UrlTree => {
   const router = inject(Router);
-  const platformService = inject(PlatformService);
+  const storage = inject(StorageManagerService);
 
-  if (platformService.isBrowser() && localStorage.getItem("authToken") != null) {
+  const token = storage.getItem("authToken");
+
+  if (token) {
     return true;
   } else {
-    router.navigate(["/login"]);
-    return false;
+    return router.createUrlTree(["/login"], {
+      queryParams: { returnUrl: state.url },
+    });
   }
 };

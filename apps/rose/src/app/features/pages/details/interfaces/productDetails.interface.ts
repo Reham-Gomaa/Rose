@@ -1,8 +1,6 @@
-import { Product } from "../../../../core/interfaces/carditem.interface"
+import { Product } from "../../../../core/interfaces/carditem.interface";
 
 export interface ProductDetails {
-  message: string
-  product: Product
+  message: string;
+  product: Product;
 }
-
-

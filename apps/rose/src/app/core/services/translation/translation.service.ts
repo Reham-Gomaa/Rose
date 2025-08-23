@@ -65,9 +65,7 @@ export class TranslationService {
     return this.translateService.currentLang;
   }
 
-  
-instant(key: string): string {
-  return this.translateService.instant(key);
-}
-
+  instant(key: string): string {
+    return this.translateService.instant(key);
+  }
 }

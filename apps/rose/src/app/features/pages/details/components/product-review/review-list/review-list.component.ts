@@ -6,10 +6,10 @@ import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
   selector: "app-review-list",
-  imports: [CommonModule,RatingModule,FormsModule,TranslatePipe],
+  imports: [CommonModule, RatingModule, FormsModule, TranslatePipe],
   templateUrl: "./review-list.component.html",
   styleUrl: "./review-list.component.scss",
 })
 export class ReviewListComponent {
-  value=4
+  value = 4;
 }

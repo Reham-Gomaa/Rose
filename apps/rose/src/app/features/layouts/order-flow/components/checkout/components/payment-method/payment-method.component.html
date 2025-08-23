@@ -1,41 +1,27 @@
 <section id="payment-methods" class="grid grid-cols-12">
+  @for (method of paymentMethods(); track method.id) {
 
-
-      @for (method of paymentMethods(); track method.id) {
-
-        <div class="col-12 lg:col-6" >
-
-
-            <button  (click)="setPaymentMethod(method.title)" class="d-block cursor-pointer card-btn w-full bg-transparent" >
-              <div [class]="{
-                'active':(methodSelected) === method.title.split(' ')[0].toLowerCase()
-              }" class="method-card flex flex-column align-items-center justify-content-center">
-                <div class="method-icon">
-                  <img class="w-1/1" [src]="method.imageSrc" alt="{{method.title}}">
-                </div>
-                <div class="method-info text-center">
-                  <h3 class="text-xl">{{method.title}}</h3>
-                  <p class="text-lg">{{method.desc}}</p>
-                </div>
-              </div>
-            </button>
-
-
+  <div class="col-12 lg:col-6">
+    <button
+      (click)="setPaymentMethod(method.title)"
+      class="d-block cursor-pointer card-btn w-full bg-transparent"
+    >
+      <div
+        [class]="{
+          active: methodSelected === method.title.split(' ')[0].toLowerCase()
+        }"
+        class="method-card flex flex-column align-items-center justify-content-center"
+      >
+        <div class="method-icon">
+          <img class="w-1/1" [src]="method.imageSrc" alt="{{ method.title }}" />
         </div>
+        <div class="method-info text-center">
+          <h3 class="text-xl">{{ method.title }}</h3>
+          <p class="text-lg">{{ method.desc }}</p>
+        </div>
+      </div>
+    </button>
+  </div>
 
-
-
-
-      }
-
-
-
-
-
-
-
-
-
+  }
 </section>
-
-

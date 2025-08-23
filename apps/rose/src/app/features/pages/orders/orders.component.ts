@@ -29,10 +29,7 @@ export class OrdersComponent implements OnInit {
   PrimeIcons = PrimeIcons;
   private destroy$ = new Subject<void>();
 
-  constructor(
-    private ordersService: OrdersService,
-    private datePipe: DatePipe,
-  ) {}
+  constructor(private ordersService: OrdersService, private datePipe: DatePipe) {}
   translationService = inject(TranslationService);
 
   ngOnInit(): void {
@@ -51,7 +48,7 @@ export class OrdersComponent implements OnInit {
       .subscribe({
         next: (response: OrderRes) => {
           this.orders = response.orders;
-          console.log(this.orders)
+          console.log(this.orders);
         },
         error: (error) => {
           console.error("Error loading orders:", error);

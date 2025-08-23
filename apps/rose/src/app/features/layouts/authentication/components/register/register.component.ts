@@ -139,7 +139,8 @@ export class RegisterComponent {
           );
           this._messageService.add({
             severity: "error",
-            detail: err.error?.message || this._translate.instant("messagesToast.somethingWentWrong"),
+            detail:
+              err.error?.message || this._translate.instant("messagesToast.somethingWentWrong"),
             life: 3000,
           });
         },

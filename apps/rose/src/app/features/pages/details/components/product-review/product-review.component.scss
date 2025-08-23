@@ -2,7 +2,7 @@
 .product-review {
   font-family: var(--font-family-1);
   .product-review-header {
-    border-bottom: 1px solid #E4E4E7;
+    border-bottom: 1px solid #e4e4e7;
     .general-rating {
       h3 {
         font-size: 20px;
@@ -14,28 +14,18 @@
           color: var(--details-header-color);
         }
         .numOfRating {
-          color: #71717A;
+          color: #71717a;
         }
-
       }
     }
   }
-
-
-
-
 }
-:host ::ng-deep
-{
-.p-rating-option-active .p-rating-icon {
-  color: #FFC107;
+:host ::ng-deep {
+  .p-rating-option-active .p-rating-icon {
+    color: #ffc107;
+  }
+  .p-rating-icon {
+    color: transparent;
+    stroke: #ffc107;
+  }
 }
-.p-rating-icon{
-  color: transparent;
-  stroke: #FFC107;
-}
-}
-
-
-
-

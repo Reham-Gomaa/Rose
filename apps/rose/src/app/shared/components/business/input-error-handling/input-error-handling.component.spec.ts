@@ -1,23 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { InputErrorHandlingComponent } from './input-error-handling.component';
+import { InputErrorHandlingComponent } from "./input-error-handling.component";
 
-describe('InputErrorHandlingComponent', () => {
+describe("InputErrorHandlingComponent", () => {
   let component: InputErrorHandlingComponent;
   let fixture: ComponentFixture<InputErrorHandlingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [InputErrorHandlingComponent]
-    })
-    .compileComponents();
+      imports: [InputErrorHandlingComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(InputErrorHandlingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

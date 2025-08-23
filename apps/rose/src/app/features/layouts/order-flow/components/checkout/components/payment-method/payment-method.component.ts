@@ -13,46 +13,39 @@ import { payMethod } from "../../models/payment";
   styleUrl: "./payment-method.component.scss",
 })
 export class PaymentMethodComponent {
+  private store = inject(Store);
 
+  methodSelected!: pMethod | null;
 
-  private store = inject(Store)
-
-  methodSelected!:pMethod|null
-
-
-  ngOnInit(){
-     this.store.select(checkoutSelectors.selectedPayMethod).subscribe({
+  ngOnInit() {
+    this.store.select(checkoutSelectors.selectedPayMethod).subscribe({
       next: (method) => {
-        this.methodSelected = method
-      }
-     })
+        this.methodSelected = method;
+      },
+    });
   }
 
-
-  paymentMethods:WritableSignal<payMethod[]> = signal([
+  paymentMethods: WritableSignal<payMethod[]> = signal([
     {
-      id:1,
-      imageSrc:"/images/payMethods/cash.png",
-      title:"Cash on Delivery",
-      desc:"You’ll pay in cash when your order is delivered."
+      id: 1,
+      imageSrc: "/images/payMethods/cash.png",
+      title: "Cash on Delivery",
+      desc: "You’ll pay in cash when your order is delivered.",
     },
     {
-      id:2,
-      imageSrc:"/images/payMethods/credit.png",
-      title:"Credit Card",
-      desc:"You’ll be securely redirected to Stripe to complete your payment."
-    }
+      id: 2,
+      imageSrc: "/images/payMethods/credit.png",
+      title: "Credit Card",
+      desc: "You’ll be securely redirected to Stripe to complete your payment.",
+    },
   ]);
 
-  setPaymentMethod(methodName:string){
-    const methodToStore = methodName.split(' ')[0].toLowerCase()
-    if(methodToStore == pMethod.CASH) {
-
-      this.store.dispatch(checkoutActions.selectPayMethod({method:pMethod.CASH}))
-    }else {
-       this.store.dispatch(checkoutActions.selectPayMethod({method:pMethod.CREDIT}))
+  setPaymentMethod(methodName: string) {
+    const methodToStore = methodName.split(" ")[0].toLowerCase();
+    if (methodToStore == pMethod.CASH) {
+      this.store.dispatch(checkoutActions.selectPayMethod({ method: pMethod.CASH }));
+    } else {
+      this.store.dispatch(checkoutActions.selectPayMethod({ method: pMethod.CREDIT }));
     }
   }
-
-
 }
