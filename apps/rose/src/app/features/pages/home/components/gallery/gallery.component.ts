@@ -4,10 +4,11 @@ import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@rose/core_services/translation/translation.service";
 // Animations
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { LazyBackgroundDirective } from "apps/rose/src/app/shared/directives/lazyBackground/lazyBackground.directive";
 
 @Component({
   selector: "app-gallery",
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, LazyBackgroundDirective],
   templateUrl: "./gallery.component.html",
   styleUrl: "./gallery.component.scss",
   animations: [fadeTransition],
