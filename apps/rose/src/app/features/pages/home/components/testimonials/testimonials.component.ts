@@ -50,22 +50,22 @@ export class TestimonialsComponent {
 
   responsiveOptions: responsiveOption[] | undefined = [
     {
-      breakpoint: "1200px",
+      breakpoint: "75rem",
       numVisible: 3,
       numScroll: 1,
     },
     {
-      breakpoint: "992px",
+      breakpoint: "62rem",
       numVisible: 2,
       numScroll: 1,
     },
     {
-      breakpoint: "767px",
+      breakpoint: "47.9375rem",
       numVisible: 1,
       numScroll: 1,
     },
     {
-      breakpoint: "500px",
+      breakpoint: "31.25rem",
       numVisible: 1,
       numScroll: 1,
     },

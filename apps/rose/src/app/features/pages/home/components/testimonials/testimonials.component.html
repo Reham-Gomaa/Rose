@@ -4,7 +4,7 @@
       {{ "home.testimonials.heading5" | translate }}
     </h5>
     <div class="p-relative d-inline-block testimonials-title-wrapper mb-3">
-      <h2 #load id="testimonials-heading" class="testimonials-title" itemprop="name">
+      <h2 id="testimonials-heading" class="testimonials-title" itemprop="name">
         {{ "home.testimonials.title" | translate }}
       </h2>
       <div class="testimonials-bg-shape" aria-hidden="true"></div>
@@ -13,7 +13,7 @@
   </div>
   <div class="testimonial-section py-8">
     <div class="mx-auto">
-      @defer (on viewport(load)) {
+      @defer (on timer(1000)) {
       <p-carousel ngSkipHydration [value]="testimonials" [numVisible]="3" [numScroll]="1" [circular]="true"
         [showIndicators]="false" [showNavigators]="false" [autoplayInterval]="5000"
         [responsiveOptions]="responsiveOptions" role="region" aria-roledescription="carousel"
@@ -22,7 +22,7 @@
           <div class="carousel-card-wrapper lg:pr-4" role="group" aria-roledescription="slide" aria-label="Testimonial">
             <div class="card-container">
               <div class="card mx-auto">
-                <div class="img-container" [appLazyBackground]="'url(' + '\'' + pic.source + '\'' + ')'">
+                <div class="img-container" role="img" [appLazyBackground]="'url(' + '\'' + pic.source + '\'' + ')'">
                 </div>
                 <div>
                   <h2 class="text-center">{{ pic.heading2 | translate }}</h2>
