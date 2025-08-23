@@ -1,4 +1,3 @@
-import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RatingModule } from "primeng/rating";
@@ -9,7 +8,6 @@ import { TranslatePipe } from "@ngx-translate/core";
 @Component({
   selector: "app-product-review",
   imports: [
-    CommonModule,
     RatingModule,
     FormsModule,
     TranslatePipe,

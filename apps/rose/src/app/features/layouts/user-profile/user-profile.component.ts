@@ -25,7 +25,6 @@ import { User } from "auth-api-kp";
 
 @Component({
   selector: "app-user-profile",
-  standalone: true,
   imports: [
     SkeletonModule,
     ButtonModule,

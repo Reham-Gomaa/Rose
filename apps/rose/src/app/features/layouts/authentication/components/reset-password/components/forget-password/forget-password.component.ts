@@ -14,7 +14,6 @@ import { AuthApiKpService } from "auth-api-kp";
 
 @Component({
   selector: "app-forget-password",
-  standalone: true,
   imports: [CustomInputComponent, FormButtonComponent, TranslatePipe, ReactiveFormsModule],
   templateUrl: "./forget-password.component.html",
   styleUrl: "./forget-password.component.scss",

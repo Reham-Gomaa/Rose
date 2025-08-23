@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://rose-chi-nine.vercel.app/images/navbar/Rose.WebP" alt="Rose Logo" width="120"/>
+  <img src="https://rose-chi-nine.vercel.app/images/navbar/Rose.AVIF" alt="Rose Logo" width="120"/>
   <h1>🌹 Rose - Modern Angular E-Commerce Platform</h1>
   <p><em>A sophisticated, production-ready E-Commerce SPA delivering exceptional shopping experiences</em></p>
 </div>
@@ -146,7 +146,7 @@ Meet the talented individuals behind Rose E-Commerce Platform:
 | Technology   | Purpose               |
 | ------------ | --------------------- |
 | **NX**       | Monorepo build system |
-| **Webpack**  | Module bundling       |
+| **AVIFack**  | Module bundling       |
 | **ESLint**   | Code linting          |
 | **Prettier** | Code formatting       |
 
@@ -302,9 +302,9 @@ export class ProductCardComponent {
 #### Image Optimization
 
 ```html
-<!-- WebP with fallback -->
+<!-- AVIF with fallback -->
 <picture>
-  <source srcset="assets/images/product.webp" type="image/webp" />
+  <source srcset="assets/images/product.AVIF" type="image/AVIF" />
   <img src="assets/images/product.jpg" alt="Product" loading="lazy" />
 </picture>
 ```

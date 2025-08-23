@@ -1,5 +1,5 @@
 // @angular
-import { AsyncPipe } from "@angular/common";
+import { AsyncPipe, NgOptimizedImage } from "@angular/common";
 import { Component, DestroyRef, inject, OnInit, signal, WritableSignal } from "@angular/core";
 import { RouterLink } from "@angular/router";
 // @ngx
@@ -32,7 +32,7 @@ import {
 
 @Component({
   selector: "app-cart",
-  imports: [RouterLink, ButtonComponent, TranslatePipe, AsyncPipe, Skeleton],
+  imports: [RouterLink, ButtonComponent, TranslatePipe, AsyncPipe, Skeleton, NgOptimizedImage],
   templateUrl: "./cart.component.html",
   styleUrl: "./cart.component.scss",
   animations: [fadeTransition],

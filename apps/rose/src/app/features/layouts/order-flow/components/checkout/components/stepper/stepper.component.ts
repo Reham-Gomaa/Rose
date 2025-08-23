@@ -1,4 +1,4 @@
-import { AsyncPipe, CommonModule, JsonPipe } from "@angular/common";
+import { AsyncPipe, JsonPipe } from "@angular/common";
 import { Component, inject, input, output, OutputEmitterRef } from "@angular/core";
 import { Store } from "@ngrx/store";
 import * as checkoutSelectors from "@rose/checkout/checkout.selectors";
@@ -10,7 +10,7 @@ import { Observable } from "rxjs";
 import { progressStep } from "../../models/progress.step";
 @Component({
   selector: "app-stepper",
-  imports: [CommonModule, ButtonModule, StepperModule, JsonPipe, AsyncPipe],
+  imports: [ ButtonModule, StepperModule, JsonPipe, AsyncPipe],
   templateUrl: "./stepper.component.html",
   styleUrl: "./stepper.component.scss",
 })

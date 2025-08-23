@@ -13,7 +13,7 @@
   @for (item of expertArr; track $index) {
   <div class="team-card">
     <div class="team-card-image">
-      <img [src]="item.image" alt="Ahmed Mohamed" />
+      <img [ngSrc]="item.image" width="250" height="272" loading="lazy" decoding="async" alt="Ahmed Mohamed" />
     </div>
     <div class="team-card-info">
       <h3>{{ item.name }}</h3>

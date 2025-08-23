@@ -1,3 +1,4 @@
+import { NgOptimizedImage } from "@angular/common";
 import { Component, forwardRef, input, OnInit, OnDestroy } from "@angular/core";
 import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { Country } from "@rose/core_interfaces/country";
@@ -7,8 +8,7 @@ import { InputErrorHandlingComponent } from "@rose/shared_Components_business/in
   selector: "app-custom-input-phone",
   templateUrl: "./custom-input-phone.component.html",
   styleUrl: "./custom-input-phone.component.scss",
-  standalone: true,
-  imports: [InputErrorHandlingComponent],
+  imports: [InputErrorHandlingComponent, NgOptimizedImage],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

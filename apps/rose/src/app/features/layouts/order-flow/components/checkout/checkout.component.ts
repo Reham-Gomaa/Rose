@@ -1,4 +1,3 @@
-import { CommonModule } from "@angular/common";
 import { Component, inject } from "@angular/core";
 import { Store } from "@ngrx/store";
 import * as checkoutActions from "@rose/checkout/checkout.actions";
@@ -12,7 +11,7 @@ import { pMethod } from "@rose/checkout/checkout.state";
 
 @Component({
   selector: "app-checkout",
-  imports: [CommonModule, StepperComponent],
+  imports: [StepperComponent],
   templateUrl: "./checkout.component.html",
   styleUrl: "./checkout.component.scss",
 })

@@ -24,11 +24,11 @@ export class TrustedByComponent {
   translationService = inject(TranslationService);
 
   companyLogos: string[] = [
-    "/images/trustedBy/image 36.WebP",
-    "/images/trustedBy/image 40.WebP",
-    "/images/trustedBy/image 41.WebP",
-    "/images/trustedBy/image 38.WebP",
-    "/images/trustedBy/image 39.WebP",
-    "/images/trustedBy/image 37.WebP",
+    "/images/trustedBy/image 36.AVIF",
+    "/images/trustedBy/image 40.AVIF",
+    "/images/trustedBy/image 41.AVIF",
+    "/images/trustedBy/image 38.AVIF",
+    "/images/trustedBy/image 39.AVIF",
+    "/images/trustedBy/image 37.AVIF",
   ];
 }

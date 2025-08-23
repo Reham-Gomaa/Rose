@@ -28,19 +28,19 @@ export class TestimonialsComponent {
 
   testimonials: Testimonials[] = [
     {
-      source: "./images/testimonials/customer-1.WebP",
+      source: "./images/testimonials/customer-1.AVIF",
       heading2: "home.testimonials.customer1.heading2",
       paragraph: "home.testimonials.customer1.paragraph",
       heading3: "home.testimonials.heading3",
     },
     {
-      source: "./images/testimonials/customer-2.WebP",
+      source: "./images/testimonials/customer-2.AVIF",
       heading2: "home.testimonials.customer2.heading2",
       paragraph: "home.testimonials.customer2.paragraph",
       heading3: "home.testimonials.heading3",
     },
     {
-      source: "./images/testimonials/customer-3.WebP",
+      source: "./images/testimonials/customer-3.AVIF",
       heading2: "home.testimonials.customer3.heading2",
       paragraph: "home.testimonials.customer3.paragraph",
       heading3: "home.testimonials.heading3",

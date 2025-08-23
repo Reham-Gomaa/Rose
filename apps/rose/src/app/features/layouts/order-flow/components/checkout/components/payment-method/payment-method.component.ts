@@ -1,14 +1,14 @@
-import { CommonModule } from "@angular/common";
 import { Component, inject, signal, WritableSignal } from "@angular/core";
 import { Store } from "@ngrx/store";
 import * as checkoutActions from "@rose/checkout/checkout.actions";
 import * as checkoutSelectors from "@rose/checkout/checkout.selectors";
 import { pMethod } from "@rose/checkout/checkout.state";
 import { payMethod } from "../../models/payment";
+import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: "app-payment-method",
-  imports: [CommonModule],
+  imports: [NgOptimizedImage],
   templateUrl: "./payment-method.component.html",
   styleUrl: "./payment-method.component.scss",
 })
@@ -28,13 +28,13 @@ export class PaymentMethodComponent {
   paymentMethods: WritableSignal<payMethod[]> = signal([
     {
       id: 1,
-      imageSrc: "/images/payMethods/cash.png",
+      imageSrc: "/images/payMethods/cash.AVIF",
       title: "Cash on Delivery",
       desc: "You’ll pay in cash when your order is delivered.",
     },
     {
       id: 2,
-      imageSrc: "/images/payMethods/credit.png",
+      imageSrc: "/images/payMethods/credit.AVIF",
       title: "Credit Card",
       desc: "You’ll be securely redirected to Stripe to complete your payment.",
     },

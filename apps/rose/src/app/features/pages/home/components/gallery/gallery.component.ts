@@ -21,11 +21,11 @@ export class GalleryComponent {
 
   images = {
     url: [
-      "images/gallery/Frame 74.WebP",
-      "images/gallery/Frame 75.WebP",
-      "images/gallery/Frame 76.WebP",
-      "images/gallery/Frame 77.WebP",
-      "images/gallery/Frame 78.WebP",
+      "images/gallery/Frame 74.AVIF",
+      "images/gallery/Frame 75.AVIF",
+      "images/gallery/Frame 76.AVIF",
+      "images/gallery/Frame 77.AVIF",
+      "images/gallery/Frame 78.AVIF",
     ],
   };
 }

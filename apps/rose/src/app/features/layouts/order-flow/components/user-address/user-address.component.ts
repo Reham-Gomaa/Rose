@@ -29,6 +29,7 @@ import { SpinnerComponent } from "@rose/shared_Components_ui/spinner/spinner.com
 import { TranslatePipe } from "@ngx-translate/core";
 import { AddressStepperComponent } from "./components/address-stepper/address-stepper.component";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: "app-user-address",
@@ -43,6 +44,7 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
     DeleteDialogComponent,
     SpinnerComponent,
     AddressStepperComponent,
+    NgOptimizedImage,
   ],
   templateUrl: "./user-address.component.html",
   styleUrl: "./user-address.component.scss",

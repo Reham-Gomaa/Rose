@@ -1,5 +1,4 @@
 import { Component, inject, OnInit, signal, DestroyRef } from "@angular/core";
-import { CommonModule } from "@angular/common";
 // Images
 import { NgOptimizedImage } from "@angular/common";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
@@ -21,14 +20,7 @@ import { Skeleton } from "primeng/skeleton";
 
 @Component({
   selector: "app-categories",
-  imports: [
-    CommonModule,
-    ToastModule,
-    Skeleton,
-    TranslatePipe,
-    NoDataAvailableComponent,
-    NgOptimizedImage,
-  ],
+  imports: [ToastModule, Skeleton, TranslatePipe, NoDataAvailableComponent, NgOptimizedImage],
   templateUrl: "./categories.component.html",
   styleUrls: ["./categories.component.scss"],
   animations: [fadeTransition],
