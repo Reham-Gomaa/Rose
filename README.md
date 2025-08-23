@@ -16,15 +16,16 @@
 
 ---
 
-
 ## 🎯 Project Overview
 
 Rose is a cutting-edge e-commerce platform built with modern web technologies, designed to deliver an exceptional shopping experience across all devices. The application leverages Angular 19's latest features, NX monorepo architecture, and a comprehensive suite of tools to provide scalability, maintainability, and outstanding performance.
 
 ### 🎯 Mission
+
 To create a world-class e-commerce platform that combines beautiful design with powerful functionality, enabling businesses to deliver exceptional online shopping experiences.
 
 ### 🎨 Design Philosophy
+
 - **User-Centric**: Every feature is designed with the end-user in mind
 - **Performance-First**: Optimized for speed and efficiency
 - **Accessible**: Inclusive design for all users
@@ -34,14 +35,14 @@ To create a world-class e-commerce platform that combines beautiful design with 
 
 ## 🚀 Live Demos & Resources
 
-| Resource | Link | Description |
-|----------|------|-------------|
-| 🌐 **Production App** | [rose-chi-nine.vercel.app](https://rose-chi-nine.vercel.app/) | Live application demo |
-| 📚 **Documentation** | [rose-d2ff.vercel.app](https://rose-d2ff.vercel.app/) | Comprehensive docs |
-| 🗃️ **Project Structure** | [Project Structure](https://uithub.com/Reham-Gomaa/Rose) | Comprehensive docs |
-| 📂 **Source Code** | [GitHub Repository](https://github.com/Reham-Gomaa/Rose) | Full source code |
-| 🎨 **Design System** | [Figma Design](https://www.figma.com/design/q5TO5u0kOpfIZhoozTz0mB/Rose-App--Enhanced-?node-id=0-1&p=f&t=RtLlQvsxbbxyGBpF-0) | UI/UX designs |
-| 🎥 **Demo Video** | [Demo Video](https://drive.google.com/file/d/1tF74Xi7E4HYe5v-xD7hWO5oEBEgLdnTb/view?usp=drive_linkhttps://drive.google.com/file/d/1tF74Xi7E4HYe5v-xD7hWO5oEBEgLdnTb/view?usp=drive_link) | Watch the full platform demonstration |
+| Resource                 | Link                                                                                                                                                                                     | Description                           |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| 🌐 **Production App**    | [rose-chi-nine.vercel.app](https://rose-chi-nine.vercel.app/)                                                                                                                            | Live application demo                 |
+| 📚 **Documentation**     | [rose-d2ff.vercel.app](https://rose-d2ff.vercel.app/)                                                                                                                                    | Comprehensive docs                    |
+| 🗃️ **Project Structure** | [Project Structure](https://uithub.com/Reham-Gomaa/Rose)                                                                                                                                 | Comprehensive docs                    |
+| 📂 **Source Code**       | [GitHub Repository](https://github.com/Reham-Gomaa/Rose)                                                                                                                                 | Full source code                      |
+| 🎨 **Design System**     | [Figma Design](https://www.figma.com/design/q5TO5u0kOpfIZhoozTz0mB/Rose-App--Enhanced-?node-id=0-1&p=f&t=RtLlQvsxbbxyGBpF-0)                                                             | UI/UX designs                         |
+| 🎥 **Demo Video**        | [Demo Video](https://drive.google.com/file/d/1tF74Xi7E4HYe5v-xD7hWO5oEBEgLdnTb/view?usp=drive_linkhttps://drive.google.com/file/d/1tF74Xi7E4HYe5v-xD7hWO5oEBEgLdnTb/view?usp=drive_link) | Watch the full platform demonstration |
 
 ---
 
@@ -53,13 +54,13 @@ Meet the talented individuals behind Rose E-Commerce Platform:
 
 <div align="center">
 
-| Role | Name | Phone | Mail | LinkedIn | CV |
-|------|------|-------|------|--------|----|
-| **Frontend Developer** | Karim Ashraf Mohamed | [+201007101012](tel:+201007101012) | [karimashraf000@gmail.com](mailto:karimashraf000@gmail.com) | [LinkedIn](https://www.linkedin.com/in/karimashraf13/) | [CV](https://drive.google.com/file/d/1bKhJ2m1SGXU00Iik0QkASHUGlTXfc8rv/view?usp=drive_link) |
-| **Frontend Developer** | Reham Gomaa | [+201091628541](tel:+201091628541) | [rehamgomaa686@gmail.com](mailto:rehamgomaa686@gmail.com) | [LinkedIn](https://www.linkedin.com/in/reham-gomaa48/) | [CV](https://drive.google.com/file/d/1n56nM7Z4t9mMYM3E1c--fUg_IAabJmtM/view?usp=drivesdk) |
-| **Frontend Developer** | Maher Samy | [+201557778612](tel:+201557778612) | [mahersamybalata@gmail.com](mailto:mahersamybalata@gmail.com) | [LinkedIn](https://www.linkedin.com/in/maher-samy-004734315/) | [CV](https://drive.google.com/file/d/1aydUSsJ-ZEBjdCvsZ8MYg7BjqB2TWOmd/view?usp=drive_link) |
-| **Frontend Developer** | Habiba Ehab | [+201272691175](tel:+201272691175) | [Habiba.em7@gmail.com](mailto:Habiba.em7@gmail.com) | [LinkedIn](https://www.linkedin.com/in/habiba-ehab-542876261/) | [CV](https://drive.google.com/file/d/1aydUSsJ-ZEBjdCvsZ8MYg7BjqB2TWOmd/view?usp=drive_link) |
-| **Frontend Developer** | Mahmoud Mohamed | [+201113709071](tel:+201113709071) | [mahmouddessoki33@gmail.com](mailto:mahmouddessoki33@gmail.com) | [LinkedIn](http://linkedin.com/in/mahmoud-dessoki) | [CV](https://drive.google.com/file/d/1kO1lTEqNkrlMsrmValq1VmTsuMjrpFem/view?usp=drivesdk) |
+| Role                   | Name                 | Phone                              | Mail                                                            | LinkedIn                                                       | CV                                                                                          |
+| ---------------------- | -------------------- | ---------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| **Frontend Developer** | Karim Ashraf Mohamed | [+201007101012](tel:+201007101012) | [karimashraf000@gmail.com](mailto:karimashraf000@gmail.com)     | [LinkedIn](https://www.linkedin.com/in/karimashraf13/)         | [CV](https://drive.google.com/file/d/1bKhJ2m1SGXU00Iik0QkASHUGlTXfc8rv/view?usp=drive_link) |
+| **Frontend Developer** | Reham Gomaa          | [+201091628541](tel:+201091628541) | [rehamgomaa686@gmail.com](mailto:rehamgomaa686@gmail.com)       | [LinkedIn](https://www.linkedin.com/in/reham-gomaa48/)         | [CV](https://drive.google.com/file/d/1n56nM7Z4t9mMYM3E1c--fUg_IAabJmtM/view?usp=drivesdk)   |
+| **Frontend Developer** | Maher Samy           | [+201557778612](tel:+201557778612) | [mahersamybalata@gmail.com](mailto:mahersamybalata@gmail.com)   | [LinkedIn](https://www.linkedin.com/in/maher-samy-004734315/)  | [CV](https://drive.google.com/file/d/1aydUSsJ-ZEBjdCvsZ8MYg7BjqB2TWOmd/view?usp=drive_link) |
+| **Frontend Developer** | Habiba Ehab          | [+201272691175](tel:+201272691175) | [Habiba.em7@gmail.com](mailto:Habiba.em7@gmail.com)             | [LinkedIn](https://www.linkedin.com/in/habiba-ehab-542876261/) | [CV](https://drive.google.com/file/d/1aydUSsJ-ZEBjdCvsZ8MYg7BjqB2TWOmd/view?usp=drive_link) |
+| **Frontend Developer** | Mahmoud Mohamed      | [+201113709071](tel:+201113709071) | [mahmouddessoki33@gmail.com](mailto:mahmouddessoki33@gmail.com) | [LinkedIn](http://linkedin.com/in/mahmoud-dessoki)             | [CV](https://drive.google.com/file/d/1kO1lTEqNkrlMsrmValq1VmTsuMjrpFem/view?usp=drivesdk)   |
 
 </div>
 
@@ -68,13 +69,14 @@ Meet the talented individuals behind Rose E-Commerce Platform:
 ## ✨ Key Features
 
 ### 🛍️ Core E-Commerce Features
+
 - **Advanced Product Catalog**
   - Smart search with filters and sorting
   - Category-based navigation
   - Product variants and options
   - Stock management integration
-  
 - **Shopping Cart & Checkout**
+
   - Persistent cart across sessions
   - Guest and registered checkout
   - Multiple payment methods
@@ -87,7 +89,9 @@ Meet the talented individuals behind Rose E-Commerce Platform:
   - Wishlist analytics
 
 ### 👤 User Experience Features
+
 - **Authentication & Profile**
+
   - Secure registration and login
   - Social media authentication
   - Password recovery with email verification
@@ -100,6 +104,7 @@ Meet the talented individuals behind Rose E-Commerce Platform:
   - Personalized recommendations
 
 ### 📱 Modern Web Features
+
 - **Responsive Design**
   - Mobile-first approach
   - Tablet optimization
@@ -107,6 +112,7 @@ Meet the talented individuals behind Rose E-Commerce Platform:
   - Touch-friendly interactions
 
 ### 🗺️ Location & Delivery
+
 - **Google Maps Integration**
   - Address autocomplete
   - Store locator
@@ -118,36 +124,40 @@ Meet the talented individuals behind Rose E-Commerce Platform:
 ## 🛠 Technology Stack
 
 ### 🎯 Core Framework
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Angular** | 19.x | Frontend framework with signals |
-| **TypeScript** | 4.9+ | Type-safe development |
-| **RxJS** | 7.x | Reactive programming |
-| **NgRx Signals** | Latest | State management |
+
+| Technology       | Version | Purpose                         |
+| ---------------- | ------- | ------------------------------- |
+| **Angular**      | 19.x    | Frontend framework with signals |
+| **TypeScript**   | 4.9+    | Type-safe development           |
+| **RxJS**         | 7.x     | Reactive programming            |
+| **NgRx Signals** | Latest  | State management                |
 
 ### 🎨 UI & Styling
-| Technology | Purpose |
-|------------|---------|
-| **PrimeNG** | Comprehensive UI components |
-| **PrimeFlex** | Utility-first CSS framework |
-| **PrimeIcons** | Modern icon library |
-| **SCSS** | Advanced CSS preprocessing |
+
+| Technology     | Purpose                     |
+| -------------- | --------------------------- |
+| **PrimeNG**    | Comprehensive UI components |
+| **PrimeFlex**  | Utility-first CSS framework |
+| **PrimeIcons** | Modern icon library         |
+| **SCSS**       | Advanced CSS preprocessing  |
 
 ### 🏗️ Build & Architecture
-| Technology | Purpose |
-|------------|---------|
-| **NX** | Monorepo build system |
-| **Webpack** | Module bundling |
-| **ESLint** | Code linting |
-| **Prettier** | Code formatting |
+
+| Technology   | Purpose               |
+| ------------ | --------------------- |
+| **NX**       | Monorepo build system |
+| **Webpack**  | Module bundling       |
+| **ESLint**   | Code linting          |
+| **Prettier** | Code formatting       |
 
 ### 🔧 Development Tools
-| Technology | Purpose |
-|------------|---------|
-| **Jest** | Unit testing |
-| **Cypress** | E2E testing |
+
+| Technology    | Purpose                 |
+| ------------- | ----------------------- |
+| **Jest**      | Unit testing            |
+| **Cypress**   | E2E testing             |
 | **Storybook** | Component documentation |
-| **Compodoc** | Code documentation |
+| **Compodoc**  | Code documentation      |
 
 ---
 
@@ -156,6 +166,7 @@ Meet the talented individuals behind Rose E-Commerce Platform:
 Rose follows a modular, scalable architecture pattern:
 
 ### 🏛️ Architecture Principles
+
 - **Separation of Concerns**: Clear boundaries between features
 - **Dependency Injection**: Loosely coupled components
 - **Reactive Programming**: RxJS for data flow
@@ -163,6 +174,7 @@ Rose follows a modular, scalable architecture pattern:
 - **Feature-Based Structure**: Organized by business domains
 
 ### 📦 Module Structure
+
 ```
 Rose Application
 ├── Core Module (Singleton services)
@@ -244,13 +256,13 @@ After installation, verify everything works:
 
 ### 📋 Key Directories Explained
 
-| Directory | Purpose | Contents |
-|-----------|---------|----------|
-| `apps/rose/src/app/core/` | Core application services | Singletons, guards, interceptors |
-| `apps/rose/src/app/shared/` | Shared components | Reusable UI components |
-| `apps/rose/src/app/features/` | Feature modules | Business logic modules |
-| `libs/` | Shared libraries | Cross-app reusable code |
-| `tools/` | Build and deployment | Custom scripts and tools |
+| Directory                     | Purpose                   | Contents                         |
+| ----------------------------- | ------------------------- | -------------------------------- |
+| `apps/rose/src/app/core/`     | Core application services | Singletons, guards, interceptors |
+| `apps/rose/src/app/shared/`   | Shared components         | Reusable UI components           |
+| `apps/rose/src/app/features/` | Feature modules           | Business logic modules           |
+| `libs/`                       | Shared libraries          | Cross-app reusable code          |
+| `tools/`                      | Build and deployment      | Custom scripts and tools         |
 
 ---
 
@@ -259,26 +271,28 @@ After installation, verify everything works:
 ### ⚡ Optimization Techniques
 
 #### Code Splitting & Lazy Loading
+
 ```typescript
 // Lazy-loaded routes
 const routes: Routes = [
   {
-    path: 'products',
-    loadChildren: () => import('./features/products/products.module').then(m => m.ProductsModule)
+    path: "products",
+    loadChildren: () => import("./features/products/products.module").then((m) => m.ProductsModule),
   },
   {
-    path: 'cart',
-    loadChildren: () => import('./features/cart/cart.module').then(m => m.CartModule)
-  }
+    path: "cart",
+    loadChildren: () => import("./features/cart/cart.module").then((m) => m.CartModule),
+  },
 ];
 ```
 
 #### OnPush Change Detection
+
 ```typescript
 @Component({
-  selector: 'app-product-card',
+  selector: "app-product-card",
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `...`
+  template: `...`,
 })
 export class ProductCardComponent {
   // Optimized component
@@ -286,22 +300,23 @@ export class ProductCardComponent {
 ```
 
 #### Image Optimization
+
 ```html
 <!-- WebP with fallback -->
 <picture>
-  <source srcset="assets/images/product.webp" type="image/webp">
-  <img src="assets/images/product.jpg" alt="Product" loading="lazy">
+  <source srcset="assets/images/product.webp" type="image/webp" />
+  <img src="assets/images/product.jpg" alt="Product" loading="lazy" />
 </picture>
 ```
 
 ### 📈 Performance Metrics
 
-| Metric | Target | Current |
-|--------|--------|---------|
-| First Contentful Paint | < 1.5s | 1.2s |
-| Largest Contentful Paint | < 2.5s | 2.1s |
-| Time to Interactive | < 3.0s | 2.8s |
-| Cumulative Layout Shift | < 0.1 | 0.05 |
+| Metric                   | Target | Current |
+| ------------------------ | ------ | ------- |
+| First Contentful Paint   | < 1.5s | 1.2s    |
+| Largest Contentful Paint | < 2.5s | 2.1s    |
+| Time to Interactive      | < 3.0s | 2.8s    |
+| Cumulative Layout Shift  | < 0.1  | 0.05    |
 
 ---
 
@@ -310,17 +325,18 @@ export class ProductCardComponent {
 ### 🔬 Testing Pyramid
 
 #### Unit Tests (Jest)
+
 ```typescript
 // Example unit test
-describe('ProductService', () => {
+describe("ProductService", () => {
   let service: ProductService;
-  
+
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(ProductService);
   });
-  
-  it('should fetch products', async () => {
+
+  it("should fetch products", async () => {
     const products = await service.getProducts();
     expect(products).toBeDefined();
     expect(products.length).toBeGreaterThan(0);
@@ -329,19 +345,21 @@ describe('ProductService', () => {
 ```
 
 #### Integration Tests (Cypress)
+
 ```typescript
 // Example E2E test
-describe('Shopping Cart', () => {
-  it('should add product to cart', () => {
-    cy.visit('/products');
-    cy.get('[data-cy=product-card]').first().click();
-    cy.get('[data-cy=add-to-cart]').click();
-    cy.get('[data-cy=cart-count]').should('contain', '1');
+describe("Shopping Cart", () => {
+  it("should add product to cart", () => {
+    cy.visit("/products");
+    cy.get("[data-cy=product-card]").first().click();
+    cy.get("[data-cy=add-to-cart]").click();
+    cy.get("[data-cy=cart-count]").should("contain", "1");
   });
 });
 ```
 
 ### 📊 Test Coverage Goals
+
 - **Unit Tests**: > 80% coverage
 - **Integration Tests**: Critical user flows
 - **E2E Tests**: Key business scenarios
@@ -353,6 +371,7 @@ describe('Shopping Cart', () => {
 ### 🌐 Vercel Deployment (Recommended)
 
 #### Automatic Deployment
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -365,7 +384,9 @@ vercel
 ```
 
 #### Environment Variables
+
 Set in Vercel dashboard:
+
 ```
 GOOGLE_MAPS_API_KEY=your_key_here
 STRIPE_PUBLISHABLE_KEY=your_key_here
@@ -375,6 +396,7 @@ API_URL=https://your-api.com
 ### ☁️ Other Deployment Options
 
 #### Netlify
+
 ```bash
 # Build command
 nx build rose --prod
@@ -388,17 +410,18 @@ dist/apps/rose
 ### 🛡️ Security Implementation
 
 #### JWT Token Handling
+
 ```typescript
 // Secure token storage
 @Injectable()
 export class AuthService {
-  private tokenKey = 'auth_token';
-  
+  private tokenKey = "auth_token";
+
   storeToken(token: string): void {
     // Store in httpOnly cookie (server-side)
     // Or secure localStorage with encryption
   }
-  
+
   getToken(): string | null {
     // Retrieve and validate token
     return this.secureStorage.getItem(this.tokenKey);
@@ -407,6 +430,7 @@ export class AuthService {
 ```
 
 ### 🔒 Security Checklist
+
 - ✅ HTTPS enforcement
 - ✅ XSS protection
 - ✅ CSRF protection
@@ -421,6 +445,7 @@ export class AuthService {
 ### 🎯 WCAG 2.1 AA Compliance
 
 #### Semantic HTML
+
 ```html
 <main role="main" aria-label="Product Catalog">
   <section aria-labelledby="products-heading">
@@ -435,6 +460,7 @@ export class AuthService {
 ```
 
 #### Keyboard Navigation
+
 ```typescript
 @HostListener('keydown', ['$event'])
 onKeyDown(event: KeyboardEvent): void {
@@ -451,6 +477,7 @@ onKeyDown(event: KeyboardEvent): void {
 ```
 
 ### ✅ Accessibility Features
+
 - Screen reader support
 - Keyboard navigation
 - High contrast mode
@@ -465,6 +492,7 @@ onKeyDown(event: KeyboardEvent): void {
 ### 🗣️ Multi-language Support
 
 #### Translation Files
+
 ```json
 // assets/i18n/en.json
 {
@@ -486,12 +514,13 @@ onKeyDown(event: KeyboardEvent): void {
 ```
 
 #### RTL Support
+
 ```scss
 // RTL styles
 [dir="rtl"] {
   .product-card {
     text-align: right;
-    
+
     .price {
       margin-left: 0;
       margin-right: auto;
@@ -501,10 +530,11 @@ onKeyDown(event: KeyboardEvent): void {
 ```
 
 ### 🌐 Supported Languages
+
 - 🇺🇸 English (en)
 - 🇸🇦 Arabic (ar) - RTL support
 
-```
+````
 
 ## 🤝 Contributing
 
@@ -516,9 +546,10 @@ We welcome contributions from the community! Here's how you can help:
 ```bash
 # Fork the repository on GitHub
 # Clone your fork
-```
+````
 
 #### 2. Create Feature Branch
+
 ```bash
 # Create and switch to feature branch
 git checkout -b feature/amazing-feature
@@ -528,6 +559,7 @@ git checkout -b fix/bug-description
 ```
 
 #### 3. Development Setup
+
 ```bash
 # Install dependencies
 npm install
@@ -540,6 +572,7 @@ nx test rose --watch
 ```
 
 #### 4. Commit Guidelines
+
 ```bash
 # Use conventional commits
 git commit -m "feat: add product comparison feature"
@@ -548,6 +581,7 @@ git commit -m "docs: update installation guide"
 ```
 
 #### 5. Submit Pull Request
+
 - Ensure all tests pass
 - Update documentation
 - Add screenshots for UI changes
@@ -556,18 +590,20 @@ git commit -m "docs: update installation guide"
 ### 📋 Contribution Guidelines
 
 #### Code Style
+
 - Follow Angular style guide
 - Use TypeScript strict mode
 - Write meaningful commit messages
 - Include unit tests for new features
 
 #### Review Process
+
 1. Automated checks (CI/CD)
 2. Code review by maintainers
 3. Testing on multiple devices
 4. Documentation review
 5. Merge after approval
-   
+
 ---
 
 ## 🔮 Roadmap
@@ -575,6 +611,7 @@ git commit -m "docs: update installation guide"
 ### 🎯 Upcoming Features
 
 #### Phase 1 (Q1 2025)
+
 - [ ] Mobile app with Capacitor
 - [ ] Advanced product filtering
 - [ ] Wishlist sharing
@@ -582,6 +619,7 @@ git commit -m "docs: update installation guide"
 - [ ] Performance optimizations
 
 #### Phase 2 (Q2 2025)
+
 - [ ] AI-powered recommendations
 - [ ] Voice search integration
 - [ ] Augmented Reality product preview
@@ -589,6 +627,7 @@ git commit -m "docs: update installation guide"
 - [ ] Advanced analytics dashboard
 
 #### Phase 3 (Q3 2025)
+
 - [ ] Blockchain-based loyalty program
 - [ ] Social commerce features
 - [ ] Advanced personalization
@@ -596,6 +635,7 @@ git commit -m "docs: update installation guide"
 - [ ] IoT device integration
 
 ### 🎨 Design Improvements
+
 - Enhanced micro-animations
 - Advanced gesture support
 - Dark mode refinements
@@ -608,6 +648,7 @@ git commit -m "docs: update installation guide"
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ### 📋 License Summary
+
 - ✅ Commercial use allowed
 - ✅ Modification allowed
 - ✅ Distribution allowed
@@ -616,12 +657,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 ### 🛠️ Technology Partners
+
 - **Angular Team** - For the incredible framework
 - **NX Team** - For the powerful monorepo tools
 - **PrimeNG Team** - For the comprehensive UI components
 - **Vercel** - For the excellent hosting platform
 
 ### 🌟 Special Thanks
+
 - All beta testers and early adopters
 - Community contributors and supporters
 - Open source projects that inspired Rose
