@@ -37,11 +37,13 @@ import { providePrimeNG } from "primeng/config";
 import { ToastModule } from "primeng/toast";
 // Auth LIB
 import { API_CONFIG } from "auth-api-kp";
+import { API_BASE_URL_PRODUCTS } from "@angular-monorepo/products";
 // Header Interceptor
 import { headingInterceptor } from "./core/interceptors/header.interceptor";
 
 // Transelate Title
 import { TranslateTitleStrategy } from "./core/strategies/translate-title.strategy";
+import { environment } from "@rose/core_environment/baseurl.dev";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
 }
@@ -71,6 +73,10 @@ export const appConfig: ApplicationConfig = {
           },
         },
       },
+    },
+    {
+      provide: API_BASE_URL_PRODUCTS,
+      useValue: environment.baseApiUrl,
     },
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),

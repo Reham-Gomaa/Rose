@@ -1,4 +1,4 @@
-import { Product } from "./carditem.interface";
+import { Product } from "@angular-monorepo/products";
 export interface OrderRes {
   message: string;
   metadata: {
