@@ -6,13 +6,13 @@ import { TranslatePipe } from "@ngx-translate/core";
 import { Store } from "@ngrx/store";
 import { loadSelectedCategories } from "@rose/store_filter/filter.actions";
 // Interfaces
-import { CategoryProductCount } from "@rose/core_interfaces/count-by-product.interface";
+import { CategoryProductCount } from "@angular-monorepo/products";
 import { selectedItem } from "@rose/core_interfaces/filter-item.interface";
 // Shared_Components
 import { FilterCardComponent } from "@rose/shared_Components_ui/filter-card/filter-card.component";
 import { CheckedCardComponent } from "@rose/shared_Components_business/checkbox/checked-card.component";
 // Shared_Services
-import { ProductsService } from "@rose/shared_services/products/products.service";
+import { ProductsService } from "@angular-monorepo/products";
 
 @Component({
   selector: "app-filter-category",

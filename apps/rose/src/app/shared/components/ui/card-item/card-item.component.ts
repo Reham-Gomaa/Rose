@@ -7,7 +7,7 @@ import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 // Interfaces
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 //PrimeNg
 import { RatingModule } from "primeng/rating";
 import { SkeletonModule } from "primeng/skeleton";

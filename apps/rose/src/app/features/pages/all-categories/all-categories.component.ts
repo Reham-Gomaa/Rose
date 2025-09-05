@@ -8,14 +8,14 @@ import { TranslationService } from "@rose/core_services/translation/translation.
 // Animations_Translation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 // Interfaces
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 // Components
 import { FilterCategoriesComponent } from "./components/filter-categories/filter-categories.component";
 // Shared_Components
 import { NoDataAvailableComponent } from "@rose/shared_Components_business/no-data-available/no-data-available.component";
 import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
 // Shared_Services
-import { ProductsService } from "@rose/shared_services/products/products.service";
+import { ProductsService } from "@angular-monorepo/products";
 //NGRX
 import { Store } from "@ngrx/store";
 import { loadProductsToFilter } from "@rose/store_filter/filter.actions";
