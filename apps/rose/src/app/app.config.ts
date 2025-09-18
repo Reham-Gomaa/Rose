@@ -44,8 +44,8 @@ import { environment } from "apps/environment/baseurl.dev";
 // Translate Title
 import { TranslateTitleStrategy } from "./core/strategies/translate-title.strategy";
 import { API_BASE_URL_CATEGORIES } from "@angular-monorepo/categories";
+import { API_BASE_URL_PRODUCTS } from "@angular-monorepo/products";
 import { BASE_URL } from "@angular-monorepo/occasions";
-import { environment } from "@rose/core_environment/baseurl.dev";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
 }

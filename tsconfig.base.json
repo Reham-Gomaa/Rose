@@ -36,12 +36,6 @@
       "@angular-monorepo/ui": [
         "libs/shared/ui/src/index.ts"
       ],
-      "@rose/address/*": [
-        "./apps/rose/src/app/store/address/*"
-      ],
-      "@rose/checkout/*": [
-        "./apps/rose/src/app/store/checkout/*"
-      ],
       "@rose/core_directive/*": [
         "./apps/rose/src/app/core/directive/*"
       ],
@@ -83,9 +77,6 @@
       ],
       "@rose/shared_styles/*": [
         "./apps/rose/src/app/shared/styles/*"
-      ],
-      "@rose/store_auth/*": [
-        "./apps/rose/src/app/store/auth/*"
       ],
       "@rose/store_auth/*": [
         "./apps/rose/src/app/store/auth/*"
