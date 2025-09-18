@@ -42,6 +42,8 @@ import { headingInterceptor } from "./core/interceptors/header.interceptor";
 
 // Transelate Title
 import { TranslateTitleStrategy } from "./core/strategies/translate-title.strategy";
+import { BASE_URL } from "@angular-monorepo/occasions";
+import { environment } from "@rose/core_environment/baseurl.dev";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
 }
@@ -116,5 +118,12 @@ export const appConfig: ApplicationConfig = {
       checkout: checkoutReducer,
     }),
     provideEffects(sortEffects, FilterEffects, AddressEffect, checkoutEffects, CartEffects),
+
+    {
+      provide: BASE_URL,
+      useValue: environment.baseApiUrl,
+    },
+
+
   ],
 };
