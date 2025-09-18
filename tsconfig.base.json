@@ -18,6 +18,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@angular-monorepo/categories": [
+        "libs/categories/src/index.ts"
+      ],
       "@angular-monorepo/products": [
         "libs/products/src/index.ts"
       ],

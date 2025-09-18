@@ -44,6 +44,7 @@ import { headingInterceptor } from "./core/interceptors/header.interceptor";
 // Transelate Title
 import { TranslateTitleStrategy } from "./core/strategies/translate-title.strategy";
 import { environment } from "@rose/core_environment/baseurl.dev";
+import { API_BASE_URL_CATEGORIES } from "@angular-monorepo/categories";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
 }
@@ -76,6 +77,10 @@ export const appConfig: ApplicationConfig = {
     },
     {
       provide: API_BASE_URL_PRODUCTS,
+      useValue: environment.baseApiUrl,
+    },
+     {
+      provide: API_BASE_URL_CATEGORIES,
       useValue: environment.baseApiUrl,
     },
     provideClientHydration(withEventReplay()),

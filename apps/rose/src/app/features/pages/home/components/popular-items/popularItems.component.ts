@@ -8,10 +8,10 @@ import { trigger, transition, query, style, animate, stagger } from "@angular/an
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 //Shared_Services
 import { ProductsService } from "@angular-monorepo/products";
-import { CategoriesService } from "@rose/shared_services/categories/categories.service";
+import { CategoriesService } from "@angular-monorepo/categories";
 //Interfaces
 import { Product } from "@angular-monorepo/products";
-import { CategoryOption } from "@rose/core_interfaces/categories.interface";
+import { CategoryOption } from "@angular-monorepo/categories";
 //Shared_Components
 import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
 import { NoDataAvailableComponent } from "@rose/shared_Components_business/no-data-available/no-data-available.component";
