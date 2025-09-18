@@ -6,7 +6,7 @@ import { FormsModule } from "@angular/forms";
 // Components
 import { BestsellerSliderComponent } from "@rose/shared_Components_ui/bestseller-slider/bestseller-slider.component";
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
-import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
+import { CustomInputComponent } from "@angular-monorepo/ui";
 import { CartComponent } from "./components/cart/cart.component";
 // Animation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";

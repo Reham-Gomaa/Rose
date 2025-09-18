@@ -10,8 +10,7 @@ import { TranslationService } from "@rose/core_services/translation/translation.
 import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
 import { UserStateService } from "@rose/core_services/user-state/user-state.service";
 // Shared_Components
-import { CustomInputPhoneComponent } from "@rose/shared_Components_ui/custom-input-phone/custom-input-phone.component";
-import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
+import { CustomInputComponent , CustomInputPhoneComponent } from "@angular-monorepo/ui";
 import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
 import { ConfirmDialogComponent } from "@rose/shared_Components_business/confirm-dialog/confirm-dialog.component";
 // PrimeNg
