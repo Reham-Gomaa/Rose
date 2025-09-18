@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { EndPoint } from "@rose/core_enums/endpoints";
-import { environment } from "@rose/core_environment/baseurl.dev";
+import { environment } from "apps/environment/baseurl.dev";
 import { Address } from "@rose/core_interfaces/user-address.interface";
 import {
   CashRes,
