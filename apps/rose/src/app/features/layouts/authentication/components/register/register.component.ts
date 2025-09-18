@@ -14,8 +14,7 @@ import { TranslationService } from "@rose/core_services/translation/translation.
 // Components
 import { AuthComponent } from "@rose/features_layouts/authentication/auth.component";
 // shared-components
-import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
-import { CustomInputPhoneComponent } from "@rose/shared_Components_ui/custom-input-phone/custom-input-phone.component";
+import { CustomInputComponent , CustomInputPhoneComponent } from "@angular-monorepo/ui";
 import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
 // animation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
