@@ -117,7 +117,6 @@ export class AddressStepperComponent implements OnInit {
         lat: event.latLng.lat(),
         lng: event.latLng.lng(),
       };
-      console.log("Marker placed at:", this.markerPosition);
     }
   }
 

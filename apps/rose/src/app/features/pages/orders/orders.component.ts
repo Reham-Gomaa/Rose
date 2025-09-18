@@ -47,7 +47,6 @@ export class OrdersComponent implements OnInit {
       .subscribe({
         next: (response: OrderRes) => {
           this.orders = response.orders;
-          console.log(this.orders);
         },
         error: (error) => {
           console.error("Error loading orders:", error);

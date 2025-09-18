@@ -57,6 +57,11 @@
           "codeCoverage": true
         }
       }
+    },
+    "e2e-ci--**/**": {
+      "dependsOn": [
+        "^build"
+      ]
     }
   },
   "plugins": [

@@ -7,15 +7,14 @@ import { countBproduct } from "../interfaces/count-by-product.interface";
 import { ProductDetails } from "../interfaces/productDetails.interface";
 import { ProductDetailsRes } from "../interfaces/details.interface";
 import { EndPoints } from "../enums/productsApi.endPoints";
-import { API_BASE_URL_PRODUCTS } from '../token/api-token'
-
+import { API_BASE_URL_PRODUCTS } from "../token/api-token";
 
 @Injectable({
   providedIn: "root",
 })
 export class ProductsService extends ProductsApi {
   private readonly httpClient = inject(HttpClient);
-  private readonly API_BASE=inject(API_BASE_URL_PRODUCTS)
+  private readonly API_BASE = inject(API_BASE_URL_PRODUCTS);
 
   getAllProducts(categoryId?: string): Observable<ProductRes> {
     const finalUrl: string = this.API_BASE + EndPoints.PRODUCTS;
@@ -32,7 +31,6 @@ export class ProductsService extends ProductsApi {
     return this.httpClient.get<countBproduct>(finalUrl);
   }
 
-
   getProductDetails(prodId: string): Observable<ProductDetails> {
     const finalUrl: string = this.API_BASE + EndPoints.PRODUCTS;
     return this.httpClient.get<ProductDetails>(`${finalUrl}/${prodId}`);
@@ -40,8 +38,6 @@ export class ProductsService extends ProductsApi {
   getSpecificProduct(id: string): Observable<ProductDetailsRes> {
     const finalUrl: string = this.API_BASE + EndPoints.PRODUCTS;
     //get specific product by id
-    return this.httpClient
-      .get<ProductDetailsRes>(`${finalUrl}/${id}`)
-      .pipe(shareReplay(1));
+    return this.httpClient.get<ProductDetailsRes>(`${finalUrl}/${id}`).pipe(shareReplay(1));
   }
 }

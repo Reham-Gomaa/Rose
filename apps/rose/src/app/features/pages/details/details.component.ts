@@ -42,7 +42,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
     this.subscription = this._productService.getProductDetails(this.productId).subscribe({
       next: (response) => {
         this.productDetails = response.product;
-        console.log(this.productDetails);
       },
     });
   }

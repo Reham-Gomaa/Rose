@@ -161,7 +161,6 @@ export class EditProfileComponent {
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: () => {
-          console.log("Toast fired!");
           this._messageService.add({
             severity: "success",
             detail: this._translate.instant("messagesToast.profileUpdatedSuccessfully"),

@@ -1,6 +1,5 @@
 import { Observable } from "rxjs";
-import { CategoryRes} from "../interfaces/categories.interface";
-
+import { CategoryRes } from "../interfaces/categories.interface";
 
 export abstract class CategoriesApi {
   abstract getAllCategories(): Observable<CategoryRes>;
