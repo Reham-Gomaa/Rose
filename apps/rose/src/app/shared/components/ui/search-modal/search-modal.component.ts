@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 //primeNg
 import { ButtonModule } from "primeng/button";
 
@@ -8,11 +8,8 @@ import { ButtonModule } from "primeng/button";
   templateUrl: "./search-modal.component.html",
   styleUrl: "./search-modal.component.scss",
 })
-export class SearchModalComponent implements OnInit {
+export class SearchModalComponent {
   closeSearch = false;
-  ngOnInit() {
-    console.log(this.closeSearch);
-  }
   closeModal() {
     this.closeSearch = true;
   }

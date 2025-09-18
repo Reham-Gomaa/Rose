@@ -40,10 +40,10 @@ import { API_CONFIG } from "auth-api-kp";
 import { API_BASE_URL_PRODUCTS } from "@angular-monorepo/products";
 // Header Interceptor
 import { headingInterceptor } from "./core/interceptors/header.interceptor";
-
-// Transelate Title
+// Environment
+import { environment } from "apps/environment/baseurl.dev";
+// Translate Title
 import { TranslateTitleStrategy } from "./core/strategies/translate-title.strategy";
-import { environment } from "@rose/core_environment/baseurl.dev";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
 }
