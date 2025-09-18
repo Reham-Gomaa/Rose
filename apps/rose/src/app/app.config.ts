@@ -79,7 +79,7 @@ export const appConfig: ApplicationConfig = {
       provide: API_BASE_URL_PRODUCTS,
       useValue: environment.baseApiUrl,
     },
-     {
+    {
       provide: API_BASE_URL_CATEGORIES,
       useValue: environment.baseApiUrl,
     },
