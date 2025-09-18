@@ -37,7 +37,6 @@ import { providePrimeNG } from "primeng/config";
 import { ToastModule } from "primeng/toast";
 // Auth LIB
 import { API_CONFIG } from "auth-api-kp";
-import { API_BASE_URL_PRODUCTS } from "@angular-monorepo/products";
 // Header Interceptor
 import { headingInterceptor } from "./core/interceptors/header.interceptor";
 // Environment
@@ -45,6 +44,8 @@ import { environment } from "apps/environment/baseurl.dev";
 // Translate Title
 import { TranslateTitleStrategy } from "./core/strategies/translate-title.strategy";
 import { API_BASE_URL_CATEGORIES } from "@angular-monorepo/categories";
+import { API_BASE_URL_PRODUCTS } from "@angular-monorepo/products";
+import { BASE_URL } from "@angular-monorepo/occasions";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./i18n/", ".json");
 }
@@ -127,5 +128,12 @@ export const appConfig: ApplicationConfig = {
       checkout: checkoutReducer,
     }),
     provideEffects(sortEffects, FilterEffects, AddressEffect, checkoutEffects, CartEffects),
+
+    {
+      provide: BASE_URL,
+      useValue: environment.baseApiUrl,
+    },
+
+
   ],
 };
