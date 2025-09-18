@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 
 export const toggleWishlistProduct = createAction(
   "[wishlist] toggle product in wishlist",

@@ -1,7 +1,7 @@
 import { NgOptimizedImage } from "@angular/common";
 import { Component, effect, inject, input, signal } from "@angular/core";
 //interfaces
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 import { cartItems } from "@rose/core_interfaces/cart.interface";
 // PrimeNG
 import { DialogModule } from "primeng/dialog";

@@ -7,11 +7,11 @@ import { TranslationService } from "@rose/core_services/translation/translation.
 import { trigger, transition, query, style, animate, stagger } from "@angular/animations";
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 //Shared_Services
-import { ProductsService } from "@rose/shared_services/products/products.service";
-import { CategoriesService } from "@rose/shared_services/categories/categories.service";
+import { ProductsService } from "@angular-monorepo/products";
+import { CategoriesService } from "@angular-monorepo/categories";
 //Interfaces
-import { Product } from "@rose/core_interfaces/carditem.interface";
-import { CategoryOption } from "@rose/core_interfaces/categories.interface";
+import { Product } from "@angular-monorepo/products";
+import { CategoryOption } from "@angular-monorepo/categories";
 //Shared_Components
 import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
 import { NoDataAvailableComponent } from "@rose/shared_Components_business/no-data-available/no-data-available.component";

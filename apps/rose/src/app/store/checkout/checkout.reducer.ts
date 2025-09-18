@@ -19,15 +19,12 @@ export const checkoutReducer = createReducer(
     };
   }),
   on(CheckoutActions.createCashOrderSuccess, (state) => {
-    //login as response to cash order created
     return { ...state };
   }),
   on(CheckoutActions.checkoutSessionOpened, (state) => {
-    //login as response to checkout session opened
     return { ...state };
   }),
   on(CheckoutActions.checkoutFailed, (state, { failureRes }) => {
-    console.log(failureRes);
     return { ...state };
   })
 );

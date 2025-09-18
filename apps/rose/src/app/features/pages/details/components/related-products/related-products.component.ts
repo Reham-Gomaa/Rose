@@ -15,12 +15,12 @@ import { CarouselModule } from "primeng/carousel";
 import { SkeletonModule } from "primeng/skeleton";
 
 // shared-interfaces
-import { Product, ProductRes } from "@rose/core_interfaces/carditem.interface";
-import { ProductDetail, ProductDetailsRes } from "@rose/core_interfaces/details.interface";
+import { Product, ProductRes } from "@angular-monorepo/products";
+import { ProductDetail, ProductDetailsRes } from "@angular-monorepo/products";
 
 // shared-services
 import { TranslationService } from "@rose/core_services/translation/translation.service";
-import { ProductsService } from "@rose/shared_services/products/products.service";
+import { ProductsService } from "@angular-monorepo/products";
 
 // shared-component
 import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";

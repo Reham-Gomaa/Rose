@@ -8,7 +8,7 @@ import { TranslationService } from "@rose/core_services/translation/translation.
 import { PrimeIcons } from "primeng/api";
 //Interfaces
 import { OrderItem, OrderRes, Orders } from "@rose/core_interfaces/orders";
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 // Shared Services
 import { OrdersService } from "@rose/shared_services/orders/orders.service";
 // RxJS
@@ -47,7 +47,6 @@ export class OrdersComponent implements OnInit {
       .subscribe({
         next: (response: OrderRes) => {
           this.orders = response.orders;
-          console.log(this.orders);
         },
         error: (error) => {
           console.error("Error loading orders:", error);

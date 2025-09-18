@@ -39,9 +39,11 @@ import { ToastModule } from "primeng/toast";
 import { API_CONFIG } from "auth-api-kp";
 // Header Interceptor
 import { headingInterceptor } from "./core/interceptors/header.interceptor";
-
-// Transelate Title
+// Environment
+import { environment } from "apps/environment/baseurl.dev";
+// Translate Title
 import { TranslateTitleStrategy } from "./core/strategies/translate-title.strategy";
+import { API_BASE_URL_CATEGORIES } from "@angular-monorepo/categories";
 import { BASE_URL } from "@angular-monorepo/occasions";
 import { environment } from "@rose/core_environment/baseurl.dev";
 export function HttpLoaderFactory(http: HttpClient) {
@@ -73,6 +75,14 @@ export const appConfig: ApplicationConfig = {
           },
         },
       },
+    },
+    {
+      provide: API_BASE_URL_PRODUCTS,
+      useValue: environment.baseApiUrl,
+    },
+    {
+      provide: API_BASE_URL_CATEGORIES,
+      useValue: environment.baseApiUrl,
     },
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),

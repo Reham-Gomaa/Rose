@@ -3,8 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angula
 import { GoogleMapsModule } from "@angular/google-maps";
 import { ButtonModule } from "primeng/button";
 import { StepperModule } from "primeng/stepper";
-import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
-import { CustomInputPhoneComponent } from "@rose/shared_Components_ui/custom-input-phone/custom-input-phone.component";
+import { CustomInputComponent , CustomInputPhoneComponent } from "@angular-monorepo/ui";
 import { Store } from "@ngrx/store";
 import {
   AddAddress,
@@ -118,7 +117,6 @@ export class AddressStepperComponent implements OnInit {
         lat: event.latLng.lat(),
         lng: event.latLng.lng(),
       };
-      console.log("Marker placed at:", this.markerPosition);
     }
   }
 

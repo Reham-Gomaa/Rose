@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 import { loadWishlist, toggleWishlistProduct } from "./wishlist-actions";
 import { wishlistStates } from "./wishlist-states";
 

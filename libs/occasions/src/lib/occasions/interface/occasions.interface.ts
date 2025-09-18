@@ -1,4 +1,4 @@
-import { PaginationData } from "./PaginationData.interface";
+import { PaginationData } from "@angular-monorepo/products";
 
 export interface occasionRes {
   message: string;
