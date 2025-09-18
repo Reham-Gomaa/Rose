@@ -2,8 +2,16 @@
   <!-- First Row: Logo, Search, Icons -->
   <div class="first-row">
     <div class="logo-section">
-      <img [routerLink]="'/'" ngSrc="/images/navbar/Rose.AVIF" width="85" height="80" alt="Rose logo" rel="preload"
-        decoding="async" class="logo-img" />
+      <img
+        [routerLink]="'/'"
+        ngSrc="/images/navbar/Rose.AVIF"
+        width="85"
+        height="80"
+        alt="Rose logo"
+        rel="preload"
+        decoding="async"
+        class="logo-img"
+      />
       <div class="location">
         <span class="location-header">{{ "navbar.deliver" | translate }}</span>
         <div class="location-content">
@@ -16,7 +24,12 @@
     <div class="search-section">
       <p-iconfield>
         <p-inputicon styleClass="pi pi-search ml-1" />
-        <input type="text" pInputText [placeholder]="'navbar.search' | translate" class="search-input w-100" />
+        <input
+          type="text"
+          pInputText
+          [placeholder]="'navbar.search' | translate"
+          class="search-input w-100"
+        />
       </p-iconfield>
     </div>
 
@@ -28,12 +41,19 @@
       </button>
       <div class="icons">
         <i [routerLink]="'wishlist'" class="pi pi-heart cursor-pointer text-md"></i>
-        <a [routerLink]="'order-flow'"><i class="pi pi-shopping-cart cursor-pointer text-md"></i></a>
+        <a [routerLink]="'order-flow'"
+          ><i class="pi pi-shopping-cart cursor-pointer text-md"></i
+        ></a>
         <i class="pi pi-bell cursor-pointer text-md"></i>
       </div>
       } @else {
-      <p-splitButton [label]="'Hello ' + userName()" aria-label="User Menu" [model]="userDropDown()"
-        styleClass="user-greeting-btn" menuStyleClass="user-menu-overlay">
+      <p-splitButton
+        [label]="'Hello ' + userName()"
+        aria-label="User Menu"
+        [model]="userDropDown()"
+        styleClass="user-greeting-btn"
+        menuStyleClass="user-menu-overlay"
+      >
         <ng-template pTemplate="content">
           <div class="flex flex-column align-items-start">
             {{ "navbar.hello" | translate }}
@@ -43,13 +63,22 @@
       </p-splitButton>
 
       <div class="icons">
-        <p-overlaybadge [routerLink]="'wishlist'" [value]="favouriteItemsNum$ | async" class="custom-badge"
-          [badgeSize]="'small'">
+        <p-overlaybadge
+          [routerLink]="'wishlist'"
+          [value]="favouriteItemsNum$ | async"
+          class="custom-badge"
+          [badgeSize]="'small'"
+        >
           <i class="pi pi-heart cursor-pointer text-lg"></i>
         </p-overlaybadge>
         <p-overlaybadge [value]="cartItemsNum$ | async" class="custom-badge" [badgeSize]="'small'">
-          <i tabindex="0" [routerLink]="'order-flow'" (keydown)="cartService.orderFlowState.set('cart')"
-            (click)="cartService.orderFlowState.set('cart')" class="pi pi-shopping-cart cursor-pointer text-md"></i>
+          <i
+            tabindex="0"
+            [routerLink]="'order-flow'"
+            (keydown)="cartService.orderFlowState.set('cart')"
+            (click)="cartService.orderFlowState.set('cart')"
+            class="pi pi-shopping-cart cursor-pointer text-md"
+          ></i>
         </p-overlaybadge>
         <p-overlaybadge value="4" class="custom-badge" [badgeSize]="'small'">
           <i class="pi pi-bell cursor-pointer text-md"></i>
@@ -70,8 +99,12 @@
   <div class="second-row">
     <p-menubar ngSkipHydration [model]="items()" class="menu-bar">
       <ng-template #item let-item let-root="root">
-        <a [routerLink]="item.route" routerLinkActive="active" pRipple
-          class="flex items-center p-menubar-item-link nav-items">
+        <a
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          pRipple
+          class="flex items-center p-menubar-item-link nav-items"
+        >
           <div class="flex items-center">
             <i [class]="item.icon" class="menu-icon mr-2"></i>
             <span>{{ item.label | translate }}</span>
@@ -83,11 +116,24 @@
 </div>
 
 <div class="smallNav">
-  <p-dialog ngSkipHydration [modal]="true" [(visible)]="visible" [position]="position()" [style]="{ width: '25rem' }">
+  <p-dialog
+    ngSkipHydration
+    [modal]="true"
+    [(visible)]="visible"
+    [position]="position()"
+    [style]="{ width: '25rem' }"
+  >
     <div class="flex align-items-center justify-content-between mb-4">
       <div class="smallNav-header">
-        <img [routerLink]="'/'" ngSrc="/images/navbar/Rose.AVIF" width="54" height="54" alt="Rose logo" loading="lazy"
-          decoding="async" />
+        <img
+          [routerLink]="'/'"
+          ngSrc="/images/navbar/Rose.AVIF"
+          width="54"
+          height="54"
+          alt="Rose logo"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
 
       <div class="flex align-items-center gap-1">

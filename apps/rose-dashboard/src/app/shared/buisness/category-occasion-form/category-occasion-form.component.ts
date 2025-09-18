@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-category-occasion-form',
+  selector: "app-category-occasion-form",
   imports: [],
-  templateUrl: './category-occasion-form.component.html',
-  styleUrl: './category-occasion-form.component.scss'
+  templateUrl: "./category-occasion-form.component.html",
+  styleUrl: "./category-occasion-form.component.scss",
 })
-export class CategoryOccasionFormComponent {
-
-}
+export class CategoryOccasionFormComponent {}

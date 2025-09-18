@@ -1,11 +1,9 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-change-password',
+  selector: "app-change-password",
   imports: [],
-  templateUrl: './change-password.component.html',
-  styleUrl: './change-password.component.scss'
+  templateUrl: "./change-password.component.html",
+  styleUrl: "./change-password.component.scss",
 })
-export class ChangePasswordComponent {
-
-}
+export class ChangePasswordComponent {}

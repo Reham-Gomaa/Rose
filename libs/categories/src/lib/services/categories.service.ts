@@ -4,7 +4,7 @@ import { Observable, shareReplay } from "rxjs";
 // Interfaces
 import { CategoryRes } from "../interfaces/categories.interface";
 // Enums
-import { EndPoints } from "../enums/categoriesAPI.endpoints"
+import { EndPoints } from "../enums/categoriesAPI.endpoints";
 // Token
 import { API_BASE_URL_CATEGORIES } from "../token/api-token";
 // Base
@@ -24,8 +24,6 @@ export class CategoriesService extends CategoriesApi {
 
   getCategoryById(categoryId: string): Observable<CategoryRes> {
     const finalUrl: string = this.API_BASE + EndPoints.CATEGORIES;
-    return this.httpClient
-      .get<CategoryRes>(`${finalUrl}/${categoryId}`)
-      .pipe(shareReplay(1));
+    return this.httpClient.get<CategoryRes>(`${finalUrl}/${categoryId}`).pipe(shareReplay(1));
   }
 }
