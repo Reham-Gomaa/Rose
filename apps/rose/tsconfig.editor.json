@@ -1,7 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "../../libs/categories/src/lib/interfaces/categories.interface.ts",
+    "../../libs/categories/src/lib/services/categories.service.spec.ts",
+    "../../libs/categories/src/lib/services/categories.service.ts"
   ],
   "compilerOptions": {
     "ignoreDeprecations": "6.0"
