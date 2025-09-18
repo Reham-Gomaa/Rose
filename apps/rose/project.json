@@ -56,8 +56,8 @@
           "outputHashing": "all",
           "fileReplacements": [
             {
-              "replace": "apps/rose/src/app/core/environment/baseurl.dev.ts",
-              "with": "apps/rose/src/app/core/environment/baseurl.prod.ts"
+              "replace": "apps/environment/baseurl.dev.ts",
+              "with": "apps/environment/baseurl.prod.ts"
             }
           ]
         },
@@ -67,8 +67,8 @@
           "sourceMap": true,
           "fileReplacements": [
             {
-              "replace": "apps/rose/src/app/core/environment/baseurl.prod.ts",
-              "with": "apps/rose/src/app/core/environment/baseurl.dev.ts"
+              "replace": "apps/environment/baseurl.prod.ts",
+              "with": "apps/environment/baseurl.dev.ts"
             }
           ]
         },
