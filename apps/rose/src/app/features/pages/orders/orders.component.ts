@@ -3,7 +3,7 @@ import { CurrencyPipe, DatePipe, NgOptimizedImage } from "@angular/common";
 import { RouterModule } from "@angular/router";
 //Translation
 import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/translation";
 // PrimeNG
 import { PrimeIcons } from "primeng/api";
 //Interfaces
