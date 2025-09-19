@@ -25,7 +25,7 @@
         <button type="button" class="tabs-popular-items" disabled>
           <p-skeleton width="5rem" height="2rem"></p-skeleton>
         </button>
-        } } @else { @for (category of categories(); track category.id) {
+        } } @else { @for (category of categories(); track $index) {
         <button
           type="button"
           class="tabs-popular-items"
@@ -61,7 +61,7 @@
     itemscope
     itemtype="https://schema.org/ItemList"
   >
-    @for (productInfo of filteredCards; track productInfo.id) {
+    @for (productInfo of filteredCards; track $index) {
     <div
       class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-2"
       itemprop="itemListElement"
