@@ -1,8 +1,9 @@
 import { Injectable, inject } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { Store } from "@ngrx/store";
+import { TranslateService } from "@ngx-translate/core";
 import { CartService } from "@rose/shared_services/cart/cart.service";
-import { catchError, map, of, switchMap } from "rxjs";
+import { MessageService } from "primeng/api";
+import { catchError, map, of, switchMap, tap } from "rxjs";
 import {
   addProductToCart,
   addProductToCartSuccess,
@@ -21,7 +22,8 @@ import {
 export class CartEffects {
   private readonly actions$ = inject(Actions);
   private readonly cartService = inject(CartService);
-  private readonly store = inject(Store);
+  private readonly _messageService = inject(MessageService);
+  private readonly _translate = inject(TranslateService);
 
   loadCart$ = createEffect(() =>
     this.actions$.pipe(
@@ -33,6 +35,20 @@ export class CartEffects {
         )
       )
     )
+  );
+
+  loadCartFailureToast$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(getUserCartFailure),
+        tap(() => {
+          this._messageService.add({
+            severity: "error",
+            detail: this._translate.instant("messagesToast.somethingWentWrong"),
+          });
+        })
+      ),
+    { dispatch: false }
   );
 
   addProduct$ = createEffect(() =>
@@ -47,6 +63,20 @@ export class CartEffects {
     )
   );
 
+  addProductSuccessToast$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(addProductToCartSuccess),
+        tap(({ cart }) => {
+          this._messageService.add({
+            severity: "success",
+            detail: this._translate.instant("messagesToast.addToCartSuccess"),
+          });
+        })
+      ),
+    { dispatch: false }
+  );
+
   updateProduct$ = createEffect(() =>
     this.actions$.pipe(
       ofType(updateQuantity),
@@ -57,6 +87,20 @@ export class CartEffects {
         )
       )
     )
+  );
+
+  updateProductSuccessToast$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(updateQuantitySuccess),
+        tap(({ cart }) => {
+          this._messageService.add({
+            severity: "success",
+            detail: this._translate.instant("messagesToast.cartUpdatedSuccessfully"),
+          });
+        })
+      ),
+    { dispatch: false }
   );
 
   deleteProduct$ = createEffect(() =>
@@ -71,6 +115,20 @@ export class CartEffects {
     )
   );
 
+  deleteProductSuccessToast$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(deleteSpecificItemSuccess),
+        tap(({ cart }) => {
+          this._messageService.add({
+            severity: "success",
+            detail: this._translate.instant("messagesToast.pdtremovedsuccessfully"),
+          });
+        })
+      ),
+    { dispatch: false }
+  );
+
   clearCart$ = createEffect(() =>
     this.actions$.pipe(
       ofType(clearCart),
@@ -81,5 +139,19 @@ export class CartEffects {
         )
       )
     )
+  );
+
+  clearCartSuccessToast$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(clearCartSuccess),
+        tap(({ cart }) => {
+          this._messageService.add({
+            severity: "success",
+            detail: this._translate.instant("messagesToast.cartEmpty"),
+          });
+        })
+      ),
+    { dispatch: false }
   );
 }
