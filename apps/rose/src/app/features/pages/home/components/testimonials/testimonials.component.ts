@@ -10,11 +10,10 @@ import { responsiveOption, Testimonials } from "@rose/core_interfaces/testimonia
 // primeNg
 import { ButtonModule } from "primeng/button";
 import { CarouselModule } from "primeng/carousel";
-import { LazyBackgroundDirective } from "apps/rose/src/app/shared/directives/lazyBackground/lazyBackground.directive";
 
 @Component({
   selector: "app-testimonials",
-  imports: [CarouselModule, ButtonModule, TranslatePipe, LazyBackgroundDirective],
+  imports: [CarouselModule, ButtonModule, TranslatePipe],
   templateUrl: "./testimonials.component.html",
   styleUrl: "./testimonials.component.scss",
   host: {

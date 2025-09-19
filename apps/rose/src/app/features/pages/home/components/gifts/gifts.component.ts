@@ -21,7 +21,6 @@ import {
 } from "@rose/core_interfaces/special-gifts.interface";
 // Shared_Components
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
-import { LazyBackgroundDirective } from "./../../../../../shared/directives/lazyBackground/lazyBackground.directive";
 // primeNg ...
 import { isPlatformBrowser } from "@angular/common";
 import { ButtonModule } from "primeng/button";
@@ -30,14 +29,7 @@ import { TagModule } from "primeng/tag";
 
 @Component({
   selector: "app-gifts",
-  imports: [
-    CarouselModule,
-    ButtonModule,
-    TagModule,
-    ButtonComponent,
-    TranslatePipe,
-    LazyBackgroundDirective,
-  ],
+  imports: [CarouselModule, ButtonModule, TagModule, ButtonComponent, TranslatePipe],
   templateUrl: "./gifts.component.html",
   styleUrl: "./gifts.component.scss",
   host: {

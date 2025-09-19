@@ -9,13 +9,14 @@ import { DialogModule } from "primeng/dialog";
 import { Observable, take } from "rxjs";
 // cart store
 import { Store } from "@ngrx/store";
-import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
 import { WishlistToggleDirective } from "apps/rose/src/app/shared/directives/wishlistToggle.directive";
+import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
 import { selectCartItems } from "apps/rose/src/app/store/cart/cart-selectors";
+import { SoldOutComponent } from "@rose/shared_Components_ui/sold-out/soldOut.component";
 
 @Component({
   selector: "app-product-details",
-  imports: [NgOptimizedImage, DialogModule, WishlistToggleDirective],
+  imports: [NgOptimizedImage, DialogModule, WishlistToggleDirective, SoldOutComponent],
   templateUrl: "./product-details.component.html",
   styleUrl: "./product-details.component.scss",
 })

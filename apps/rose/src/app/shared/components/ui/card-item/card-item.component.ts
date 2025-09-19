@@ -1,5 +1,5 @@
 // @angular
-import { Component, inject, Input } from "@angular/core";
+import { Component, inject, input, Input, InputSignal } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RouterLink } from "@angular/router";
 // Images
@@ -16,6 +16,7 @@ import { WishlistToggleDirective } from "./../../../directives/wishlistToggle.di
 // cart store
 import { Store } from "@ngrx/store";
 import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
+import { SoldOutComponent } from "../sold-out/soldOut.component";
 
 @Component({
   selector: "app-card-item",
@@ -27,6 +28,7 @@ import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
     RouterLink,
     NgOptimizedImage,
     WishlistToggleDirective,
+    SoldOutComponent,
   ],
   templateUrl: "./card-item.component.html",
   styleUrl: "./card-item.component.scss",

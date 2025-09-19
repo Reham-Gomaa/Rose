@@ -1,4 +1,4 @@
-<section aria-label="Customer testimonials">
+<section role="region" aria-label="Customer testimonials">
   <div class="heading mt-8 text-center">
     <h5 class="title-h5 uppercase mb-2" itemprop="headline">
       {{ "home.testimonials.heading5" | translate }}
@@ -22,7 +22,7 @@
           <div class="carousel-card-wrapper lg:pr-4" role="group" aria-roledescription="slide" aria-label="Testimonial">
             <div class="card-container">
               <div class="card mx-auto">
-                <div class="img-container" role="img" [appLazyBackground]="'url(' + '\'' + pic.source + '\'' + ')'">
+                <div class="img-container" role="img" [style.backgroundImage]="'url(' + '\'' + pic.source + '\'' + ')'">
                 </div>
                 <div>
                   <h2 class="text-center">{{ pic.heading2 | translate }}</h2>
