@@ -1,16 +1,34 @@
 <section>
   <div class="heading mt-8">
-    <div class="p-relative d-inline-block wishlist-title-wrapper mb-3">
-      <h2 id="wishlist-heading" class="wishlist-title" itemprop="name">
-        {{ "favourites.title" | translate }}
-      </h2>
-      <div class="wishlist-bg-shape" aria-hidden="true"></div>
-      <div class="wishlist-underline-bar" aria-hidden="true"></div>
+    <div class=" mb-3 flex flex-row justify-content-between align-items-center">
+      <div class="p-relative d-inline-block wishlist-title-wrapper">
+        <h2 id="wishlist-heading" class="wishlist-title" itemprop="name">
+          {{ "favourites.title" | translate }}
+        </h2>
+        <div class="wishlist-bg-shape" aria-hidden="true"></div>
+        <div class="wishlist-underline-bar" aria-hidden="true"></div>
+      </div>
+      <div>
+        <app-button [disable]="!favouriteItems()" (click)="clearWishlistDialog.show()"
+          [bgColor]="'var(--cart-clearBtn-bg)'" [textColor]="'var(--cart-clearBtn-text)'"
+          [text]="'favourites.clear-wishlist' | translate" [padding]="'clear-cart-padding'"
+          [borderRadius]="'cart-radius'">
+          <img loading="lazy" decoding="async" width="20" height="20" ngSrc="./images/cart/brush-cleaning.AVIF"
+            alt="clear wishlist" />
+        </app-button>
+        <app-confirm-dialog #clearWishlistDialog
+          [message]="'favourites.confirm-dialog.deleteAccountConfirmation' | translate"
+          [subMessage]="'favourites.confirm-dialog.permanentActionWarning' | translate"
+          [cancelLabel]="'favourites.confirm-dialog.cancelDelete' | translate"
+          [confirmLabel]="'favourites.confirm-dialog.confirmDelete' | translate" (confirmed)="clearWishlist($event)" />
+      </div>
     </div>
   </div>
   <div class="grid">
     @for (item of favouriteItems(); track $index) {
     <app-card-item [productInfo]="item" class="col-12 md:col-6 lg:col-3" />
+    }@empty {
+    <app-empty-cart [message]="'favourites.empty' |translate" class="col-12 md:col-6 m-auto" />
     }
   </div>
 </section>

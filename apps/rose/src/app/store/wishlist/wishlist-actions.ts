@@ -10,3 +10,5 @@ export const loadWishlist = createAction(
   "[wishlist] add multiple products to favourites",
   props<{ products: Product[] }>()
 );
+
+export const clearWishlist = createAction("[wishlist] delete all favourites");

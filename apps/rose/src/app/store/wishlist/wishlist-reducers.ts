@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { Product } from "@rose/core_interfaces/carditem.interface";
-import { loadWishlist, toggleWishlistProduct } from "./wishlist-actions";
+import { clearWishlist, loadWishlist, toggleWishlistProduct } from "./wishlist-actions";
 import { wishlistStates } from "./wishlist-states";
 
 export const initialState: wishlistStates = {
@@ -35,5 +35,7 @@ export const wishlistReducer = createReducer(
         favouriteitemsNum: state.favouriteitemsNum + 1,
       };
     }
-  })
+  }),
+
+  on(clearWishlist, () => initialState)
 );

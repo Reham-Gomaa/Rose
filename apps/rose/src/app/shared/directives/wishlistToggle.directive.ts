@@ -84,8 +84,6 @@ export class WishlistToggleDirective implements OnInit {
   }
 
   private toggleProductInWishlist() {
-    if (!isPlatformBrowser(this.platformId)) return;
-
     this.store.dispatch(
       toggleWishlistProduct({
         product: this.appWishlistToggle(),
