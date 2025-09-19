@@ -6,8 +6,8 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 // shared-components
 import { AuthComponent } from "@rose/features_layouts/authentication/auth.component";
-import { CustomInputComponent } from "@angular-monorepo/ui";
 import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
+import { CustomInputComponent } from '@angular-monorepo/rose-custom-inputs';
 // services
 import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
 import { UserStateService } from "@rose/core_services/user-state/user-state.service";
