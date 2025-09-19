@@ -13,9 +13,9 @@ import { FormsModule } from "@angular/forms";
 import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 // Translate
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/translation";
 // Animation
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
 // Services
 import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
 import { UserStateService } from "@rose/core_services/user-state/user-state.service";

@@ -4,9 +4,9 @@ import { Router } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/translation";
 // Animation_Translation
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
 // Services
 import { UserStateService } from "@rose/core_services/user-state/user-state.service";
 import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";

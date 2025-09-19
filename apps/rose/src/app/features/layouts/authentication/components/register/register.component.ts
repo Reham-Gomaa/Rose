@@ -10,20 +10,24 @@ import { Router } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/translation";
 // Components
 import { AuthComponent } from "@rose/features_layouts/authentication/auth.component";
 // shared-components
 import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
 // animation
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
 // primeNG
 import { ToastModule } from "primeng/toast";
 import { MessageService } from "primeng/api";
 import { Select } from "primeng/select";
 // Auth lib
 import { AuthApiKpService } from "auth-api-kp";
-import { CustomInputComponent, CustomInputPhoneComponent, InputErrorHandlingComponent, } from '@angular-monorepo/rose-custom-inputs';
+import {
+  CustomInputComponent,
+  CustomInputPhoneComponent,
+  InputErrorHandlingComponent,
+} from "@angular-monorepo/rose-custom-inputs";
 
 @Component({
   selector: "app-register",

@@ -19,14 +19,14 @@ import { Product, ProductRes } from "@angular-monorepo/products";
 import { ProductDetail, ProductDetailsRes } from "@angular-monorepo/products";
 
 // shared-services
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/translation";
 import { ProductsService } from "@angular-monorepo/products";
 
 // shared-component
 import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
 
 // Animation
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
 
 @Component({
   selector: "app-related-products",

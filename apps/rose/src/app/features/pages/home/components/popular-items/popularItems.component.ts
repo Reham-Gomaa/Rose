@@ -2,10 +2,10 @@ import { Component, inject, OnInit, signal, DestroyRef } from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 //translation
 import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/translation";
 //Animations
 import { trigger, transition, query, style, animate, stagger } from "@angular/animations";
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
 //Shared_Services
 import { ProductsService } from "@angular-monorepo/products";
 import { CategoriesService } from "@angular-monorepo/categories";
