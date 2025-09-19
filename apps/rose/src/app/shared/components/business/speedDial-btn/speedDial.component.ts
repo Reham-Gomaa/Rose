@@ -2,7 +2,7 @@ import { Component, inject, OnInit, PLATFORM_ID, signal, WritableSignal } from "
 import { isPlatformBrowser } from "@angular/common";
 // shared Service
 import { DarkModeService } from "@rose/core_services/darkmode/darkmode.service";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/translation";
 // Primeng
 import { MenuItem, MessageService } from "primeng/api";
 import { SpeedDialModule } from "primeng/speeddial";

@@ -9,11 +9,11 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { Observable, tap } from "rxjs";
 // shared Interfaces and Services
 import { cartItems } from "@rose/core_interfaces/cart.interface";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/translation";
 // shared Components
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 // Animation
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
 // primeng
 import { Skeleton } from "primeng/skeleton";
 // Cart Data from store

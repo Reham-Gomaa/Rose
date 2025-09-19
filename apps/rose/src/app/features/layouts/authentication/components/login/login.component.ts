@@ -7,14 +7,14 @@ import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 // shared-components
 import { AuthComponent } from "@rose/features_layouts/authentication/auth.component";
 import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
-import { CustomInputComponent } from '@angular-monorepo/rose-custom-inputs';
+import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 // services
 import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
 import { UserStateService } from "@rose/core_services/user-state/user-state.service";
 // shared-service
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/translation";
 // Animation
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
 // PrimeNG
 import { MessageService } from "primeng/api";
 // Auth lib

@@ -1,6 +1,6 @@
 import { Component, inject, signal } from "@angular/core";
 // Translation
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/translation";
 // Components
 import { AuthComponent } from "../../auth.component";
 // Components-Flow
@@ -10,7 +10,7 @@ import { ForgetPasswordComponent } from "./components/forget-password/forget-pas
 // Interfaces
 import { forgetFlowDetails } from "@rose/core_interfaces/forget-flow-details.interface";
 // Animations
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
 
 @Component({
   selector: "app-reset-password",

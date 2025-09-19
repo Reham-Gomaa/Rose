@@ -1,12 +1,12 @@
 import { appRoutes } from "./app.routes";
 // @angular imports
-import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
-import { provideRouter, withInMemoryScrolling, withViewTransitions } from "@angular/router";
-import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
-import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 import { provideHttpClient, withFetch, withInterceptors } from "@angular/common/http";
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
+import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
 import { provideAnimations } from "@angular/platform-browser/animations";
+import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
+import { provideRouter, withInMemoryScrolling, withViewTransitions } from "@angular/router";
 // Auth LIB
 import { API_CONFIG } from "auth-api-kp";
 // primeng imports
@@ -14,9 +14,12 @@ import Aura from "@primeng/themes/aura";
 import { MessageService } from "primeng/api";
 import { providePrimeNG } from "primeng/config";
 import { ToastModule } from "primeng/toast";
+// Shared Libraries
+import { provideTranslation } from "@angular-monorepo/translation";
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideTranslation(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(withFetch(), withInterceptors([])),
     {
@@ -68,14 +71,5 @@ export const appConfig: ApplicationConfig = {
       },
     }),
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    // importProvidersFrom(
-    //   TranslateModule.forRoot({
-    //     loader: {
-    //       provide: TranslateLoader,
-    //       useFactory: HttpLoaderFactory,
-    //       deps: [HttpClient],
-    //     },
-    //   })
-    // ),
   ],
 };
