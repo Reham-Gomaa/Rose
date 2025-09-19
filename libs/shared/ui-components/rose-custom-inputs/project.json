@@ -1,7 +1,7 @@
 {
-  "name": "ui",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/shared/ui/src",
+  "name": "rose-custom-inputs",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/ui-components/rose-custom-inputs/src",
   "prefix": "lib",
   "projectType": "library",
   "tags": [],
@@ -12,7 +12,7 @@
         "{workspaceRoot}/coverage/{projectRoot}"
       ],
       "options": {
-        "jestConfig": "libs/shared/ui/jest.config.ts"
+        "jestConfig": "libs/shared/ui-components/rose-custom-inputs/jest.config.ts"
       }
     },
     "lint": {

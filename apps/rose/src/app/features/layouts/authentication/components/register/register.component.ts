@@ -14,7 +14,6 @@ import { TranslationService } from "@rose/core_services/translation/translation.
 // Components
 import { AuthComponent } from "@rose/features_layouts/authentication/auth.component";
 // shared-components
-import { CustomInputComponent , CustomInputPhoneComponent } from "@angular-monorepo/ui";
 import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
 // animation
 import { fadeTransition } from "@rose/core_services/translation/fade.animation";
@@ -24,7 +23,7 @@ import { MessageService } from "primeng/api";
 import { Select } from "primeng/select";
 // Auth lib
 import { AuthApiKpService } from "auth-api-kp";
-import { InputErrorHandlingComponent } from "@rose/shared_Components_business/input-error-handling/input-error-handling.component";
+import { CustomInputComponent, CustomInputPhoneComponent, InputErrorHandlingComponent, } from '@angular-monorepo/rose-custom-inputs';
 
 @Component({
   selector: "app-register",

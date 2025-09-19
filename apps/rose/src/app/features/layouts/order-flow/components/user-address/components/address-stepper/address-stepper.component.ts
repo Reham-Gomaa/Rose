@@ -3,7 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angula
 import { GoogleMapsModule } from "@angular/google-maps";
 import { ButtonModule } from "primeng/button";
 import { StepperModule } from "primeng/stepper";
-import { CustomInputComponent , CustomInputPhoneComponent } from "@angular-monorepo/ui";
+import { CustomInputComponent , CustomInputPhoneComponent } from "@angular-monorepo/rose-custom-inputs";
 import { Store } from "@ngrx/store";
 import {
   AddAddress,

@@ -24,8 +24,8 @@
       "@angular-monorepo/products": [
         "libs/products/src/index.ts"
       ],
-      "@angular-monorepo/ui": [
-        "libs/shared/ui/src/index.ts"
+      "@angular-monorepo/rose-custom-inputs": [
+        "libs/shared/ui-components/rose-custom-inputs/src/index.ts"
       ],
       "@rose/address/*": [
         "./apps/rose/src/app/store/address/*"
