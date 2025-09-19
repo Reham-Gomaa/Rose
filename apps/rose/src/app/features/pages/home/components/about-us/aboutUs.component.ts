@@ -1,19 +1,16 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 // Images
 import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
 // Animations
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
-// Services
-import { DarkModeService } from "@rose/core_services/darkmode/darkmode.service";
-// Shared_services
+import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 //PrimeNg
 import { ButtonModule } from "primeng/button";
 import { DividerModule } from "primeng/divider";
 import { RippleModule } from "primeng/ripple";
+import { TranslationService } from "@angular-monorepo/translation";
 
 @Component({
   selector: "app-about-us",
@@ -28,9 +25,12 @@ import { RippleModule } from "primeng/ripple";
   templateUrl: "./aboutUs.component.html",
   styleUrl: "./aboutUs.component.scss",
   animations: [fadeTransition],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    "[@fadeTransition]": "translationService.fadeState()",
+  },
 })
 export class AboutUsComponent {
-  public darkMode = inject(DarkModeService);
   translationService = inject(TranslationService);
 
   items = [

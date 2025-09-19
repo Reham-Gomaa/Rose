@@ -1,0 +1,84 @@
+<section>
+  <div class="contain mx-auto mb-8">
+    <!-- Payment and Summary -->
+    <div class="grid mb-8 align-items-start">
+      <div class="col-12 md:col-7">
+        @if ( cartService.orderFlowState() === "cart") {<app-cart />} @if (
+        cartService.orderFlowState() === "checkout") {<app-checkout />}
+      </div>
+      <!-- Summary -->
+      <div class="summary-box-wrapper col-12 md:col-5">
+        <h2 class="summary-title">{{ "orderFlow.summaryTitle" | translate }}</h2>
+        <div class="summary-box">
+          <div class="wrapper">
+            <div class="coupon-content flex gap-2 align-items-center justify-content-between">
+              <app-custom-input
+                [id]="'coupon-code'"
+                [labelText]="''"
+                [placeholder]="'orderFlow.couponCode' | translate"
+                [type]="'text'"
+              >
+              </app-custom-input>
+
+              <button type="button" class="buttons">
+                <i class="pi pi-ticket"></i>
+                {{ "orderFlow.applyCoupon" | translate }}
+              </button>
+            </div>
+
+            <div class="coupon-box mx-auto flex align-items-center justify-content-center">
+              <p>{{ "orderFlow.couponMessage" | translate }}</p>
+            </div>
+
+            <div class="total-row flex justify-content-between">
+              <span>{{ "orderFlow.Total" | translate }}</span>
+              <span>{{ totalPrice$ | async }}{{ "EGP" | translate }}</span>
+            </div>
+
+            @if (cartService.orderFlowState() === "cart"){
+            <app-button
+              [disable]="userCartItems().length === 0"
+              (click)="checkStoreQuantity()"
+              [text]="'orderFlow.checkoutButton' | translate"
+              [icon]="'pi pi-arrow-right arrowicon'"
+              [textColor]="'var(--btn-shared-color)'"
+              [bgColor]="'var(--btn-shared-background)'"
+              [borderRadius]="'btn-summary-radius'"
+              [padding]="'btn-summary-padding w-full'"
+              [transition]="'btn-summary-transition'"
+              aria-label="checkout and place order"
+            />
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Best Seller -->
+    <div class="mb-8">
+      <div class="p-relative d-inline-block details-title-wrapper">
+        <h2 id="details-heading" class="details-title" itemprop="name">
+          <span>{{ "home.bestSeller.left.heading2span1" | translate }}</span>
+          {{ "home.bestSeller.left.heading2" | translate }}
+          <span>{{ "home.bestSeller.left.heading2span2" | translate }}</span>
+        </h2>
+        <div class="details-bg-shape" aria-hidden="true"></div>
+        <div class="details-underline-bar" aria-hidden="true"></div>
+        <meta itemprop="description" content="Browse Best Sellers" />
+      </div>
+
+      <div class="product-carousel col-12 md:col-6 lg:col-8 mb-8">
+        <div class="col-12">
+          <app-bestseller-slider
+            [numVisible]="4"
+            [numScroll]="1"
+            [responsiveOptions]="responsiveOptions"
+            prevButtonClass="p-button-rounded custom-best-prev"
+            nextButtonClass="p-button-rounded custom-best-next"
+            ariaLabel="Best seller products carousel"
+          ></app-bestseller-slider>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

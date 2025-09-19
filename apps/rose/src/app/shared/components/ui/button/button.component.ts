@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, input, Input, InputSignal } from "@angular/core";
 
 @Component({
   selector: "app-button",
@@ -7,11 +7,14 @@ import { Component, Input } from "@angular/core";
   styleUrl: "./button.component.scss",
 })
 export class ButtonComponent {
-  @Input() text!: string;
-  @Input() isIcon!: boolean;
-  @Input() isRefresh!: boolean;
-  @Input() borderRadius!: string;
-  @Input() padding!: string;
-  @Input() margin!: string;
-  @Input() transition!: string;
+  text: InputSignal<string> = input("");
+  icon: InputSignal<string> = input("");
+  borderRadius: InputSignal<string> = input("");
+  padding: InputSignal<string> = input("");
+  margin: InputSignal<string> = input("");
+  transition: InputSignal<string> = input("");
+  rowReverse: InputSignal<string> = input("");
+  bgColor: InputSignal<string> = input("");
+  textColor: InputSignal<string> = input("");
+  disable: InputSignal<boolean> = input(false);
 }

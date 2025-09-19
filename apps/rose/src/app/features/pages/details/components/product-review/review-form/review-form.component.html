@@ -1,0 +1,32 @@
+<form [formGroup]="reviewForm" (ngSubmit)="addReview()">
+  <div class="review-form pr-5">
+    <div class="flex flex-col items-center gap-2 mb-3">
+      <span class="capitalize rateLabel mr-1">{{ "Details.yourRating" | translate }} : </span>
+      <p-rating formControlName="ratingValue" [stars]="5" />
+    </div>
+    <div class="field">
+      <label for="title" class="capitalize">{{ "Details.title" | translate }}</label>
+      <input
+        id="title"
+        formControlName="reviewTitle"
+        type="text"
+        placeholder="{{ 'Details.enterTitle' | translate }}"
+        class="text-base surface-overlay p-2 border-1 border-solid border-round appearance-none outline-none w-full"
+      />
+    </div>
+    <div class="field">
+      <label for="review" class="capitalize">{{ "Details.review" | translate }}</label>
+      <textarea
+        id="review"
+        formControlName="reviewDescription"
+        placeholder="{{ 'Details.enterReview' | translate }}"
+        type="text"
+        rows="4"
+        class="text-base surface-overlay p-2 border-1 border-solid border-round appearance-none outline-none w-full"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn review submit-btn font-semibold capitalize cursor-pointer">
+      {{ "Details.addReview" | translate }}
+    </button>
+  </div>
+</form>

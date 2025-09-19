@@ -1,8 +1,4 @@
-<section
-  [@fadeTransition]="translationService.fadeState()"
-  class="trusted-companies"
-  aria-labelledby="trusted-companies-heading"
->
+<section class="trusted-companies" aria-labelledby="trusted-companies-heading">
   <div class="trusted-companies-content">
     <!-- Title -->
     <div class="trusted-companies-title">
@@ -36,7 +32,9 @@
       <div class="btn-res">
         <app-button
           [text]="'home.trustedBy.btn' | translate"
-          [isIcon]="true"
+          [icon]="'pi pi-arrow-right arrowicon'"
+          [bgColor]="'var(--btn-shared-background)'"
+          [textColor]="'var(--btn-shared-color)'"
           [borderRadius]="'btn-about-radius'"
           [padding]="'btn-about-padding'"
           [transition]="'btn-about-transition'"

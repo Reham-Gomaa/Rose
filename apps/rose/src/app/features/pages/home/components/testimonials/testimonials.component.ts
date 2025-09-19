@@ -1,10 +1,10 @@
-import { Component, inject } from "@angular/core";
+import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 // Images
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/translation";
 // Animations
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
 // Interfaces
 import { responsiveOption, Testimonials } from "@rose/core_interfaces/testimonials.interface";
 // primeNg
@@ -16,31 +16,35 @@ import { CarouselModule } from "primeng/carousel";
   imports: [CarouselModule, ButtonModule, TranslatePipe],
   templateUrl: "./testimonials.component.html",
   styleUrl: "./testimonials.component.scss",
-  host: { ngSkipHydration: "true" },
+  host: {
+    ngSkipHydration: "true",
+    "[@fadeTransition]": "translationService.fadeState()",
+  },
   animations: [fadeTransition],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TestimonialsComponent {
   translationService = inject(TranslationService);
 
   testimonials: Testimonials[] = [
     {
-      source: "./images/testimonials/customer-1.WebP",
+      source: "./images/testimonials/customer-1.AVIF",
       heading2: "home.testimonials.customer1.heading2",
       paragraph: "home.testimonials.customer1.paragraph",
       heading3: "home.testimonials.heading3",
     },
     {
-      source: "./images/testimonials/customer-2.WebP",
+      source: "./images/testimonials/customer-2.AVIF",
       heading2: "home.testimonials.customer2.heading2",
       paragraph: "home.testimonials.customer2.paragraph",
       heading3: "home.testimonials.heading3",
     },
     {
-      source: "./images/testimonials/customer-3.WebP",
+      source: "./images/testimonials/customer-3.AVIF",
       heading2: "home.testimonials.customer3.heading2",
       paragraph: "home.testimonials.customer3.paragraph",
       heading3: "home.testimonials.heading3",
-    }
+    },
   ];
 
   responsiveOptions: responsiveOption[] | undefined = [

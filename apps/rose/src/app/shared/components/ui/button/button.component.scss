@@ -1,7 +1,5 @@
 button {
   display: block;
-  color: var(--btn-shared-color);
-  background-color: var(--btn-shared-background);
   border: none;
   box-shadow: 0px 0px 37.28px 4.66px #0000000d;
   font-family: var(--font-family-2);
@@ -110,4 +108,73 @@ button {
 .btn-about-transition,
 .btn-bestseller-transition {
   transition: all 0.5s ease;
+}
+
+.back-to-home-p {
+  padding: 5px 15px;
+}
+
+// cart
+.clear-cart-padding {
+  padding: 0.125rem 0.3125rem;
+  @media all and (min-width: 31.25rem) {
+    padding: 0.5rem;
+  }
+  @media all and (min-width: 48rem) {
+    padding: 0.625rem 1rem;
+  }
+}
+
+.cart-padding {
+  padding: 0.5rem;
+  @media all and (min-width: 48rem) {
+    padding: 0.625rem 1rem;
+  }
+}
+.cart-delete-padding {
+  padding: 0.3125rem 0.4375rem;
+
+  @media all and (min-width: 48rem) {
+    padding: 0.625rem;
+  }
+}
+.cart-radius {
+  border-radius: 0.625rem;
+}
+.cart-qty-padding {
+  padding: 6px 0.625rem;
+  @media all and (min-width: 48rem) {
+    padding: 0.625rem 1rem;
+  }
+}
+
+//btn summary-orderflow
+.btn-summary-radius {
+  border-radius: 0.625rem;
+}
+
+.btn-summary-padding {
+  padding: 0.625rem 1.25rem;
+}
+
+.btn-summary-transition {
+  transition: all 0.5s ease;
+}
+
+//btn-contact
+.btn-contact-radius {
+  border-radius: 0.625rem;
+}
+
+.btn-contact-padding {
+  padding: 0.625rem 1.25rem;
+}
+
+.btn-contact-transition {
+  transition: all 0.5s ease;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
 }

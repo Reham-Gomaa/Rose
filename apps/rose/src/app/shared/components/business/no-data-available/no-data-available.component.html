@@ -6,7 +6,9 @@
     </p>
     <app-button
       (click)="retryFetch()"
-      [isRefresh]="true"
+      [bgColor]="'var(--btn-shared-background)'"
+      [textColor]="'var(--btn-shared-color)'"
+      [icon]="'pi pi-refresh arrowicon'"
       [borderRadius]="'btn-roundedBorderRadius'"
       [padding]="'btn-topLeft-padding'"
       [margin]="'mx-auto'"

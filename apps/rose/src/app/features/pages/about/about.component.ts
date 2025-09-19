@@ -1,40 +1,32 @@
-import { Component } from "@angular/core";
-import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
-import { NgxIntlTelInputModule } from "ngx-intl-tel-input";
-import { CustomInputPhoneComponent } from "@rose/shared_Components_ui/custom-input-phone/custom-input-phone.component";
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
-
+import { Component, inject, OnInit } from "@angular/core";
+import { ReactiveFormsModule } from "@angular/forms";
+// shared-components
+import { UserAddressComponent } from "@rose/features_layouts/order-flow/components/user-address/user-address.component";
+import { ButtonModule } from "primeng/button";
+import { StepperModule } from "primeng/stepper";
+import { Address } from "@rose/core_interfaces/user-address.interface";
+import { Store } from "@ngrx/store";
+import { selectAddress, selectAddressState } from "../../../store/address/address.selector";
+import { AddressSituations } from "../../../store/address/addresses.state";
+import { setAddressState, showAddresses } from "../../../store/address/address.actions";
+import { AboutUsComponent } from "../home/components/about-us/aboutUs.component";
+import { TestimonialsComponent } from "../home/components/testimonials/testimonials.component";
+import { ExpertTeamComponent } from "./components/expert-team/expert-team.component";
+import { OurServicesComponent } from "../home/components/our-services/ourServices.component";
+import { TrustedByComponent } from "../home/components/trusted-by/trustedBy.component";
 @Component({
   selector: "app-about",
   templateUrl: "./about.component.html",
   styleUrl: "./about.component.scss",
-  standalone: true,
-  imports: [CustomInputComponent, NgxIntlTelInputModule, CustomInputPhoneComponent, ReactiveFormsModule],
+  imports: [
+    ButtonModule,
+    StepperModule,
+    ReactiveFormsModule,
+    AboutUsComponent,
+    TestimonialsComponent,
+    ExpertTeamComponent,
+    OurServicesComponent,
+    TrustedByComponent,
+  ],
 })
-export class AboutComponent {
-  aboutForm: FormGroup;
-
-  constructor(private fb: FormBuilder) {
-    this.aboutForm = this.fb.group({
-      name: ["", [Validators.required, Validators.minLength(2)]],
-      email: ["", [Validators.required, Validators.email]],
-      phone: ["", [Validators.required,]],
-      password: [
-        "",
-        [
-          Validators.required,
-          Validators.pattern(
-            "^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\-=[\]{};':\"\\|,.<>/?]).{8,}$"
-          )
-        ]
-      ],
-    });
-  }
-
-  onSubmit() {
-      console.log(this.aboutForm.value);
-      console.log(this.aboutForm)
-      console.log(this.aboutForm.get('name'))
-    
-  }
-}
+export class AboutComponent {}

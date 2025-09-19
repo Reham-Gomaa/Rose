@@ -1,0 +1,58 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  .title-label {
+    color: var(--label-color);
+  }
+}
+
+/* Scoped styles for p-select */
+:host ::ng-deep .p-select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--input-border-color);
+  border-radius: 10px;
+  background: var(--input-color);
+
+  transition: border-color 0.2s;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  &.p-focus {
+    outline: none;
+    border-color: var(--border-active-color) !important;
+    box-shadow: 0 0 0 2px var(--border-active-color) !important;
+  }
+
+  /* Option styles when selected or focused */
+  .p-select-option.p-select-option-selected,
+  .p-select-option.p-select-option-selected.p-focus {
+    background: transparent !important;
+    color: var(--border-active-color) !important;
+  }
+
+  .p-select-label {
+    color: var(--input-text-color);
+  }
+  .p-select-label.p-placeholder {
+    color: var(--input-placeholder-text-color);
+  }
+}
+
+.error-item {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--border-active-color);
+}
+
+@media (max-width: 700px) {
+  .error-item {
+    font-size: 0.85rem;
+  }
+}
+.error-list {
+  list-style: none;
+  padding: 0;
+}

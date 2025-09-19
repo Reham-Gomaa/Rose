@@ -49,16 +49,28 @@
             },
             {
               "type": "anyComponentStyle",
-              "maximumWarning": "4kb",
-              "maximumError": "8kb"
+              "maximumWarning": "32kb",
+              "maximumError": "40kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "apps/environment/baseurl.dev.ts",
+              "with": "apps/environment/baseurl.prod.ts"
+            }
+          ]
         },
         "development": {
           "optimization": false,
           "extractLicenses": false,
-          "sourceMap": true
+          "sourceMap": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/environment/baseurl.prod.ts",
+              "with": "apps/environment/baseurl.dev.ts"
+            }
+          ]
         },
         "analyze-bundle": {
           "sourceMap": true,

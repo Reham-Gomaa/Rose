@@ -1,4 +1,4 @@
-<div  class="product-card group w-full max-w-[18.87rem] sm:w-[18.87rem] mx-auto">
+<div class="product-card group w-full max-w-[18.87rem] sm:w-[18.87rem] mx-auto">
   <div class="image-wrapper">
     @if (loading) {
     <p-skeleton width="100%" height="200px"></p-skeleton>
@@ -14,8 +14,12 @@
     />
     <div class="bg-shape"></div>
     <div class="overlay-icons">
-      <i [routerLink]="['/dashboard/details',productInfo._id]" class="pi pi-eye icon-circle"></i>
-      <i class="pi pi-heart icon-circle"></i>
+      <i [routerLink]="['/dashboard/details', productInfo._id]" class="pi pi-eye icon-circle"></i>
+      <i
+        [appWishlistToggle]="productInfo"
+        class="pi pi-heart icon-circle"
+        [activeClass]="'wishlist-active'"
+      ></i>
     </div>
     }
   </div>
@@ -43,7 +47,13 @@
           {{ productInfo.price.toFixed(2) }} {{ "EGP" | translate }}
         </span>
       </div>
-      <i class="pi pi-shopping-bag btn-shopping text-white violet-bg border-circle"></i>
+      <i
+        [class.disableCart]="productInfo.quantity <= 0"
+        tabindex="0"
+        (click)="productInfo.quantity > 0 ? addProductToCart(productInfo._id) : null"
+        (keydown.enter)="productInfo.quantity > 0 ? addProductToCart(productInfo._id) : null"
+        class="pi pi-shopping-bag btn-shopping text-white violet-bg border-circle"
+      ></i>
       }
     </div>
   </div>
