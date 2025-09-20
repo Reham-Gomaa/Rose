@@ -11,7 +11,7 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 // shared-components
-import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
+import { FormButtonComponent } from "@angular-monorepo/rose-form-button";
 import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 // PrimeNG
 import { MessageService } from "primeng/api";

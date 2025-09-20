@@ -3,9 +3,9 @@ import { GoogleMapsModule } from "@angular/google-maps";
 // Router
 import { RouterOutlet } from "@angular/router";
 // Services
-import { DarkModeService } from "@rose/core_services/darkmode/darkmode.service";
+import { DarkModeService } from"@angular-monorepo/services";
 // Components_Shared
-import { NotificationToastComponent } from "@rose/shared_Components_ui/notification-toast/notification-toast.component";
+import { NotificationToastComponent } from "@angular-monorepo/notification-toast";
 @Component({
   imports: [RouterOutlet, NotificationToastComponent, GoogleMapsModule],
   selector: "app-root",

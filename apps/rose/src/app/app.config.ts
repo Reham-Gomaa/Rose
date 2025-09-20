@@ -36,7 +36,7 @@ import { ToastModule } from "primeng/toast";
 // Auth LIB
 import { API_CONFIG } from "auth-api-kp";
 // Header Interceptor
-import { headingInterceptor } from "./core/interceptors/header.interceptor";
+import { headingInterceptor } from "@angular-monorepo/core";
 // Environment
 import { environment } from "apps/environment/baseurl.dev";
 // Translate Title

@@ -6,11 +6,11 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 // shared-components
 import { AuthComponent } from "@rose/features_layouts/authentication/auth.component";
-import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
+import { FormButtonComponent } from "@angular-monorepo/rose-form-button";
 import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 // services
-import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
-import { UserStateService } from "@rose/core_services/user-state/user-state.service";
+import { StorageManagerService } from "@angular-monorepo/services";
+import { UserStateService } from "@angular-monorepo/services";
 // shared-service
 import { TranslationService } from "@angular-monorepo/translation";
 // Animation
@@ -74,19 +74,12 @@ export class LoginComponent {
             this._storageManagerService.setItem("authToken", res.token);
             this._userStateService.setLoggedIn(true);
 
-            const userRole = res.user.role;
-
             this._messageService.add({
               severity: "success",
               detail: this._translate.instant("messagesToast.loginSuccess"),
               life: 3000,
             });
-
-            if (userRole === "admin") {
-              window.location.href = "http://localhost:4200/#/dashboard/overview";
-            } else {
-              this._router.navigate(["/dashboard/home"]);
-            }
+            this._router.navigate(["/dashboard/home"]);
           } else {
             this._messageService.add({
               severity: "error",
@@ -95,7 +88,7 @@ export class LoginComponent {
             });
           }
         },
-        error: () => {
+        error: (err) => {
           this._messageService.add({
             severity: "error",
             detail: this._translate.instant("messagesToast.loginFailed"),

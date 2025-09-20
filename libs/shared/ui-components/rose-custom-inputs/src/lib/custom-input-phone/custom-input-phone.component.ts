@@ -1,11 +1,11 @@
+import { InputErrorHandlingComponent } from "@angular-monorepo/rose-custom-inputs";
 import { NgOptimizedImage } from "@angular/common";
 import { Component, forwardRef, input, OnInit, OnDestroy } from "@angular/core";
 import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 import { Country } from "@rose/core_interfaces/country";
-import { InputErrorHandlingComponent } from "../input-error-handling/input-error-handling.component";
 
 @Component({
-  selector: "app-custom-input-phone",
+  selector: "lib-custom-input-phone",
   templateUrl: "./custom-input-phone.component.html",
   styleUrl: "./custom-input-phone.component.scss",
   imports: [InputErrorHandlingComponent, NgOptimizedImage],
