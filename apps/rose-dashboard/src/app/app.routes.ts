@@ -48,9 +48,7 @@ export const appRoutes: Route[] = [
       {
         path: "user-profile",
         loadComponent: () =>
-          import("@rose_dashboard/features_pages/user-profile/user-profile.component").then(
-            (c) => c.UserProfileComponent,
-          ),
+          import("@angular-monorepo/user-profile").then((c) => c.UserProfileComponent),
         title: "titles.user-profile",
       },
     ],

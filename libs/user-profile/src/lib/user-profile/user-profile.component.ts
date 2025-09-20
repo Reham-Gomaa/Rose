@@ -1,4 +1,5 @@
 import { Component, DestroyRef, inject, signal } from "@angular/core";
+import { Location } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
 import { Router } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
@@ -48,6 +49,7 @@ export class UserProfileComponent {
   private readonly _messageService = inject(MessageService);
   private readonly _storageManagerService = inject(StorageManagerService);
   private readonly _userStateService = inject(UserStateService);
+  private location = inject(Location);
 
   apiError = signal<string>("");
   isLoading = signal<boolean>(false);
@@ -75,7 +77,7 @@ export class UserProfileComponent {
           });
 
           this.user.set(null);
-          this._router.navigate(["/dashboard/home"]);
+          this.location.go("https://rose-chi-nine.vercel.app/#/login");
 
           setTimeout(() => {
             document.documentElement.scrollTop = 0;

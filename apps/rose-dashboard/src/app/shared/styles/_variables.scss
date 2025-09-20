@@ -81,10 +81,100 @@ $breakpoint-small: 620px;
 
   // Body
   --body-color: var(--white);
+
+  //User-Profile
+  --user-profile-sidebar-title: var(--zinc-800);
+  --user-profile-sidebar-bg: var(--zinc-50);
+  --user-profile-sidebar-border: var(--zinc-100);
+  --user-profile-sidebar-menu-item-color: var(--zinc-800);
+  --user-profile-sidebar-menu-item-hover: var(--gray-200);
+  --user-profile-sidebar-menu-item-bg-active: var(--zinc-800);
+  --user-profile-sidebar-menu-item-color-active: var(--zinc-50);
+  --user-profile-sidebar-menu-item-btn-logout-bg: var(--zinc-100);
+  --user-profile-sidebar-menu-item-btn-logout-color: var(--maroon-500);
+  --user-profile-sidebar-menu-item-btn-logout-hover: var(--zinc-200);
+  --user-profile-sidebar-menu-item-mobile-color: var(--zinc-800);
+  --user-profile-sidebar-menu-item-mobile-hover: var(--zinc-100);
+  --user-profile-sidebar-menu-item-mobile-active-color: var(--maroon-500);
+  //edit-user-profile
+  --edit-user-profile-skeleton-bg: var(--gray-200);
+  --edit-user-profile-label-disable-color: var(--zinc-400);
+  --edit-user-profile-input-disable-bg: var(--zinc-100);
+  --edit-user-profile-input-disable-color: var(--zinc-400);
+  --edit-user-profile-upload-btn-bg: var(--zinc-50);
+  --edit-user-profile-upload-btn-border: var(--zinc-200);
+  --edit-user-profile-upload-btn-color: var(--zinc-900);
+  --edit-user-profile-upload-title-color: var(--zinc-800);
+  --edit-user-profile-upload-p-color: var(--zinc-500);
+  --edit-user-profile-delete-btn-color: var(--maroon-500);
+  //Change-Password
+  --change-password-label-color: var(--zinc-800);
+  --change-password-divider-bg: var(--zinc-200);
+  //confirm-dialog
+  --confirm-dialog-border-icon-out: var(--gray-900-05);
+  --confirm-dialog-border-icon-in: var(--gray-900-15);
+  --confirm-dialog-border-icon-color: var(--gray-900);
+  --confirm-dialog-bg: var(--white);
+  --confirm-dialog-title: var(--gray-900);
+  --confirm-dialog-subtitle: var(--maroon-500);
+  // cancel button
+  --confirm-dialog-btn-cancel-bg: var(--zinc-50);
+  --confirm-dialog-btn-cancel-border-color: var(--zinc-400);
+  --confirm-dialog-btn-cancel-color: var(--zinc-800);
+  --confirm-dialog-btn-cancel-hover: var(--zinc-100);
+  // confirm button
+  --confirm-dialog-btn-confirm-bg: var(--red-600);
+  --confirm-dialog-btn-confirm-color: var(--white);
+  --confirm-dialog-btn-confirm-hover: var(--maroon-500);
 }
 
 // Dark theme overrides
 .dark-mode {
   // Body
   --body-color: var(--zinc-800);
+
+  //User-Profile
+  --user-profile-sidebar-title: var(--zinc-50);
+  --user-profile-sidebar-bg: var(--zinc-700);
+  --user-profile-sidebar-border: var(--zinc-700);
+  --user-profile-sidebar-menu-item-color: var(--zinc-50);
+  --user-profile-sidebar-menu-item-hover: var(--zinc-600);
+  --user-profile-sidebar-menu-item-bg-active: var(--soft-pink-200);
+  --user-profile-sidebar-menu-item-color-active: var(--zinc-800);
+  --user-profile-sidebar-menu-item-btn-logout-bg: var(--zinc-600);
+  --user-profile-sidebar-menu-item-btn-logout-color: var(--soft-pink-400);
+  --user-profile-sidebar-menu-item-btn-logout-hover: var(--zinc-800);
+  --user-profile-sidebar-menu-item-mobile-color: var(--zinc-50);
+  --user-profile-sidebar-menu-item-mobile-hover: var(--zinc-600);
+  --user-profile-sidebar-menu-item-mobile-active-color: var(--soft-pink-200);
+  //edit-user-profile
+  --edit-user-profile-skeleton-bg: var(--zinc-500);
+  --edit-user-profile-label-disable-color: var(--zinc-500);
+  --edit-user-profile-input-disable-bg: var(--zinc-800);
+  --edit-user-profile-input-disable-color: var(--zinc-500);
+  --edit-user-profile-upload-btn-bg: var(--zinc-600);
+  --edit-user-profile-upload-btn-border: var(--zinc-700);
+  --edit-user-profile-upload-btn-color: var(--zinc-50);
+  --edit-user-profile-upload-title-color: var(--zinc-50);
+  --edit-user-profile-upload-p-color: var(--zinc-400);
+  --edit-user-profile-delete-btn-color: var(--soft-pink-400);
+  //Change-Password
+  --change-password-label-color: var(--zinc-50);
+  --change-password-divider-bg: var(--zinc-600);
+  //confirm-dialog
+  --confirm-dialog-border-icon-out: var(--gray-900-01);
+  --confirm-dialog-border-icon-in: var(--gray-900-11);
+  --confirm-dialog-border-icon-color: var(--zinc-50);
+  --confirm-dialog-bg: var(--zinc-700);
+  --confirm-dialog-title: var(--zinc-100);
+  --confirm-dialog-subtitle: var(--soft-pink-200);
+  // cancel button
+  --confirm-dialog-btn-cancel-bg: var(--zinc-100);
+  --confirm-dialog-btn-cancel-border-color: var(--zinc-200);
+  --confirm-dialog-btn-cancel-color: var(--zinc-800);
+  --confirm-dialog-btn-cancel-hover: var(--zinc-200);
+  // confirm button
+  --confirm-dialog-btn-confirm-bg: var(--soft-pink-200);
+  --confirm-dialog-btn-confirm-color: var(--zinc-800);
+  --confirm-dialog-btn-confirm-hover: var(--soft-pink-300);
 }
