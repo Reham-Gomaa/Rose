@@ -1,7 +1,11 @@
-<section class="dashboard">
-  <app-sidebar />
-  <div>
+<section class="dashboard grid">
+  <div class="col-2">
+    <app-sidebar />
+  </div>
+  <div class="col-10  ">
     <app-stepper />
-    <app-content />
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </section>

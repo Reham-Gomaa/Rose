@@ -1,0 +1,20 @@
+#data-view {
+  &{
+    background-color: #fff;
+  border-radius: 16px;
+    padding: 20px;
+  }
+  .header {
+    h2 {
+      font-size: 24px;
+      font-family:var(--font-family-1);
+    }
+  }
+  .data-table {
+    margin: 18px 0px;
+  }
+
+}
+:host ::ng-deep .p-datatable-table .p-datatable-thead > tr > th {
+  background-color: #fafafa;
+}

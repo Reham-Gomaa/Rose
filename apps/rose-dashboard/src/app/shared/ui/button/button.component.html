@@ -1,0 +1,14 @@
+<button
+  [disabled]="disable()"
+  [style.backgroundColor]="bgColor()"
+  [style.color]="textColor()"
+  [class]="
+    margin() + ' ' + padding() + ' ' + borderRadius() + ' ' + transition() + ' ' + rowReverse()
+  "
+  [class.disabled]="disable()"
+>
+@if (icon() !== '') {
+<i [class]="icon()"  [style]="`color: ${textColor()};`"></i>
+}
+{{ text() }}
+</button>
