@@ -12,7 +12,7 @@ import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 // Services
 import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
 // Shared_Components
-import { CustomInputComponent } from "@angular-monorepo/ui";
+import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
 // PrimeNg
 import { MessageService } from "primeng/api";

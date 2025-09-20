@@ -4,9 +4,9 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { animate, query, stagger, style, transition, trigger } from "@angular/animations";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/translation";
 // Animations_Translation
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
 // Interfaces
 import { Product } from "@angular-monorepo/products";
 // Components

@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { UiComponent } from "./ui.component";
+import { TranslationComponent } from "./translation.component";
 
-describe("UiComponent", () => {
-  let component: UiComponent;
-  let fixture: ComponentFixture<UiComponent>;
+describe("TranslationComponent", () => {
+  let component: TranslationComponent;
+  let fixture: ComponentFixture<TranslationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UiComponent],
+      imports: [TranslationComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(UiComponent);
+    fixture = TestBed.createComponent(TranslationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

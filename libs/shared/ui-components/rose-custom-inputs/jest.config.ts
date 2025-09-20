@@ -1,8 +1,8 @@
 export default {
-  displayName: "ui",
-  preset: "../../../jest.preset.js",
+  displayName: "rose-custom-inputs",
+  preset: "../../../../jest.preset.js",
   setupFilesAfterEnv: ["<rootDir>/src/test-setup.ts"],
-  coverageDirectory: "../../../coverage/libs/shared/ui",
+  coverageDirectory: "../../../../coverage/libs/shared/ui-components/rose-custom-inputs",
   transform: {
     "^.+\\.(ts|mjs|js|html)$": [
       "jest-preset-angular",

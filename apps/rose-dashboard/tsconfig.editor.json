@@ -3,9 +3,6 @@
   "include": [
     "src/**/*.ts"
   ],
-  "compilerOptions": {
-    "ignoreDeprecations": "6.0"
-  },
   "exclude": [
     "jest.config.ts",
     "src/**/*.test.ts",

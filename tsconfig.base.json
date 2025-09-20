@@ -18,8 +18,20 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@angular-monorepo/categories": [
+        "libs/categories/src/index.ts"
+      ],
       "@angular-monorepo/occasions": [
         "libs/occasions/src/index.ts"
+      ],
+      "@angular-monorepo/products": [
+        "libs/products/src/index.ts"
+      ],
+      "@angular-monorepo/rose-custom-inputs": [
+        "libs/shared/ui-components/rose-custom-inputs/src/index.ts"
+      ],
+      "@angular-monorepo/translation": [
+        "libs/translation/src/index.ts"
       ],
       "@rose/address/*": [
         "./apps/rose/src/app/store/address/*"
@@ -27,29 +39,20 @@
       "@rose/checkout/*": [
         "./apps/rose/src/app/store/checkout/*"
       ],
-      "@angular-monorepo/categories": [
-        "libs/categories/src/index.ts"
-      ],
-      "@angular-monorepo/products": [
-        "libs/products/src/index.ts"
-      ],
-      "@angular-monorepo/ui": [
-        "libs/shared/ui/src/index.ts"
-      ],
       "@rose/core_directive/*": [
         "./apps/rose/src/app/core/directive/*"
       ],
       "@rose/core_enums/*": [
         "./apps/rose/src/app/core/enums/*"
       ],
-      "@rose/environment/*": [
-        "apps/environment/*"
-      ],
       "@rose/core_interfaces/*": [
         "./apps/rose/src/app/core/interfaces/*"
       ],
       "@rose/core_services/*": [
         "./apps/rose/src/app/core/services/*"
+      ],
+      "@rose/environment/*": [
+        "apps/environment/*"
       ],
       "@rose/features_layouts/*": [
         "./apps/rose/src/app/features/layouts/*"
