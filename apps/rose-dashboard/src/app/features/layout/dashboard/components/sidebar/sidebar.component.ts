@@ -5,7 +5,7 @@ import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
   selector: "app-sidebar",
-  imports: [RouterLink,RouterLinkActive,TranslatePipe],
+  imports: [RouterLink, RouterLinkActive, TranslatePipe],
   templateUrl: "./sidebar.component.html",
   styleUrl: "./sidebar.component.scss",
 })

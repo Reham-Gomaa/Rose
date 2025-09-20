@@ -5,6 +5,7 @@ import { RouterOutlet } from "@angular/router";
 import { DarkModeService } from "@angular-monorepo/services";
 // Components_Shared
 import { NotificationToastComponent } from "@angular-monorepo/notification-toast";
+import { TranslationService } from "@angular-monorepo/translation";
 
 @Component({
   imports: [RouterOutlet, NotificationToastComponent],
@@ -14,5 +15,6 @@ import { NotificationToastComponent } from "@angular-monorepo/notification-toast
 })
 export class AppComponent {
   protected darkMode = inject(DarkModeService);
+  private translation = inject(TranslationService);
   title = "rose dashboard";
 }

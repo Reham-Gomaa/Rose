@@ -97,7 +97,6 @@ export class NavbarComponent implements OnInit {
   private readonly _storageManagerService = inject(StorageManagerService);
   private readonly _userStateService = inject(UserStateService);
   private readonly _store = inject(Store);
-  private readonly router = inject(Router);
 
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
   cartItemsNum$!: Observable<number>;
@@ -204,9 +203,11 @@ export class NavbarComponent implements OnInit {
         label: this._translate.instant("navbar.menu.dashboard"),
         icon: "pi pi-cog",
         visible: isAdmin,
-        command: () => (window.location.href = "http://localhost:4200/#/dashboard/overview"),
+        command: () => {
+          const token = this._storageManagerService.getItem("authToken");
+          window.location.href = "http://localhost:4200/#/dashboard/overview?token=" + token;
+        },
       },
-
       {
         separator: true,
         visible: !!user,

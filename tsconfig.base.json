@@ -18,6 +18,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@angular-monorepo/auth": [
+        "libs/store/auth/src/index.ts"
+      ],
       "@angular-monorepo/button-theme": [
         "libs/shared/ui-components/button-theme/src/index.ts"
       ],
@@ -29,9 +32,6 @@
       ],
       "@angular-monorepo/core": [
         "libs/core/src/index.ts"
-      ],
-      "@angular-monorepo/services": [
-        "libs/services/src/index.ts"
       ],
       "@angular-monorepo/form-button": [
         "libs/shared/ui-components/form-button/src/index.ts"
@@ -53,6 +53,9 @@
       ],
       "@angular-monorepo/rose-form-button": [
         "libs/shared/ui-components/form-button/src/index.ts"
+      ],
+      "@angular-monorepo/services": [
+        "libs/services/src/index.ts"
       ],
       "@angular-monorepo/spinner": [
         "libs/shared/ui-components/spinner/src/index.ts"

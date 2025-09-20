@@ -2,7 +2,7 @@ import { inject, Injectable } from "@angular/core";
 import { createEffect, ofType, Actions } from "@ngrx/effects";
 import { tap } from "rxjs";
 import * as AuthActions from "./auth.actions";
-import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
+import { StorageManagerService } from "@angular-monorepo/services";
 
 @Injectable()
 export class AuthEffects {

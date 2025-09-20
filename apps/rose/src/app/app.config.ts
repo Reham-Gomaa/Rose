@@ -46,6 +46,8 @@ import { API_BASE_URL_CATEGORIES } from "@angular-monorepo/categories";
 import { BASE_URL } from "@angular-monorepo/occasions";
 import { API_BASE_URL_PRODUCTS } from "@angular-monorepo/products";
 import { provideTranslation } from "@angular-monorepo/translation";
+import { tokenReducer } from "@angular-monorepo/auth";
+import { AuthEffects } from "@angular-monorepo/auth";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -115,8 +117,16 @@ export const appConfig: ApplicationConfig = {
       wishlist: wishlistReducer,
       Address: addressReducer,
       checkout: checkoutReducer,
+      auth: tokenReducer,
     }),
-    provideEffects(sortEffects, FilterEffects, AddressEffect, checkoutEffects, CartEffects),
+    provideEffects(
+      sortEffects,
+      FilterEffects,
+      AddressEffect,
+      checkoutEffects,
+      CartEffects,
+      AuthEffects,
+    ),
 
     {
       provide: BASE_URL,
