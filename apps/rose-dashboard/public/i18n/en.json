@@ -1,9 +1,9 @@
 {
-    "aside-bar": {
-        "preview-website": "Preview Website",
-        "overview": "overview",
-        "categories": "Categories",
-        "occasions": "Occasions",
-        "products": "Products"
-    }
+  "aside-bar": {
+    "preview-website": "Preview Website",
+    "overview": "overview",
+    "categories": "Categories",
+    "occasions": "Occasions",
+    "products": "Products"
+  }
 }

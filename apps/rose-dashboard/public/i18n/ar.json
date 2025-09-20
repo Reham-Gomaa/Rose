@@ -1,9 +1,9 @@
 {
-    "aside-bar": {
-        "preview-website": "معاينة الموقع",
-        "overview": "نظرة عامة",
-        "categories": "الفئات",
-        "occasions": "المناسبات",
-        "products": "المنتجات"
-    }
+  "aside-bar": {
+    "preview-website": "معاينة الموقع",
+    "overview": "نظرة عامة",
+    "categories": "الفئات",
+    "occasions": "المناسبات",
+    "products": "المنتجات"
+  }
 }

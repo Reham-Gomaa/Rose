@@ -28,7 +28,7 @@ export class StepperComponent implements OnInit {
     this._router.events
       .pipe(
         takeUntilDestroyed(this.$distroyRef),
-        filter((e) => e instanceof NavigationEnd)
+        filter((e) => e instanceof NavigationEnd),
       )
       .subscribe(() => {
         this.items = this.createBreadcrumbs();
