@@ -27,6 +27,9 @@
           }
         ],
         "styles": [
+          "node_modules/primeicons/primeicons.css",
+          "node_modules/primeflex/primeflex.css",
+          "node_modules/primeflex/themes/primeone-light.css",
           "apps/rose-dashboard/src/styles.scss"
         ],
         "scripts": [],
