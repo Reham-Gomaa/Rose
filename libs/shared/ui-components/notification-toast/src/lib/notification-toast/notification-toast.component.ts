@@ -10,5 +10,5 @@ import { Toast } from "primeng/toast";
   styleUrl: "./notification-toast.component.scss",
 })
 export class NotificationToastComponent {
-   public _messageService = inject(MessageService);
+  public _messageService = inject(MessageService);
 }

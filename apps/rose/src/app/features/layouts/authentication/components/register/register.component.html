@@ -1,62 +1,127 @@
-<app-auth [@fadeTransition]="_translationService.fadeState()" [process]="'register'" [title]="'auth.register.h1'"
-  [heading3]="'auth.register.h3'" [heading3span]="'auth.register.span'">
+<app-auth
+  [@fadeTransition]="_translationService.fadeState()"
+  [process]="'register'"
+  [title]="'auth.register.h1'"
+  [heading3]="'auth.register.h3'"
+  [heading3span]="'auth.register.span'"
+>
   <div class="flex-col">
-    <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()" role="form" aria-label="Registration Form">
+    <form
+      [formGroup]="registerForm"
+      (ngSubmit)="registerSubmit()"
+      role="form"
+      aria-label="Registration Form"
+    >
       <div class="formgrid grid">
         <!-- First Name -->
-        <lib-custom-input formControlName="firstName" type="text"
-          placeholder="{{ 'auth.inputs.firstNamePlaceholder' | translate }}" id="firstName"
-          labelText="{{ 'auth.inputs.firstName' | translate }}" [errorHandilgControl]="registerForm.get('firstName')!"
-          class="col field" autocomplete="given-name" aria-required="true" />
+        <lib-custom-input
+          formControlName="firstName"
+          type="text"
+          placeholder="{{ 'auth.inputs.firstNamePlaceholder' | translate }}"
+          id="firstName"
+          labelText="{{ 'auth.inputs.firstName' | translate }}"
+          [errorHandilgControl]="registerForm.get('firstName')!"
+          class="col field"
+          autocomplete="given-name"
+          aria-required="true"
+        />
 
         <!-- Last Name -->
-        <lib-custom-input formControlName="lastName" type="text"
-          placeholder="{{ 'auth.inputs.lastNamePlaceholder' | translate }}" id="lastName"
-          labelText="{{ 'auth.inputs.lastName' | translate }}" [errorHandilgControl]="registerForm.get('lastName')!"
-          class="col field" autocomplete="family-name" aria-required="true" />
+        <lib-custom-input
+          formControlName="lastName"
+          type="text"
+          placeholder="{{ 'auth.inputs.lastNamePlaceholder' | translate }}"
+          id="lastName"
+          labelText="{{ 'auth.inputs.lastName' | translate }}"
+          [errorHandilgControl]="registerForm.get('lastName')!"
+          class="col field"
+          autocomplete="family-name"
+          aria-required="true"
+        />
       </div>
 
       <!-- Email -->
-      <lib-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email"
-        labelText="{{ 'auth.inputs.email' | translate }}" [errorHandilgControl]="registerForm.get('email')!"
-        class="w-full mb-3" autocomplete="email" aria-required="true" />
+      <lib-custom-input
+        formControlName="email"
+        type="text"
+        placeholder="user@example.com"
+        id="email"
+        labelText="{{ 'auth.inputs.email' | translate }}"
+        [errorHandilgControl]="registerForm.get('email')!"
+        class="w-full mb-3"
+        autocomplete="email"
+        aria-required="true"
+      />
 
       <!-- Phone -->
-      <lib-custom-input-phone formControlName="phone" placeholder="1012345678"
-        labelText="{{ 'auth.inputs.phone' | translate }}" id="phone" class="w-full"
-        [errorHandilgControl]="registerForm.get('phone')!" autocomplete="tel" aria-required="true" />
+      <lib-custom-input-phone
+        formControlName="phone"
+        placeholder="1012345678"
+        labelText="{{ 'auth.inputs.phone' | translate }}"
+        id="phone"
+        class="w-full"
+        [errorHandilgControl]="registerForm.get('phone')!"
+        autocomplete="tel"
+        aria-required="true"
+      />
 
       <!-- Gender -->
       <div class="field">
         <label for="gender-dropdown" class="title-label">{{
           "auth.inputs.gender" | translate
-          }}</label>
-        <p-select formControlName="gender" [options]="genders" optionLabel="label" optionValue="value"
-          [placeholder]="'auth.inputs.genderPlaceholder' | translate" id="gender-dropdown" class="w-full">
+        }}</label>
+        <p-select
+          formControlName="gender"
+          [options]="genders"
+          optionLabel="label"
+          optionValue="value"
+          [placeholder]="'auth.inputs.genderPlaceholder' | translate"
+          id="gender-dropdown"
+          class="w-full"
+        >
         </p-select>
 
-        @if(registerForm.get('gender')?.invalid && registerForm.get('gender')?.touched) {
-        <lib-input-error-handling [control]="registerForm.get('gender')!" />
+        @if (registerForm.get("gender")?.invalid && registerForm.get("gender")?.touched) {
+          <lib-input-error-handling [control]="registerForm.get('gender')!" />
         }
       </div>
       <!-- Password -->
-      <lib-custom-input formControlName="password" type="password" placeholder="Password@12345" id="Password"
-        labelText="{{ 'auth.inputs.password' | translate }}" [errorHandilgControl]="registerForm.get('password')!"
-        class="w-full" autocomplete="new-password" aria-required="true" />
+      <lib-custom-input
+        formControlName="password"
+        type="password"
+        placeholder="Password@12345"
+        id="Password"
+        labelText="{{ 'auth.inputs.password' | translate }}"
+        [errorHandilgControl]="registerForm.get('password')!"
+        class="w-full"
+        autocomplete="new-password"
+        aria-required="true"
+      />
 
       <!-- rePassword -->
-      <lib-custom-input formControlName="rePassword" type="password" placeholder="**************" id="rePassword"
+      <lib-custom-input
+        formControlName="rePassword"
+        type="password"
+        placeholder="**************"
+        id="rePassword"
         labelText="{{ 'auth.inputs.confirmPassword' | translate }}"
-        [errorHandilgControl]="registerForm.get('rePassword')!" class="w-full" autocomplete="new-password"
-        aria-required="true" />
-      @if(registerForm.hasError("misMatch") && this.registerForm.invalid){
-      <p class="error-item">
-        <i class="pi pi-delete-left"></i> {{ "inputErrors.misMatch" | translate }}
-      </p>
+        [errorHandilgControl]="registerForm.get('rePassword')!"
+        class="w-full"
+        autocomplete="new-password"
+        aria-required="true"
+      />
+      @if (registerForm.hasError("misMatch") && this.registerForm.invalid) {
+        <p class="error-item">
+          <i class="pi pi-delete-left"></i> {{ "inputErrors.misMatch" | translate }}
+        </p>
       }
 
-      <lib-form-button [text]="'auth.register.button' | translate" [isLoading]="isLoading()"
-        [disabled]="registerForm.invalid" type="submit" />
+      <lib-form-button
+        [text]="'auth.register.button' | translate"
+        [isLoading]="isLoading()"
+        [disabled]="registerForm.invalid"
+        type="submit"
+      />
     </form>
   </div>
 </app-auth>

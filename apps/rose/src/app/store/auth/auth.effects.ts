@@ -15,8 +15,8 @@ export class AuthEffects {
         ofType(AuthActions.loginSuccess),
         tap((action) => {
           this._storageManager.setItem("token", action.token);
-        })
+        }),
       ),
-    { dispatch: false }
+    { dispatch: false },
   );
 }

@@ -22,21 +22,24 @@
     <div class="auth-form-content">
       <app-separator [position]="'up'" role="separator" aria-hidden="true"></app-separator>
 
-      @if (process() === 'forgetPass') {
-      <h1 class="forget">{{ title() | translate }}</h1>
-      <p class="forget">
-        {{ titleParagraph() | translate }} @if (paragraphSpan() !== '') {<button
-          type="button"
-          class="edit-link"
-          (click)="goBackToForget()"
-          (keydown)="goBackToForget()"
-          aria-label="Edit email"
-        >
-          {{ paragraphSpan() | translate }}</button
-        >}
-      </p>
+      @if (process() === "forgetPass") {
+        <h1 class="forget">{{ title() | translate }}</h1>
+        <p class="forget">
+          {{ titleParagraph() | translate }}
+          @if (paragraphSpan() !== "") {
+            <button
+              type="button"
+              class="edit-link"
+              (click)="goBackToForget()"
+              (keydown)="goBackToForget()"
+              aria-label="Edit email"
+            >
+              {{ paragraphSpan() | translate }}
+            </button>
+          }
+        </p>
       } @else {
-      <h1 tabindex="0">{{ title() | translate }}</h1>
+        <h1 tabindex="0">{{ title() | translate }}</h1>
       }
       <div id="form-wrapper" role="form">
         <ng-content />
@@ -59,6 +62,6 @@
     class="auth-image-section"
     role="img"
     aria-label="Decorative gift background image"
-    style="background-image: url('./images/auth/gifts.AVIF')"
+    style="background-image: url(&quot;./images/auth/gifts.AVIF&quot;)"
   ></div>
 </section>

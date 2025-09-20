@@ -1,12 +1,19 @@
-<button [disabled]="disabled || isLoading" [type]="type" [attr.aria-live]="ariaLive" [class]="getButtonClasses()"
-  (click)="onClick.emit($event)">
+<button
+  [disabled]="disabled || isLoading"
+  [type]="type"
+  [attr.aria-live]="ariaLive"
+  [class]="getButtonClasses()"
+  (click)="onClick.emit($event)"
+>
   @if (isLoading) {
-  <i class="pi pi-spin pi-spinner" style="font-size: 1rem"></i>
-  @if (loadingText) {
-  <span>{{ loadingText }}</span>
-  } } @else { @if (icon) {
-  <i [class]="icon"></i>
-  }
-  <span>{{ text }}</span>
+    <i class="pi pi-spin pi-spinner" style="font-size: 1rem"></i>
+    @if (loadingText) {
+      <span>{{ loadingText }}</span>
+    }
+  } @else {
+    @if (icon) {
+      <i [class]="icon"></i>
+    }
+    <span>{{ text }}</span>
   }
 </button>

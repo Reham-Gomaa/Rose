@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'lib-spinner',
+  selector: "lib-spinner",
   imports: [],
-  templateUrl: './spinner.component.html',
-  styleUrl: './spinner.component.scss'
+  templateUrl: "./spinner.component.html",
+  styleUrl: "./spinner.component.scss",
 })
 export class SpinnerComponent {}

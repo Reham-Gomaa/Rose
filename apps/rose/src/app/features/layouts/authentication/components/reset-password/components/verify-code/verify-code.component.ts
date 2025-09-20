@@ -75,7 +75,7 @@ export class VerifyCodeComponent {
         next: (res) => {
           if ("error" in res) {
             this.apiError.set(
-              res.error || this._translate.instant("messagesToast.failedResendCode")
+              res.error || this._translate.instant("messagesToast.failedResendCode"),
             );
             this._messageService.add({
               severity: "error",
@@ -136,7 +136,7 @@ export class VerifyCodeComponent {
               life: 3000,
             });
             this.apiError.set(
-              res.error || this._translate.instant("messagesToast.verificationFailed")
+              res.error || this._translate.instant("messagesToast.verificationFailed"),
             );
           } else {
             if (res.status === "Success") {

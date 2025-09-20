@@ -44,7 +44,7 @@ import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.anim
               animate("300ms ease-out", style({ opacity: 1, transform: "translateY(0)" })),
             ]),
           ],
-          { optional: true }
+          { optional: true },
         ),
       ]),
     ]),
@@ -100,7 +100,7 @@ export class RelatedProductsComponent implements OnInit, OnDestroy {
           }
         },
         error: (err) => this.handleError("Failed to load route parameters", err),
-      })
+      }),
     );
   }
 
@@ -117,7 +117,7 @@ export class RelatedProductsComponent implements OnInit, OnDestroy {
         error: (err: HttpErrorResponse) => {
           this.handleError("Failed to load product details", err);
         },
-      })
+      }),
     );
   }
 
@@ -127,14 +127,14 @@ export class RelatedProductsComponent implements OnInit, OnDestroy {
         next: (response: ProductRes) => {
           // Filter out the current product from the results
           this.relatedProducts = response.products.filter(
-            (product) => product._id !== this.currentProduct._id
+            (product) => product._id !== this.currentProduct._id,
           );
           this.loading = false;
         },
         error: (err: HttpErrorResponse) => {
           this.handleError("Failed to load related products", err);
         },
-      })
+      }),
     );
   }
 

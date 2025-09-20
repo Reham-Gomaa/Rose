@@ -1,24 +1,57 @@
-<app-auth [@fadeTransition]="translationService.fadeState()" [process]="'login'" [title]="'auth.login.h1'"
-  [heading3]="'auth.login.h3'" [heading3span]="'auth.login.span'" [formType]="loginForm">
+<app-auth
+  [@fadeTransition]="translationService.fadeState()"
+  [process]="'login'"
+  [title]="'auth.login.h1'"
+  [heading3]="'auth.login.h3'"
+  [heading3span]="'auth.login.span'"
+  [formType]="loginForm"
+>
   <div class="flex-col">
     <form [formGroup]="loginForm" (ngSubmit)="LoginSubmit()" role="form" aria-label="Login Form">
       <!-- Email -->
-      <lib-custom-input formControlName="email" type="text" placeholder="user@example.com" id="email"
-        labelText="{{ 'auth.inputs.email' | translate }}" [errorHandilgControl]="loginForm.get('email')!" class="w-full"
-        autocomplete="email" aria-required="true" aria-describedby="emailHelp" />
+      <lib-custom-input
+        formControlName="email"
+        type="text"
+        placeholder="user@example.com"
+        id="email"
+        labelText="{{ 'auth.inputs.email' | translate }}"
+        [errorHandilgControl]="loginForm.get('email')!"
+        class="w-full"
+        autocomplete="email"
+        aria-required="true"
+        aria-describedby="emailHelp"
+      />
 
       <!-- Password -->
-      <lib-custom-input formControlName="password" type="password" placeholder="********" id="password"
-        labelText="{{ 'auth.inputs.password' | translate }}" [errorHandilgControl]="loginForm.get('password')!"
-        class="w-full" autocomplete="current-password" aria-required="true" />
+      <lib-custom-input
+        formControlName="password"
+        type="password"
+        placeholder="********"
+        id="password"
+        labelText="{{ 'auth.inputs.password' | translate }}"
+        [errorHandilgControl]="loginForm.get('password')!"
+        class="w-full"
+        autocomplete="current-password"
+        aria-required="true"
+      />
 
-      <h5 [routerLink]="'/reset-password'" class="cursor-pointer" role="link" tabindex="0"
-        [attr.aria-label]="'auth.login.h5' | translate">
+      <h5
+        [routerLink]="'/reset-password'"
+        class="cursor-pointer"
+        role="link"
+        tabindex="0"
+        [attr.aria-label]="'auth.login.h5' | translate"
+      >
         {{ "auth.login.h5" | translate }}
       </h5>
 
-      <lib-form-button (onClick)="LoginSubmit()" [text]="'auth.login.button' | translate" [disabled]="loginForm.invalid"
-        [isLoading]="isLoading()" type="submit" />
+      <lib-form-button
+        (onClick)="LoginSubmit()"
+        [text]="'auth.login.button' | translate"
+        [disabled]="loginForm.invalid"
+        [isLoading]="isLoading()"
+        type="submit"
+      />
     </form>
   </div>
 </app-auth>

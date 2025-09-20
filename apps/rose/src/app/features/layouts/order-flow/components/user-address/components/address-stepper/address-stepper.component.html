@@ -1,10 +1,9 @@
 <app-custom-main-dialog [visable]="visible()" (closed)="close()">
   <div head>
-    @if(isUpdate()){
-    <p class="text-head">{{ "addressStepper.step1.titleupdate" | translate }}</p>
-    }@else {
-    <p class="text-head">{{ "addressStepper.step1.titleAdd" | translate }}</p>
-
+    @if (isUpdate()) {
+      <p class="text-head">{{ "addressStepper.step1.titleupdate" | translate }}</p>
+    } @else {
+      <p class="text-head">{{ "addressStepper.step1.titleAdd" | translate }}</p>
     }
   </div>
 
@@ -20,28 +19,53 @@
         <ng-template #content let-activateCallback="activateCallback">
           <div class="pb-6">
             <form [formGroup]="addressForm">
-              <lib-custom-input formControlName="city" type="text"
-                placeholder="{{ 'addressStepper.step1.placeholders.city' | translate }}" id="city"
+              <lib-custom-input
+                formControlName="city"
+                type="text"
+                placeholder="{{ 'addressStepper.step1.placeholders.city' | translate }}"
+                id="city"
                 labelText="{{ 'addressStepper.step1.city' | translate }}"
-                [errorHandilgControl]="addressForm.get('city')!" class="w-full" autocomplete="city" aria-required="true"
-                aria-describedby="cityHelp" />
+                [errorHandilgControl]="addressForm.get('city')!"
+                class="w-full"
+                autocomplete="city"
+                aria-required="true"
+                aria-describedby="cityHelp"
+              />
 
-              <lib-custom-input formControlName="street" type="text"
-                placeholder="{{ 'addressStepper.step1.placeholders.street' | translate }}" id="street"
+              <lib-custom-input
+                formControlName="street"
+                type="text"
+                placeholder="{{ 'addressStepper.step1.placeholders.street' | translate }}"
+                id="street"
                 labelText="{{ 'addressStepper.step1.street' | translate }}"
-                [errorHandilgControl]="addressForm.get('street')!" class="w-full" autocomplete="street"
-                aria-required="true" aria-describedby="streetHelp" />
+                [errorHandilgControl]="addressForm.get('street')!"
+                class="w-full"
+                autocomplete="street"
+                aria-required="true"
+                aria-describedby="streetHelp"
+              />
 
-              <lib-custom-input-phone formControlName="phone"
+              <lib-custom-input-phone
+                formControlName="phone"
                 placeholder="{{ 'addressStepper.step1.placeholders.phone' | translate }}"
-                labelText="{{ 'addressStepper.step1.phone' | translate }}" id="phone" class="w-full"
-                [errorHandilgControl]="addressForm.get('phone')!" autocomplete="tel" aria-required="true" />
+                labelText="{{ 'addressStepper.step1.phone' | translate }}"
+                id="phone"
+                class="w-full"
+                [errorHandilgControl]="addressForm.get('phone')!"
+                autocomplete="tel"
+                aria-required="true"
+              />
             </form>
           </div>
 
           <div class="w-full">
-            <p-button [label]="'addressStepper.buttons.next' | translate" icon="pi pi-arrow-right" iconPos="right"
-              (onClick)="onNextClick(activateCallback)" styleClass="w-full" />
+            <p-button
+              [label]="'addressStepper.buttons.next' | translate"
+              icon="pi pi-arrow-right"
+              iconPos="right"
+              (onClick)="onNextClick(activateCallback)"
+              styleClass="w-full"
+            />
           </div>
         </ng-template>
       </p-step-panel>
@@ -50,12 +74,22 @@
       <p-step-panel [value]="2">
         <ng-template #content let-activateCallback="activateCallback">
           <div class="pb-6">
-            <google-map height="400px" width="100%" [center]="center" [zoom]="12" (mapClick)="addMarker($event)">
+            <google-map
+              height="400px"
+              width="100%"
+              [center]="center"
+              [zoom]="12"
+              (mapClick)="addMarker($event)"
+            >
               <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
             </google-map>
           </div>
           <div class="w-full">
-            <p-button [label]="'addressStepper.buttons.submit' | translate" (onClick)="onDone()" styleClass="w-full" />
+            <p-button
+              [label]="'addressStepper.buttons.submit' | translate"
+              (onClick)="onDone()"
+              styleClass="w-full"
+            />
           </div>
         </ng-template>
       </p-step-panel>

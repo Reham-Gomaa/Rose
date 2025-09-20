@@ -11,17 +11,17 @@
       required
       class="input-style"
     />
-    @if(type() === 'password'){
-    <button type="button" (click)="toggleShowPassword()" class="eye-btn">
-      @if(!showPassword){
-      <i class="pi pi-eye password-eye"></i>
-      }@else {
-      <i class="pi pi-eye-slash password-eye"></i>
-      }
-    </button>
+    @if (type() === "password") {
+      <button type="button" (click)="toggleShowPassword()" class="eye-btn">
+        @if (!showPassword) {
+          <i class="pi pi-eye password-eye"></i>
+        } @else {
+          <i class="pi pi-eye-slash password-eye"></i>
+        }
+      </button>
     }
   </div>
-  @if(errorHandilgControl()){
-  <lib-input-error-handling [control]="errorHandilgControl()!"></lib-input-error-handling>
+  @if (errorHandilgControl()) {
+    <lib-input-error-handling [control]="errorHandilgControl()!"></lib-input-error-handling>
   }
 </div>

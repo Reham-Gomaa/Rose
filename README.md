@@ -76,7 +76,6 @@ Meet the talented individuals behind Rose E-Commerce Platform:
   - Product variants and options
   - Stock management integration
 - **Shopping Cart & Checkout**
-
   - Persistent cart across sessions
   - Guest and registered checkout
   - Multiple payment methods
@@ -91,7 +90,6 @@ Meet the talented individuals behind Rose E-Commerce Platform:
 ### 👤 User Experience Features
 
 - **Authentication & Profile**
-
   - Secure registration and login
   - Social media authentication
   - Password recovery with email verification
