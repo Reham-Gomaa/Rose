@@ -3,7 +3,7 @@ import { AbstractControl, FormGroup } from "@angular/forms";
 import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
-  selector: "app-input-error-handling",
+  selector: "lib-input-error-handling",
   imports: [TranslatePipe],
   templateUrl: "./input-error-handling.component.html",
   styleUrl: "./input-error-handling.component.scss",

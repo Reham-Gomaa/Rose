@@ -28,7 +28,10 @@ export class OrdersComponent implements OnInit {
   PrimeIcons = PrimeIcons;
   private destroy$ = new Subject<void>();
 
-  constructor(private ordersService: OrdersService, private datePipe: DatePipe) {}
+  constructor(
+    private ordersService: OrdersService,
+    private datePipe: DatePipe,
+  ) {}
   translationService = inject(TranslationService);
 
   ngOnInit(): void {

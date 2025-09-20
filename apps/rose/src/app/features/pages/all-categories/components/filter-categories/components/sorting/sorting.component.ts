@@ -66,7 +66,7 @@ export class SortingComponent {
     this._store.dispatch(
       sortActions.sortByPrice({
         sType: type,
-      })
+      }),
     );
   }
 
@@ -74,7 +74,7 @@ export class SortingComponent {
     this._store.dispatch(
       sortActions.sortByTitle({
         sType: type,
-      })
+      }),
     );
   }
 }

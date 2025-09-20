@@ -15,6 +15,6 @@ export function provideTranslation() {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient],
       },
-    })
+    }),
   );
 }

@@ -9,7 +9,10 @@ export class TranslateTitleStrategy extends TitleStrategy {
   private lastTitleKey: string | null = null;
   private readonly destroyRef = inject(DestroyRef);
 
-  constructor(private translate: TranslateService, private title: Title) {
+  constructor(
+    private translate: TranslateService,
+    private title: Title,
+  ) {
     super();
 
     this.translate.onLangChange.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {

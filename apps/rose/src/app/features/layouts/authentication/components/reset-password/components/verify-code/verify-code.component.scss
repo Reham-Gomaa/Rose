@@ -21,7 +21,9 @@
   border: 0.0625rem solid var(--input-border-color) !important;
   color: var(--input-text-color);
   border-radius: 0.625rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 
   &:focus {
     outline: none;

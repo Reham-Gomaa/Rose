@@ -35,10 +35,10 @@ export class AddressEffect {
             }),
             catchError((error) => {
               return of(showAddressesFailure({ error }));
-            })
+            }),
           );
-        })
-      )
+        }),
+      ),
   );
 
   // Delete Effect
@@ -51,10 +51,10 @@ export class AddressEffect {
             map(() => {
               return deleteAddressesSuccess({ addressId: addressId });
             }),
-            catchError((error) => of(deleteAddressesFailure({ error })))
+            catchError((error) => of(deleteAddressesFailure({ error }))),
           );
-        })
-      )
+        }),
+      ),
   );
 
   // Add Effect
@@ -67,10 +67,10 @@ export class AddressEffect {
             map((addressRes: AddressAddRes) => {
               return AddAddressesSuccess({ addresses: addressRes.address });
             }),
-            catchError((error) => of(AddAddressesFailure({ error })))
+            catchError((error) => of(AddAddressesFailure({ error }))),
           );
-        })
-      )
+        }),
+      ),
   );
 
   // update Effect
@@ -83,9 +83,9 @@ export class AddressEffect {
             map((addressRes: AddressRes) => {
               return updateAddressesSuccess({ addresses: addressRes.addresses });
             }),
-            catchError((error) => of(updateAddressesFailure({ error })))
+            catchError((error) => of(updateAddressesFailure({ error }))),
           );
-        })
-      )
+        }),
+      ),
   );
 }

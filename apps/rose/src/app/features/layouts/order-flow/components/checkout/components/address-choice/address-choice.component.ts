@@ -54,7 +54,7 @@ export class AddressChoiceComponent {
     this.store.dispatch(
       checkoutActions.selectShippingAddress({
         address: add,
-      })
+      }),
     );
   }
 

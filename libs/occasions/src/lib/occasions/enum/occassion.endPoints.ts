@@ -1,5 +1,3 @@
-
-
 export enum occasionEndPoints {
-  All_OCCASION = "api/v1/occasions"
+  All_OCCASION = "api/v1/occasions",
 }

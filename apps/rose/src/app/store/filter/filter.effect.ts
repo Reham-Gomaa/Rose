@@ -25,12 +25,12 @@ export class FilterEffects {
           loadSelectedOccasions,
           loadSelectedPrice,
           loadSelectedName,
-          loadSelectedRating
+          loadSelectedRating,
         ),
         tap(() => {
           this._store.dispatch(ApplyFilters());
-        })
+        }),
       ),
-    { dispatch: false }
+    { dispatch: false },
   );
 }

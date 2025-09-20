@@ -35,58 +35,62 @@
 
     <div class="icons-section">
       @if (!isLoggedIn()) {
-      <button [routerLink]="'/login'" class="login-btn" aria-label="Signup">
-        <i class="pi pi-user cursor-pointer text-lg"></i>
-        <span>{{ "navbar.login" | translate }}</span>
-      </button>
-      <div class="icons">
-        <i [routerLink]="'wishlist'" class="pi pi-heart cursor-pointer text-md"></i>
-        <a [routerLink]="'order-flow'"
-          ><i class="pi pi-shopping-cart cursor-pointer text-md"></i
-        ></a>
-        <i class="pi pi-bell cursor-pointer text-md"></i>
-      </div>
-      } @else {
-      <p-splitButton
-        [label]="'Hello ' + userName()"
-        aria-label="User Menu"
-        [model]="userDropDown()"
-        styleClass="user-greeting-btn"
-        menuStyleClass="user-menu-overlay"
-      >
-        <ng-template pTemplate="content">
-          <div class="flex flex-column align-items-start">
-            {{ "navbar.hello" | translate }}
-            <span class="user-name">{{ userName() }}</span>
-          </div>
-        </ng-template>
-      </p-splitButton>
-
-      <div class="icons">
-        <p-overlaybadge
-          [routerLink]="'wishlist'"
-          [value]="favouriteItemsNum$ | async"
-          class="custom-badge"
-          [badgeSize]="'small'"
-        >
-          <i class="pi pi-heart cursor-pointer text-lg"></i>
-        </p-overlaybadge>
-        <p-overlaybadge [value]="cartItemsNum$ | async" class="custom-badge" [badgeSize]="'small'">
-          <i
-            tabindex="0"
-            [routerLink]="'order-flow'"
-            (keydown)="cartService.orderFlowState.set('cart')"
-            (click)="cartService.orderFlowState.set('cart')"
-            class="pi pi-shopping-cart cursor-pointer text-md"
-          ></i>
-        </p-overlaybadge>
-        <p-overlaybadge value="4" class="custom-badge" [badgeSize]="'small'">
+        <button [routerLink]="'/login'" class="login-btn" aria-label="Signup">
+          <i class="pi pi-user cursor-pointer text-lg"></i>
+          <span>{{ "navbar.login" | translate }}</span>
+        </button>
+        <div class="icons">
+          <i [routerLink]="'wishlist'" class="pi pi-heart cursor-pointer text-md"></i>
+          <a [routerLink]="'order-flow'"
+            ><i class="pi pi-shopping-cart cursor-pointer text-md"></i
+          ></a>
           <i class="pi pi-bell cursor-pointer text-md"></i>
-        </p-overlaybadge>
-      </div>
+        </div>
+      } @else {
+        <p-splitButton
+          [label]="'Hello ' + userName()"
+          aria-label="User Menu"
+          [model]="userDropDown()"
+          styleClass="user-greeting-btn"
+          menuStyleClass="user-menu-overlay"
+        >
+          <ng-template pTemplate="content">
+            <div class="flex flex-column align-items-start">
+              {{ "navbar.hello" | translate }}
+              <span class="user-name">{{ userName() }}</span>
+            </div>
+          </ng-template>
+        </p-splitButton>
+
+        <div class="icons">
+          <p-overlaybadge
+            [routerLink]="'wishlist'"
+            [value]="favouriteItemsNum$ | async"
+            class="custom-badge"
+            [badgeSize]="'small'"
+          >
+            <i class="pi pi-heart cursor-pointer text-lg"></i>
+          </p-overlaybadge>
+          <p-overlaybadge
+            [value]="cartItemsNum$ | async"
+            class="custom-badge"
+            [badgeSize]="'small'"
+          >
+            <i
+              tabindex="0"
+              [routerLink]="'order-flow'"
+              (keydown)="cartService.orderFlowState.set('cart')"
+              (click)="cartService.orderFlowState.set('cart')"
+              class="pi pi-shopping-cart cursor-pointer text-md"
+            ></i>
+          </p-overlaybadge>
+          <p-overlaybadge value="4" class="custom-badge" [badgeSize]="'small'">
+            <i class="pi pi-bell cursor-pointer text-md"></i>
+          </p-overlaybadge>
+        </div>
       }
       <app-translate-toggle class="hidden sm:flex" />
-      <app-button-theme class="hidden sm:flex" />
+      <lib-button-theme class="hidden sm:flex" />
       <div class="smallNav-toggle">
         <button (click)="showDialog('topleft')" class="toggle-menu">
           <i class="pi pi-align-right"></i>
@@ -139,7 +143,7 @@
       <div class="flex align-items-center gap-1">
         <app-translate-toggle class="sm:hidden" />
 
-        <app-button-theme />
+        <lib-button-theme />
 
         <div class="search-icon">
           <button (click)="openSearch()">
@@ -150,19 +154,19 @@
     </div>
 
     <ul class="navList">
-      @for (item of items(); track $index;) { @let label = item['label']!; @let route =
-      item['route'];
-      <li>
-        <i [class]="item.icon" class="menu-icon mr-2"></i>
-        <a [routerLink]="route" routerLinkActive="active" class="text-decoration-none nav-items">
-          {{ label | translate }}
-        </a>
-      </li>
+      @for (item of items(); track $index) {
+        @let label = item["label"]!; @let route = item["route"];
+        <li>
+          <i [class]="item.icon" class="menu-icon mr-2"></i>
+          <a [routerLink]="route" routerLinkActive="active" class="text-decoration-none nav-items">
+            {{ label | translate }}
+          </a>
+        </li>
       }
     </ul>
   </p-dialog>
 </div>
 
 @if (inSearch()) {
-<app-search-modal />
+  <app-search-modal />
 }

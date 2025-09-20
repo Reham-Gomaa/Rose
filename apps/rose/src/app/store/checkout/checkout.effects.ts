@@ -29,10 +29,10 @@ export class checkoutEffects {
             }
             return checkoutActions.createCashOrderSuccess();
           }),
-          catchError((error) => of(checkoutActions.checkoutFailed({ failureRes: error })))
+          catchError((error) => of(checkoutActions.checkoutFailed({ failureRes: error }))),
         );
-      })
-    )
+      }),
+    ),
   );
   readonly creditOrderEffect$ = createEffect(() =>
     this.action$.pipe(
@@ -46,9 +46,9 @@ export class checkoutEffects {
             }
             return checkoutActions.checkoutSessionOpened();
           }),
-          catchError((error) => of(checkoutActions.checkoutFailed({ failureRes: error })))
+          catchError((error) => of(checkoutActions.checkoutFailed({ failureRes: error }))),
         );
-      })
-    )
+      }),
+    ),
   );
 }

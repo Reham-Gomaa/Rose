@@ -52,7 +52,7 @@ export const appConfig: ApplicationConfig = {
       withViewTransitions(),
       withInMemoryScrolling({
         scrollPositionRestoration: "enabled",
-      })
+      }),
     ),
     // { provide: TitleStrategy, useClass: TranslateTitleStrategy },
     provideHttpClient(withFetch()),

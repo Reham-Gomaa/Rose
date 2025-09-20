@@ -56,5 +56,5 @@ export const cartReducer = createReducer(
     totalPrice: cart.cart.totalPrice,
   })),
 
-  on(clearCartSuccess, () => initialState)
+  on(clearCartSuccess, () => initialState),
 );

@@ -5,6 +5,6 @@ export const sortStateSelector = createFeatureSelector<sortState>("sort");
 
 export const sortedProducts = createSelector(
   sortStateSelector,
-  (state: sortState) => state.sortedProducts
+  (state: sortState) => state.sortedProducts,
 );
 export const Products = createSelector(sortStateSelector, (state: sortState) => state.products);

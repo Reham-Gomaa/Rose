@@ -1,36 +1,39 @@
 @for (item of filterItems(); track item._id) {
-<div class="field-checkbox">
-  <input
-    type="checkbox"
-    [id]="'category-' + item._id"
-    [checked]="isItemSelected(item._id)"
-    (change)="toggleItemSelection(item._id, item.rating)"
-    [attr.aria-labelledby]="'filter-item-' + item._id + '-label'"
-    [attr.aria-describedby]="item.productCount !== undefined ? 'product-count-' + item._id : null"
-  />
-  <label [id]="'filter-item-' + item._id + '-label'" [for]="'category-' + item._id" tabindex="0">
-    <span class="checkbox-custom" aria-hidden="true"></span>
-    <div class="checkbox-label-content" [class.w-6]="itemType() === 'ratings'">
-      <!-- for all filters except (RATINGS) -->
-      @if (itemType() !== 'ratings' && item.category) {
-      <span class="checkbox-label-text">{{ item.category | translate }}</span>
-      <!-- to handle ON SALE filter since it does not have product count -->
-      @if (item.productCount !== undefined) {
-      <span class="product-count">({{ item.productCount }})</span>
-      } }
-      <!-- for RATINGS filter -->
-      @else if (item.rating !== undefined) { @for (star of [1,2,3,4,5]; track star) {
-      <i
-        style="color: var(--star-color)"
-        class="pi"
-        [class]="star <= item.rating ? 'pi-star-fill' : 'pi-star'"
-      ></i>
-      } }
-    </div>
-  </label>
-</div>
+  <div class="field-checkbox">
+    <input
+      type="checkbox"
+      [id]="'category-' + item._id"
+      [checked]="isItemSelected(item._id)"
+      (change)="toggleItemSelection(item._id, item.rating)"
+      [attr.aria-labelledby]="'filter-item-' + item._id + '-label'"
+      [attr.aria-describedby]="item.productCount !== undefined ? 'product-count-' + item._id : null"
+    />
+    <label [id]="'filter-item-' + item._id + '-label'" [for]="'category-' + item._id" tabindex="0">
+      <span class="checkbox-custom" aria-hidden="true"></span>
+      <div class="checkbox-label-content" [class.w-6]="itemType() === 'ratings'">
+        <!-- for all filters except (RATINGS) -->
+        @if (itemType() !== "ratings" && item.category) {
+          <span class="checkbox-label-text">{{ item.category | translate }}</span>
+          <!-- to handle ON SALE filter since it does not have product count -->
+          @if (item.productCount !== undefined) {
+            <span class="product-count">({{ item.productCount }})</span>
+          }
+        }
+        <!-- for RATINGS filter -->
+        @else if (item.rating !== undefined) {
+          @for (star of [1, 2, 3, 4, 5]; track star) {
+            <i
+              style="color: var(--star-color)"
+              class="pi"
+              [class]="star <= item.rating ? 'pi-star-fill' : 'pi-star'"
+            ></i>
+          }
+        }
+      </div>
+    </label>
+  </div>
 } @empty {
-<p role="status" aria-live="polite" class="no-results-message">
-  <app-no-data-available />
-</p>
+  <p role="status" aria-live="polite" class="no-results-message">
+    <app-no-data-available />
+  </p>
 }

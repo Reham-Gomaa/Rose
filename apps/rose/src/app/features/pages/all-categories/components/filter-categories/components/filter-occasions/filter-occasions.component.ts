@@ -7,8 +7,8 @@ import { FilterItem, selectedItem } from "@rose/core_interfaces/filter-item.inte
 import { CheckedCardComponent } from "@rose/shared_Components_business/checkbox/checked-card.component";
 import { FilterCardComponent } from "@rose/shared_Components_ui/filter-card/filter-card.component";
 // Occasion Lib
-import {OccasionService} from "@angular-monorepo/occasions"
-import {occasionRes} from "@angular-monorepo/occasions"
+import { OccasionService } from "@angular-monorepo/occasions";
+import { occasionRes } from "@angular-monorepo/occasions";
 // NGRX
 import { Store } from "@ngrx/store";
 import { loadSelectedOccasions } from "@rose/store_filter/filter.actions";
@@ -41,7 +41,7 @@ export class FilterOccasionsComponent implements OnInit {
               category: occasion.name,
               productCount: occasion.productsCount,
             }));
-        }
+        },
       });
   }
 

@@ -5,40 +5,40 @@ import { AddressSituations } from "./addresses.state";
 // Show Actions
 export const setAddressState = createAction(
   "[ADDRESS] Set Show Address",
-  props<{ addressState: AddressSituations }>()
+  props<{ addressState: AddressSituations }>(),
 );
 
 export const showAddresses = createAction("[ADDRESS] Show Address");
 
 export const showAddressesSuccess = createAction(
   "[ADDRESS] Show Address Success",
-  props<{ addresses: Address[] }>()
+  props<{ addresses: Address[] }>(),
 );
 
 export const showAddressesFailure = createAction(
   "[ADDRESS] Show Address Failure",
-  props<{ error: any }>()
+  props<{ error: any }>(),
 );
 
 // Delete Actions
 export const setAddressId = createAction(
   "[ADDRESS] Set Address Id ",
-  props<{ addressId: string }>()
+  props<{ addressId: string }>(),
 );
 
 export const DeletedAddress = createAction(
   "[ADDRESS] Delete Address",
-  props<{ addressId: string }>()
+  props<{ addressId: string }>(),
 );
 
 export const deleteAddressesSuccess = createAction(
   "[ADDRESS] delete Address Success",
-  props<{ addressId: string }>()
+  props<{ addressId: string }>(),
 );
 
 export const deleteAddressesFailure = createAction(
   "[ADDRESS] delete Address Failure",
-  props<{ error: any }>()
+  props<{ error: any }>(),
 );
 
 // Add Actions
@@ -46,28 +46,28 @@ export const AddAddress = createAction("[ADDRESS] Add Address", props<{ address:
 
 export const AddAddressesSuccess = createAction(
   "[ADDRESS] Add Address Success",
-  props<{ addresses: Array<Address> }>()
+  props<{ addresses: Array<Address> }>(),
 );
 
 export const AddAddressesFailure = createAction(
   "[ADDRESS] Add Address Failure",
-  props<{ error: any }>()
+  props<{ error: any }>(),
 );
 
 // update Actions
 export const updateAddress = createAction(
   "[ADDRESS] update Address",
-  props<{ address: Address; addressId: string }>()
+  props<{ address: Address; addressId: string }>(),
 );
 
 export const updateAddressesSuccess = createAction(
   "[ADDRESS] update Address Success",
-  props<{ addresses: Array<Address> }>()
+  props<{ addresses: Array<Address> }>(),
 );
 
 export const updateAddressesFailure = createAction(
   "[ADDRESS] update Address Failure",
-  props<{ error: any }>()
+  props<{ error: any }>(),
 );
 
 // set one address

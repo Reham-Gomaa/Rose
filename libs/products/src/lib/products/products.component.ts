@@ -1,9 +1,8 @@
 import { Component } from "@angular/core";
-import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "lib-products",
-  imports: [CommonModule],
+  imports: [],
   templateUrl: "./products.component.html",
   styleUrl: "./products.component.scss",
 })

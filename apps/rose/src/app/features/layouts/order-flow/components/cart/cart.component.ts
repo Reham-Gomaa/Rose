@@ -69,7 +69,7 @@ export class CartComponent implements OnInit {
       .select(selectCartItems)
       .pipe(
         takeUntilDestroyed(this.destroyRef),
-        tap((items) => this.checkStoreQuantity(items))
+        tap((items) => this.checkStoreQuantity(items)),
       )
       .subscribe({
         next: (items) => {
@@ -124,7 +124,7 @@ export class CartComponent implements OnInit {
         updateQuantity({
           p_id: productId,
           qty: newQuantity,
-        })
+        }),
       );
     }
   }

@@ -17,11 +17,11 @@ import { TranslationService } from "@angular-monorepo/translation";
 // Animation
 import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
 // Services
-import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
-import { UserStateService } from "@rose/core_services/user-state/user-state.service";
+import { StorageManagerService } from "@angular-monorepo/services";
+import { UserStateService } from "@angular-monorepo/services";
 import { CartService } from "@rose/shared_services/cart/cart.service";
 // Shared_UI_Components
-import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
+import { ButtonThemeComponent } from "@angular-monorepo/button-theme";
 import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
 // Shared_business_Components
 import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";
@@ -167,6 +167,7 @@ export class NavbarComponent implements OnInit {
 
   private updateUserDropdown() {
     const user = this.user();
+    const isAdmin = user?.role === "admin";
     this.userDropDown.set([
       {
         label: user
@@ -202,8 +203,10 @@ export class NavbarComponent implements OnInit {
       {
         label: this._translate.instant("navbar.menu.dashboard"),
         icon: "pi pi-cog",
-        command: () => this._router.navigate(["/dashboard/user-dashboard"]),
+        visible: isAdmin,
+        command: () => (window.location.href = "http://localhost:4200/#/dashboard/overview"),
       },
+
       {
         separator: true,
         visible: !!user,
@@ -248,16 +251,20 @@ export class NavbarComponent implements OnInit {
           this._store.dispatch(setUserName({ userName: this.userName() }));
           this.updateUserDropdown();
           this.loading.set(false);
+
+          if (res.user.role !== "admin" && this._router.url.includes("/dashboard")) {
+            this._router.navigate(["/dashboard/home"]);
+          }
         },
         error: (err) => {
-          this.userName.set("Guest");
-          this.updateUserDropdown();
-          this._messageService.add({
-            severity: "error",
-            detail: this._translate.instant("messagesToast.failedLoadProfile"),
-            life: 3000,
-          });
           this.loading.set(false);
+          this._storageManagerService.removeItem("authToken");
+          this.isLoggedIn.set(false);
+          this.user.set(null);
+          this.updateUserDropdown();
+          if (this._router.url.includes("/dashboard")) {
+            this._router.navigate(["/dashboard/home"]);
+          }
         },
       });
   }

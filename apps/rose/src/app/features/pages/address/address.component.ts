@@ -12,7 +12,7 @@ import {
 import { setAddressState, showAddresses } from "../../../store/address/address.actions";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { AddressItemComponent } from "@rose/features_layouts/order-flow/components/user-address/components/address-item/address-item.component";
-import { SpinnerComponent } from "@rose/shared_Components_ui/spinner/spinner.component";
+import { SpinnerComponent } from "@angular-monorepo/spinner";
 import { DeleteDialogComponent } from "@rose/features_layouts/order-flow/components/user-address/components/delete-dialog/delete-dialog.component";
 import { AddressStepperComponent } from "@rose/features_layouts/order-flow/components/user-address/components/address-stepper/address-stepper.component";
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
