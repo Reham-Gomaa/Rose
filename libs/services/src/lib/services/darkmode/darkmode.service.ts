@@ -14,7 +14,7 @@ export class DarkModeService {
   isDark = signal<boolean>(false);
   renderer!: Renderer2;
 
-  constructor() {
+  ngOnInit() {
     this.renderer = this.rendererFactory2.createRenderer(null, null);
     this.initializeTheme();
     this.setupThemeListener();
