@@ -17,6 +17,8 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 export class StepperComponent implements OnInit {
   private readonly $distroyRef = inject(DestroyRef);
   private readonly _router = inject(Router);
+
+  hidden: boolean = false;
   items: MenuItem[] = [];
   home: MenuItem = { icon: "pi pi-home", routerLink: "/dashboard" };
   ngOnInit() {
@@ -46,4 +48,9 @@ export class StepperComponent implements OnInit {
     }
     return breadcrumbs;
   }
+
+  changeHidden() {
+    this.hidden = !this.hidden;
+  }
+
 }

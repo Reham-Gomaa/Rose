@@ -1,1 +1,17 @@
-<p-breadcrumb [model]="items" [home]="home" />
+<div class="breadcrumb-container">
+    <p-breadcrumb [model]="items" [home]="home" />
+    <button (click)="changeHidden()" class="inline-block md:hidden relative" ><i class="pi pi-align-justify">
+       
+    </i></button>
+     @if(hidden){
+            <div class="dropdown inline-block md:hidden">
+            <ul class="dropdown-menu">
+                <li><button class="dropdown-item"><i class="pi pi-user" ></i><p>profile</p></button></li>
+                <li><button class="dropdown-item text-red-600"><i class="pi pi-sign-out"></i><p>Logout</p></button></li>
+
+            </ul>
+        </div>
+        }
+
+</div>
+
