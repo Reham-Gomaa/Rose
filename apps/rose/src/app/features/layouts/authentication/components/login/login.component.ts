@@ -79,7 +79,7 @@ export class LoginComponent {
               detail: this._translate.instant("messagesToast.loginSuccess"),
               life: 3000,
             });
-            this._router.navigate(["/dashboard/home"]);
+            this._router.navigate(["/dashboard/home"], { queryParams: { token: res.token } });
           } else {
             this._messageService.add({
               severity: "error",

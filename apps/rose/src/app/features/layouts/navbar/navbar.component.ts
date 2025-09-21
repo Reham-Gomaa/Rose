@@ -205,7 +205,12 @@ export class NavbarComponent implements OnInit {
         visible: isAdmin,
         command: () => {
           const token = this._storageManagerService.getItem("authToken");
-          window.location.href = "http://localhost:4200/#/dashboard/overview?token=" + token;
+          if (token) {
+            window.open(
+              `http://localhost:4200/#/dashboard/overview?token=${encodeURIComponent(token)}`,
+              "_blank",
+            );
+          }
         },
       },
       {
