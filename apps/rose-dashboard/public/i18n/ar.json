@@ -5,5 +5,29 @@
     "categories": "الفئات",
     "occasions": "المناسبات",
     "products": "المنتجات"
+  },
+  "user-Profile": {
+    "updateProfile": "تحديث الملف الشخصي",
+    "myAccount": "حسابي",
+    "changePassword": "تغيير كلمة المرور",
+    "logout": "تسجيل الخروج",
+    "edit-Profile": {
+      "uploadPhoto": "رفع صورة",
+      "uploadPhotoInfo": "يمكنك رفع صورة بصيغة ‎.jpg‎ أو ‎.png‎ أو ‎.gif‎ بحجم أقصى 5 ميجابايت.",
+      "deleteMyAccount": "حذف حسابي",
+      "saveChanges": "حفظ التغييرات"
+    },
+    "changePasswordForm": {
+      "oldPassword": "كلمة المرور الحالية",
+      "newPassword": "كلمة المرور الجديدة",
+      "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
+      "changePasswordBtn": "تغيير كلمة المرور"
+    },
+    "confirm-dialog": {
+      "confirmDelete": "نعم، احذف",
+      "cancelDelete": "لا، احتفظ به",
+      "permanentActionWarning": "هذا الإجراء دائم ولا يمكن التراجع عنه.",
+      "deleteAccountConfirmation": "هل أنت متأكد أنك تريد حذف حسابك؟"
+    }
   }
 }

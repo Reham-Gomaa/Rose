@@ -20,11 +20,12 @@ import { provideStore } from "@ngrx/store";
 import { provideEffects } from "@ngrx/effects";
 import { tokenReducer } from "./store/auth/auth.reducers";
 import { AuthEffects } from "./store/auth/auth.effects";
+import { headingInterceptor } from "@angular-monorepo/core";
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(withFetch(), withInterceptors([])),
+    provideHttpClient(withFetch(), withInterceptors([headingInterceptor])),
     {
       provide: API_CONFIG,
       useValue: {
