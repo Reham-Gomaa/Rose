@@ -23,7 +23,6 @@ import { AuthEffects } from "./store/auth/auth.effects";
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideTranslation(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(withFetch(), withInterceptors([])),
     {
@@ -64,6 +63,7 @@ export const appConfig: ApplicationConfig = {
     provideStore({ auth: tokenReducer }),
     provideEffects(AuthEffects),
     importProvidersFrom(ToastModule),
+    importProvidersFrom(ToastModule, provideTranslation()),
     provideAnimationsAsync(),
     provideAnimations(),
     providePrimeNG({
