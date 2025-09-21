@@ -19,7 +19,6 @@ import { provideTranslation } from "@angular-monorepo/translation";
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideTranslation(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(withFetch(), withInterceptors([])),
     {
@@ -57,7 +56,7 @@ export const appConfig: ApplicationConfig = {
     // { provide: TitleStrategy, useClass: TranslateTitleStrategy },
     provideHttpClient(withFetch()),
     MessageService,
-    importProvidersFrom(ToastModule),
+    importProvidersFrom(ToastModule, provideTranslation()),
     provideAnimationsAsync(),
     provideAnimations(),
     providePrimeNG({
