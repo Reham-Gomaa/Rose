@@ -1,6 +1,6 @@
-import { Component, inject, PLATFORM_ID } from "@angular/core";
+import { Component, DestroyRef, inject, PLATFORM_ID, signal } from "@angular/core";
 import { ActivatedRoute, Router, RouterOutlet, NavigationEnd } from "@angular/router";
-import { StorageManagerService } from "@angular-monorepo/services";
+import { StorageManagerService, UserStateService } from "@angular-monorepo/services";
 
 import { isPlatformBrowser } from "@angular/common";
 import { filter } from "rxjs/operators";
@@ -10,6 +10,10 @@ import { DarkModeService } from "@angular-monorepo/services";
 // Components_Shared
 import { NotificationToastComponent } from "@angular-monorepo/notification-toast";
 import { TranslationService } from "@angular-monorepo/translation";
+import { AuthApiKpService, User } from "auth-api-kp";
+import { MessageService } from "primeng/api";
+import { Store } from "@ngrx/store";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
 @Component({
   imports: [RouterOutlet, NotificationToastComponent],
@@ -22,17 +26,41 @@ export class AppComponent {
   private translation = inject(TranslationService);
   title = "rose dashboard";
 
+  isLoggedIn = signal<boolean>(false);
+  btnClass = signal("loginBtn");
+  currentLang = signal("");
+  userName = signal("Guest");
+  visible = signal(false);
+  inSearch = signal(false);
+  user = signal<User | null>(null);
+  loading = signal(false);
+
   private readonly _storageManagerService = inject(StorageManagerService);
   protected platformId = inject(PLATFORM_ID);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
 
-  ngOnInit() {
-    this.handleTokenFromUrl();
+  private readonly _platformId = inject(PLATFORM_ID);
+  private readonly _authApiService = inject(AuthApiKpService);
+  private readonly destroyRef = inject(DestroyRef);
+  private readonly _router = inject(Router);
+  private readonly _messageService = inject(MessageService);
+  private readonly _userStateService = inject(UserStateService);
+  private readonly _store = inject(Store);
 
+  ngOnInit() {
+    // run once after navigation end
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
+      // first grab token if present
       this.handleTokenFromUrl();
+
+      // then load user info after token saved
+      this.loadUserInfo();
     });
+
+    // also run on first load
+    this.handleTokenFromUrl();
+    this.loadUserInfo();
   }
 
   ngAfterViewInit() {
@@ -67,5 +95,43 @@ export class AppComponent {
         }
       }
     }
+  }
+
+  loadUserInfo(): void {
+    const token = this._storageManagerService.getItem("authToken");
+
+    if (!token) {
+      if (this._router.url.includes("/dashboard")) {
+        this._router.navigate(["/not-found"]);
+      }
+      return;
+    }
+
+    this._authApiService
+      .getProfileData()
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (res) => {
+          this.user.set(res.user);
+          this.userName.set(`${res.user.firstName} ${res.user.lastName}`);
+          this.loading.set(false);
+
+          // if not admin → not-found
+          if (res.user.role !== "admin" && this._router.url.includes("/dashboard")) {
+            this._router.navigate(["/not-found"]);
+          }
+        },
+        error: (err) => {
+          this.loading.set(false);
+          this._storageManagerService.removeItem("authToken");
+          this.isLoggedIn.set(false);
+          this.user.set(null);
+
+          // also send to not-found on error
+          if (this._router.url.includes("/dashboard")) {
+            this._router.navigate(["/not-found"]);
+          }
+        },
+      });
   }
 }
