@@ -137,6 +137,15 @@ $breakpoint-small: 620px;
   --form-button-disabled: var(--maroon-800);
   --form-button-hover: var(--maroon-500);
   --form-button-color: var(--white);
+  // Notification-Toast
+  --toast-error-bg: var(--maroon-500);
+  --toast-error-color: var(--zinc-100);
+  --toast-error-i-color: var(--zinc-50);
+
+  --toast-success-bg: var(--emerald-300);
+  --toast-success-color: var(--zinc-800);
+  --toast-success-i-color: var(--zinc-700);
+  --toast-btn-close-color: var(--zinc-600);
 }
 
 // Dark theme overrides
@@ -198,4 +207,12 @@ $breakpoint-small: 620px;
   --form-button-disabled: var(--soft-pink-600);
   --form-button-hover: var(--soft-pink-400);
   --form-button-color: var(--zinc-800);
+  // Notification-Toast
+  --toast-error-bg: var(--maroon-50);
+  --toast-error-color: var(--zinc-800);
+  --toast-error-i-color: var(--maroon-500);
+  --toast-success-bg: var(--emerald-50);
+  --toast-success-color: var(--zinc-800);
+  --toast-success-i-color: var(--emerald-700);
+  --toast-btn-close-color: var(--zinc-400);
 }
