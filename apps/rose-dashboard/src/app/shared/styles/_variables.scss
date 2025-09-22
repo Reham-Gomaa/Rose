@@ -126,6 +126,11 @@ $breakpoint-small: 620px;
   --confirm-dialog-btn-confirm-bg: var(--red-600);
   --confirm-dialog-btn-confirm-color: var(--white);
   --confirm-dialog-btn-confirm-hover: var(--maroon-500);
+  // Auth-Button
+  --form-button-bg: var(--maroon-600);
+  --form-button-disabled: var(--maroon-800);
+  --form-button-hover: var(--maroon-500);
+  --form-button-color: var(--white);
 }
 
 // Dark theme overrides
@@ -177,4 +182,9 @@ $breakpoint-small: 620px;
   --confirm-dialog-btn-confirm-bg: var(--soft-pink-200);
   --confirm-dialog-btn-confirm-color: var(--zinc-800);
   --confirm-dialog-btn-confirm-hover: var(--soft-pink-300);
+  // Auth-Button
+  --form-button-bg: var(--soft-pink-300);
+  --form-button-disabled: var(--soft-pink-600);
+  --form-button-hover: var(--soft-pink-400);
+  --form-button-color: var(--zinc-800);
 }

@@ -15,6 +15,7 @@ export class FormButtonComponent {
   @Input({ transform: booleanAttribute }) disabled = false;
   @Input({ transform: booleanAttribute }) isLoading = false;
   @Input({ transform: booleanAttribute }) fullWidth = true;
+  @Input() padding: string = "0.875rem 1rem";
 
   @Output() onClick = new EventEmitter<Event>();
 

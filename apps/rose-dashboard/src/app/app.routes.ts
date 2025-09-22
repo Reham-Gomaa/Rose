@@ -41,14 +41,16 @@ export const appRoutes: Route[] = [
         path: "products",
         title: "titles.products",
         loadComponent: () =>
-          import("@rose_dashboard/features_pages/products//products.component").then(
+          import("@rose_dashboard/features_pages/products/products.component").then(
             (c) => c.ProductsComponent,
           ),
       },
       {
         path: "user-profile",
         loadComponent: () =>
-          import("@angular-monorepo/user-profile").then((c) => c.UserProfileComponent),
+          import("@rose_dashboard/features_pages/user-profile/user-profile.component").then(
+            (c) => c.UserProfileComponent,
+          ),
         title: "titles.user-profile",
       },
     ],
