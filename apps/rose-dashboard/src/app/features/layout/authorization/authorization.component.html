@@ -1,1 +1,16 @@
-<p>authorization works!</p>
+<div class="unauthorized-wrapper">
+  <div class="unauthorized-card">
+    <div class="icon-wrapper">
+      <img ngSrc="./images/not-authorized/lock-shield.svg" width="360" height="360" alt="not-authorized"
+        class="shield-img">
+    </div>
+
+    <h1 class="title">You are not authorized to access this page.</h1>
+    <p class="subtitle">
+      If you think this is wrong, please contact the support.
+    </p>
+    <div class="divider"></div>
+
+    <button class="home-button" (click)="goToLogin()">Go to Homepage</button>
+  </div>
+</div>

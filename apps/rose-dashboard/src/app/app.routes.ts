@@ -56,6 +56,14 @@ export const appRoutes: Route[] = [
     ],
   },
   {
+    path: "authorization",
+    loadComponent: () =>
+      import("@rose_dashboard/features_layouts/authorization/authorization.component").then(
+        (c) => c.AuthorizationComponent,
+      ),
+    title: "titles.not-authorization",
+  },
+  {
     path: "**",
     title: "titles.not-found",
     loadComponent: () =>

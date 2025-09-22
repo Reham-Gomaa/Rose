@@ -81,6 +81,12 @@ $breakpoint-small: 620px;
 
   // Body
   --body-color: var(--white);
+  // Scrollbar
+  --scrollbar-width: 0.625rem;
+  --scrollbar-height: 0.625rem;
+  --scrollbar-track-color: var(--white);
+  --scrollbar-thumb-color: var(--maroon-600);
+  --scrollbar-thumb-hover-color: var(--maroon-500);
 
   //User-Profile
   --user-profile-sidebar-title: var(--zinc-800);
@@ -137,7 +143,12 @@ $breakpoint-small: 620px;
 .dark-mode {
   // Body
   --body-color: var(--zinc-800);
-
+  // Scrollbar
+  --scrollbar-width: 0.625rem;
+  --scrollbar-height: 0.625rem;
+  --scrollbar-track-color: var(--zinc-800);
+  --scrollbar-thumb-color: var(--soft-pink-200);
+  --scrollbar-thumb-hover-color: var(--soft-pink-300);
   //User-Profile
   --user-profile-sidebar-title: var(--zinc-50);
   --user-profile-sidebar-bg: var(--zinc-700);

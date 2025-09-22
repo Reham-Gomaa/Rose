@@ -102,7 +102,7 @@ export class AppComponent {
 
     if (!token) {
       if (this._router.url.includes("/dashboard")) {
-        this._router.navigate(["/not-found"]);
+        this._router.navigate(["/authorization"]);
       }
       return;
     }
@@ -118,7 +118,7 @@ export class AppComponent {
 
           // if not admin → not-found
           if (res.user.role !== "admin" && this._router.url.includes("/dashboard")) {
-            this._router.navigate(["/not-found"]);
+            this._router.navigate(["/authorization"]);
           }
         },
         error: (err) => {
@@ -129,7 +129,7 @@ export class AppComponent {
 
           // also send to not-found on error
           if (this._router.url.includes("/dashboard")) {
-            this._router.navigate(["/not-found"]);
+            this._router.navigate(["/authorization"]);
           }
         },
       });
