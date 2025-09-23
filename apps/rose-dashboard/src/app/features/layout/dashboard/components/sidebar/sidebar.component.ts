@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { RouterLink, RouterLinkActive } from "@angular/router";
 // Transelate
 import { TranslatePipe } from "@ngx-translate/core";
-import { environment } from "@rose/environment/baseurl.prod";
+import { environment } from "@rose/environment/baseurl.dev";
 
 @Component({
   selector: "app-sidebar",
