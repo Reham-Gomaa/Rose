@@ -1,11 +1,25 @@
 {
-  "aside-bar": {
-    "preview-website": "Preview Website",
-    "overview": "overview",
-    "categories": "Categories",
-    "occasions": "Occasions",
-    "products": "Products"
-  },
+      "breadcrumb": {
+        "overview": "Overview",
+        "categories": "Categories",
+        "occasions": "Occasions",
+        "products": "Products",
+        "dashboard": "Dashboard",
+        "user-profile": "User Profile"
+    },
+    "stepper": {
+       "dropdown": {
+        "profile": "Profile",
+        "logout": "Logout"
+       }
+    },
+    "aside-bar": {
+        "preview-website": "Preview Website",
+        "overview": "overview",
+        "categories": "Categories",
+        "occasions": "Occasions",
+        "products": "Products"
+    },
   "user-Profile": {
     "updateProfile": "Update Profile",
     "myAccount": "My Account",

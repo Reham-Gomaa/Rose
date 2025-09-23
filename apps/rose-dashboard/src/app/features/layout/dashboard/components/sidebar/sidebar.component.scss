@@ -1,7 +1,6 @@
 aside {
   height: 100%;
-  margin: 1.5rem 2.0625rem;
-  background-color: var(--white);
+  background-color: var(--body-color);
   padding: 1.5rem 2.0625rem;
   border-right: 0.0625rem solid #00000014;
   .logo_image {
@@ -17,7 +16,7 @@ aside {
   padding: 0.5rem;
   border-radius: 0.5rem;
   gap: 0.5rem;
-  background-color: #a6252a;
+  background-color: var(--aside-button);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -30,7 +29,7 @@ aside {
   margin: 1rem 0px;
   gap: 1rem;
   .aside-nav-item {
-    color: #27272a;
+    color: var(--aside-nav-item);
     display: flex;
     justify-content: start;
     align-items: start;

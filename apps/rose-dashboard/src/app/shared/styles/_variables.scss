@@ -146,6 +146,10 @@ $breakpoint-small: 620px;
   --toast-success-color: var(--zinc-800);
   --toast-success-i-color: var(--zinc-700);
   --toast-btn-close-color: var(--zinc-600);
+  // Aside-bar
+  --aside-button:var(--soft-pink-600);
+  --aside-nav-item:var(#27272a);
+  --bread-crump:var(#667085);
 }
 
 // Dark theme overrides
@@ -215,4 +219,8 @@ $breakpoint-small: 620px;
   --toast-success-color: var(--zinc-800);
   --toast-success-i-color: var(--emerald-700);
   --toast-btn-close-color: var(--zinc-400);
+  // Aside-bar
+  --aside-button:var(--soft-pink-600);
+  --aside-nav-item:var(--white);
+  --bread-crump:var(--zinc-300);
 }
