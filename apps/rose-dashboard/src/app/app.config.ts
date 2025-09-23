@@ -6,7 +6,14 @@ import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } fr
 import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
 import { provideAnimations } from "@angular/platform-browser/animations";
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
-import { provideRouter, withInMemoryScrolling, withViewTransitions } from "@angular/router";
+import {
+  provideRouter,
+  TitleStrategy,
+  withInMemoryScrolling,
+  withViewTransitions,
+} from "@angular/router";
+// Translate Title
+import { headingInterceptor, TranslateTitleStrategy } from "@angular-monorepo/core";
 // Auth LIB
 import { API_CONFIG } from "auth-api-kp";
 // primeng imports
@@ -16,7 +23,6 @@ import { providePrimeNG } from "primeng/config";
 import { ToastModule } from "primeng/toast";
 // Shared Libraries
 import { provideTranslation } from "@angular-monorepo/translation";
-import { headingInterceptor } from "@angular-monorepo/core";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -54,7 +60,7 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: "enabled",
       }),
     ),
-    // { provide: TitleStrategy, useClass: TranslateTitleStrategy },
+    { provide: TitleStrategy, useClass: TranslateTitleStrategy },
     provideHttpClient(withFetch()),
     MessageService,
     importProvidersFrom(ToastModule),

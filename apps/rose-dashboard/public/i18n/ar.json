@@ -104,5 +104,13 @@
 
       "failedToLoadCategories": "فشل في تحميل الفئات"
     }
+  },
+  "titles": {
+    "overview": "نظرة عامة",
+    "dashboard": "لوحة التحكم",
+    "categories": "التصنيفات",
+    "products": "المنتجات",
+    "user-profile": "الملف الشخصي",
+    "not-found": "غير موجود"
   }
 }

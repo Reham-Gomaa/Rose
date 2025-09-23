@@ -104,5 +104,13 @@
 
       "failedToLoadCategories": "Failed to load categories"
     }
+  },
+  "titles": {
+    "overview": "Overview",
+    "dashboard": "Dashboard",
+    "categories": "Categories",
+    "products": "Products",
+    "user-profile": "User Profile",
+    "not-found": "Not Found"
   }
 }

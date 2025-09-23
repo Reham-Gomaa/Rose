@@ -37,16 +37,15 @@ import { ToastModule } from "primeng/toast";
 // Auth LIB
 import { API_CONFIG } from "auth-api-kp";
 // Header Interceptor
-import { headingInterceptor } from "@angular-monorepo/core";
+import { headingInterceptor, TranslateTitleStrategy } from "@angular-monorepo/core";
 // Environment
 import { environment } from "apps/environment/baseurl.dev";
 // Translate Title
-import { TranslateTitleStrategy } from "./core/strategies/translate-title.strategy";
+import { provideTranslation } from "@angular-monorepo/translation";
 // Shared Libraries
 import { API_BASE_URL_CATEGORIES } from "@angular-monorepo/categories";
 import { BASE_URL } from "@angular-monorepo/occasions";
 import { API_BASE_URL_PRODUCTS } from "@angular-monorepo/products";
-import { provideTranslation } from "@angular-monorepo/translation";
 
 export const appConfig: ApplicationConfig = {
   providers: [
