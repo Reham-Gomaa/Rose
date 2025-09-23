@@ -35,7 +35,6 @@ import { DrawerModule } from "primeng/drawer";
     ButtonModule,
     DrawerModule,
     NoDataAvailableComponent,
-    NoDataAvailableComponent,
   ],
   templateUrl: "./all-categories.component.html",
   styleUrl: "./all-categories.component.scss",
@@ -48,7 +47,7 @@ import { DrawerModule } from "primeng/drawer";
             style({ opacity: 0, transform: "scale(0.95)" }),
             stagger(100, [animate("300ms ease-out", style({ opacity: 1, transform: "scale(1)" }))]),
           ],
-          { optional: true }
+          { optional: true },
         ),
       ]),
     ]),
@@ -90,7 +89,7 @@ export class AllCategoriesComponent implements OnInit {
     this._store.dispatch(
       sortActions.loadProducts({
         products: this.products(),
-      })
+      }),
     );
   }
 

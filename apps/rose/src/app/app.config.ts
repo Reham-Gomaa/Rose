@@ -12,7 +12,6 @@ import {
   withInMemoryScrolling,
   withViewTransitions,
 } from "@angular/router";
-// @ngx imports
 // ngrx imports
 import { provideEffects } from "@ngrx/effects";
 import { provideStore } from "@ngrx/store";
@@ -28,6 +27,8 @@ import { cartReducer } from "./store/cart/cart-reducers";
 import { checkoutEffects } from "./store/checkout/checkout.effects";
 import { checkoutReducer } from "./store/checkout/checkout.reducer";
 import { wishlistReducer } from "./store/wishlist/wishlist-reducers";
+import { tokenReducer } from "@rose/store_auth/auth.reducers";
+import { AuthEffects } from "@rose/store_auth/auth.effects";
 // primeng imports
 import Aura from "@primeng/themes/aura";
 import { MessageService } from "primeng/api";
@@ -36,7 +37,7 @@ import { ToastModule } from "primeng/toast";
 // Auth LIB
 import { API_CONFIG } from "auth-api-kp";
 // Header Interceptor
-import { headingInterceptor } from "./core/interceptors/header.interceptor";
+import { headingInterceptor } from "@angular-monorepo/core";
 // Environment
 import { environment } from "apps/environment/baseurl.dev";
 // Translate Title
@@ -49,7 +50,6 @@ import { provideTranslation } from "@angular-monorepo/translation";
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideTranslation(),
     provideHttpClient(withFetch(), withInterceptors([headingInterceptor])),
     {
       provide: API_CONFIG,
@@ -89,12 +89,12 @@ export const appConfig: ApplicationConfig = {
       withViewTransitions(),
       withInMemoryScrolling({
         scrollPositionRestoration: "enabled",
-      })
+      }),
     ),
     { provide: TitleStrategy, useClass: TranslateTitleStrategy },
     provideHttpClient(withFetch()),
     MessageService,
-    importProvidersFrom(ToastModule),
+    importProvidersFrom(ToastModule, provideTranslation()),
     provideAnimationsAsync(),
     provideAnimations(),
     providePrimeNG({
@@ -115,8 +115,16 @@ export const appConfig: ApplicationConfig = {
       wishlist: wishlistReducer,
       Address: addressReducer,
       checkout: checkoutReducer,
+      auth: tokenReducer,
     }),
-    provideEffects(sortEffects, FilterEffects, AddressEffect, checkoutEffects, CartEffects),
+    provideEffects(
+      sortEffects,
+      FilterEffects,
+      AddressEffect,
+      checkoutEffects,
+      CartEffects,
+      AuthEffects,
+    ),
 
     {
       provide: BASE_URL,

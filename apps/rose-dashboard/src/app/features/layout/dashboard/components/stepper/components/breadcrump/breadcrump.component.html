@@ -1,0 +1,16 @@
+<div class="breadcrumb flex ">
+    <img src="images/overviwe/logo.png" alt="mge for logo" loading="lazy" class="logo-img inline-block md:hidden" />
+
+    @for (item of breadCrumb; track $index) {
+
+        @if($index === breadCrumb.length -1){
+        <p class="breadcrumb-item  activeColor" >{{item.label}}</p>
+
+        }@else{
+        <p class="breadcrumb-item text-center" role="button" (click)="openUrl(item.url)"  >{{item.label}} <i class="pi pi-angle-right"></i></p>
+
+        }
+        
+    }
+</div>
+

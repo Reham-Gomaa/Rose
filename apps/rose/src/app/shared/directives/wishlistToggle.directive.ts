@@ -89,7 +89,7 @@ export class WishlistToggleDirective implements OnInit {
     this.store.dispatch(
       toggleWishlistProduct({
         product: this.appWishlistToggle(),
-      })
+      }),
     );
     this.updateStorage();
     this.initializeWishlist();

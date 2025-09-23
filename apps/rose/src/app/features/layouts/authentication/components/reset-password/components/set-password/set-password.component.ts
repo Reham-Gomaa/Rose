@@ -11,7 +11,7 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 // shared-components
-import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
+import { FormButtonComponent } from "@angular-monorepo/rose-form-button";
 import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 // PrimeNG
 import { MessageService } from "primeng/api";
@@ -43,12 +43,12 @@ export class SetPasswordComponent {
       password: new FormControl("", [
         Validators.required,
         Validators.pattern(
-          "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+          "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
         ),
       ]),
       confirmPassword: new FormControl("", Validators.required),
     },
-    { validators: this.passwordMatchValidator }
+    { validators: this.passwordMatchValidator },
   );
 
   ngOnInit(): void {
@@ -87,7 +87,7 @@ export class SetPasswordComponent {
         },
         error: (err) => {
           this.apiError.set(
-            err.error?.message || this._translate.instant("messagesToast.resetPasswordFailed")
+            err.error?.message || this._translate.instant("messagesToast.resetPasswordFailed"),
           );
           this._messageService.add({
             severity: "error",

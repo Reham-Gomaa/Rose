@@ -10,10 +10,10 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 // Services
-import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
+import { StorageManagerService } from "@angular-monorepo/services";
 // Shared_Components
 import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
-import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
+import { FormButtonComponent } from "@angular-monorepo/rose-form-button";
 // PrimeNg
 import { MessageService } from "primeng/api";
 // Auth_Lib
@@ -40,18 +40,18 @@ export class ChangePasswordComponent {
       password: new FormControl<string>("", [
         Validators.required,
         Validators.pattern(
-          "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+          "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
         ),
       ]),
       newPassword: new FormControl<string>("", [
         Validators.required,
         Validators.pattern(
-          "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+          "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
         ),
       ]),
       rePassword: new FormControl<string>("", Validators.required),
     },
-    { validators: this.passwordMatchValidator }
+    { validators: this.passwordMatchValidator },
   );
 
   passwordMatchValidator(control: AbstractControl): { [key: string]: boolean } | null {

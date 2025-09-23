@@ -18,7 +18,7 @@ export const appRoutes: Route[] = [
         title: "titles.overview",
         loadComponent: () =>
           import("@rose_dashboard/features_pages/overview/overview.component").then(
-            (c) => c.OverviewComponent
+            (c) => c.OverviewComponent,
           ),
       },
       {
@@ -26,7 +26,7 @@ export const appRoutes: Route[] = [
         title: "titles.categories",
         loadComponent: () =>
           import("@rose_dashboard/features_pages/categories/categories.component").then(
-            (c) => c.CategoriesComponent
+            (c) => c.CategoriesComponent,
           ),
       },
       {
@@ -34,33 +34,41 @@ export const appRoutes: Route[] = [
         title: "titles.occasions",
         loadComponent: () =>
           import("@rose_dashboard/features_pages/occasions/occasions.component").then(
-            (c) => c.OccasionsComponent
+            (c) => c.OccasionsComponent,
           ),
       },
       {
         path: "products",
         title: "titles.products",
         loadComponent: () =>
-          import("@rose_dashboard/features_pages/products//products.component").then(
-            (c) => c.ProductsComponent
+          import("@rose_dashboard/features_pages/products/products.component").then(
+            (c) => c.ProductsComponent,
           ),
       },
       {
         path: "user-profile",
         loadComponent: () =>
           import("@rose_dashboard/features_pages/user-profile/user-profile.component").then(
-            (c) => c.UserProfileComponent
+            (c) => c.UserProfileComponent,
           ),
         title: "titles.user-profile",
       },
     ],
   },
   {
+    path: "authorization",
+    loadComponent: () =>
+      import("@rose_dashboard/features_layouts/authorization/authorization.component").then(
+        (c) => c.AuthorizationComponent,
+      ),
+    title: "titles.not-authorization",
+  },
+  {
     path: "**",
     title: "titles.not-found",
     loadComponent: () =>
       import("@rose_dashboard/features_pages/not-found/not-found.component").then(
-        (c) => c.NotFoundComponent
+        (c) => c.NotFoundComponent,
       ),
   },
 ];

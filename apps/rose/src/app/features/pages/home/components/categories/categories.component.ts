@@ -7,10 +7,8 @@ import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 import { TranslationService } from "@angular-monorepo/translation";
 // Animations
 import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
-// Interfaces
-import { Category, CategoryRes } from "@rose/core_interfaces/categories.interface";
-// Shared_Services
-import { CategoriesService } from "@rose/shared_services/categories/categories.service";
+// Shared_Services , Interfaces
+import { CategoriesService, Category, CategoryRes } from "@angular-monorepo/categories";
 // Shared_Components
 import { NoDataAvailableComponent } from "@rose/shared_Components_business/no-data-available/no-data-available.component";
 // PrimeNG

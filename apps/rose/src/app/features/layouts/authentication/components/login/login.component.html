@@ -9,7 +9,7 @@
   <div class="flex-col">
     <form [formGroup]="loginForm" (ngSubmit)="LoginSubmit()" role="form" aria-label="Login Form">
       <!-- Email -->
-      <app-custom-input
+      <lib-custom-input
         formControlName="email"
         type="text"
         placeholder="user@example.com"
@@ -23,7 +23,7 @@
       />
 
       <!-- Password -->
-      <app-custom-input
+      <lib-custom-input
         formControlName="password"
         type="password"
         placeholder="********"
@@ -45,7 +45,7 @@
         {{ "auth.login.h5" | translate }}
       </h5>
 
-      <app-form-button
+      <lib-form-button
         (onClick)="LoginSubmit()"
         [text]="'auth.login.button' | translate"
         [disabled]="loginForm.invalid"
