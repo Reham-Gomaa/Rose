@@ -208,7 +208,10 @@ export class NavbarComponent implements OnInit {
         command: () => {
           const token = this._storageManagerService.getItem("authToken");
           if (token) {
-            window.open(`${environment.runUrl}?token=${encodeURIComponent(token)}`, "_blank");
+            window.open(
+              `${environment.runUrlDashboard}?token=${encodeURIComponent(token)}`,
+              "_blank",
+            );
           }
         },
       },
