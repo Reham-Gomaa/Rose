@@ -6,7 +6,7 @@ import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 import { TranslationService } from "@angular-monorepo/translation";
 // shared-components
 import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
-import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
+import { FormButtonComponent } from "@angular-monorepo/rose-form-button";
 // PrimeNG
 import { MessageService } from "primeng/api";
 // Auth Lib

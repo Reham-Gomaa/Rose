@@ -150,5 +150,5 @@ export const addressReducer = createReducer(
       ...state,
       userName: userName,
     };
-  })
+  }),
 );

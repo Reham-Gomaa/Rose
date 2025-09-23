@@ -1,1 +1,52 @@
-<p>user-profile works!</p>
+<h2 class="sidebar-title">{{ "Account Settings" | translate }}</h2>
+<div [@fadeTransition]="_translationService.fadeState()" class="profile-container">
+  <div class="content-area col-8">
+    @if (activeTab === "profile") {
+      <app-edit-profile />
+    } @else if (activeTab === "password") {
+      <app-change-password />
+    }
+
+    <div class="container-btn">
+      <div class="flex justify-content-between align-items-center gap-3">
+        @if (activeTab === "profile") {
+          <button
+            type="button"
+            class="delete-account text-center"
+            (click)="deleteAccountDialog.show()"
+          >
+            {{ "user-Profile.edit-Profile.deleteMyAccount" | translate }}
+          </button>
+
+          <button
+            class="change-password text-center"
+            [class.active]="activeTab === 'profile'"
+            (click)="switchTab()"
+          >
+            {{ submitButtonText() }}
+          </button>
+        }
+      </div>
+
+      <lib-form-button
+        [text]="'user-Profile.edit-Profile.saveChanges' | translate"
+        [disabled]="currentFormInvalid"
+        [isLoading]="currentLoading"
+        (click)="saveChanges()"
+        [padding]="'0.875rem 4.0625rem'"
+      >
+      </lib-form-button>
+    </div>
+
+    <!-- Confirmation Dialog (outside form) -->
+    <lib-confirm-dialog
+      #deleteAccountDialog
+      [message]="'user-Profile.confirm-dialog.deleteAccountConfirmation' | translate"
+      [subMessage]="'user-Profile.confirm-dialog.permanentActionWarning' | translate"
+      [cancelLabel]="'user-Profile.confirm-dialog.cancelDelete' | translate"
+      [confirmLabel]="'user-Profile.confirm-dialog.confirmDelete' | translate"
+      (confirmed)="onDeleteAccountConfirmed($event)"
+    >
+    </lib-confirm-dialog>
+  </div>
+</div>

@@ -29,10 +29,10 @@ export class CartEffects {
       switchMap(() =>
         this.cartService.getLoggedUserCart().pipe(
           map((cart) => getUserCartSuccess({ cart })),
-          catchError((error) => of(getUserCartFailure({ error: error.message })))
-        )
-      )
-    )
+          catchError((error) => of(getUserCartFailure({ error: error.message }))),
+        ),
+      ),
+    ),
   );
 
   addProduct$ = createEffect(() =>
@@ -41,10 +41,10 @@ export class CartEffects {
       switchMap((action) =>
         this.cartService.addProductToCart(action.p_id, action.qty).pipe(
           map((cart) => addProductToCartSuccess({ cart })),
-          catchError((error) => of(getUserCartFailure({ error: error.message })))
-        )
-      )
-    )
+          catchError((error) => of(getUserCartFailure({ error: error.message }))),
+        ),
+      ),
+    ),
   );
 
   updateProduct$ = createEffect(() =>
@@ -53,10 +53,10 @@ export class CartEffects {
       switchMap((action) =>
         this.cartService.updateCartProductQuantity(action.p_id, action.qty).pipe(
           map((cart) => updateQuantitySuccess({ cart })),
-          catchError((error) => of(getUserCartFailure({ error: error.message })))
-        )
-      )
-    )
+          catchError((error) => of(getUserCartFailure({ error: error.message }))),
+        ),
+      ),
+    ),
   );
 
   deleteProduct$ = createEffect(() =>
@@ -65,10 +65,10 @@ export class CartEffects {
       switchMap((action) =>
         this.cartService.removeSpecificCartItem(action.p_id).pipe(
           map((cart) => deleteSpecificItemSuccess({ cart })),
-          catchError((error) => of(getUserCartFailure({ error: error.message })))
-        )
-      )
-    )
+          catchError((error) => of(getUserCartFailure({ error: error.message }))),
+        ),
+      ),
+    ),
   );
 
   clearCart$ = createEffect(() =>
@@ -77,9 +77,9 @@ export class CartEffects {
       switchMap(() =>
         this.cartService.clearUserCart().pipe(
           map((cart) => clearCartSuccess({ cart })),
-          catchError((error) => of(getUserCartFailure({ error: error.message })))
-        )
-      )
-    )
+          catchError((error) => of(getUserCartFailure({ error: error.message }))),
+        ),
+      ),
+    ),
   );
 }

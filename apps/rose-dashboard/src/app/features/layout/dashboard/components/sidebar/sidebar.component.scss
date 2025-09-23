@@ -1,7 +1,9 @@
 aside {
   height: 100%;
+  margin: 1.5rem 2.0625rem;
+  background-color: var(--white);
   padding: 1.5rem 2.0625rem;
-  border-right: .0625rem solid #00000014;
+  border-right: 0.0625rem solid #00000014;
   .logo_image {
     width: 7.5rem;
     margin: 2.25rem 3.625rem;
@@ -28,18 +30,18 @@ aside {
   margin: 1rem 0px;
   gap: 1rem;
   .aside-nav-item {
-    color: #27272A;
+    color: #27272a;
     display: flex;
     justify-content: start;
     align-items: start;
     font-weight: 700;
-    padding: .625rem;
-    border-radius: .625rem;
+    padding: 0.625rem;
+    border-radius: 0.625rem;
     gap: 0.5rem;
     width: 100%;
     text-align: center;
     cursor: pointer;
-    img{
+    img {
       width: 1.5rem;
     }
   }
@@ -49,9 +51,7 @@ a {
   text-decoration: none;
 }
 
-
 .color-soft-red {
-  background-color: #FEEAEA;
-  color: #A6252A !important;
-
+  background-color: #feeaea;
+  color: #a6252a !important;
 }

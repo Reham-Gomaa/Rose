@@ -5,12 +5,12 @@ export const selectWishlistState = createFeatureSelector<wishlistStates>("wishli
 
 export const selectWishlistItems = createSelector(
   selectWishlistState,
-  (state) => state.favouriteitems
+  (state) => state.favouriteitems,
 );
 
 export const selectWishlistCount = createSelector(
   selectWishlistState,
-  (state) => state.favouriteitemsNum
+  (state) => state.favouriteitemsNum,
 );
 
 export const selectIsInWishlist = (productId: string) =>

@@ -1,10 +1,9 @@
 import { Component } from "@angular/core";
-import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "lib-occasions",
-  imports: [CommonModule],
+  imports: [],
   templateUrl: "./occasions.component.html",
-  styleUrl: "./occasions.component.css",
+  styleUrl: "./occasions.component.scss",
 })
 export class OccasionsComponent {}

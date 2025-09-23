@@ -71,7 +71,7 @@ export class OrderFlowComponent implements OnInit {
 
   checkStoreQuantity() {
     const invalidItems = this.userCartItems().filter(
-      (item) => item.quantity > item.product.quantity
+      (item) => item.quantity > item.product.quantity,
     );
 
     if (invalidItems.length === 0) {

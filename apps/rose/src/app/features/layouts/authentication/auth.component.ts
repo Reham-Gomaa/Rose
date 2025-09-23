@@ -5,7 +5,7 @@ import { TranslatePipe } from "@ngx-translate/core";
 // shared-components
 import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";
 import { SeparatorComponent } from "@rose/shared_Components_ui/auth-separator/separator.component";
-import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
+import { ButtonThemeComponent } from "@angular-monorepo/button-theme";
 
 @Component({
   selector: "app-auth",

@@ -40,7 +40,7 @@ import { SkeletonModule } from "primeng/skeleton";
               animate("300ms ease-out", style({ opacity: 1, transform: "translateY(0)" })),
             ]),
           ],
-          { optional: true }
+          { optional: true },
         ),
       ]),
     ]),
