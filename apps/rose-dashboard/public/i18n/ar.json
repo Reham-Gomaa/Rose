@@ -1,11 +1,26 @@
 {
-  "aside-bar": {
-    "preview-website": "معاينة الموقع",
-    "overview": "نظرة عامة",
-    "categories": "الفئات",
-    "occasions": "المناسبات",
-    "products": "المنتجات"
-  },
+    "breadcrumb": {
+        "overview": "نظرة عامة",
+        "categories": "الفئات",
+        "occasions": "المناسبات",
+        "products": "المنتجات",
+        "dashboard": "لوحة القيادة",
+        "user-profile": "الملف الشخصي"
+
+    },
+    "stepper": {
+       "dropdown": {
+        "profile": "الملف الشخصي",
+        "logout": "تسجيل خروج"
+       }
+    },
+    "aside-bar": {
+        "preview-website": "معاينة الموقع",
+        "overview": "نظرة عامة",
+        "categories": "الفئات",
+        "occasions": "المناسبات",
+        "products": "المنتجات"
+    },
   "user-Profile": {
     "updateProfile": "تحديث الملف الشخصي",
     "myAccount": "حسابي",

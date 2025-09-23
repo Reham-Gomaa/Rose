@@ -1,12 +1,15 @@
+a {
+  text-decoration: none;
+}
 .breadcrumb-container {
-  margin: 0rem 1rem;
-  border-bottom: .0625rem solid #00000014;
+  background-color: var(--body-color);
+  border-bottom: 0.0625rem solid #00000014;
+
   ul {
     list-style: none;
     padding: 0;
   }
   width: 100%;
-  background-color: var(--white);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,11 +20,13 @@
     cursor: pointer;
   }
   .dropdown {
+    background-color: var(--body-color);
+
     display: flex;
     flex-direction: column;
     position: absolute;
     width: 100%;
-    top: 7%;
+    top: 9%;
     right: 0;
     z-index: 9999;
     transition: opacity 220ms ease-in-out, transform 220ms ease-in-out;
@@ -41,12 +46,12 @@
       justify-content: center;
       align-items: start;
       border-radius: 0.5rem;
-      background-color: white;
       padding: 1rem;
       min-width: 10rem;
       gap: 1rem;
       .dropdown-item {
         display: flex;
+        color: var(--bread-crump);
         justify-content: start;
         align-items: center;
         gap: 0.5rem;

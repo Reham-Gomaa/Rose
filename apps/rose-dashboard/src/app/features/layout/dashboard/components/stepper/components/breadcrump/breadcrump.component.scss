@@ -1,6 +1,11 @@
 .breadcrumb {
   color: #667085;
-  
+    margin: 0rem 1rem;
+
+    .logo-img{
+    width: 3.75rem;
+    margin-right: .75rem;
+  }
   .breadcrumb-item {
     cursor: pointer;
     transition: all 0.2s ease;
@@ -8,7 +13,7 @@
     border-radius: 4px;
     
     &:hover {
-      background-color: rgba(102, 112, 133, 0.1);
+      background-color: var(--aside-button);
       color: #333;
     }
     
@@ -18,12 +23,12 @@
       
       &:hover {
         background-color: transparent;
-        color: #A6252A;
+        color: var(--aside-button);
       }
     }
   }
 }
 
 .activeColor {
-  color: #A6252A !important;
+  color: var(--aside-button) !important;
 }

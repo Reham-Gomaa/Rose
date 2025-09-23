@@ -23,6 +23,7 @@ export class BreadcrumpComponent implements OnInit {
   breadCrumb: Breadcrumb[] = [];
 
   ngOnInit(): void {
+    this.stepperInit();
     this._translate.onDefaultLangChange.pipe(takeUntilDestroyed(this.$distroyRef)).subscribe(() => {
       this.stepperInit();
     });
@@ -37,6 +38,8 @@ export class BreadcrumpComponent implements OnInit {
       )
       .subscribe(() => {
         this.breadCrumb = this.createBreadcrumbs();
+        console.log(this.breadCrumb);
+
       });
   }
 
