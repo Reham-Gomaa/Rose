@@ -49,16 +49,12 @@ export class AppComponent {
   private readonly _store = inject(Store);
 
   ngOnInit() {
-    // run once after navigation end
     this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
-      // first grab token if present
       this.handleTokenFromUrl();
 
-      // then load user info after token saved
       this.loadUserInfo();
     });
 
-    // also run on first load
     this.handleTokenFromUrl();
     this.loadUserInfo();
   }

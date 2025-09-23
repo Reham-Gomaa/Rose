@@ -12,7 +12,6 @@ import {
   withInMemoryScrolling,
   withViewTransitions,
 } from "@angular/router";
-// @ngx imports
 // ngrx imports
 import { provideEffects } from "@ngrx/effects";
 import { provideStore } from "@ngrx/store";
@@ -28,6 +27,8 @@ import { cartReducer } from "./store/cart/cart-reducers";
 import { checkoutEffects } from "./store/checkout/checkout.effects";
 import { checkoutReducer } from "./store/checkout/checkout.reducer";
 import { wishlistReducer } from "./store/wishlist/wishlist-reducers";
+import { tokenReducer } from "@rose/store_auth/auth.reducers";
+import { AuthEffects } from "@rose/store_auth/auth.effects";
 // primeng imports
 import Aura from "@primeng/themes/aura";
 import { MessageService } from "primeng/api";
@@ -46,8 +47,6 @@ import { API_BASE_URL_CATEGORIES } from "@angular-monorepo/categories";
 import { BASE_URL } from "@angular-monorepo/occasions";
 import { API_BASE_URL_PRODUCTS } from "@angular-monorepo/products";
 import { provideTranslation } from "@angular-monorepo/translation";
-import { tokenReducer } from "@angular-monorepo/auth";
-import { AuthEffects } from "@angular-monorepo/auth";
 
 export const appConfig: ApplicationConfig = {
   providers: [

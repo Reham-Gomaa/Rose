@@ -25,7 +25,7 @@ import { AuthApiKpService } from "auth-api-kp";
 import { User } from "auth-api-kp";
 
 @Component({
-  selector: "lib-user-profile",
+  selector: "app-user-profile",
   imports: [
     SkeletonModule,
     ButtonModule,

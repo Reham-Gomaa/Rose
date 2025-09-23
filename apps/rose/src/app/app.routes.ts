@@ -84,7 +84,9 @@ export const appRoutes: Route[] = [
         path: "user-profile",
         canActivate: [authGuard],
         loadComponent: () =>
-          import("@angular-monorepo/user-profile").then((c) => c.UserProfileComponent),
+          import("@rose/features_layouts/user-profile/user-profile.component").then(
+            (c) => c.UserProfileComponent,
+          ),
         title: "titles.user-profile",
       },
     ],

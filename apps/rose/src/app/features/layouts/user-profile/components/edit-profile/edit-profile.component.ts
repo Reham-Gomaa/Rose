@@ -15,7 +15,7 @@ import {
   CustomInputPhoneComponent,
 } from "@angular-monorepo/rose-custom-inputs";
 import { FormButtonComponent } from "@angular-monorepo/rose-form-button";
-import { ConfirmDialogComponent } from "@angular-monorepo/rose-confirm-dialog";
+import { ConfirmDialogComponent } from "@angular-monorepo/confirm-dialog";
 // PrimeNg
 import { MessageService } from "primeng/api";
 import { ButtonModule } from "primeng/button";
@@ -28,7 +28,7 @@ import { SkeletonModule } from "primeng/skeleton";
 import { AuthApiKpService, User } from "auth-api-kp";
 
 @Component({
-  selector: "lib-edit-profile",
+  selector: "app-edit-profile",
   imports: [
     SkeletonModule,
     ButtonModule,

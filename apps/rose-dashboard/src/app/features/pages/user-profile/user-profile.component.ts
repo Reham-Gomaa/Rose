@@ -25,7 +25,7 @@ import { User } from "auth-api-kp";
 import { EditProfileComponent } from "./components/edit-profile/edit-profile.component";
 import { ChangePasswordComponent } from "./components/change-password/change-password.component";
 import { ConfirmDialogComponent } from "@angular-monorepo/confirm-dialog";
-import { FormButtonComponent } from "@angular-monorepo/rose-form-button";
+import { FormButtonComponent } from "@angular-monorepo/form-button";
 
 @Component({
   selector: "app-user-profile",

@@ -21,7 +21,7 @@ import { MessageService } from "primeng/api";
 import { AuthApiKpService } from "auth-api-kp";
 // Store
 import { Store } from "@ngrx/store";
-import * as AuthActions from "@angular-monorepo/auth";
+import * as AuthActions from "@rose/store_auth/auth.actions";
 
 @Component({
   selector: "app-login",

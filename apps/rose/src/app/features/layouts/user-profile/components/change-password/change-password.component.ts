@@ -20,7 +20,7 @@ import { MessageService } from "primeng/api";
 import { AuthApiKpService } from "auth-api-kp";
 
 @Component({
-  selector: "lib-change-password",
+  selector: "app-change-password",
   imports: [CustomInputComponent, FormButtonComponent, TranslatePipe, ReactiveFormsModule],
   templateUrl: "./change-password.component.html",
   styleUrl: "./change-password.component.scss",
