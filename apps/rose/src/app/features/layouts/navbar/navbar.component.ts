@@ -41,7 +41,7 @@ import { AuthApiKpService } from "auth-api-kp";
 import { environment } from "@rose/environment/baseurl.dev";
 // Interface_Lib
 import { User } from "auth-api-kp";
-// Ngrx  
+// Ngrx
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { setUserName } from "../../../store/address/address.actions";
@@ -208,7 +208,10 @@ export class NavbarComponent implements OnInit {
         command: () => {
           const token = this._storageManagerService.getItem("authToken");
           if (token) {
-            window.open(`${environment.runUrl}?token=${encodeURIComponent(token)}`, "_blank");
+            window.open(
+              `${environment.runUrlDashboard}?token=${encodeURIComponent(token)}`,
+              "_blank",
+            );
           }
         },
       },
