@@ -37,6 +37,8 @@ import { OverlayBadgeModule } from "primeng/overlaybadge";
 import { SplitButton } from "primeng/splitbutton";
 // Auth_Lib
 import { AuthApiKpService } from "auth-api-kp";
+// Environment
+import { environment } from "@rose/environment/baseurl.dev";
 // Interface_Lib
 import { User } from "auth-api-kp";
 // Ngrx
@@ -206,10 +208,7 @@ export class NavbarComponent implements OnInit {
         command: () => {
           const token = this._storageManagerService.getItem("authToken");
           if (token) {
-            window.open(
-              `http://localhost:4200/#/dashboard/overview?token=${encodeURIComponent(token)}`,
-              "_blank",
-            );
+            window.open(`${environment.runUrl}?token=${encodeURIComponent(token)}`, "_blank");
           }
         },
       },

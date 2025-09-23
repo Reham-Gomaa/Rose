@@ -1,6 +1,6 @@
 import { NgOptimizedImage } from "@angular/common";
 import { Component } from "@angular/core";
-
+import { environment } from "@rose/environment/baseurl.prod";
 @Component({
   selector: "app-authorization",
   imports: [NgOptimizedImage],
@@ -9,6 +9,6 @@ import { Component } from "@angular/core";
 })
 export class AuthorizationComponent {
   goToLogin(): void {
-    window.location.href = "https://rose-chi-nine.vercel.app/#/login";
+    window.location.href = environment.runUrl;
   }
 }
