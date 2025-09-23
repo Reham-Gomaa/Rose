@@ -1,4 +1,17 @@
 {
+        "breadcrumb": {
+        "overview": "نظرة عامة",
+        "categories": "الفئات",
+        "occasions": "المناسبات",
+        "products": "المنتجات",
+        "dashboard": "لوحة القيادة"
+    },
+    "stepper": {
+       "dropdown": {
+        "profile": "الملف الشخصي",
+        "logout": "تسجيل خروج"
+       }
+    },
     "aside-bar": {
         "preview-website": "معاينة الموقع",
         "overview": "نظرة عامة",

@@ -1,4 +1,17 @@
-{
+{   
+    "breadcrumb": {
+        "overview": "Overview",
+        "categories": "Categories",
+        "occasions": "Occasions",
+        "products": "Products",
+        "dashboard": "Dashboard"
+    },
+    "stepper": {
+       "dropdown": {
+        "profile": "Profile",
+        "logout": "Logout"
+       }
+    },
     "aside-bar": {
         "preview-website": "Preview Website",
         "overview": "overview",

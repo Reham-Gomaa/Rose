@@ -1,0 +1,29 @@
+.breadcrumb {
+  color: #667085;
+  
+  .breadcrumb-item {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 4px 4px;
+    border-radius: 4px;
+    
+    &:hover {
+      background-color: rgba(102, 112, 133, 0.1);
+      color: #333;
+    }
+    
+    // Don't make the last item (active) hoverable
+    &.activeColor {
+      cursor: default;
+      
+      &:hover {
+        background-color: transparent;
+        color: #A6252A;
+      }
+    }
+  }
+}
+
+.activeColor {
+  color: #A6252A !important;
+}
