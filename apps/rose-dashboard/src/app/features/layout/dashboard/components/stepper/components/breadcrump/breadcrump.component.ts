@@ -34,12 +34,11 @@ export class BreadcrumpComponent implements OnInit {
     this._router.events
       .pipe(
         takeUntilDestroyed(this.$distroyRef),
-        filter((e) => e instanceof NavigationEnd)
+        filter((e) => e instanceof NavigationEnd),
       )
       .subscribe(() => {
         this.breadCrumb = this.createBreadcrumbs();
         console.log(this.breadCrumb);
-
       });
   }
 
@@ -47,13 +46,13 @@ export class BreadcrumpComponent implements OnInit {
     const breadcrumbs = [];
 
     const url = this._router.url;
-    let finalUrl="";
+    let finalUrl = "";
     for (const segment of url.split("/")) {
       if (segment) {
         const key = `breadcrumb.${segment}`;
         const translated = this._translate.instant(key);
         const label: string = translated;
-        finalUrl+=segment+"/";
+        finalUrl += segment + "/";
         breadcrumbs.push({ label, url: finalUrl });
       }
     }
@@ -62,6 +61,5 @@ export class BreadcrumpComponent implements OnInit {
 
   openUrl(url: string) {
     this._router.navigate([url]);
-
   }
 }
