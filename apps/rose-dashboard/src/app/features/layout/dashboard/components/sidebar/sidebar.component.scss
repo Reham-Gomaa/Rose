@@ -2,6 +2,8 @@ aside {
   height: 100%;
   margin: 1.5rem 2.0625rem;
   background-color: var(--white);
+  padding: 1.5rem 2.0625rem;
+  border-right: 0.0625rem solid #00000014;
   .logo_image {
     width: 7.5rem;
     margin: 2.25rem 3.625rem;
@@ -48,6 +50,7 @@ aside {
 a {
   text-decoration: none;
 }
+
 .color-soft-red {
   background-color: #feeaea;
   color: #a6252a !important;
