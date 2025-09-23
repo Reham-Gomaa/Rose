@@ -18,9 +18,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@angular-monorepo/button-theme": [
-        "libs/shared/ui-components/button-theme/src/index.ts"
-      ],
       "@angular-monorepo/categories": [
         "libs/categories/src/index.ts"
       ],
@@ -29,9 +26,6 @@
       ],
       "@angular-monorepo/core": [
         "libs/core/src/index.ts"
-      ],
-      "@angular-monorepo/form-button": [
-        "libs/shared/ui-components/form-button/src/index.ts"
       ],
       "@angular-monorepo/notification-toast": [
         "libs/shared/ui-components/notification-toast/src/index.ts"
@@ -42,20 +36,14 @@
       "@angular-monorepo/products": [
         "libs/products/src/index.ts"
       ],
+      "@angular-monorepo/rose-buttons": [
+        "libs/shared/ui-components/rose-buttons/src/index.ts"
+      ],
       "@angular-monorepo/rose-custom-inputs": [
         "libs/shared/ui-components/rose-custom-inputs/src/index.ts"
       ],
-      "@angular-monorepo/rose-form-button": [
-        "libs/shared/ui-components/form-button/src/index.ts"
-      ],
       "@angular-monorepo/services": [
         "libs/services/src/index.ts"
-      ],
-      "@angular-monorepo/spinner": [
-        "libs/shared/ui-components/spinner/src/index.ts"
-      ],
-      "@angular-monorepo/translation": [
-        "libs/translation/src/index.ts"
       ],
       "@rose/address/*": [
         "./apps/rose/src/app/store/address/*"

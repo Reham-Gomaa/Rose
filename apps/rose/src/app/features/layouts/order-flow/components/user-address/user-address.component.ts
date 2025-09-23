@@ -25,7 +25,7 @@ import {
 import { setAddressState, showAddresses } from "apps/rose/src/app/store/address/address.actions";
 import { DeleteDialogComponent } from "./components/delete-dialog/delete-dialog.component";
 import { AddressSituations } from "apps/rose/src/app/store/address/addresses.state";
-import { SpinnerComponent } from "@angular-monorepo/spinner";
+import { SpinnerComponent } from "@angular-monorepo/rose-buttons";
 import { TranslatePipe } from "@ngx-translate/core";
 import { AddressStepperComponent } from "./components/address-stepper/address-stepper.component";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";

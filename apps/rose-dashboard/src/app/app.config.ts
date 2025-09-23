@@ -22,7 +22,7 @@ import { MessageService } from "primeng/api";
 import { providePrimeNG } from "primeng/config";
 import { ToastModule } from "primeng/toast";
 // Shared Libraries
-import { provideTranslation } from "@angular-monorepo/translation";
+import { provideTranslation } from "@angular-monorepo/services";
 
 export const appConfig: ApplicationConfig = {
   providers: [

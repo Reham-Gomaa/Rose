@@ -1,8 +1,8 @@
 export default {
-  displayName: "translation",
-  preset: "../../jest.preset.js",
+  displayName: "rose-buttons",
+  preset: "../../../../jest.preset.js",
   setupFilesAfterEnv: ["<rootDir>/src/test-setup.ts"],
-  coverageDirectory: "../../coverage/libs/translation",
+  coverageDirectory: "../../../../coverage/libs/shared/ui-components/rose-buttons",
   transform: {
     "^.+\\.(ts|mjs|js|html)$": [
       "jest-preset-angular",

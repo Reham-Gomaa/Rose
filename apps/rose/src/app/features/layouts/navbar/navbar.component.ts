@@ -13,15 +13,15 @@ import { FormsModule } from "@angular/forms";
 import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 // Translate
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 // Animation
-import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // Services
 import { StorageManagerService } from "@angular-monorepo/services";
 import { UserStateService } from "@angular-monorepo/services";
 import { CartService } from "@rose/shared_services/cart/cart.service";
 // Shared_UI_Components
-import { ButtonThemeComponent } from "@angular-monorepo/button-theme";
+import { ButtonThemeComponent } from "@angular-monorepo/rose-buttons";
 import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
 // Shared_business_Components
 import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";

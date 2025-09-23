@@ -1,7 +1,7 @@
 {
-  "name": "form-button",
+  "name": "rose-buttons",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/shared/ui-components/form-button/src",
+  "sourceRoot": "libs/shared/ui-components/rose-buttons/src",
   "prefix": "lib",
   "projectType": "library",
   "tags": [],
@@ -12,7 +12,7 @@
         "{workspaceRoot}/coverage/{projectRoot}"
       ],
       "options": {
-        "jestConfig": "libs/shared/ui-components/form-button/jest.config.ts"
+        "jestConfig": "libs/shared/ui-components/rose-buttons/jest.config.ts"
       }
     },
     "lint": {

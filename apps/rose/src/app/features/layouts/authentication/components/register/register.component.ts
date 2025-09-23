@@ -10,13 +10,13 @@ import { Router } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 // Components
 import { AuthComponent } from "@rose/features_layouts/authentication/auth.component";
 // shared-components
-import { FormButtonComponent } from "@angular-monorepo/rose-form-button";
+import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
 // animation
-import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // primeNG
 import { ToastModule } from "primeng/toast";
 import { MessageService } from "primeng/api";

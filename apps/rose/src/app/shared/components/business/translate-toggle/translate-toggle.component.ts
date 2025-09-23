@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal, WritableSignal } from "@angular/core";
 // Translation
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 @Component({
   selector: "app-translate-toggle",
   imports: [],

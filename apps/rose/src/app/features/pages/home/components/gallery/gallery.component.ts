@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 // Animations
-import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 
 @Component({
   selector: "app-gallery",

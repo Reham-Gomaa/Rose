@@ -5,9 +5,9 @@ import { Router } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 // Animation_Translation
-import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // Services
 import { StorageManagerService } from "@angular-monorepo/services";
 import { UserStateService } from "@angular-monorepo/services";
@@ -25,7 +25,7 @@ import { User } from "auth-api-kp";
 import { EditProfileComponent } from "./components/edit-profile/edit-profile.component";
 import { ChangePasswordComponent } from "./components/change-password/change-password.component";
 import { ConfirmDialogComponent } from "@angular-monorepo/confirm-dialog";
-import { FormButtonComponent } from "@angular-monorepo/form-button";
+import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
 
 @Component({
   selector: "app-user-profile",

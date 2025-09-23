@@ -14,12 +14,12 @@ import { SkeletonModule } from "primeng/skeleton";
 import { Product, ProductRes } from "@angular-monorepo/products";
 import { ProductDetail, ProductDetailsRes } from "@angular-monorepo/products";
 // shared-services
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 import { ProductsService } from "@angular-monorepo/products";
 // shared-component
 import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
 // Animation
-import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 
 @Component({
   selector: "app-related-products",

@@ -3,9 +3,9 @@ import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 // Animations
-import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // Shared_Components
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 

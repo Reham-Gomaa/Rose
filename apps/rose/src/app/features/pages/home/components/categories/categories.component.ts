@@ -4,9 +4,9 @@ import { NgOptimizedImage } from "@angular/common";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 // Animations
-import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // Shared_Services , Interfaces
 import { CategoriesService, Category, CategoryRes } from "@angular-monorepo/categories";
 // Shared_Components

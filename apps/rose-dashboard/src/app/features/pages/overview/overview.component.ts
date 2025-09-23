@@ -1,4 +1,4 @@
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 import { Component, inject } from "@angular/core";
 
 @Component({

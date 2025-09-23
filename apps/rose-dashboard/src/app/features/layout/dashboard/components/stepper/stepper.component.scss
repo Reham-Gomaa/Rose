@@ -29,7 +29,9 @@ a {
     top: 9%;
     right: 0;
     z-index: 9999;
-    transition: opacity 220ms ease-in-out, transform 220ms ease-in-out;
+    transition:
+      opacity 220ms ease-in-out,
+      transform 220ms ease-in-out;
     opacity: 0;
     transform: translateY(-0.5rem);
     pointer-events: none;

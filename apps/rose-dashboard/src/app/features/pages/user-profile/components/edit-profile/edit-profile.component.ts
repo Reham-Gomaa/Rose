@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
 import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 // Shared_Components
 import {
   CustomInputComponent,
