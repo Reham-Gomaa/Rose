@@ -1,6 +1,7 @@
 import { Component, DestroyRef, inject, PLATFORM_ID, signal } from "@angular/core";
 import { isPlatformBrowser } from "@angular/common";
 import { ActivatedRoute, Router, RouterOutlet, NavigationEnd } from "@angular/router";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Libs_Services
 import { StorageManagerService } from "@angular-monorepo/services";
 import { DarkModeService } from "@angular-monorepo/services";
@@ -9,8 +10,6 @@ import { AuthApiKpService, User } from "auth-api-kp";
 import { filter } from "rxjs/operators";
 // Components_Shared
 import { NotificationToastComponent } from "@angular-monorepo/notification-toast";
-import { TranslationService } from "@angular-monorepo/translation";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
 @Component({
   imports: [RouterOutlet, NotificationToastComponent],
@@ -23,7 +22,6 @@ export class AppComponent {
   protected platformId = inject(PLATFORM_ID);
   private readonly _authApiService = inject(AuthApiKpService);
   protected darkMode = inject(DarkModeService);
-  private translation = inject(TranslationService);
   private readonly destroyRef = inject(DestroyRef);
   private route = inject(ActivatedRoute);
   private readonly _router = inject(Router);

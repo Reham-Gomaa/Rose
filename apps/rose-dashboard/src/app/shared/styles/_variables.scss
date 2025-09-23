@@ -137,6 +137,14 @@ $breakpoint-small: 620px;
   --form-button-disabled: var(--maroon-800);
   --form-button-hover: var(--maroon-500);
   --form-button-color: var(--white);
+  // Custom Input
+  --input-color: var(--white);
+  --input-text-color: var(--zinc-400);
+  --input-placeholder-text-color: var(--zinc-500);
+  --label-color: var(--zinc-800);
+  --input-border-color: var(--zinc-300);
+  --selected-color-input: var(--gray-950);
+  --border-active-color: var(--maroon-700);
   // Notification-Toast
   --toast-error-bg: var(--maroon-500);
   --toast-error-color: var(--zinc-100);
@@ -147,9 +155,9 @@ $breakpoint-small: 620px;
   --toast-success-i-color: var(--zinc-700);
   --toast-btn-close-color: var(--zinc-600);
   // Aside-bar
-  --aside-button:var(--soft-pink-600);
-  --aside-nav-item:var(#27272a);
-  --bread-crump:var(#667085);
+  --aside-button: var(--soft-pink-600);
+  --aside-nav-item: var(#27272a);
+  --bread-crump: var(#667085);
 }
 
 // Dark theme overrides
@@ -211,6 +219,14 @@ $breakpoint-small: 620px;
   --form-button-disabled: var(--soft-pink-600);
   --form-button-hover: var(--soft-pink-400);
   --form-button-color: var(--zinc-800);
+  // Custom Input
+  --input-color: var(--zinc-700);
+  --input-text-color: var(--white);
+  --input-placeholder-text-color: var(--zinc-400);
+  --label-color: var(--white);
+  --input-border-color: var(--zinc-600);
+  --selected-color-input: var(--white);
+  --border-active-color: var(--soft-pink-600);
   // Notification-Toast
   --toast-error-bg: var(--maroon-50);
   --toast-error-color: var(--zinc-800);
@@ -220,7 +236,7 @@ $breakpoint-small: 620px;
   --toast-success-i-color: var(--emerald-700);
   --toast-btn-close-color: var(--zinc-400);
   // Aside-bar
-  --aside-button:var(--soft-pink-600);
-  --aside-nav-item:var(--white);
-  --bread-crump:var(--zinc-300);
+  --aside-button: var(--soft-pink-600);
+  --aside-nav-item: var(--white);
+  --bread-crump: var(--zinc-300);
 }

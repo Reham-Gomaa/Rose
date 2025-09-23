@@ -1,7 +1,7 @@
 .profile-container {
   background: #f8f9fa;
   height: 100vh;
-  padding: 1.5rem;
+  padding: 0 2.5rem;
 
   @media (max-width: 768px) {
     padding: 1rem;
@@ -21,7 +21,8 @@
   font-weight: 700;
   font-size: 1.75rem;
   line-height: 1.2;
-  color: #1a1a1a;
+  color: var(--zinc-800);
+  padding: 0;
   margin-bottom: 2rem;
 
   @media (max-width: 768px) {

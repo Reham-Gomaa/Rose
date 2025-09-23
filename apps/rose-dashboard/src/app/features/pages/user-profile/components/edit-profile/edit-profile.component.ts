@@ -6,9 +6,6 @@ import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { TranslationService } from "@angular-monorepo/translation";
-// Services
-import { StorageManagerService } from "@angular-monorepo/services";
-import { UserStateService } from "@angular-monorepo/services";
 // Shared_Components
 import {
   CustomInputComponent,
@@ -50,9 +47,6 @@ export class EditProfileComponent {
   private readonly destroyRef = inject(DestroyRef);
   private readonly _authApiKpService = inject(AuthApiKpService);
   private readonly _messageService = inject(MessageService);
-  private readonly _router = inject(Router);
-  private readonly _storageManagerService = inject(StorageManagerService);
-  private readonly _userStateService = inject(UserStateService);
 
   apiError = signal<string>("");
   isLoading = signal<boolean>(false);
