@@ -52,5 +52,4 @@ export class StepperComponent implements OnInit {
   changeHidden() {
     this.hidden = !this.hidden;
   }
-
 }

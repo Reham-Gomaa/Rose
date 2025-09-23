@@ -18,8 +18,6 @@ import { ToastModule } from "primeng/toast";
 import { provideTranslation } from "@angular-monorepo/translation";
 import { provideStore } from "@ngrx/store";
 import { provideEffects } from "@ngrx/effects";
-import { tokenReducer } from "./store/auth/auth.reducers";
-import { AuthEffects } from "./store/auth/auth.effects";
 import { headingInterceptor } from "@angular-monorepo/core";
 
 export const appConfig: ApplicationConfig = {
@@ -61,8 +59,6 @@ export const appConfig: ApplicationConfig = {
     // { provide: TitleStrategy, useClass: TranslateTitleStrategy },
     provideHttpClient(withFetch()),
     MessageService,
-    provideStore({ auth: tokenReducer }),
-    provideEffects(AuthEffects),
     importProvidersFrom(ToastModule),
     importProvidersFrom(ToastModule, provideTranslation()),
     provideAnimationsAsync(),

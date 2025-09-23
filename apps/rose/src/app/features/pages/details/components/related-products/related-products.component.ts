@@ -3,28 +3,21 @@ import { animate, query, stagger, style, transition, trigger } from "@angular/an
 import { HttpErrorResponse } from "@angular/common/http";
 import { Component, inject, Input, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-
 // @ngx
 import { TranslatePipe } from "@ngx-translate/core";
-
 // rxjs
 import { Subscription } from "rxjs";
-
 // PrimeNg
 import { CarouselModule } from "primeng/carousel";
 import { SkeletonModule } from "primeng/skeleton";
-
 // shared-interfaces
 import { Product, ProductRes } from "@angular-monorepo/products";
 import { ProductDetail, ProductDetailsRes } from "@angular-monorepo/products";
-
 // shared-services
 import { TranslationService } from "@angular-monorepo/translation";
 import { ProductsService } from "@angular-monorepo/products";
-
 // shared-component
 import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
-
 // Animation
 import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
 

@@ -3,22 +3,48 @@
     <div class="mobile-header">
       <h2 class="sidebar-title">{{ "user-Profile.updateProfile" | translate }}</h2>
       <div class="icon-group">
-        <i class="pi pi-user-edit" [class.active]="activeTab === 'profile'" (click)="switchTab('profile')"
-          (keyup.enter)="switchTab('profile')" tabindex="0" aria-label="Edit profile"></i>
-        <i class="pi pi-lock" [class.active]="activeTab === 'password'" (click)="switchTab('password')"
-          (keyup.enter)="switchTab('password')" tabindex="0" aria-label="Change password"></i>
-        <i class="pi pi-sign-out rtl" (click)="logout()" (keyup.enter)="logout()" tabindex="0" aria-label="Logout"></i>
+        <i
+          class="pi pi-user-edit"
+          [class.active]="activeTab === 'profile'"
+          (click)="switchTab('profile')"
+          (keyup.enter)="switchTab('profile')"
+          tabindex="0"
+          aria-label="Edit profile"
+        ></i>
+        <i
+          class="pi pi-lock"
+          [class.active]="activeTab === 'password'"
+          (click)="switchTab('password')"
+          (keyup.enter)="switchTab('password')"
+          tabindex="0"
+          aria-label="Change password"
+        ></i>
+        <i
+          class="pi pi-sign-out rtl"
+          (click)="logout()"
+          (keyup.enter)="logout()"
+          tabindex="0"
+          aria-label="Logout"
+        ></i>
       </div>
     </div>
 
     <div class="grid">
       <div class="sidebar col-4">
         <div class="sidebar-menu">
-          <button class="menu-item" [class.active]="activeTab === 'profile'" (click)="switchTab('profile')">
+          <button
+            class="menu-item"
+            [class.active]="activeTab === 'profile'"
+            (click)="switchTab('profile')"
+          >
             <i class="pi pi-user-edit"></i>
             {{ "user-Profile.myAccount" | translate }}
           </button>
-          <button class="menu-item" [class.active]="activeTab === 'password'" (click)="switchTab('password')">
+          <button
+            class="menu-item"
+            [class.active]="activeTab === 'password'"
+            (click)="switchTab('password')"
+          >
             <i class="pi pi-lock"></i>
             {{ "user-Profile.changePassword" | translate }}
           </button>
@@ -30,9 +56,9 @@
 
       <div class="content-area col-8">
         @if (activeTab === "profile") {
-        <app-edit-profile />
+          <app-edit-profile />
         } @else if (activeTab === "password") {
-        <app-change-password />
+          <app-change-password />
         }
       </div>
     </div>

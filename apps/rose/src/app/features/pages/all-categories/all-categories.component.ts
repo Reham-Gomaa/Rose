@@ -35,7 +35,6 @@ import { DrawerModule } from "primeng/drawer";
     ButtonModule,
     DrawerModule,
     NoDataAvailableComponent,
-    NoDataAvailableComponent,
   ],
   templateUrl: "./all-categories.component.html",
   styleUrl: "./all-categories.component.scss",
