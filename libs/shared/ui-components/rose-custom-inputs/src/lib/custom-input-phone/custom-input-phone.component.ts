@@ -17,7 +17,7 @@ import { Country } from "@rose/core_interfaces/country";
     },
   ],
 })
-export class CustomInputPhoneComponent implements ControlValueAccessor, OnInit, OnDestroy {
+export class CustomInputPhoneComponent implements ControlValueAccessor, OnDestroy {
   id = input<string>();
   placeholder = input<string>("");
   labelText = input<string>("");
@@ -92,7 +92,7 @@ export class CustomInputPhoneComponent implements ControlValueAccessor, OnInit, 
     }
   };
 
-  ngOnInit() {
+  constructor() {
     document.addEventListener("click", this.handleDocumentClick);
   }
 
