@@ -6,7 +6,7 @@ import { interval } from "rxjs";
 // Translation
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 // shared-components
-import { FormButtonComponent } from "@angular-monorepo/rose-form-button";
+import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
 // PrimeNG
 import { MessageService } from "primeng/api";
 import { InputOtpModule } from "primeng/inputotp";

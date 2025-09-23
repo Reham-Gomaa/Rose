@@ -3,10 +3,10 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angula
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 // shared-components
 import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
-import { FormButtonComponent } from "@angular-monorepo/rose-form-button";
+import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
 // PrimeNG
 import { MessageService } from "primeng/api";
 // Auth Lib

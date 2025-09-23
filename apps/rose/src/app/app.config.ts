@@ -41,7 +41,7 @@ import { headingInterceptor, TranslateTitleStrategy } from "@angular-monorepo/co
 // Environment
 import { environment } from "apps/environment/baseurl.dev";
 // Translate Title
-import { provideTranslation } from "@angular-monorepo/translation";
+import { provideTranslation } from "@angular-monorepo/services";
 // Shared Libraries
 import { API_BASE_URL_CATEGORIES } from "@angular-monorepo/categories";
 import { BASE_URL } from "@angular-monorepo/occasions";

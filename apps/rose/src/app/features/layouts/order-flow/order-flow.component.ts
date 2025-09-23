@@ -9,13 +9,13 @@ import { ButtonComponent } from "@rose/shared_Components_ui/button/button.compon
 import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 import { CartComponent } from "./components/cart/cart.component";
 // Animation
-import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 // Store
 import { Store } from "@ngrx/store";
 import { cartItems } from "@rose/core_interfaces/cart.interface";
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 import { CartService } from "@rose/shared_services/cart/cart.service";
 import { Observable } from "rxjs";
 import { deleteSpecificItem, getUserCart } from "../../../store/cart/cart-actions";
