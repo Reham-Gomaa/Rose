@@ -1,26 +1,25 @@
 {
-    "breadcrumb": {
-        "overview": "نظرة عامة",
-        "categories": "الفئات",
-        "occasions": "المناسبات",
-        "products": "المنتجات",
-        "dashboard": "لوحة القيادة",
-        "user-profile": "الملف الشخصي"
-
-    },
-    "stepper": {
-       "dropdown": {
-        "profile": "الملف الشخصي",
-        "logout": "تسجيل خروج"
-       }
-    },
-    "aside-bar": {
-        "preview-website": "معاينة الموقع",
-        "overview": "نظرة عامة",
-        "categories": "الفئات",
-        "occasions": "المناسبات",
-        "products": "المنتجات"
-    },
+  "breadcrumb": {
+    "overview": "نظرة عامة",
+    "categories": "الفئات",
+    "occasions": "المناسبات",
+    "products": "المنتجات",
+    "dashboard": "لوحة القيادة",
+    "user-profile": "الملف الشخصي"
+  },
+  "stepper": {
+    "dropdown": {
+      "profile": "الملف الشخصي",
+      "logout": "تسجيل خروج"
+    }
+  },
+  "aside-bar": {
+    "preview-website": "معاينة الموقع",
+    "overview": "نظرة عامة",
+    "categories": "الفئات",
+    "occasions": "المناسبات",
+    "products": "المنتجات"
+  },
   "user-Profile": {
     "updateProfile": "تحديث الملف الشخصي",
     "myAccount": "حسابي",
@@ -63,20 +62,20 @@
         "occasions": "المناسبات",
         "products": "المنتجات"
       }
-    },
-    "auth": {
-      "inputs": {
-        "email": "البريد الإلكتروني",
-        "password": "كلمة المرور",
-        "confirmPassword": "تأكيد كلمة المرور",
-        "firstName": "الاسم الأول",
-        "firstNamePlaceholder": "أحمد",
-        "lastName": "اسم العائلة",
-        "lastNamePlaceholder": "مصطفي",
-        "phone": "رقم الهاتف",
-        "gender": "النوع",
-        "genderPlaceholder": "اختر النوع"
-      }
+    }
+  },
+  "auth": {
+    "inputs": {
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "firstName": "الاسم الأول",
+      "firstNamePlaceholder": "أحمد",
+      "lastName": "اسم العائلة",
+      "lastNamePlaceholder": "مصطفي",
+      "phone": "رقم الهاتف",
+      "gender": "النوع",
+      "genderPlaceholder": "اختر النوع"
     },
     "messagesToast": {
       "sessionExpired": "انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى للمتابعة.",

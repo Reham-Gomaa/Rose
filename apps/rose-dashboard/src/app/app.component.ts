@@ -23,7 +23,6 @@ export class AppComponent {
   protected platformId = inject(PLATFORM_ID);
   private readonly _authApiService = inject(AuthApiKpService);
   protected darkMode = inject(DarkModeService);
-  private translation = inject(TranslationService);
   private readonly destroyRef = inject(DestroyRef);
   private route = inject(ActivatedRoute);
   private readonly _router = inject(Router);

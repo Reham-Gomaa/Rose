@@ -16,8 +16,6 @@ import { providePrimeNG } from "primeng/config";
 import { ToastModule } from "primeng/toast";
 // Shared Libraries
 import { provideTranslation } from "@angular-monorepo/translation";
-import { provideStore } from "@ngrx/store";
-import { provideEffects } from "@ngrx/effects";
 import { headingInterceptor } from "@angular-monorepo/core";
 
 export const appConfig: ApplicationConfig = {

@@ -1,25 +1,25 @@
 {
-      "breadcrumb": {
-        "overview": "Overview",
-        "categories": "Categories",
-        "occasions": "Occasions",
-        "products": "Products",
-        "dashboard": "Dashboard",
-        "user-profile": "User Profile"
-    },
-    "stepper": {
-       "dropdown": {
-        "profile": "Profile",
-        "logout": "Logout"
-       }
-    },
-    "aside-bar": {
-        "preview-website": "Preview Website",
-        "overview": "overview",
-        "categories": "Categories",
-        "occasions": "Occasions",
-        "products": "Products"
-    },
+  "breadcrumb": {
+    "overview": "Overview",
+    "categories": "Categories",
+    "occasions": "Occasions",
+    "products": "Products",
+    "dashboard": "Dashboard",
+    "user-profile": "User Profile"
+  },
+  "stepper": {
+    "dropdown": {
+      "profile": "Profile",
+      "logout": "Logout"
+    }
+  },
+  "aside-bar": {
+    "preview-website": "Preview Website",
+    "overview": "overview",
+    "categories": "Categories",
+    "occasions": "Occasions",
+    "products": "Products"
+  },
   "user-Profile": {
     "updateProfile": "Update Profile",
     "myAccount": "My Account",
@@ -62,20 +62,20 @@
         "occasions": "Occasions",
         "products": "Products"
       }
-    },
-    "auth": {
-      "inputs": {
-        "email": "Email",
-        "password": "Password",
-        "confirmPassword": "Confirm Password",
-        "firstName": "First Name",
-        "firstNamePlaceholder": "Jonathan",
-        "lastName": "Last Name",
-        "lastNamePlaceholder": "Adrian",
-        "phone": "Phone",
-        "gender": "Gender",
-        "genderPlaceholder": "Select Gender"
-      }
+    }
+  },
+  "auth": {
+    "inputs": {
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Jonathan",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Adrian",
+      "phone": "Phone",
+      "gender": "Gender",
+      "genderPlaceholder": "Select Gender"
     },
     "messagesToast": {
       "sessionExpired": "Your session expired. Please login again to continue.",
