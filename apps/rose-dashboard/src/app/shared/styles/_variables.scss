@@ -69,6 +69,7 @@ $breakpoint-small: 620px;
   --blue-700: #1447e6;
 
   --gray-200: #e9ecef;
+  --gray-500: #667085;
   --gray-900: #2e2e30;
   --gray-950: #323639;
 
@@ -158,6 +159,11 @@ $breakpoint-small: 620px;
   --aside-button: var(--soft-pink-600);
   --aside-nav-item: var(#27272a);
   --bread-crump: var(#667085);
+  --active-item-bg: var(--maroon-50);
+  --active-item-text: var(--soft-maroon-600);
+  --drop-button-down-bg: var(--zinc-800)
+
+
 }
 
 // Dark theme overrides
@@ -239,4 +245,8 @@ $breakpoint-small: 620px;
   --aside-button: var(--soft-pink-600);
   --aside-nav-item: var(--white);
   --bread-crump: var(--zinc-300);
+  --active-item-bg: var(--soft-pink-50);
+  --active-item-text: var(--soft-pink-600);
+  --drop-button-down-bg: var(--white);
+
 }
