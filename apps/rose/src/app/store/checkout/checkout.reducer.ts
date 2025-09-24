@@ -26,5 +26,5 @@ export const checkoutReducer = createReducer(
   }),
   on(CheckoutActions.checkoutFailed, (state, { failureRes }) => {
     return { ...state };
-  })
+  }),
 );

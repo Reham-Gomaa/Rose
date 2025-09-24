@@ -1,7 +1,7 @@
 <section class="dashboard">
-  <app-sidebar />
-  <div>
+  <app-sidebar class="hidden md:block" />
+  <div class="w-full">
     <app-stepper />
-    <app-content />
+    <router-outlet />
   </div>
 </section>

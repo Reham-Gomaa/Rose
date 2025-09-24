@@ -14,7 +14,7 @@
     >
       <div class="formgrid grid">
         <!-- First Name -->
-        <app-custom-input
+        <lib-custom-input
           formControlName="firstName"
           type="text"
           placeholder="{{ 'auth.inputs.firstNamePlaceholder' | translate }}"
@@ -27,7 +27,7 @@
         />
 
         <!-- Last Name -->
-        <app-custom-input
+        <lib-custom-input
           formControlName="lastName"
           type="text"
           placeholder="{{ 'auth.inputs.lastNamePlaceholder' | translate }}"
@@ -41,7 +41,7 @@
       </div>
 
       <!-- Email -->
-      <app-custom-input
+      <lib-custom-input
         formControlName="email"
         type="text"
         placeholder="user@example.com"
@@ -54,7 +54,7 @@
       />
 
       <!-- Phone -->
-      <app-custom-input-phone
+      <lib-custom-input-phone
         formControlName="phone"
         placeholder="1012345678"
         labelText="{{ 'auth.inputs.phone' | translate }}"
@@ -81,12 +81,12 @@
         >
         </p-select>
 
-        @if(registerForm.get('gender')?.invalid && registerForm.get('gender')?.touched) {
-        <app-input-error-handling [control]="registerForm.get('gender')!" />
+        @if (registerForm.get("gender")?.invalid && registerForm.get("gender")?.touched) {
+          <lib-input-error-handling [control]="registerForm.get('gender')!" />
         }
       </div>
       <!-- Password -->
-      <app-custom-input
+      <lib-custom-input
         formControlName="password"
         type="password"
         placeholder="Password@12345"
@@ -99,7 +99,7 @@
       />
 
       <!-- rePassword -->
-      <app-custom-input
+      <lib-custom-input
         formControlName="rePassword"
         type="password"
         placeholder="**************"
@@ -110,13 +110,13 @@
         autocomplete="new-password"
         aria-required="true"
       />
-      @if(registerForm.hasError("misMatch") && this.registerForm.invalid){
-      <p class="error-item">
-        <i class="pi pi-delete-left"></i> {{ "inputErrors.misMatch" | translate }}
-      </p>
+      @if (registerForm.hasError("misMatch") && this.registerForm.invalid) {
+        <p class="error-item">
+          <i class="pi pi-delete-left"></i> {{ "inputErrors.misMatch" | translate }}
+        </p>
       }
 
-      <app-form-button
+      <lib-form-button
         [text]="'auth.register.button' | translate"
         [isLoading]="isLoading()"
         [disabled]="registerForm.invalid"

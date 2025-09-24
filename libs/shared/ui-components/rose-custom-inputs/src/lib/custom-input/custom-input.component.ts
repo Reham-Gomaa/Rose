@@ -4,7 +4,7 @@ import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angul
 import { InputErrorHandlingComponent } from "../input-error-handling/input-error-handling.component";
 
 @Component({
-  selector: "app-custom-input",
+  selector: "lib-custom-input",
   imports: [InputErrorHandlingComponent],
   standalone: true,
   providers: [
