@@ -1,6 +1,6 @@
 import { NgOptimizedImage } from "@angular/common";
 import { Component } from "@angular/core";
-import { environment } from "@rose/environment/baseurl.prod";
+import { environment } from "@rose/environment/baseurl.dev";
 @Component({
   selector: "app-authorization",
   imports: [NgOptimizedImage],
