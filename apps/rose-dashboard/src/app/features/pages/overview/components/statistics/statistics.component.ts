@@ -5,7 +5,7 @@ import { map } from "rxjs";
 // Interfaces
 import { Overall } from "apps/rose-dashboard/src/app/core/interfaces/statistics";
 // Services
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 import { StatisticsService } from "apps/rose-dashboard/src/app/shared/services/overview/statistics/statistics.service";
 import { TranslatePipe } from "@ngx-translate/core";
 // PrimeNg
