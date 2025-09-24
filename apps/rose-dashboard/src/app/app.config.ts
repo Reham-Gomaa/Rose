@@ -24,11 +24,12 @@ import { ToastModule } from "primeng/toast";
 // Shared Libraries
 
 import { BASE_URL } from "@angular-monorepo/occasions";
-import { environment } from './../../../rose/src/app/core/environment/baseurl.dev';
+
 import { API_BASE_URL_PRODUCTS } from "@angular-monorepo/products";
 import { API_BASE_URL_CATEGORIES } from "@angular-monorepo/categories";
 
 import { provideTranslation } from "@angular-monorepo/services";
+import { environment } from "@rose/environment/baseurl.dev";
 
 export const appConfig: ApplicationConfig = {
   providers: [

@@ -7,12 +7,14 @@ import { MenuItem } from 'primeng/api';
 import { Menu } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
 import { occasion } from "@angular-monorepo/occasions";
+import { Skeleton } from 'primeng/skeleton';
+
 @Component({
   selector: "app-data-table",
   imports: [CommonModule,
     TableModule,
     ButtonComponent,
-    Menu, ButtonModule
+    Menu, ButtonModule,Skeleton
 ],
   templateUrl: "./dataTable.component.html",
   styleUrl: "./dataTable.component.scss"
@@ -25,7 +27,6 @@ export class DataTableComponent  {
 
 
     ngOnInit() {
-      console.log(this.data());
         this.items = [
             {
                 label: '',
