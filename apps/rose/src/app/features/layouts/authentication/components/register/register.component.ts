@@ -10,13 +10,13 @@ import { Router } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 // Components
 import { AuthComponent } from "@rose/features_layouts/authentication/auth.component";
 // shared-components
-import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
+import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
 // animation
-import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // primeNG
 import { ToastModule } from "primeng/toast";
 import { MessageService } from "primeng/api";
@@ -84,12 +84,12 @@ export class RegisterComponent {
       password: new FormControl("", [
         Validators.required,
         Validators.pattern(
-          "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+          "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
         ),
       ]),
       rePassword: new FormControl("", [Validators.required]),
     },
-    { validators: this.confirmPassword.bind(this) }
+    { validators: this.confirmPassword.bind(this) },
   );
 
   confirmPassword(control: AbstractControl): { [key: string]: boolean } | null {
@@ -137,7 +137,7 @@ export class RegisterComponent {
         },
         error: (err) => {
           this.apiError.set(
-            err.error?.message || this._translate.instant("messagesToast.registrationFailed")
+            err.error?.message || this._translate.instant("messagesToast.registrationFailed"),
           );
           this._messageService.add({
             severity: "error",

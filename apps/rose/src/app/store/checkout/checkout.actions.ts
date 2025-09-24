@@ -5,12 +5,12 @@ import { checkoutFailureRes } from "@rose/features_layouts/order-flow/components
 
 export const selectShippingAddress = createAction(
   "[checkout] select shipping address",
-  props<{ address: Address }>()
+  props<{ address: Address }>(),
 );
 
 export const selectPayMethod = createAction(
   "[checkout] select pay method",
-  props<{ method: pMethod }>()
+  props<{ method: pMethod }>(),
 );
 
 export const createCheckoutSession = createAction("[checkout] create credit order");
@@ -19,5 +19,5 @@ export const createCashOrder = createAction("[checkout] create cash order");
 export const createCashOrderSuccess = createAction("[checkout] cash order created");
 export const checkoutFailed = createAction(
   "[checkout]  session failed",
-  props<{ failureRes: checkoutFailureRes }>()
+  props<{ failureRes: checkoutFailureRes }>(),
 );

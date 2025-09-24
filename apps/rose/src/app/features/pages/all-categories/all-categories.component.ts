@@ -4,9 +4,9 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { animate, query, stagger, style, transition, trigger } from "@angular/animations";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 // Animations_Translation
-import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // Interfaces
 import { Product } from "@angular-monorepo/products";
 // Components
@@ -35,7 +35,6 @@ import { DrawerModule } from "primeng/drawer";
     ButtonModule,
     DrawerModule,
     NoDataAvailableComponent,
-    NoDataAvailableComponent,
   ],
   templateUrl: "./all-categories.component.html",
   styleUrl: "./all-categories.component.scss",
@@ -48,7 +47,7 @@ import { DrawerModule } from "primeng/drawer";
             style({ opacity: 0, transform: "scale(0.95)" }),
             stagger(100, [animate("300ms ease-out", style({ opacity: 1, transform: "scale(1)" }))]),
           ],
-          { optional: true }
+          { optional: true },
         ),
       ]),
     ]),
@@ -90,7 +89,7 @@ export class AllCategoriesComponent implements OnInit {
     this._store.dispatch(
       sortActions.loadProducts({
         products: this.products(),
-      })
+      }),
     );
   }
 

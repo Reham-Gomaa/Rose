@@ -25,7 +25,7 @@ import { ButtonComponent } from "@rose/shared_Components_ui/button/button.compon
               animate("600ms ease-out", style({ opacity: 1, transform: "translateY(0)" })),
             ]),
           ],
-          { optional: true }
+          { optional: true },
         ),
       ]),
     ]),

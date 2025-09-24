@@ -1,8 +1,9 @@
 .dashboard {
   display: flex;
   height: 100vh;
-
-  #content {
-    background-color: #fafafa;
-  }
+  width: 100%;
+  background-color: var(--zinc-50);
+  //  #content {
+  //   background-color: #fafafa;
+  // }
 }

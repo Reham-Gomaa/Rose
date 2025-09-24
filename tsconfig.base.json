@@ -21,17 +21,29 @@
       "@angular-monorepo/categories": [
         "libs/categories/src/index.ts"
       ],
+      "@angular-monorepo/confirm-dialog": [
+        "libs/shared/ui-components/confirm-dialog/src/index.ts"
+      ],
+      "@angular-monorepo/core": [
+        "libs/core/src/index.ts"
+      ],
+      "@angular-monorepo/notification-toast": [
+        "libs/shared/ui-components/notification-toast/src/index.ts"
+      ],
       "@angular-monorepo/occasions": [
         "libs/occasions/src/index.ts"
       ],
       "@angular-monorepo/products": [
         "libs/products/src/index.ts"
       ],
+      "@angular-monorepo/rose-buttons": [
+        "libs/shared/ui-components/rose-buttons/src/index.ts"
+      ],
       "@angular-monorepo/rose-custom-inputs": [
         "libs/shared/ui-components/rose-custom-inputs/src/index.ts"
       ],
-      "@angular-monorepo/translation": [
-        "libs/translation/src/index.ts"
+      "@angular-monorepo/services": [
+        "libs/services/src/index.ts"
       ],
       "@rose/address/*": [
         "./apps/rose/src/app/store/address/*"

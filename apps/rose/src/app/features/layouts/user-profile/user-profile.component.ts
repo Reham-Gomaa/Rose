@@ -1,15 +1,16 @@
 import { Component, DestroyRef, inject, signal } from "@angular/core";
+import { Location } from "@angular/common";
 import { ReactiveFormsModule } from "@angular/forms";
 import { Router } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 // Animation_Translation
-import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // Services
-import { UserStateService } from "@rose/core_services/user-state/user-state.service";
-import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
+import { StorageManagerService } from "@angular-monorepo/services";
+import { UserStateService } from "@angular-monorepo/services";
 // Components
 import { EditProfileComponent } from "./components/edit-profile/edit-profile.component";
 import { ChangePasswordComponent } from "./components/change-password/change-password.component";
@@ -48,6 +49,7 @@ export class UserProfileComponent {
   private readonly _messageService = inject(MessageService);
   private readonly _storageManagerService = inject(StorageManagerService);
   private readonly _userStateService = inject(UserStateService);
+  private location = inject(Location);
 
   apiError = signal<string>("");
   isLoading = signal<boolean>(false);
@@ -75,7 +77,7 @@ export class UserProfileComponent {
           });
 
           this.user.set(null);
-          this._router.navigate(["/dashboard/home"]);
+          this.location.go("https://rose-chi-nine.vercel.app/#/login");
 
           setTimeout(() => {
             document.documentElement.scrollTop = 0;

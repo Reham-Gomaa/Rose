@@ -27,7 +27,7 @@ export class FilterPriceComponent {
     }
     this.priceTimeout = setTimeout(() => {
       this._store.dispatch(
-        loadSelectedPrice({ minPrice: this.rangeValues[0], maxPrice: this.rangeValues[1] })
+        loadSelectedPrice({ minPrice: this.rangeValues[0], maxPrice: this.rangeValues[1] }),
       );
     }, 400);
   }

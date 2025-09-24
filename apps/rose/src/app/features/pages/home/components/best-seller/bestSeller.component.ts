@@ -1,7 +1,7 @@
 import { Component, inject } from "@angular/core";
 import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/translation";
-import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
+import { TranslationService } from "@angular-monorepo/services";
+import { fadeTransition } from "@angular-monorepo/services";
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 import { BestsellerSliderComponent } from "@rose/shared_Components_ui/bestseller-slider/bestseller-slider.component";
 

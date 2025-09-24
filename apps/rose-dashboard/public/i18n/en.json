@@ -1,13 +1,19 @@
 {
-  "titles": {
+  "EGP": "EGP",
+  "breadcrumb": {
     "overview": "Overview",
     "categories": "Categories",
     "occasions": "Occasions",
     "products": "Products",
-    "user-profile": "User Profile",
-    "not-found": "Not Found"
+    "dashboard": "Dashboard",
+    "user-profile": "User Profile"
   },
-  "EGP": "EGP",
+  "stepper": {
+    "dropdown": {
+      "profile": "Profile",
+      "logout": "Logout"
+    }
+  },
   "aside-bar": {
     "preview-website": "Preview Website",
     "overview": "overview",
@@ -20,5 +26,98 @@
     "orders": "Total Orders",
     "categories": "Total Categories",
     "revenue": "Total Revenue"
+  },
+  "user-Profile": {
+    "updateProfile": "Update Profile",
+    "myAccount": "My Account",
+    "changePassword": "Change Password",
+    "logout": "Logout",
+    "edit-Profile": {
+      "uploadPhoto": "Upload Photo",
+      "uploadPhotoInfo": "You can upload a .jpg, .png, or .gif photo with max size of 5MB.",
+      "deleteMyAccount": "Delete My Account",
+      "saveChanges": "Save Changes"
+    },
+    "changePasswordForm": {
+      "oldPassword": "Old Password",
+      "newPassword": "New Password",
+      "confirmNewPassword": "Confirm New Password",
+      "changePasswordBtn": "Change Password"
+    },
+    "confirm-dialog": {
+      "confirmDelete": "Yes, delete",
+      "cancelDelete": "No, keep it",
+      "permanentActionWarning": "This action is permanent and cannot be undone.",
+      "deleteAccountConfirmation": "Are you sure you want to delete your account?",
+      "breadcrumb": {
+        "overview": "Overview",
+        "categories": "Categories",
+        "occasions": "Occasions",
+        "products": "Products",
+        "dashboard": "Dashboard"
+      },
+      "stepper": {
+        "dropdown": {
+          "profile": "Profile",
+          "logout": "Logout"
+        }
+      },
+      "aside-bar": {
+        "preview-website": "Preview Website",
+        "overview": "overview",
+        "categories": "Categories",
+        "occasions": "Occasions",
+        "products": "Products"
+      }
+    }
+  },
+  "auth": {
+    "inputs": {
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Jonathan",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Adrian",
+      "phone": "Phone",
+      "gender": "Gender",
+      "genderPlaceholder": "Select Gender"
+    },
+    "messagesToast": {
+      "sessionExpired": "Your session expired. Please login again to continue.",
+      "logoutSuccess": "Logged out successfully.",
+
+      "failedToLoadProfileData": "Failed to load profile data",
+      "fileSizeExceedsLimit": "File size exceeds 5MB limit",
+      "profilePhotoUploadedSuccessfully": "Profile photo uploaded successfully",
+      "failedToUploadProfilePhoto": "Failed to upload profile photo",
+      "profileUpdatedSuccessfully": "Profile updated successfully",
+      "failedToUpdateProfile": "Failed to update profile",
+      "accountDeletedSuccessfully": "Account deleted successfully",
+      "failedToDeleteAccount": "Failed to delete account",
+
+      "passwordChangeFailed": "Failed to change password",
+      "passwordChangeSuccess": "Password changed successfully",
+
+      "loginFailed": "Incorrect Email or Password. Please try again",
+      "loginSuccess": "Login successful!",
+
+      "fillRequired": "Please fill all required fields correctly.",
+      "somethingWentWrong": "Something went wrong!",
+
+      "failedLoadProfile": "Failed to load user profile",
+      "loggedOut": "Logged out successfully.",
+
+      "failedToLoadCategories": "Failed to load categories"
+    }
+  },
+  "titles": {
+    "overview": "Overview",
+    "dashboard": "Dashboard",
+    "categories": "Categories",
+    "products": "Products",
+    "user-profile": "User Profile",
+    "not-found": "Not Found"
   }
 }

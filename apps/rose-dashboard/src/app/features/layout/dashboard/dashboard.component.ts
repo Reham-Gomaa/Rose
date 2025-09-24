@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
+// Components
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { StepperComponent } from "./components/stepper/stepper.component";
 
