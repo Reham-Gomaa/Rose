@@ -1,9 +1,6 @@
 .loading-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(255, 255, 255, 0.95);
   display: flex;
   flex-direction: column;
@@ -13,7 +10,7 @@
 }
 
 .spinner ::ng-deep .p-progress-spinner-circle {
-  stroke: #3b82f6; /* nice blue */
+  stroke: #3b82f6;
 }
 
 .loading-text {
@@ -21,4 +18,15 @@
   font-size: 1.3rem;
   font-weight: 600;
   color: #374151;
+}
+
+.loading-overlay {
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
