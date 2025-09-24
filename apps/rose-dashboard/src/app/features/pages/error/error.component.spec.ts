@@ -1,23 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { ErrorComponent } from './error.component';
+import { ErrorComponent } from "./error.component";
 
-describe('ErrorComponent', () => {
+describe("ErrorComponent", () => {
   let component: ErrorComponent;
   let fixture: ComponentFixture<ErrorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ErrorComponent]
-    })
-    .compileComponents();
+      imports: [ErrorComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ErrorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
