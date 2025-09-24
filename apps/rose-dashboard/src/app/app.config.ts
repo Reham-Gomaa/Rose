@@ -16,6 +16,8 @@ import { providePrimeNG } from "primeng/config";
 import { ToastModule } from "primeng/toast";
 // Shared Libraries
 import { provideTranslation } from "@angular-monorepo/translation";
+import { API_BASE_URL_CATEGORIES } from "@angular-monorepo/categories";
+import { environment } from "apps/environment/baseurl.dev";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -44,6 +46,10 @@ export const appConfig: ApplicationConfig = {
           },
         },
       },
+    },
+    {
+      provide: API_BASE_URL_CATEGORIES,
+      useValue: environment.baseApiUrl,
     },
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),

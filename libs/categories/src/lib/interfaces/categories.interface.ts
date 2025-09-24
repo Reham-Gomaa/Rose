@@ -22,3 +22,16 @@ export interface Category {
   isSuperAdmin: boolean;
   productsCount: number;
 }
+
+// For single category operations (add/edit/get by id)
+export interface SingleCategoryRes {
+  message: string;
+  category: Category;
+}
+
+
+// For creating/updating categories
+export interface CategoryRequest {
+  name: string;
+  image?: string;
+}

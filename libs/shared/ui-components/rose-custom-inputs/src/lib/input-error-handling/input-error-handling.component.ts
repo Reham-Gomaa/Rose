@@ -5,6 +5,7 @@ import { TranslatePipe } from "@ngx-translate/core";
 @Component({
   selector: "app-input-error-handling",
   imports: [TranslatePipe],
+  standalone: true,
   templateUrl: "./input-error-handling.component.html",
   styleUrl: "./input-error-handling.component.scss",
 })

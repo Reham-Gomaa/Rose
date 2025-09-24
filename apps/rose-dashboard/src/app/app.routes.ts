@@ -22,13 +22,35 @@ export const appRoutes: Route[] = [
           ),
       },
       {
-        path: "categories",
-        title: "titles.categories",
-        loadComponent: () =>
-          import("@rose_dashboard/features_pages/categories/categories.component").then(
-            (c) => c.CategoriesComponent
-          ),
-      },
+  path: "categories",
+  title: "titles.categories",
+  children: [
+    {
+      path: "",
+      loadComponent: () =>
+        import("@rose_dashboard/features_pages/categories/categories.component").then(
+          (c) => c.CategoriesComponent
+        ),
+    },
+    {
+      path: "add",
+      title: "titles.add-category",
+      loadComponent: () =>
+        import("@rose_dashboard/features_pages/categories/components/addandedit.component").then(
+          (c) => c.AddandeditComponent
+        ),
+    },
+    {
+      path: "edit/:id",
+      title: "titles.edit-category",
+      loadComponent: () =>
+        import("@rose_dashboard/features_pages/categories/components/addandedit.component").then(
+          (c) => c.AddandeditComponent
+        ),
+    },
+  ],
+},
+
       {
         path: "occasions",
         title: "titles.occasions",
