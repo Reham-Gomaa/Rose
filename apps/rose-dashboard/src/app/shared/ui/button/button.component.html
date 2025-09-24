@@ -7,10 +7,10 @@
   "
   [class.disabled]="disable()"
 >
-@if (icon() !== '') {
-<i [class]="icon()"  [style]="`color: ${textColor()};`"></i>
-}
-<span class="hidden lg:block">
-  {{ text() }}
-</span>
+  @if (icon() !== "") {
+    <i [class]="icon()" [style]="`color: ${textColor()};`"></i>
+  }
+  <span class="hidden lg:block">
+    {{ text() }}
+  </span>
 </button>
