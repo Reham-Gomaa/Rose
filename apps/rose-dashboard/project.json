@@ -27,9 +27,10 @@
           }
         ],
         "styles": [
-          "node_modules/primeicons/primeicons.css",
-          "node_modules/primeflex/primeflex.css",
+
           "node_modules/primeflex/themes/primeone-light.css",
+          "node_modules/primeflex/primeflex.css",
+          "node_modules/primeicons/primeicons.css",
           "apps/rose-dashboard/src/styles.scss"
         ],
         "scripts": [],
@@ -53,12 +54,24 @@
               "maximumError": "8kb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "apps/environment/baseurl.dev.ts",
+              "with": "apps/environment/baseurl.prod.ts"
+            }
+          ]
         },
         "development": {
           "optimization": false,
           "extractLicenses": false,
-          "sourceMap": true
+          "sourceMap": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/environment/baseurl.prod.ts",
+              "with": "apps/environment/baseurl.dev.ts"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"

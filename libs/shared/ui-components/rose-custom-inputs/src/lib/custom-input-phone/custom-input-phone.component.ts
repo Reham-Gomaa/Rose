@@ -1,13 +1,14 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
+
+import { InputErrorHandlingComponent } from "../input-error-handling/input-error-handling.component";
 import { NgOptimizedImage } from "@angular/common";
 import { Component, forwardRef, input, OnInit, OnDestroy } from "@angular/core";
 import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { InputErrorHandlingComponent } from "../input-error-handling/input-error-handling.component";
 export interface Country {
   name: string;
   code: string;
   flag: string;
 }
+
 @Component({
   selector: "lib-custom-input-phone",
   templateUrl: "./custom-input-phone.component.html",
@@ -21,7 +22,7 @@ export interface Country {
     },
   ],
 })
-export class CustomInputPhoneComponent implements ControlValueAccessor, OnInit, OnDestroy {
+export class CustomInputPhoneComponent implements ControlValueAccessor, OnDestroy {
   id = input<string>();
   placeholder = input<string>("");
   labelText = input<string>("");
@@ -96,7 +97,7 @@ export class CustomInputPhoneComponent implements ControlValueAccessor, OnInit, 
     }
   };
 
-  ngOnInit() {
+  constructor() {
     document.addEventListener("click", this.handleDocumentClick);
   }
 

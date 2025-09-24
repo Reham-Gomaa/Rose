@@ -1,1 +1,33 @@
-<p>stepper works!</p>
+<div class="breadcrumb-container">
+  <app-breadcrump></app-breadcrump>
+  <button
+    (click)="changeHidden()"
+    class="inline-block md:hidden relative mx-2"
+    aria-controls="stepper-menu"
+    [class.open]="hidden"
+  >
+    <i class="pi pi-align-justify"></i>
+  </button>
+
+  <div
+    id="stepper-menu"
+    class="dropdown inline-block md:hidden"
+    [class.open]="hidden"
+    [attr.aria-hidden]="!hidden"
+  >
+    <ul class="dropdown-menu">
+      <li>
+        <a class="dropdown-item" routerLink="/dashboard/user-profile" (click)="changeHidden()">
+          <i class="pi pi-user"></i>
+          <p>{{ "stepper.dropdown.profile" | translate }}</p>
+        </a>
+      </li>
+      <li>
+        <a class="dropdown-item text-red-600" (click)="changeHidden()">
+          <i class="pi pi-sign-out"></i>
+          <p>{{ "stepper.dropdown.logout" | translate }}</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

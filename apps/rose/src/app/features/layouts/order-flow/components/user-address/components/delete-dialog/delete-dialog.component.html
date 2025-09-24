@@ -1,16 +1,16 @@
 <app-custom-main-dialog [visable]="visible()" (closed)="close()">
   <div body>
-    @if(loading){
-    <app-spinner></app-spinner>
+    @if (loading) {
+      <lib-spinner />
     } @else {
-    <div class="flex flex-column">
-      <div class="out-shadow">
-        <div class="dialog-icon">
-          <i class="pi pi-trash"></i>
+      <div class="flex flex-column">
+        <div class="out-shadow">
+          <div class="dialog-icon">
+            <i class="pi pi-trash"></i>
+          </div>
         </div>
+        <p class="font-semibold">{{ "dialog.deleteAddress.confirmationMessage" | translate }}</p>
       </div>
-      <p class="font-semibold">{{ "dialog.deleteAddress.confirmationMessage" | translate }}</p>
-    </div>
     }
 
     <div class="container-button flex justify-content-between">

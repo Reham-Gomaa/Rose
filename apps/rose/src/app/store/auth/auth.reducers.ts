@@ -11,5 +11,5 @@ export const tokenReducer = createReducer(
   on(AuthActions.loginSuccess, (state, { token }) => ({
     ...state,
     token,
-  }))
+  })),
 );

@@ -1,8 +1,8 @@
 import { Route } from "@angular/router";
 
 import { DashboardComponent } from "@rose/features_layouts/dashboard/dashboard.component";
-import { loggedGuard } from "./core/guards/logged-user/logged.guard";
-import { authGuard } from "./core/guards/auth/auth.guard";
+import { loggedGuard } from "@angular-monorepo/core";
+import { authGuard } from "@angular-monorepo/core";
 
 export const appRoutes: Route[] = [
   {
@@ -27,7 +27,7 @@ export const appRoutes: Route[] = [
         title: "titles.all-categories",
         loadComponent: () =>
           import("@rose/features_pages/all-categories/all-categories.component").then(
-            (c) => c.AllCategoriesComponent
+            (c) => c.AllCategoriesComponent,
           ),
       },
       {
@@ -54,7 +54,7 @@ export const appRoutes: Route[] = [
         canActivate: [authGuard],
         loadComponent: () =>
           import("@rose/features_layouts/order-flow/order-flow.component").then(
-            (c) => c.OrderFlowComponent
+            (c) => c.OrderFlowComponent,
           ),
       },
       {
@@ -76,7 +76,7 @@ export const appRoutes: Route[] = [
         canActivate: [authGuard],
         loadComponent: () =>
           import("@rose/features_pages/wishlist/wishlist.component").then(
-            (c) => c.WishlistComponent
+            (c) => c.WishlistComponent,
           ),
         title: "titles.wishlist",
       },
@@ -85,7 +85,7 @@ export const appRoutes: Route[] = [
         canActivate: [authGuard],
         loadComponent: () =>
           import("@rose/features_layouts/user-profile/user-profile.component").then(
-            (c) => c.UserProfileComponent
+            (c) => c.UserProfileComponent,
           ),
         title: "titles.user-profile",
       },
@@ -97,7 +97,7 @@ export const appRoutes: Route[] = [
     canActivate: [loggedGuard],
     loadComponent: () =>
       import("@rose/features_layouts/authentication/components/login/login.component").then(
-        (c) => c.LoginComponent
+        (c) => c.LoginComponent,
       ),
   },
   {
@@ -106,7 +106,7 @@ export const appRoutes: Route[] = [
     canActivate: [loggedGuard],
     loadComponent: () =>
       import("@rose/features_layouts/authentication/components/register/register.component").then(
-        (c) => c.RegisterComponent
+        (c) => c.RegisterComponent,
       ),
   },
   {

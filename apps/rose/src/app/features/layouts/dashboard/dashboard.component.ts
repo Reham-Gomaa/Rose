@@ -4,7 +4,6 @@ import { RouterOutlet } from "@angular/router";
 // Components
 import { FooterComponent } from "../footer/footer.component";
 import { NavbarComponent } from "../navbar/navbar.component";
-
 // Sheared Components
 import { SpeedDialComponent } from "@rose/shared_Components_business/speedDial-btn/speedDial.component";
 

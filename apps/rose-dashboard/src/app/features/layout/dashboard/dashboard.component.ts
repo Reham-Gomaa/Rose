@@ -1,12 +1,12 @@
 import { Component } from "@angular/core";
+import { RouterOutlet } from "@angular/router";
+// Components
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { StepperComponent } from "./components/stepper/stepper.component";
-import { ContentComponent } from "./components/content/content.component";
-import { RouterModule } from "@angular/router";
 
 @Component({
   selector: "app-dashboard",
-  imports: [SidebarComponent, StepperComponent, RouterModule],
+  imports: [SidebarComponent, StepperComponent, RouterOutlet],
   templateUrl: "./dashboard.component.html",
   styleUrl: "./dashboard.component.scss",
 })

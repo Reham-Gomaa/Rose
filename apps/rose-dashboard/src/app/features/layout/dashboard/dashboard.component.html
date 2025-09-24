@@ -1,11 +1,8 @@
-<section class="dashboard grid">
-  <div class="col-2 lg:block hidden ">
-    <app-sidebar />
-  </div>
-  <div class="lg:col-10 col-12   ">
+
+<section class="dashboard">
+  <app-sidebar class="hidden md:block" />
+  <div class="w-full">
     <app-stepper />
-    <div class="content">
-      <router-outlet></router-outlet>
-    </div>
+    <router-outlet />
   </div>
 </section>

@@ -3,30 +3,23 @@ import { animate, query, stagger, style, transition, trigger } from "@angular/an
 import { HttpErrorResponse } from "@angular/common/http";
 import { Component, inject, Input, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-
 // @ngx
 import { TranslatePipe } from "@ngx-translate/core";
-
 // rxjs
 import { Subscription } from "rxjs";
-
 // PrimeNg
 import { CarouselModule } from "primeng/carousel";
 import { SkeletonModule } from "primeng/skeleton";
-
 // shared-interfaces
 import { Product, ProductRes } from "@angular-monorepo/products";
 import { ProductDetail, ProductDetailsRes } from "@angular-monorepo/products";
-
 // shared-services
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 import { ProductsService } from "@angular-monorepo/products";
-
 // shared-component
 import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
-
 // Animation
-import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 
 @Component({
   selector: "app-related-products",
@@ -44,7 +37,7 @@ import { fadeTransition } from "@rose/core_services/fade-out-animation/fade.anim
               animate("300ms ease-out", style({ opacity: 1, transform: "translateY(0)" })),
             ]),
           ],
-          { optional: true }
+          { optional: true },
         ),
       ]),
     ]),
@@ -100,7 +93,7 @@ export class RelatedProductsComponent implements OnInit, OnDestroy {
           }
         },
         error: (err) => this.handleError("Failed to load route parameters", err),
-      })
+      }),
     );
   }
 
@@ -117,7 +110,7 @@ export class RelatedProductsComponent implements OnInit, OnDestroy {
         error: (err: HttpErrorResponse) => {
           this.handleError("Failed to load product details", err);
         },
-      })
+      }),
     );
   }
 
@@ -127,14 +120,14 @@ export class RelatedProductsComponent implements OnInit, OnDestroy {
         next: (response: ProductRes) => {
           // Filter out the current product from the results
           this.relatedProducts = response.products.filter(
-            (product) => product._id !== this.currentProduct._id
+            (product) => product._id !== this.currentProduct._id,
           );
           this.loading = false;
         },
         error: (err: HttpErrorResponse) => {
           this.handleError("Failed to load related products", err);
         },
-      })
+      }),
     );
   }
 
