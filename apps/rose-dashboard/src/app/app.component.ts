@@ -11,11 +11,10 @@ import { filter } from "rxjs/operators";
 // Components_Shared
 import { NotificationToastComponent } from "@angular-monorepo/notification-toast";
 import { LoadingComponent } from "@rose_dashboard/features_layouts/loading/loading.component";
-import { ErrorComponent } from "@rose_dashboard/features_pages/error/error.component";
 import { ErrorService } from "./core/services/error.service";
 
 @Component({
-  imports: [RouterOutlet, NotificationToastComponent, LoadingComponent, ErrorComponent],
+  imports: [RouterOutlet, NotificationToastComponent, LoadingComponent],
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
