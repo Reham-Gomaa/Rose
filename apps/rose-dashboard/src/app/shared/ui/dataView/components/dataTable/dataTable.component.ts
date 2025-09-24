@@ -2,10 +2,10 @@ import { Component, input, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ButtonComponent } from "../../../button/button.component";
 //prime ng
-import { TableModule } from 'primeng/table';
-import { MenuItem } from 'primeng/api';
-import { Menu } from 'primeng/menu';
-import { ButtonModule } from 'primeng/button';
+import { TableModule } from "primeng/table";
+import { MenuItem } from "primeng/api";
+import { Menu } from "primeng/menu";
+import { ButtonModule } from "primeng/button";
 import { occasion } from "@angular-monorepo/occasions";
 import { Skeleton } from 'primeng/skeleton';
 
@@ -16,8 +16,9 @@ import { Skeleton } from 'primeng/skeleton';
     ButtonComponent,
     Menu, ButtonModule,Skeleton
 ],
+
   templateUrl: "./dataTable.component.html",
-  styleUrl: "./dataTable.component.scss"
+  styleUrl: "./dataTable.component.scss",
 })
 export class DataTableComponent  {
 
@@ -52,4 +53,3 @@ export class DataTableComponent  {
 
 
 
-}

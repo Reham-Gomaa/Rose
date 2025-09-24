@@ -1,7 +1,7 @@
 import { Component, inject, signal, WritableSignal } from "@angular/core";
 import { DataViewComponent } from "../../../shared/ui/dataView/dataView.component";
 //lib
-import {OccasionService,occasion} from "@angular-monorepo/occasions"
+import { OccasionService, occasion } from "@angular-monorepo/occasions";
 @Component({
   selector: "app-occasions",
   imports: [DataViewComponent],
@@ -9,21 +9,15 @@ import {OccasionService,occasion} from "@angular-monorepo/occasions"
   styleUrl: "./occasions.component.scss",
 })
 export class OccasionsComponent {
-
-  private occasion_service = inject(OccasionService)
-  table_header_records : string[] = ["name" , "products"]
-  occasions:WritableSignal<occasion[]> = signal<occasion[]>([]);
+  private occasion_service = inject(OccasionService);
+  table_header_records: string[] = ["name", "products"];
+  occasions: WritableSignal<occasion[]> = signal<occasion[]>([]);
 
   ngOnInit() {
     this.occasion_service.getAllOccasions().subscribe({
-      next:(res)=>{
+      next: (res) => {
         this.occasions.set(res.occasions);
-      }
-    })
+      },
+    });
   }
-  
-
-
-
-
 }

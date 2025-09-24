@@ -6,9 +6,9 @@ import { itemsType, itemType } from "../paginationPipe/pagPipe.pipe";
 })
 export class SearchPipe implements PipeTransform {
   transform(items: itemsType, keyword: string): itemsType {
-    let filteredItems:itemsType = items.filter((item:itemType)=>{
-      return item['slug'].toLowerCase().includes(keyword.toLowerCase())
-    })
+    let filteredItems: itemsType = items.filter((item: itemType) => {
+      return item["slug"].toLowerCase().includes(keyword.toLowerCase());
+    });
     return filteredItems;
   }
 }

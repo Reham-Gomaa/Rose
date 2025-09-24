@@ -1,4 +1,3 @@
-
 import { InputErrorHandlingComponent } from "../input-error-handling/input-error-handling.component";
 import { NgOptimizedImage } from "@angular/common";
 import { Component, forwardRef, input, OnInit, OnDestroy } from "@angular/core";
