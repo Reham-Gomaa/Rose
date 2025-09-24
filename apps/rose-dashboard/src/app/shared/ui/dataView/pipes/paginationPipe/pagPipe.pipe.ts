@@ -8,8 +8,8 @@ export type itemType = occasion | Category | Product;
   name: "pagPipe",
 })
 export class PagPipePipe implements PipeTransform {
-  transform(items: itemsType,startIndex:number , numOfRows:number): itemsType {
-    let pageItems = items.slice(startIndex , startIndex + numOfRows + 1)
+  transform(items: itemsType, startIndex: number, numOfRows: number): itemsType {
+    let pageItems = items.slice(startIndex, startIndex + numOfRows + 1);
     return pageItems;
   }
 }

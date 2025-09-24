@@ -11,24 +11,15 @@ import { Component, inject, signal, WritableSignal } from "@angular/core";
   styleUrl: "./products.component.scss",
 })
 export class ProductsComponent {
-
-
-     private products_service = inject(ProductsService)
-  table_header_records : string[] = ["name"
-,"price"
-,"stock"
-,"sales"
-,"ratings"
-]
-  prods:WritableSignal<Product[]> = signal<Product[]>([]);
+  private products_service = inject(ProductsService);
+  table_header_records: string[] = ["name", "price", "stock", "sales", "ratings"];
+  prods: WritableSignal<Product[]> = signal<Product[]>([]);
 
   ngOnInit() {
     this.products_service.getAllProducts().subscribe({
-      next:(res)=>{
+      next: (res) => {
         this.prods.set(res.products);
-      }
-    })
+      },
+    });
   }
-
-
 }
