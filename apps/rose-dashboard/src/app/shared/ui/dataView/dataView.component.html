@@ -1,0 +1,45 @@
+<div id="data-view">
+  <div class="header flex justify-content-between align-items-center">
+    <h2 class="font-semibold capitalize ">
+      all 
+      {{currentData()}}
+    </h2>
+
+    <app-button
+    [bgColor]="'#A6252A'"
+    [borderRadius]="'border-round-md'"
+    [icon]="'pi pi-plus'"
+    [textColor]="'#fff'"
+    [padding]="'p-2'"
+    [transition]="'0.3s'"
+    [text]="'add a new ' + currentData()"
+
+     ></app-button>
+  </div>
+
+
+  <div class="search">
+
+      <lib-custom-input
+          [formControl]="searchInput"
+          type="text"
+          placeholder="search"
+          id="search"
+          class="w-full"
+          [errorHandilgControl]="searchInput"
+         
+      ></lib-custom-input>
+  </div> 
+
+
+  <div class="data-table">
+      <app-data-table
+      [data]="(data_items() | pagPipe : firstIndex : numOfRows) | search : searchWord "
+      [records]="table_records()" >
+      </app-data-table>
+  </div>
+
+</div>
+<div class="pagination my-2">
+  <app-pagination (currentPage)="getPage($event)" ></app-pagination>
+</div>
