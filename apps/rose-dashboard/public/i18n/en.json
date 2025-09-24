@@ -122,5 +122,13 @@
     "user-profile": "Account Setting",
     "not-found": "Not Found",
     "authorization": "Not Authorization"
+  },
+  "general": {
+    "notExistTitle": "This page does not exist.",
+    "notExistDesc": "We couldn’t find the page you are looking for, please make sure you are in the right path.",
+    "oopsTitle": "Oops, something went wrong!",
+    "oopsDesc": "Something unexpected happened, please refresh the page or try again shortly.",
+    "unauthorizedTitle": "You are not authorized to access this page.",
+    "unauthorizedDesc": "If you think this is wrong, please contact the support."
   }
 }

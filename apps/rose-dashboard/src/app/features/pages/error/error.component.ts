@@ -4,9 +4,9 @@ import { NgOptimizedImage } from "@angular/common";
 import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
-  selector: "app-not-found",
+  selector: "app-error",
   imports: [NgOptimizedImage, TranslatePipe],
-  templateUrl: "./not-found.component.html",
-  styleUrl: "./not-found.component.scss",
+  templateUrl: "./error.component.html",
+  styleUrl: "./error.component.scss",
 })
-export class NotFoundComponent {}
+export class ErrorComponent {}
