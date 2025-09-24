@@ -16,6 +16,10 @@ import { providePrimeNG } from "primeng/config";
 import { ToastModule } from "primeng/toast";
 // Shared Libraries
 import { provideTranslation } from "@angular-monorepo/translation";
+import { BASE_URL } from "@angular-monorepo/occasions";
+import { environment } from './../../../rose/src/app/core/environment/baseurl.dev';
+import { API_BASE_URL_PRODUCTS } from "@angular-monorepo/products";
+import { API_BASE_URL_CATEGORIES } from "@angular-monorepo/categories";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -58,7 +62,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     MessageService,
     importProvidersFrom(ToastModule),
-    provideAnimationsAsync(),
+  provideAnimationsAsync(),
     provideAnimations(),
     providePrimeNG({
       theme: {
@@ -71,5 +75,17 @@ export const appConfig: ApplicationConfig = {
       },
     }),
     { provide: LocationStrategy, useClass: HashLocationStrategy },
+    {
+      provide: BASE_URL,
+      useValue: environment.baseApiUrl,
+    },
+    {
+      provide: API_BASE_URL_PRODUCTS,
+      useValue: environment.baseApiUrl,
+    },
+    {
+      provide: API_BASE_URL_CATEGORIES,
+      useValue: environment.baseApiUrl,
+    },
   ],
 };

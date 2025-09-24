@@ -1,40 +1,77 @@
 <div class="card">
-        <p-table [value]="products()" >
+        <p-table [value]="data()" >
             <ng-template #header>
                 <tr>
                   @for(record of records();track $index ) {
-                    <th>
+                    <th [class]="{
+                      'hide-md':record === 'sales' || record === 'price' || record === 'ratings'
+                    }"  class="capitalize">
                       {{record}}
                     </th>
                   }
-                  <th></th>
+                    <th></th>
                 </tr>
             </ng-template>
             <ng-template #body let-product>
-                <tr>
-                    <td>{{ product.code }}</td>
-                    <td>{{ product.name }}</td>
-                    <td class="flex gap-3 justify-content-end">
-                        <app-button
-                        [bgColor]="'#0063D01A'"
-                        [borderRadius]="'border-round-md'"
-                        [icon]="'pi pi-pencil'"
-                        [textColor]="'#155DFC'"
-                        [padding]="'p-1 px-2 '"
-                        [transition]="'0.3s'"
-                        [text]="'edit'"
+                <tr >
 
-                        ></app-button>
-                        <app-button
-                          [bgColor]="'#FF00001A'"
-                          [borderRadius]="'border-round-md'"
-                          [icon]="'pi pi-trash'"
-                          [textColor]="'#DC2626'"
-                          [padding]="'p-1 px-2 '"
-                          [transition]="'0.3s'"
-                          [text]="'remove'"
+                  @for(record of records();track $index ) {
+                    @if (record === "products") {
+                    <td>{{ product["productsCount"] }}</td>
+                    }
+                    @if(record === "name") {
+                    <td>{{ product["name"] ?? product['title'].split(" ").slice(0,2).join(" ") }}</td>
 
-                        ></app-button>
+                    }
+                    @if(record === "stock") {
+                      @let stock = product["quantity"] - product['sold'] ;
+                    <td  [class.lowQty]="stock < 10" >{{stock}}</td>
+
+                    }
+                    @if(record === "sales") {
+                    <td class="hide-md" >{{ product["sold"]}}</td>
+
+                    }
+                    @if(record === "ratings") {
+                    <td class="hide-md" >{{ product["rateAvg"]}}/5 ({{product["rateCount"]}})  </td>
+
+                    }
+                    
+                    @if(record === "price") {
+                      <td  class="hide-md" >{{ product[record]  }} EGP</td>
+                    }
+                  }
+                    <td>
+                      <div id="operations" >
+                        <div class="in-large hidden lg:flex gap-3 justify-content-end">
+                          <app-button
+                            [bgColor]="'#0063D01A'"
+                            [borderRadius]="'border-round-md'"
+                            [icon]="'pi pi-pencil'"
+                            [textColor]="'#155DFC'"
+                            [padding]="'p-1 px-2 '"
+                            [transition]="'0.3s'"
+                            [text]="'edit'"
+                          ></app-button>
+                          <app-button
+                            [bgColor]="'#FF00001A'"
+                            [borderRadius]="'border-round-md'"
+                            [icon]="'pi pi-trash'"
+                            [textColor]="'#DC2626'"
+                            [padding]="'p-1 px-2 '"
+                            [transition]="'0.3s'"
+                            [text]="'remove'"
+
+                          ></app-button>
+                        </div>
+                        <div class="in-small flex lg:hidden justify-content-end">
+                          <div class="card flex justify-content-center relative">
+                            <p-button (click)="menu.toggle($event)" icon="pi pi-ellipsis-v" />
+                              <p-menu #menu [model]="items" [popup]="true" />
+                          </div>
+                        </div>
+
+                      </div>
                     </td>
                 </tr>
 

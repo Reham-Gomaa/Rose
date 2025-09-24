@@ -10,5 +10,7 @@
 @if (icon() !== '') {
 <i [class]="icon()"  [style]="`color: ${textColor()};`"></i>
 }
-{{ text() }}
+<span class="hidden lg:block">
+  {{ text() }}
+</span>
 </button>

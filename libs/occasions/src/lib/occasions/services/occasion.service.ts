@@ -14,8 +14,8 @@ export class OccasionService implements OccasionBase  {
   private _http = inject(HttpClient)
 
 
-  getAllOccasions(): Observable<occasionRes> {
-    return this._http.get<occasionRes>(`${this.Base_Url+occasionEndPoints.All_OCCASION}`);
+  getAllOccasions(limit = 100): Observable<occasionRes> {
+    return this._http.get<occasionRes>(`${this.Base_Url+occasionEndPoints.All_OCCASION}?limit=${limit}`);
   }
  
 }

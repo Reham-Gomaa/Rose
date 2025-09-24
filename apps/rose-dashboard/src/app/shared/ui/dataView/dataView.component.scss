@@ -18,3 +18,15 @@
 :host ::ng-deep .p-datatable-table .p-datatable-thead > tr > th {
   background-color: #fafafa;
 }
+:host ::ng-deep .p-datatable-tbody > tr > td > #operations button {
+  font-size: 12px;
+}
+:host ::ng-deep .p-datatable-tbody > tr > td > #operations .in-small button {
+  background: white;
+  border: 1px solid #D4D4D8;
+  color: black;
+  &:hover {
+  background-color: #D4D4D8;
+}
+}
+

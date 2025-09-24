@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { Component, forwardRef, input } from "@angular/core";
 import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 // shared-components
-import { InputErrorHandlingComponent } from "@angular-monorepo/rose-custom-inputs";
+import { InputErrorHandlingComponent } from "../input-error-handling/input-error-handling.component";
 
 @Component({
-  selector: "app-custom-input",
+  selector: "lib-custom-input",
   imports: [InputErrorHandlingComponent],
   providers: [
     {
@@ -25,7 +26,7 @@ export class CustomInputComponent implements ControlValueAccessor {
 
   showPassword = false;
 
-  value: string = "";
+  value = "";
   onChange: (value: string) => void = () => {};
   onTouched: () => void = () => {};
 

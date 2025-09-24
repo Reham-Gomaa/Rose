@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, output } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { PaginatorModule,PaginatorState  } from 'primeng/paginator';
 
@@ -12,10 +12,18 @@ export class PaginationComponent {
 
     first: number = 0;
 
-    rows: number = 10;
+    rows: number = 6;
 
+    currentPage = output<{
+      first:number,
+      rows:number
+    }>()
     onPageChange(event: PaginatorState) {
         this.first = event.first ?? 0;
-        this.rows = event.rows ?? 10;
+        this.rows = event.rows ?? 6;
+        this.currentPage.emit({
+          first:this.first,
+          rows:this.rows
+        })
     }
 }
