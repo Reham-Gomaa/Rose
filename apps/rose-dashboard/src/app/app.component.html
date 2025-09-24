@@ -1,8 +1,10 @@
 <lib-notification-toast />
-
+@if(errorService.errorMessage()){
+<app-error />
+}
 @if (loading()) {
-  <app-loading [message]="'Please wait... Authorizing Admin Dashboard'" />
+<app-loading [message]="'Please wait... Authorizing Admin Dashboard'" />
 }
 @if (!loading()) {
-  <router-outlet />
+<router-outlet />
 }
