@@ -34,6 +34,7 @@ export class AppComponent {
   loading = signal(true);
 
   ngOnInit() {
+    this.loading.set(true);
     this._router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.handleTokenFromUrl();
       this.loadUserInfo();
@@ -78,10 +79,10 @@ export class AppComponent {
   }
 
   loadUserInfo(): void {
+    this.loading.set(true);
     const token = this._storageManagerService.getItem("authToken");
 
     if (!token) {
-      // no token → hide loader only after redirect
       if (this._router.url.includes("/dashboard")) {
         this._router.navigate(["/authorization"]);
       }

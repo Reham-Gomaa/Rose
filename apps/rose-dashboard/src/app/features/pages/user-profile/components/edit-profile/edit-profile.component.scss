@@ -246,12 +246,16 @@
   padding: 1rem 0;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 993px) {
+  .content {
+    min-height: 100%;
+  }
+}
+
+@media (max-width: 950px) {
   .content {
     padding: 0;
     .upload-section {
-      flex-direction: column;
-      align-items: flex-start;
       gap: 1rem;
     }
 
@@ -289,28 +293,18 @@
       margin-bottom: 0;
     }
   }
-}
 
-@media (max-width: 300px) {
-  :host ::ng-deep {
-    .avatar-container {
-      width: 6.25rem;
-      height: 6.25rem;
-
-      .upload-button .p-button {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-    }
+  .avatar-container {
+    width: 5rem;
+    height: 4rem;
   }
 
-  .content {
-    padding: 0;
+  .upload-info h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.625rem;
   }
-}
 
-@media (min-width: 993px) {
-  .content {
-    min-height: 100%;
+  .upload-info p {
+    font-size: 0.75rem;
   }
 }
