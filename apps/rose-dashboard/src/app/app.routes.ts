@@ -54,6 +54,14 @@ export const appRoutes: Route[] = [
         title: "titles.user-profile",
       },
       {
+        path: "error",
+        loadComponent: () =>
+          import("@rose_dashboard/features_pages/error/error.component").then(
+            (c) => c.ErrorComponent,
+          ),
+        title: "titles.user-profile",
+      },
+      {
         path: "**",
         title: "titles.not-found",
         loadComponent: () =>

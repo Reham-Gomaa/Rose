@@ -12,9 +12,4 @@ import { ErrorService } from "../../../core/services/error.service";
 })
 export class ErrorComponent {
   private errorService = inject(ErrorService);
-  message = computed(() => this.errorService.errorMessage());
-
-  dismiss() {
-    this.errorService.clearError();
-  }
 }
