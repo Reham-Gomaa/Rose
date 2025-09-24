@@ -1,9 +1,24 @@
 {
-    "aside-bar": {
-        "preview-website": "معاينة الموقع",
-        "overview": "نظرة عامة",
-        "categories": "الفئات",
-        "occasions": "المناسبات",
-        "products": "المنتجات"
-    }
+  "titles": {
+    "overview": "نظرة عامة",
+    "categories": "التصنيفات",
+    "occasions": "المناسبات",
+    "products": "المنتجات",
+    "user-profile": "الملف الشخصي",
+    "not-found": "غير موجود"
+  },
+  "EGP": "ج.م",
+  "aside-bar": {
+    "preview-website": "معاينة الموقع",
+    "overview": "نظرة عامة",
+    "categories": "الفئات",
+    "occasions": "المناسبات",
+    "products": "المنتجات"
+  },
+  "statistics": {
+    "products": "إجمالي المنتجات",
+    "orders": "إجمالي الطلبات",
+    "categories": "إجمالي التصنيفات",
+    "revenue": "إجمالي الإيرادات"
+  }
 }

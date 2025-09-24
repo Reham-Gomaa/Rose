@@ -1,9 +1,24 @@
 {
-    "aside-bar": {
-        "preview-website": "Preview Website",
-        "overview": "overview",
-        "categories": "Categories",
-        "occasions": "Occasions",
-        "products": "Products"
-    }
+  "titles": {
+    "overview": "Overview",
+    "categories": "Categories",
+    "occasions": "Occasions",
+    "products": "Products",
+    "user-profile": "User Profile",
+    "not-found": "Not Found"
+  },
+  "EGP": "EGP",
+  "aside-bar": {
+    "preview-website": "Preview Website",
+    "overview": "overview",
+    "categories": "Categories",
+    "occasions": "Occasions",
+    "products": "Products"
+  },
+  "statistics": {
+    "products": "Total Products",
+    "orders": "Total Orders",
+    "categories": "Total Categories",
+    "revenue": "Total Revenue"
+  }
 }
