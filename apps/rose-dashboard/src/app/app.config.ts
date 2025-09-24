@@ -30,7 +30,9 @@ import { API_BASE_URL_CATEGORIES } from "@angular-monorepo/categories";
 
 import { provideTranslation } from "@angular-monorepo/services";
 import { environment } from "@rose/environment/baseurl.dev";
+
 import { errorInterceptor } from "./core/interceptor/error.interceptor";
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
