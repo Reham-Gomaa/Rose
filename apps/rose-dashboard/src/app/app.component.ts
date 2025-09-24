@@ -10,14 +10,17 @@ import { AuthApiKpService, User } from "auth-api-kp";
 import { filter } from "rxjs/operators";
 // Components_Shared
 import { NotificationToastComponent } from "@angular-monorepo/notification-toast";
+import { LoadingComponent } from "@rose_dashboard/features_layouts/loading/loading.component";
 
 @Component({
-  imports: [RouterOutlet, NotificationToastComponent],
+  imports: [RouterOutlet, NotificationToastComponent, LoadingComponent],
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",
 })
 export class AppComponent {
+  title = "rose dashboard";
+
   private readonly _storageManagerService = inject(StorageManagerService);
   protected platformId = inject(PLATFORM_ID);
   private readonly _authApiService = inject(AuthApiKpService);
@@ -25,16 +28,14 @@ export class AppComponent {
   private readonly destroyRef = inject(DestroyRef);
   private route = inject(ActivatedRoute);
   private readonly _router = inject(Router);
-  title = "rose dashboard";
 
   isLoggedIn = signal<boolean>(false);
   user = signal<User | null>(null);
-  loading = signal(false);
+  loading = signal(true);
 
   ngOnInit() {
     this._router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.handleTokenFromUrl();
-
       this.loadUserInfo();
     });
 
@@ -80,9 +81,11 @@ export class AppComponent {
     const token = this._storageManagerService.getItem("authToken");
 
     if (!token) {
+      // no token → hide loader only after redirect
       if (this._router.url.includes("/dashboard")) {
         this._router.navigate(["/authorization"]);
       }
+      this.loading.set(false);
       return;
     }
 
@@ -92,23 +95,20 @@ export class AppComponent {
       .subscribe({
         next: (res) => {
           this.user.set(res.user);
-          this.loading.set(false);
 
-          // if not admin → not-found
           if (res.user.role !== "admin" && this._router.url.includes("/dashboard")) {
             this._router.navigate(["/authorization"]);
           }
+          this.loading.set(false);
         },
         error: (err) => {
-          this.loading.set(false);
           this._storageManagerService.removeItem("authToken");
           this.isLoggedIn.set(false);
           this.user.set(null);
-
-          // also send to not-found on error
           if (this._router.url.includes("/dashboard")) {
             this._router.navigate(["/authorization"]);
           }
+          this.loading.set(false);
         },
       });
   }
