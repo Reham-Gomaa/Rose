@@ -36,17 +36,18 @@
       aria-describedby="resend-instructions"
     >
       {{ "auth.verify.h5" | translate }}
-      @if (cooldownSeconds() > 0) { ({{ cooldownSeconds() }}s) }
+      @if (cooldownSeconds() > 0) {
+        ({{ cooldownSeconds() }}s)
+      }
     </button>
   </div>
 
   <!-- Submit Button -->
-  <app-form-button
+  <lib-form-button
     [text]="'auth.verify.button' | translate"
     [disabled]="verifyCodeForm.invalid"
     [isLoading]="isLoading()"
     type="submit"
     aria-label="Submit verification code"
-  >
-  </app-form-button>
+  />
 </form>

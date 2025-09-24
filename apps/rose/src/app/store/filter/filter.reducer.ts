@@ -76,28 +76,28 @@ export const filterReduser = createReducer(
     // filter by Categories
     if (state.selectedCategories.length > 0) {
       filtered = filtered.filter((product) =>
-        state.selectedCategories.some((cat) => product.category === cat._id)
+        state.selectedCategories.some((cat) => product.category === cat._id),
       );
     }
 
     // filter by Occasions
     if (state.selectedOccasions.length > 0) {
       filtered = filtered.filter((product) =>
-        state.selectedOccasions.some((occ) => product.occasion === occ._id)
+        state.selectedOccasions.some((occ) => product.occasion === occ._id),
       );
     }
 
     // filter by Name
     if (state.selectedName) {
       filtered = filtered.filter((product) =>
-        product.title.toLowerCase().includes(state.selectedName)
+        product.title.toLowerCase().includes(state.selectedName),
       );
     }
 
     // filter by rating
     if (state.selectedRating && state.selectedRating.length > 0) {
       filtered = filtered.filter((product) =>
-        state.selectedRating.some((rating) => product.rateAvg === Number(rating.rateAvg))
+        state.selectedRating.some((rating) => product.rateAvg === Number(rating.rateAvg)),
       );
     }
 
@@ -105,7 +105,7 @@ export const filterReduser = createReducer(
     filtered = filtered.filter(
       (product) =>
         Number(product.price) <= Number(state.selectedPrice.maxPrice) &&
-        Number(product.price) >= Number(state.selectedPrice.minPrice)
+        Number(product.price) >= Number(state.selectedPrice.minPrice),
     );
     return {
       ...state,
@@ -126,5 +126,5 @@ export const filterReduser = createReducer(
       selectedName: "",
       selectedRating: [],
     };
-  })
+  }),
 );

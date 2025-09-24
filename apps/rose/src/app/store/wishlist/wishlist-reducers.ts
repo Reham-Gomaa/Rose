@@ -35,5 +35,5 @@ export const wishlistReducer = createReducer(
         favouriteitemsNum: state.favouriteitemsNum + 1,
       };
     }
-  })
+  }),
 );

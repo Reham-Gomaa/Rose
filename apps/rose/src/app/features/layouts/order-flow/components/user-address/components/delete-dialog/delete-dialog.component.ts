@@ -8,7 +8,7 @@ import {
   selectAddressId,
   selectAddressLoading,
 } from "apps/rose/src/app/store/address/address.selector";
-import { SpinnerComponent } from "@rose/shared_Components_ui/spinner/spinner.component";
+import { SpinnerComponent } from "@angular-monorepo/rose-buttons";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
 @Component({

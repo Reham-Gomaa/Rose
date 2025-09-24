@@ -134,7 +134,9 @@
 .image {
   border: 2.5px solid transparent;
   border-radius: 15px;
-  transition: border 0.3s, transform 0.2s;
+  transition:
+    border 0.3s,
+    transform 0.2s;
 
   &:hover {
     border-color: #ccc;

@@ -6,7 +6,7 @@ import { interval } from "rxjs";
 // Translation
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 // shared-components
-import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
+import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
 // PrimeNG
 import { MessageService } from "primeng/api";
 import { InputOtpModule } from "primeng/inputotp";
@@ -75,7 +75,7 @@ export class VerifyCodeComponent {
         next: (res) => {
           if ("error" in res) {
             this.apiError.set(
-              res.error || this._translate.instant("messagesToast.failedResendCode")
+              res.error || this._translate.instant("messagesToast.failedResendCode"),
             );
             this._messageService.add({
               severity: "error",
@@ -136,7 +136,7 @@ export class VerifyCodeComponent {
               life: 3000,
             });
             this.apiError.set(
-              res.error || this._translate.instant("messagesToast.verificationFailed")
+              res.error || this._translate.instant("messagesToast.verificationFailed"),
             );
           } else {
             if (res.status === "Success") {

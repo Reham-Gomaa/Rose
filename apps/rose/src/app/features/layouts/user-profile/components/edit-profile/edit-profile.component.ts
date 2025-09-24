@@ -5,17 +5,17 @@ import { Router } from "@angular/router";
 import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/translation";
+import { TranslationService } from "@angular-monorepo/services";
 // Services
-import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
-import { UserStateService } from "@rose/core_services/user-state/user-state.service";
+import { StorageManagerService } from "@angular-monorepo/services";
+import { UserStateService } from "@angular-monorepo/services";
 // Shared_Components
 import {
   CustomInputComponent,
   CustomInputPhoneComponent,
 } from "@angular-monorepo/rose-custom-inputs";
-import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
-import { ConfirmDialogComponent } from "@rose/shared_Components_business/confirm-dialog/confirm-dialog.component";
+import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
+import { ConfirmDialogComponent } from "@angular-monorepo/confirm-dialog";
 // PrimeNg
 import { MessageService } from "primeng/api";
 import { ButtonModule } from "primeng/button";

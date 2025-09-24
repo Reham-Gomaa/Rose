@@ -28,23 +28,23 @@
         </div>
         <div class="others flex justify-content-center align-items-center gap-3">
           @for (image of productDetails().images; track $index) {
-          <div
-            class="image flex justify-content-center cursor-pointer flex-wrap"
-            [class]="{ 'active-thumbnail': currentImage() === image }"
-            tabindex="0"
-            (keydown)="onThumbnailClick(image)"
-            (click)="onThumbnailClick(image)"
-          >
-            <img
-              class="object-cover"
-              width="91"
-              height="110"
-              [ngSrc]="image"
-              [alt]="productDetails().slug"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+            <div
+              class="image flex justify-content-center cursor-pointer flex-wrap"
+              [class]="{ 'active-thumbnail': currentImage() === image }"
+              tabindex="0"
+              (keydown)="onThumbnailClick(image)"
+              (click)="onThumbnailClick(image)"
+            >
+              <img
+                class="object-cover"
+                width="91"
+                height="110"
+                [ngSrc]="image"
+                [alt]="productDetails().slug"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
           }
         </div>
       </div>
@@ -109,16 +109,16 @@
     [contentStyle]="{ 'text-align': 'center' }"
   >
     @if (currentImage()) {
-    <img
-      [ngSrc]="currentImage()"
-      width="100"
-      height="100"
-      alt="Zoomed Image"
-      class="w-full h-auto block"
-      style="max-height: 70vh; object-fit: cover"
-      loading="lazy"
-      decoding="async"
-    />
+      <img
+        [ngSrc]="currentImage()"
+        width="100"
+        height="100"
+        alt="Zoomed Image"
+        class="w-full h-auto block"
+        style="max-height: 70vh; object-fit: cover"
+        loading="lazy"
+        decoding="async"
+      />
     }
   </p-dialog>
 </section>
