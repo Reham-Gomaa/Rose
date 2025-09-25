@@ -17,9 +17,9 @@ export class CategoriesService extends CategoriesApi {
   private httpClient = inject(HttpClient);
   private readonly API_BASE = inject(API_BASE_URL_CATEGORIES);
 
-  getAllCategories(): Observable<CategoryRes> {
+  getAllCategories(limit = 100): Observable<CategoryRes> {
     const finalUrl: string = this.API_BASE + EndPoints.CATEGORIES;
-    return this.httpClient.get<CategoryRes>(finalUrl).pipe(shareReplay(1));
+    return this.httpClient.get<CategoryRes>(finalUrl + `?limit=${limit}`).pipe(shareReplay(1));
   }
 
   getCategoryById(categoryId: string): Observable<CategoryRes> {

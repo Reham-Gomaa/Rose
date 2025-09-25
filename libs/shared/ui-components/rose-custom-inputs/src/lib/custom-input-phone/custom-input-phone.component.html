@@ -1,3 +1,5 @@
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
 <div class="flex flex-column gap-2">
   <label [for]="id()" class="label-color mt-3">{{ labelText() }}</label>
   <div class="input-phone-container">
@@ -53,6 +55,7 @@
     />
   </div>
 </div>
+
 @if (errorHandilgControl()) {
   <lib-input-error-handling [control]="errorHandilgControl()!"></lib-input-error-handling>
 }

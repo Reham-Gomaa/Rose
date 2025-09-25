@@ -11,6 +11,7 @@ import { filter } from "rxjs/operators";
 // Components_Shared
 import { NotificationToastComponent } from "@angular-monorepo/notification-toast";
 import { LoadingComponent } from "@rose_dashboard/features_layouts/loading/loading.component";
+import { ErrorService } from "./core/services/error.service";
 
 @Component({
   imports: [RouterOutlet, NotificationToastComponent, LoadingComponent],
@@ -28,12 +29,14 @@ export class AppComponent {
   private readonly destroyRef = inject(DestroyRef);
   private route = inject(ActivatedRoute);
   private readonly _router = inject(Router);
+  errorService = inject(ErrorService);
 
   isLoggedIn = signal<boolean>(false);
   user = signal<User | null>(null);
   loading = signal(true);
 
   ngOnInit() {
+    this.loading.set(true);
     this._router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
       this.handleTokenFromUrl();
       this.loadUserInfo();
@@ -78,10 +81,10 @@ export class AppComponent {
   }
 
   loadUserInfo(): void {
+    this.loading.set(true);
     const token = this._storageManagerService.getItem("authToken");
 
     if (!token) {
-      // no token → hide loader only after redirect
       if (this._router.url.includes("/dashboard")) {
         this._router.navigate(["/authorization"]);
       }

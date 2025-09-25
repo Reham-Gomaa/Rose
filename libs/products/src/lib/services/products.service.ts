@@ -16,14 +16,16 @@ export class ProductsService extends ProductsApi {
   private readonly httpClient = inject(HttpClient);
   private readonly API_BASE = inject(API_BASE_URL_PRODUCTS);
 
-  getAllProducts(categoryId?: string): Observable<ProductRes> {
+  getAllProducts(categoryId?: string, limit = 100): Observable<ProductRes> {
     const finalUrl: string = this.API_BASE + EndPoints.PRODUCTS;
     let params = new HttpParams();
     if (categoryId) {
       params = params.append("category", categoryId);
     }
 
-    return this.httpClient.get<ProductRes>(finalUrl, { params }).pipe(shareReplay(1));
+    return this.httpClient
+      .get<ProductRes>(finalUrl + `?limit=${limit}`, { params })
+      .pipe(shareReplay(1));
   }
 
   getcategoryProductCount(): Observable<countBproduct> {

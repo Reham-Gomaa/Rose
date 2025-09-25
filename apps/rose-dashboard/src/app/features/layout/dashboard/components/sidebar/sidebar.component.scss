@@ -51,6 +51,6 @@ a {
 }
 
 .color-soft-red {
-  background-color: #feeaea;
-  color: #a6252a !important;
+  background-color: var(--active-item-bg);
+  color: var(--active-item-text) !important;
 }

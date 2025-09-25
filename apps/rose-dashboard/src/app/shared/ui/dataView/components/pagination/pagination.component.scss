@@ -1,0 +1,12 @@
+:host ::ng-deep .p-ripple {
+  background-color: #fff;
+  border-radius: 8px;
+  color: black;
+}
+:host ::ng-deep .p-paginator {
+  background-color: transparent;
+}
+:host ::ng-deep .p-paginator-page-selected {
+  background-color: #a6252a !important;
+  color: white !important;
+}
