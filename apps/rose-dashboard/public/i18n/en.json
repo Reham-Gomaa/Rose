@@ -129,7 +129,7 @@
     "products": "Products",
     "user-profile": "Account Setting",
     "not-found": "Not Found",
-    "authorization": "Not Authorization"
+    "authorization": "Not Authorized"
   },
   "general": {
     "notExistTitle": "This page does not exist.",
