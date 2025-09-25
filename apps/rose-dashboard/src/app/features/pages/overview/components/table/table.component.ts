@@ -1,14 +1,14 @@
-import { Component } from "@angular/core";
-import { ButtonModule } from "primeng/button";
+import { Component, ViewEncapsulation } from "@angular/core";
 import { RatingModule } from "primeng/rating";
 import { TableModule } from "primeng/table";
 import { TagModule } from "primeng/tag";
 
 @Component({
   selector: "app-table",
-  imports: [TableModule, TagModule, RatingModule, ButtonModule],
+  imports: [TableModule, TagModule, RatingModule],
   templateUrl: "./table.component.html",
   styleUrl: "./table.component.scss",
+  encapsulation: ViewEncapsulation.None,
 })
 export class TableComponent {
   data = [
