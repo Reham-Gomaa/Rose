@@ -1,8 +1,12 @@
-import { InputErrorHandlingComponent } from "@angular-monorepo/rose-custom-inputs";
+import { InputErrorHandlingComponent } from "../input-error-handling/input-error-handling.component";
 import { NgOptimizedImage } from "@angular/common";
 import { Component, forwardRef, input, OnInit, OnDestroy } from "@angular/core";
 import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
-import { Country } from "@rose/core_interfaces/country";
+export interface Country {
+  name: string;
+  code: string;
+  flag: string;
+}
 
 @Component({
   selector: "lib-custom-input-phone",
