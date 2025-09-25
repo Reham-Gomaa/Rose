@@ -1,0 +1,28 @@
+<section class="flex flex-wrap justify-content-between row-gap-3">
+    @if (loading()) {
+    @for (card of statCards; track $index) {
+    <div class="item" [style.backgroundColor]="card.bg">
+        <div>
+            <p-skeleton width="2rem" height="2rem" borderRadius="8px"></p-skeleton>
+        </div>
+        <p class="value">
+            <p-skeleton width="5rem" height="1.5rem"></p-skeleton>
+        </p>
+        <p class="label">
+            <p-skeleton width="6rem" height="1rem"></p-skeleton>
+        </p>
+    </div>
+    }
+    } @else {
+    @for (card of statCards; track $index) {
+    <div class="item me-1 md:m-0" [style.backgroundColor]="card.bg">
+        <div><i [class]="card.icon" [style.color]="card.color" style="font-size: 2rem"></i></div>
+        <p class="value" [style.color]="card.color">
+            {{ statistics()?.[card.key] ?? 0 }}
+            @if($index === 3){ <span>{{"EGP" |translate}} </span> }
+        </p>
+        <p class="label">{{ card.label |translate}}</p>
+    </div>
+    }
+    }
+</section>

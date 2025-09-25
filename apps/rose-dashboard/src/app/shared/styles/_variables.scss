@@ -59,11 +59,14 @@ $breakpoint-small: 620px;
   --soft-pink-50: #fff1f5;
   --hover-card-shape: #e6507380;
 
+  --shadow-emerald: #0089610d;
   --emerald-50: #ecfdf5;
   --emerald-300: #5ee9b5;
   --emerald-500: #00bc7d;
+  --emerald-600: #009966;
   --emerald-700: #007a55;
 
+  --shadow-blue: #0063d00d;
   --blue-400: #50a2ff;
   --blue-600: #155dfc;
   --blue-700: #1447e6;
@@ -79,6 +82,9 @@ $breakpoint-small: 620px;
   --gray-900-15: #2e2e3026;
 
   --yellow: #fba707;
+
+  --shadow-purple: #753cbf0d;
+  --purple: #753cbf;
 
   // Body
   --body-color: var(--white);
@@ -162,6 +168,18 @@ $breakpoint-small: 620px;
   --active-item-bg: var(--maroon-50);
   --active-item-text: var(--soft-maroon-600);
   --drop-button-down-bg: var(--zinc-800);
+
+  // Overview-Reports
+  --main-text: var(--zinc-800);
+  --overall-pdt-bg: var(--maroon-50);
+  --overall-pdt-color: var(--maroon-600);
+  --overall-orders-bg: var(--shadow-blue);
+  --overall-orders-color: var(--blue-600);
+  --overall-category-bg: var(--shadow-purple);
+  --overall-category-color: var(--purple);
+  --overall-revenue-bg: var(--shadow-emerald);
+  --overall-revenue-color: var(--emerald-600);
+  --category-value-bg: var(--shadow-black);
 }
 
 // Dark theme overrides

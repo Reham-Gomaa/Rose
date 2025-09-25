@@ -1,0 +1,20 @@
+#overview {
+  padding: 1rem 1rem 3.125rem;
+  @media all and (min-width: 48rem) {
+    padding-top: 1.625rem;
+    padding-left: 1rem;
+  }
+
+  #top-sec {
+    #statistics,
+    #categories {
+      border-radius: 1rem;
+      padding: 0;
+      gap: 1rem;
+      background-color: #fff;
+      @media all and (min-width: 48rem) {
+        padding: 1.5rem;
+      }
+    }
+  }
+}

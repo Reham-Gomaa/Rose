@@ -1,4 +1,5 @@
 {
+  "EGP": "ج.م",
   "breadcrumb": {
     "overview": "نظرة عامة",
     "dashboard": "لوحة التحكم",
@@ -20,6 +21,12 @@
     "categories": "الفئات",
     "occasions": "المناسبات",
     "products": "المنتجات"
+  },
+  "statistics": {
+    "products": "إجمالي المنتجات",
+    "orders": "إجمالي الطلبات",
+    "categories": "إجمالي التصنيفات",
+    "revenue": "إجمالي الإيرادات"
   },
   "user-Profile": {
     "updateProfile": "تحديث الملف الشخصي",

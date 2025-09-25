@@ -1,4 +1,5 @@
 {
+  "EGP": "EGP",
   "breadcrumb": {
     "overview": "Overview",
     "dashboard": "Dashboard",
@@ -20,6 +21,12 @@
     "categories": "Categories",
     "occasions": "Occasions",
     "products": "Products"
+  },
+  "statistics": {
+    "products": "Total Products",
+    "orders": "Total Orders",
+    "categories": "Total Categories",
+    "revenue": "Total Revenue"
   },
   "user-Profile": {
     "updateProfile": "Update Profile",

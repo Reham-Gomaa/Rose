@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
-import { LoadingComponent } from "./loading.component";
-import { StatisticsComponent } from "@rose_dashboard/features_pages/overview/components/statistics/statistics.component";
+import { StatisticsComponent } from "./statistics.component";
+import { LoadingComponent } from "@rose_dashboard/features_layouts/loading/loading.component";
 
 describe("StatisticsComponent", () => {
   let component: StatisticsComponent;
