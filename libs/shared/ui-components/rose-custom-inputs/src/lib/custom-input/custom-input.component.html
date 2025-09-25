@@ -1,5 +1,6 @@
 <div class="flex flex-column gap-2">
   <label [for]="id()" class="label-color mt-3">{{ labelText() }}</label>
+  @if (!isFileInput) { 
   <div class="input-wrapper">
     <input
       [id]="id()"
@@ -20,7 +21,29 @@
         }
       </button>
     }
-  </div>
+  </div> 
+}
+  @else {
+    <!-- File Input -->
+    <div class="input-wrapper">
+      <input
+        [id]="id()"
+        type="file"
+        [accept]="accept()"
+        (change)="onFileSelected($event)"
+        (blur)="onTouched()"
+        required
+        class="input-style"
+      />
+      <div class="file-input-display" (click)="openFileInput()">
+  <span class="file-text">
+    {{ selectedFile ? selectedFile.name : (placeholder() || 'Upload file') }}
+  </span>
+  <span class="browse-btn">Browse</span>
+</div>
+
+    </div>
+  }
   @if (errorHandilgControl()) {
     <lib-input-error-handling [control]="errorHandilgControl()!"></lib-input-error-handling>
   }

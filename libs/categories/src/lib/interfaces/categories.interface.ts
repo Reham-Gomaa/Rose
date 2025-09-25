@@ -33,5 +33,5 @@ export interface SingleCategoryRes {
 // For creating/updating categories
 export interface CategoryRequest {
   name: string;
-  image?: string;
+  image: File;
 }

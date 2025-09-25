@@ -1,105 +1,126 @@
-import { Component, input, output, effect, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from "@angular/core";
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl } from "@angular/forms";
 import { CommonModule } from "@angular/common";
-
-// Components
 import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
-
-export interface FormData {
-  name: string;
-  image?: string;
-}
 
 @Component({
   selector: "app-category-occasion-form",
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, CustomInputComponent],
   templateUrl: "./category-occasion-form.component.html",
-  styleUrls: ["./category-occasion-form.component.scss"]
 })
-export class SharedCategoryOccasionFormComponent implements OnInit {
-  // Inputs for customization
-  nameFieldId = input<string>('name');
-  imageFieldId = input<string>('image');
-  nameLabel = input<string>('Name');
-  imageLabel = input<string>('Image');
-  namePlaceholder = input<string>('Enter name');
-  uploadButtonText = input<string>('Upload file');
-  submitButtonText = input<string>('Add');
-  isLoading = input<boolean>(false);
-  initialData = input<FormData | null>(null);
+export class CategoryOccasionFormComponent implements OnChanges {
+  @Input() initialData: { name: string; image: string | null } | null = null; // gets data for edit
+  @Output() categorySubmit = new EventEmitter<FormData>();
 
-  // Outputs
-  formSubmit = output<FormData>();
-  formValid = output<boolean>();
-
-  form!: FormGroup;
-  selectedFileName: string = '';
+  categoryForm: FormGroup;
+  selectedFile: File | null = null;
+  isSubmitting = false;
+  previewUrl: string | null = null; // to show existing image
 
   constructor(private fb: FormBuilder) {
-    // Watch for initial data changes
-    effect(() => {
-      const data = this.initialData();
-      if (data && this.form) {
-        this.form.patchValue(data);
-        if (data.image) {
-          this.selectedFileName = this.extractFileName(data.image);
-        }
-      }
-    });
-
-    // Watch for form validity changes
-    effect(() => {
-      if (this.form) {
-        this.formValid.emit(this.form.valid);
-      }
+    this.categoryForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+      image: [null, Validators.required]
     });
   }
 
-  ngOnInit(): void {
-    this.initializeForm();
-  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['initialData'] && this.initialData) {
+      this.categoryForm.patchValue({
+        name: this.initialData.name,
+      });
 
-  private initializeForm(): void {
-    this.form = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      image: ['', Validators.required]
-    });
-
-    // Emit initial validity
-    this.form.statusChanges.subscribe(() => {
-      this.formValid.emit(this.form.valid);
-    });
-
-    // Set initial data if provided
-    const data = this.initialData();
-    if (data) {
-      this.form.patchValue(data);
-      if (data.image) {
-        this.selectedFileName = this.extractFileName(data.image);
+      // set preview if editing
+      if (this.initialData.image) {
+        this.previewUrl = this.initialData.image;
+        this.categoryForm.get('image')?.clearValidators(); // image not required on edit
+        this.categoryForm.get('image')?.updateValueAndValidity();
       }
     }
   }
 
-  onImageSelect(event: Event): void {
+  // Getter for validation
+  get nameControl(): AbstractControl {
+    return this.categoryForm.get('name') as AbstractControl;
+  }
+
+  onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-    const file = input.files?.[0];
-    
-    if (file) {
-      this.selectedFileName = file.name;
-      //  hena ha handle el file upload to get the image URL
-      // For now, we'll just set the file name
-      this.form.patchValue({ image: file.name });
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+      this.categoryForm.patchValue({ image: this.selectedFile });
+      this.categoryForm.get('image')?.updateValueAndValidity();
+
+      // update preview
+      const reader = new FileReader();
+      reader.onload = () => (this.previewUrl = reader.result as string);
+      reader.readAsDataURL(this.selectedFile);
     }
   }
 
-  handleSubmit(): void {
-    if (this.form.valid) {
-      this.formSubmit.emit(this.form.value as FormData);
-    }
-  }
+  // onSubmit(): void {
+  //   if (this.categoryForm.valid) {
+  //     this.isSubmitting = true;
 
-  private extractFileName(imagePath: string): string {
-    return imagePath.split('/').pop() || imagePath;
+  //     const formData = new FormData();
+  //     formData.append('name', this.categoryForm.get('name')?.value);
+
+  //     if (this.selectedFile) {
+  //       formData.append('image', this.selectedFile);
+  //     }
+
+  //     this.categorySubmit.emit(formData);
+
+  //     setTimeout(() => {
+  //       this.isSubmitting = false;
+  //     }, 2000);
+  //   } else {
+  //     this.markFormGroupTouched();
+  //   }
+  // }
+
+  onSubmit(): void {
+  if (this.categoryForm.valid) {
+    this.isSubmitting = true;
+
+    const formData = new FormData();
+    formData.append('name', this.categoryForm.get('name')?.value);
+
+    if (this.selectedFile) {
+      formData.append('image', this.selectedFile);
+    }
+
+    // 🔹 Debug: log values before emitting
+    console.log("Submitting category form:");
+    console.log("Name:", formData.get('name'));
+    console.log("Image:", formData.get('image'));
+
+    this.categorySubmit.emit(formData);
+
+    setTimeout(() => {
+      this.isSubmitting = false;
+    }, 2000);
+  } else {
+    this.markFormGroupTouched();
   }
 }
+
+
+  private markFormGroupTouched(): void {
+    Object.keys(this.categoryForm.controls).forEach(key => {
+      const control = this.categoryForm.get(key);
+      control?.markAsTouched();
+    });
+  }
+
+  resetForm(): void {
+    this.categoryForm.reset();
+    this.selectedFile = null;
+    this.previewUrl = null;
+    this.isSubmitting = false;
+  }
+}
+
+  
+

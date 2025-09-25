@@ -3,7 +3,7 @@ import { CategoryRequest, CategoryRes, SingleCategoryRes } from "../interfaces/c
 
 export abstract class CategoriesApi {
   abstract getAllCategories(): Observable<CategoryRes>;
-  abstract getCategoryById(categoryId: string): Observable<CategoryRes>;
+  abstract getCategoryById(categoryId: string): Observable<SingleCategoryRes>;
   abstract addCategory(category: CategoryRequest): Observable<SingleCategoryRes>;
   abstract updateCategory(categoryId: string, category: CategoryRequest): Observable<SingleCategoryRes>;
 }

@@ -1,3 +1,33 @@
 <p>categories works!</p>
 
-<app-addandedit></app-addandedit>
+
+<button (click)="onAddCategory()" class="bg-green-600 text-white px-3 py-1 rounded">
+  Add Category
+</button>
+
+<table class="w-full mt-4 border">
+  <thead>
+    <tr>
+      <th class="border px-2 py-1">ID</th>
+      <th class="border px-2 py-1">Name</th>
+      <th class="border px-2 py-1">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (category of categories; track category.id) {
+      <tr>
+        <td class="border px-2 py-1">{{ category.id }}</td>
+        <td class="border px-2 py-1">{{ category.name }}</td>
+        <td class="border px-2 py-1">
+          <button
+            (click)="onEditCategory(category.id)"
+            class="bg-blue-600 text-white px-2 py-1 rounded"
+          >
+            Edit
+          </button>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+

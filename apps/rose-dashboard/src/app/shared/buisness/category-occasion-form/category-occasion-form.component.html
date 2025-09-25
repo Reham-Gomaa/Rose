@@ -1,53 +1,39 @@
-<form [formGroup]="form" (ngSubmit)="handleSubmit()" class="flex flex-column gap-4">
-  <!-- Name Field -->
-  <lib-custom-input
-    [id]="nameFieldId()"
-    [labelText]="nameLabel()"
-    [placeholder]="namePlaceholder()"
-    [errorHandilgControl]="form.get('name')!"
-    formControlName="name"
-  />
+<form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" class="p-fluid">
+  <div class="flex flex-column gap-4">
+    
+    <!-- Name Field -->
+    <lib-custom-input
+      id="categoryName"
+      labelText="Name *"
+      placeholder="Enter category name"
+      [errorHandilgControl]="nameControl"
+      formControlName="name">
+    </lib-custom-input>
 
-  <!-- Image Upload Field -->
-  <div class="flex flex-column gap-2">
-    <label [for]="imageFieldId()" class="label-color mt-3">
-      {{ imageLabel() }} *
-    </label>
-    <div class="upload-wrapper">
-      <input
-        [id]="imageFieldId()"
+    <!-- File Upload -->
+    <div class="flex flex-column gap-2">
+      <lib-custom-input
         type="file"
         accept="image/*"
-        (change)="onImageSelect($event)"
-        class="hidden-input"
-        #fileInput
-      />
-      <button
-        type="button"
-        class="upload-btn"
-        (click)="fileInput.click()"
-      >
-        <i class="pi pi-upload"></i>
-        {{ uploadButtonText() }}
-      </button>
-      @if (selectedFileName) {
-        <span class="selected-file">{{ selectedFileName }}</span>
-      }
-    </div>
-    @if (form.get('image')?.errors && form.get('image')?.touched) {
-      <small class="error-text">Image is required</small>
-    }
-  </div>
+        labelText="Category image *"
+        placeholder="Upload file"
+        [errorHandilgControl]="categoryForm.get('image') ?? undefined"
+        formControlName="image"
+        (change)="onFileSelected($event)">
+      </lib-custom-input>
 
-  <!-- Submit Button -->
-  <button
-    type="submit"
-    [disabled]="form.invalid || isLoading()"
-    class="submit-btn"
-  >
-    @if (isLoading()) {
-      <i class="pi pi-spin pi-spinner"></i>
-    }
-    {{ submitButtonText() }}
-  </button>
+    </div>
+
+    <!-- Submit Button -->
+    <button
+      type="submit"
+      class="btn-primary"
+      [disabled]="categoryForm.invalid || isSubmitting">
+      @if (isSubmitting) {
+        <i class="pi pi-spin pi-spinner"></i> Saving...
+      } @else {
+        {{ initialData ? "Update Category" : "Add Category" }}
+      }
+    </button>
+  </div>
 </form>

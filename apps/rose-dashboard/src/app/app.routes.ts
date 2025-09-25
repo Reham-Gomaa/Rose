@@ -37,7 +37,7 @@ export const appRoutes: Route[] = [
       title: "titles.add-category",
       loadComponent: () =>
         import("@rose_dashboard/features_pages/categories/components/addandedit.component").then(
-          (c) => c.AddandeditComponent
+          (c) => c.AddEditCategoryComponent
         ),
     },
     {
@@ -45,7 +45,7 @@ export const appRoutes: Route[] = [
       title: "titles.edit-category",
       loadComponent: () =>
         import("@rose_dashboard/features_pages/categories/components/addandedit.component").then(
-          (c) => c.AddandeditComponent
+          (c) => c.AddEditCategoryComponent
         ),
     },
   ],
