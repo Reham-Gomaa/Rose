@@ -1,5 +1,5 @@
-import { environment } from "./../../../../../environment/baseurl.prod";
+import { environment } from "@rose/environment/baseurl.dev";
 
 export class EndPoint {
-  static STATISTICS = `${environment.baseApiUrl}api/v1/statistics`;
+  static ALL_STATISTICS = `${environment.baseApiUrl}api/v1/statistics`;
 }

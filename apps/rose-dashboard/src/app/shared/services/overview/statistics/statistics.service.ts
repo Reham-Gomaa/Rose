@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
-import { Observable } from "rxjs";
 import { EndPoint } from "apps/rose-dashboard/src/app/core/enums/endpoints";
 import { Statistics } from "apps/rose-dashboard/src/app/core/interfaces/statistics";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -14,6 +14,8 @@ export class StatisticsService {
   authorization = { Authorization: `Bearer ${this.token}` };
 
   getAllStatistics(): Observable<Statistics> {
-    return this.httpClient.get<Statistics>(EndPoint.STATISTICS, { headers: this.authorization });
+    return this.httpClient.get<Statistics>(EndPoint.ALL_STATISTICS, {
+      headers: this.authorization,
+    });
   }
 }

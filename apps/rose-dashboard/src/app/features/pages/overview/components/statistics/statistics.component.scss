@@ -14,7 +14,7 @@
     margin: 0 0 0.25rem 0;
   }
   .value {
-    font-family: Inter;
+    font-family: var(--font-family-1);
     font-weight: 600;
     font-size: 1.25rem;
     line-height: 100%;
@@ -31,8 +31,8 @@
     }
   }
   .label {
-    color: #27272a;
-    font-family: Inter;
+    color: var(--main-text);
+    font-family: var(--font-family-1);
     font-weight: 500;
     font-size: 0.875rem;
     line-height: 100%;

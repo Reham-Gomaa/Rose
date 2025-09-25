@@ -1,13 +1,19 @@
-import { Component, DestroyRef, inject, OnInit, signal, WritableSignal } from "@angular/core";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import {
+  Component,
+  DestroyRef,
+  inject,
+  input,
+  InputSignal,
+  signal,
+  WritableSignal,
+} from "@angular/core";
 // RxJs
-import { map } from "rxjs";
 // Interfaces
 import { Overall } from "apps/rose-dashboard/src/app/core/interfaces/statistics";
 // Services
 import { TranslationService } from "@angular-monorepo/services";
-import { StatisticsService } from "apps/rose-dashboard/src/app/shared/services/overview/statistics/statistics.service";
 import { TranslatePipe } from "@ngx-translate/core";
+import { StatisticsService } from "apps/rose-dashboard/src/app/shared/services/overview/statistics/statistics.service";
 // PrimeNg
 import { Skeleton } from "primeng/skeleton";
 
@@ -25,63 +31,40 @@ interface StatCardConfig {
   templateUrl: "./statistics.component.html",
   styleUrl: "./statistics.component.scss",
 })
-export class StatisticsComponent implements OnInit {
+export class StatisticsComponent {
   private readonly translationService = inject(TranslationService);
-  private readonly statisticsService = inject(StatisticsService);
-  private readonly destroyRef = inject(DestroyRef);
 
-  statistics: WritableSignal<Overall | null> = signal(null);
+  //statistics: InputSignal<Overall | null> = input(null);
   loading: WritableSignal<boolean> = signal(true);
-
-  ngOnInit(): void {
-    this.getStatistics();
-  }
-
-  getStatistics() {
-    this.statisticsService
-      .getAllStatistics()
-      .pipe(
-        map((res) => {
-          return res.statistics.overall;
-        }),
-        takeUntilDestroyed(this.destroyRef)
-      )
-      .subscribe({
-        next: (res) => {
-          this.statistics?.set(res);
-          this.loading.set(false);
-        },
-      });
-  }
 
   statCards: StatCardConfig[] = [
     {
       key: "totalProducts",
       label: "statistics.products",
       icon: "pi pi-box",
-      bg: "#fbeaea",
-      color: "#a6252a",
+      bg: "var(--overall-pdt-bg)",
+      color: "var(--overall-pdt-color)",
     },
     {
       key: "totalOrders",
       label: "statistics.orders",
       icon: "pi pi-receipt",
-      bg: "#0063d00d",
-      color: "#155dfc",
+      bg: "var(--overall-orders-bg)",
+      color: "var(--overall-orders-color)",
     },
     {
       key: "totalCategories",
       label: "statistics.categories",
       icon: "pi pi-clipboard",
-      bg: "#753cbf0d",
-      color: "#753cbf",
+      bg: "var(--overall-category-bg)",
+      color: "var(--overall-category-color)",
     },
     {
       key: "totalRevenue",
       label: "statistics.revenue",
       icon: "pi pi-dollar",
-      bg: "#0089610d",
-      color: "#009966",
+      bg: "var(--overall-revenue-bg)",
+      color: "var(--overall-revenue-color)",
     },
   ];
 }
