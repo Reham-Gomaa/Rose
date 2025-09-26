@@ -1,7 +1,8 @@
-<section class="dashboard">
+<section class="dashboard min-h-screen ">
   <app-sidebar class="hidden md:block" />
-  <div class="w-full">
+  <div class="flex flex-column justify-content-between	 h-full w-full">
     <app-stepper />
     <router-outlet />
+    <app-bottom-navbar class="block md:hidden"/>
   </div>
 </section>

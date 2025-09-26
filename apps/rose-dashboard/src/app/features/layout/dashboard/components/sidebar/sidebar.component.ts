@@ -11,6 +11,11 @@ import { environment } from "@rose/environment/baseurl.dev";
   styleUrl: "./sidebar.component.scss",
 })
 export class SidebarComponent {
+  hidden: boolean = false;
+
+  changeHidden() {
+    this.hidden = !this.hidden;
+  }
   goToRose() {
     window.open(`${environment.runUrl}`, "_blank");
   }
