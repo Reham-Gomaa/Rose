@@ -31,7 +31,7 @@ export class CustomInputComponent implements ControlValueAccessor {
   showPassword = false;
   selectedFile: File | null = null; //file
 
-  value: string = "";
+  value = "";
   onChange: (value: string) => void = () => {};
   onTouched: () => void = () => {};
 

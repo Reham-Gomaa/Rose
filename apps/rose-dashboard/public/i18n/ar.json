@@ -1,11 +1,12 @@
 {
   "breadcrumb": {
     "overview": "نظرة عامة",
+    "dashboard": "لوحة التحكم",
     "categories": "الفئات",
-    "occasions": "المناسبات",
     "products": "المنتجات",
-    "dashboard": "لوحة القيادة",
-    "user-profile": "الملف الشخصي"
+    "user-profile": "إعدادات الحساب",
+    "not-found": "غير موجود",
+    "authorization": "غير مصرح"
   },
   "stepper": {
     "dropdown": {
@@ -54,15 +55,23 @@
           "profile": "الملف الشخصي",
           "logout": "تسجيل خروج"
         }
-      },
-      "aside-bar": {
-        "preview-website": "معاينة الموقع",
-        "overview": "نظرة عامة",
-        "categories": "الفئات",
-        "occasions": "المناسبات",
-        "products": "المنتجات"
       }
     }
+  },
+  "inputErrors": {
+    "required": "هذا الحقل مطلوب",
+    "minlength": {
+      "prefix": "الحد الأدنى",
+      "suffix": "حرف مطلوب"
+    },
+    "maxlength": {
+      "prefix": "الحد الأقصى",
+      "suffix": "حرف مسموح"
+    },
+    "email": "تنسيق البريد الإلكتروني غير صحيح (مثال: example@example.com)",
+    "passwordPattern": "كلمة المرور يجب أن تكون 8 أحرف على الأقل، وتشمل حروف كبيرة وصغيرة ورمز خاص.",
+    "onlyNumbers": "ادخل الرقم بطريقه الصحيحه",
+    "misMatch": "كلمات المرور غير متطابقة"
   },
   "auth": {
     "inputs": {
@@ -108,9 +117,19 @@
   "titles": {
     "overview": "نظرة عامة",
     "dashboard": "لوحة التحكم",
-    "categories": "التصنيفات",
+    "categories": "الفئات",
+    "occasions": "المناسبات",
     "products": "المنتجات",
-    "user-profile": "الملف الشخصي",
-    "not-found": "غير موجود"
+    "user-profile": "إعدادات الحساب",
+    "not-found": "غير موجود",
+    "authorization": "غير مصرح"
+  },
+  "general": {
+    "notExistTitle": "هذه الصفحة غير موجودة.",
+    "notExistDesc": "لم نتمكن من العثور على الصفحة التي تبحث عنها، يرجى التأكد من أنك في المسار الصحيح.",
+    "oopsTitle": "عذرًا، حدث خطأ ما!",
+    "oopsDesc": "حدث أمر غير متوقع، يرجى تحديث الصفحة أو المحاولة مرة أخرى بعد قليل.",
+    "unauthorizedTitle": "غير مصرح لك بالوصول إلى هذه الصفحة.",
+    "unauthorizedDesc": "إذا كنت تعتقد أن هذا خطأ، يرجى التواصل مع الدعم."
   }
 }

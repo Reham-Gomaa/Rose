@@ -22,18 +22,26 @@ import { MessageService } from "primeng/api";
 import { providePrimeNG } from "primeng/config";
 import { ToastModule } from "primeng/toast";
 // Shared Libraries
-import { provideTranslation } from "@angular-monorepo/services";
+
+import { BASE_URL } from "@angular-monorepo/occasions";
+
+import { API_BASE_URL_PRODUCTS } from "@angular-monorepo/products";
 import { API_BASE_URL_CATEGORIES } from "@angular-monorepo/categories";
-import { environment } from "apps/environment/baseurl.dev";
+
+import { provideTranslation } from "@angular-monorepo/services";
+import { environment } from "@rose/environment/baseurl.dev";
+
+import { errorInterceptor } from "./core/interceptor/error.interceptor";
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(withFetch(), withInterceptors([headingInterceptor])),
+    provideHttpClient(withFetch(), withInterceptors([headingInterceptor, errorInterceptor])),
     {
       provide: API_CONFIG,
       useValue: {
-        baseUrl: "https://flower.elevateegy.com/api",
+        baseUrl: `${environment.baseApiUrl}api`,
         apiVersion: "v1",
         endpoints: {
           auth: {
@@ -70,8 +78,10 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     MessageService,
     importProvidersFrom(ToastModule),
+
     importProvidersFrom(ToastModule, provideTranslation()),
     provideAnimationsAsync(),
+
     provideAnimations(),
     providePrimeNG({
       theme: {
@@ -84,5 +94,17 @@ export const appConfig: ApplicationConfig = {
       },
     }),
     { provide: LocationStrategy, useClass: HashLocationStrategy },
+    {
+      provide: BASE_URL,
+      useValue: environment.baseApiUrl,
+    },
+    {
+      provide: API_BASE_URL_PRODUCTS,
+      useValue: environment.baseApiUrl,
+    },
+    {
+      provide: API_BASE_URL_CATEGORIES,
+      useValue: environment.baseApiUrl,
+    },
   ],
 };

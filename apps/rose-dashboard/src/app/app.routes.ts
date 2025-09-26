@@ -75,6 +75,22 @@ export const appRoutes: Route[] = [
           ),
         title: "titles.user-profile",
       },
+      {
+        path: "error",
+        loadComponent: () =>
+          import("@rose_dashboard/features_pages/error/error.component").then(
+            (c) => c.ErrorComponent,
+          ),
+        title: "titles.user-profile",
+      },
+      {
+        path: "**",
+        title: "titles.not-found",
+        loadComponent: () =>
+          import("@rose_dashboard/features_pages/not-found/not-found.component").then(
+            (c) => c.NotFoundComponent,
+          ),
+      },
     ],
   },
   {
@@ -84,13 +100,5 @@ export const appRoutes: Route[] = [
         (c) => c.AuthorizationComponent,
       ),
     title: "titles.not-authorization",
-  },
-  {
-    path: "**",
-    title: "titles.not-found",
-    loadComponent: () =>
-      import("@rose_dashboard/features_pages/not-found/not-found.component").then(
-        (c) => c.NotFoundComponent,
-      ),
   },
 ];

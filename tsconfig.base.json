@@ -102,11 +102,35 @@
       "@rose/store_sort/*": [
         "./apps/rose/src/app/store/sort/*"
       ],
+      "@rose_dashboard/core_enums/*": [
+        "./apps/rose-dashboard/src/app/core/enums/*"
+      ],
+      "@rose_dashboard/core_interceptor/*": [
+        "./apps/rose-dashboard/src/app/core/interceptor/*"
+      ],
+      "@rose_dashboard/core_interfaces/*": [
+        "./apps/rose-dashboard/src/app/core/interfaces/*"
+      ],
+      "@rose_dashboard/core_services/*": [
+        "./apps/rose-dashboard/src/app/core/services/*"
+      ],
       "@rose_dashboard/features_layouts/*": [
         "./apps/rose-dashboard/src/app/features/layout/*"
       ],
       "@rose_dashboard/features_pages/*": [
         "./apps/rose-dashboard/src/app/features/pages/*"
+      ],
+      "@rose_dashboard/shared_buisness/*": [
+        "./apps/rose-dashboard/src/app/shared/buisness/*"
+      ],
+      "@rose_dashboard/shared_services/*": [
+        "./apps/rose-dashboard/src/app/shared/services/*"
+      ],
+      "@rose_dashboard/shared_styles/*": [
+        "./apps/rose-dashboard/src/app/shared/styles/*"
+      ],
+      "@rose_dashboard/shared_ui/*": [
+        "./apps/rose-dashboard/src/app/shared/ui/*"
       ]
     }
   },

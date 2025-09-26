@@ -1,42 +1,24 @@
-import { Component, inject } from "@angular/core";
-import { Router, RouterLink, RouterLinkActive } from "@angular/router";
-// import { CategoryAddEditComponent } from "./components/addandedit.component";
-import { CategoriesService, Category,CategoryRes } from "@angular-monorepo/categories";
-import { CategoryOccasionFormComponent } from "../../../shared/buisness/category-occasion-form/category-occasion-form.component";
+import { CategoriesService, Category } from "@angular-monorepo/categories";
+import { Component, inject, signal, WritableSignal } from "@angular/core";
+import { DataViewComponent } from "../../../shared/ui/dataView/dataView.component";
 
 @Component({
   selector: "app-categories",
-  imports: [RouterLink, RouterLinkActive,CategoriesComponent,CategoryOccasionFormComponent],
-  standalone: true,
+  imports: [DataViewComponent],
   templateUrl: "./categories.component.html",
   styleUrl: "./categories.component.scss",
 })
 export class CategoriesComponent {
+  private category_service = inject(CategoriesService);
+  table_header_records: string[] = ["name", "products"];
+  cats: WritableSignal<Category[]> = signal<Category[]>([]);
 
- categories: { id: string; name: string }[] = [];
-
-  private categoriesService = inject(CategoriesService);
-  private router = inject(Router);
-
-  ngOnInit(): void {
-    this.categoriesService.getAllCategories().subscribe({
-      next: (res: CategoryRes) => {
-        this.categories = res.categories.map(c => ({
-          id: c._id,
-          name: c.name,
-        }));
+  ngOnInit() {
+    this.category_service.getAllCategories().subscribe({
+      next: (res) => {
+        this.cats.set(res.categories);
+        console.log(res);
       },
-      error: (err) => console.error("Failed to load categories", err),
     });
-  }
-
-  //  Add button
-  onAddCategory(): void {
-    this.router.navigate(["dashboard/categories/add"]);
-  }
-
-  // Edit button
-  onEditCategory(id: string): void {
-    this.router.navigate([`dashboard/categories/edit/${id}`]);
   }
 }
