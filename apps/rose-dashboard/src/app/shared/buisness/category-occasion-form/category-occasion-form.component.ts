@@ -1,126 +1,141 @@
-import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from "@angular/core";
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnDestroy } from "@angular/core";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
+import { FormButtonComponent } from "@angular-monorepo/rose-buttons"; 
+
+export type EntityType = 'category' | 'occasion';
 
 @Component({
   selector: "app-category-occasion-form",
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, CustomInputComponent],
+  imports: [CommonModule, ReactiveFormsModule, CustomInputComponent, FormButtonComponent], 
   templateUrl: "./category-occasion-form.component.html",
 })
-export class CategoryOccasionFormComponent implements OnChanges {
-  @Input() initialData: { name: string; image: string | null } | null = null; // gets data for edit
-  @Output() categorySubmit = new EventEmitter<FormData>();
+export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
+  @Input() entityType: EntityType = 'category';
+  @Input() initialData: { name: string; image: string | File | null } | null = null;
+  @Output() formSubmit = new EventEmitter<FormData>();
 
-  categoryForm: FormGroup;
+  entityForm: FormGroup;
   selectedFile: File | null = null;
   isSubmitting = false;
-  previewUrl: string | null = null; // to show existing image
+  previewUrl: string | null = null;
+  isEditMode = false;
 
   constructor(private fb: FormBuilder) {
-    this.categoryForm = this.fb.group({
+    this.entityForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
-      image: [null, Validators.required]
+      image: [null]
     });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['initialData'] && this.initialData) {
-      this.categoryForm.patchValue({
+      this.isEditMode = !!this.initialData;
+      
+      this.entityForm.patchValue({
         name: this.initialData.name,
       });
 
-      // set preview if editing
       if (this.initialData.image) {
-        this.previewUrl = this.initialData.image;
-        this.categoryForm.get('image')?.clearValidators(); // image not required on edit
-        this.categoryForm.get('image')?.updateValueAndValidity();
+        if (typeof this.initialData.image === 'string') {
+          this.previewUrl = this.initialData.image;
+          this.entityForm.get('image')?.clearValidators();
+        } else {
+          this.selectedFile = this.initialData.image;
+          this.previewUrl = URL.createObjectURL(this.selectedFile);
+        }
+        this.entityForm.get('image')?.updateValueAndValidity();
+      } else {
+        this.entityForm.get('image')?.setValidators([Validators.required]);
+        this.entityForm.get('image')?.updateValueAndValidity();
       }
     }
   }
 
-  // Getter for validation
-  get nameControl(): AbstractControl {
-    return this.categoryForm.get('name') as AbstractControl;
+  getFieldLabel(field: string): string {
+    const entityName = this.entityType.charAt(0).toUpperCase() + this.entityType.slice(1);
+    
+    if (field === 'name') {
+      return `${entityName} Name *`;
+    }
+    
+    if (field === 'image') {
+      if (this.isEditMode) {
+        return `Change ${this.entityType} image (optional)`;
+      }
+      return `${entityName} Image *`;
+    }
+    
+    return '';
+  }
+
+  getFieldPlaceholder(field: string): string {
+    if (field === 'name') {
+      return `Enter ${this.entityType} name`;
+    }
+    return 'Upload file';
+  }
+
+  getSubmitButtonText(): string {
+    const action = this.isEditMode ? 'Update' : 'Add';
+    const entityName = this.entityType.charAt(0).toUpperCase() + this.entityType.slice(1);
+    return `${action} ${entityName}`;
   }
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
-      this.categoryForm.patchValue({ image: this.selectedFile });
-      this.categoryForm.get('image')?.updateValueAndValidity();
+      this.entityForm.patchValue({ image: this.selectedFile });
+      this.entityForm.get('image')?.updateValueAndValidity();
 
-      // update preview
       const reader = new FileReader();
       reader.onload = () => (this.previewUrl = reader.result as string);
       reader.readAsDataURL(this.selectedFile);
     }
   }
 
-  // onSubmit(): void {
-  //   if (this.categoryForm.valid) {
-  //     this.isSubmitting = true;
-
-  //     const formData = new FormData();
-  //     formData.append('name', this.categoryForm.get('name')?.value);
-
-  //     if (this.selectedFile) {
-  //       formData.append('image', this.selectedFile);
-  //     }
-
-  //     this.categorySubmit.emit(formData);
-
-  //     setTimeout(() => {
-  //       this.isSubmitting = false;
-  //     }, 2000);
-  //   } else {
-  //     this.markFormGroupTouched();
-  //   }
-  // }
+  get nameControl(): AbstractControl {
+    return this.entityForm.get('name') as AbstractControl;
+  }
 
   onSubmit(): void {
-  if (this.categoryForm.valid) {
-    this.isSubmitting = true;
+    if (this.entityForm.valid) {
+      this.isSubmitting = true;
 
-    const formData = new FormData();
-    formData.append('name', this.categoryForm.get('name')?.value);
+      const formData = new FormData();
+      formData.append('name', this.entityForm.get('name')?.value);
 
-    if (this.selectedFile) {
-      formData.append('image', this.selectedFile);
+      if (this.selectedFile) {
+        formData.append('image', this.selectedFile);
+      }
+
+      console.log(`Submitting ${this.entityType} form:`);
+      console.log("Name:", formData.get('name'));
+      console.log("Image:", this.selectedFile ? "New file selected" : "Using existing image");
+
+      this.formSubmit.emit(formData);
+
+      setTimeout(() => {
+        this.isSubmitting = false;
+      }, 2000);
+    } else {
+      this.markFormGroupTouched();
     }
-
-    // 🔹 Debug: log values before emitting
-    console.log("Submitting category form:");
-    console.log("Name:", formData.get('name'));
-    console.log("Image:", formData.get('image'));
-
-    this.categorySubmit.emit(formData);
-
-    setTimeout(() => {
-      this.isSubmitting = false;
-    }, 2000);
-  } else {
-    this.markFormGroupTouched();
   }
-}
-
 
   private markFormGroupTouched(): void {
-    Object.keys(this.categoryForm.controls).forEach(key => {
-      const control = this.categoryForm.get(key);
+    Object.keys(this.entityForm.controls).forEach(key => {
+      const control = this.entityForm.get(key);
       control?.markAsTouched();
     });
   }
-
-  resetForm(): void {
-    this.categoryForm.reset();
-    this.selectedFile = null;
-    this.previewUrl = null;
-    this.isSubmitting = false;
+  ngOnDestroy(): void {
+  
+    if (this.previewUrl && this.previewUrl.startsWith('blob:')) {
+      URL.revokeObjectURL(this.previewUrl);
+    }
   }
 }
-
-  
-

@@ -23,6 +23,7 @@ export class CustomInputComponent implements ControlValueAccessor {
   placeholder = input<string>("");
   labelText = input<string>("");
   errorHandilgControl = input<AbstractControl>();
+  
 
   // New file input
   accept = input<string>();
@@ -82,7 +83,6 @@ writeValue(value: File | string | null): void {
     this.value = '';
   }
 }
-
 
   registerOnChange(fn: (value: string) => void): void {
     this.onChange = fn;

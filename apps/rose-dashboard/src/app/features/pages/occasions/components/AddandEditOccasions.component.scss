@@ -3,23 +3,31 @@
   justify-content: center;
   align-items: flex-start;
   min-height: calc(100vh - 100px);
-  padding: 2rem 1rem;
+  padding: 2rem;
   
   .form-card {
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    padding: 2rem;
+    padding: 2.5rem;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px; // Maximum size on large screens
     
-    // Responsive design
+    // Tablet
     @media (max-width: 768px) {
+      padding: 2rem;
+      max-width: 500px;
+    }
+    
+    // Mobile
+    @media (max-width: 576px) {
       padding: 1.5rem;
+      max-width: 100%;
       margin: 0 1rem;
     }
     
-    @media (max-width: 480px) {
+    // Small mobile
+    @media (max-width: 400px) {
       padding: 1rem;
       margin: 0 0.5rem;
       box-shadow: none;

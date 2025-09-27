@@ -1,4 +1,3 @@
-
 <div class="form-container">
   <div class="form-card">
     @if (isLoading()) {
@@ -24,7 +23,7 @@
       </div>
     } @else {
       <app-category-occasion-form
-        entityType="category"
+        entityType="occasion"
         [initialData]="initialData"
         (formSubmit)="handleFormSubmit($event)">
       </app-category-occasion-form>

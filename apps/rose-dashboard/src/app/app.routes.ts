@@ -54,10 +54,32 @@ export const appRoutes: Route[] = [
       {
         path: "occasions",
         title: "titles.occasions",
-        loadComponent: () =>
+        children: [
+          {path:"",
+           loadComponent: () =>
           import("@rose_dashboard/features_pages/occasions/occasions.component").then(
             (c) => c.OccasionsComponent,
           ),
+
+        },
+         {
+      path: "add",
+      title: "titles.add-occasion",
+      loadComponent: () =>
+        import("@rose_dashboard/features_pages/occasions/components/AddandEditOccasions.component").then(
+          (c) => c.AddEditOccasionComponent
+        ),
+    },
+    {
+      path: "edit/:id",
+      title: "titles.edit-occasion",
+      loadComponent: () =>
+        import("@rose_dashboard/features_pages/occasions/components/AddandEditOccasions.component").then(
+          (c) => c.AddEditOccasionComponent
+        ),
+    },
+      ]
+        
       },
       {
         path: "products",

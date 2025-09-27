@@ -1,11 +1,12 @@
-<form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" class="p-fluid">
+
+  <form [formGroup]="entityForm" (ngSubmit)="onSubmit()" class="p-fluid">
   <div class="flex flex-column gap-4">
     
     <!-- Name Field -->
     <lib-custom-input
-      id="categoryName"
-      labelText="Name *"
-      placeholder="Enter category name"
+      id="entityName"
+      [labelText]="getFieldLabel('name')"
+      [placeholder]="getFieldPlaceholder('name')"
       [errorHandilgControl]="nameControl"
       formControlName="name">
     </lib-custom-input>
@@ -15,25 +16,40 @@
       <lib-custom-input
         type="file"
         accept="image/*"
-        labelText="Category image *"
-        placeholder="Upload file"
-        [errorHandilgControl]="categoryForm.get('image') ?? undefined"
+        [labelText]="getFieldLabel('image')"
+        [placeholder]="getFieldPlaceholder('image')"
+        [errorHandilgControl]="entityForm.get('image') ?? undefined"
         formControlName="image"
         (change)="onFileSelected($event)">
       </lib-custom-input>
 
+      <!-- Show existing image in edit mode-->
+      @if (previewUrl && initialData && !selectedFile) {
+        <div class="image-preview mt-2">
+          <p class="text-sm text-gray-600 mb-1">Current Image:</p>
+          <img [src]="previewUrl" [alt]="'Current ' + entityType + ' image'" class="preview-image" style="max-width: 200px; max-height: 150px; border-radius: 8px;">
+          <p class="text-xs text-gray-500 mt-1">Upload a new image to replace the current one</p>
+        </div>
+      }
+
+      <!-- Show new image preview -->
+      @if (previewUrl && selectedFile) {
+        <div class="image-preview mt-2">
+          <p class="text-sm text-gray-600 mb-1">New Image Preview:</p>
+          <img [src]="previewUrl" [alt]="'New ' + entityType + ' image'" class="preview-image" style="max-width: 200px; max-height: 150px; border-radius: 8px;">
+        </div>
+      }
     </div>
 
-    <!-- Submit Button -->
-    <button
+    
+    <lib-form-button
       type="submit"
-      class="btn-primary"
-      [disabled]="categoryForm.invalid || isSubmitting">
-      @if (isSubmitting) {
-        <i class="pi pi-spin pi-spinner"></i> Saving...
-      } @else {
-        {{ initialData ? "Update Category" : "Add Category" }}
-      }
-    </button>
+      [text]="getSubmitButtonText()"
+      [loadingText]="'Saving...'"
+      [disabled]="entityForm.invalid"
+      [isLoading]="isSubmitting"
+      [fullWidth]="true"
+      >
+    </lib-form-button>
   </div>
-</form>
+</form> 
