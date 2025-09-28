@@ -11,6 +11,7 @@ export type EntityType = 'category' | 'occasion';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, CustomInputComponent, FormButtonComponent], 
   templateUrl: "./category-occasion-form.component.html",
+  styleUrl: "./category-occasion-form.component.scss"
 })
 export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
   @Input() entityType: EntityType = 'category';
@@ -53,6 +54,14 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
       }
     }
   }
+
+   getFormTitle(): string {
+  const action = this.isEditMode ? 'Update' : 'Add a New';
+  const entityName = this.entityType.charAt(0).toUpperCase() + this.entityType.slice(1);
+  return this.isEditMode 
+    ? `${action} ${entityName}: ${this.initialData?.name || ''}`
+    : `${action} ${entityName}`;
+}
 
   getFieldLabel(field: string): string {
     const entityName = this.entityType.charAt(0).toUpperCase() + this.entityType.slice(1);
@@ -132,6 +141,7 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
       control?.markAsTouched();
     });
   }
+ 
   ngOnDestroy(): void {
   
     if (this.previewUrl && this.previewUrl.startsWith('blob:')) {

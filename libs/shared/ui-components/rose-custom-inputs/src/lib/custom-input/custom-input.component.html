@@ -24,25 +24,24 @@
   </div> 
 }
   @else {
-    <!-- File Input -->
-    <div class="input-wrapper">
-      <input
-        [id]="id()"
-        type="file"
-        [accept]="accept()"
-        (change)="onFileSelected($event)"
-        (blur)="onTouched()"
-        required
-        class="input-style"
-      />
-      <div class="file-input-display" (click)="openFileInput()">
-  <span class="file-text">
-    {{ selectedFile ? selectedFile.name : (placeholder() || 'Upload file') }}
+    <div class="file-wrapper">
+  <input
+    [id]="id()"
+    type="file"
+    [accept]="accept()"
+    (change)="onFileSelected($event)"
+    (blur)="onTouched()"
+    required
+    class="file-input"
+  />
+
+
+  <span class="file-action">
+    <i class="pi pi-upload"></i>
+    Upload file
   </span>
-  <span class="browse-btn">Browse</span>
 </div>
 
-    </div>
   }
   @if (errorHandilgControl()) {
     <lib-input-error-handling [control]="errorHandilgControl()!"></lib-input-error-handling>

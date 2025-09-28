@@ -146,6 +146,7 @@ $breakpoint-small: 620px;
   --input-border-color: var(--zinc-300);
   --selected-color-input: var(--gray-950);
   --border-active-color: var(--maroon-700);
+  --upload-file-color:var(--maroon-500);
   // Notification-Toast
   --toast-error-bg: var(--maroon-500);
   --toast-error-color: var(--zinc-100);
@@ -162,6 +163,12 @@ $breakpoint-small: 620px;
   --active-item-bg: var(--maroon-50);
   --active-item-text: var(--soft-maroon-600);
   --drop-button-down-bg: var(--zinc-800);
+
+  //form-titles
+  --form-title-color: var(--zinc-800);
+  --form-card-bg: var(--white);
+  --form-card-shadow: 0,0,0,.01;
+
 }
 
 // Dark theme overrides

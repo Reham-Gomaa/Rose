@@ -1,3 +1,8 @@
+<div class="form-header mb-4">
+  <h2>
+    {{ getFormTitle() }}
+  </h2>
+</div>
 
   <form [formGroup]="entityForm" (ngSubmit)="onSubmit()" class="p-fluid">
   <div class="flex flex-column gap-4">
