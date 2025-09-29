@@ -7,11 +7,11 @@ export interface ProductRes {
 }
 
 export interface Product {
-  rateAvg: number;
-  rateCount: number;
-  _id: string;
+  rateAvg?: number;
+  rateCount?: number;
+  _id?: string;
   title: string;
-  slug: string;
+  slug?: string;
   description: string;
   imgCover: string;
   images: string[];
@@ -20,10 +20,17 @@ export interface Product {
   quantity: number;
   category: string;
   occasion: string;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-  isSuperAdmin: boolean;
-  sold: number;
-  id: string;
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
+  isSuperAdmin?: boolean;
+  sold?: number;
+  id?: string;
+}
+
+
+export interface updateProductData {
+  price:number , 
+  rateAvg:number,
+  rateCount:number
 }
