@@ -16,3 +16,21 @@ export interface occasion {
   isSuperAdmin: boolean;
   productsCount: number;
 }
+
+
+export interface SingleOccasionRes {
+  message: string;
+  occasion: occasion;
+}
+
+
+
+export interface OccasionRequest {
+  name: string;
+  image: File;
+}
+
+export interface DeleteOccasionRes {
+  message: string;
+  document: occasion;
+}
