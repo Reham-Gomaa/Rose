@@ -78,14 +78,14 @@ a {
     flex-direction: column;
     position: absolute;
     border: 1px solid var(--zinc-100);
-    border-radius: .75rem;
+    border-radius: 0.75rem;
 
-    bottom: 0 ;
+    bottom: 0;
     left: 5%;
     z-index: 9999;
     transition:
-    opacity 220ms ease-in-out,
-    transform 220ms ease-in-out;
+      opacity 220ms ease-in-out,
+      transform 220ms ease-in-out;
     opacity: 0;
     transform: translateY(-0.5rem);
     pointer-events: none;
