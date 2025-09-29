@@ -3,13 +3,14 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractContro
 import { CommonModule } from "@angular/common";
 import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 import { FormButtonComponent } from "@angular-monorepo/rose-buttons"; 
+import { DialogModule } from 'primeng/dialog'; 
 
 export type EntityType = 'category' | 'occasion';
 
 @Component({
   selector: "app-category-occasion-form",
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, CustomInputComponent, FormButtonComponent], 
+  imports: [CommonModule, ReactiveFormsModule, CustomInputComponent, FormButtonComponent, DialogModule], 
   templateUrl: "./category-occasion-form.component.html",
   styleUrl: "./category-occasion-form.component.scss"
 })
@@ -23,6 +24,7 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
   isSubmitting = false;
   previewUrl: string | null = null;
   isEditMode = false;
+   showImageModal = false;
 
   constructor(private fb: FormBuilder) {
     this.entityForm = this.fb.group({
@@ -30,6 +32,8 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
       image: [null]
     });
   }
+
+
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['initialData'] && this.initialData) {
@@ -39,29 +43,30 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
         name: this.initialData.name,
       });
 
+      // In edit mode, remove image validators since we're not uploading
+      if (this.isEditMode) {
+        this.entityForm.get('image')?.clearValidators();
+        this.entityForm.get('image')?.updateValueAndValidity();
+      }
+
       if (this.initialData.image) {
         if (typeof this.initialData.image === 'string') {
           this.previewUrl = this.initialData.image;
-          this.entityForm.get('image')?.clearValidators();
         } else {
           this.selectedFile = this.initialData.image;
           this.previewUrl = URL.createObjectURL(this.selectedFile);
         }
-        this.entityForm.get('image')?.updateValueAndValidity();
-      } else {
-        this.entityForm.get('image')?.setValidators([Validators.required]);
-        this.entityForm.get('image')?.updateValueAndValidity();
       }
     }
   }
 
-   getFormTitle(): string {
-  const action = this.isEditMode ? 'Update' : 'Add a New';
-  const entityName = this.entityType.charAt(0).toUpperCase() + this.entityType.slice(1);
-  return this.isEditMode 
-    ? `${action} ${entityName}: ${this.initialData?.name || ''}`
-    : `${action} ${entityName}`;
-}
+  getFormTitle(): string {
+    const action = this.isEditMode ? 'Update' : 'Add a New';
+    const entityName = this.entityType.charAt(0).toUpperCase() + this.entityType.slice(1);
+    return this.isEditMode 
+      ? `${action} ${entityName}: ${this.initialData?.name || ''}`
+      : `${action} ${entityName}`;
+  }
 
   getFieldLabel(field: string): string {
     const entityName = this.entityType.charAt(0).toUpperCase() + this.entityType.slice(1);
@@ -71,8 +76,9 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
     }
     
     if (field === 'image') {
+      
       if (this.isEditMode) {
-        return `Change ${this.entityType} image (optional)`;
+        return ''; 
       }
       return `${entityName} Image *`;
     }
@@ -106,6 +112,15 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
     }
   }
 
+  
+  openImageModal(): void {
+    this.showImageModal = true;
+  }
+
+  closeImageModal(): void {
+    this.showImageModal = false;
+  }
+
   get nameControl(): AbstractControl {
     return this.entityForm.get('name') as AbstractControl;
   }
@@ -117,7 +132,8 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
       const formData = new FormData();
       formData.append('name', this.entityForm.get('name')?.value);
 
-      if (this.selectedFile) {
+     
+      if (!this.isEditMode && this.selectedFile) {
         formData.append('image', this.selectedFile);
       }
 
@@ -141,9 +157,18 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
       control?.markAsTouched();
     });
   }
+
+  getImageLabel(): string {
+  const entityName = this.entityType.charAt(0).toUpperCase() + this.entityType.slice(1);
+  return `${entityName} image *`;
+}
+
+getViewImageText(): string {
+  const entityName = this.entityType.charAt(0).toUpperCase() + this.entityType.slice(1);
+  return `View ${this.entityType} image`;
+}
  
   ngOnDestroy(): void {
-  
     if (this.previewUrl && this.previewUrl.startsWith('blob:')) {
       URL.revokeObjectURL(this.previewUrl);
     }
