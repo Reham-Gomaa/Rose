@@ -13,6 +13,7 @@
       [padding]="'p-2'"
       [transition]="'0.3s'"
       [text]="'add a new ' + currentData()"
+      (click)="navigateToAdd()"
     ></app-button>
   </div>
 
@@ -31,6 +32,9 @@
     <app-data-table
       [data]="data_items() | pagPipe: firstIndex : numOfRows | search: searchWord"
       [records]="table_records()"
+       [entityType]="entityType()" 
+      (edit)="onEdit($event)"
+      (delete)="onDelete($event)" 
     >
     </app-data-table>
   </div>

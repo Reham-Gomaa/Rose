@@ -61,6 +61,10 @@ export const appConfig: ApplicationConfig = {
         },
       },
     },
+    {
+      provide: API_BASE_URL_CATEGORIES,
+      useValue: environment.baseApiUrl,
+    },
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(

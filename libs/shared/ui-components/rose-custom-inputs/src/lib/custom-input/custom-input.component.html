@@ -1,5 +1,6 @@
 <div class="flex flex-column gap-2">
   <label [for]="id()" class="label-color mt-3">{{ labelText() }}</label>
+  @if (!isFileInput) { 
   <div class="input-wrapper">
     <input
       [id]="id()"
@@ -20,8 +21,28 @@
         }
       </button>
     }
-  </div>
+  </div> 
+}
+  @else {
+    <div class="file-wrapper">
+  <input
+    [id]="id()"
+    type="file"
+    [accept]="accept()"
+    (change)="onFileSelected($event)"
+    (blur)="onTouched()"
+    required
+    class="file-input"
+  />
 
+
+  <span class="file-action">
+    <i class="pi pi-upload"></i>
+    Upload file
+  </span>
+</div>
+
+  }
   @if (errorHandilgControl()) {
     <lib-input-error-handling [control]="errorHandilgControl()!"></lib-input-error-handling>
   }
