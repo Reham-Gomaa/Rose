@@ -1,4 +1,4 @@
-<div [@fadeTransition]="_translationService.fadeState()" class="profile-container">
+<section [@fadeTransition]="_translationService.fadeState()" class="profile-container">
   <h2 class="sidebar-title">
     @if (activeTab === "profile") {
       {{ "Account Settings" | translate }}
@@ -54,4 +54,4 @@
       (confirmed)="onDeleteAccountConfirmed($event)"
     />
   </div>
-</div>
+</section>

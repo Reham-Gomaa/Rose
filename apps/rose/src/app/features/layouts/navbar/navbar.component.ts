@@ -24,7 +24,7 @@ import { CartService } from "@rose/shared_services/cart/cart.service";
 import { ButtonThemeComponent } from "@angular-monorepo/rose-buttons";
 import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
 // Shared_business_Components
-import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";
+import { TranslateToggleComponent } from "@angular-monorepo/rose-buttons";
 // PrimeNg
 import { MenuItem, MessageService } from "primeng/api";
 import { ButtonModule } from "primeng/button";
