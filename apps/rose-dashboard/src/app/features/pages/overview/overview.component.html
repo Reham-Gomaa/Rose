@@ -1,9 +1,14 @@
 <section id="overview">
-    <section id="top-sec" class="flex flex-column md:flex-row">
-        <app-statistics id="statistics" class="w-full md:w-6" />
-        <app-categories-reports id="categories" class="w-full md:w-6" />
+    <section id="top-sec">
+        <app-statistics id="statistics" [overall]="overallReports()" />
+        <app-categories-reports id="categories" [categories]="categories()" />
     </section>
-    <app-table />
-    <section id="charts-sec"></section>
-    <section id="bottom-sec"></section>
+    <section id="charts-sec">
+        <app-order-chart id="orderChart" [orderByStatus]="orderByStatus()" />
+        <app-revenue-chart id="revenueChart" [monthlyRevenue]="monthlyRevenue()" [dailyRevenue]="dailyRevenue()" />
+    </section>
+    <section id="bottom-sec">
+        <app-top-selling-products id="topSelling" [topSellingProducts]="topSellingPdts()" />
+        <app-low-stock-products id="lowStock" [lowStockProducts]="lowStockPdts()" />
+    </section>
 </section>
