@@ -1,0 +1,47 @@
+<section id="order" class="order-chart" role="region" aria-label="Order Status Chart">
+    @if (loading()) {
+    <p-skeleton class="w-6 mb-3" height="1.5rem" borderRadius=".25rem" aria-hidden="true"></p-skeleton>
+    <div class="card flex justify-center mt-5 mb-5" aria-hidden="true">
+        <p-skeleton class="o-chart" width="10.625rem" height="10.625rem" borderRadius="50%"></p-skeleton>
+    </div>
+    <div class="flex flex-column gap-2" role="status" aria-live="polite"
+        aria-label="Order status chart data is loading">
+        @for (i of [1,2,3,4]; track i) {
+        <div class="row" aria-hidden="true">
+            <div class="lable flex align-items-center gap-2">
+                <p-skeleton width="1rem" height="1rem" borderRadius="50%"></p-skeleton>
+                <p-skeleton class="w-4" height="1rem" borderRadius=".25rem"></p-skeleton>
+            </div>
+            <p-skeleton class="w-2" height="1rem" borderRadius=".25rem"></p-skeleton>
+        </div>
+        }
+    </div>
+    }@else {
+    <h1 class="title">{{ "overview.status" | translate }}</h1>
+    <div class="chart-wrapper">
+        <div class="card flex justify-center mt-5 mb-5" role="img"
+            aria-label="Doughnut chart showing order status distribution">
+            <p-chart type="doughnut" [data]="data" [options]="options" class="o-chart" [attr.aria-hidden]="true" />
+        </div>
+        <div class="details">
+            @for (item of filtered; track $index; let first = $first) {
+            <div class="row" role="listitem" [attr.aria-setsize]="filtered.length" [attr.aria-posinset]="$index + 1">
+                <div class="lable">
+                    <div [style.backgroundColor]="backgroundColors[$index]" class="color-id"
+                        [attr.aria-label]="'Color indicator for ' + item._id"></div>
+                    <p class="lable-p m-0" [id]="'label-' + $index">
+                        {{ item._id }}
+                    </p>
+                </div>
+                <div>
+                    <span class="value" [attr.aria-labelledby]="'label-' + $index"
+                        [attr.aria-live]="first ? 'polite' : null">
+                        {{ item.count + ' (' + percentage[$index].toFixed(0) + '%)' }}
+                    </span>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+    }
+</section>
