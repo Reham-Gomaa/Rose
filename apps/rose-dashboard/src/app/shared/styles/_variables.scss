@@ -68,9 +68,11 @@ $breakpoint-small: 620px;
 
   --shadow-blue: #0063d00d;
   --blue-400: #50a2ff;
+  --blue-500: #2b7fff;
   --blue-600: #155dfc;
   --blue-700: #1447e6;
 
+  --gray: #969696;
   --gray-200: #e9ecef;
   --gray-500: #667085;
   --gray-900: #2e2e30;
@@ -171,6 +173,8 @@ $breakpoint-small: 620px;
 
   // Overview-Reports
   --main-text: var(--zinc-800);
+  --cards-bg: var(--white);
+  // Overall
   --overall-pdt-bg: var(--maroon-50);
   --overall-pdt-color: var(--maroon-600);
   --overall-orders-bg: var(--shadow-blue);
@@ -179,7 +183,18 @@ $breakpoint-small: 620px;
   --overall-category-color: var(--purple);
   --overall-revenue-bg: var(--shadow-emerald);
   --overall-revenue-color: var(--emerald-600);
+  // Category
   --category-value-bg: var(--shadow-black);
+  // Status
+  --canceled: var(--red-600);
+  --inprogress: var(--blue-500);
+  --completed: var(--emerald-500);
+  --pending: var(--yellow);
+  // Revenue
+  --chart-button: var(--gray);
+  --chart-active-button: var(--maroon-600);
+  // Low Stock
+  --low-stock: var(--red-600);
 }
 
 // Dark theme overrides
