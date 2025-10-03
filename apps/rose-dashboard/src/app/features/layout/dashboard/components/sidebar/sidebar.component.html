@@ -1,72 +1,43 @@
 <aside>
   <div>
-    <img src="images/overviwe/logo.png" alt="rose-logo" class="logo_image" />
-  <button class="aside-button" (click)="goToRose()">
-    <img src="images/overviwe/flower.png" alt="flower png" />
-    {{ "aside-bar.preview-website" | translate }}
-  </button>
-  <div class="aside-nav">
-    <a
-      class="aside-nav-item"
-      [routerLink]="'/dashboard/overview'"
-      routerLinkActive="color-soft-red"
-    >
-      <i class="pi pi-objects-column"></i> {{ "aside-bar.overview" | translate }}</a
-    >
-    <a
-      class="aside-nav-item"
-      [routerLink]="'/dashboard/categories'"
-      routerLinkActive="color-soft-red"
-    >
-      <i class="pi pi-clipboard"></i> {{ "aside-bar.categories" | translate }}
-    </a>
-    <a
-      class="aside-nav-item"
-      [routerLink]="'/dashboard/occasions'"
-      routerLinkActive="color-soft-red"
-    >
-      <i class="pi pi-calendar"></i> {{ "aside-bar.occasions" | translate }}
-    </a>
-    <a
-      class="aside-nav-item"
-      [routerLink]="'/dashboard/products'"
-      routerLinkActive="color-soft-red"
-    >
-      <i class="pi pi-box"></i> {{ "aside-bar.products" | translate }}
-    </a>
-  </div>
-  </div>
-
-  <section class="profile">
-    <button
-      (click)="changeHidden()"
-      class="hidden md:inline-block relative mx-2"
-      aria-controls="stepper-menu"
-      [class.open]="hidden"
-    >
-      <i class="pi pi-align-justify"></i>
+    <img src="images/overview/logo.png" alt="rose-logo" class="logo_image" />
+    <button class="aside-button" (click)="goToRose()">
+      <img src="images/overview/flower.png" alt="flower png" />
+      {{ "aside-bar.preview-website" | translate }}
     </button>
-
-    <div
-      id="stepper-menu"
-      class="dropdown hidden md:inline-block"
-      [class.open]="hidden"
-      [attr.aria-hidden]="!hidden"
-    >
-      <ul class="dropdown-menu">
-        <li>
-          <a class="dropdown-item" routerLink="/dashboard/user-profile" (click)="changeHidden()">
-            <i class="pi pi-user"></i>
-            <p>{{ "stepper.dropdown.profile" | translate }}</p>
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item" (click)="changeHidden()">
-            <i class="pi pi-sign-out"></i>
-            <p>{{ "stepper.dropdown.logout" | translate }}</p>
-          </a>
-        </li>
-      </ul>
+    <div class="aside-nav">
+      <a
+        class="aside-nav-item"
+        [routerLink]="'/dashboard/overview'"
+        routerLinkActive="color-soft-red"
+      >
+        <i class="pi pi-objects-column"></i> {{ "aside-bar.overview" | translate }}</a
+      >
+      <a
+        class="aside-nav-item"
+        [routerLink]="'/dashboard/categories'"
+        routerLinkActive="color-soft-red"
+      >
+        <i class="pi pi-clipboard"></i> {{ "aside-bar.categories" | translate }}
+      </a>
+      <a
+        class="aside-nav-item"
+        [routerLink]="'/dashboard/occasions'"
+        routerLinkActive="color-soft-red"
+      >
+        <i class="pi pi-calendar"></i> {{ "aside-bar.occasions" | translate }}
+      </a>
+      <a
+        class="aside-nav-item"
+        [routerLink]="'/dashboard/products'"
+        routerLinkActive="color-soft-red"
+      >
+        <i class="pi pi-box"></i> {{ "aside-bar.products" | translate }}
+      </a>
     </div>
-  </section>
+  </div>
+
+  <section class="profile"></section>
+
+  <app-user-data />
 </aside>
