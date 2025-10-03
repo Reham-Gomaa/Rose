@@ -1,5 +1,21 @@
 {
   "EGP": "ج.م",
+  "overview": {
+    "statistics": {
+      "products": "إجمالي المنتجات",
+      "orders": "إجمالي الطلبات",
+      "categories": "إجمالي الفئات",
+      "revenue": "إجمالي الإيرادات"
+    },
+    "categories": "جميع الفئات",
+    "revenue": "الإيرادات",
+    "monthly": "شهريا",
+    "daily": "يوميا",
+    "status": "حالة الطلبات",
+    "topselling": "المنتجات الأكثر مبيعًا",
+    "sales": "المبيعات",
+    "lowstock": "منتجات قليلة المخزون"
+  },
   "breadcrumb": {
     "overview": "نظرة عامة",
     "dashboard": "لوحة التحكم",
@@ -21,12 +37,6 @@
     "categories": "الفئات",
     "occasions": "المناسبات",
     "products": "المنتجات"
-  },
-  "statistics": {
-    "products": "إجمالي المنتجات",
-    "orders": "إجمالي الطلبات",
-    "categories": "إجمالي التصنيفات",
-    "revenue": "إجمالي الإيرادات"
   },
   "user-Profile": {
     "updateProfile": "تحديث الملف الشخصي",

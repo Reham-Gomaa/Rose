@@ -1,5 +1,21 @@
 {
   "EGP": "EGP",
+  "overview": {
+    "statistics": {
+      "products": "Total Products",
+      "orders": "Total Orders",
+      "categories": "Total Categories",
+      "revenue": "Total Revenue"
+    },
+    "categories": "All Categories",
+    "revenue": "Revenue",
+    "monthly": "Monthly",
+    "daily": "Daily",
+    "status": "Orders Status",
+    "topselling": "Top Selling Products",
+    "sales": "Sales",
+    "lowstock": "Low Stock Products"
+  },
   "breadcrumb": {
     "overview": "Overview",
     "dashboard": "Dashboard",
@@ -21,12 +37,6 @@
     "categories": "Categories",
     "occasions": "Occasions",
     "products": "Products"
-  },
-  "statistics": {
-    "products": "Total Products",
-    "orders": "Total Orders",
-    "categories": "Total Categories",
-    "revenue": "Total Revenue"
   },
   "user-Profile": {
     "updateProfile": "Update Profile",
