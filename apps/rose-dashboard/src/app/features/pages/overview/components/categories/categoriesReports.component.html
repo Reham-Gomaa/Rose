@@ -1,1 +1,35 @@
-<p>categoriesReports works!</p>
+<section id="all-categories-table" class="card" role="region" aria-label="Categories Overview">
+    @if (loading()) {
+    <div class="p-3" role="status" aria-live="polite" aria-label="Categories data is loading">
+        <p-skeleton width="50%" height="1.5rem" borderRadius=".25rem" aria-hidden="true"></p-skeleton>
+        <div class="flex flex-column gap-2 mt-3" aria-hidden="true">
+            @for (i of [1,2,3,4,5,6]; track i) {
+            <div class="w-full flex justify-content-between align-items-center gap-3">
+                <p-skeleton class="w-9" height="1.5rem" borderRadius=".25rem"></p-skeleton>
+                <p-skeleton class="w-3" height="1.5rem" borderRadius=".25rem"></p-skeleton>
+            </div>
+            }
+        </div>
+    </div>
+    }
+    @else {
+    <p-table [value]="categories()" [scrollable]="true" scrollHeight="14.5625rem" role="table"
+        aria-label="Categories and their product counts">
+        <ng-template #caption>
+            <div class="flex items-center justify-between">
+                <span id="categories-caption">{{ "overview.categories" | translate }}</span>
+            </div>
+        </ng-template>
+        <ng-template #body let-item let-rowIndex="rowIndex">
+            <tr role="row" [attr.aria-rowindex]="rowIndex + 1" [attr.aria-labelledby]="'categories-caption'">
+                <td role="cell" [attr.aria-label]="'Category name: ' + item.name">
+                    {{ item.name }}
+                </td>
+                <td class="value-td" role="cell" [attr.aria-label]="'Number of products: ' + item.totalProducts">
+                    <div class="value">{{ item.totalProducts }} Products</div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    }
+</section>
