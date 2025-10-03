@@ -14,8 +14,6 @@ export class StatisticsService {
   authorization = { Authorization: `Bearer ${this.token}` };
 
   getAllStatistics(): Observable<Statistics> {
-    return this.httpClient.get<Statistics>(EndPoint.ALL_STATISTICS, {
-      headers: this.authorization,
-    });
+    return this.httpClient.get<Statistics>(EndPoint.ALL_STATISTICS);
   }
 }
