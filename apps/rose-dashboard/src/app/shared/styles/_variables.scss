@@ -146,7 +146,7 @@ $breakpoint-small: 620px;
   --input-border-color: var(--zinc-300);
   --selected-color-input: var(--gray-950);
   --border-active-color: var(--maroon-700);
-  --upload-file-color:var(--maroon-500);
+  --upload-file-color: var(--maroon-500);
   // Notification-Toast
   --toast-error-bg: var(--maroon-500);
   --toast-error-color: var(--zinc-100);
@@ -167,10 +167,16 @@ $breakpoint-small: 620px;
   //form-titles
   --form-title-color: var(--zinc-800);
   --form-card-bg: var(--white);
-  --form-card-shadow: 0,0,0,.01;
+  --form-card-shadow: 0, 0, 0, 0.01;
   --form-view-image-text: var(--blue-600);
   --modal-pop-up-bg: var(--zinc-200);
 
+  // DarkMode Toggle
+  --toggle-color: var(--zinc-700);
+  --toggle-hover: var(--maroon-600);
+  // Translate Toggle
+  --translate-toggle-color: var(--zinc-700);
+  --translate-toggle-hover: var(--maroon-600);
 }
 
 // Dark theme overrides
@@ -255,4 +261,11 @@ $breakpoint-small: 620px;
   --active-item-bg: var(--soft-pink-50);
   --active-item-text: var(--soft-pink-600);
   --drop-button-down-bg: var(--white);
+
+  // DarkMode Toggle
+  --toggle-color: var(--zinc-100);
+  --toggle-hover: var(--soft-pink-200);
+  // Translate Toggle
+  --translate-toggle-color: var(--zinc-100);
+  --translate-toggle-hover: var(--soft-pink-200);
 }
