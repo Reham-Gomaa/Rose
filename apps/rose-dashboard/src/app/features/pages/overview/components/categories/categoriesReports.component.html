@@ -12,8 +12,11 @@
         </div>
     </div>
     }
-    @else {
-    <p-table [value]="categories()" [scrollable]="true" scrollHeight="14.5625rem" role="table"
+    @else if (categories()?.length === 0) {
+    <app-empty-state />
+    }
+    @else if (categories()!.length > 0) {
+    <p-table [value]="categories()!" [scrollable]="true" scrollHeight="14.5625rem" role="table"
         aria-label="Categories and their product counts">
         <ng-template #caption>
             <div class="flex items-center justify-between">

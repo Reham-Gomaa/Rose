@@ -15,17 +15,19 @@ import { OrdersByStatu } from "@rose_dashboard/core_interfaces/statistics";
 // Primeng
 import { ChartModule } from "primeng/chart";
 import { Skeleton } from "primeng/skeleton";
+// Shared_Component
+import { EmptyStateComponent } from "../empty-state/emptyState.component";
 
 @Component({
   selector: "app-order-chart",
-  imports: [ChartModule, TranslatePipe, Skeleton],
+  imports: [ChartModule, TranslatePipe, Skeleton, EmptyStateComponent],
   templateUrl: "./order-chart.component.html",
   styleUrl: "./order-chart.component.scss",
 })
 export class OrderChartComponent {
   private readonly platformId = inject(PLATFORM_ID);
 
-  orderByStatus: InputSignal<OrdersByStatu[]> = input([] as OrdersByStatu[]);
+  orderByStatus: InputSignal<OrdersByStatu[] | undefined> = input<OrdersByStatu[] | undefined>();
   loading: WritableSignal<boolean> = signal(true);
   colorMap!: Record<string, string>;
   filtered!: OrdersByStatu[];
@@ -44,14 +46,11 @@ export class OrderChartComponent {
       completed: "#00BC7D",
       pending: "#fba707",
     };
-    effect(() => {
-      const data = this.orderByStatus();
-      this.loading.set(!data || data.length === 0);
-    });
   }
 
   private readonly chartEffect = effect(() => {
     const orders = this.orderByStatus();
+    this.loading.set(!orders || orders === undefined);
     if (orders && orders.length > 0) {
       this.setChartData();
       this.initChart();
@@ -59,7 +58,7 @@ export class OrderChartComponent {
   });
 
   setChartData() {
-    this.filtered = this.orderByStatus().filter((o) => o._id !== null);
+    this.filtered = this.orderByStatus()!.filter((o) => o._id !== null);
     this.myLabels = this.filtered.map((o) => o._id ?? "unknown");
     this.values = this.filtered.map((o) => o.count);
     this.backgroundColors = this.filtered.map((o) => this.colorMap[o._id!] || "#6B7280");

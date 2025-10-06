@@ -14,6 +14,8 @@ import { DecimalPipe } from "@angular/common";
 import { TranslatePipe } from "@ngx-translate/core";
 // PrimeNg
 import { Skeleton } from "primeng/skeleton";
+// Shared_Component
+import { EmptyStateComponent } from "../empty-state/emptyState.component";
 
 interface StatCardConfig {
   key: keyof Overall;
@@ -25,18 +27,33 @@ interface StatCardConfig {
 
 @Component({
   selector: "app-statistics",
-  imports: [TranslatePipe, Skeleton, DecimalPipe],
+  imports: [TranslatePipe, Skeleton, DecimalPipe, EmptyStateComponent],
   templateUrl: "./statistics.component.html",
   styleUrl: "./statistics.component.scss",
 })
 export class StatisticsComponent {
   overall: InputSignal<Overall | undefined> = input<Overall>();
   loading: WritableSignal<boolean> = signal(true);
+  hasData: WritableSignal<boolean> = signal(false);
+  empty: WritableSignal<boolean> = signal(true);
 
   constructor() {
     effect(() => {
       const data = this.overall();
-      this.loading.set(!data || Object.keys(data).length === 0);
+
+      if (data === undefined) {
+        this.loading.set(true);
+        this.hasData.set(false);
+        this.empty.set(false);
+      } else if (Object.keys(data).length === 0) {
+        this.loading.set(false);
+        this.hasData.set(false);
+        this.empty.set(true);
+      } else {
+        this.loading.set(false);
+        this.hasData.set(true);
+        this.empty.set(false);
+      }
     });
   }
 

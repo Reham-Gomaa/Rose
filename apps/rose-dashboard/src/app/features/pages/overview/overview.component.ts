@@ -40,13 +40,13 @@ export class OverviewComponent implements OnInit {
   private readonly statisticsService = inject(StatisticsService);
   private readonly destroyRef = inject(DestroyRef);
 
-  overallReports: WritableSignal<Overall> = signal({} as Overall);
-  categories: WritableSignal<Category[]> = signal([] as Category[]);
-  orderByStatus: WritableSignal<OrdersByStatu[]> = signal([] as OrdersByStatu[]);
-  dailyRevenue: WritableSignal<DailyRevenue[]> = signal([] as DailyRevenue[]);
-  monthlyRevenue: WritableSignal<MonthlyRevenue[]> = signal([] as MonthlyRevenue[]);
-  topSellingPdts: WritableSignal<TopSellingProduct[]> = signal([] as TopSellingProduct[]);
-  lowStockPdts: WritableSignal<LowStockProduct[]> = signal([] as LowStockProduct[]);
+  overallReports: WritableSignal<Overall | undefined> = signal<Overall | undefined>(undefined);
+  categories: WritableSignal<Category[] | undefined> = signal<Category[] | undefined>(undefined);
+  orderByStatus: WritableSignal<OrdersByStatu[] | undefined> = signal(undefined);
+  dailyRevenue: WritableSignal<DailyRevenue[] | undefined> = signal(undefined);
+  monthlyRevenue: WritableSignal<MonthlyRevenue[] | undefined> = signal(undefined);
+  topSellingPdts: WritableSignal<TopSellingProduct[] | undefined> = signal(undefined);
+  lowStockPdts: WritableSignal<LowStockProduct[] | undefined> = signal(undefined);
 
   ngOnInit(): void {
     this.getAllStatistics();

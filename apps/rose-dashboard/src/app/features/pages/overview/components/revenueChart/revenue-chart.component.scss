@@ -32,40 +32,27 @@
     }
   }
 
-  .card,
-  .r-chart {
-    width: 100%;
-  }
   .r-chart {
     ::ng-deep canvas {
-      height: 297px !important;
-      width: 100%;
+      height: 14.375rem !important;
+      width: 22.875rem;
+      @media all and (min-width: 48rem) {
+        width: 12.5rem;
+        height: 18.5625rem !important;
+      }
+      @media all and (min-width: 62rem) {
+        width: 10.625rem;
+      }
+      @media all and (min-width: 65rem) {
+        width: 12.5rem;
+      }
+      @media all and (min-width: 75rem) {
+        width: 28.125rem;
+      }
+      @media all and (min-width: 81.25rem) {
+        min-width: 46.75rem;
+        width: 46.75rem;
+      }
     }
   }
-
-  // .card,
-  // .r-chart,
-  // .header {
-  //   @media (max-width: 62rem) {
-  //     width: 366px !important;
-  //     max-width: 366px !important;
-  //   }
-  //   @media (min-width: 62rem) {
-  //     width: 748px !important;
-  //     max-width: 748px !important;
-  //   }
-  // }
-  // .r-chart {
-  //   ::ng-deep canvas {
-  //     height: 297px !important;
-  //     @media (max-width: 62rem) {
-  //       width: 366px !important;
-  //       max-width: 366px !important;
-  //     }
-  //     @media (min-width: 62rem) {
-  //       width: 748px !important;
-  //       max-width: 748px !important;
-  //     }
-  //   }
-  // }
 }

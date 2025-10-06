@@ -11,8 +11,8 @@
             }
         </div>
     </div>
-    } @else {
-    <p-table [value]="lowStockProducts()" [scrollable]="true" scrollHeight="14.5625rem" role="table"
+    } @else if(lowStockProducts()!.length > 0) {
+    <p-table [value]="lowStockProducts()!" [scrollable]="true" scrollHeight="14.5625rem" role="table"
         aria-label="Low stock products and their quantities">
         <ng-template #caption>
             <div class="flex items-center justify-between">
@@ -34,5 +34,7 @@
             </tr>
         </ng-template>
     </p-table>
+    }@else if (lowStockProducts()!.length === 0) {
+    <app-empty-state />
     }
 </section>

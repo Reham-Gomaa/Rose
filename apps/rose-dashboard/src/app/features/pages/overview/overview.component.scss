@@ -59,9 +59,10 @@
       }
     }
     #orderChart {
-      min-height: 381px;
-
       flex: 2;
+      @media all and (min-width: 62rem) {
+        min-height: 23.8125rem;
+      }
       @media all and (min-width: 65.25rem) {
         padding: 1rem;
       }
