@@ -2,7 +2,7 @@ import { Component, inject, OnInit, signal, WritableSignal } from "@angular/core
 // Translation
 import { TranslationService } from "@angular-monorepo/services";
 @Component({
-  selector: "app-translate-toggle",
+  selector: "lib-translate-toggle",
   imports: [],
   templateUrl: "./translate-toggle.component.html",
   styleUrl: "./translate-toggle.component.scss",

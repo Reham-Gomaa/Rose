@@ -58,3 +58,50 @@
 :host-context([dir="rtl"]) .eye-btn {
   right: calc(100% - 4.375rem);
 }
+ 
+
+.file-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 0.0625rem solid var(--input-border-color);
+  border-radius: 0.625rem;
+  padding: 1rem;
+  background: var(--input-color);
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-family-4);
+  font-size: 0.875rem;
+  line-height: 100%;
+  cursor: pointer;
+
+  &:focus-within {
+    border-color: var(--border-active-color);
+    box-shadow: 0 0 0 2px var(--border-active-color);
+  }
+}
+
+.file-input {
+  position: absolute;
+  inset: 0;            
+  opacity: 0;            
+  cursor: pointer;
+}
+
+.file-label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--input-placeholder-color);
+}
+
+.file-action {
+  color: var(--upload-file-color);
+  font-weight: 500;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left:auto
+}

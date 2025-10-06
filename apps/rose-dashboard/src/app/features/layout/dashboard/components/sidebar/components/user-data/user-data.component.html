@@ -1,0 +1,18 @@
+<div class="flex justify-content-end">
+  <lib-translate-toggle />
+  <lib-button-theme />
+</div>
+
+<div class="user-box">
+  <div class="user-info">
+    <img [src]="_userDataService.userPhoto()" alt="User photo" class="user-photo" />
+
+    <div class="container-text">
+      <h2 class="user-name">{{ _userDataService.userName() }}</h2>
+      <p class="user-email">{{ _userDataService.userEmail() }}</p>
+    </div>
+  </div>
+
+  <p-menu #menu [popup]="true" [model]="userDropDown"></p-menu>
+  <p-button icon="pi pi-ellipsis-v" (click)="menu.toggle($event)" aria-label="More options" />
+</div>

@@ -2,7 +2,7 @@ import { Component, computed, inject } from "@angular/core";
 import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
-import { ErrorService } from "../../../core/services/error.service";
+import { ErrorService } from "../../../core/services/error/error.service";
 
 @Component({
   selector: "app-error",

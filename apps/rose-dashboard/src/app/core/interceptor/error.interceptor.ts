@@ -8,7 +8,7 @@ import {
 import { inject, NgZone } from "@angular/core";
 import { catchError, throwError } from "rxjs";
 import { Router } from "@angular/router";
-import { ErrorService } from "../services/error.service";
+import { ErrorService } from "../services/error/error.service";
 
 export const errorInterceptor: HttpInterceptorFn = (
   req: HttpRequest<unknown>,

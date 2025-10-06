@@ -1,1 +1,87 @@
-<p>category-occasion-form works!</p>
+<div class="form-header mb-4">
+  <h2>
+    {{ getFormTitle() }}
+  </h2>
+</div>
+
+<form [formGroup]="entityForm" (ngSubmit)="onSubmit()" class="p-fluid">
+  <div class="flex flex-column gap-4">
+    
+    <!-- Name Field -->
+    <lib-custom-input
+      id="entityName"
+      [labelText]="getFieldLabel('name')"
+      [placeholder]="getFieldPlaceholder('name')"
+      [errorHandilgControl]="nameControl"
+      formControlName="name">
+    </lib-custom-input>
+
+    <!-- Image Section - Different for Edit vs Add mode -->
+    @if (isEditMode) {
+      <!-- EDIT MODE: Show view image link only -->
+      <div class="flex flex-column gap-2">
+        <label class="font-medium text-sm text-gray-700">{{ getImageLabel() }}</label>
+        @if (previewUrl) {
+          <button type="button" 
+                  (click)="showImageModal = true"
+                  class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors duration-200 w-fit p-button p-button-text">
+            {{ getViewImageText() }}
+          </button>
+        } @else {
+          <span class="text-gray-500 text-sm">No image available</span>
+        }
+      </div>
+    } @else {
+      <!-- ADD MODE: Show file upload -->
+      <div class="flex flex-column gap-2">
+        <lib-custom-input
+          type="file"
+          accept="image/*"
+          [labelText]="getFieldLabel('image')"
+          [placeholder]="getFieldPlaceholder('image')"
+          [errorHandilgControl]="entityForm.get('image') ?? undefined"
+          formControlName="image"
+          (change)="onFileSelected($event)">
+        </lib-custom-input>
+
+        <!-- Show new image preview for add mode -->
+        @if (previewUrl && selectedFile) {
+          <div class="image-preview mt-2">
+            <p class="text-sm text-gray-600 mb-1">Image Preview:</p>
+            <img [src]="previewUrl" [alt]="'New ' + entityType + ' image'" 
+                 class="preview-image cursor-pointer" 
+                 (click)="showImageModal = true"
+                 style="max-width: 200px; max-height: 150px; border-radius: 8px;">
+          </div>
+        }
+      </div>
+    }
+
+    <lib-form-button
+      type="submit"
+      [text]="getSubmitButtonText()"
+      [loadingText]="'Saving...'"
+      [disabled]="entityForm.invalid"
+      [isLoading]="isSubmitting"
+      [fullWidth]="true">
+    </lib-form-button>
+  </div>
+</form>
+
+
+<p-dialog 
+  header="View Image" 
+  [(visible)]="showImageModal" 
+  [modal]="true" 
+  [style]="{ width: '50rem' }" 
+  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  [draggable]="false" 
+  [resizable]="false"
+  styleClass="image-modal">
+  <div class="flex justify-content-center">
+    <img 
+      [src]="previewUrl" 
+      [alt]="entityType + ' image'" 
+      class="w-full max-h-30rem object-contain" />
+  </div>
+</p-dialog>

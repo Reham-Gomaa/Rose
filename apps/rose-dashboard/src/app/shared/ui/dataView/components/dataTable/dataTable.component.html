@@ -1,49 +1,23 @@
 <div class="card">
-
     @if (data().length > 0) {
-          <p-table [value]="data()" >
+          <p-table [value]="data()">
               <ng-template #header>
                   <tr>
-                    @for(record of records();track $index ) {
-                      <th [class]="{
-                        'hide-md':record === 'sales' || record === 'price' || record === 'ratings'
-                      }"  class="capitalize">
-                        {{record}}
+                    @for(record of records(); track $index) {
+                      <th class="capitalize">
+                        {{ record }}
                       </th>
                     }
                       <th></th>
                   </tr>
               </ng-template>
-              <ng-template #body let-product>
-                  <tr >
-                      @for(record of records();track $index ) {
-                        @if (record === "products") {
-                        <td>{{ product["productsCount"] }}</td>
-                        }
-                        @if(record === "name") {
-                        <td>{{ product["name"] ?? product['title'].split(" ").slice(0,2).join(" ") }}</td>
-
-                        }
-                        @if(record === "stock") {
-                          @let stock = product["quantity"] - product['sold'] ;
-                        <td  [class.lowQty]="stock < 10" >{{stock}}</td>
-
-                        }
-                        @if(record === "sales") {
-                        <td class="hide-md" >{{ product["sold"]}}</td>
-
-                        }
-                        @if(record === "ratings") {
-                        <td class="hide-md" >{{ product["rateAvg"]}}/5 ({{product["rateCount"]}})  </td>
-
-                        }
-
-                        @if(record === "price") {
-                          <td  class="hide-md" >{{ product[record]  }} EGP</td>
-                        }
+              <ng-template #body let-item>
+                  <tr>
+                      @for(record of records(); track $index) {
+                        <td>{{ item[record] }}</td>
                       }
                     <td>
-                        <div id="operations" >
+                        <div id="operations">
                           <div class="in-large hidden lg:flex gap-3 justify-content-end">
                             <app-button
                               [bgColor]="'#0063D01A'"
@@ -53,6 +27,7 @@
                               [padding]="'p-1 px-2 '"
                               [transition]="'0.3s'"
                               [text]="'edit'"
+                              (click)="onEdit(item)"
                             ></app-button>
                             <app-button
                               [bgColor]="'#FF00001A'"
@@ -62,31 +37,28 @@
                               [padding]="'p-1 px-2 '"
                               [transition]="'0.3s'"
                               [text]="'remove'"
-
+                              (click)="confirmDelete(item)"
                             ></app-button>
                           </div>
                           <div class="in-small flex lg:hidden justify-content-end">
                             <div class="card flex justify-content-center relative">
-                              <p-button (click)="menu.toggle($event)" icon="pi pi-ellipsis-v" />
-                                <p-menu #menu [model]="items" [popup]="true" />
+                              <p-button (click)="onMenuClick($event, item)" icon="pi pi-ellipsis-v" />
+                              <p-menu #menu [model]="items" [popup]="true" />
                             </div>
                           </div>
-
                         </div>
                     </td>
                   </tr>
-
               </ng-template>
           </p-table>
-    }@else {
+    } @else {
         <p-table [value]="[{},{},{},{},{},{},{},{}]" responsiveLayout="scroll">
           <ng-template #header>
               <tr>
-                  @for(record of records();track $index ) {
-                    <th>{{record}}</th>
+                  @for(record of records(); track $index) {
+                    <th>{{ record }}</th>
                   }
                   <th></th>
-
               </tr>
           </ng-template>
           <ng-template #body let-product>
@@ -103,5 +75,14 @@
           </ng-template>
         </p-table>
     }
-
 </div>
+
+<!-- Your custom confirm dialog -->
+<lib-confirm-dialog
+  [visible]="showConfirmDialog"
+  [message]="'Are you sure you want to delete this ' + entityType() + '?'"
+  [subMessage]="'This action cannot be undone.'"
+  [cancelLabel]="'Cancel'"
+  [confirmLabel]="'Delete'"
+  (confirmed)="onDialogConfirmed($event)"
+></lib-confirm-dialog>
