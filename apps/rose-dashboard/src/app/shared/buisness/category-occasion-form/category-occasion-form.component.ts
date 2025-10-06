@@ -1,20 +1,22 @@
-import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnDestroy } from "@angular/core";
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnDestroy, inject } from "@angular/core";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 import { FormButtonComponent } from "@angular-monorepo/rose-buttons"; 
 import { DialogModule } from 'primeng/dialog'; 
+import { TranslateModule,TranslateService } from "@ngx-translate/core";
 
 export type EntityType = 'category' | 'occasion';
 
 @Component({
   selector: "app-category-occasion-form",
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, CustomInputComponent, FormButtonComponent, DialogModule], 
+  imports: [CommonModule, ReactiveFormsModule, CustomInputComponent, FormButtonComponent, DialogModule,TranslateModule], 
   templateUrl: "./category-occasion-form.component.html",
   styleUrl: "./category-occasion-form.component.scss"
 })
 export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
+  private _translate = inject(TranslateService);
   @Input() entityType: EntityType = 'category';
   @Input() initialData: { name: string; image: string | File | null } | null = null;
   @Output() formSubmit = new EventEmitter<FormData>();

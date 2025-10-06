@@ -1,0 +1,137 @@
+.form-container {
+  padding: 1rem;
+  background: var(--form-bg);
+}
+.form-card {
+    background: var(--form-card-bg);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 20px rgba(var(--form-card-shadow));
+    padding: 1.875rem;
+    margin: 0.75rem;
+  
+}
+
+
+.form-header {
+  color: var(--form-title-color);
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: var(--font-family-1);
+  margin: 0;
+}
+
+
+.label-small {
+  font-size: 0.875rem;
+  color: var(--form-labels-color); 
+  font-weight: 500;
+  font-family: var(--font-family-4);
+}
+
+
+.textarea-style {
+   border: 0.0625rem solid var(--input-border-color);
+    border-radius: 0.625rem;
+    padding: 1rem;
+    padding-right: 2.75rem;
+    background: var(--input-color);
+    color: var(--input-text-color);
+    transition: border-color 0.2s;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
+    font-family: var(--font-family-4);
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 100%;
+
+  
+}
+
+
+.textarea-style:focus {
+  outline: none;
+  border-color: var(--border-active-color);
+  box-shadow: 0 0 0 2px var(--border-active-color);
+}
+
+
+
+
+.price-after-title{
+     font-size: 0.875rem;
+  color: var(--form-labels-color); 
+  font-weight: 500;
+  font-family: var(--font-family-4);
+  margin-top: 0.85rem;
+
+
+}
+.computed-box {
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: var(--input-color); 
+ border: 0.0625rem solid var(--input-border-color);
+  display: flex;
+  align-items: center;;
+  min-height: 50px;
+   
+  
+}
+.computed-value {
+  font-size: 0.95rem;
+ color: var(--input-text-color);
+}
+
+//  .custom-dropdown {
+//   background-color:var(--input-color);
+//   border: 0.0625rem solid var(--input-border-color);
+//   color: var(--input-text-color);
+   
+// }
+
+// .custom-dropdown .p-dropdown-label {
+//   color: var(--input-text-color);
+// }
+
+// .custom-dropdown .p-dropdown-panel {
+//    background-color:var(--input-color);
+//   border: 0.0625rem solid var(--input-border-color);
+// //   color: var(--input-text-color);
+// }
+
+// .custom-dropdown .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+//   color: var(--input-text-color) !important;                   /* Text color of each option */
+// }
+
+// ::ng-deep .p-dropdown-item:hover {
+//   background-color: yellow;
+//   color: var(--input-text-color);
+// }
+
+
+
+
+.link-button {
+  color: var(--form-view-image-text);
+  background: transparent;
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  text-align: left;
+}
+
+
+.text-error {
+  color:  var(--border-active-color);
+  font-size: 0.8rem;
+}
+
+
+@media (max-width: 640px) {
+  .form-card {
+    padding: 1rem;
+  }
+}

@@ -1,5 +1,9 @@
 .form-container {
     width: 100%;
+    background-color: var(--form-bg);
+    height: 100vh;
+    margin-top: -0.73rem;
+    padding: 1rem;
 }
 
 .form-card {
@@ -8,6 +12,7 @@
     box-shadow: 0 4px 20px rgba(var(--form-card-shadow));
     padding: 1.875rem;
     margin: 0.75rem;
+    
 }
 
 /* Responsive adjustments */

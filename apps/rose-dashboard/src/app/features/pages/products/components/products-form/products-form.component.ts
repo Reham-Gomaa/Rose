@@ -14,6 +14,7 @@ import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-products-form",
@@ -25,7 +26,9 @@ import { DropdownModule } from 'primeng/dropdown';
     FormButtonComponent,
     DialogModule,
     DropdownModule,
-    Skeleton
+    Skeleton,
+    TranslateModule
+    
   ],
   templateUrl: "./products-form.component.html",
   styleUrl: "./products-form.component.scss"
@@ -35,6 +38,7 @@ export class ProductsFormComponent implements OnInit {
   private productsService = inject(ProductsService);
   private categoriesService = inject(CategoriesService);
   private occasionService = inject(OccasionService);
+  private _translate = inject(TranslateService);
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private fb = inject(FormBuilder);
@@ -45,7 +49,6 @@ export class ProductsFormComponent implements OnInit {
   isLoading = signal(true);
   private destroy$ = new Subject<void>();
 
-  // Image modal
   showImageModal = false;
   modalImageUrl: string | null = null;
   modalImageTitle: string = '';
@@ -57,7 +60,7 @@ export class ProductsFormComponent implements OnInit {
   galleryPreviewUrls: string[] = [];
   isSubmitting = false;
 
-  // Categories and occasions
+  
   categories = signal<any[]>([]);
   occasions = signal<any[]>([]);
 
@@ -79,7 +82,7 @@ export class ProductsFormComponent implements OnInit {
     this.productId = this.route.snapshot.paramMap.get("id");
     this.isEditMode = !!this.productId;
 
-    // Load categories and occasions
+    
     this.loadCategories();
     this.loadOccasions();
 
@@ -111,7 +114,7 @@ export class ProductsFormComponent implements OnInit {
             occasion: res.product.occasion
           });
 
-          // Remove required validators in edit mode for images
+          
           this.productForm.get('imgCover')?.clearValidators();
           this.productForm.get('images')?.clearValidators();
           this.productForm.get('imgCover')?.updateValueAndValidity();
@@ -129,7 +132,7 @@ export class ProductsFormComponent implements OnInit {
     }
   }
 
-  // Load categories from service
+
   private loadCategories(): void {
     this.categoriesService.getAllCategories().subscribe({
       next: (res) => {
@@ -141,7 +144,7 @@ export class ProductsFormComponent implements OnInit {
     });
   }
 
-  // Load occasions from service
+  
   private loadOccasions(): void {
     this.occasionService.getAllOccasions().subscribe({
       next: (res) => {
@@ -159,38 +162,30 @@ export class ProductsFormComponent implements OnInit {
     return price - (price * (discount / 100));
   }
 
-  // CORRECTED FILE METHODS
-  onCoverImageSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.selectedCoverFile = input.files[0];
-      this.productForm.patchValue({ imgCover: this.selectedCoverFile });
-      this.productForm.get('imgCover')?.markAsTouched();
-      
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.coverPreviewUrl = reader.result as string;
-      };
-      reader.readAsDataURL(this.selectedCoverFile);
-    }
+  
+  onCoverImageSelected(file: File): void {
+    this.selectedCoverFile = file;
+    this.productForm.patchValue({ imgCover: file });
+    this.productForm.get('imgCover')?.markAsTouched();
+    
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.coverPreviewUrl = reader.result as string;
+    };
+    reader.readAsDataURL(file);
   }
 
-  onGalleryImagesSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.selectedGalleryFiles = Array.from(input.files);
-      this.productForm.patchValue({ images: this.selectedGalleryFiles });
-      this.productForm.get('images')?.markAsTouched();
-      
-      this.galleryPreviewUrls = [];
-      this.selectedGalleryFiles.forEach(file => {
-        const reader = new FileReader();
-        reader.onload = () => {
-          this.galleryPreviewUrls.push(reader.result as string);
-        };
-        reader.readAsDataURL(file);
-      });
-    }
+  onGalleryImagesSelected(file: File): void {
+    
+    this.selectedGalleryFiles.push(file);
+    this.productForm.patchValue({ images: this.selectedGalleryFiles });
+    this.productForm.get('images')?.markAsTouched();
+    
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.galleryPreviewUrls.push(reader.result as string);
+    };
+    reader.readAsDataURL(file);
   }
 
   openImageModal(imageUrl: string, title: string): void {

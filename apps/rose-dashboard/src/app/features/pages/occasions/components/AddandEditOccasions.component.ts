@@ -6,16 +6,18 @@ import { CategoryOccasionFormComponent } from "apps/rose-dashboard/src/app/share
 import { MessageService } from "primeng/api";
 import { Skeleton } from "primeng/skeleton";
 import { Subject, takeUntil } from "rxjs";
+import { TranslateModule,TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-add-edit-occasion",
   standalone: true,
-  imports: [CategoryOccasionFormComponent,Skeleton],
+  imports: [CategoryOccasionFormComponent,Skeleton, TranslateModule],
  templateUrl: "./AddandEditOccasions.component.html",
   styleUrl: "./AddandEditOccasions.component.scss",
 })
 export class AddEditOccasionComponent {
   private _messageService = inject(MessageService);
+  private _translate = inject(TranslateService);
   isEditMode = false;
   occasionId: string | null = null;
   initialData: any = null;

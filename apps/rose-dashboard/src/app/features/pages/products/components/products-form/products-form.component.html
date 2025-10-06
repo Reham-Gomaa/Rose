@@ -50,16 +50,16 @@
 
           <!-- Description Field -->
           <div class="flex flex-column gap-2">
-            <label class="font-medium text-sm text-gray-700">{{ getFieldLabel('description') }}</label>
+            <label class="label-small">{{ getFieldLabel('description') }}</label>
             <textarea
               [placeholder]="getFieldPlaceholder('description')"
               formControlName="description"
               rows="4"
-              class="w-full p-3 border-1 border-gray-300 border-round-md focus:border-primary focus:shadow-none"
+              class="textarea-style"
               [class.border-red-500]="productForm.get('description')?.invalid && productForm.get('description')?.touched">
             </textarea>
             @if (productForm.get('description')?.invalid && productForm.get('description')?.touched) {
-              <small class="text-red-500 text-sm">Product description is required</small>
+              <small class="text-error">Product description is required</small>
             }
           </div>
 
@@ -88,11 +88,11 @@
               </div>
               <div class="col-12 md:col-4">
                 <div class="flex flex-column gap-2">
-                  <label class="font-medium text-sm text-gray-700">Price after discount</label>
-                  <div class="p-3 border-1 border-gray-300 border-round-md bg-gray-50">
-                    <span class="text-gray-700">{{ priceAfterDiscount | currency }}</span>
+                  <label class="price-after-title ">Price after discount</label>
+                  <div class="computed-box">
+                    <span class="computed-value">{{ priceAfterDiscount | currency }}</span>
                   </div>
-                  <small class="text-gray-500 text-sm">Calculated automatically</small>
+                  <small class=" label-small ">Calculated automatically</small>
                 </div>
               </div>
             </div>
@@ -110,26 +110,19 @@
 
           <!-- Image Upload Section -->
           @if (!isEditMode) {
-            <!-- ADD MODE: Show file uploads -->
+            <!-- ADD MODE: Show file uploads with custom inputs -->
             <div class="grid">
               <div class="col-12 md:col-6">
                 <div class="flex flex-column gap-2">
-                  <label class="font-medium text-sm text-gray-700">{{ getFieldLabel('imgCover') }}</label>
-                  <input
+                  <lib-custom-input
+                    id="coverImage"
                     type="file"
                     accept="image/*"
-                    id="coverImage"
-                    (change)="onCoverImageSelected($event)"
-                    class="w-full"
-                    #coverInput>
-                  
-                  <button 
-                    type="button" 
-                    (click)="coverInput.click()"
-                    class="p-button p-button-outlined w-full mt-2">
-                    <i class="pi pi-upload mr-2"></i>
-                    Upload Cover Image
-                  </button>
+                    [labelText]="getFieldLabel('imgCover')"
+                    [errorHandilgControl]="productForm.get('imgCover')!"
+                    formControlName="imgCover"
+                    (fileSelected)="onCoverImageSelected($event)">
+                  </lib-custom-input>
                   
                   @if (coverPreviewUrl) {
                     <div class="image-preview mt-2">
@@ -140,31 +133,20 @@
                            style="max-width: 200px; max-height: 150px; border-radius: 8px;">
                     </div>
                   }
-                  @if (productForm.get('imgCover')?.invalid && productForm.get('imgCover')?.touched) {
-                    <small class="text-red-500 text-sm">Product cover is required</small>
-                  }
                 </div>
               </div>
               
               <div class="col-12 md:col-6">
                 <div class="flex flex-column gap-2">
-                  <label class="font-medium text-sm text-gray-700">{{ getFieldLabel('images') }}</label>
-                  <input
+                  <lib-custom-input
+                    id="galleryImages"
                     type="file"
                     accept="image/*"
-                    id="galleryImages"
-                    multiple
-                    (change)="onGalleryImagesSelected($event)"
-                    class="w-full"
-                    #galleryInput>
-                  
-                  <button 
-                    type="button" 
-                    (click)="galleryInput.click()"
-                    class="p-button p-button-outlined w-full mt-2">
-                    <i class="pi pi-upload mr-2"></i>
-                    Upload Gallery Images
-                  </button>
+                    [labelText]="getFieldLabel('images')"
+                    [errorHandilgControl]="productForm.get('images')!"
+                    formControlName="images"
+                    (fileSelected)="onGalleryImagesSelected($event)">
+                  </lib-custom-input>
                   
                   @if (galleryPreviewUrls.length > 0) {
                     <div class="image-preview mt-2">
@@ -179,9 +161,6 @@
                       </div>
                     </div>
                   }
-                  @if (productForm.get('images')?.invalid && productForm.get('images')?.touched) {
-                    <small class="text-red-500 text-sm">Product gallery images are required</small>
-                  }
                 </div>
               </div>
             </div>
@@ -190,30 +169,30 @@
             <div class="grid">
               <div class="col-12 md:col-6">
                 <div class="flex flex-column gap-2">
-                  <label class="font-medium text-sm text-gray-700">Product cover</label>
+                  <label class="label-small">Product cover</label>
                   @if (coverPreviewUrl) {
                     <button type="button" 
                             (click)="openImageModal(coverPreviewUrl, 'Product Cover')"
-                            class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors duration-200 w-fit p-button p-button-text">
+                            class="link-button">
                       View product cover
                     </button>
                   } @else {
-                    <span class="text-gray-500 text-sm">No cover image available</span>
+                    <span class="label-small">No cover image available</span>
                   }
                 </div>
               </div>
               
               <div class="col-12 md:col-6">
                 <div class="flex flex-column gap-2">
-                  <label class="font-medium text-sm text-gray-700">Product gallery</label>
+                  <label class="label-small">Product gallery</label>
                   @if (galleryPreviewUrls.length > 0) {
                     <button type="button" 
                             (click)="openImageModal(galleryPreviewUrls[0], 'Product Gallery')"
-                            class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors duration-200 w-fit p-button p-button-text">
+                            class="link-button">
                       View product gallery
                     </button>
                   } @else {
-                    <span class="text-gray-500 text-sm">No gallery images available</span>
+                    <span class="label-small">No gallery images available</span>
                   }
                 </div>
               </div>
@@ -224,7 +203,7 @@
           <div class="grid">
             <div class="col-12 md:col-6">
               <div class="flex flex-column gap-2">
-                <label class="font-medium text-sm text-gray-700">{{ getFieldLabel('category') }}</label>
+                <label class="label-small">{{ getFieldLabel('category') }}</label>
                 <p-dropdown 
                   [options]="categories()" 
                   optionLabel="name" 
@@ -232,17 +211,17 @@
                   formControlName="category"
                   placeholder="Select an option"
                   [class.border-red-500]="productForm.get('category')?.invalid && productForm.get('category')?.touched"
-                  styleClass="w-full">
+                  styleClass="w-full custom-dropdown">
                 </p-dropdown>
                 @if (productForm.get('category')?.invalid && productForm.get('category')?.touched) {
-                  <small class="text-red-500 text-sm">Please select a category for the product</small>
+                  <small class="text-error">Please select a category for the product</small>
                 }
               </div>
             </div>
             
             <div class="col-12 md:col-6">
               <div class="flex flex-column gap-2">
-                <label class="font-medium text-sm text-gray-700">{{ getFieldLabel('occasion') }}</label>
+                <label class="label-small">{{ getFieldLabel('occasion') }}</label>
                 <p-dropdown 
                   [options]="occasions()" 
                   optionLabel="name" 
@@ -255,8 +234,7 @@
             </div>
           </div>
 
-          <!-- Divider -->
-          <div class="divider"></div>
+          
 
           <!-- Submit Button -->
           <lib-form-button
@@ -278,7 +256,7 @@
   [header]="modalImageTitle" 
   [(visible)]="showImageModal" 
   [modal]="true" 
-  [style]="{ width: '50rem' }" 
+  [style]="{ width: '50rem',background: 'var(--modal-pop-up-bg)',color: 'var(--input-text-color)', }" 
   [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
   [draggable]="false" 
   [resizable]="false"
