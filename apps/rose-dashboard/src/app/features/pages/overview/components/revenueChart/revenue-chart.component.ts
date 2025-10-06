@@ -34,7 +34,7 @@ export class RevenueChartComponent {
   data: any;
   options: any;
 
-  mode = signal<"daily" | "monthly">("monthly");
+  mode: WritableSignal<"daily" | "monthly"> = signal<"daily" | "monthly">("monthly");
   loading: WritableSignal<boolean> = signal(true);
 
   private readonly chartEffect = effect(() => {
@@ -57,6 +57,7 @@ export class RevenueChartComponent {
     return {
       border: style.getPropertyValue("--p-content-border-color"),
       maroon: style.getPropertyValue("--chart-active-button"),
+      axisText: style.getPropertyValue("--main-text"),
     };
   }
 
@@ -65,15 +66,12 @@ export class RevenueChartComponent {
     const values =
       this.mode() === "monthly"
         ? this.monthlyRevenue()!.map((m) => m.revenue)
-        : this.dailyRevenue()!
-            .sort((a, b) => a._id.localeCompare(b._id))
-            .map((d) => d.revenue);
+        : this.dailyRevenue()!.map((d) => d.revenue);
 
     return {
       labels,
       datasets: [
         {
-          label: `${this.capitalize(this.mode())} Revenue`,
           data: values,
           fill: { target: "origin" },
           spanGaps: true,
@@ -120,7 +118,7 @@ export class RevenueChartComponent {
       scales: {
         x: {
           ticks: {
-            color: "#27272A",
+            color: styles.axisText.trim(),
             font: { size: 10, weight: "700" },
           },
           grid: { color: styles.border, drawBorder: false, display: true },
@@ -129,7 +127,7 @@ export class RevenueChartComponent {
         y: {
           display: window.innerWidth >= 992,
           ticks: {
-            color: "#27272A",
+            color: styles.axisText.trim(),
             font: { size: 10, weight: "700" },
           },
           grid: {
@@ -174,9 +172,5 @@ export class RevenueChartComponent {
     gradient.addColorStop(0, "rgba(166, 37, 42, 0.5)");
     gradient.addColorStop(1, "rgba(248, 177, 239, 0)");
     return gradient;
-  }
-
-  private capitalize(text: string) {
-    return text.charAt(0).toUpperCase() + text.slice(1);
   }
 }

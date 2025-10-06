@@ -23,6 +23,7 @@
       border: none;
       background-color: transparent;
       color: var(--chart-button);
+      cursor: pointer;
       &.active {
         color: var(--chart-active-button) !important;
         font-weight: 600 !important;

@@ -1,14 +1,4 @@
-import { isPlatformBrowser } from "@angular/common";
-import {
-  Component,
-  effect,
-  inject,
-  input,
-  InputSignal,
-  PLATFORM_ID,
-  signal,
-  WritableSignal,
-} from "@angular/core";
+import { Component, effect, input, InputSignal, signal, WritableSignal } from "@angular/core";
 import { TranslatePipe } from "@ngx-translate/core";
 // Shared_Interfaces
 import { OrdersByStatu } from "@rose_dashboard/core_interfaces/statistics";
@@ -25,8 +15,6 @@ import { EmptyStateComponent } from "../empty-state/emptyState.component";
   styleUrl: "./order-chart.component.scss",
 })
 export class OrderChartComponent {
-  private readonly platformId = inject(PLATFORM_ID);
-
   orderByStatus: InputSignal<OrdersByStatu[] | undefined> = input<OrdersByStatu[] | undefined>();
   loading: WritableSignal<boolean> = signal(true);
   colorMap!: Record<string, string>;
@@ -67,43 +55,39 @@ export class OrderChartComponent {
   }
 
   initChart() {
-    if (isPlatformBrowser(this.platformId)) {
-      const documentStyle = getComputedStyle(document.documentElement);
+    this.data = {
+      datasets: [
+        {
+          data: this.values,
+          backgroundColor: this.backgroundColors,
+          hoverBackgroundColor: this.backgroundColors,
+        },
+      ],
+    };
 
-      this.data = {
-        datasets: [
-          {
-            data: this.values,
-            backgroundColor: this.backgroundColors,
-            hoverBackgroundColor: this.backgroundColors,
+    this.options = {
+      plugins: {
+        tooltip: {
+          cornerRadius: 21,
+          padding: 8,
+          displayColors: false,
+          callbacks: {
+            label: (context: { dataIndex: number }) => {
+              const percentage = this.percentage[context.dataIndex];
+              return `${Math.round(percentage)}%`;
+            },
           },
-        ],
-      };
-
-      this.options = {
-        plugins: {
-          tooltip: {
-            cornerRadius: 21,
-            padding: 8,
-            displayColors: false,
-            callbacks: {
-              label: (context: { dataIndex: number }) => {
-                const percentage = this.percentage[context.dataIndex];
-                return `${Math.round(percentage)}%`;
-              },
-            },
-            titleFont: {
-              size: 11,
-              weight: "600",
-              family: "var(--font-family-1)",
-            },
-            bodyFont: {
-              size: 17,
-              family: "var(--font-family-1)",
-            },
+          titleFont: {
+            size: 11,
+            weight: "600",
+            family: "var(--font-family-1)",
+          },
+          bodyFont: {
+            size: 17,
+            family: "var(--font-family-1)",
           },
         },
-      };
-    }
+      },
+    };
   }
 }
