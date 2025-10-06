@@ -14,7 +14,9 @@
     "status": "Orders Status",
     "topselling": "Top Selling Products",
     "sales": "Sales",
-    "lowstock": "Low Stock Products"
+    "lowstock": "Low Stock Products",
+    "empty-1": "Data temporarily unavailable.",
+    "empty-2": "Please check again soon"
   },
   "breadcrumb": {
     "overview": "Overview",
