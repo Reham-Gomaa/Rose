@@ -7,6 +7,7 @@
     line-height: 100%;
     letter-spacing: 0%;
     text-align: left;
+    color: var(--p-table-header-color);
     @media all and (min-width: 48rem) {
       text-align: center;
     }
@@ -70,5 +71,12 @@
         text-align: right;
       }
     }
+  }
+}
+
+:host-context([dir="rtl"]) .row {
+  flex-direction: row-reverse;
+  .lable {
+    flex-direction: row-reverse;
   }
 }

@@ -69,7 +69,6 @@ export class OrderChartComponent {
   initChart() {
     if (isPlatformBrowser(this.platformId)) {
       const documentStyle = getComputedStyle(document.documentElement);
-      const textColor = documentStyle.getPropertyValue("--main-text");
 
       this.data = {
         datasets: [

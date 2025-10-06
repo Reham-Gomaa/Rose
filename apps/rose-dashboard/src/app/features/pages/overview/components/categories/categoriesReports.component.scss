@@ -2,7 +2,7 @@
   font-family: var(--font-family-1);
   color: var(--main-text);
   .p-datatable-header {
-    border: none;
+    border: none !important;
     span {
       font-weight: 600;
       font-size: 1.25rem;
@@ -36,6 +36,9 @@
       text-align: center;
       font-weight: 500;
       font-size: 0.75rem;
+      transition:
+        background 0.3s ease,
+        box-shadow 0.3s ease;
       @media all and (min-width: 62rem) {
         font-size: 0.875rem;
         min-width: 5.5625rem;
@@ -43,6 +46,37 @@
     }
     .value-td {
       text-align: right;
+    }
+  }
+
+  .p-datatable,
+  .p-datatable-header {
+    background-color: var(--cards-bg);
+    color: var(--p-table-header-color);
+
+    .p-datatable-thead > tr > th {
+      background-color: var(--p-table-header-bg);
+      color: var(--p-table-header-color);
+      font-weight: 600;
+    }
+
+    .p-datatable-tbody > tr {
+      background-color: var(--p-table-row-bg);
+      border-bottom: 1px solid var(--zinc-100);
+      transition: background-color 0.5s ease-in-out;
+
+      &:hover {
+        background-color: var(--p-table-cell-hover-bg);
+        .value {
+          background: var(--category-value-hover-bg);
+          box-shadow: 0 0 10px rgba(255, 182, 193, 0.25);
+        }
+      }
+
+      td {
+        color: var(--main-text);
+        padding: 0.75rem 1rem;
+      }
     }
   }
 }
