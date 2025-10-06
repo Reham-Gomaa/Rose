@@ -1,3 +1,12 @@
-<section id="occasion">
+<!-- <section id="occasion">
   <app-data-view [data_items]="prods()" [table_records]="table_header_records"></app-data-view>
+</section> -->
+
+
+<section id="occasion">
+  <app-data-view [data_items]="prods()" [table_records]="table_header_records" [entityType]="'product'"
+    (addNew)="onAddNew()"
+    (editItem)="onEditProduct($event)" 
+    (deleteItem)="onDeleteProduct($event)"></app-data-view>
 </section>
+

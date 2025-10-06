@@ -34,3 +34,8 @@ export interface updateProductData {
   rateAvg:number,
   rateCount:number
 }
+
+export interface DeleteProductRes {
+  message: string;
+  document: Product;
+}
