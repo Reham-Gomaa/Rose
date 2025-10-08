@@ -11,11 +11,11 @@ import { Observable, take } from "rxjs";
 import { Store } from "@ngrx/store";
 import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
 import { selectCartItems } from "apps/rose/src/app/store/cart/cart-selectors";
-import { selectIsInWishlist } from "apps/rose/src/app/store/wishlist/wishlist-selectors";
 import {
   removeSpecificItem,
   addProductToWishlist,
 } from "apps/rose/src/app/store/wishlist/wishlist-actions";
+import { selectIsInWishlist } from "apps/rose/src/app/store/wishlist/wishlist-selectors";
 
 @Component({
   selector: "app-product-details",
@@ -25,12 +25,12 @@ import {
 })
 export class ProductDetailsComponent {
   private readonly store = inject(Store);
-  isInWishlist$!: Observable<boolean>;
 
   productDetails = input.required<Product>();
   currentImage = signal<string>("");
   showModal = signal<boolean>(false);
   cartItems$!: Observable<cartItems[]>;
+  isInWishlist$!: Observable<boolean>;
 
   constructor() {
     // Watch for input changes
@@ -44,6 +44,16 @@ export class ProductDetailsComponent {
     this.isInWishlist$ = this.store.select(selectIsInWishlist(this.productDetails()._id!));
   }
 
+  toggleWishlist(p_id: string) {
+    this.isInWishlist$.pipe(take(1)).subscribe((isInWishlist) => {
+      if (isInWishlist) {
+        this.store.dispatch(removeSpecificItem({ p_id: p_id }));
+      } else {
+        this.store.dispatch(addProductToWishlist({ p_id: p_id }));
+      }
+    });
+  }
+
   addProductToCart(p_id: string) {
     this.cartItems$.pipe(take(1)).subscribe((cartItems) => {
       const existingItem = cartItems.find((item) => item.product._id === p_id);
@@ -51,16 +61,6 @@ export class ProductDetailsComponent {
 
       if (existingItem ? storeQuantity > existingItem.quantity : storeQuantity > 0) {
         this.store.dispatch(addProductToCart({ p_id: p_id, qty: 1 }));
-      }
-    });
-  }
-
-  toggleWishlist(p_id: string) {
-    this.isInWishlist$.pipe(take(1)).subscribe((isInWishlist) => {
-      if (isInWishlist) {
-        this.store.dispatch(removeSpecificItem({ p_id: p_id }));
-      } else {
-        this.store.dispatch(addProductToWishlist({ p_id: p_id }));
       }
     });
   }
