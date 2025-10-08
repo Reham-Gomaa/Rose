@@ -2,7 +2,7 @@ import { Injectable, inject } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
 import { WishlistService } from "@rose/shared_services/wishlist/wishlist.service";
-import { catchError, map, of, switchMap } from "rxjs";
+import { catchError, map, mergeMap, of, switchMap } from "rxjs";
 import {
   addProductToWishlist,
   addProductToWishlistSuccess,
@@ -29,22 +29,22 @@ export class WishlistEffects {
       switchMap(() =>
         this.wishlistService.getWishlist().pipe(
           map((wishlist) => getUserWishlistSuccess({ wishlist })),
-          catchError((error) => of(getUserwishlistFailure({ error: error.message })))
-        )
-      )
-    )
+          catchError((error) => of(getUserwishlistFailure({ error: error.message }))),
+        ),
+      ),
+    ),
   );
 
-  addProduct$ = createEffect(() =>
+  addProductToWishlist$ = createEffect(() =>
     this.actions$.pipe(
       ofType(addProductToWishlist),
-      switchMap((action) =>
-        this.wishlistService.addToWishlist(action.p_id).pipe(
-          map((wishlist) => addProductToWishlistSuccess({ wishlist })),
-          catchError((error) => of(getUserwishlistFailure({ error: error.message })))
-        )
-      )
-    )
+      mergeMap(({ p_id }) =>
+        this.wishlistService.addToWishlist(p_id).pipe(
+          switchMap(() => [getUserWishlist()]),
+          catchError((error) => of(getUserwishlistFailure({ error: error.message }))),
+        ),
+      ),
+    ),
   );
 
   checkProduct$ = createEffect(() =>
@@ -53,12 +53,12 @@ export class WishlistEffects {
       switchMap((action) =>
         this.wishlistService.checkProductInWishlist(action.p_id).pipe(
           map((res) =>
-            checkInWishlistSuccess({ isInWishlist: res.inWishlist, message: res.message })
+            checkInWishlistSuccess({ isInWishlist: res.inWishlist, message: res.message }),
           ),
-          catchError((error) => of(getUserwishlistFailure({ error: error.message })))
-        )
-      )
-    )
+          catchError((error) => of(getUserwishlistFailure({ error: error.message }))),
+        ),
+      ),
+    ),
   );
 
   removeProduct$ = createEffect(() =>
@@ -67,10 +67,10 @@ export class WishlistEffects {
       switchMap((action) =>
         this.wishlistService.removeFromWishlist(action.p_id).pipe(
           map((wishlist) => removeSpecificItemSuccess({ wishlist })),
-          catchError((error) => of(getUserwishlistFailure({ error: error.message })))
-        )
-      )
-    )
+          catchError((error) => of(getUserwishlistFailure({ error: error.message }))),
+        ),
+      ),
+    ),
   );
 
   clearWishlist$ = createEffect(() =>
@@ -79,9 +79,9 @@ export class WishlistEffects {
       switchMap(() =>
         this.wishlistService.clearWishlist().pipe(
           map((wishlist) => clearwishlistSuccess({ wishlist })),
-          catchError((error) => of(getUserwishlistFailure({ error: error.message })))
-        )
-      )
-    )
+          catchError((error) => of(getUserwishlistFailure({ error: error.message }))),
+        ),
+      ),
+    ),
   );
 }

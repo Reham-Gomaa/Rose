@@ -15,8 +15,6 @@ export const selectWishlistCount = createSelector(
 );
 
 export const selectIsInWishlist = (productId: string) =>
-  createSelector(
-    selectWishlistItems,
-    (items: Product[]) =>
-      (items as any)?._id === productId || (items as any)?.product?._id === productId,
+  createSelector(selectWishlistItems, (items: Product[]) =>
+    items.some((item) => item._id === productId),
   );
