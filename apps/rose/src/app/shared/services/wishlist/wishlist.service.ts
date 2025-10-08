@@ -1,7 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { EndPoint } from "@rose/core_enums/endpoints";
-import { checkResponse, wishlistResponse } from "@rose/core_interfaces/wishlist.interface";
+import {
+  checkResponse,
+  ClearResponse,
+  wishlistResponse,
+} from "@rose/core_interfaces/wishlist.interface";
 import { Observable, tap } from "rxjs";
 
 @Injectable({
@@ -22,8 +26,8 @@ export class WishlistService {
     return this.httpClient.delete<wishlistResponse>(EndPoint.WISHLIST + `/` + p_id);
   }
 
-  clearWishlist(): Observable<any> {
-    return this.httpClient.delete<any>(EndPoint.WISHLIST);
+  clearWishlist(): Observable<ClearResponse> {
+    return this.httpClient.delete<ClearResponse>(EndPoint.WISHLIST);
   }
 
   checkProductInWishlist(p_id: string): Observable<checkResponse> {

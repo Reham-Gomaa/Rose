@@ -6,11 +6,26 @@ export interface wishlistResponse {
 
 export interface Wishlist {
   user: string;
-  products: any[];
+  products: Products[];
   _id: string;
   createdAt: string;
   updatedAt: string;
   __v: number;
+}
+
+export interface Products {
+  rateAvg: number;
+  _id: string;
+  title: string;
+  imgCover: string;
+  price: number;
+  priceAfterDiscount: number;
+  id: string;
+}
+
+export interface ClearResponse {
+  message: string;
+  wishlist: Wishlist;
 }
 
 export interface checkResponse {
