@@ -15,6 +15,7 @@ import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
+import { InputErrorMessageComponent } from "@rose_dashboard/shared_buisness/input-error/input-error.component";
 
 @Component({
   selector: "app-products-form",
@@ -27,7 +28,8 @@ import { TranslateModule, TranslateService } from "@ngx-translate/core";
     DialogModule,
     DropdownModule,
     Skeleton,
-    TranslateModule
+    TranslateModule,
+    InputErrorMessageComponent
     
   ],
   templateUrl: "./products-form.component.html",
@@ -72,7 +74,7 @@ export class ProductsFormComponent implements OnInit {
       discount: ['', [Validators.min(0), Validators.max(100)]],
       quantity: ['', [Validators.required, Validators.min(0)]],
       category: ['', [Validators.required]],
-      occasion: [''],
+      occasion: ['',[Validators.required]],
       imgCover: [null, [Validators.required]],
       images: [null, [Validators.required]]
     });
@@ -209,7 +211,7 @@ export class ProductsFormComponent implements OnInit {
       discount: 'Discount',
       quantity: 'Quantity *',
       category: 'Category *',
-      occasion: 'Occasion',
+      occasion: 'Occasion *',
       imgCover: 'Product cover *',
       images: 'Product gallery *'
     };

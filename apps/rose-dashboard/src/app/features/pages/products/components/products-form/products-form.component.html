@@ -58,9 +58,13 @@
               class="textarea-style"
               [class.border-red-500]="productForm.get('description')?.invalid && productForm.get('description')?.touched">
             </textarea>
-            @if (productForm.get('description')?.invalid && productForm.get('description')?.touched) {
-              <small class="text-error">Product description is required</small>
-            }
+             <app-input-error-message 
+                [control]="productForm.get('description')"
+                [customMessages]="{ 
+                 required: 'Product description is required',
+                 minlength: 'Description must be at least 10 characters long' }">
+             </app-input-error-message>
+
           </div>
 
           <!-- Price, Discount, and Price After Discount -->
@@ -213,9 +217,11 @@
                   [class.border-red-500]="productForm.get('category')?.invalid && productForm.get('category')?.touched"
                   styleClass="w-full custom-dropdown">
                 </p-dropdown>
-                @if (productForm.get('category')?.invalid && productForm.get('category')?.touched) {
-                  <small class="text-error">Please select a category for the product</small>
-                }
+                <app-input-error-message 
+                    [control]="productForm.get('category')"
+                    [customMessages]="{ required: 'Please select a category for the product' }">
+               </app-input-error-message>
+
               </div>
             </div>
             
@@ -230,6 +236,11 @@
                   placeholder="Select an option"
                   styleClass="w-full">
                 </p-dropdown>
+                <app-input-error-message 
+                     [control]="productForm.get('occasion')"
+                     [customMessages]="{ required: 'Please select an occasion for the product' }">
+               </app-input-error-message>
+               
               </div>
             </div>
           </div>
