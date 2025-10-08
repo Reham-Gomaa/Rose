@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { EndPoint } from "@rose/core_enums/endpoints";
 import { checkResponse, wishlistResponse } from "@rose/core_interfaces/wishlist.interface";
-import { Observable } from "rxjs";
+import { Observable, tap } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -15,11 +15,7 @@ export class WishlistService {
   }
 
   addToWishlist(p_id: string): Observable<wishlistResponse> {
-    return this.httpClient.post<wishlistResponse>(
-      EndPoint.WISHLIST,
-      { productId: p_id },
-      { headers: { "Content-Type": "application/json" } }
-    );
+    return this.httpClient.post<wishlistResponse>(EndPoint.WISHLIST, { productId: p_id });
   }
 
   removeFromWishlist(p_id: string): Observable<wishlistResponse> {

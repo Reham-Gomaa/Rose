@@ -42,6 +42,7 @@ import { InputTextModule } from "primeng/inputtext";
 import { Menubar } from "primeng/menubar";
 import { OverlayBadgeModule } from "primeng/overlaybadge";
 import { SplitButton } from "primeng/splitbutton";
+import { getUserWishlist } from "../../../store/wishlist/wishlist-actions";
 
 interface UserProfile {
   _id: string;
@@ -146,7 +147,7 @@ export class NavbarComponent implements OnInit {
     this.loadUserInfo();
     this.initializeMenuItems();
     this.getUserCart();
-    this.favouriteItemsNum$ = this._store.select(selectWishlistCount);
+    this.getWishlist();
   }
 
   private initializeMenuItems() {
@@ -228,6 +229,14 @@ export class NavbarComponent implements OnInit {
       this._store.dispatch(getUserCart());
     }
     this.cartItemsNum$ = this._store.select(selectCartItemsNum);
+  }
+
+  getWishlist() {
+    if (this.isLoggedIn()) {
+      this._store.dispatch(getUserWishlist());
+    }
+
+    this.favouriteItemsNum$ = this._store.select(selectWishlistCount);
   }
 
   isLogin(): void {

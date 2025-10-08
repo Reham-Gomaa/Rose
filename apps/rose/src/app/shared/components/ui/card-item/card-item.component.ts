@@ -11,17 +11,15 @@ import { Product } from "@rose/core_interfaces/carditem.interface";
 //PrimeNg
 import { RatingModule } from "primeng/rating";
 import { SkeletonModule } from "primeng/skeleton";
-// shared-Directive
 // cart store
-import { select, Store } from "@ngrx/store";
+import { Store } from "@ngrx/store";
 import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
 import {
   addProductToWishlist,
-  checkInWishlist,
   removeSpecificItem,
 } from "apps/rose/src/app/store/wishlist/wishlist-actions";
-import { Observable, take } from "rxjs";
 import { selectIsInWishlist } from "apps/rose/src/app/store/wishlist/wishlist-selectors";
+import { Observable, take } from "rxjs";
 
 @Component({
   selector: "app-card-item",

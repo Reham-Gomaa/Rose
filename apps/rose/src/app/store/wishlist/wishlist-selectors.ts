@@ -6,20 +6,17 @@ export const selectWishlistState = createFeatureSelector<wishlistStates>("wishli
 
 export const selectWishlistItems = createSelector(
   selectWishlistState,
-  (state) => state.favouriteitems
+  (state) => state.favouriteitems,
 );
 
 export const selectWishlistCount = createSelector(
   selectWishlistState,
-  (state) => state.favouriteitemsNum
+  (state) => state.favouriteitemsNum,
 );
 
-// export const selectIsInWishlist = createSelector(
-//   selectWishlistState,
-//   (state) => state.isInWishlist
-// );
-
 export const selectIsInWishlist = (productId: string) =>
-  createSelector(selectWishlistItems, (items: Product[]) =>
-    items.some((item) => item._id === productId)
+  createSelector(
+    selectWishlistItems,
+    (items: Product[]) =>
+      (items as any)?._id === productId || (items as any)?.product?._id === productId,
   );

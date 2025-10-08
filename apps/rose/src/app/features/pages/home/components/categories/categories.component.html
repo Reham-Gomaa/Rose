@@ -26,18 +26,11 @@
 <section [@fadeTransition]="translationService.fadeState()" aria-labelledby="categories-heading">
   <div class="categories-scroll-container" tabindex="0" aria-label="Categories carousel">
     <div class="categories-scroll-wrapper" role="list">
-      @for (category of categories(); track category._id) {
+      @for (category of categories(); track $index) {
       <div class="category-card light-pink-bg" role="listitem">
         <div class="category-icon" aria-hidden="true">
-          <img
-            [ngSrc]="category.image"
-            [alt]="category.name + ' category icon'"
-            class="category-img"
-            width="56"
-            height="56"
-            loading="lazy"
-            decoding="async"
-          />
+          <img [ngSrc]="category.image" [alt]="category.name + ' category icon'" class="category-img" width="56"
+            height="56" loading="lazy" decoding="async" />
         </div>
         <div class="category-content">
           <span class="category-name">{{ category.name }}</span>
