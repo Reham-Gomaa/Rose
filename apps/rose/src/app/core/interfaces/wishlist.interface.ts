@@ -1,3 +1,5 @@
+import { Product } from "@angular-monorepo/products";
+
 export interface wishlistResponse {
   message: string;
   count: number;
@@ -6,7 +8,7 @@ export interface wishlistResponse {
 
 export interface Wishlist {
   user: string;
-  products: Products[];
+  products: Product[];
   _id: string;
   createdAt: string;
   updatedAt: string;

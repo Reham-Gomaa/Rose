@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { wishlistResponse } from "@rose/core_interfaces/wishlist.interface";
+import { ClearResponse, wishlistResponse } from "@rose/core_interfaces/wishlist.interface";
 
 export const getUserWishlist = createAction("[wishlist] load user wishlist");
 
@@ -47,5 +47,5 @@ export const clearwishlist = createAction("[wishlist] clear wishlist");
 
 export const clearwishlistSuccess = createAction(
   "[wishlist] clear wishlist success",
-  props<{ wishlist: wishlistResponse }>(),
+  props<{ wishlist: ClearResponse }>(),
 );

@@ -6,7 +6,7 @@ import {
   ClearResponse,
   wishlistResponse,
 } from "@rose/core_interfaces/wishlist.interface";
-import { Observable, tap } from "rxjs";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",
