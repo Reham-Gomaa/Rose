@@ -1,0 +1,64 @@
+#lowStock-table {
+  color: var(--main-text);
+  font-family: var(--font-family-1);
+  .p-datatable-header {
+    border: none;
+    span {
+      font-weight: 700;
+      font-size: 1.25rem;
+      line-height: 100%;
+      letter-spacing: 0%;
+
+      @media all and (min-width: 62rem) {
+        font-weight: 600;
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .ng-star-inserted {
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 100%;
+    letter-spacing: 0%;
+    .value {
+      font-weight: 500;
+      font-size: 0.75rem;
+    }
+    @media all and (min-width: 62rem) {
+      font-size: 1rem;
+      .value {
+        font-size: 0.875rem;
+      }
+    }
+    .low-stock {
+      color: var(--low-stock) !important;
+    }
+  }
+
+  .p-datatable,
+  .p-datatable-header {
+    background-color: var(--cards-bg);
+    color: var(--p-table-header-color);
+
+    .p-datatable-thead > tr > th {
+      background-color: var(--p-table-header-bg);
+      color: var(--p-table-header-color);
+      font-weight: 600;
+    }
+
+    .p-datatable-tbody > tr {
+      background-color: var(--p-table-row-bg);
+      border-bottom: 1px solid var(--zinc-100);
+      transition: background-color 0.5s ease-in-out;
+
+      &:hover {
+        background-color: var(--p-table-cell-hover-bg);
+      }
+
+      td {
+        color: var(--main-text);
+        padding: 0.75rem 1rem;
+      }
+    }
+  }
+}

@@ -59,15 +59,20 @@ $breakpoint-small: 620px;
   --soft-pink-50: #fff1f5;
   --hover-card-shape: #e6507380;
 
+  --shadow-emerald: #0089610d;
   --emerald-50: #ecfdf5;
   --emerald-300: #5ee9b5;
   --emerald-500: #00bc7d;
+  --emerald-600: #009966;
   --emerald-700: #007a55;
 
+  --shadow-blue: #0063d00d;
   --blue-400: #50a2ff;
+  --blue-500: #2b7fff;
   --blue-600: #155dfc;
   --blue-700: #1447e6;
 
+  --gray: #969696;
   --gray-200: #e9ecef;
   --gray-500: #667085;
   --gray-900: #2e2e30;
@@ -80,8 +85,12 @@ $breakpoint-small: 620px;
 
   --yellow: #fba707;
 
+  --shadow-purple: #753cbf0d;
+  --purple: #753cbf;
+
   // Body
   --body-color: var(--white);
+  --dashboard-bg: var(--zinc-50);
   // Scrollbar
   --scrollbar-width: 0.625rem;
   --scrollbar-height: 0.625rem;
@@ -164,6 +173,40 @@ $breakpoint-small: 620px;
   --active-item-text: var(--soft-maroon-600);
   --drop-button-down-bg: var(--zinc-800);
 
+  // Overview-Reports
+  --main-text: var(--zinc-800);
+  --cards-bg: var(--white);
+  --p-table-header-bg: var(--zinc-100);
+  --p-table-header-color: var(--zinc-800);
+  --p-table-row-bg: var(--white);
+  // Overall
+  --overall-pdt-bg: var(--maroon-50);
+  --overall-pdt-color: var(--maroon-600);
+  --overall-orders-bg: var(--shadow-blue);
+  --overall-orders-color: var(--blue-600);
+  --overall-category-bg: var(--shadow-purple);
+  --overall-category-color: var(--purple);
+  --overall-revenue-bg: var(--shadow-emerald);
+  --overall-revenue-color: var(--emerald-600);
+  // Category
+  --category-value-bg: var(--shadow-black);
+  // Status
+  --canceled: var(--red-600);
+  --inprogress: var(--blue-500);
+  --completed: var(--emerald-500);
+  --pending: var(--yellow);
+  // Revenue
+  --chart-button: var(--gray);
+  --chart-active-button: var(--maroon-600);
+  // Low Stock
+  --low-stock: var(--red-600);
+  // P-table
+  --p-table-cell-hover-bg: var(--soft-pink-50);
+  --category-value-hover-bg: linear-gradient(
+    to right,
+    rgba(255, 182, 193, 0.4),
+    rgba(255, 255, 255, 0.3)
+  );
   //form-titles
   --form-title-color: var(--zinc-800);
   --form-card-bg: var(--white);
@@ -183,6 +226,7 @@ $breakpoint-small: 620px;
 .dark-mode {
   // Body
   --body-color: var(--zinc-800);
+  --dashboard-bg: var(--zinc-900);
   // Scrollbar
   --scrollbar-width: 0.625rem;
   --scrollbar-height: 0.625rem;
@@ -268,4 +312,38 @@ $breakpoint-small: 620px;
   // Translate Toggle
   --translate-toggle-color: var(--zinc-100);
   --translate-toggle-hover: var(--soft-pink-200);
+
+  // Overview-Reports
+  --main-text: var(--white);
+  --cards-bg: var(--zinc-800);
+  // OverAll
+  --overall-pdt-bg: rgba(230, 80, 115, 0.12);
+  --overall-pdt-color: #e65073;
+
+  --overall-orders-bg: rgba(21, 93, 252, 0.12);
+  --overall-orders-color: #3b82f6;
+
+  --overall-category-bg: rgba(117, 60, 191, 0.12);
+  --overall-category-color: #a97bff;
+
+  --overall-revenue-bg: rgba(0, 153, 102, 0.12);
+  --overall-revenue-color: #00c389;
+
+  --overall-hover-opacity: 0.18;
+
+  // P-table
+  --p-table-header-bg: var(--zinc-700);
+  --p-table-header-color: var(--soft-pink-200);
+  --p-table-row-bg: var(--zinc-800);
+  --p-table-cell-hover-bg: var(--soft-pink-200);
+  --category-value-bg: linear-gradient(
+    135deg,
+    rgba(255, 182, 193, 0.07),
+    rgba(255, 255, 255, 0.03)
+  );
+  --category-value-hover-bg: linear-gradient(
+    to right,
+    rgba(255, 182, 193, 0.4),
+    rgba(255, 255, 255, 0.3)
+  );
 }
