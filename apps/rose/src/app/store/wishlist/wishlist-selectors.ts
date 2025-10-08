@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { wishlistStates } from "./wishlist-states";
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 
 export const selectWishlistState = createFeatureSelector<wishlistStates>("wishlist");
 

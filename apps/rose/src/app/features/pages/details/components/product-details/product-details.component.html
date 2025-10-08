@@ -50,9 +50,10 @@
           </p>
         </div>
         <div class="wish-and-cart text-lg w-full flex gap-2">
-          <button [appWishlistToggle]="productDetails()"
-            class="submit-btn wish cursor-pointer flex-grow-0 w-fit capitalize" [activeClass]="'wishlist-active'">
-            <i class="pi pi-heart"></i>
+          <button class="submit-btn wish cursor-pointer flex-grow-0 w-fit capitalize">
+            <i [class.Active]="isInWishlist$ |async" tabindex="0" (keydown)="toggleWishlist()"
+              (click)="toggleWishlist()"
+              [class]="(isInWishlist$ |async) ? 'pi pi-heart-fill icon-circle': 'pi pi-heart icon-circle'"></i>
           </button>
           <button [disabled]="productDetails().quantity <= 0" [class.disableCart]="productDetails().quantity <= 0"
             (click)="addProductToCart(productDetails()._id)"
