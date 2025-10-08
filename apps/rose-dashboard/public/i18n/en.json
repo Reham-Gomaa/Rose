@@ -1,4 +1,23 @@
 {
+  "EGP": "EGP",
+  "overview": {
+    "statistics": {
+      "products": "Total Products",
+      "orders": "Total Orders",
+      "categories": "Total Categories",
+      "revenue": "Total Revenue"
+    },
+    "categories": "All Categories",
+    "revenue": "Revenue",
+    "monthly": "Monthly",
+    "daily": "Daily",
+    "status": "Orders Status",
+    "topselling": "Top Selling Products",
+    "sales": "Sales",
+    "lowstock": "Low Stock Products",
+    "empty-1": "Data temporarily unavailable.",
+    "empty-2": "Please check again soon"
+  },
   "breadcrumb": {
     "overview": "Overview",
     "dashboard": "Dashboard",
