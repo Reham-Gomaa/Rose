@@ -9,9 +9,6 @@ import { Observable } from "rxjs";
 })
 export class StatisticsService {
   private readonly httpClient = inject(HttpClient);
-  token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjg4MzhkMDdhOGJjYTMwN2Y5ZDZhMzBkIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NTg2MTU5ODh9.hiUbPadqKjslklw0MsRB9imgl7yO26Img09nmHgcwrQ";
-  authorization = { Authorization: `Bearer ${this.token}` };
 
   getAllStatistics(): Observable<Statistics> {
     return this.httpClient.get<Statistics>(EndPoint.ALL_STATISTICS);
