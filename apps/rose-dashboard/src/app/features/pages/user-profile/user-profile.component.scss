@@ -1,0 +1,89 @@
+.profile-container {
+  background: #f8f9fa;
+  min-height: 100vh;
+  padding: 0 2.5rem;
+}
+
+.sidebar-title {
+  font-family: var(--font-family-1);
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  color: var(--zinc-800);
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.content-area {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.container-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+.container-btn-second {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.delete-account {
+  background: none;
+  border: none;
+  color: var(--edit-user-profile-delete-btn-color);
+  font-family: var(--font-family-4);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 100%;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  margin: 0 !important;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.change-password {
+  background: none;
+  border: none;
+  color: var(--zinc-800);
+  font-family: var(--font-family-4);
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 100%;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  margin: 0 !important;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 980px) {
+  .container-btn {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .container-btn-second {
+    margin-top: 3.5rem;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

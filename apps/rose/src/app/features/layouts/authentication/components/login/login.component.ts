@@ -3,21 +3,25 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angula
 import { Router, RouterLink } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
-import { TranslatePipe } from "@ngx-translate/core";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 // shared-components
 import { AuthComponent } from "@rose/features_layouts/authentication/auth.component";
-import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
-import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
+import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
+import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 // services
-import { PlatformService } from "@rose/core_services/platform/platform.service";
+import { StorageManagerService } from "@angular-monorepo/services";
+import { UserStateService } from "@angular-monorepo/services";
 // shared-service
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/services";
 // Animation
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // PrimeNG
 import { MessageService } from "primeng/api";
 // Auth lib
 import { AuthApiKpService } from "auth-api-kp";
+// Store
+import { Store } from "@ngrx/store";
+import * as AuthActions from "@rose/store_auth/auth.actions";
 
 @Component({
   selector: "app-login",
@@ -35,11 +39,14 @@ import { AuthApiKpService } from "auth-api-kp";
 })
 export class LoginComponent {
   readonly translationService = inject(TranslationService);
+  private readonly _translate = inject(TranslateService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly _authApiKpService = inject(AuthApiKpService);
   private readonly _router = inject(Router);
   public _messageService = inject(MessageService);
-  private readonly _platform = inject(PlatformService);
+  private readonly _storageManagerService = inject(StorageManagerService);
+  private readonly _userStateService = inject(UserStateService);
+  private readonly _store = inject(Store);
 
   apiError = signal<string>("");
   isLoading = signal<boolean>(false);
@@ -51,7 +58,6 @@ export class LoginComponent {
       Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"),
     ]),
   });
-
   LoginSubmit(): void {
     if (this.loginForm.invalid || this.isLoading()) return;
 
@@ -64,19 +70,20 @@ export class LoginComponent {
       .subscribe({
         next: (res) => {
           if ("token" in res && res.message === "success") {
-            if (this._platform.isBrowser()) {
-              localStorage.setItem("authToken", res.token);
-            }
+            this._store.dispatch(AuthActions.loginSuccess({ token: res.token }));
+            this._storageManagerService.setItem("authToken", res.token);
+            this._userStateService.setLoggedIn(true);
+
             this._messageService.add({
               severity: "success",
-              detail: "Login successful!",
+              detail: this._translate.instant("messagesToast.loginSuccess"),
               life: 3000,
             });
             this._router.navigate(["/dashboard/home"]);
           } else {
             this._messageService.add({
               severity: "error",
-              detail: "Incorrect Email or Password. Please try again",
+              detail: this._translate.instant("messagesToast.loginFailed"),
               life: 5000,
             });
           }
@@ -84,7 +91,7 @@ export class LoginComponent {
         error: (err) => {
           this._messageService.add({
             severity: "error",
-            detail: "Incorrect Email or Password. Please try again",
+            detail: this._translate.instant("messagesToast.loginFailed"),
             life: 5000,
           });
         },

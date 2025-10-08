@@ -1,0 +1,37 @@
+<section id="addresses" class="my-1">
+  @if (addsLoading) {
+    @for (address of userAddresses(); track address._id) {
+      <button (click)="setShipAddress(address._id)" class="d-block card-btn w-full bg-transparent">
+        <div
+          class="address-card rounded-md w-full"
+          [class.active]="selectedAddress?._id === address._id"
+        >
+          <div class="address-card-header flex justify-content-between align-items-center">
+            <h4 class="my-0 font-semibold capitalize">{{ address.city }}</h4>
+            <div class="phone mt-0 flex gap-2 justify-content-between align-items-center">
+              <span class="phone-icon flex justify-content-center align-items-center">
+                <i class="pi pi-phone"></i>
+              </span>
+              <span class="phone-num">
+                {{ address.phone }}
+              </span>
+            </div>
+          </div>
+          <div class="address-details mt-3 text-left">
+            <span>{{ address.username }} St., {{ address.street }} st., {{ address.city }}</span>
+          </div>
+        </div>
+      </button>
+    }
+  }
+  @if (userAddresses.length > 0) {
+    <div class="flex or justify-content-center">
+      <span class="uppercase">or</span>
+    </div>
+  }
+
+  <app-button [text]="'Add a New Address'" [icon]="" (click)="openAddress()"></app-button>
+
+  <!-- address model -->
+  <app-user-address [visible]="addressState === 1" (closed)="close()"></app-user-address>
+</section>

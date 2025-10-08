@@ -25,10 +25,11 @@ import {
 import { setAddressState, showAddresses } from "apps/rose/src/app/store/address/address.actions";
 import { DeleteDialogComponent } from "./components/delete-dialog/delete-dialog.component";
 import { AddressSituations } from "apps/rose/src/app/store/address/addresses.state";
-import { SpinnerComponent } from "@rose/shared_Components_ui/spinner/spinner.component";
+import { SpinnerComponent } from "@angular-monorepo/rose-buttons";
 import { TranslatePipe } from "@ngx-translate/core";
 import { AddressStepperComponent } from "./components/address-stepper/address-stepper.component";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: "app-user-address",
@@ -43,6 +44,7 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
     DeleteDialogComponent,
     SpinnerComponent,
     AddressStepperComponent,
+    NgOptimizedImage,
   ],
   templateUrl: "./user-address.component.html",
   styleUrl: "./user-address.component.scss",
@@ -54,6 +56,7 @@ export class UserAddressComponent implements OnInit {
   @Output() closed = new EventEmitter<void>();
   visible = input.required<boolean>();
 
+  public AddressSituations = AddressSituations;
   address!: Array<Address>;
   loading!: boolean;
   error!: any;

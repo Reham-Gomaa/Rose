@@ -1,17 +1,14 @@
 import { Component, inject, OnInit, signal, DestroyRef } from "@angular/core";
-import { CommonModule } from "@angular/common";
 // Images
 import { NgOptimizedImage } from "@angular/common";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
-import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
+import { TranslationService } from "@angular-monorepo/services";
 // Animations
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
-// Interfaces
-import { Category, CategoryRes } from "@rose/core_interfaces/categories.interface";
-// Shared_Services
-import { CategoriesService } from "@rose/shared_services/categories/categories.service";
+import { fadeTransition } from "@angular-monorepo/services";
+// Shared_Services , Interfaces
+import { CategoriesService, Category, CategoryRes } from "@angular-monorepo/categories";
 // Shared_Components
 import { NoDataAvailableComponent } from "@rose/shared_Components_business/no-data-available/no-data-available.component";
 // PrimeNG
@@ -21,20 +18,13 @@ import { Skeleton } from "primeng/skeleton";
 
 @Component({
   selector: "app-categories",
-  imports: [
-    CommonModule,
-    ToastModule,
-    Skeleton,
-    TranslatePipe,
-    NoDataAvailableComponent,
-    NgOptimizedImage,
-  ],
+  imports: [ToastModule, Skeleton, TranslatePipe, NoDataAvailableComponent, NgOptimizedImage],
   templateUrl: "./categories.component.html",
   styleUrls: ["./categories.component.scss"],
-  providers: [MessageService],
   animations: [fadeTransition],
 })
 export class CategoriesComponent implements OnInit {
+  private readonly _translate = inject(TranslateService);
   private categoriesService = inject(CategoriesService);
   translationService = inject(TranslationService);
   private messageService = inject(MessageService);
@@ -65,8 +55,7 @@ export class CategoriesComponent implements OnInit {
           this.isLoading.set(false);
           this.messageService.add({
             severity: "error",
-            summary: "Error",
-            detail: "Failed to load categories",
+            detail: this._translate.instant("messagesToast.failedToLoadCategories"),
           });
         },
       });

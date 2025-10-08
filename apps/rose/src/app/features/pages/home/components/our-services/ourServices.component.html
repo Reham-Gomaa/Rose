@@ -1,38 +1,34 @@
-<section
-  [@fadeTransition]="translationService.fadeState()"
-  class="my-8"
-  aria-labelledby="services-section-heading"
->
+<section class="my-8" aria-labelledby="services-section-heading">
   <h2 id="services-section-heading" class="sr-only">Our Services</h2>
   <div class="parent grid">
     @for (service of services; track service.id) {
-    <article class="col-12 md:col-6 xl:col-3" [attr.aria-label]="service.heading">
-      <div
-        class="flex flex-column mb-5 justify-content-start align-items-center md:flex-row md:justify-content-center h-full"
-      >
+      <article class="col-12 md:col-6 xl:col-3" [attr.aria-label]="service.heading">
         <div
-          aria-hidden="true"
-          class="icon mb-3 lg:mb-0 md:mr-3 text-white flex justify-content-center align-items-center"
+          class="flex flex-column mb-5 justify-content-start align-items-center md:flex-row md:justify-content-center h-full"
         >
-          <i
-            [class]="service.icon"
+          <div
             aria-hidden="true"
-            class="style='color: surface-0' flex justify-content-center align-items-center"
-          ></i>
-        </div>
-        <div class="content">
-          <h3
-            id="service-heading-{{ service.id }}"
-            class="line-height-3 text-xl font-semibold vertical-align-middle"
+            class="icon mb-3 lg:mb-0 md:mr-3 text-white flex justify-content-center align-items-center"
           >
-            {{ service.heading | translate }}
-          </h3>
-          <p class="m-0 text-base font-normal vertical-align-middle">
-            {{ service.paragraph | translate }}
-          </p>
+            <i
+              [class]="service.icon"
+              aria-hidden="true"
+              class="style='color: surface-0' flex justify-content-center align-items-center"
+            ></i>
+          </div>
+          <div class="content">
+            <h3
+              id="service-heading-{{ service.id }}"
+              class="line-height-3 text-xl font-semibold vertical-align-middle"
+            >
+              {{ service.heading | translate }}
+            </h3>
+            <p class="m-0 text-base font-normal vertical-align-middle">
+              {{ service.paragraph | translate }}
+            </p>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
     }
   </div>
 </section>

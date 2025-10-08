@@ -57,6 +57,11 @@
           "codeCoverage": true
         }
       }
+    },
+    "e2e-ci--**/**": {
+      "dependsOn": [
+        "^build"
+      ]
     }
   },
   "plugins": [
@@ -82,6 +87,10 @@
     },
     "@nx/angular:component": {
       "style": "scss"
+    },
+    "@nx/angular:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest"
     }
   }
 }

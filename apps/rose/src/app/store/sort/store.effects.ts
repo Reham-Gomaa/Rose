@@ -14,10 +14,10 @@ export class sortEffects {
         ofType(sortActions.sortByPrice, sortActions.sortByTitle),
         tap(() => {
           this._store.dispatch(sortActions.sortProducts());
-        })
+        }),
       ),
     {
       dispatch: false,
-    }
+    },
   );
 }

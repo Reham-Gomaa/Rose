@@ -4,9 +4,15 @@
     <p class="no-data-available-text">
       {{ "emptyData.message" | translate }}
     </p>
-    <app-button (click)="retryFetch()" [bgColor]="'var(--btn-shared-background)'"
-      [textColor]="'var(--btn-shared-color)'" [icon]="'pi pi-refresh arrowicon'"
-      [borderRadius]="'btn-roundedBorderRadius'" [padding]="'btn-topLeft-padding'" [margin]="'mx-auto'"
-      aria-label="Shop for Special Gifts Box"></app-button>
+    <app-button
+      (click)="retryFetch()"
+      [bgColor]="'var(--btn-shared-background)'"
+      [textColor]="'var(--btn-shared-color)'"
+      [icon]="'pi pi-refresh arrowicon'"
+      [borderRadius]="'btn-roundedBorderRadius'"
+      [padding]="'btn-topLeft-padding'"
+      [margin]="'mx-auto'"
+      aria-label="Shop for Special Gifts Box"
+    ></app-button>
   </div>
 </section>

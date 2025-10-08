@@ -3,9 +3,9 @@ import { RouterLink } from "@angular/router";
 // @ngx
 import { TranslatePipe } from "@ngx-translate/core";
 // shared-components
-import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";
+import { TranslateToggleComponent } from "@angular-monorepo/rose-buttons";
 import { SeparatorComponent } from "@rose/shared_Components_ui/auth-separator/separator.component";
-import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
+import { ButtonThemeComponent } from "@angular-monorepo/rose-buttons";
 
 @Component({
   selector: "app-auth",

@@ -4,4 +4,5 @@ export interface cartState {
   cartItems: cartItems[];
   cartItemsNum: number;
   totalPrice: number;
+  loading: boolean;
 }

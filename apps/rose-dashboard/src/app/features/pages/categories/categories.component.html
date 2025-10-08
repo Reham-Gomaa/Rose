@@ -1,0 +1,4 @@
+<section id="occasion">
+  <app-data-view [data_items]="cats()" [table_records]="table_header_records"  [entityType]="'category'" (addNew)="onAddNew()"
+    (editItem)="onEditCategory($event)"  (deleteItem)="onDeleteCategory($event)"></app-data-view>
+</section>

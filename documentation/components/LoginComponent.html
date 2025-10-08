@@ -1,0 +1,948 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@angular-monorepo/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@angular-monorepo/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  LoginComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/rose/src/app/features/layouts/authentication/components/login/login.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-login</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>RouterLink</code>
+                                <code><a href="../components/AuthComponent.html" target="_self" >AuthComponent</a></code>
+                                <code><a href="../components/CustomInputComponent.html" target="_self" >CustomInputComponent</a></code>
+                            <code>ReactiveFormsModule</code>
+                                <code><a href="../components/FormButtonComponent.html" target="_self" >FormButtonComponent</a></code>
+                            <code>TranslatePipe</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./login.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./login.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_authApiKpService" >_authApiKpService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_messageService" >_messageService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_router" >_router</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_storageManagerService" >_storageManagerService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_store" >_store</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_translate" >_translate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_userStateService" >_userStateService</a>
+                            </li>
+                            <li>
+                                <a href="#apiError" >apiError</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#destroyRef" >destroyRef</a>
+                            </li>
+                            <li>
+                                <a href="#isLoading" >isLoading</a>
+                            </li>
+                            <li>
+                                <a href="#loginForm" >loginForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#translationService" >translationService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#LoginSubmit" >LoginSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LoginSubmit"></a>
+                    <span class="name">
+                        <span ><b>LoginSubmit</b></span>
+                        <a href="#LoginSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>LoginSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/login/login.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_authApiKpService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_authApiKpService</b></span>
+                        <a href="#_authApiKpService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(AuthApiKpService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/login/login.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_messageService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>_messageService</b></span>
+                        <a href="#_messageService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(MessageService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/login/login.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_router"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_router</b></span>
+                        <a href="#_router"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Router)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/login/login.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_storageManagerService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_storageManagerService</b></span>
+                        <a href="#_storageManagerService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(StorageManagerService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/login/login.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_store"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_store</b></span>
+                        <a href="#_store"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(Store)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/login/login.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_translate"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_translate</b></span>
+                        <a href="#_translate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslateService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/login/login.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_userStateService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_userStateService</b></span>
+                        <a href="#_userStateService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(UserStateService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/login/login.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiError"></a>
+                    <span class="name">
+                        <span ><b>apiError</b></span>
+                        <a href="#apiError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;string&gt;(&quot;&quot;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/login/login.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroyRef"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>destroyRef</b></span>
+                        <a href="#destroyRef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(DestroyRef)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/login/login.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoading"></a>
+                    <span class="name">
+                        <span ><b>isLoading</b></span>
+                        <a href="#isLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/login/login.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loginForm"></a>
+                    <span class="name">
+                        <span ><b>loginForm</b></span>
+                        <a href="#loginForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    email: new FormControl(&quot;&quot;, [Validators.required, Validators.email]),
+    password: new FormControl(&quot;&quot;, [
+      Validators.required,
+      Validators.pattern(&quot;^(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z])(?&#x3D;.*\\d)(?&#x3D;.*[@$!%*?&amp;])[A-Za-z\\d@$!%*?&amp;]{8,}$&quot;),
+    ]),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/login/login.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="translationService"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>translationService</b></span>
+                        <a href="#translationService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslationService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">apps/rose/src/app/features/layouts/authentication/components/login/login.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, signal, DestroyRef } from &quot;@angular/core&quot;;
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from &quot;@angular/forms&quot;;
+import { Router, RouterLink } from &quot;@angular/router&quot;;
+import { takeUntilDestroyed } from &quot;@angular/core/rxjs-interop&quot;;
+// Translation
+import { TranslatePipe, TranslateService } from &quot;@ngx-translate/core&quot;;
+// shared-components
+import { AuthComponent } from &quot;@rose/features_layouts/authentication/auth.component&quot;;
+import { CustomInputComponent } from &quot;@rose/shared_Components_ui/custom-input/custom-input.component&quot;;
+import { FormButtonComponent } from &quot;@rose/shared_Components_ui/form-button/form-button.component&quot;;
+// services
+import { StorageManagerService } from &quot;@rose/core_services/storage-manager/storage-manager.service&quot;;
+import { UserStateService } from &quot;@rose/core_services/user-state/user-state.service&quot;;
+// shared-service
+import { TranslationService } from &quot;@rose/core_services/translation/translation.service&quot;;
+// Animation
+import { fadeTransition } from &quot;@rose/core_services/translation/fade.animation&quot;;
+// PrimeNG
+import { MessageService } from &quot;primeng/api&quot;;
+// Auth lib
+import { AuthApiKpService } from &quot;auth-api-kp&quot;;
+// Store
+import { Store } from &quot;@ngrx/store&quot;;
+import * as AuthActions from &quot;@rose/store_auth/auth.actions&quot;;
+
+@Component({
+  selector: &quot;app-login&quot;,
+  imports: [
+    RouterLink,
+    AuthComponent,
+    CustomInputComponent,
+    ReactiveFormsModule,
+    FormButtonComponent,
+    TranslatePipe,
+  ],
+  templateUrl: &quot;./login.component.html&quot;,
+  styleUrl: &quot;./login.component.scss&quot;,
+  animations: [fadeTransition],
+})
+export class LoginComponent {
+  readonly translationService &#x3D; inject(TranslationService);
+  private readonly _translate &#x3D; inject(TranslateService);
+  private readonly destroyRef &#x3D; inject(DestroyRef);
+  private readonly _authApiKpService &#x3D; inject(AuthApiKpService);
+  private readonly _router &#x3D; inject(Router);
+  public _messageService &#x3D; inject(MessageService);
+  private readonly _storageManagerService &#x3D; inject(StorageManagerService);
+  private readonly _userStateService &#x3D; inject(UserStateService);
+  private readonly _store &#x3D; inject(Store);
+
+  apiError &#x3D; signal&lt;string&gt;(&quot;&quot;);
+  isLoading &#x3D; signal&lt;boolean&gt;(false);
+
+  loginForm: FormGroup &#x3D; new FormGroup({
+    email: new FormControl(&quot;&quot;, [Validators.required, Validators.email]),
+    password: new FormControl(&quot;&quot;, [
+      Validators.required,
+      Validators.pattern(&quot;^(?&#x3D;.*[a-z])(?&#x3D;.*[A-Z])(?&#x3D;.*\\d)(?&#x3D;.*[@$!%*?&amp;])[A-Za-z\\d@$!%*?&amp;]{8,}$&quot;),
+    ]),
+  });
+  LoginSubmit(): void {
+    if (this.loginForm.invalid || this.isLoading()) return;
+
+    this.isLoading.set(true);
+    this.apiError.set(&quot;&quot;);
+
+    this._authApiKpService
+      .login(this.loginForm.value)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (res) &#x3D;&gt; {
+          if (&quot;token&quot; in res &amp;&amp; res.message &#x3D;&#x3D;&#x3D; &quot;success&quot;) {
+            this._store.dispatch(AuthActions.loginSuccess({ token: res.token }));
+            this._storageManagerService.setItem(&quot;authToken&quot;, res.token);
+            this._userStateService.setLoggedIn(true);
+
+            this._messageService.add({
+              severity: &quot;success&quot;,
+              detail: this._translate.instant(&quot;messagesToast.loginSuccess&quot;),
+              life: 3000,
+            });
+            this._router.navigate([&quot;/dashboard/home&quot;]);
+          } else {
+            this._messageService.add({
+              severity: &quot;error&quot;,
+              detail: this._translate.instant(&quot;messagesToast.loginFailed&quot;),
+              life: 5000,
+            });
+          }
+        },
+        error: (err) &#x3D;&gt; {
+          this._messageService.add({
+            severity: &quot;error&quot;,
+            detail: this._translate.instant(&quot;messagesToast.loginFailed&quot;),
+            life: 5000,
+          });
+        },
+        complete: () &#x3D;&gt; {
+          this.isLoading.set(false);
+        },
+      });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;app-auth
+  [@fadeTransition]&#x3D;&quot;translationService.fadeState()&quot;
+  [process]&#x3D;&quot;&#x27;login&#x27;&quot;
+  [title]&#x3D;&quot;&#x27;auth.login.h1&#x27;&quot;
+  [heading3]&#x3D;&quot;&#x27;auth.login.h3&#x27;&quot;
+  [heading3span]&#x3D;&quot;&#x27;auth.login.span&#x27;&quot;
+  [formType]&#x3D;&quot;loginForm&quot;
+&gt;
+  &lt;div class&#x3D;&quot;flex-col&quot;&gt;
+    &lt;form [formGroup]&#x3D;&quot;loginForm&quot; (ngSubmit)&#x3D;&quot;LoginSubmit()&quot; role&#x3D;&quot;form&quot; aria-label&#x3D;&quot;Login Form&quot;&gt;
+      &lt;!-- Email --&gt;
+      &lt;app-custom-input
+        formControlName&#x3D;&quot;email&quot;
+        type&#x3D;&quot;text&quot;
+        placeholder&#x3D;&quot;user@example.com&quot;
+        id&#x3D;&quot;email&quot;
+        labelText&#x3D;&quot;{{ &#x27;auth.inputs.email&#x27; | translate }}&quot;
+        [errorHandilgControl]&#x3D;&quot;loginForm.get(&#x27;email&#x27;)!&quot;
+        class&#x3D;&quot;w-full&quot;
+        autocomplete&#x3D;&quot;email&quot;
+        aria-required&#x3D;&quot;true&quot;
+        aria-describedby&#x3D;&quot;emailHelp&quot;
+      /&gt;
+
+      &lt;!-- Password --&gt;
+      &lt;app-custom-input
+        formControlName&#x3D;&quot;password&quot;
+        type&#x3D;&quot;password&quot;
+        placeholder&#x3D;&quot;********&quot;
+        id&#x3D;&quot;password&quot;
+        labelText&#x3D;&quot;{{ &#x27;auth.inputs.password&#x27; | translate }}&quot;
+        [errorHandilgControl]&#x3D;&quot;loginForm.get(&#x27;password&#x27;)!&quot;
+        class&#x3D;&quot;w-full&quot;
+        autocomplete&#x3D;&quot;current-password&quot;
+        aria-required&#x3D;&quot;true&quot;
+      /&gt;
+
+      &lt;h5
+        [routerLink]&#x3D;&quot;&#x27;/reset-password&#x27;&quot;
+        class&#x3D;&quot;cursor-pointer&quot;
+        role&#x3D;&quot;link&quot;
+        tabindex&#x3D;&quot;0&quot;
+        [attr.aria-label]&#x3D;&quot;&#x27;auth.login.h5&#x27; | translate&quot;
+      &gt;
+        {{ &quot;auth.login.h5&quot; | translate }}
+      &lt;/h5&gt;
+
+      &lt;app-form-button
+        (onClick)&#x3D;&quot;LoginSubmit()&quot;
+        [text]&#x3D;&quot;&#x27;auth.login.button&#x27; | translate&quot;
+        [disabled]&#x3D;&quot;loginForm.invalid&quot;
+        [isLoading]&#x3D;&quot;isLoading()&quot;
+        type&#x3D;&quot;submit&quot;
+      /&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+&lt;/app-auth&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><app-auth  [@fadeTransition]="translationService.fadeState()"  [process]="\'login\'"  [title]="\'auth.login.h1\'"  [heading3]="\'auth.login.h3\'"  [heading3span]="\'auth.login.span\'"  [formType]="loginForm">  <div class="flex-col">    <form [formGroup]="loginForm" (ngSubmit)="LoginSubmit()" role="form" aria-label="Login Form">      <!-- Email -->      <app-custom-input        formControlName="email"        type="text"        placeholder="user@example.com"        id="email"        labelText="{{ \'auth.inputs.email\' | translate }}"        [errorHandilgControl]="loginForm.get(\'email\')!"        class="w-full"        autocomplete="email"        aria-required="true"        aria-describedby="emailHelp"      />      <!-- Password -->      <app-custom-input        formControlName="password"        type="password"        placeholder="********"        id="password"        labelText="{{ \'auth.inputs.password\' | translate }}"        [errorHandilgControl]="loginForm.get(\'password\')!"        class="w-full"        autocomplete="current-password"        aria-required="true"      />      <h5        [routerLink]="\'/reset-password\'"        class="cursor-pointer"        role="link"        tabindex="0"        [attr.aria-label]="\'auth.login.h5\' | translate"      >        {{ "auth.login.h5" | translate }}      </h5>      <app-form-button        (onClick)="LoginSubmit()"        [text]="\'auth.login.button\' | translate"        [disabled]="loginForm.invalid"        [isLoading]="isLoading()"        type="submit"      />    </form>  </div></app-auth></div>'
+    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'ButtonThemeComponent', 'selector': 'app-button-theme'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ConfirmDialogComponent', 'selector': 'app-confirm-dialog'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomInputComponent', 'selector': 'app-custom-input'},{'name': 'CustomInputPhoneComponent', 'selector': 'app-custom-input-phone'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'FormButtonComponent', 'selector': 'app-form-button'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'InputErrorHandlingComponent', 'selector': 'app-input-error-handling'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'NotificationToastComponent', 'selector': 'app-notification-toast'},{'name': 'NxWelcomeComponent', 'selector': 'app-nx-welcome'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'SpinnerComponent', 'selector': 'app-spinner'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TranslateToggleComponent', 'selector': 'app-translate-toggle'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
+    var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'},{'name': 'WishlistToggleDirective', 'selector': '[appWishlistToggle]'}];
+    var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -2,14 +2,13 @@ import { Component, DestroyRef, inject, OnInit } from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
-// Interfaces
 import { FilterItem, selectedItem } from "@rose/core_interfaces/filter-item.interface";
-import { occasionRes } from "@rose/core_interfaces/occasions.interface";
 // Shared_Components
-import { FilterCardComponent } from "@rose/shared_Components_ui/filter-card/filter-card.component";
 import { CheckedCardComponent } from "@rose/shared_Components_business/checkbox/checked-card.component";
-// Shared_Services
-import { OccasionsService } from "@rose/shared_services/occasions/occasions.service";
+import { FilterCardComponent } from "@rose/shared_Components_ui/filter-card/filter-card.component";
+// Occasion Lib
+import { OccasionService } from "@angular-monorepo/occasions";
+import { occasionRes } from "@angular-monorepo/occasions";
 // NGRX
 import { Store } from "@ngrx/store";
 import { loadSelectedOccasions } from "@rose/store_filter/filter.actions";
@@ -21,9 +20,8 @@ import { loadSelectedOccasions } from "@rose/store_filter/filter.actions";
   styleUrl: "./filter-occasions.component.scss",
 })
 export class FilterOccasionsComponent implements OnInit {
-  private readonly _occasionsService = inject(OccasionsService);
+  private readonly _occasionsService = inject(OccasionService);
   private readonly _store = inject(Store);
-
   private destroyRef = inject(DestroyRef);
 
   occasions!: FilterItem[];
@@ -32,7 +30,7 @@ export class FilterOccasionsComponent implements OnInit {
 
   ngOnInit(): void {
     this._occasionsService
-      .getcategoryOccasions()
+      .getAllOccasions()
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (res: occasionRes) => {
@@ -43,9 +41,6 @@ export class FilterOccasionsComponent implements OnInit {
               category: occasion.name,
               productCount: occasion.productsCount,
             }));
-        },
-        error: (err) => {
-          console.error("Error fetching occasions:", err);
         },
       });
   }

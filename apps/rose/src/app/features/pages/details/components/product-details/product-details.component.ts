@@ -1,8 +1,7 @@
-import { NgClass, NgOptimizedImage } from "@angular/common";
+import { NgOptimizedImage } from "@angular/common";
 import { Component, effect, inject, input, signal } from "@angular/core";
-
 //interfaces
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 import { cartItems } from "@rose/core_interfaces/cart.interface";
 // PrimeNG
 import { DialogModule } from "primeng/dialog";
@@ -15,8 +14,7 @@ import { selectCartItems } from "apps/rose/src/app/store/cart/cart-selectors";
 
 @Component({
   selector: "app-product-details",
-  standalone: true,
-  imports: [NgOptimizedImage, DialogModule, NgClass],
+  imports: [NgOptimizedImage, DialogModule],
   templateUrl: "./product-details.component.html",
   styleUrl: "./product-details.component.scss",
 })

@@ -9,10 +9,10 @@ import {
 import { Router } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
-import { TranslatePipe } from "@ngx-translate/core";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 // shared-components
-import { FormButtonComponent } from "@rose/shared_Components_ui/form-button/form-button.component";
-import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
+import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
+import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 // PrimeNG
 import { MessageService } from "primeng/api";
 // Auth lib
@@ -24,6 +24,7 @@ import { AuthApiKpService } from "auth-api-kp";
   styleUrls: ["./set-password.component.scss"],
 })
 export class SetPasswordComponent {
+  private readonly _translate = inject(TranslateService);
   private readonly _authApiKpService = inject(AuthApiKpService);
   private readonly _messageService = inject(MessageService);
   private readonly _router = inject(Router);
@@ -42,12 +43,12 @@ export class SetPasswordComponent {
       password: new FormControl("", [
         Validators.required,
         Validators.pattern(
-          "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+          "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
         ),
       ]),
       confirmPassword: new FormControl("", Validators.required),
     },
-    { validators: this.passwordMatchValidator }
+    { validators: this.passwordMatchValidator },
   );
 
   ngOnInit(): void {
@@ -78,17 +79,19 @@ export class SetPasswordComponent {
         next: () => {
           this._messageService.add({
             severity: "success",
-            detail: "Reset password successfully!",
+            detail: this._translate.instant("messagesToast.resetPasswordSuccess"),
             life: 3000,
           });
           this.passwordReset.emit();
           this._router.navigate(["/login"]);
         },
         error: (err) => {
-          this.apiError.set(err.error?.message || "Failed to reset password.");
+          this.apiError.set(
+            err.error?.message || this._translate.instant("messagesToast.resetPasswordFailed"),
+          );
           this._messageService.add({
             severity: "error",
-            detail: "Failed to reset password.",
+            detail: this._translate.instant("messagesToast.resetPasswordFailed"),
             life: 3000,
           });
         },

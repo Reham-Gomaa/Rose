@@ -1,107 +1,164 @@
 <section [@fadeTransition]="translationService.fadeState()">
-    <div id="cartParent" class="flex flex-column justify-content-between border-round-2xl">
-        <div class="flex flex-row justify-content-between align-items-center">
-            <div>
-                <h1>{{'cart.title' |translate}} <span>{{cartItemsNum$ |async}} Products</span> </h1>
-            </div>
-            <div>
-                <app-button (click)="clearCart()" [bgColor]="'var(--cart-clearBtn-bg)'"
-                    [textColor]="'var(--cart-clearBtn-text)'" [text]="'cart.clear-cart' |translate"
-                    [padding]="'clear-cart-padding'" [borderRadius]="'cart-radius'">
-                    <img src="./images/cart/brush-cleaning.WebP" alt="clear cart">
-                </app-button>
-            </div>
-        </div>
-
-        <div id="cartContent">
-            @if (isLoading) {
-            <ng-container>
-                @for(item of [1,2,3];track $index){
-                <div class="pdt-wrapper flex flex-wrap">
-                    <div class="w-4 md:w-3">
-                        <p-skeleton width="100%" height="8.75rem" borderRadius="1rem"></p-skeleton>
-                    </div>
-                    <div class="w-8 md:w-9 flex flex-column justify-content-between px-3">
-                        <p-skeleton width="80%" height="1.5rem" class="mb-2"></p-skeleton>
-                        <p-skeleton width="60%" height="1rem" class="mb-2"></p-skeleton>
-                        <p-skeleton width="40%" height="1rem"></p-skeleton>
-                    </div>
-                </div>
-                }
-
-            </ng-container>
-            }
-            @else {
-            @for (item of userCartItems; track $index) {
-            @if (cartItemsNum$ |async; as cartItemsNum) {
-            <div [class.border-none]="cartItemsNum === $index + 1" class="pdt-wrapper ">
-                <div class=" md:w-3">
-                    <img class="pdt block border-round-lg" [src]="item.product.imgCover" alt="product">
-                </div>
-                <div class=" md:w-9 flex flex-column justify-content-between">
-                    <!-- Right - UP -->
-                    <div class="pdt-title-rating">
-                        <div>
-                            <h2 class="pdt-name">{{item.product.title}}</h2>
-                            <h3 class="pdt-rating">
-                                <i class="pi pi-star-fill" style="color: var(--cart-star)"></i>
-                                {{'cart.rating' |translate}}: <span class="rating">{{item.product.rateAvg}}/5</span>
-                                <span class="rating-num">({{item.product.rateCount}} {{'cart.rating'
-                                    |translate}})</span>
-                            </h3>
-                        </div>
-                        <div class="remove-btn">
-                            <app-button (click)="removeCartItem(item.product._id)"
-                                [bgColor]="'var(--cart-deleteBtn-bg)'" [textColor]="'var(--cart-deleteBtn-text)'"
-                                [icon]="'pi pi-trash'" [padding]="'cart-delete-padding'" [borderRadius]="'cart-radius'"
-                                [text]="'cart.remove' |translate"
-                                [rowReverse]="'flex flex-row-reverse align-items-center'" />
-                        </div>
-                    </div>
-
-                    <!-- Right - Down -->
-                    <div class="pdt-price-quantity">
-                        <div>
-                            <h3 class="pdt-price"> <span class="qty">(x{{item.quantity}})</span>
-                                {{item.product.price}}
-                                <span class="egp">{{ 'EGP' |translate }}</span>
-                            </h3>
-                        </div>
-                        <div class=" flex justify-content-center md:justify-content-between align-items-center">
-                            <app-button (click)="updateProductQuantity(item.product._id,-1)"
-                                [padding]="'cart-qty-padding'" [borderRadius]="'cart-radius'"
-                                [bgColor]="'var(--cart-clearBtn-bg)'" [textColor]="'var(--cart-clearBtn-text)'"
-                                [icon]="'pi pi-minus'" />
-                            <input type="number" class="w-4 md:w-6rem mx-2" [value]="item.quantity" min="1"
-                                [max]="item.product.quantity" (change)="onQuantityChange(item.product._id, $event)"
-                                (keyup.enter)="onQuantityChange(item.product._id, $event)" />
-                            <app-button (click)="updateProductQuantity(item.product._id,1)"
-                                [padding]="'cart-qty-padding'" [borderRadius]="'cart-radius'"
-                                [bgColor]="'var(--cart-clearBtn-bg)'" [textColor]="'var(--cart-clearBtn-text)'"
-                                [icon]="'pi pi-plus'" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            }
-            }@empty {
-            <div class="flex flex-column justify-content-center align-items-center">
-                <div>
-                    <img class="empty block" src="./images/cart/no-cart.WebP" alt="empty cart">
-                </div>
-                <div>
-                    <h2 class="empty">{{ 'cart.empty' |translate}}</h2>
-                </div>
-            </div>
-            }
-            }
-        </div>
-
-        <div class="flex justify-content-start align-items-center mt-4">
-            <app-button [routerLink]="'/dashboard/home'" [rowReverse]="'flex flex-row-reverse align-items-center'"
-                [icon]="'pi pi-arrow-left arrowicon mr-2'" [bgColor]="'var(--btn-shared-background)'"
-                [textColor]="'var(--cart-continueBtn-text)'" [text]="'cart.continue-shopping' |translate"
-                [padding]="'cart-padding'" [borderRadius]="'cart-radius'" />
-        </div>
+  <div id="cartParent" class="flex flex-column justify-content-between border-round-2xl">
+    <div class="flex flex-row justify-content-between align-items-center">
+      <div>
+        <h1>
+          {{ "cart.title" | translate }} <span>{{ cartItemsNum$ | async }} Products</span>
+        </h1>
+      </div>
+      <div>
+        <app-button
+          (click)="clearCart()"
+          [bgColor]="'var(--cart-clearBtn-bg)'"
+          [textColor]="'var(--cart-clearBtn-text)'"
+          [text]="'cart.clear-cart' | translate"
+          [padding]="'clear-cart-padding'"
+          [borderRadius]="'cart-radius'"
+        >
+          <img
+            loading="lazy"
+            decoding="async"
+            width="20"
+            height="20"
+            ngSrc="./images/cart/brush-cleaning.AVIF"
+            alt="clear cart"
+          />
+        </app-button>
+      </div>
     </div>
+    <!-- Loading Skeleton -->
+    <div id="cartContent">
+      @if (isLoading$ | async) {
+        <ng-container>
+          @for (item of [1, 2, 3]; track $index) {
+            <div [class.border-none]="$index === 2" class="pdt-wrapper flex flex-wrap">
+              <div class="w-4 pb-2 md:w-3">
+                <p-skeleton width="100%" height="8.75rem" borderRadius="1rem"></p-skeleton>
+              </div>
+              <div class="w-8 md:w-9 flex flex-column justify-content-between px-3">
+                <p-skeleton width="80%" height="1.5rem" class="mb-2"></p-skeleton>
+                <p-skeleton width="60%" height="1rem" class="mb-2"></p-skeleton>
+                <p-skeleton width="40%" height="1rem"></p-skeleton>
+              </div>
+            </div>
+          }
+        </ng-container>
+      } @else {
+        @for (item of userCartItems(); track $index) {
+          @if (cartItemsNum$ | async; as cartItemsNum) {
+            <div [class.border-none]="cartItemsNum === $index + 1" class="pdt-wrapper">
+              <div class="md:w-3">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  class="pdt block border-round-lg"
+                  width="117"
+                  height="140"
+                  [ngSrc]="item.product.imgCover"
+                  [alt]="item.product.title"
+                />
+              </div>
+              <div class="md:w-9 flex flex-column justify-content-between">
+                <!-- pdt-Title and Delete -->
+                <div class="pdt-title-rating">
+                  <div>
+                    <h2 class="pdt-name">{{ item.product.title }}</h2>
+                    <h3 class="pdt-rating">
+                      <i class="pi pi-star-fill" style="color: var(--cart-star)"></i>
+                      {{ "cart.rating" | translate }}:
+                      <span class="rating">{{ item.product.rateAvg }}/5</span>
+                      <span class="rating-num"
+                        >({{ item.product.rateCount }} {{ "cart.rating" | translate }})</span
+                      >
+                    </h3>
+                  </div>
+                  <div class="remove-btn">
+                    <app-button
+                      (click)="removeCartItem(item.product._id)"
+                      [bgColor]="'var(--cart-deleteBtn-bg)'"
+                      [textColor]="'var(--cart-deleteBtn-text)'"
+                      [icon]="'pi pi-trash'"
+                      [padding]="'cart-delete-padding'"
+                      [borderRadius]="'cart-radius'"
+                      [text]="'cart.remove' | translate"
+                      [rowReverse]="'flex flex-row-reverse align-items-center'"
+                    />
+                  </div>
+                </div>
+                <!-- pdt-Price and Update quantity -->
+                <div class="pdt-price-quantity">
+                  <div>
+                    <h3 class="pdt-price">
+                      <span class="qty">(x{{ item.quantity }})</span>
+                      {{ item.product.price }}
+                      <span class="egp">{{ "EGP" | translate }}</span>
+                    </h3>
+                  </div>
+                  <div
+                    class="flex justify-content-center md:justify-content-between align-items-center"
+                  >
+                    <app-button
+                      (click)="updateProductQuantity(item.product._id, -1)"
+                      [padding]="'cart-qty-padding'"
+                      [borderRadius]="'cart-radius'"
+                      [bgColor]="'var(--cart-clearBtn-bg)'"
+                      [textColor]="'var(--cart-clearBtn-text)'"
+                      [icon]="'pi pi-minus'"
+                    />
+                    <input
+                      type="number"
+                      class="w-4 md:w-6rem mx-2"
+                      [value]="item.quantity"
+                      min="1"
+                      [max]="item.product.quantity"
+                      (change)="onQuantityChange(item.product._id, $event)"
+                      (keyup.enter)="onQuantityChange(item.product._id, $event)"
+                    />
+                    <app-button
+                      (click)="updateProductQuantity(item.product._id, 1)"
+                      [padding]="'cart-qty-padding'"
+                      [borderRadius]="'cart-radius'"
+                      [bgColor]="'var(--cart-clearBtn-bg)'"
+                      [textColor]="'var(--cart-clearBtn-text)'"
+                      [icon]="'pi pi-plus'"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        } @empty {
+          <div class="flex flex-column justify-content-center align-items-center">
+            <div>
+              <img
+                loading="lazy"
+                decoding="async"
+                class="empty block"
+                width="250"
+                height="214"
+                ngSrc="./images/cart/no-cart.png"
+                alt="empty cart"
+              />
+            </div>
+            <div>
+              <h2 class="empty">{{ "cart.empty" | translate }}</h2>
+            </div>
+          </div>
+        }
+      }
+    </div>
+    <!-- Route to Home -->
+    <div class="flex justify-content-start align-items-center mt-4">
+      <app-button
+        [routerLink]="'/dashboard/home'"
+        [rowReverse]="'flex flex-row-reverse align-items-center'"
+        [icon]="'pi pi-arrow-left arrowicon mr-2'"
+        [bgColor]="'var(--btn-shared-background)'"
+        [textColor]="'var(--cart-continueBtn-text)'"
+        [text]="'cart.continue-shopping' | translate"
+        [padding]="'cart-padding'"
+        [borderRadius]="'cart-radius'"
+      />
+    </div>
+  </div>
 </section>

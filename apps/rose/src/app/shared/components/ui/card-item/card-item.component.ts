@@ -3,11 +3,11 @@ import { AfterViewInit, Component, inject, Input } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RouterLink } from "@angular/router";
 // Images
-import { AsyncPipe, CommonModule, NgOptimizedImage } from "@angular/common";
+import { AsyncPipe, NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 // Interfaces
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 //PrimeNg
 import { RatingModule } from "primeng/rating";
 import { SkeletonModule } from "primeng/skeleton";
@@ -24,7 +24,6 @@ import { Observable, take } from "rxjs";
 @Component({
   selector: "app-card-item",
   imports: [
-    CommonModule,
     RatingModule,
     FormsModule,
     SkeletonModule,

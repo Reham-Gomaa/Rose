@@ -1,5 +1,4 @@
 <section
-  [@fadeTransition]="translationService.fadeState()"
   class="gallery-container w-full sm:text-center text-left"
   aria-labelledby="gallery-heading"
   itemscope
@@ -19,49 +18,53 @@
   </div>
 
   <div class="custom-gallery-grid grid-nogutter" role="list" aria-live="polite">
-    @for (image of images.url; track image; let i = $index) { @if (i < 3) {
-    <!-- First row: 3 images -->
-    <div role="listitem" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-      <div
-        class="custom-img"
-        [style.backgroundImage]="'url(' + '\'' + image + '\'' + ')'"
-        role="img"
-        [attr.aria-label]="'Gallery image ' + (i + 1)"
-        [attr.loading]="i > 1 ? 'lazy' : 'eager'"
-        [attr.fetchpriority]="i < 2 ? 'high' : 'auto'"
-      ></div>
-      <meta itemprop="url" [attr.content]="image" />
-    </div>
-    } @if (i === 3) {
-    <!-- Second row: large image spanning 2 columns -->
-    <div
-      class="gallery-wide"
-      role="listitem"
-      itemprop="image"
-      itemscope
-      itemtype="https://schema.org/ImageObject"
-    >
-      <div
-        class="custom-img"
-        [style.backgroundImage]="'url(' + '\'' + image + '\'' + ')'"
-        role="img"
-        [attr.aria-label]="'Gallery image ' + (i + 1)"
-        loading="lazy"
-      ></div>
-      <meta itemprop="url" [attr.content]="image" />
-    </div>
-    } @if (i === 4) {
-    <!-- Second row: regular image -->
-    <div role="listitem" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-      <div
-        class="custom-img"
-        [style.backgroundImage]="'url(' + '\'' + image + '\'' + ')'"
-        role="img"
-        [attr.aria-label]="'Gallery image ' + (i + 1)"
-        loading="lazy"
-      ></div>
-      <meta itemprop="url" [attr.content]="image" />
-    </div>
-    } }
+    @for (image of images.url; track image; let i = $index) {
+      @if (i < 3) {
+        <!-- First row: 3 images -->
+        <div role="listitem" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+          <div
+            class="custom-img"
+            [style.backgroundImage]="'url(' + '\'' + image + '\'' + ')'"
+            role="img"
+            [attr.aria-label]="'Gallery image ' + (i + 1)"
+            [attr.loading]="i > 1 ? 'lazy' : 'eager'"
+            [attr.fetchpriority]="i < 2 ? 'high' : 'auto'"
+          ></div>
+          <meta itemprop="url" [attr.content]="image" />
+        </div>
+      }
+      @if (i === 3) {
+        <!-- Second row: large image spanning 2 columns -->
+        <div
+          class="gallery-wide"
+          role="listitem"
+          itemprop="image"
+          itemscope
+          itemtype="https://schema.org/ImageObject"
+        >
+          <div
+            class="custom-img"
+            [style.backgroundImage]="'url(' + '\'' + image + '\'' + ')'"
+            role="img"
+            [attr.aria-label]="'Gallery image ' + (i + 1)"
+            loading="lazy"
+          ></div>
+          <meta itemprop="url" [attr.content]="image" />
+        </div>
+      }
+      @if (i === 4) {
+        <!-- Second row: regular image -->
+        <div role="listitem" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+          <div
+            class="custom-img"
+            [style.backgroundImage]="'url(' + '\'' + image + '\'' + ')'"
+            role="img"
+            [attr.aria-label]="'Gallery image ' + (i + 1)"
+            loading="lazy"
+          ></div>
+          <meta itemprop="url" [attr.content]="image" />
+        </div>
+      }
+    }
   </div>
 </section>

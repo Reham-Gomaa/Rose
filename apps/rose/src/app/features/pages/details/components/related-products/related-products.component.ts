@@ -1,42 +1,29 @@
 // @angular
-import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+import { animate, query, stagger, style, transition, trigger } from "@angular/animations";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Component, inject, Input, OnDestroy, OnInit } from "@angular/core";
-import { ActivatedRoute } from '@angular/router';
-
+import { ActivatedRoute } from "@angular/router";
 // @ngx
 import { TranslatePipe } from "@ngx-translate/core";
-
 // rxjs
-import { Subscription } from 'rxjs';
-
+import { Subscription } from "rxjs";
 // PrimeNg
 import { CarouselModule } from "primeng/carousel";
 import { SkeletonModule } from "primeng/skeleton";
-
 // shared-interfaces
-import { Product, ProductRes } from "@rose/core_interfaces/carditem.interface";
-import { ProductDetail, ProductDetailsRes } from "@rose/core_interfaces/details.interface";
-
+import { Product, ProductRes } from "@angular-monorepo/products";
+import { ProductDetail, ProductDetailsRes } from "@angular-monorepo/products";
 // shared-services
-import { TranslationService } from "@rose/core_services/translation/translation.service";
-import { ProductsService } from "@rose/shared_services/products/products.service";
-
+import { TranslationService } from "@angular-monorepo/services";
+import { ProductsService } from "@angular-monorepo/products";
 // shared-component
 import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
-
 // Animation
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 
 @Component({
   selector: "app-related-products",
-  standalone: true,
-  imports: [
-    TranslatePipe,
-    CardItemComponent,
-    CarouselModule,
-    SkeletonModule,
-  ],
+  imports: [TranslatePipe, CardItemComponent, CarouselModule, SkeletonModule],
   templateUrl: "./related-products.component.html",
   styleUrls: ["./related-products.component.scss"],
   animations: [
@@ -50,7 +37,7 @@ import { fadeTransition } from "@rose/core_services/translation/fade.animation";
               animate("300ms ease-out", style({ opacity: 1, transform: "translateY(0)" })),
             ]),
           ],
-          { optional: true }
+          { optional: true },
         ),
       ]),
     ]),
@@ -60,26 +47,26 @@ import { fadeTransition } from "@rose/core_services/translation/fade.animation";
 export class RelatedProductsComponent implements OnInit, OnDestroy {
   @Input() currentProductId!: string;
 
-  relatedProducts: Product[] = []; 
-  currentProduct!: ProductDetail; 
+  relatedProducts: Product[] = [];
+  currentProduct!: ProductDetail;
   loading: boolean = true;
   errorMessage: string | null = null;
-  
-  private subscriptions = new Subscription(); 
+
+  private subscriptions = new Subscription();
 
   responsiveOptions = [
     {
-      breakpoint: '1024px',
+      breakpoint: "1024px",
       numVisible: 3,
       numScroll: 1,
     },
     {
-      breakpoint: '768px',
+      breakpoint: "768px",
       numVisible: 2,
       numScroll: 1,
     },
     {
-      breakpoint: '560px',
+      breakpoint: "560px",
       numVisible: 1,
       numScroll: 1,
     },
@@ -96,17 +83,17 @@ export class RelatedProductsComponent implements OnInit, OnDestroy {
   private loadProductData(): void {
     this.subscriptions.add(
       this.route.params.subscribe({
-        next: params => {
-          const productId = params['id'];
+        next: (params) => {
+          const productId = params["id"];
           if (productId) {
             this.currentProductId = productId;
             this.loadProductDetails();
           } else {
-            this.handleError('No product ID provided');
+            this.handleError("No product ID provided");
           }
         },
-        error: err => this.handleError('Failed to load route parameters', err)
-      })
+        error: (err) => this.handleError("Failed to load route parameters", err),
+      }),
     );
   }
 
@@ -116,31 +103,31 @@ export class RelatedProductsComponent implements OnInit, OnDestroy {
 
     this.subscriptions.add(
       this.productsService.getSpecificProduct(this.currentProductId).subscribe({
-        next: (res: ProductDetailsRes) => { 
+        next: (res: ProductDetailsRes) => {
           this.currentProduct = res.product;
           this.loadRelatedProducts(res.product.category);
         },
         error: (err: HttpErrorResponse) => {
-          this.handleError('Failed to load product details', err);
-        }
-      })
+          this.handleError("Failed to load product details", err);
+        },
+      }),
     );
   }
 
   private loadRelatedProducts(categoryId: string): void {
     this.subscriptions.add(
       this.productsService.getAllProducts(categoryId).subscribe({
-        next: (response: ProductRes) => { 
+        next: (response: ProductRes) => {
           // Filter out the current product from the results
           this.relatedProducts = response.products.filter(
-            product => product._id !== this.currentProduct._id
+            (product) => product._id !== this.currentProduct._id,
           );
           this.loading = false;
         },
         error: (err: HttpErrorResponse) => {
-          this.handleError('Failed to load related products', err);
-        }
-      })
+          this.handleError("Failed to load related products", err);
+        },
+      }),
     );
   }
 
@@ -151,7 +138,7 @@ export class RelatedProductsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.subscriptions.unsubscribe(); 
+    this.subscriptions.unsubscribe();
   }
 
   showSkeleton(): boolean {

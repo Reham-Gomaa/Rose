@@ -1,0 +1,21 @@
+:host ::ng-deep .p-speeddial {
+  z-index: 9999;
+  @media all and (min-width: 62rem) {
+    display: none;
+  }
+}
+
+:host ::ng-deep .p-button-help {
+  background-color: var(--speedDial-bg);
+  //background-color: transparent;
+  color: var(--btn-clear-filters-color-icon);
+  border: none;
+}
+
+:host ::ng-deep .p-speeddial-button.p-button-help:not(:disabled):hover {
+  //background-color: var(--speedDial-hover) !important;
+  background-color: var(--speedDial-bg) !important;
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important; /* Remove hover shadow if any */
+}

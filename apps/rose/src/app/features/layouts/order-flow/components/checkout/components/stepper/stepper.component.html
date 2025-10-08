@@ -1,0 +1,56 @@
+<p-stepper [value]="1" class="w-fit">
+  <p-step-list>
+    @for (step of steps(); track $index) {
+      <p-step
+        [value]="step.value"
+        [disabled]="(addressSelected$ | async | json) === 'null'"
+      ></p-step>
+    }
+  </p-step-list>
+  <p-step-panels>
+    @for (step of steps(); track $index) {
+      <p-step-panel [value]="step.value">
+        <ng-template #content let-activateCallback="activateCallback">
+          <div class="flex align-items-center gap-3 stepHeader">
+            @if ($index > 0) {
+              <p-button
+                label="Back"
+                severity="secondary"
+                icon="pi pi-arrow-left"
+                (onClick)="activateCallback(step.value - 1)"
+              />
+            }
+            <p>
+              {{ step.label }}
+            </p>
+          </div>
+          <ng-container *ngComponentOutlet="step.component"></ng-container>
+
+          <div class="flex pt-6 w-full justify-between justify-content-end">
+            @if ($index < steps().length - 1) {
+              <p-button
+                [label]="'Next'"
+                [disabled]="(addressSelected$ | async | json) === 'null'"
+                icon="pi pi-arrow-right"
+                iconPos="right"
+                (onClick)="activateCallback(step.value + 1)"
+              />
+            } @else {
+              <p-button
+                (click)="startCheckOutProcess()"
+                [label]="'CheckOut'"
+                [disabled]="(methodSelected$ | async | json) === 'null'"
+                icon="pi pi-arrow-right"
+                iconPos="right"
+              />
+            }
+          </div>
+        </ng-template>
+      </p-step-panel>
+    }
+  </p-step-panels>
+</p-stepper>
+
+<!-- {{addressSelected()}} -->
+
+<!-- {{(addressSelected$ | async | json )}} -->

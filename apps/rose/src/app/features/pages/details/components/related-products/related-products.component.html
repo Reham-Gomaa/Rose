@@ -10,48 +10,42 @@
   </div>
 
   <!-- Slider -->
-  <div class="product-carousel col-12 md:col-6 lg:col-8 ">
+  <div class="product-carousel col-12 md:col-6 lg:col-8">
     @defer (when !loading) {
       @if (errorMessage) {
         <!-- Error message-->
         <div class="error-message">
           {{ errorMessage }}
         </div>
-      }
-      @else if (relatedProducts.length > 0) {
+      } @else if (relatedProducts.length > 0) {
         <!-- Carousel for related products -->
-        <div  [@fadeTransition]="translationService.fadeState()">
-
+        <div [@fadeTransition]="translationService.fadeState()">
           <p-carousel
-          [value]="relatedProducts"
-          [numVisible]="4"
-          [numScroll]="1"
-          [circular]="true"
-          [responsiveOptions]="responsiveOptions"
-          [showIndicators]="false"
-          class="custom-carousel"
-          [prevButtonProps]="{ styleClass: 'p-button-rounded custom-best-prev' }"
-          [nextButtonProps]="{ styleClass: 'p-button-rounded custom-best-next' }"
-          aria-label="Related products carousel"
-        >
-          <ng-template let-product pTemplate="item">
-            <div class="carousel-card-wrapper">
-              <app-card-item [productInfo]="product" />
-            </div>
-          </ng-template>
-        </p-carousel>
-
+            [value]="relatedProducts"
+            [numVisible]="4"
+            [numScroll]="1"
+            [circular]="true"
+            [responsiveOptions]="responsiveOptions"
+            [showIndicators]="false"
+            class="custom-carousel"
+            [prevButtonProps]="{ styleClass: 'p-button-rounded custom-best-prev' }"
+            [nextButtonProps]="{ styleClass: 'p-button-rounded custom-best-next' }"
+            aria-label="Related products carousel"
+          >
+            <ng-template let-product pTemplate="item">
+              <div class="carousel-card-wrapper">
+                <app-card-item [productInfo]="product" />
+              </div>
+            </ng-template>
+          </p-carousel>
         </div>
-      }
-      @else {
+      } @else {
         <!-- No items message -->
         <div class="no-items-message">
           {{ "Details.relatedProducts.noItemsMessage" | translate }}
         </div>
       }
-    }
-
-    @loading {
+    } @loading {
       <!-- Skeleton loader shown while loading -->
       <div class="skeleton-loader">
         @for (item of skeletonItems(); track $index) {

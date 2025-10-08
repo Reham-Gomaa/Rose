@@ -1,14 +1,14 @@
-.w-62px{
-    width: 9.125rem;
+@use "../../../../../shared/styles/variables" as *;
+.w-62px {
+  width: 9.125rem;
 }
 
-.notfound-p{
-    color: var(--dialog-p);
+.notfound-p {
+  color: var(--dialog-p);
 }
 
-
-@media (max-width: 620px) {
-    .w-62px{
+@media (max-width: #{$breakpoint-small}) {
+  .w-62px {
     width: 5.125rem;
-}
+  }
 }

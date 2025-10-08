@@ -1,0 +1,37 @@
+<section class="bottom-navbar">
+  <div class="bottom-nav-logo">
+    <button class="bottom-button" (click)="goToRose()">
+      <img src="images/overview/flower.png" alt="flower png" />
+    </button>
+  </div>
+  <div class="bottom-nav-links">
+    <a
+      class="bottom-nav-item"
+      [routerLink]="'/dashboard/overview'"
+      routerLinkActive="color-soft-red"
+    >
+      <i class="pi pi-objects-column"></i> {{ "aside-bar.overview" | translate }}</a
+    >
+    <a
+      class="bottom-nav-item"
+      [routerLink]="'/dashboard/categories'"
+      routerLinkActive="color-soft-red"
+    >
+      <i class="pi pi-clipboard"></i> {{ "aside-bar.categories" | translate }}
+    </a>
+    <a
+      class="bottom-nav-item"
+      [routerLink]="'/dashboard/occasions'"
+      routerLinkActive="color-soft-red"
+    >
+      <i class="pi pi-calendar"></i> {{ "aside-bar.occasions" | translate }}
+    </a>
+    <a
+      class="bottom-nav-item"
+      [routerLink]="'/dashboard/products'"
+      routerLinkActive="color-soft-red"
+    >
+      <i class="pi pi-box"></i> {{ "aside-bar.products" | translate }}
+    </a>
+  </div>
+</section>

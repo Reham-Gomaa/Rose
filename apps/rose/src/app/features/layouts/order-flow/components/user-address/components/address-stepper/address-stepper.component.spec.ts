@@ -1,23 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { AddressStepperComponent } from './address-stepper.component';
+import { AddressStepperComponent } from "./address-stepper.component";
 
-describe('AddressStepperComponent', () => {
+describe("AddressStepperComponent", () => {
   let component: AddressStepperComponent;
   let fixture: ComponentFixture<AddressStepperComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddressStepperComponent]
-    })
-    .compileComponents();
+      imports: [AddressStepperComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AddressStepperComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

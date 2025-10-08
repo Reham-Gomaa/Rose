@@ -1,0 +1,9 @@
+<section class="dashboard" [@fadeTransition]="_translationService.fadeState()">
+  <app-sidebar class="hidden md:block" />
+  <div class="flex flex-column w-full">
+    <app-stepper />
+    <router-outlet />
+    <app-bottom-navbar class="block md:hidden" />
+  </div>
+</section>
+

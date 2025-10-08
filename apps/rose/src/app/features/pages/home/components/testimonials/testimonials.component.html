@@ -1,4 +1,4 @@
-<section [@fadeTransition]="translationService.fadeState()" aria-label="Customer testimonials">
+<section aria-label="Customer testimonials">
   <div class="heading mt-8 text-center">
     <h5 class="title-h5 uppercase mb-2" itemprop="headline">
       {{ "home.testimonials.heading5" | translate }}
@@ -13,15 +13,33 @@
   </div>
   <div class="testimonial-section py-8">
     <div class="mx-auto">
-      <p-carousel ngSkipHydration [value]="testimonials" [numVisible]="3" [numScroll]="1" [circular]="true" [showIndicators]="false"
-        [showNavigators]="false" [autoplayInterval]="5000" [responsiveOptions]="responsiveOptions" role="region"
-        aria-roledescription="carousel" aria-label="Customer testimonials carousel">
+      <p-carousel
+        ngSkipHydration
+        [value]="testimonials"
+        [numVisible]="3"
+        [numScroll]="1"
+        [circular]="true"
+        [showIndicators]="false"
+        [showNavigators]="false"
+        [autoplayInterval]="5000"
+        [responsiveOptions]="responsiveOptions"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Customer testimonials carousel"
+      >
         <ng-template let-pic pTemplate="item">
-          <div class="carousel-card-wrapper lg:pr-4" role="group" aria-roledescription="slide" aria-label="Testimonial">
+          <div
+            class="carousel-card-wrapper lg:pr-4"
+            role="group"
+            aria-roledescription="slide"
+            aria-label="Testimonial"
+          >
             <div class="card-container">
               <div class="card mx-auto">
-                <div class="img-container" [style.backgroundImage]="'url(' + '\'' + pic.source + '\'' + ')'">
-                </div>
+                <div
+                  class="img-container"
+                  [style.backgroundImage]="'url(' + '\'' + pic.source + '\'' + ')'"
+                ></div>
                 <div>
                   <h2 class="text-center">{{ pic.heading2 | translate }}</h2>
                   <div class="icons-container flex justify-content-center align-items-center">

@@ -1,0 +1,61 @@
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<div class="flex flex-column gap-2">
+  <label [for]="id()" class="label-color mt-3">{{ labelText() }}</label>
+  <div class="input-phone-container">
+    <div class="custom-country-dropdown">
+      <div class="selected-country" (click)="toggleDropdown()" (keyup)="toggleDropdown()">
+        <img
+          class="country-flag"
+          [ngSrc]="baseFlagUrl + selectedCountry.flag"
+          alt="image for flag"
+          width="23"
+          height="16"
+          loading="lazy"
+          decoding="async"
+        />
+        <p>{{ selectedCountry.name }} {{ selectedCountry.code }}</p>
+        <div class="flex flex-column gap-1">
+          <i class="pi pi-arrow-up text-xs"></i>
+          <i class="pi pi-arrow-down text-xs"></i>
+        </div>
+      </div>
+      @if (dropdownOpen) {
+        <div class="country-list">
+          <ul>
+            @for (country of countries; track $index) {
+              <li class="country-item" (click)="selectCountry(country)">
+                <img
+                  class="country-flag"
+                  [ngSrc]="baseFlagUrl + country.flag"
+                  alt="image for flag"
+                  width="23"
+                  height="16"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <p>{{ country.name }} {{ country.code }}</p>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+    <input
+      class="input-style phone-input"
+      type="tel"
+      [id]="id()"
+      name="phone"
+      [placeholder]="placeholder()"
+      [value]="phoneNumber"
+      (input)="handleInput($event)"
+      (blur)="onTouched()"
+      maxlength="10"
+      required
+    />
+  </div>
+</div>
+
+@if (errorHandilgControl()) {
+  <lib-input-error-handling [control]="errorHandilgControl()!"></lib-input-error-handling>
+}

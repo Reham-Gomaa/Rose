@@ -160,3 +160,21 @@ button {
 .btn-summary-transition {
   transition: all 0.5s ease;
 }
+
+//btn-contact
+.btn-contact-radius {
+  border-radius: 0.625rem;
+}
+
+.btn-contact-padding {
+  padding: 0.625rem 1.25rem;
+}
+
+.btn-contact-transition {
+  transition: all 0.5s ease;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}

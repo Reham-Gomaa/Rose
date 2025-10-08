@@ -1,5 +1,4 @@
-<section [@fadeTransition]="translationService.fadeState()" class="trusted-companies"
-  aria-labelledby="trusted-companies-heading">
+<section class="trusted-companies" aria-labelledby="trusted-companies-heading">
   <div class="trusted-companies-content">
     <!-- Title -->
     <div class="trusted-companies-title">
@@ -16,18 +15,32 @@
     <div class="trusted-companies-logos-container">
       <div class="trusted-companies-logos" role="list" aria-label="Trusted company logos">
         @for (logo of companyLogos; track logo) {
-        <div class="trusted-companies-logo" role="listitem">
-          <img loading="lazy" decoding="async" [ngSrc]="logo" alt="Company Logo" class="trusted-companies-logo-img"
-            width="100" height="50" />
-        </div>
+          <div class="trusted-companies-logo" role="listitem">
+            <img
+              loading="lazy"
+              decoding="async"
+              [ngSrc]="logo"
+              alt="Company Logo"
+              class="trusted-companies-logo-img"
+              width="100"
+              height="50"
+            />
+          </div>
         }
       </div>
 
       <div class="btn-res">
-        <app-button [text]="'home.trustedBy.btn' | translate" [icon]="'pi pi-arrow-right arrowicon'"
-          [bgColor]="'var(--btn-shared-background)'" [textColor]="'var(--btn-shared-color)'"
-          [borderRadius]="'btn-about-radius'" [padding]="'btn-about-padding'" [transition]="'btn-about-transition'"
-          [margin]="'mx-auto'" aria-label="Discover more about our premium gift boxes" />
+        <app-button
+          [text]="'home.trustedBy.btn' | translate"
+          [icon]="'pi pi-arrow-right arrowicon'"
+          [bgColor]="'var(--btn-shared-background)'"
+          [textColor]="'var(--btn-shared-color)'"
+          [borderRadius]="'btn-about-radius'"
+          [padding]="'btn-about-padding'"
+          [transition]="'btn-about-transition'"
+          [margin]="'mx-auto'"
+          aria-label="Discover more about our premium gift boxes"
+        />
       </div>
     </div>
   </div>

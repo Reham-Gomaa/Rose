@@ -1,7 +1,7 @@
 <app-custom-main-dialog [visable]="visible()" (closed)="close()">
   <div body>
-    @if(loading){
-      <app-spinner></app-spinner>
+    @if (loading) {
+      <lib-spinner />
     } @else {
       <div class="flex flex-column">
         <div class="out-shadow">
@@ -9,16 +9,16 @@
             <i class="pi pi-trash"></i>
           </div>
         </div>
-        <p class="font-semibold">{{ 'dialog.deleteAddress.confirmationMessage' | translate }}</p>
+        <p class="font-semibold">{{ "dialog.deleteAddress.confirmationMessage" | translate }}</p>
       </div>
     }
 
     <div class="container-button flex justify-content-between">
       <button class="cancel" (click)="close()">
-        {{ 'dialog.deleteAddress.cancel' | translate }}
+        {{ "dialog.deleteAddress.cancel" | translate }}
       </button>
       <button class="confirm" (click)="deleteAddress()">
-        {{ 'dialog.deleteAddress.confirm' | translate }}
+        {{ "dialog.deleteAddress.confirm" | translate }}
       </button>
     </div>
   </div>

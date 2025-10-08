@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal, WritableSignal } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { TranslatePipe } from "@ngx-translate/core";
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
 import { getUserWishlist } from "../../../store/wishlist/wishlist-actions";
 import { selectWishlistItems } from "../../../store/wishlist/wishlist-selectors";

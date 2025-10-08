@@ -1,0 +1,12 @@
+@use "./app/shared/styles/utilities" as utl;
+@use "./app/shared/styles/functions" as func;
+@use "./app/shared/styles/variables" as vars;
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  height: 100vh;
+}

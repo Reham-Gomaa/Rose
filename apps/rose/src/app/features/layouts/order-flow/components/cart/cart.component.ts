@@ -1,19 +1,19 @@
 // @angular
-import { AsyncPipe } from "@angular/common";
-import { Component, DestroyRef, inject, OnInit } from "@angular/core";
+import { AsyncPipe, NgOptimizedImage } from "@angular/common";
+import { Component, DestroyRef, inject, OnInit, signal, WritableSignal } from "@angular/core";
 import { RouterLink } from "@angular/router";
 // @ngx
 import { TranslatePipe } from "@ngx-translate/core";
 // rxjs
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { catchError, Observable, of, take, tap } from "rxjs";
-// shared Interfaces
+import { Observable, tap } from "rxjs";
+// shared Interfaces and Services
 import { cartItems } from "@rose/core_interfaces/cart.interface";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/services";
 // shared Components
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 // Animation
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // primeng
 import { Skeleton } from "primeng/skeleton";
 // Cart Data from store
@@ -27,12 +27,12 @@ import {
 import {
   selectCartItems,
   selectCartItemsNum,
-  selectTotalPrice,
+  selectCartLoading,
 } from "apps/rose/src/app/store/cart/cart-selectors";
 
 @Component({
   selector: "app-cart",
-  imports: [RouterLink, ButtonComponent, TranslatePipe, AsyncPipe, Skeleton],
+  imports: [RouterLink, ButtonComponent, TranslatePipe, AsyncPipe, Skeleton, NgOptimizedImage],
   templateUrl: "./cart.component.html",
   styleUrl: "./cart.component.scss",
   animations: [fadeTransition],
@@ -42,40 +42,47 @@ export class CartComponent implements OnInit {
   private readonly store = inject(Store);
   private readonly destroyRef = inject(DestroyRef);
 
-  cartItems$!: Observable<cartItems[]>;
-  userCartItems!: cartItems[];
+  userCartItems: WritableSignal<cartItems[]> = signal<cartItems[]>([]);
   cartItemsNum$!: Observable<number>;
-  totalPrice$!: Observable<number>;
-  isLoading: boolean = true;
+  isLoading$!: Observable<boolean>;
 
   ngOnInit(): void {
-    this.getLoggedUserCart();
     this.selectData();
+    this.getLoggedUserCart();
   }
 
   getLoggedUserCart() {
     this.store.dispatch(getUserCart());
   }
 
+  checkStoreQuantity(items: cartItems[]) {
+    const invalidItems = items.filter((item) => item.quantity > item.product.quantity);
+    if (invalidItems.length > 0) {
+      for (let i = 0; i < invalidItems.length; i++) {
+        this.store.dispatch(deleteSpecificItem({ p_id: invalidItems[i].product._id }));
+      }
+    }
+  }
+
   selectData() {
     this.store
       .select(selectCartItems)
-      .pipe(takeUntilDestroyed(this.destroyRef))
+      .pipe(
+        takeUntilDestroyed(this.destroyRef),
+        tap((items) => this.checkStoreQuantity(items)),
+      )
       .subscribe({
         next: (items) => {
-          this.userCartItems = items;
-          this.isLoading = false;
-        },
-        error: (err) => {
-          this.isLoading = false;
+          this.userCartItems.set(items);
         },
       });
+
+    this.isLoading$ = this.store.select(selectCartLoading);
     this.cartItemsNum$ = this.store.select(selectCartItemsNum);
-    this.totalPrice$ = this.store.select(selectTotalPrice);
   }
 
   findItem(p_id: string): cartItems | undefined {
-    return this.userCartItems.find((item) => item.product._id === p_id);
+    return this.userCartItems().find((item) => item.product._id === p_id);
   }
 
   updateProductQuantity(p_id: string, qty: number) {
@@ -117,16 +124,13 @@ export class CartComponent implements OnInit {
         updateQuantity({
           p_id: productId,
           qty: newQuantity,
-        })
+        }),
       );
     }
   }
 
-  private getCurrentQuantity(productId: string): number {
-    let currentQty = 1;
-    const item = this.findItem(productId);
-    currentQty = item?.quantity || 1;
-    return currentQty;
+  getCurrentQuantity(productId: string): number {
+    return this.findItem(productId)?.quantity || 1;
   }
 
   removeCartItem(p_id: string) {
@@ -135,5 +139,6 @@ export class CartComponent implements OnInit {
 
   clearCart() {
     this.store.dispatch(clearCart());
+    this.userCartItems.set([]);
   }
 }

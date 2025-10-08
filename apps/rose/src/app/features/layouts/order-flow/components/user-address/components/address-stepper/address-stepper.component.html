@@ -1,10 +1,9 @@
 <app-custom-main-dialog [visable]="visible()" (closed)="close()">
   <div head>
-    @if(isUpdate()){
-    <p class="text-head">{{ "addressStepper.step1.titleupdate" | translate }}</p>
-    }@else {
-    <p class="text-head">{{ "addressStepper.step1.titleAdd" | translate }}</p>
-
+    @if (isUpdate()) {
+      <p class="text-head">{{ "addressStepper.step1.titleupdate" | translate }}</p>
+    } @else {
+      <p class="text-head">{{ "addressStepper.step1.titleAdd" | translate }}</p>
     }
   </div>
 
@@ -20,7 +19,7 @@
         <ng-template #content let-activateCallback="activateCallback">
           <div class="pb-6">
             <form [formGroup]="addressForm">
-              <app-custom-input
+              <lib-custom-input
                 formControlName="city"
                 type="text"
                 placeholder="{{ 'addressStepper.step1.placeholders.city' | translate }}"
@@ -33,7 +32,7 @@
                 aria-describedby="cityHelp"
               />
 
-              <app-custom-input
+              <lib-custom-input
                 formControlName="street"
                 type="text"
                 placeholder="{{ 'addressStepper.step1.placeholders.street' | translate }}"
@@ -46,7 +45,7 @@
                 aria-describedby="streetHelp"
               />
 
-              <app-custom-input-phone
+              <lib-custom-input-phone
                 formControlName="phone"
                 placeholder="{{ 'addressStepper.step1.placeholders.phone' | translate }}"
                 labelText="{{ 'addressStepper.step1.phone' | translate }}"
@@ -84,6 +83,13 @@
             >
               <map-marker *ngIf="markerPosition" [position]="markerPosition"></map-marker>
             </google-map>
+          </div>
+          <div class="w-full">
+            <p-button
+              [label]="'addressStepper.buttons.submit' | translate"
+              (onClick)="onDone()"
+              styleClass="w-full"
+            />
           </div>
         </ng-template>
       </p-step-panel>
