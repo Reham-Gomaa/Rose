@@ -28,7 +28,6 @@ export interface Product {
   id?: string;
 }
 
-
 export interface updateProductData {
   price:number , 
   rateAvg:number,

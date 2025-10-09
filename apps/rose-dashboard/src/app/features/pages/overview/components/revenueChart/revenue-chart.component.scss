@@ -1,0 +1,60 @@
+.revenue-chart {
+  font-family: Inter;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  color: var(--main-text);
+  line-height: 100%;
+  letter-spacing: 0%;
+  .title {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--p-table-header-color);
+    @media all and (min-width: 62rem) {
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+  }
+  .toggle {
+    button {
+      font-weight: 600;
+      font-size: 0.875rem;
+      border: none;
+      background-color: transparent;
+      color: var(--chart-button);
+      cursor: pointer;
+      &.active {
+        color: var(--chart-active-button) !important;
+        font-weight: 600 !important;
+      }
+      @media all and (min-width: 62rem) {
+        font-weight: 400;
+      }
+    }
+  }
+
+  .r-chart {
+    ::ng-deep canvas {
+      height: 14.375rem !important;
+      width: 22.875rem;
+      @media all and (min-width: 48rem) {
+        width: 12.5rem;
+        height: 18.5625rem !important;
+      }
+      @media all and (min-width: 62rem) {
+        width: 10.625rem;
+      }
+      @media all and (min-width: 65rem) {
+        width: 12.5rem;
+      }
+      @media all and (min-width: 75rem) {
+        width: 28.125rem;
+      }
+      @media all and (min-width: 81.25rem) {
+        min-width: 46.75rem;
+        width: 46.75rem;
+      }
+    }
+  }
+}

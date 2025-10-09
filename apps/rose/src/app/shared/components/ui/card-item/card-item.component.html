@@ -1,59 +1,46 @@
 <div class="product-card group w-full max-w-[18.87rem] sm:w-[18.87rem] mx-auto">
   <div class="image-wrapper">
     @if (loading) {
-      <p-skeleton width="100%" height="200px"></p-skeleton>
+    <p-skeleton width="100%" height="200px"></p-skeleton>
     } @else if (productInfo) {
-      <img
-        [ngSrc]="productInfo.imgCover"
-        [alt]="productInfo.title"
-        class="product-image"
-        loading="lazy"
-        decoding="async"
-        width="100"
-        height="50"
-      />
-      <div class="bg-shape"></div>
-      <div class="overlay-icons">
-        <i [routerLink]="['/dashboard/details', productInfo._id]" class="pi pi-eye icon-circle"></i>
-        <i
-          [appWishlistToggle]="productInfo"
-          class="pi pi-heart icon-circle"
-          [activeClass]="'wishlist-active'"
-        ></i>
-      </div>
+    <img [ngSrc]="productInfo.imgCover" [alt]="productInfo.title" class="product-image" loading="lazy" decoding="async"
+      width="100" height="50" />
+    <div class="bg-shape"></div>
+    <div class="overlay-icons">
+      <i [routerLink]="['/dashboard/details', productInfo._id]" class="pi pi-eye icon-circle"></i>
+      <i [class.Active]="isInWishlist$ |async" tabindex="0" (keydown)="toggleWishlist()" (click)="toggleWishlist()"
+        [class]="(isInWishlist$ |async) ? 'pi pi-heart-fill icon-circle': 'pi pi-heart icon-circle'"></i>
+    </div>
     }
   </div>
 
   <div class="flex flex-column p-3 mt-3 flex-grow">
     @if (loading) {
-      <p-skeleton width="100%" height="1.5rem" class="mb-2"></p-skeleton>
+    <p-skeleton width="100%" height="1.5rem" class="mb-2"></p-skeleton>
     } @else if (productInfo) {
-      <h2 class="title pb-2">{{ productInfo.title }}</h2>
+    <h2 class="title pb-2">{{ productInfo.title }}</h2>
     }
 
     <div class="flex align-items-center justify-content-between pt-2">
       @if (loading) {
-        <div class="flex flex-column">
-          <p-skeleton width="6rem" height="1.5rem" class="mb-2"></p-skeleton>
-          <p-skeleton width="4rem" height="1.25rem"></p-skeleton>
-        </div>
-        <p-skeleton shape="circle" size="2.5rem"></p-skeleton>
+      <div class="flex flex-column">
+        <p-skeleton width="6rem" height="1.5rem" class="mb-2"></p-skeleton>
+        <p-skeleton width="4rem" height="1.25rem"></p-skeleton>
+      </div>
+      <p-skeleton shape="circle" size="2.5rem"></p-skeleton>
       } @else if (productInfo) {
-        <div class="flex flex-column">
-          <div class="rating-container flex align-items-center">
-            <p-rating [(ngModel)]="productInfo.rateAvg" [readonly]="true" [stars]="5" />
-          </div>
-          <span class="price font-bold pt-2">
-            {{ productInfo.price.toFixed(2) }} {{ "EGP" | translate }}
-          </span>
+      <div class="flex flex-column">
+        <div class="rating-container flex align-items-center">
+          <p-rating [(ngModel)]="productInfo.rateAvg" [readonly]="true" [stars]="5" />
         </div>
-        <i
-          [class.disableCart]="productInfo.quantity <= 0"
-          tabindex="0"
-          (click)="productInfo.quantity > 0 ? addProductToCart(productInfo._id) : null"
-          (keydown.enter)="productInfo.quantity > 0 ? addProductToCart(productInfo._id) : null"
-          class="pi pi-shopping-bag btn-shopping text-white violet-bg border-circle"
-        ></i>
+        <span class="price font-bold pt-2">
+          {{ productInfo.price.toFixed(2) }} {{ "EGP" | translate }}
+        </span>
+      </div>
+      <i [class.disableCart]="productInfo.quantity <= 0" tabindex="0"
+        (click)="productInfo.quantity > 0 ? addProductToCart(productInfo._id) : null"
+        (keydown.enter)="productInfo.quantity > 0 ? addProductToCart(productInfo._id) : null"
+        class="pi pi-shopping-bag btn-shopping text-white violet-bg border-circle"></i>
       }
     </div>
   </div>

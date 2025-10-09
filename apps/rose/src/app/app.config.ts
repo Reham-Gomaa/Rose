@@ -27,6 +27,7 @@ import { cartReducer } from "./store/cart/cart-reducers";
 import { checkoutEffects } from "./store/checkout/checkout.effects";
 import { checkoutReducer } from "./store/checkout/checkout.reducer";
 import { wishlistReducer } from "./store/wishlist/wishlist-reducers";
+import { WishlistEffects } from "./store/wishlist/wishlist-effects";
 import { tokenReducer } from "@rose/store_auth/auth.reducers";
 import { AuthEffects } from "@rose/store_auth/auth.effects";
 // primeng imports
@@ -122,6 +123,7 @@ export const appConfig: ApplicationConfig = {
       AddressEffect,
       checkoutEffects,
       CartEffects,
+      WishlistEffects,
       AuthEffects,
     ),
 

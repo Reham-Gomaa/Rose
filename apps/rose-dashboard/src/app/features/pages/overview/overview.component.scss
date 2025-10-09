@@ -1,0 +1,85 @@
+#overview {
+  padding: 1rem 1rem 3.125rem;
+  margin: 0 auto;
+  width: 100%;
+  @media all and (min-width: 31.875rem) {
+    width: 90%;
+  }
+  @media all and (min-width: 38.125rem) {
+    width: 87%;
+  }
+  @media all and (min-width: 48rem) {
+    width: 100%;
+  }
+
+  #top-sec,
+  #bottom-sec,
+  #charts-sec {
+    display: flex;
+    flex-direction: column;
+
+    @media all and (min-width: 62rem) {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+
+    #statistics,
+    #categories,
+    #topSelling,
+    #lowStock {
+      border-radius: 1rem;
+      padding: 0;
+      background-color: var(--cards-bg);
+      flex: 1;
+      margin-bottom: 1.5rem;
+      @media all and (min-width: 38.125rem) {
+        padding: 1rem;
+      }
+      @media all and (min-width: 52rem) {
+        width: 90%;
+        margin: 0 auto 1.5rem;
+      }
+      @media all and (min-width: 62rem) {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 0;
+      }
+      @media all and (min-width: 65.25rem) {
+        padding: 1.5rem;
+      }
+    }
+    #orderChart,
+    #revenueChart {
+      border-radius: 1rem;
+      padding: 0;
+      background-color: var(--cards-bg);
+      margin-bottom: 1.5rem;
+      @media all and (min-width: 38.125rem) {
+        padding: 1rem;
+      }
+    }
+    #orderChart {
+      flex: 2;
+      @media all and (min-width: 62rem) {
+        min-height: 23.8125rem;
+      }
+      @media all and (min-width: 65.25rem) {
+        padding: 1rem;
+      }
+    }
+
+    #revenueChart {
+      flex: 3;
+      @media all and (min-width: 65.25rem) {
+        padding: 1rem 1.5rem;
+      }
+    }
+  }
+
+  #top-sec,
+  #charts-sec {
+    @media all and (min-width: 62rem) {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
