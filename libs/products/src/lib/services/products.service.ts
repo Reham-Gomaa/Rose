@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { Observable, shareReplay } from "rxjs";
 import { ProductsApi } from "../base/ProductsAPI";
-import { ProductRes, updateProductData } from "../interfaces/product.interface";
+import { DeleteProductRes, ProductRes, updateProductData } from "../interfaces/product.interface";
 import { countBproduct } from "../interfaces/count-by-product.interface";
 import { ProductDetails } from "../interfaces/productDetails.interface";
 import { ProductDetailsRes } from "../interfaces/details.interface";
@@ -35,28 +35,27 @@ export class ProductsService extends ProductsApi {
     return this.httpClient.get<ProductDetails>(`${this.getBaseUrl()}/${prodId}`);
   }
   getSpecificProduct(id: string): Observable<ProductDetailsRes> {
-    //get specific product by id
     return this.httpClient.get<ProductDetailsRes>(`${this.getBaseUrl()}/${id}`).pipe(shareReplay(1));
   }
 
+  addProduct(productData: FormData): Observable<ProductDetailsRes> {
+  return this.httpClient.post<ProductDetailsRes>(this.getBaseUrl(), productData);
+}
 
-  addProduct(productData:FormData):Observable<ProductRes>{
-    return this.httpClient.post<ProductRes>(this.getBaseUrl(),productData)
-  }
-  updateProduct(productNewData:updateProductData , prodId:string):Observable<any>{
-    return this.httpClient.put<any>(`${this.getBaseUrl()}/${prodId}`,productNewData)
-  }
-  deleteProduct(prodId:string):Observable<any>{
-    return this.httpClient.delete<any>(`${this.getBaseUrl()}/${prodId}`)
-  }
+updateProduct(prodId: string, productData: FormData): Observable<ProductDetailsRes> {
+  return this.httpClient.put<ProductDetailsRes>(`${this.getBaseUrl()}/${prodId}`, productData);
+}
+
+deleteProduct(prodId: string): Observable<DeleteProductRes> {
+  return this.httpClient.delete<DeleteProductRes>(`${this.getBaseUrl()}/${prodId}`);
+}
 
 
-
-  getBaseUrl():string{
-    const finalUrl: string = this.API_BASE + EndPoints.PRODUCTS;
-    return finalUrl;
-  }
-
+getBaseUrl(): string {
+  const finalUrl: string = this.API_BASE + EndPoints.PRODUCTS;
+  console.log('Products API URL:', finalUrl); 
+  return finalUrl;
+}
 
 
 }

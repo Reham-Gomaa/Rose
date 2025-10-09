@@ -84,11 +84,34 @@ export const appRoutes: Route[] = [
       {
         path: "products",
         title: "titles.products",
-        loadComponent: () =>
-          import("@rose_dashboard/features_pages/products/products.component").then(
-            (c) => c.ProductsComponent,
-          ),
+          children: [
+            { 
+              path:"",
+             loadComponent: () =>
+            import("@rose_dashboard/features_pages/products/products.component").then(
+              (c) => c.ProductsComponent,
+            ),
+          },
+          {
+      path: "add",
+      title: "titles.add-category",
+      loadComponent: () =>
+        import("@rose_dashboard/features_pages/products/components/products-form/products-form.component").then(
+          (c) => c.ProductsFormComponent
+        ),
+    },
+    {
+      path: "edit/:id",
+      title: "titles.edit-category",
+       loadComponent: () =>
+        import("@rose_dashboard/features_pages/products/components/products-form/products-form.component").then(
+          (c) => c.ProductsFormComponent
+        ),
+    },
+          ]
+        
       },
+
       {
         path: "user-profile",
         loadComponent: () =>

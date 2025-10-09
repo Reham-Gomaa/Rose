@@ -151,5 +151,101 @@
     "oopsDesc": "Something unexpected happened, please refresh the page or try again shortly.",
     "unauthorizedTitle": "You are not authorized to access this page.",
     "unauthorizedDesc": "If you think this is wrong, please contact the support."
+  },
+  
+  "category": {
+    "addEdit": {
+      "formTitle": "{{mode}} Category",
+      "fields": {
+        "name": "Category Name",
+        "namePlaceholder": "Enter category name",
+        "image": "Category Image",
+        "imagePlaceholder": "Choose category image"
+      },
+      "buttons": {
+        "submit": "{{mode}} Category",
+        "saving": "Saving...",
+        "viewImage": "View Image"
+      },
+      "messages": {
+        "noImage": "No image available",
+        "imagePreview": "Image Preview:",
+        "addSuccess": "Category added successfully!",
+        "addError": "Failed to add category. Please try again.",
+        "updateSuccess": "Category updated successfully!",
+        "updateError": "Failed to update category. Please try again."
+      }
+    }
+  },
+  "occasion": {
+    "addEdit": {
+      "formTitle": "{{mode}} Occasion",
+      "fields": {
+        "name": "Occasion Name",
+        "namePlaceholder": "Enter occasion name",
+        "image": "Occasion Image",
+        "imagePlaceholder": "Choose occasion image"
+      },
+      "buttons": {
+        "submit": "{{mode}} Occasion",
+        "saving": "Saving...",
+        "viewImage": "View Image"
+      },
+      "messages": {
+         "noImage": "No image available",
+        "imagePreview": "Image Preview:",
+        "addSuccess": "Occasion added successfully!",
+        "addError": "Failed to add occasion. Please try again.",
+        "updateSuccess": "Occasion updated successfully!",
+        "updateError": "Failed to update occasion. Please try again."
+      }
+    }
+  },
+  "products": {
+    "addEdit": {
+      "formTitle": "{{mode}} Product",
+      "fields": {
+        "title": "Product Title",
+        "titlePlaceholder": "Enter product title",
+        "description": "Product Description",
+        "descriptionPlaceholder": "Enter product description",
+        "price": "Price",
+        "pricePlaceholder": "Enter price",
+        "discount": "Discount",
+        "discountPlaceholder": "Enter discount percentage",
+        "quantity": "Quantity",
+        "quantityPlaceholder": "Enter quantity",
+        "imgCover": "Cover Image",
+        "images": "Gallery Images",
+        "category": "Category",
+        "occasion": "Occasion"
+      },
+      "buttons": {
+        "submit": "{{mode}} Product",
+        "saving": "Saving...",
+        "viewCover": "View product cover",
+        "viewGallery": "View product gallery"
+      },
+      "messages": {
+        "noCover": "No cover image available",
+        "noGallery": "No gallery images available",
+        "coverPreview": "Cover Preview:",
+        "galleryPreview": "Gallery Previews ({{count}}):",
+        "priceAfterDiscount": "Price after discount",
+        "calculatedAutomatically": "Calculated automatically",
+        "descriptionRequired": "Product description is required",
+        "categoryRequired": "Please select a category for the product"
+      }
+    }
+  },
+  "common": {
+    "modes": {
+      "add": "Add",
+      "edit": "Edit"
+    },
+    "imageModal": {
+      "title": "View Image"
+    }
   }
 }
+

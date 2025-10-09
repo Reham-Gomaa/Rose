@@ -151,5 +151,92 @@
     "oopsDesc": "حدث أمر غير متوقع، يرجى تحديث الصفحة أو المحاولة مرة أخرى بعد قليل.",
     "unauthorizedTitle": "غير مصرح لك بالوصول إلى هذه الصفحة.",
     "unauthorizedDesc": "إذا كنت تعتقد أن هذا خطأ، يرجى التواصل مع الدعم."
+  },
+  "category": {
+    "addEdit": {
+      "formTitle": "{{mode}} فئة",
+      "fields": {
+        "name": "اسم الفئة",
+        "namePlaceholder": "أدخل اسم الفئة",
+        "image": "صورة الفئة",
+        "imagePlaceholder": "اختر صورة الفئة"
+      },
+      "buttons": {
+        "submit": "{{mode}} فئة",
+        "saving": "جاري الحفظ...",
+        "viewImage": "عرض الصورة"
+      },
+      "messages": {
+        "noImage": "لا توجد صورة متاحة",
+        "imagePreview": "معاينة الصورة:"
+      }
+    }
+  },
+  "occasion": {
+    "addEdit": {
+      "formTitle": "{{mode}} مناسبة",
+      "fields": {
+        "name": "اسم المناسبة",
+        "namePlaceholder": "أدخل اسم المناسبة",
+        "image": "صورة المناسبة",
+        "imagePlaceholder": "اختر صورة المناسبة"
+      },
+      "buttons": {
+        "submit": "{{mode}} مناسبة",
+        "saving": "جاري الحفظ...",
+        "viewImage": "عرض الصورة"
+      },
+      "messages": {
+        "noImage": "لا توجد صورة متاحة",
+        "imagePreview": "معاينة الصورة:"
+      }
+    }
+  },
+  "products": {
+    "addEdit": {
+      "formTitle": "{{mode}} منتج",
+      "fields": {
+        "title": "عنوان المنتج",
+        "titlePlaceholder": "أدخل عنوان المنتج",
+        "description": "وصف المنتج",
+        "descriptionPlaceholder": "أدخل وصف المنتج",
+        "price": "السعر",
+        "pricePlaceholder": "أدخل السعر",
+        "discount": "الخصم",
+        "discountPlaceholder": "أدخل نسبة الخصم",
+        "quantity": "الكمية",
+        "quantityPlaceholder": "أدخل الكمية",
+        "imgCover": "صورة الغلاف",
+        "images": "صور المعرض",
+        "category": "الفئة",
+        "occasion": "المناسبة"
+      },
+      "buttons": {
+        "submit": "{{mode}} منتج",
+        "saving": "جاري الحفظ...",
+        "viewCover": "عرض صورة الغلاف",
+        "viewGallery": "عرض معرض الصور"
+      },
+      "messages": {
+        "noCover": "لا توجد صورة غلاف متاحة",
+        "noGallery": "لا توجد صور في المعرض",
+        "coverPreview": "معاينة الغلاف:",
+        "galleryPreview": "معاينة المعرض ({{count}}):",
+        "priceAfterDiscount": "السعر بعد الخصم",
+        "calculatedAutomatically": "محسوب تلقائياً",
+        "descriptionRequired": "وصف المنتج مطلوب",
+        "categoryRequired": "يرجى اختيار فئة للمنتج"
+      }
+    }
+  },
+  "common": {
+    "modes": {
+      "add": "إضافة",
+      "edit": "تعديل"
+    },
+    "imageModal": {
+      "title": "عرض الصورة"
+    }
   }
+
 }

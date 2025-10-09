@@ -1,23 +1,315 @@
-import { Product, ProductsService } from "@angular-monorepo/products";
-import { Component, inject, signal, WritableSignal } from "@angular/core";
+import { Component, inject, OnInit, signal } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { ProductsService, ProductDetailsRes } from "@angular-monorepo/products";
+import { CategoriesService } from "@angular-monorepo/categories";
+import { OccasionService } from "@angular-monorepo/occasions";
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
+import { MessageService } from "primeng/api";
+import { Skeleton } from "primeng/skeleton";
+import { Subject, takeUntil } from "rxjs";
+
+// Components
+import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
+import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
+import { DialogModule } from 'primeng/dialog';
+import { DropdownModule } from 'primeng/dropdown';
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
+import { InputErrorMessageComponent } from "@rose_dashboard/shared_buisness/input-error/input-error.component";
 
 @Component({
   selector: "app-products-form",
-  imports: [],
+  standalone: true,
+  imports: [
+    CommonModule, 
+    ReactiveFormsModule, 
+    CustomInputComponent, 
+    FormButtonComponent,
+    DialogModule,
+    DropdownModule,
+    Skeleton,
+    TranslateModule,
+    InputErrorMessageComponent
+    
+  ],
   templateUrl: "./products-form.component.html",
-  styleUrl: "./products-form.component.scss",
+  styleUrl: "./products-form.component.scss"
 })
-export class ProductsFormComponent {
-  private products_service = inject(ProductsService);
-  table_header_records: string[] = ["name", "price", "stock", "sales", "ratings"];
-  prods: WritableSignal<Product[]> = signal<Product[]>([]);
+export class ProductsFormComponent implements OnInit {
+  private _messageService = inject(MessageService);
+  private productsService = inject(ProductsService);
+  private categoriesService = inject(CategoriesService);
+  private occasionService = inject(OccasionService);
+  private _translate = inject(TranslateService);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private fb = inject(FormBuilder);
 
-  ngOnInit() {
-    this.products_service.getAllProducts().subscribe({
-      next: (res) => {
-        this.prods.set(res.products);
-        console.log(this.prods());
-      },
+  isEditMode = false;
+  productId: string | null = null;
+  initialData: any = null;
+  isLoading = signal(true);
+  private destroy$ = new Subject<void>();
+
+  showImageModal = false;
+  modalImageUrl: string | null = null;
+  modalImageTitle: string = '';
+
+  productForm: FormGroup;
+  selectedCoverFile: File | null = null;
+  selectedGalleryFiles: File[] = [];
+  coverPreviewUrl: string | null = null;
+  galleryPreviewUrls: string[] = [];
+  isSubmitting = false;
+
+  
+  categories = signal<any[]>([]);
+  occasions = signal<any[]>([]);
+
+  constructor() {
+    this.productForm = this.fb.group({
+      title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+      description: ['', [Validators.required, Validators.minLength(10)]],
+      price: ['', [Validators.required, Validators.min(0)]],
+      discount: ['', [Validators.min(0), Validators.max(100)]],
+      quantity: ['', [Validators.required, Validators.min(0)]],
+      category: ['', [Validators.required]],
+      occasion: ['',[Validators.required]],
+      imgCover: [null, [Validators.required]],
+      images: [null, [Validators.required]]
     });
+  }
+
+  ngOnInit(): void {
+    this.productId = this.route.snapshot.paramMap.get("id");
+    this.isEditMode = !!this.productId;
+
+    
+    this.loadCategories();
+    this.loadOccasions();
+
+    if (this.isEditMode && this.productId) {
+      this.productsService.getSpecificProduct(this.productId).pipe(takeUntil(this.destroy$)).subscribe({
+        next: (res: ProductDetailsRes) => {
+          this.initialData = {
+            title: res.product.title,
+            description: res.product.description,
+            price: res.product.price,
+            discount: res.product.discount,
+            quantity: res.product.quantity,
+            category: res.product.category,
+            occasion: res.product.occasion,
+            imgCover: res.product.imgCover,
+            images: res.product.images
+          };
+          
+          this.coverPreviewUrl = res.product.imgCover;
+          this.galleryPreviewUrls = res.product.images;
+          
+          this.productForm.patchValue({
+            title: res.product.title,
+            description: res.product.description,
+            price: res.product.price,
+            discount: res.product.discount,
+            quantity: res.product.quantity,
+            category: res.product.category,
+            occasion: res.product.occasion
+          });
+
+          
+          this.productForm.get('imgCover')?.clearValidators();
+          this.productForm.get('images')?.clearValidators();
+          this.productForm.get('imgCover')?.updateValueAndValidity();
+          this.productForm.get('images')?.updateValueAndValidity();
+
+          this.isLoading.set(false);
+        },
+        error: (err) => {
+          console.error('Failed to load product:', err);
+          this.isLoading.set(false);
+        }
+      });
+    } else {
+      this.isLoading.set(false);
+    }
+  }
+
+
+  private loadCategories(): void {
+    this.categoriesService.getAllCategories().subscribe({
+      next: (res) => {
+        this.categories.set(res.categories);
+      },
+      error: (err) => {
+        console.error('Failed to load categories:', err);
+      }
+    });
+  }
+
+  
+  private loadOccasions(): void {
+    this.occasionService.getAllOccasions().subscribe({
+      next: (res) => {
+        this.occasions.set(res.occasions);
+      },
+      error: (err) => {
+        console.error('Failed to load occasions:', err);
+      }
+    });
+  }
+
+  get priceAfterDiscount(): number {
+    const price = this.productForm.get('price')?.value || 0;
+    const discount = this.productForm.get('discount')?.value || 0;
+    return price - (price * (discount / 100));
+  }
+
+  
+  onCoverImageSelected(file: File): void {
+    this.selectedCoverFile = file;
+    this.productForm.patchValue({ imgCover: file });
+    this.productForm.get('imgCover')?.markAsTouched();
+    
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.coverPreviewUrl = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  onGalleryImagesSelected(file: File): void {
+    
+    this.selectedGalleryFiles.push(file);
+    this.productForm.patchValue({ images: this.selectedGalleryFiles });
+    this.productForm.get('images')?.markAsTouched();
+    
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.galleryPreviewUrls.push(reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  }
+
+  openImageModal(imageUrl: string, title: string): void {
+    this.modalImageUrl = imageUrl;
+    this.modalImageTitle = title;
+    this.showImageModal = true;
+  }
+
+  getFormTitle(): string {
+    const action = this.isEditMode ? 'Update' : 'Add a New';
+    return this.isEditMode 
+      ? `${action} Product: ${this.initialData?.title || ''}`
+      : `${action} Product`;
+  }
+
+  getFieldLabel(field: string): string {
+    const labels: { [key: string]: string } = {
+      title: 'Title *',
+      description: 'Description *',
+      price: 'Price *',
+      discount: 'Discount',
+      quantity: 'Quantity *',
+      category: 'Category *',
+      occasion: 'Occasion *',
+      imgCover: 'Product cover *',
+      images: 'Product gallery *'
+    };
+    return labels[field] || '';
+  }
+
+  getFieldPlaceholder(field: string): string {
+    const placeholders: { [key: string]: string } = {
+      title: 'Enter product title',
+      description: 'Enter product description',
+      price: 'Example: 100',
+      discount: 'Example: 5',
+      quantity: 'Example: 200'
+    };
+    return placeholders[field] || '';
+  }
+
+  handleFormSubmit(): void {
+    if (this.productForm.valid) {
+      this.isSubmitting = true;
+
+      const formData = new FormData();
+      formData.append('title', this.productForm.get('title')?.value);
+      formData.append('description', this.productForm.get('description')?.value);
+      formData.append('price', this.productForm.get('price')?.value);
+      formData.append('discount', this.productForm.get('discount')?.value || '0');
+      formData.append('quantity', this.productForm.get('quantity')?.value);
+      formData.append('category', this.productForm.get('category')?.value);
+      
+      if (this.productForm.get('occasion')?.value) {
+        formData.append('occasion', this.productForm.get('occasion')?.value);
+      }
+
+      if (this.selectedCoverFile) {
+        formData.append('imgCover', this.selectedCoverFile);
+      }
+
+      if (this.selectedGalleryFiles.length > 0) {
+        this.selectedGalleryFiles.forEach(file => {
+          formData.append('images', file);
+        });
+      }
+
+      if (this.isEditMode && this.productId) {
+        this.productsService.updateProduct(this.productId, formData).subscribe({
+          next: () => {
+            this._messageService.add({
+              severity: "success",
+              detail: "Product updated successfully!",
+              life: 3000,
+            });
+            this.router.navigate(["/dashboard/products"]);
+          },
+          error: (err) => {
+            console.error("Update failed:", err);
+            this._messageService.add({
+              severity: "error",
+              detail: "Failed to update product. Please try again.",
+              life: 5000,
+            });
+            this.isSubmitting = false;
+          },
+        });
+      } else {
+        this.productsService.addProduct(formData).subscribe({
+          next: () => {
+            this._messageService.add({
+              severity: "success",
+              detail: "Product added successfully!",
+              life: 3000,
+            });
+            this.router.navigate(["/dashboard/products"]);
+          },
+          error: (err) => {
+            console.error("Add failed:", err);
+            this._messageService.add({
+              severity: "error",
+              detail: "Failed to add product. Please try again.",
+              life: 5000,
+            });
+            this.isSubmitting = false;
+          },
+        });
+      }
+    } else {
+      this.markFormGroupTouched();
+    }
+  }
+
+  private markFormGroupTouched(): void {
+    Object.keys(this.productForm.controls).forEach(key => {
+      const control = this.productForm.get(key);
+      control?.markAsTouched();
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
