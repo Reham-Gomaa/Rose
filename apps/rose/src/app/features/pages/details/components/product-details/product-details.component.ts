@@ -1,4 +1,4 @@
-import { NgOptimizedImage } from "@angular/common";
+import { AsyncPipe, NgOptimizedImage } from "@angular/common";
 import { Component, effect, inject, input, signal } from "@angular/core";
 //interfaces
 import { Product } from "@angular-monorepo/products";
@@ -12,14 +12,14 @@ import { Store } from "@ngrx/store";
 import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
 import { selectCartItems } from "apps/rose/src/app/store/cart/cart-selectors";
 import {
-  removeSpecificItem,
   addProductToWishlist,
+  removeSpecificItem,
 } from "apps/rose/src/app/store/wishlist/wishlist-actions";
 import { selectIsInWishlist } from "apps/rose/src/app/store/wishlist/wishlist-selectors";
 
 @Component({
   selector: "app-product-details",
-  imports: [NgOptimizedImage, DialogModule],
+  imports: [NgOptimizedImage, DialogModule, AsyncPipe],
   templateUrl: "./product-details.component.html",
   styleUrl: "./product-details.component.scss",
 })
@@ -41,10 +41,10 @@ export class ProductDetailsComponent {
     });
 
     this.cartItems$ = this.store.select(selectCartItems);
-    this.isInWishlist$ = this.store.select(selectIsInWishlist(this.productDetails()._id!));
   }
 
   toggleWishlist(p_id: string) {
+    this.isInWishlist$ = this.store.select(selectIsInWishlist(p_id));
     this.isInWishlist$.pipe(take(1)).subscribe((isInWishlist) => {
       if (isInWishlist) {
         this.store.dispatch(removeSpecificItem({ p_id: p_id }));

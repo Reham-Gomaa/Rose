@@ -1,9 +1,9 @@
+import { effect } from "@angular/core";
 // @angular
-import { AfterViewInit, Component, inject, Input } from "@angular/core";
+import { AsyncPipe, NgOptimizedImage } from "@angular/common";
+import { Component, inject, Input } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RouterLink } from "@angular/router";
-// Images
-import { AsyncPipe, NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 // Interfaces
@@ -11,7 +11,7 @@ import { Product } from "@angular-monorepo/products";
 //PrimeNg
 import { RatingModule } from "primeng/rating";
 import { SkeletonModule } from "primeng/skeleton";
-// cart store
+// Store
 import { Store } from "@ngrx/store";
 import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
 import {
@@ -19,6 +19,7 @@ import {
   removeSpecificItem,
 } from "apps/rose/src/app/store/wishlist/wishlist-actions";
 import { selectIsInWishlist } from "apps/rose/src/app/store/wishlist/wishlist-selectors";
+// Rxjs
 import { Observable, take } from "rxjs";
 
 @Component({
@@ -35,15 +36,18 @@ import { Observable, take } from "rxjs";
   templateUrl: "./card-item.component.html",
   styleUrl: "./card-item.component.scss",
 })
-export class CardItemComponent implements AfterViewInit {
+export class CardItemComponent {
   private readonly store = inject(Store);
+  userWishlist$!: Observable<any>;
   isInWishlist$!: Observable<boolean>;
 
   @Input() productInfo: Product | undefined;
   @Input() loading = false;
 
-  ngAfterViewInit(): void {
-    this.isInWishlist$ = this.store.select(selectIsInWishlist(this.productInfo?._id!));
+  constructor() {
+    effect(() => {
+      this.isInWishlist$ = this.store.select(selectIsInWishlist(this.productInfo?._id!));
+    });
   }
 
   toggleWishlist() {
