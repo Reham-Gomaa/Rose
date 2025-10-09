@@ -48,6 +48,25 @@ import { setUserName } from "../../../store/address/address.actions";
 import { getUserCart } from "../../../store/cart/cart-actions";
 import { selectCartItemsNum } from "../../../store/cart/cart-selectors";
 import { selectWishlistCount } from "../../../store/wishlist/wishlist-selectors";
+import { getUserWishlist } from "../../../store/wishlist/wishlist-actions";
+
+interface UserProfile {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  gender: string;
+  phone: string;
+  photo: string;
+  role: string;
+  wishlist: any[];
+  addresses: any[];
+  createdAt: string;
+  passwordResetCode?: string;
+  passwordResetExpires?: string;
+  resetCodeVerified?: boolean;
+  passwordChangedAt?: string;
+}
 
 type modalPosition =
   | "left"
@@ -136,7 +155,7 @@ export class NavbarComponent implements OnInit {
     this.loadUserInfo();
     this.initializeMenuItems();
     this.getUserCart();
-    this.favouriteItemsNum$ = this._store.select(selectWishlistCount);
+    this.getWishlist();
   }
 
   private initializeMenuItems() {
@@ -235,6 +254,14 @@ export class NavbarComponent implements OnInit {
       this._store.dispatch(getUserCart());
     }
     this.cartItemsNum$ = this._store.select(selectCartItemsNum);
+  }
+
+  getWishlist() {
+    if (this.isLoggedIn()) {
+      this._store.dispatch(getUserWishlist());
+    }
+
+    this.favouriteItemsNum$ = this._store.select(selectWishlistCount);
   }
 
   isLogin(): void {
