@@ -1,4 +1,4 @@
-import { effect } from "@angular/core";
+import { effect, OnInit } from "@angular/core";
 // @angular
 import { AsyncPipe, NgOptimizedImage } from "@angular/common";
 import { Component, inject, Input } from "@angular/core";
@@ -16,6 +16,7 @@ import { Store } from "@ngrx/store";
 import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
 import {
   addProductToWishlist,
+  getUserWishlist,
   removeSpecificItem,
 } from "apps/rose/src/app/store/wishlist/wishlist-actions";
 import { selectIsInWishlist } from "apps/rose/src/app/store/wishlist/wishlist-selectors";
@@ -36,7 +37,7 @@ import { Observable, take } from "rxjs";
   templateUrl: "./card-item.component.html",
   styleUrl: "./card-item.component.scss",
 })
-export class CardItemComponent {
+export class CardItemComponent implements OnInit {
   private readonly store = inject(Store);
   userWishlist$!: Observable<any>;
   isInWishlist$!: Observable<boolean>;
@@ -48,6 +49,10 @@ export class CardItemComponent {
     effect(() => {
       this.isInWishlist$ = this.store.select(selectIsInWishlist(this.productInfo?._id!));
     });
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(getUserWishlist());
   }
 
   toggleWishlist() {

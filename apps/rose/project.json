@@ -32,9 +32,7 @@
           "node_modules/primeflex/themes/primeone-light.css",
           "apps/rose/src/styles.scss"
         ],
-        "scripts": [
-          "node_modules/chart.js/dist/chart.js"
-        ],
+        "scripts": [],
         "server": "apps/rose/src/main.server.ts",
         "ssr": {
           "entry": "apps/rose/src/server.ts"
