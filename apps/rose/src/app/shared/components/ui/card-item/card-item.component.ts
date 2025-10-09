@@ -1,22 +1,29 @@
+import { effect, OnInit } from "@angular/core";
 // @angular
-import { Component, inject, input, Input, InputSignal } from "@angular/core";
+import { AsyncPipe, NgOptimizedImage } from "@angular/common";
+import { Component, inject, Input } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RouterLink } from "@angular/router";
-// Images
-import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 // Interfaces
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 //PrimeNg
 import { RatingModule } from "primeng/rating";
 import { SkeletonModule } from "primeng/skeleton";
-// shared-Directive
-import { WishlistToggleDirective } from "./../../../directives/wishlistToggle.directive";
-// cart store
+// Shared_Component
+import { SoldOutComponent } from "../sold-out/soldOut.component";
+// Store
 import { Store } from "@ngrx/store";
 import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
-import { SoldOutComponent } from "../sold-out/soldOut.component";
+import {
+  addProductToWishlist,
+  getUserWishlist,
+  removeSpecificItem,
+} from "apps/rose/src/app/store/wishlist/wishlist-actions";
+import { selectIsInWishlist } from "apps/rose/src/app/store/wishlist/wishlist-selectors";
+// Rxjs
+import { Observable, take } from "rxjs";
 
 @Component({
   selector: "app-card-item",
@@ -27,17 +34,41 @@ import { SoldOutComponent } from "../sold-out/soldOut.component";
     TranslatePipe,
     RouterLink,
     NgOptimizedImage,
-    WishlistToggleDirective,
     SoldOutComponent,
+    AsyncPipe,
   ],
   templateUrl: "./card-item.component.html",
   styleUrl: "./card-item.component.scss",
 })
-export class CardItemComponent {
+export class CardItemComponent implements OnInit {
   private readonly store = inject(Store);
+  userWishlist$!: Observable<any>;
+  isInWishlist$!: Observable<boolean>;
 
   @Input() productInfo: Product | undefined;
   @Input() loading = false;
+
+  constructor() {
+    effect(() => {
+      this.isInWishlist$ = this.store.select(selectIsInWishlist(this.productInfo?._id!));
+    });
+  }
+
+  ngOnInit(): void {
+    this.store.dispatch(getUserWishlist());
+  }
+
+  toggleWishlist() {
+    if (!this.productInfo) return;
+
+    this.isInWishlist$.pipe(take(1)).subscribe((isInWishlist) => {
+      if (isInWishlist) {
+        this.store.dispatch(removeSpecificItem({ p_id: this.productInfo?._id! }));
+      } else {
+        this.store.dispatch(addProductToWishlist({ p_id: this.productInfo?._id! }));
+      }
+    });
+  }
 
   addProductToCart(p_id: string) {
     if (this.productInfo && this.productInfo.quantity > 0) {

@@ -13,7 +13,7 @@
           <img loading="lazy" decoding="async" width="20" height="20" ngSrc="./images/cart/brush-cleaning.AVIF"
             alt="clear cart" />
         </app-button>
-        <app-confirm-dialog #clearCartDialog [message]="'cart.confirm-dialog.deleteAccountConfirmation' | translate"
+        <lib-confirm-dialog #clearCartDialog [message]="'cart.confirm-dialog.deleteAccountConfirmation' | translate"
           [subMessage]="'cart.confirm-dialog.permanentActionWarning' | translate"
           [cancelLabel]="'cart.confirm-dialog.cancelDelete' | translate"
           [confirmLabel]="'cart.confirm-dialog.confirmDelete' | translate" (confirmed)="clearCart($event)" />
@@ -23,7 +23,7 @@
     <div id="cartContent">
       @if (isLoading$ | async) {
       <ng-container>
-        @for(item of [1,2,3];track $index){
+        @for (item of [1, 2, 3]; track $index) {
         <div [class.border-none]="$index === 2" class="pdt-wrapper flex flex-wrap">
           <div class="w-4 pb-2 md:w-3">
             <p-skeleton width="100%" height="8.75rem" borderRadius="1rem"></p-skeleton>
@@ -170,3 +170,109 @@
     </div>
   </div>
 </section>
+
+
+
+
+<!-- @else {
+        @for (item of userCartItems(); track $index) {
+          @if (cartItemsNum$ | async; as cartItemsNum) {
+            <div [class.border-none]="cartItemsNum === $index + 1" class="pdt-wrapper">
+              <div class="md:w-3">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  class="pdt block border-round-lg"
+                  width="117"
+                  height="140"
+                  [ngSrc]="item.product.imgCover"
+                  [alt]="item.product.title"
+                />
+              </div>
+              <div class="md:w-9 flex flex-column justify-content-between">
+                <div class="pdt-title-rating">
+                  <div>
+                    <h2 class="pdt-name">{{ item.product.title }}</h2>
+                    <h3 class="pdt-rating">
+                      <i class="pi pi-star-fill" style="color: var(--cart-star)"></i>
+                      {{ "cart.rating" | translate }}:
+                      <span class="rating">{{ item.product.rateAvg }}/5</span>
+                      <span class="rating-num"
+                        >({{ item.product.rateCount }} {{ "cart.rating" | translate }})</span
+                      >
+                    </h3>
+                  </div>
+                  <div class="remove-btn">
+                    <app-button
+                      (click)="removeCartItem(item.product._id)"
+                      [bgColor]="'var(--cart-deleteBtn-bg)'"
+                      [textColor]="'var(--cart-deleteBtn-text)'"
+                      [icon]="'pi pi-trash'"
+                      [padding]="'cart-delete-padding'"
+                      [borderRadius]="'cart-radius'"
+                      [text]="'cart.remove' | translate"
+                      [rowReverse]="'flex flex-row-reverse align-items-center'"
+                    />
+                  </div>
+                </div>
+                <div class="pdt-price-quantity">
+                  <div>
+                    <h3 class="pdt-price">
+                      <span class="qty">(x{{ item.quantity }})</span>
+                      {{ item.product.price }}
+                      <span class="egp">{{ "EGP" | translate }}</span>
+                    </h3>
+                  </div>
+                  <div
+                    class="flex justify-content-center md:justify-content-between align-items-center"
+                  >
+                    <app-button
+                      (click)="updateProductQuantity(item.product._id, -1)"
+                      [padding]="'cart-qty-padding'"
+                      [borderRadius]="'cart-radius'"
+                      [bgColor]="'var(--cart-clearBtn-bg)'"
+                      [textColor]="'var(--cart-clearBtn-text)'"
+                      [icon]="'pi pi-minus'"
+                    />
+                    <input
+                      type="number"
+                      class="w-4 md:w-6rem mx-2"
+                      [value]="item.quantity"
+                      min="1"
+                      [max]="item.product.quantity"
+                      (change)="onQuantityChange(item.product._id, $event)"
+                      (keyup.enter)="onQuantityChange(item.product._id, $event)"
+                    />
+                    <app-button
+                      (click)="updateProductQuantity(item.product._id, 1)"
+                      [padding]="'cart-qty-padding'"
+                      [borderRadius]="'cart-radius'"
+                      [bgColor]="'var(--cart-clearBtn-bg)'"
+                      [textColor]="'var(--cart-clearBtn-text)'"
+                      [icon]="'pi pi-plus'"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        } @empty {
+          <div class="flex flex-column justify-content-center align-items-center">
+            <div>
+              <img
+                loading="lazy"
+                decoding="async"
+                class="empty block"
+                width="250"
+                height="214"
+                ngSrc="./images/cart/no-cart.png"
+                alt="empty cart"
+              />
+            </div>
+            <div>
+              <h2 class="empty">{{ "cart.empty" | translate }}</h2>
+            </div>
+          </div>
+        }
+      </ng-container>
+      } -->

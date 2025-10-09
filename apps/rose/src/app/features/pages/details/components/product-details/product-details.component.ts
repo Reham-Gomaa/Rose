@@ -1,7 +1,7 @@
-import { NgOptimizedImage } from "@angular/common";
+import { AsyncPipe, NgOptimizedImage } from "@angular/common";
 import { Component, effect, inject, input, signal } from "@angular/core";
 //interfaces
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 import { cartItems } from "@rose/core_interfaces/cart.interface";
 // PrimeNG
 import { DialogModule } from "primeng/dialog";
@@ -9,14 +9,19 @@ import { DialogModule } from "primeng/dialog";
 import { Observable, take } from "rxjs";
 // cart store
 import { Store } from "@ngrx/store";
-import { WishlistToggleDirective } from "apps/rose/src/app/shared/directives/wishlistToggle.directive";
 import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
 import { selectCartItems } from "apps/rose/src/app/store/cart/cart-selectors";
+import {
+  addProductToWishlist,
+  removeSpecificItem,
+} from "apps/rose/src/app/store/wishlist/wishlist-actions";
+import { selectIsInWishlist } from "apps/rose/src/app/store/wishlist/wishlist-selectors";
+// Shared_Component
 import { SoldOutComponent } from "@rose/shared_Components_ui/sold-out/soldOut.component";
 
 @Component({
   selector: "app-product-details",
-  imports: [NgOptimizedImage, DialogModule, WishlistToggleDirective, SoldOutComponent],
+  imports: [NgOptimizedImage, DialogModule, AsyncPipe, SoldOutComponent],
   templateUrl: "./product-details.component.html",
   styleUrl: "./product-details.component.scss",
 })
@@ -27,6 +32,7 @@ export class ProductDetailsComponent {
   currentImage = signal<string>("");
   showModal = signal<boolean>(false);
   cartItems$!: Observable<cartItems[]>;
+  isInWishlist$!: Observable<boolean>;
 
   constructor() {
     // Watch for input changes
@@ -37,6 +43,17 @@ export class ProductDetailsComponent {
     });
 
     this.cartItems$ = this.store.select(selectCartItems);
+  }
+
+  toggleWishlist(p_id: string) {
+    this.isInWishlist$ = this.store.select(selectIsInWishlist(p_id));
+    this.isInWishlist$.pipe(take(1)).subscribe((isInWishlist) => {
+      if (isInWishlist) {
+        this.store.dispatch(removeSpecificItem({ p_id: p_id }));
+      } else {
+        this.store.dispatch(addProductToWishlist({ p_id: p_id }));
+      }
+    });
   }
 
   addProductToCart(p_id: string) {

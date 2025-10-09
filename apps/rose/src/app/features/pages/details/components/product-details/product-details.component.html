@@ -1,6 +1,7 @@
 <section id="product-details" class="my-5 relative">
   <app-sold-out [class.hidden]="productDetails().quantity > 0" />
   <div class="grid gap-5 md:flex-nowrap">
+    @if (productDetails()) {
     <div class="md:col-6 col-12">
       <div class="product-image">
         <div class="cover relative">
@@ -24,6 +25,7 @@
         </div>
       </div>
     </div>
+
     <div class="md:col-6 col-12 border">
       <div class="product-info h-full flex flex-column justify-content-between">
         <div>
@@ -50,12 +52,13 @@
           </p>
         </div>
         <div class="wish-and-cart text-lg w-full flex gap-2">
-          <button [appWishlistToggle]="productDetails()"
-            class="submit-btn wish cursor-pointer flex-grow-0 w-fit capitalize" [activeClass]="'wishlist-active'">
-            <i class="pi pi-heart"></i>
+          <button (keydown)="toggleWishlist(productDetails()._id)" (click)="toggleWishlist(productDetails()._id)"
+            class="submit-btn wish cursor-pointer flex-grow-0 w-fit capitalize">
+            <i [class.Active]="isInWishlist$ |async" tabindex="0"
+              [class]="(isInWishlist$ |async) ? 'pi pi-heart-fill icon-circle': 'pi pi-heart icon-circle'"></i>
           </button>
           <button [disabled]="productDetails().quantity <= 0" [class.disableCart]="productDetails().quantity <= 0"
-            (click)="addProductToCart(productDetails()._id)"
+            (click)="addProductToCart(productDetails()._id!)"
             class="submit-btn cart cursor-pointer flex-grow-1 capitalize">
             <i class="pi pi-shopping-cart mr-1"></i>
             add to cart
@@ -63,9 +66,10 @@
         </div>
       </div>
     </div>
+    }
   </div>
 
-  <p-dialog [header]="productDetails().slug.toUpperCase()" [(visible)]="showModal" [modal]="true"
+  <p-dialog [header]="productDetails().slug?.toUpperCase()" [(visible)]="showModal" [modal]="true"
     [dismissableMask]="true" [closable]="true" [style.maxWidth]="'50vw'" [contentStyle]="{ 'text-align': 'center' }">
     @if (currentImage()) {
     <img [ngSrc]="currentImage()" width="100" height="100" alt="Zoomed Image" class="w-full h-auto block"

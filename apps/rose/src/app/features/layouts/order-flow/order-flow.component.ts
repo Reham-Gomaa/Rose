@@ -6,16 +6,16 @@ import { FormsModule } from "@angular/forms";
 // Components
 import { BestsellerSliderComponent } from "@rose/shared_Components_ui/bestseller-slider/bestseller-slider.component";
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
-import { CustomInputComponent } from "@rose/shared_Components_ui/custom-input/custom-input.component";
+import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 import { CartComponent } from "./components/cart/cart.component";
 // Animation
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
 // Store
 import { Store } from "@ngrx/store";
 import { cartItems } from "@rose/core_interfaces/cart.interface";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/services";
 import { CartService } from "@rose/shared_services/cart/cart.service";
 import { Observable } from "rxjs";
 import { deleteSpecificItem, getUserCart } from "../../../store/cart/cart-actions";
@@ -71,7 +71,7 @@ export class OrderFlowComponent implements OnInit {
 
   checkStoreQuantity() {
     const invalidItems = this.userCartItems().filter(
-      (item) => item.quantity > item.product.quantity
+      (item) => item.quantity > item.product.quantity,
     );
 
     if (invalidItems.length === 0) {

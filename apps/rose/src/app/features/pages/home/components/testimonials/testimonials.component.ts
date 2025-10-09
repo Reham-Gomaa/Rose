@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component, inject } from "@angular/core";
 // Images
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/services";
 // Animations
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // Interfaces
 import { responsiveOption, Testimonials } from "@rose/core_interfaces/testimonials.interface";
 // primeNg

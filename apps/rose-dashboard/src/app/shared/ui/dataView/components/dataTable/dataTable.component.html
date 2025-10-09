@@ -1,0 +1,88 @@
+<div class="card">
+    @if (data().length > 0) {
+          <p-table [value]="data()">
+              <ng-template #header>
+                  <tr>
+                    @for(record of records(); track $index) {
+                      <th class="capitalize">
+                        {{ record }}
+                      </th>
+                    }
+                      <th></th>
+                  </tr>
+              </ng-template>
+              <ng-template #body let-item>
+                  <tr>
+                      @for(record of records(); track $index) {
+                        <td>{{ item[record] }}</td>
+                      }
+                    <td>
+                        <div id="operations">
+                          <div class="in-large hidden lg:flex gap-3 justify-content-end">
+                            <app-button
+                              [bgColor]="'#0063D01A'"
+                              [borderRadius]="'border-round-md'"
+                              [icon]="'pi pi-pencil'"
+                              [textColor]="'#155DFC'"
+                              [padding]="'p-1 px-2 '"
+                              [transition]="'0.3s'"
+                              [text]="'edit'"
+                              (click)="onEdit(item)"
+                            ></app-button>
+                            <app-button
+                              [bgColor]="'#FF00001A'"
+                              [borderRadius]="'border-round-md'"
+                              [icon]="'pi pi-trash'"
+                              [textColor]="'#DC2626'"
+                              [padding]="'p-1 px-2 '"
+                              [transition]="'0.3s'"
+                              [text]="'remove'"
+                              (click)="confirmDelete(item)"
+                            ></app-button>
+                          </div>
+                          <div class="in-small flex lg:hidden justify-content-end">
+                            <div class="card flex justify-content-center relative">
+                              <p-button (click)="onMenuClick($event, item)" icon="pi pi-ellipsis-v" />
+                              <p-menu #menu [model]="items" [popup]="true" />
+                            </div>
+                          </div>
+                        </div>
+                    </td>
+                  </tr>
+              </ng-template>
+          </p-table>
+    } @else {
+        <p-table [value]="[{},{},{},{},{},{},{},{}]" responsiveLayout="scroll">
+          <ng-template #header>
+              <tr>
+                  @for(record of records(); track $index) {
+                    <th>{{ record }}</th>
+                  }
+                  <th></th>
+              </tr>
+          </ng-template>
+          <ng-template #body let-product>
+                <tr>
+            @for(record of records(); track $index) {
+              <td>
+                <p-skeleton width="100%" height="1.5rem"></p-skeleton>
+              </td>
+            }
+            <td class="flex gap-3 justify-content-end">
+              <p-skeleton width="100%" height="1.5rem"></p-skeleton>
+            </td>
+          </tr>
+          </ng-template>
+        </p-table>
+    }
+</div>
+
+<!-- Your custom confirm dialog -->
+<lib-confirm-dialog
+  [visible]="showConfirmDialog"
+  [message]="'Are you sure you want to delete this ' + entityType() + '?'"
+  [subMessage]="'This action cannot be undone.'"
+  [cancelLabel]="'Cancel'"
+  [confirmLabel]="'Delete'"
+  (confirmed)="onDialogConfirmed($event)"
+></lib-confirm-dialog>

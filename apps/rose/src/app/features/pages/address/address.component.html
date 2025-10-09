@@ -1,12 +1,11 @@
 <div class="p-5">
-  @if(loading){
-  <app-spinner></app-spinner>
-
-  }@else{
+  @if (loading) {
+  <lib-spinner />
+  } @else {
   <div class="flex flex-column justify-content-start gap-5">
     @for (item of address; track $index) {
     <app-address-item [address]="item"></app-address-item>
-    }@empty{
+    } @empty {
     <div class="flex flex-column justify-content-center align-items-center text-center text-2xl">
       <img class="w-62px" width="62" height="62" ngSrc="/images/no-product-available.AVIF" alt="image for not avaliable"
         loading="lazy" decoding="async" />
@@ -24,10 +23,11 @@
 <app-delete-dialog [visible]="addressState === AddressSituations.deleteAddress"
   (closed)="closeDeleteDialog()"></app-delete-dialog>
 
-@if(addressState === AddressSituations.updateAddress){
+@if (addressState === AddressSituations.updateAddress) {
 <app-address-stepper [visible]="addressState === AddressSituations.updateAddress" [isUpdate]="true"
   (closed)="closeStepperDialog()"></app-address-stepper>
-} @if(addressState === AddressSituations.addAddress){
+}
+@if (addressState === AddressSituations.addAddress) {
 <app-address-stepper [visible]="addressState === AddressSituations.addAddress"
   (closed)="closeStepperDialog()"></app-address-stepper>
 }

@@ -18,6 +18,33 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@angular-monorepo/categories": [
+        "libs/categories/src/index.ts"
+      ],
+      "@angular-monorepo/confirm-dialog": [
+        "libs/shared/ui-components/confirm-dialog/src/index.ts"
+      ],
+      "@angular-monorepo/core": [
+        "libs/core/src/index.ts"
+      ],
+      "@angular-monorepo/notification-toast": [
+        "libs/shared/ui-components/notification-toast/src/index.ts"
+      ],
+      "@angular-monorepo/occasions": [
+        "libs/occasions/src/index.ts"
+      ],
+      "@angular-monorepo/products": [
+        "libs/products/src/index.ts"
+      ],
+      "@angular-monorepo/rose-buttons": [
+        "libs/shared/ui-components/rose-buttons/src/index.ts"
+      ],
+      "@angular-monorepo/rose-custom-inputs": [
+        "libs/shared/ui-components/rose-custom-inputs/src/index.ts"
+      ],
+      "@angular-monorepo/services": [
+        "libs/services/src/index.ts"
+      ],
       "@rose/address/*": [
         "./apps/rose/src/app/store/address/*"
       ],
@@ -30,14 +57,14 @@
       "@rose/core_enums/*": [
         "./apps/rose/src/app/core/enums/*"
       ],
-      "@rose/core_environment/*": [
-        "./apps/rose/src/app/core/environment/*"
-      ],
       "@rose/core_interfaces/*": [
         "./apps/rose/src/app/core/interfaces/*"
       ],
       "@rose/core_services/*": [
         "./apps/rose/src/app/core/services/*"
+      ],
+      "@rose/environment/*": [
+        "apps/environment/*"
       ],
       "@rose/features_layouts/*": [
         "./apps/rose/src/app/features/layouts/*"
@@ -74,6 +101,36 @@
       ],
       "@rose/store_sort/*": [
         "./apps/rose/src/app/store/sort/*"
+      ],
+      "@rose_dashboard/core_enums/*": [
+        "./apps/rose-dashboard/src/app/core/enums/*"
+      ],
+      "@rose_dashboard/core_interceptor/*": [
+        "./apps/rose-dashboard/src/app/core/interceptor/*"
+      ],
+      "@rose_dashboard/core_interfaces/*": [
+        "./apps/rose-dashboard/src/app/core/interfaces/*"
+      ],
+      "@rose_dashboard/core_services/*": [
+        "./apps/rose-dashboard/src/app/core/services/*"
+      ],
+      "@rose_dashboard/features_layouts/*": [
+        "./apps/rose-dashboard/src/app/features/layout/*"
+      ],
+      "@rose_dashboard/features_pages/*": [
+        "./apps/rose-dashboard/src/app/features/pages/*"
+      ],
+      "@rose_dashboard/shared_buisness/*": [
+        "./apps/rose-dashboard/src/app/shared/buisness/*"
+      ],
+      "@rose_dashboard/shared_services/*": [
+        "./apps/rose-dashboard/src/app/shared/services/*"
+      ],
+      "@rose_dashboard/shared_styles/*": [
+        "./apps/rose-dashboard/src/app/shared/styles/*"
+      ],
+      "@rose_dashboard/shared_ui/*": [
+        "./apps/rose-dashboard/src/app/shared/ui/*"
       ]
     }
   },

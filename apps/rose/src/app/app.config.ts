@@ -1,20 +1,17 @@
 import { appRoutes } from "./app.routes";
 // @angular imports
+import { HashLocationStrategy, LocationStrategy } from "@angular/common";
+import { provideHttpClient, withFetch, withInterceptors } from "@angular/common/http";
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from "@angular/core";
+import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
+import { provideAnimations } from "@angular/platform-browser/animations";
+import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import {
   provideRouter,
   TitleStrategy,
   withInMemoryScrolling,
   withViewTransitions,
 } from "@angular/router";
-import { provideClientHydration, withEventReplay } from "@angular/platform-browser";
-import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
-import { HashLocationStrategy, LocationStrategy } from "@angular/common";
-import { HttpClient, provideHttpClient, withFetch, withInterceptors } from "@angular/common/http";
-import { provideAnimations } from "@angular/platform-browser/animations";
-// @ngx imports
-import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 // ngrx imports
 import { provideEffects } from "@ngrx/effects";
 import { provideStore } from "@ngrx/store";
@@ -27,9 +24,12 @@ import { AddressEffect } from "./store/address/address.effect";
 import { addressReducer } from "./store/address/address.reducer";
 import { CartEffects } from "./store/cart/cart-effects";
 import { cartReducer } from "./store/cart/cart-reducers";
-import { wishlistReducer } from "./store/wishlist/wishlist-reducers";
-import { checkoutReducer } from "./store/checkout/checkout.reducer";
 import { checkoutEffects } from "./store/checkout/checkout.effects";
+import { checkoutReducer } from "./store/checkout/checkout.reducer";
+import { wishlistReducer } from "./store/wishlist/wishlist-reducers";
+import { WishlistEffects } from "./store/wishlist/wishlist-effects";
+import { tokenReducer } from "@rose/store_auth/auth.reducers";
+import { AuthEffects } from "@rose/store_auth/auth.effects";
 // primeng imports
 import Aura from "@primeng/themes/aura";
 import { MessageService } from "primeng/api";
@@ -38,13 +38,15 @@ import { ToastModule } from "primeng/toast";
 // Auth LIB
 import { API_CONFIG } from "auth-api-kp";
 // Header Interceptor
-import { headingInterceptor } from "./core/interceptors/header.interceptor";
-
-// Transelate Title
-import { TranslateTitleStrategy } from "./core/strategies/translate-title.strategy";
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, "./i18n/", ".json");
-}
+import { headingInterceptor, TranslateTitleStrategy } from "@angular-monorepo/core";
+// Environment
+import { environment } from "apps/environment/baseurl.dev";
+// Translate Title
+import { provideTranslation } from "@angular-monorepo/services";
+// Shared Libraries
+import { API_BASE_URL_CATEGORIES } from "@angular-monorepo/categories";
+import { BASE_URL } from "@angular-monorepo/occasions";
+import { API_BASE_URL_PRODUCTS } from "@angular-monorepo/products";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -52,7 +54,7 @@ export const appConfig: ApplicationConfig = {
     {
       provide: API_CONFIG,
       useValue: {
-        baseUrl: "https://flower.elevateegy.com/api",
+        baseUrl: `${environment.baseApiUrl}api`,
         apiVersion: "v1",
         endpoints: {
           auth: {
@@ -72,6 +74,14 @@ export const appConfig: ApplicationConfig = {
         },
       },
     },
+    {
+      provide: API_BASE_URL_PRODUCTS,
+      useValue: environment.baseApiUrl,
+    },
+    {
+      provide: API_BASE_URL_CATEGORIES,
+      useValue: environment.baseApiUrl,
+    },
     provideClientHydration(withEventReplay()),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(
@@ -79,12 +89,12 @@ export const appConfig: ApplicationConfig = {
       withViewTransitions(),
       withInMemoryScrolling({
         scrollPositionRestoration: "enabled",
-      })
+      }),
     ),
     { provide: TitleStrategy, useClass: TranslateTitleStrategy },
     provideHttpClient(withFetch()),
     MessageService,
-    importProvidersFrom(ToastModule),
+    importProvidersFrom(ToastModule, provideTranslation()),
     provideAnimationsAsync(),
     provideAnimations(),
     providePrimeNG({
@@ -98,15 +108,6 @@ export const appConfig: ApplicationConfig = {
       },
     }),
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    importProvidersFrom(
-      TranslateModule.forRoot({
-        loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient],
-        },
-      })
-    ),
     provideStore({
       sort: sortReducer,
       filter: filterReduser,
@@ -114,7 +115,21 @@ export const appConfig: ApplicationConfig = {
       wishlist: wishlistReducer,
       Address: addressReducer,
       checkout: checkoutReducer,
+      auth: tokenReducer,
     }),
-    provideEffects(sortEffects, FilterEffects, AddressEffect, checkoutEffects, CartEffects),
+    provideEffects(
+      sortEffects,
+      FilterEffects,
+      AddressEffect,
+      checkoutEffects,
+      CartEffects,
+      WishlistEffects,
+      AuthEffects,
+    ),
+
+    {
+      provide: BASE_URL,
+      useValue: environment.baseApiUrl,
+    },
   ],
 };

@@ -4,13 +4,11 @@ import { NgOptimizedImage } from "@angular/common";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/services";
 // Animations
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
-// Interfaces
-import { Category, CategoryRes } from "@rose/core_interfaces/categories.interface";
-// Shared_Services
-import { CategoriesService } from "@rose/shared_services/categories/categories.service";
+import { fadeTransition } from "@angular-monorepo/services";
+// Shared_Services , Interfaces
+import { CategoriesService, Category, CategoryRes } from "@angular-monorepo/categories";
 // Shared_Components
 import { NoDataAvailableComponent } from "@rose/shared_Components_business/no-data-available/no-data-available.component";
 // PrimeNG

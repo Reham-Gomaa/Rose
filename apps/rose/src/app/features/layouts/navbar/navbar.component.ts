@@ -13,18 +13,18 @@ import { FormsModule } from "@angular/forms";
 import { Router, RouterLink, RouterLinkActive } from "@angular/router";
 // Translate
 import { TranslatePipe, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/services";
 // Animation
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // Services
-import { StorageManagerService } from "@rose/core_services/storage-manager/storage-manager.service";
-import { UserStateService } from "@rose/core_services/user-state/user-state.service";
+import { StorageManagerService } from "@angular-monorepo/services";
+import { UserStateService } from "@angular-monorepo/services";
 import { CartService } from "@rose/shared_services/cart/cart.service";
 // Shared_UI_Components
-import { ButtonThemeComponent } from "@rose/shared_Components_ui/button-theme/button-theme.component";
+import { ButtonThemeComponent } from "@angular-monorepo/rose-buttons";
 import { SearchModalComponent } from "@rose/shared_Components_ui/search-modal/search-modal.component";
 // Shared_business_Components
-import { TranslateToggleComponent } from "@rose/shared_Components_business/translate-toggle/translate-toggle.component";
+import { TranslateToggleComponent } from "@angular-monorepo/rose-buttons";
 // PrimeNg
 import { MenuItem, MessageService } from "primeng/api";
 import { ButtonModule } from "primeng/button";
@@ -37,6 +37,8 @@ import { OverlayBadgeModule } from "primeng/overlaybadge";
 import { SplitButton } from "primeng/splitbutton";
 // Auth_Lib
 import { AuthApiKpService } from "auth-api-kp";
+// Environment
+import { environment } from "@rose/environment/baseurl.dev";
 // Interface_Lib
 import { User } from "auth-api-kp";
 // Ngrx
@@ -46,6 +48,25 @@ import { setUserName } from "../../../store/address/address.actions";
 import { getUserCart } from "../../../store/cart/cart-actions";
 import { selectCartItemsNum } from "../../../store/cart/cart-selectors";
 import { selectWishlistCount } from "../../../store/wishlist/wishlist-selectors";
+import { getUserWishlist } from "../../../store/wishlist/wishlist-actions";
+
+interface UserProfile {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  gender: string;
+  phone: string;
+  photo: string;
+  role: string;
+  wishlist: any[];
+  addresses: any[];
+  createdAt: string;
+  passwordResetCode?: string;
+  passwordResetExpires?: string;
+  resetCodeVerified?: boolean;
+  passwordChangedAt?: string;
+}
 
 type modalPosition =
   | "left"
@@ -97,7 +118,6 @@ export class NavbarComponent implements OnInit {
   private readonly _storageManagerService = inject(StorageManagerService);
   private readonly _userStateService = inject(UserStateService);
   private readonly _store = inject(Store);
-  private readonly router = inject(Router);
 
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
   cartItemsNum$!: Observable<number>;
@@ -135,7 +155,7 @@ export class NavbarComponent implements OnInit {
     this.loadUserInfo();
     this.initializeMenuItems();
     this.getUserCart();
-    this.favouriteItemsNum$ = this._store.select(selectWishlistCount);
+    this.getWishlist();
   }
 
   private initializeMenuItems() {
@@ -167,6 +187,7 @@ export class NavbarComponent implements OnInit {
 
   private updateUserDropdown() {
     const user = this.user();
+    const isAdmin = user?.role === "admin";
     this.userDropDown.set([
       {
         label: user
@@ -202,7 +223,16 @@ export class NavbarComponent implements OnInit {
       {
         label: this._translate.instant("navbar.menu.dashboard"),
         icon: "pi pi-cog",
-        command: () => this._router.navigate(["/dashboard/user-dashboard"]),
+        visible: isAdmin,
+        command: () => {
+          const token = this._storageManagerService.getItem("authToken");
+          if (token) {
+            window.open(
+              `${environment.runUrlDashboard}?token=${encodeURIComponent(token)}`,
+              "_blank",
+            );
+          }
+        },
       },
       {
         separator: true,
@@ -224,6 +254,14 @@ export class NavbarComponent implements OnInit {
       this._store.dispatch(getUserCart());
     }
     this.cartItemsNum$ = this._store.select(selectCartItemsNum);
+  }
+
+  getWishlist() {
+    if (this.isLoggedIn()) {
+      this._store.dispatch(getUserWishlist());
+    }
+
+    this.favouriteItemsNum$ = this._store.select(selectWishlistCount);
   }
 
   isLogin(): void {
@@ -248,16 +286,20 @@ export class NavbarComponent implements OnInit {
           this._store.dispatch(setUserName({ userName: this.userName() }));
           this.updateUserDropdown();
           this.loading.set(false);
+
+          if (res.user.role !== "admin" && this._router.url.includes("/dashboard")) {
+            this._router.navigate(["/dashboard/home"]);
+          }
         },
         error: (err) => {
-          this.userName.set("Guest");
-          this.updateUserDropdown();
-          this._messageService.add({
-            severity: "error",
-            detail: this._translate.instant("messagesToast.failedLoadProfile"),
-            life: 3000,
-          });
           this.loading.set(false);
+          this._storageManagerService.removeItem("authToken");
+          this.isLoggedIn.set(false);
+          this.user.set(null);
+          this.updateUserDropdown();
+          if (this._router.url.includes("/dashboard")) {
+            this._router.navigate(["/dashboard/home"]);
+          }
         },
       });
   }

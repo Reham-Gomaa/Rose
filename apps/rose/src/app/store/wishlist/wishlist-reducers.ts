@@ -1,41 +1,47 @@
 import { createReducer, on } from "@ngrx/store";
-import { Product } from "@rose/core_interfaces/carditem.interface";
-import { clearWishlist, loadWishlist, toggleWishlistProduct } from "./wishlist-actions";
+import { Product } from "@angular-monorepo/products";
+import {
+  addProductToWishlistSuccess,
+  checkInWishlistSuccess,
+  clearwishlistSuccess,
+  getUserWishlistSuccess,
+  removeSpecificItemSuccess,
+} from "./wishlist-actions";
 import { wishlistStates } from "./wishlist-states";
 
 export const initialState: wishlistStates = {
   favouriteitems: [] as Product[],
   favouriteitemsNum: 0,
+  isInWishlist: false,
+  message: "",
 };
 
 export const wishlistReducer = createReducer(
   initialState,
 
-  on(loadWishlist, (state, { products }) => ({
+  on(getUserWishlistSuccess, (state, { wishlist }) => ({
     ...state,
-    favouriteitems: [...products],
-    favouriteitemsNum: products.length,
+    favouriteitems: wishlist.wishlist.products,
+    favouriteitemsNum: wishlist.count,
   })),
 
-  on(toggleWishlistProduct, (state, { product }) => {
-    const productIndex = state.favouriteitems.findIndex((item) => item._id === product._id);
+  on(addProductToWishlistSuccess, (state, { wishlist }) => ({
+    ...state,
+    favouriteitems: wishlist.wishlist.products,
+    favouriteitemsNum: wishlist.wishlist.products.length,
+  })),
 
-    if (productIndex >= 0) {
-      const updatedItems = [...state.favouriteitems.filter((item) => item._id != product._id)];
+  on(checkInWishlistSuccess, (state, { isInWishlist, message }) => ({
+    ...state,
+    isInWishlist,
+    message,
+  })),
 
-      return {
-        ...state,
-        favouriteitems: updatedItems,
-        favouriteitemsNum: updatedItems.length,
-      };
-    } else {
-      return {
-        ...state,
-        favouriteitems: [...state.favouriteitems, product],
-        favouriteitemsNum: state.favouriteitemsNum + 1,
-      };
-    }
-  }),
+  on(removeSpecificItemSuccess, (state, { wishlist }) => ({
+    ...state,
+    favouriteitems: wishlist.wishlist.products,
+    favouriteitemsNum: wishlist.wishlist.products.length,
+  })),
 
-  on(clearWishlist, () => initialState)
+  on(clearwishlistSuccess, () => initialState),
 );

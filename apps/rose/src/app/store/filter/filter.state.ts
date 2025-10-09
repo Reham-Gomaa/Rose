@@ -1,5 +1,5 @@
 // Interfaces
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 import { selectedItem } from "@rose/core_interfaces/filter-item.interface";
 
 export interface FilterState {

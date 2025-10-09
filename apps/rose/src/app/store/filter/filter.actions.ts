@@ -1,36 +1,36 @@
 import { createAction, props } from "@ngrx/store";
 // Interfaces
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 import { selectedItem } from "@rose/core_interfaces/filter-item.interface";
 
 export const loadProductsToFilter = createAction(
   "[FILTER] Load Products",
-  props<{ products: Product[] }>()
+  props<{ products: Product[] }>(),
 );
 
 export const loadSelectedCategories = createAction(
   "[FILTER] Load Selected Categories",
-  props<{ selectedCategories: selectedItem[] }>()
+  props<{ selectedCategories: selectedItem[] }>(),
 );
 
 export const loadSelectedOccasions = createAction(
   "[FILTER] Load Selected Occasions",
-  props<{ selectedOccasions: selectedItem[] }>()
+  props<{ selectedOccasions: selectedItem[] }>(),
 );
 
 export const loadSelectedPrice = createAction(
   "[FILTER] Load Selected Price",
-  props<{ maxPrice: number; minPrice: number }>()
+  props<{ maxPrice: number; minPrice: number }>(),
 );
 
 export const loadSelectedName = createAction(
   "[FILTER] Load Selected Name",
-  props<{ name: string }>()
+  props<{ name: string }>(),
 );
 
 export const loadSelectedRating = createAction(
   "[FILTER] Load Selected Rating",
-  props<{ selectedRating: selectedItem[] }>()
+  props<{ selectedRating: selectedItem[] }>(),
 );
 
 export const ApplyFilters = createAction("[FILTER] Apply Filters");

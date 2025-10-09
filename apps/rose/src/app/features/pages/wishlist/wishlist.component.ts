@@ -1,14 +1,18 @@
 import { isPlatformBrowser, NgOptimizedImage } from "@angular/common";
-import { Component, inject, OnInit, PLATFORM_ID, signal, WritableSignal } from "@angular/core";
-import { Store } from "@ngrx/store";
+import { Component, inject, OnInit, signal, WritableSignal } from "@angular/core";
+// Pipe
 import { TranslatePipe } from "@ngx-translate/core";
-import { Product } from "@rose/core_interfaces/carditem.interface";
-import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
-import { clearWishlist, loadWishlist } from "../../../store/wishlist/wishlist-actions";
-import { selectWishlistItems } from "../../../store/wishlist/wishlist-selectors";
+// Shared_Interface
+import { Product } from "@angular-monorepo/products";
+// Shared_Component
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
-import { ConfirmDialogComponent } from "@rose/shared_Components_business/confirm-dialog/confirm-dialog.component";
+import { CardItemComponent } from "@rose/shared_Components_ui/card-item/card-item.component";
 import { EmptyCartComponent } from "@rose/shared_Components_ui/emptyCart/emptyCart.component";
+import { ConfirmDialogComponent } from "@angular-monorepo/confirm-dialog";
+// Store
+import { Store } from "@ngrx/store";
+import { clearWishlist, getUserWishlist } from "../../../store/wishlist/wishlist-actions";
+import { selectWishlistItems } from "../../../store/wishlist/wishlist-selectors";
 
 @Component({
   selector: "app-wishlist",
@@ -25,40 +29,26 @@ import { EmptyCartComponent } from "@rose/shared_Components_ui/emptyCart/emptyCa
 })
 export class WishlistComponent implements OnInit {
   private readonly store = inject(Store);
-  private readonly pLATFORM_ID = inject(PLATFORM_ID);
 
   favouriteItems: WritableSignal<Product[]> = signal([]);
 
   ngOnInit(): void {
-    this.initializeWishlist();
     this.setupWishlistSubscription();
+    this.loadInitialWishlist();
   }
 
-  initializeWishlist() {
-    if (!isPlatformBrowser(this.pLATFORM_ID)) return;
-    const stored = localStorage.getItem("wishlist");
-    if (stored) {
-      const parsedItems = JSON.parse(stored) as Product[];
-      this.favouriteItems.set(parsedItems);
-      this.store.dispatch(loadWishlist({ products: parsedItems }));
-    }
+  private loadInitialWishlist() {
+    this.store.dispatch(getUserWishlist());
   }
 
   setupWishlistSubscription() {
     this.store.select(selectWishlistItems).subscribe((items) => {
       this.favouriteItems.set(items);
-      if (isPlatformBrowser(this.pLATFORM_ID)) {
-        localStorage.setItem("wishlist", JSON.stringify(items));
-      }
     });
   }
 
   clearWishlist(confirmed: boolean): void {
     if (!confirmed) return;
-    if (isPlatformBrowser(this.pLATFORM_ID)) {
-      localStorage.removeItem("wishlist");
-      this.favouriteItems.set([]);
-      this.store.dispatch(clearWishlist());
-    }
+    this.store.dispatch(clearWishlist());
   }
 }

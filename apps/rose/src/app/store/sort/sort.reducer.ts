@@ -2,7 +2,7 @@ import { createReducer, on } from "@ngrx/store";
 import { sortConditions, sortState, sortType } from "./sort.states";
 import * as sortActions from "./sort.actions";
 // Interfaces
-import { Product } from "@rose/core_interfaces/carditem.interface";
+import { Product } from "@angular-monorepo/products";
 // Enums
 import { sortTypes } from "@rose/core_enums/sorttypes";
 
@@ -80,5 +80,5 @@ export const sortReducer = createReducer(
     }
 
     return newState;
-  })
+  }),
 );

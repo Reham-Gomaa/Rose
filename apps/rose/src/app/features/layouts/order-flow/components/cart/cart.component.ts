@@ -16,15 +16,18 @@ import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { Observable, tap } from "rxjs";
 // shared Interfaces and Services
+import { TranslationService } from "@angular-monorepo/services";
 import { cartItems } from "@rose/core_interfaces/cart.interface";
-import { TranslationService } from "@rose/core_services/translation/translation.service";
 // shared Components
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
+import { EmptyCartComponent } from "@rose/shared_Components_ui/emptyCart/emptyCart.component";
 // Animation
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // primeng
 import { Skeleton } from "primeng/skeleton";
+import { MessageService } from "primeng/api";
 // Cart Data from store
+import { ConfirmDialogComponent } from "@angular-monorepo/confirm-dialog";
 import { Store } from "@ngrx/store";
 import {
   addProductToCart,
@@ -38,10 +41,6 @@ import {
   selectCartItemsNum,
   selectCartLoading,
 } from "apps/rose/src/app/store/cart/cart-selectors";
-import { MessageService } from "primeng/api";
-import { ConfirmDialogComponent } from "@rose/shared_Components_business/confirm-dialog/confirm-dialog.component";
-import { EmptyCartComponent } from "@rose/shared_Components_ui/emptyCart/emptyCart.component";
-import { WishlistToggleDirective } from "apps/rose/src/app/shared/directives/wishlistToggle.directive";
 
 @Component({
   selector: "app-cart",
@@ -54,7 +53,6 @@ import { WishlistToggleDirective } from "apps/rose/src/app/shared/directives/wis
     NgOptimizedImage,
     ConfirmDialogComponent,
     EmptyCartComponent,
-    WishlistToggleDirective,
   ],
   templateUrl: "./cart.component.html",
   styleUrl: "./cart.component.scss",
@@ -96,7 +94,7 @@ export class CartComponent implements OnInit {
       .select(selectCartItems)
       .pipe(
         takeUntilDestroyed(this.destroyRef),
-        tap((items) => this.checkStoreQuantity(items))
+        tap((items) => this.checkStoreQuantity(items)),
       )
       .subscribe({
         next: (items) => {
@@ -155,7 +153,7 @@ export class CartComponent implements OnInit {
         updateQuantity({
           p_id: productId,
           qty: newQuantity,
-        })
+        }),
       );
     }
   }

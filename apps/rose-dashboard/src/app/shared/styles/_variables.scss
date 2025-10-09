@@ -1,0 +1,349 @@
+// SCSS Breakpoint variables
+$breakpoint-mobile: 780px;
+$breakpoint-small: 620px;
+:root {
+  // Fonts
+  --font-family-1: "Inter", sans-serif;
+  --font-family-2: "Roboto", sans-serif;
+  --font-family-3: "Mulish", sans-serif;
+  --font-family-4: "Sarabun", sans-serif;
+  --font-family-5: "Pinyon Script", sans-serif;
+  --font-family-ar: "Tajawal", sans-serif;
+
+  &[dir="rtl"] {
+    --font-family-1: var(--font-family-ar);
+    --font-family-2: var(--font-family-ar);
+    --font-family-3: var(--font-family-ar);
+    --font-family-4: var(--font-family-ar);
+    --font-family-5: var(--font-family-ar);
+  }
+
+  --separator-up: url("/images/auth/separatorUP.svg");
+  --separator-down: url("/images/auth/separatorDown.svg");
+
+  --dark-separator-up: url("/images/auth/darkSeparatorUP.svg");
+  --dark-separator-down: url("/images/auth/darkSeparatorDown.svg");
+
+  // Light theme colors
+  --white: #ffffff;
+  --black: #000000;
+  --shadow-black: #0000000d;
+  --shadow-black-opacity: #0000001a;
+
+  --shadow-error: #ffffff4d;
+  --shadow-success: #00000026;
+
+  --zinc-900: #18181b;
+  --zinc-800: #27272a;
+  --zinc-700: #3f3f46;
+  --zinc-600: #52525b;
+  --zinc-500: #71717a;
+  --zinc-400: #a1a1aa;
+  --zinc-300: #d4d4d8;
+  --zinc-200: #e4e4e7;
+  --zinc-100: #f4f4f5;
+  --zinc-50: #fafafa;
+  --maroon-800: #501419;
+  --maroon-700: #741c21;
+  --maroon-600: #a6252a;
+  --maroon-500: #cd2e33;
+  --maroon-400: #d75458;
+  --maroon-50: #fbeaea;
+  --red-600: #dc2626;
+  --soft-pink-600: #e65073;
+  --soft-pink-500: #ff668b;
+  --soft-pink-400: #ff85a2;
+  --soft-pink-300: #ffa3b9;
+  --soft-pink-200: #ffc2d0;
+  --soft-pink-100: #ffe0e7;
+  --soft-pink-50: #fff1f5;
+  --hover-card-shape: #e6507380;
+
+  --shadow-emerald: #0089610d;
+  --emerald-50: #ecfdf5;
+  --emerald-300: #5ee9b5;
+  --emerald-500: #00bc7d;
+  --emerald-600: #009966;
+  --emerald-700: #007a55;
+
+  --shadow-blue: #0063d00d;
+  --blue-400: #50a2ff;
+  --blue-500: #2b7fff;
+  --blue-600: #155dfc;
+  --blue-700: #1447e6;
+
+  --gray: #969696;
+  --gray-200: #e9ecef;
+  --gray-500: #667085;
+  --gray-900: #2e2e30;
+  --gray-950: #323639;
+
+  --gray-900-01: #bfbfc50d;
+  --gray-900-11: #b1b1b426;
+  --gray-900-05: #2e2e300d;
+  --gray-900-15: #2e2e3026;
+
+  --yellow: #fba707;
+
+  --shadow-purple: #753cbf0d;
+  --purple: #753cbf;
+
+  // Body
+  --body-color: var(--white);
+  --dashboard-bg: var(--zinc-50);
+  // Scrollbar
+  --scrollbar-width: 0.625rem;
+  --scrollbar-height: 0.625rem;
+  --scrollbar-track-color: var(--white);
+  --scrollbar-thumb-color: var(--maroon-600);
+  --scrollbar-thumb-hover-color: var(--maroon-500);
+
+  //User-Profile
+  --user-profile-sidebar-title: var(--zinc-800);
+  --user-profile-sidebar-bg: var(--zinc-50);
+  --user-profile-sidebar-border: var(--zinc-100);
+  --user-profile-sidebar-menu-item-color: var(--zinc-800);
+  --user-profile-sidebar-menu-item-hover: var(--gray-200);
+  --user-profile-sidebar-menu-item-bg-active: var(--zinc-800);
+  --user-profile-sidebar-menu-item-color-active: var(--zinc-50);
+  --user-profile-sidebar-menu-item-btn-logout-bg: var(--zinc-100);
+  --user-profile-sidebar-menu-item-btn-logout-color: var(--maroon-500);
+  --user-profile-sidebar-menu-item-btn-logout-hover: var(--zinc-200);
+  --user-profile-sidebar-menu-item-mobile-color: var(--zinc-800);
+  --user-profile-sidebar-menu-item-mobile-hover: var(--zinc-100);
+  --user-profile-sidebar-menu-item-mobile-active-color: var(--maroon-500);
+  //edit-user-profile
+  --edit-user-profile-skeleton-bg: var(--gray-200);
+  --edit-user-profile-label-disable-color: var(--zinc-400);
+  --edit-user-profile-input-disable-bg: var(--zinc-100);
+  --edit-user-profile-input-disable-color: var(--zinc-400);
+  --edit-user-profile-upload-btn-bg: var(--zinc-50);
+  --edit-user-profile-upload-btn-border: var(--zinc-200);
+  --edit-user-profile-upload-btn-color: var(--zinc-900);
+  --edit-user-profile-upload-title-color: var(--zinc-800);
+  --edit-user-profile-upload-p-color: var(--zinc-500);
+  --edit-user-profile-delete-btn-color: var(--maroon-500);
+  //Change-Password
+  --change-password-label-color: var(--zinc-800);
+  --change-password-divider-bg: var(--zinc-200);
+  //confirm-dialog
+  --confirm-dialog-border-icon-out: var(--gray-900-05);
+  --confirm-dialog-border-icon-in: var(--gray-900-15);
+  --confirm-dialog-border-icon-color: var(--gray-900);
+  --confirm-dialog-bg: var(--white);
+  --confirm-dialog-title: var(--gray-900);
+  --confirm-dialog-subtitle: var(--maroon-500);
+  // cancel button
+  --confirm-dialog-btn-cancel-bg: var(--zinc-50);
+  --confirm-dialog-btn-cancel-border-color: var(--zinc-400);
+  --confirm-dialog-btn-cancel-color: var(--zinc-800);
+  --confirm-dialog-btn-cancel-hover: var(--zinc-100);
+  // confirm button
+  --confirm-dialog-btn-confirm-bg: var(--red-600);
+  --confirm-dialog-btn-confirm-color: var(--white);
+  --confirm-dialog-btn-confirm-hover: var(--maroon-500);
+  // Auth-Button
+  --form-button-bg: var(--maroon-600);
+  --form-button-disabled: var(--maroon-800);
+  --form-button-hover: var(--maroon-500);
+  --form-button-color: var(--white);
+  // Custom Input
+  --input-color: var(--white);
+  --input-text-color: var(--zinc-400);
+  --input-placeholder-text-color: var(--zinc-500);
+  --label-color: var(--zinc-800);
+  --input-border-color: var(--zinc-300);
+  --selected-color-input: var(--gray-950);
+  --border-active-color: var(--maroon-700);
+  --upload-file-color: var(--maroon-500);
+  // Notification-Toast
+  --toast-error-bg: var(--maroon-500);
+  --toast-error-color: var(--zinc-100);
+  --toast-error-i-color: var(--zinc-50);
+
+  --toast-success-bg: var(--emerald-300);
+  --toast-success-color: var(--zinc-800);
+  --toast-success-i-color: var(--zinc-700);
+  --toast-btn-close-color: var(--zinc-600);
+  // Aside-bar
+  --aside-button: var(--maroon-600);
+  --aside-nav-item: var(#27272a);
+  --bread-crump: var(#667085);
+  --active-item-bg: var(--maroon-50);
+  --active-item-text: var(--soft-maroon-600);
+  --drop-button-down-bg: var(--zinc-800);
+
+  // Overview-Reports
+  --main-text: var(--zinc-800);
+  --cards-bg: var(--white);
+  --p-table-header-bg: var(--zinc-100);
+  --p-table-header-color: var(--zinc-800);
+  --p-table-row-bg: var(--white);
+  // Overall
+  --overall-pdt-bg: var(--maroon-50);
+  --overall-pdt-color: var(--maroon-600);
+  --overall-orders-bg: var(--shadow-blue);
+  --overall-orders-color: var(--blue-600);
+  --overall-category-bg: var(--shadow-purple);
+  --overall-category-color: var(--purple);
+  --overall-revenue-bg: var(--shadow-emerald);
+  --overall-revenue-color: var(--emerald-600);
+  // Category
+  --category-value-bg: var(--shadow-black);
+  // Status
+  --canceled: var(--red-600);
+  --inprogress: var(--blue-500);
+  --completed: var(--emerald-500);
+  --pending: var(--yellow);
+  // Revenue
+  --chart-button: var(--gray);
+  --chart-active-button: var(--maroon-600);
+  // Low Stock
+  --low-stock: var(--red-600);
+  // P-table
+  --p-table-cell-hover-bg: var(--soft-pink-50);
+  --category-value-hover-bg: linear-gradient(
+    to right,
+    rgba(255, 182, 193, 0.4),
+    rgba(255, 255, 255, 0.3)
+  );
+  //form-titles
+  --form-title-color: var(--zinc-800);
+  --form-card-bg: var(--white);
+  --form-card-shadow: 0, 0, 0, 0.01;
+  --form-view-image-text: var(--blue-600);
+  --modal-pop-up-bg: var(--zinc-200);
+
+  // DarkMode Toggle
+  --toggle-color: var(--zinc-700);
+  --toggle-hover: var(--maroon-600);
+  // Translate Toggle
+  --translate-toggle-color: var(--zinc-700);
+  --translate-toggle-hover: var(--maroon-600);
+}
+
+// Dark theme overrides
+.dark-mode {
+  // Body
+  --body-color: var(--zinc-800);
+  --dashboard-bg: var(--zinc-900);
+  // Scrollbar
+  --scrollbar-width: 0.625rem;
+  --scrollbar-height: 0.625rem;
+  --scrollbar-track-color: var(--zinc-800);
+  --scrollbar-thumb-color: var(--soft-pink-200);
+  --scrollbar-thumb-hover-color: var(--soft-pink-300);
+  //User-Profile
+  --user-profile-sidebar-title: var(--zinc-50);
+  --user-profile-sidebar-bg: var(--zinc-700);
+  --user-profile-sidebar-border: var(--zinc-700);
+  --user-profile-sidebar-menu-item-color: var(--zinc-50);
+  --user-profile-sidebar-menu-item-hover: var(--zinc-600);
+  --user-profile-sidebar-menu-item-bg-active: var(--soft-pink-200);
+  --user-profile-sidebar-menu-item-color-active: var(--zinc-800);
+  --user-profile-sidebar-menu-item-btn-logout-bg: var(--zinc-600);
+  --user-profile-sidebar-menu-item-btn-logout-color: var(--soft-pink-400);
+  --user-profile-sidebar-menu-item-btn-logout-hover: var(--zinc-800);
+  --user-profile-sidebar-menu-item-mobile-color: var(--zinc-50);
+  --user-profile-sidebar-menu-item-mobile-hover: var(--zinc-600);
+  --user-profile-sidebar-menu-item-mobile-active-color: var(--soft-pink-200);
+  //edit-user-profile
+  --edit-user-profile-skeleton-bg: var(--zinc-500);
+  --edit-user-profile-label-disable-color: var(--zinc-500);
+  --edit-user-profile-input-disable-bg: var(--zinc-800);
+  --edit-user-profile-input-disable-color: var(--zinc-500);
+  --edit-user-profile-upload-btn-bg: var(--zinc-600);
+  --edit-user-profile-upload-btn-border: var(--zinc-700);
+  --edit-user-profile-upload-btn-color: var(--zinc-50);
+  --edit-user-profile-upload-title-color: var(--zinc-50);
+  --edit-user-profile-upload-p-color: var(--zinc-400);
+  --edit-user-profile-delete-btn-color: var(--soft-pink-400);
+  //Change-Password
+  --change-password-label-color: var(--zinc-50);
+  --change-password-divider-bg: var(--zinc-600);
+  //confirm-dialog
+  --confirm-dialog-border-icon-out: var(--gray-900-01);
+  --confirm-dialog-border-icon-in: var(--gray-900-11);
+  --confirm-dialog-border-icon-color: var(--zinc-50);
+  --confirm-dialog-bg: var(--zinc-700);
+  --confirm-dialog-title: var(--zinc-100);
+  --confirm-dialog-subtitle: var(--soft-pink-200);
+  // cancel button
+  --confirm-dialog-btn-cancel-bg: var(--zinc-100);
+  --confirm-dialog-btn-cancel-border-color: var(--zinc-200);
+  --confirm-dialog-btn-cancel-color: var(--zinc-800);
+  --confirm-dialog-btn-cancel-hover: var(--zinc-200);
+  // confirm button
+  --confirm-dialog-btn-confirm-bg: var(--soft-pink-200);
+  --confirm-dialog-btn-confirm-color: var(--zinc-800);
+  --confirm-dialog-btn-confirm-hover: var(--soft-pink-300);
+  // Auth-Button
+  --form-button-bg: var(--soft-pink-300);
+  --form-button-disabled: var(--soft-pink-600);
+  --form-button-hover: var(--soft-pink-400);
+  --form-button-color: var(--zinc-800);
+  // Custom Input
+  --input-color: var(--zinc-700);
+  --input-text-color: var(--white);
+  --input-placeholder-text-color: var(--zinc-400);
+  --label-color: var(--white);
+  --input-border-color: var(--zinc-600);
+  --selected-color-input: var(--white);
+  --border-active-color: var(--soft-pink-600);
+  // Notification-Toast
+  --toast-error-bg: var(--maroon-50);
+  --toast-error-color: var(--zinc-800);
+  --toast-error-i-color: var(--maroon-500);
+  --toast-success-bg: var(--emerald-50);
+  --toast-success-color: var(--zinc-800);
+  --toast-success-i-color: var(--emerald-700);
+  --toast-btn-close-color: var(--zinc-400);
+  // Aside-bar
+  --aside-button: var(--soft-pink-600);
+  --aside-nav-item: var(--white);
+  --bread-crump: var(--zinc-300);
+  --active-item-bg: var(--soft-pink-50);
+  --active-item-text: var(--soft-pink-600);
+  --drop-button-down-bg: var(--white);
+
+  // DarkMode Toggle
+  --toggle-color: var(--zinc-100);
+  --toggle-hover: var(--soft-pink-200);
+  // Translate Toggle
+  --translate-toggle-color: var(--zinc-100);
+  --translate-toggle-hover: var(--soft-pink-200);
+
+  // Overview-Reports
+  --main-text: var(--white);
+  --cards-bg: var(--zinc-800);
+  // OverAll
+  --overall-pdt-bg: rgba(230, 80, 115, 0.12);
+  --overall-pdt-color: #e65073;
+
+  --overall-orders-bg: rgba(21, 93, 252, 0.12);
+  --overall-orders-color: #3b82f6;
+
+  --overall-category-bg: rgba(117, 60, 191, 0.12);
+  --overall-category-color: #a97bff;
+
+  --overall-revenue-bg: rgba(0, 153, 102, 0.12);
+  --overall-revenue-color: #00c389;
+
+  --overall-hover-opacity: 0.18;
+
+  // P-table
+  --p-table-header-bg: var(--zinc-700);
+  --p-table-header-color: var(--soft-pink-200);
+  --p-table-row-bg: var(--zinc-800);
+  --p-table-cell-hover-bg: var(--soft-pink-200);
+  --category-value-bg: linear-gradient(
+    135deg,
+    rgba(255, 182, 193, 0.07),
+    rgba(255, 255, 255, 0.03)
+  );
+  --category-value-hover-bg: linear-gradient(
+    to right,
+    rgba(255, 182, 193, 0.4),
+    rgba(255, 255, 255, 0.3)
+  );
+}

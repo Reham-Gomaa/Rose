@@ -1,0 +1,108 @@
+#top-selling-table {
+  color: var(--main-text);
+  font-family: var(--font-family-1);
+  .p-datatable-header {
+    border: none;
+    padding: 0.75rem 0;
+    span {
+      font-weight: 700;
+      font-size: 1.25rem;
+      line-height: 100%;
+      letter-spacing: 0%;
+      @media all and (min-width: 62rem) {
+        font-weight: 600;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .ng-star-inserted.row {
+    .cell {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: none;
+      border-radius: 0.25rem;
+      margin-bottom: 0.625rem;
+      padding: 0.375rem 0.625rem;
+      line-height: 100%;
+      letter-spacing: 0%;
+      font-size: 0.75rem;
+      transition: background-color 0.5s ease-in-out;
+      @media all and (min-width: 62rem) {
+        font-size: 1rem;
+      }
+      .default-lable {
+        font-weight: 400;
+      }
+      .first-lable {
+        font-weight: 600;
+      }
+      .middle-lable {
+        font-weight: 500;
+      }
+      .price {
+        font-weight: 400;
+        font-size: 0.625rem;
+        @media all and (min-width: 62rem) {
+          font-size: 0.75rem;
+        }
+      }
+      .value {
+        font-weight: 700;
+        font-size: 0.75rem;
+        align-items: baseline;
+        span {
+          font-weight: 500;
+        }
+        @media all and (min-width: 62rem) {
+          font-size: 0.875rem;
+        }
+      }
+    }
+    .default-bg {
+      background: var(--category-value-bg) !important;
+    }
+    .first-bg {
+      background: linear-gradient(90deg, rgba(223, 172, 22, 0.25) 0%, rgba(223, 172, 22, 0.1) 100%);
+    }
+    .second-bg {
+      background: linear-gradient(
+        90deg,
+        rgba(117, 127, 149, 0.25) 0%,
+        rgba(117, 127, 149, 0.1) 100%
+      );
+    }
+    .third-bg {
+      background: linear-gradient(90deg, rgba(145, 68, 0, 0.25) 0%, rgba(145, 68, 0, 0.1) 100%);
+    }
+  }
+
+  .p-datatable,
+  .p-datatable-header {
+    background-color: var(--cards-bg);
+    color: var(--p-table-header-color);
+
+    .p-datatable-thead > tr > th {
+      background-color: var(--p-table-header-bg);
+      color: var(--p-table-header-color);
+      font-weight: 600;
+    }
+
+    .p-datatable-tbody > tr {
+      background-color: var(--p-table-row-bg);
+      border-bottom: 1px solid var(--zinc-100);
+
+      &:hover {
+        .cell {
+          background-color: var(--p-table-cell-hover-bg);
+        }
+      }
+
+      td {
+        color: var(--main-text);
+        padding: 0.75rem 1rem;
+      }
+    }
+  }
+}

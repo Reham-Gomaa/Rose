@@ -1,8 +1,8 @@
 import { Component, inject } from "@angular/core";
 // Translation
-import { TranslationService } from "@rose/core_services/translation/translation.service";
+import { TranslationService } from "@angular-monorepo/services";
 // Animations_Translation
-import { fadeTransition } from "@rose/core_services/translation/fade.animation";
+import { fadeTransition } from "@angular-monorepo/services";
 // Components
 import { GiftsComponent } from "./components/gifts/gifts.component";
 import { OurServicesComponent } from "./components/our-services/ourServices.component";

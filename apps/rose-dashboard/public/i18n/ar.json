@@ -1,0 +1,155 @@
+{
+  "EGP": "ج.م",
+  "overview": {
+    "statistics": {
+      "products": "إجمالي المنتجات",
+      "orders": "إجمالي الطلبات",
+      "categories": "إجمالي الفئات",
+      "revenue": "إجمالي الإيرادات"
+    },
+    "categories": "جميع الفئات",
+    "revenue": "الإيرادات",
+    "monthly": "شهريا",
+    "daily": "يوميا",
+    "status": "حالة الطلبات",
+    "topselling": "المنتجات الأكثر مبيعًا",
+    "sales": "المبيعات",
+    "lowstock": "منتجات قليلة المخزون",
+    "empty-1": "البيانات غير متاحة مؤقتًا.",
+    "empty-2": "يرجى التحقق مرة أخرى قريبًا."
+  },
+  "breadcrumb": {
+    "overview": "نظرة عامة",
+    "occasions": "المناسبات",
+    "dashboard": "لوحة التحكم",
+    "categories": "الفئات",
+    "products": "المنتجات",
+    "user-profile": "إعدادات الحساب",
+    "not-found": "غير موجود",
+    "authorization": "غير مصرح"
+  },
+  "stepper": {
+    "dropdown": {
+      "profile": "الملف الشخصي",
+      "logout": "تسجيل خروج"
+    }
+  },
+  "aside-bar": {
+    "preview-website": "معاينة الموقع",
+    "overview": "نظرة عامة",
+    "categories": "الفئات",
+    "occasions": "المناسبات",
+    "products": "المنتجات"
+  },
+  "user-Profile": {
+    "updateProfile": "تحديث الملف الشخصي",
+    "myAccount": "حسابي",
+    "changePassword": "تغيير كلمة المرور",
+    "logout": "تسجيل الخروج",
+    "edit-Profile": {
+      "uploadPhoto": "رفع صورة",
+      "uploadPhotoInfo": "يمكنك رفع صورة بصيغة ‎.jpg‎ أو ‎.png‎ أو ‎.gif‎ بحجم أقصى 5 ميجابايت.",
+      "deleteMyAccount": "حذف حسابي",
+      "saveChanges": "حفظ التغييرات"
+    },
+    "changePasswordForm": {
+      "oldPassword": "كلمة المرور الحالية",
+      "newPassword": "كلمة المرور الجديدة",
+      "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
+      "changePasswordBtn": "تغيير كلمة المرور"
+    },
+    "confirm-dialog": {
+      "confirmDelete": "نعم، احذف",
+      "cancelDelete": "لا، احتفظ به",
+      "permanentActionWarning": "هذا الإجراء دائم ولا يمكن التراجع عنه.",
+      "deleteAccountConfirmation": "هل أنت متأكد أنك تريد حذف حسابك؟",
+      "breadcrumb": {
+        "overview": "نظرة عامة",
+        "categories": "الفئات",
+        "occasions": "المناسبات",
+        "products": "المنتجات",
+        "dashboard": "لوحة القيادة"
+      },
+      "stepper": {
+        "dropdown": {
+          "profile": "الملف الشخصي",
+          "logout": "تسجيل خروج"
+        }
+      }
+    }
+  },
+  "inputErrors": {
+    "required": "هذا الحقل مطلوب",
+    "minlength": {
+      "prefix": "الحد الأدنى",
+      "suffix": "حرف مطلوب"
+    },
+    "maxlength": {
+      "prefix": "الحد الأقصى",
+      "suffix": "حرف مسموح"
+    },
+    "email": "تنسيق البريد الإلكتروني غير صحيح (مثال: example@example.com)",
+    "passwordPattern": "كلمة المرور يجب أن تكون 8 أحرف على الأقل، وتشمل حروف كبيرة وصغيرة ورمز خاص.",
+    "onlyNumbers": "ادخل الرقم بطريقه الصحيحه",
+    "misMatch": "كلمات المرور غير متطابقة"
+  },
+  "auth": {
+    "inputs": {
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "firstName": "الاسم الأول",
+      "firstNamePlaceholder": "أحمد",
+      "lastName": "اسم العائلة",
+      "lastNamePlaceholder": "مصطفي",
+      "phone": "رقم الهاتف",
+      "gender": "النوع",
+      "genderPlaceholder": "اختر النوع"
+    },
+    "messagesToast": {
+      "sessionExpired": "انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى للمتابعة.",
+      "logoutSuccess": "تم تسجيل الخروج بنجاح.",
+
+      "failedToLoadProfileData": "فشل في تحميل بيانات الملف الشخصي",
+      "fileSizeExceedsLimit": "حجم الملف يتجاوز الحد الأقصى المسموح به 5 ميجابايت",
+      "profilePhotoUploadedSuccessfully": "تم رفع صورة الملف الشخصي بنجاح",
+      "failedToUploadProfilePhoto": "فشل في رفع صورة الملف الشخصي",
+      "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح",
+      "failedToUpdateProfile": "فشل في تحديث الملف الشخصي",
+
+      "accountDeletedSuccessfully": "تم حذف الحساب بنجاح",
+      "failedToDeleteAccount": "فشل في حذف الحساب",
+
+      "passwordChangeFailed": "فشل تغيير كلمة المرور",
+      "passwordChangeSuccess": "تم تغيير كلمة المرور بنجاح",
+
+      "loginFailed": "البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى",
+      "loginSuccess": "تم تسجيل الدخول بنجاح!",
+
+      "somethingWentWrong": "حدث خطأ ما!",
+
+      "failedLoadProfile": "فشل في تحميل ملف المستخدم الشخصي",
+      "loggedOut": "تم تسجيل الخروج بنجاح.",
+
+      "failedToLoadCategories": "فشل في تحميل الفئات"
+    }
+  },
+  "titles": {
+    "overview": "نظرة عامة",
+    "dashboard": "لوحة التحكم",
+    "categories": "الفئات",
+    "occasions": "المناسبات",
+    "products": "المنتجات",
+    "user-profile": "إعدادات الحساب",
+    "not-found": "غير موجود",
+    "authorization": "غير مصرح"
+  },
+  "general": {
+    "notExistTitle": "هذه الصفحة غير موجودة.",
+    "notExistDesc": "لم نتمكن من العثور على الصفحة التي تبحث عنها، يرجى التأكد من أنك في المسار الصحيح.",
+    "oopsTitle": "عذرًا، حدث خطأ ما!",
+    "oopsDesc": "حدث أمر غير متوقع، يرجى تحديث الصفحة أو المحاولة مرة أخرى بعد قليل.",
+    "unauthorizedTitle": "غير مصرح لك بالوصول إلى هذه الصفحة.",
+    "unauthorizedDesc": "إذا كنت تعتقد أن هذا خطأ، يرجى التواصل مع الدعم."
+  }
+}

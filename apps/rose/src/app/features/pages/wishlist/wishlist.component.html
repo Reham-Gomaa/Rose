@@ -16,7 +16,7 @@
           <img loading="lazy" decoding="async" width="20" height="20" ngSrc="./images/cart/brush-cleaning.AVIF"
             alt="clear wishlist" />
         </app-button>
-        <app-confirm-dialog #clearWishlistDialog
+        <lib-confirm-dialog #clearWishlistDialog
           [message]="'favourites.confirm-dialog.deleteAccountConfirmation' | translate"
           [subMessage]="'favourites.confirm-dialog.permanentActionWarning' | translate"
           [cancelLabel]="'favourites.confirm-dialog.cancelDelete' | translate"
