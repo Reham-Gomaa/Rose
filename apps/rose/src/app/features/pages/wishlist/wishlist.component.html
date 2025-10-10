@@ -9,7 +9,7 @@
         <div class="wishlist-underline-bar" aria-hidden="true"></div>
       </div>
       <div>
-        <app-button
+        <!-- <app-button
           [disable]="!favouriteItems()"
           (click)="clearWishlistDialog.show()"
           [bgColor]="'var(--cart-clearBtn-bg)'"
@@ -26,7 +26,7 @@
             ngSrc="./images/cart/brush-cleaning.AVIF"
             alt="clear wishlist"
           />
-        </app-button>
+        </app-button> -->
         <lib-confirm-dialog
           #clearWishlistDialog
           [message]="'favourites.confirm-dialog.deleteAccountConfirmation' | translate"
