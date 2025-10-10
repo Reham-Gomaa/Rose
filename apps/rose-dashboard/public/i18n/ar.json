@@ -144,6 +144,7 @@
     "products": "المنتجات",
     "user-profile": "إعدادات الحساب",
     "not-found": "غير موجود",
+    "error": "خطأ",
     "authorization": "غير مصرح"
   },
   "general": {
@@ -194,7 +195,7 @@
       }
     }
   },
- 
+
   "products": {
     "addEdit": {
       "formTitle": "{{mode}} منتج",
@@ -262,6 +263,4 @@
       "title": "عرض الصورة"
     }
   }
-
-
 }

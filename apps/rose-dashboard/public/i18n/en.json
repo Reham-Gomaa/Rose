@@ -144,6 +144,7 @@
     "products": "Products",
     "user-profile": "Account Setting",
     "not-found": "Not Found",
+    "error": "Error",
     "authorization": "Not Authorized"
   },
   "general": {
@@ -154,7 +155,7 @@
     "unauthorizedTitle": "You are not authorized to access this page.",
     "unauthorizedDesc": "If you think this is wrong, please contact the support."
   },
-  
+
   "category": {
     "addEdit": {
       "formTitle": "{{mode}} Category",
@@ -194,7 +195,7 @@
         "viewImage": "View Image"
       },
       "messages": {
-         "noImage": "No image available",
+        "noImage": "No image available",
         "imagePreview": "Image Preview:",
         "addSuccess": "Occasion added successfully!",
         "addError": "Failed to add occasion. Please try again.",
@@ -271,4 +272,3 @@
     }
   }
 }
-
