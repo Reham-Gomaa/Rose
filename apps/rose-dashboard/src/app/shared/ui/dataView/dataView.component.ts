@@ -15,6 +15,8 @@ import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 import { PagPipePipe } from "./pipes/paginationPipe/pagPipe.pipe";
 import { SearchPipe } from "./pipes/searchPipe/search.pipe";
 import { EventEmitter } from "stream";
+import { TransplantedType } from "@angular/compiler";
+import { TranslatePipe } from "@ngx-translate/core";
 
 export type dataTypes = occasion[] | any[];
 
@@ -30,6 +32,7 @@ export type dataTypes = occasion[] | any[];
     PagPipePipe,
     SearchPipe,
     CustomInputComponent,
+    TranslatePipe
   ],
   templateUrl: "./dataView.component.html",
   styleUrl: "./dataView.component.scss",
@@ -59,7 +62,7 @@ export class DataViewComponent {
   onEdit(item: any) {
     this.editItem.emit(item);
   }
-  onDelete(item: any) { 
+  onDelete(item: any) {
     this.deleteItem.emit(item);
   }
   ngOnInit() {

@@ -9,18 +9,18 @@
 // import { ButtonModule } from "primeng/button";
 // import { Skeleton } from "primeng/skeleton";
 // // Your custom component
-// import { ConfirmDialogComponent } from "@angular-monorepo/confirm-dialog"; 
+// import { ConfirmDialogComponent } from "@angular-monorepo/confirm-dialog";
 
 // @Component({
 //   selector: "app-data-table",
 //   imports: [
-//     CommonModule, 
-//     TableModule, 
-//     ButtonComponent, 
-//     Menu, 
-//     ButtonModule, 
+//     CommonModule,
+//     TableModule,
+//     ButtonComponent,
+//     Menu,
+//     ButtonModule,
 //     Skeleton,
-//     ConfirmDialogComponent 
+//     ConfirmDialogComponent
 //   ],
 //   templateUrl: "./dataTable.component.html",
 //   styleUrl: "./dataTable.component.scss"
@@ -29,12 +29,12 @@
 //   data = input.required<any[]>();
 //   records = input.required<string[]>();
 //   entityType = input<string>('item');
-  
+
 //   items: MenuItem[] | undefined;
 //   edit = output<any>();
 //   delete = output<any>();
-  
-  
+
+
 //   showConfirmDialog = false;
 //   itemToDelete: any = null;
 
@@ -108,18 +108,20 @@ import { Menu } from "primeng/menu";
 import { ButtonModule } from "primeng/button";
 import { Skeleton } from "primeng/skeleton";
 // Your custom component
-import { ConfirmDialogComponent } from "@angular-monorepo/confirm-dialog"; 
+import { ConfirmDialogComponent } from "@angular-monorepo/confirm-dialog";
+import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
   selector: "app-data-table",
   imports: [
-    CommonModule, 
-    TableModule, 
-    ButtonComponent, 
-    Menu, 
-    ButtonModule, 
+    CommonModule,
+    TableModule,
+    ButtonComponent,
+    Menu,
+    ButtonModule,
     Skeleton,
-    ConfirmDialogComponent 
+    ConfirmDialogComponent ,
+    TranslatePipe
   ],
   templateUrl: "./dataTable.component.html",
   styleUrl: "./dataTable.component.scss"
@@ -128,11 +130,11 @@ export class DataTableComponent {
   data = input.required<any[]>();
   records = input.required<string[]>();
   entityType = input<string>('item');
-  
+
   items: MenuItem[] | undefined;
   edit = output<any>();
   delete = output<any>();
-  
+
   showConfirmDialog = false;
   itemToDelete: any = null;
   selectedItem: any = null;
@@ -142,16 +144,16 @@ export class DataTableComponent {
   const fieldMappings: { [key: string]: string } = {
     // Products mappings
     'name': 'title',
-    'stock': 'quantity', 
+    'stock': 'quantity',
     'sales': 'sold',
     'ratings': 'rateAvg',
-    
+
     'products': 'productsCount'
   };
 
-  
+
   if (record === 'name') {
-    
+
     return item['title'] || item['name'];
   }
 
