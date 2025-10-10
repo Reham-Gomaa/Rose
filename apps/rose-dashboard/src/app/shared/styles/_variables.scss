@@ -222,6 +222,14 @@ $breakpoint-small: 620px;
   // Translate Toggle
   --translate-toggle-color: var(--zinc-700);
   --translate-toggle-hover: var(--maroon-600);
+
+
+
+
+    //dataView
+  --view-bg:var(--white);
+  --view-theader-bg:var(--zin-50)
+  --view-text:var(--black);
 }
 
 // Dark theme overrides
@@ -359,4 +367,12 @@ $breakpoint-small: 620px;
     rgba(255, 182, 193, 0.4),
     rgba(255, 255, 255, 0.3)
   );
+
+   //dataView
+  --view-bg:var(--black);
+  --view-text:var(--white);
+  --view-theader-bg:var(--zin-500);
+
+
+
 }

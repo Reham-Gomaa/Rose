@@ -1,3 +1,45 @@
+:host ::ng-deep .p-datatable-table .p-datatable-thead  > tr >th ,
+:host ::ng-deep .p-datatable-table .p-datatable-tbody > tr {
+    background-color: var(--view-bg);
+    color: var(--view-text);
+
+}
+
+:host ::ng-deep .p-datatable-table .p-datatable-thead > tr > th  {
+  background: var(--view-theader-bg);
+
+}
+:host ::ng-deep .p-datatable-tbody > tr > td > #operations button {
+  font-size: 12px;
+}
+:host ::ng-deep .p-datatable-tbody > tr > td > #operations .in-small button {
+  background: white;
+  border: 1px solid #d4d4d8;
+  color: black;
+  &:hover {
+    background-color: #d4d4d8;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 :host ::ng-deep .card .ng-star-inserted .p-menu-overlay.ng-star-inserted.ng-trigger {
@@ -28,6 +70,32 @@
   font-weight: bold;
 }
 
+
+
+:host ::ng-deep  .p-datatable td,
+:host ::ng-deep  .p-datatable th {
+  white-space: nowrap;
+}
+
+:host ::ng-deep .p-datatable td:nth-child(1),
+:host ::ng-deep .p-datatable th:nth-child(1) {
+  width: 250px; /* for Name column */
+}
+
+:host ::ng-deep  .p-datatable td:nth-child(2),
+:host ::ng-deep  .p-datatable th:nth-child(2) {
+  width: 120px; /* for Products column */
+}
+
+:host ::ng-deep .p-datatable td:nth-child(3),
+:host ::ng-deep  .p-datatable th:nth-child(3) {
+  width: 150px; /* for Edit button column */
+}
+
+.p-datatable td:nth-child(4),
+.p-datatable th:nth-child(4) {
+  width: 150px; /* for Remove button column */
+}
 
 
 @media screen and (max-width: 768px) {
