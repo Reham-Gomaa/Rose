@@ -28,7 +28,6 @@ export class SidebarComponent {
 
   changeHidden() {
     this.hidden = !this.hidden;
-    console.log(this.hidden);
   }
 
   goToRose() {

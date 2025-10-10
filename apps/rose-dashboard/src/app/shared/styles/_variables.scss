@@ -73,6 +73,7 @@ $breakpoint-small: 620px;
   --blue-700: #1447e6;
 
   --gray: #969696;
+  --gray-100: #ebebeb;
   --gray-200: #e9ecef;
   --gray-500: #667085;
   --gray-900: #2e2e30;
@@ -81,6 +82,7 @@ $breakpoint-small: 620px;
   --gray-900-01: #bfbfc50d;
   --gray-900-11: #b1b1b426;
   --gray-900-05: #2e2e300d;
+  --gray-900-08: #2e2e3080;
   --gray-900-15: #2e2e3026;
 
   --yellow: #fba707;
@@ -99,20 +101,13 @@ $breakpoint-small: 620px;
   --scrollbar-thumb-hover-color: var(--maroon-500);
 
   //User-Profile
-  --user-profile-sidebar-title: var(--zinc-800);
-  --user-profile-sidebar-bg: var(--zinc-50);
-  --user-profile-sidebar-border: var(--zinc-100);
-  --user-profile-sidebar-menu-item-color: var(--zinc-800);
-  --user-profile-sidebar-menu-item-hover: var(--gray-200);
-  --user-profile-sidebar-menu-item-bg-active: var(--zinc-800);
-  --user-profile-sidebar-menu-item-color-active: var(--zinc-50);
-  --user-profile-sidebar-menu-item-btn-logout-bg: var(--zinc-100);
-  --user-profile-sidebar-menu-item-btn-logout-color: var(--maroon-500);
-  --user-profile-sidebar-menu-item-btn-logout-hover: var(--zinc-200);
-  --user-profile-sidebar-menu-item-mobile-color: var(--zinc-800);
-  --user-profile-sidebar-menu-item-mobile-hover: var(--zinc-100);
-  --user-profile-sidebar-menu-item-mobile-active-color: var(--maroon-500);
+  --user-profile-title: var(--zinc-800);
+  --user-profile-changePassword: var(--zinc-800);
+  --user-profile-background: var(--zinc-50);
+  --user-profile-card-background: var(--white);
+
   //edit-user-profile
+  --edit-user-profile-background: var(--white);
   --edit-user-profile-skeleton-bg: var(--gray-200);
   --edit-user-profile-label-disable-color: var(--zinc-400);
   --edit-user-profile-input-disable-bg: var(--zinc-100);
@@ -202,11 +197,7 @@ $breakpoint-small: 620px;
   --low-stock: var(--red-600);
   // P-table
   --p-table-cell-hover-bg: var(--soft-pink-50);
-  --category-value-hover-bg: linear-gradient(
-    to right,
-    rgba(255, 182, 193, 0.4),
-    rgba(255, 255, 255, 0.3)
-  );
+  --category-value-hover-bg: linear-gradient(to right, #ffb6c166, #ffb6c166);
   //form-titles
   --form-title-color: var(--zinc-800);
   --form-card-bg: var(--white);
@@ -226,10 +217,44 @@ $breakpoint-small: 620px;
 
 
 
+
     //dataView
   --view-bg:var(--white);
   --view-theader-bg:var(--zin-50)
   --view-text:var(--black);
+
+  // Data User
+  --data-user-background: var(--white);
+  --data-user-menu-background-hover: var(--maroon-50);
+  --data-user-border-top: var(--gray-100);
+  --data-user-photo-border: var(--white);
+  --data-user-name-color: var(--zinc-800);
+  --data-user-email-color: var(--gray-900-08);
+  --data-user-icon-color: var(--gray-900-08);
+  --data-user-menu-background: var(--white);
+  --data-user-menu-first-item-color: var(--maroon-700);
+  --data-user-items-color: var(--zinc-700);
+
+  // Authorization Page
+  --authorization-bg: var(--zinc-50);
+  --authorization-title-color: var(--black);
+  --authorization-subtitle-color: var(--zinc-400);
+  --authorization-divider-color: var(--zinc-300);
+  --authorization-btn-home-bg: var(--zinc-50);
+  --authorization-btn-home-border: var(--zinc-300);
+  --authorization-btn-home-color: var(--zinc-800);
+  --authorization-btn-home-hover: var(--zinc-200);
+
+  // Loading Overlay
+  --loading-overlay-bg: var(--zinc-50);
+  --loading-overlay-color: var(--zinc-800);
+  // Not Found
+  --not-found-title: var(--black);
+  --not-found-subtitle: var(--zinc-400);
+  // error page
+  --error-page-title: var(--black);
+  --error-page-subtitle: var(--zinc-400);
+
 }
 
 // Dark theme overrides
@@ -244,20 +269,12 @@ $breakpoint-small: 620px;
   --scrollbar-thumb-color: var(--soft-pink-200);
   --scrollbar-thumb-hover-color: var(--soft-pink-300);
   //User-Profile
-  --user-profile-sidebar-title: var(--zinc-50);
-  --user-profile-sidebar-bg: var(--zinc-700);
-  --user-profile-sidebar-border: var(--zinc-700);
-  --user-profile-sidebar-menu-item-color: var(--zinc-50);
-  --user-profile-sidebar-menu-item-hover: var(--zinc-600);
-  --user-profile-sidebar-menu-item-bg-active: var(--soft-pink-200);
-  --user-profile-sidebar-menu-item-color-active: var(--zinc-800);
-  --user-profile-sidebar-menu-item-btn-logout-bg: var(--zinc-600);
-  --user-profile-sidebar-menu-item-btn-logout-color: var(--soft-pink-400);
-  --user-profile-sidebar-menu-item-btn-logout-hover: var(--zinc-800);
-  --user-profile-sidebar-menu-item-mobile-color: var(--zinc-50);
-  --user-profile-sidebar-menu-item-mobile-hover: var(--zinc-600);
-  --user-profile-sidebar-menu-item-mobile-active-color: var(--soft-pink-200);
+  --user-profile-title: var(--zinc-50);
+  --user-profile-changePassword: var(--zinc-100);
+  --user-profile-background: var(--zinc-900);
+  --user-profile-card-background: var(--zinc-800);
   //edit-user-profile
+  --edit-user-profile-background: var(--zinc-800);
   --edit-user-profile-skeleton-bg: var(--zinc-500);
   --edit-user-profile-label-disable-color: var(--zinc-500);
   --edit-user-profile-input-disable-bg: var(--zinc-800);
@@ -269,6 +286,7 @@ $breakpoint-small: 620px;
   --edit-user-profile-upload-p-color: var(--zinc-400);
   --edit-user-profile-delete-btn-color: var(--soft-pink-400);
   //Change-Password
+  --change-password-background: var(--zinc-900);
   --change-password-label-color: var(--zinc-50);
   --change-password-divider-bg: var(--zinc-600);
   //confirm-dialog
@@ -333,21 +351,32 @@ $breakpoint-small: 620px;
   // Translate Toggle
   --translate-toggle-color: var(--zinc-100);
   --translate-toggle-hover: var(--soft-pink-200);
+  // Data User
+  --data-user-background: var(--zinc-800);
+  --data-user-border-top: var(--zinc-500);
+  --data-user-photo-border: var(--zinc-800);
+  --data-user-name-color: var(--zinc-100);
+  --data-user-email-color: var(--zinc-400);
+  --data-user-icon-color: var(--zinc-200);
+  --data-user-menu-background: var(--zinc-700);
+  --data-user-menu-background-hover: var(--zinc-500);
+  --data-user-menu-first-item-color: var(--soft-pink-200);
+  --data-user-items-color: var(--zinc-100);
 
   // Overview-Reports
   --main-text: var(--white);
   --cards-bg: var(--zinc-800);
   // OverAll
-  --overall-pdt-bg: rgba(230, 80, 115, 0.12);
+  --overall-pdt-bg: #e650731f;
   --overall-pdt-color: #e65073;
 
-  --overall-orders-bg: rgba(21, 93, 252, 0.12);
+  --overall-orders-bg: #155dfc1f;
   --overall-orders-color: #3b82f6;
 
-  --overall-category-bg: rgba(117, 60, 191, 0.12);
+  --overall-category-bg: #753cbf1f;
   --overall-category-color: #a97bff;
 
-  --overall-revenue-bg: rgba(0, 153, 102, 0.12);
+  --overall-revenue-bg: #0099661f;
   --overall-revenue-color: #00c389;
 
   --overall-hover-opacity: 0.18;
@@ -374,5 +403,26 @@ $breakpoint-small: 620px;
   --view-theader-bg:var(--zin-500);
 
 
+  --category-value-bg: linear-gradient(135deg, #ffb6c166, #ffffff4d);
+  --category-value-hover-bg: linear-gradient(to right, #ffb6c166, #ffffff4d);
 
+  // Authorization Page
+  --authorization-bg: var(--zinc-700);
+  --authorization-title-color: var(--zinc-50);
+  --authorization-subtitle-color: var(--zinc-300);
+  --authorization-divider-color: var(--zinc-300);
+  --authorization-btn-home-bg: var(--soft-pink-200);
+  --authorization-btn-home-border: var(--zinc-200);
+  --authorization-btn-home-color: var(--zinc-800);
+  --authorization-btn-home-hover: var(--zinc-200);
+
+  // Loading Overlay
+  --loading-overlay-bg: var(--zinc-900);
+  --loading-overlay-color: var(--zinc-50);
+  // Not Found
+  --not-found-title: var(--zinc-50);
+  --not-found-subtitle: var(--zinc-300);
+  // error page
+  --error-page-title: var(--zinc-50);
+  --error-page-subtitle: var(--zinc-300);
 }

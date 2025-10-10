@@ -30,7 +30,6 @@ import { InputErrorMessageComponent } from "@rose_dashboard/shared_buisness/inpu
     Skeleton,
     TranslateModule,
     InputErrorMessageComponent
-    
   ],
   templateUrl: "./products-form.component.html",
   styleUrl: "./products-form.component.scss"
@@ -62,7 +61,6 @@ export class ProductsFormComponent implements OnInit {
   galleryPreviewUrls: string[] = [];
   isSubmitting = false;
 
-  
   categories = signal<any[]>([]);
   occasions = signal<any[]>([]);
 
@@ -84,7 +82,6 @@ export class ProductsFormComponent implements OnInit {
     this.productId = this.route.snapshot.paramMap.get("id");
     this.isEditMode = !!this.productId;
 
-    
     this.loadCategories();
     this.loadOccasions();
 
@@ -116,7 +113,6 @@ export class ProductsFormComponent implements OnInit {
             occasion: res.product.occasion
           });
 
-          
           this.productForm.get('imgCover')?.clearValidators();
           this.productForm.get('images')?.clearValidators();
           this.productForm.get('imgCover')?.updateValueAndValidity();
@@ -134,7 +130,6 @@ export class ProductsFormComponent implements OnInit {
     }
   }
 
-
   private loadCategories(): void {
     this.categoriesService.getAllCategories().subscribe({
       next: (res) => {
@@ -146,7 +141,6 @@ export class ProductsFormComponent implements OnInit {
     });
   }
 
-  
   private loadOccasions(): void {
     this.occasionService.getAllOccasions().subscribe({
       next: (res) => {
@@ -164,7 +158,6 @@ export class ProductsFormComponent implements OnInit {
     return price - (price * (discount / 100));
   }
 
-  
   onCoverImageSelected(file: File): void {
     this.selectedCoverFile = file;
     this.productForm.patchValue({ imgCover: file });
@@ -178,7 +171,6 @@ export class ProductsFormComponent implements OnInit {
   }
 
   onGalleryImagesSelected(file: File): void {
-    
     this.selectedGalleryFiles.push(file);
     this.productForm.patchValue({ images: this.selectedGalleryFiles });
     this.productForm.get('images')?.markAsTouched();
@@ -196,37 +188,54 @@ export class ProductsFormComponent implements OnInit {
     this.showImageModal = true;
   }
 
+  // Updated translation methods
   getFormTitle(): string {
-    const action = this.isEditMode ? 'Update' : 'Add a New';
-    return this.isEditMode 
-      ? `${action} Product: ${this.initialData?.title || ''}`
-      : `${action} Product`;
+    const mode = this.isEditMode ? 'edit' : 'add';
+    const modeText = this._translate.instant(`common.modes.${mode}`);
+    return this._translate.instant('products.addEdit.formTitle', { mode: modeText });
   }
 
   getFieldLabel(field: string): string {
-    const labels: { [key: string]: string } = {
-      title: 'Title *',
-      description: 'Description *',
-      price: 'Price *',
-      discount: 'Discount',
-      quantity: 'Quantity *',
-      category: 'Category *',
-      occasion: 'Occasion *',
-      imgCover: 'Product cover *',
-      images: 'Product gallery *'
-    };
-    return labels[field] || '';
+    return this._translate.instant(`products.addEdit.fields.${field}`);
   }
 
   getFieldPlaceholder(field: string): string {
-    const placeholders: { [key: string]: string } = {
-      title: 'Enter product title',
-      description: 'Enter product description',
-      price: 'Example: 100',
-      discount: 'Example: 5',
-      quantity: 'Example: 200'
-    };
-    return placeholders[field] || '';
+    return this._translate.instant(`products.addEdit.fields.${field}Placeholder`);
+  }
+
+  getSubmitButtonText(): string {
+    const mode = this.isEditMode ? 'edit' : 'add';
+    const modeText = this._translate.instant(`common.modes.${mode}`);
+    return this._translate.instant('products.addEdit.buttons.submit', { mode: modeText });
+  }
+
+  getLoadingText(): string {
+    return this._translate.instant('products.addEdit.buttons.saving');
+  }
+
+  getImagePreviewText(type: 'cover' | 'gallery'): string {
+    if (type === 'cover') {
+      return this._translate.instant('products.addEdit.messages.coverPreview');
+    } else {
+      const count = this.galleryPreviewUrls.length;
+      return this._translate.instant('products.addEdit.messages.galleryPreview', { count });
+    }
+  }
+
+  getNoImageText(type: 'cover' | 'gallery'): string {
+    return this._translate.instant(`products.addEdit.messages.no${type.charAt(0).toUpperCase() + type.slice(1)}`);
+  }
+
+  getViewImageText(type: 'cover' | 'gallery'): string {
+    return this._translate.instant(`products.addEdit.buttons.view${type.charAt(0).toUpperCase() + type.slice(1)}`);
+  }
+
+  getPriceAfterDiscountLabel(): string {
+    return this._translate.instant('products.addEdit.messages.priceAfterDiscount');
+  }
+
+  getCalculatedAutomaticallyText(): string {
+    return this._translate.instant('products.addEdit.messages.calculatedAutomatically');
   }
 
   handleFormSubmit(): void {
@@ -260,7 +269,8 @@ export class ProductsFormComponent implements OnInit {
           next: () => {
             this._messageService.add({
               severity: "success",
-              detail: "Product updated successfully!",
+              summary: this._translate.instant('common.success'),
+              detail: this._translate.instant('products.messages.updateSuccess'),
               life: 3000,
             });
             this.router.navigate(["/dashboard/products"]);
@@ -269,7 +279,8 @@ export class ProductsFormComponent implements OnInit {
             console.error("Update failed:", err);
             this._messageService.add({
               severity: "error",
-              detail: "Failed to update product. Please try again.",
+              summary: this._translate.instant('common.error'),
+              detail: this._translate.instant('products.messages.updateError'),
               life: 5000,
             });
             this.isSubmitting = false;
@@ -280,7 +291,8 @@ export class ProductsFormComponent implements OnInit {
           next: () => {
             this._messageService.add({
               severity: "success",
-              detail: "Product added successfully!",
+              summary: this._translate.instant('common.success'),
+              detail: this._translate.instant('products.messages.addSuccess'),
               life: 3000,
             });
             this.router.navigate(["/dashboard/products"]);
@@ -289,7 +301,8 @@ export class ProductsFormComponent implements OnInit {
             console.error("Add failed:", err);
             this._messageService.add({
               severity: "error",
-              detail: "Failed to add product. Please try again.",
+              summary: this._translate.instant('common.error'),
+              detail: this._translate.instant('products.messages.addError'),
               life: 5000,
             });
             this.isSubmitting = false;

@@ -11,6 +11,8 @@ import { Product } from "@angular-monorepo/products";
 //PrimeNg
 import { RatingModule } from "primeng/rating";
 import { SkeletonModule } from "primeng/skeleton";
+// Shared_Component
+import { SoldOutComponent } from "../sold-out/soldOut.component";
 // Store
 import { Store } from "@ngrx/store";
 import { addProductToCart } from "apps/rose/src/app/store/cart/cart-actions";
@@ -32,12 +34,13 @@ import { Observable, take } from "rxjs";
     TranslatePipe,
     RouterLink,
     NgOptimizedImage,
+    SoldOutComponent,
     AsyncPipe,
   ],
   templateUrl: "./card-item.component.html",
   styleUrl: "./card-item.component.scss",
 })
-export class CardItemComponent implements OnInit {
+export class CardItemComponent {
   private readonly store = inject(Store);
   userWishlist$!: Observable<any>;
   isInWishlist$!: Observable<boolean>;
@@ -49,10 +52,6 @@ export class CardItemComponent implements OnInit {
     effect(() => {
       this.isInWishlist$ = this.store.select(selectIsInWishlist(this.productInfo?._id!));
     });
-  }
-
-  ngOnInit(): void {
-    this.store.dispatch(getUserWishlist());
   }
 
   toggleWishlist() {

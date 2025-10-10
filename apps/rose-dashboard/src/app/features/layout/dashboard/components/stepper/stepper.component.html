@@ -1,13 +1,18 @@
 <div class="breadcrumb-container">
   <app-breadcrump></app-breadcrump>
-  <button
-    (click)="changeHidden()"
-    class="inline-block md:hidden relative mx-2"
-    aria-controls="stepper-menu"
-    [class.open]="hidden"
-  >
-    <i class="pi pi-align-justify"></i>
-  </button>
+  <div class="flex items-center">
+    <div class="lg:hidden block">
+      <app-user-photo />
+    </div>
+    <button
+      (click)="changeHidden()"
+      class="inline-block md:hidden relative mx-2"
+      aria-controls="stepper-menu"
+      [class.open]="hidden"
+    >
+      <i class="pi pi-align-justify"></i>
+    </button>
+  </div>
 
   <div
     id="stepper-menu"
@@ -16,6 +21,13 @@
     [attr.aria-hidden]="!hidden"
   >
     <ul class="dropdown-menu">
+      <li>
+        <div class="flex justify-content-end align-items-center p-2">
+          <lib-translate-toggle />
+          <lib-button-theme />
+        </div>
+      </li>
+
       <li>
         <a class="dropdown-item" routerLink="/dashboard/user-profile" (click)="changeHidden()">
           <i class="pi pi-user"></i>

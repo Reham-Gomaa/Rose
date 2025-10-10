@@ -1,0 +1,12 @@
+.sold-out {
+  display: inline-block;
+  position: absolute;
+  top: 0.3125rem;
+  right: 0.3125rem;
+  border-radius: 0.625rem;
+  background-color: var(--item-sold-out);
+  color: var(--zinc-50);
+  font-size: 0.6875rem;
+  padding: 0.1875rem 0.3125rem;
+  z-index: 999;
+}
