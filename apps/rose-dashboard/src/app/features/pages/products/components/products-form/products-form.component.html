@@ -111,7 +111,7 @@
             formControlName="quantity">
           </lib-custom-input>
 
-          <!-- Image Upload Section -->
+          <!-- Image Upload Section for ADD MODE -->
           @if (!isEditMode) {
             <!-- ADD MODE: Show file uploads with custom inputs -->
             <div class="grid">
@@ -167,39 +167,6 @@
                 </div>
               </div>
             </div>
-          } @else {
-            <!-- EDIT MODE: Show view image links -->
-            <div class="grid">
-              <div class="col-12 md:col-6">
-                <div class="flex flex-column gap-2">
-                  <label class="label-small">{{ getFieldLabel('imgCover') }}</label>
-                  @if (coverPreviewUrl) {
-                    <button type="button" 
-                            (click)="openImageModal(coverPreviewUrl, getFieldLabel('imgCover'))"
-                            class="link-button">
-                      {{ getViewImageText('cover') }}
-                    </button>
-                  } @else {
-                    <span class="label-small">{{ getNoImageText('cover') }}</span>
-                  }
-                </div>
-              </div>
-              
-              <div class="col-12 md:col-6">
-                <div class="flex flex-column gap-2">
-                  <label class="label-small">{{ getFieldLabel('images') }}</label>
-                  @if (galleryPreviewUrls.length > 0) {
-                    <button type="button" 
-                            (click)="openImageModal(galleryPreviewUrls[0], getFieldLabel('images'))"
-                            class="link-button">
-                      {{ getViewImageText('gallery') }}
-                    </button>
-                  } @else {
-                    <span class="label-small">{{ getNoImageText('gallery') }}</span>
-                  }
-                </div>
-              </div>
-            </div>
           }
 
           <!-- Category and Occasion Dropdowns -->
@@ -241,6 +208,39 @@
               </div>
             </div>
           </div>
+
+          <!-- EDIT MODE: Image Preview Buttons RIGHT BEFORE Submit Button -->
+          @if (isEditMode) {
+            <div class="grid">
+              <div class="col-12 md:col-6">
+                <div class="image-button-container">
+                  @if (coverPreviewUrl) {
+                    <button type="button" 
+                            (click)="openImageModal(coverPreviewUrl, getFieldLabel('imgCover'))"
+                            class="view-image-button">
+                      {{ getViewImageText('cover') }}
+                    </button>
+                  } @else {
+                    <span class="label-small">{{ getNoImageText('cover') }}</span>
+                  }
+                </div>
+              </div>
+              
+              <div class="col-12 md:col-6">
+                <div class="image-button-container">
+                  @if (galleryPreviewUrls.length > 0) {
+                    <button type="button" 
+                            (click)="openImageModal(galleryPreviewUrls[0], getFieldLabel('images'))"
+                            class="view-image-button">
+                      {{ getViewImageText('gallery') }}
+                    </button>
+                  } @else {
+                    <span class="label-small">{{ getNoImageText('gallery') }}</span>
+                  }
+                </div>
+              </div>
+            </div>
+          }
 
           <!-- Submit Button -->
           <lib-form-button

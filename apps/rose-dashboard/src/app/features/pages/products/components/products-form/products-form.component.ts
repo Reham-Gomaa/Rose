@@ -188,12 +188,19 @@ export class ProductsFormComponent implements OnInit {
     this.showImageModal = true;
   }
 
-  // Updated translation methods
-  getFormTitle(): string {
-    const mode = this.isEditMode ? 'edit' : 'add';
-    const modeText = this._translate.instant(`common.modes.${mode}`);
+getFormTitle(): string {
+  const mode = this.isEditMode ? 'edit' : 'add';
+  const modeText = this._translate.instant(`common.modes.${mode}`);
+  
+  if (this.isEditMode && this.initialData?.title) {
+    
+    const baseTitle = this._translate.instant('products.addEdit.formTitle', { mode: modeText });
+    return `${baseTitle}: ${this.initialData.title}`;
+  } else {
+    
     return this._translate.instant('products.addEdit.formTitle', { mode: modeText });
   }
+}
 
   getFieldLabel(field: string): string {
     return this._translate.instant(`products.addEdit.fields.${field}`);

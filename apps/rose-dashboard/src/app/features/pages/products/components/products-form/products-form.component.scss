@@ -112,6 +112,36 @@
 
 
 
+.image-button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.view-image-button {
+  background: transparent;
+  color: var(--form-view-image-text);
+  border: 1.5px solid var( --view-image-border);
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem ;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: var(--font-family-4);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  width: auto;
+  
+  &:hover {
+    background: var(--form-view-image-text);
+    color: white;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+}
 
 .link-button {
   color: var(--form-view-image-text);
@@ -122,8 +152,6 @@
   transition: all ease 0.3s;
   text-align: left;
 }
-
-
 
 
 @media (max-width: 640px) {
