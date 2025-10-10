@@ -267,7 +267,7 @@
   "common": {
     "modes": {
       "add": "Add",
-      "edit": "Edit"
+      "edit": "Update"
     },
     "success": "Success",
     "error": "Error",
