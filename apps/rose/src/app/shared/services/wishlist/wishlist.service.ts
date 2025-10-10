@@ -27,10 +27,10 @@ export class WishlistService {
   }
 
   clearWishlist(): Observable<ClearResponse> {
-    return this.httpClient.delete<ClearResponse>(EndPoint.WISHLIST);
+    return this.httpClient.delete<ClearResponse>(EndPoint.CLEAR_WISHLIST);
   }
 
   checkProductInWishlist(p_id: string): Observable<checkResponse> {
-    return this.httpClient.get<checkResponse>(EndPoint.WISHLIST + `/check/` + p_id);
+    return this.httpClient.get<checkResponse>(EndPoint.CHECK_WISHLIST + `/` + p_id);
   }
 }
