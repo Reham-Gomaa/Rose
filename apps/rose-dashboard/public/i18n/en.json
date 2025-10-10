@@ -24,6 +24,8 @@
     "categories": "Categories",
     "occasions": "Occasions",
     "products": "Products",
+    "edit":"Edit",
+    "add":"Add",
     "user-profile": "Account Setting",
     "not-found": "Not Found",
     "authorization": "Not Authorization"
