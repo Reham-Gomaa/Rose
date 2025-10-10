@@ -6,8 +6,6 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 // Translation
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { TranslationService } from "@angular-monorepo/services";
-// Animation_Translation
-import { fadeTransition } from "@angular-monorepo/services";
 // Services
 import { StorageManagerService } from "@angular-monorepo/services";
 import { UserStateService } from "@angular-monorepo/services";
@@ -43,7 +41,6 @@ import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
   ],
   templateUrl: "./user-profile.component.html",
   styleUrl: "./user-profile.component.scss",
-  animations: [fadeTransition],
 })
 export class UserProfileComponent {
   readonly _translationService = inject(TranslationService);
