@@ -218,7 +218,9 @@
         "imgCover": "Cover Image",
         "images": "Gallery Images",
         "category": "Category",
-        "occasion": "Occasion"
+        "categoryPlaceholder": "Select category",
+        "occasion": "Occasion",
+        "occasionPlaceholder": "Select occasion"
       },
       "buttons": {
         "submit": "{{mode}} Product",
@@ -234,14 +236,33 @@
         "priceAfterDiscount": "Price after discount",
         "calculatedAutomatically": "Calculated automatically",
         "descriptionRequired": "Product description is required",
-        "categoryRequired": "Please select a category for the product"
+        "descriptionMinLength": "Description must be at least 10 characters long",
+        "categoryRequired": "Please select a category for the product",
+        "occasionRequired": "Please select an occasion for the product"
       }
+    },
+    "messages": {
+      "addSuccess": "Product added successfully!",
+      "updateSuccess": "Product updated successfully!",
+      "addError": "Failed to add product. Please try again.",
+      "updateError": "Failed to update product. Please try again."
     }
   },
   "common": {
     "modes": {
       "add": "Add",
       "edit": "Edit"
+    },
+    "success": "Success",
+    "error": "Error",
+    "errors": {
+      "required": "This field is required",
+      "minLength": "This field must be at least {{requiredLength}} characters long",
+      "maxLength": "This field cannot exceed {{requiredLength}} characters",
+      "minValue": "Value must be at least {{min}}",
+      "maxValue": "Value cannot exceed {{max}}",
+      "email": "Please enter a valid email address",
+      "generic": "Invalid field"
     },
     "imageModal": {
       "title": "View Image"
