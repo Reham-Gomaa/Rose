@@ -27,6 +27,9 @@ export class BreadcrumpComponent implements OnInit {
     this._translate.onDefaultLangChange.pipe(takeUntilDestroyed(this.$distroyRef)).subscribe(() => {
       this.stepperInit();
     });
+    this._translate.onLangChange.pipe(takeUntilDestroyed(this.$distroyRef)).subscribe(() => {
+      this.stepperInit();
+    })
   }
 
   private stepperInit() {
