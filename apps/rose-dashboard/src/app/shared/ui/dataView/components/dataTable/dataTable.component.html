@@ -7,7 +7,9 @@
                       <th [class]="{
                         'hide-md': record === 'sales' || record === 'price' || record === 'ratings'
                       }" class="capitalize">
-                        {{ record }}
+
+                      @let colName = record === 'productsCount'?'products':record.toUpperCase();
+                        {{ `TABLE.${colName}` | translate }}
                       </th>
                     }
                       <th></th>
@@ -49,7 +51,7 @@
                               [textColor]="'#155DFC'"
                               [padding]="'p-1 px-2 '"
                               [transition]="'0.3s'"
-                              [text]="'edit'"
+                              text="{{'ACTIONS.EDIT' | translate}}"
                               (click)="onEdit(item)"
                             ></app-button>
                             <app-button
@@ -59,7 +61,7 @@
                               [textColor]="'#DC2626'"
                               [padding]="'p-1 px-2 '"
                               [transition]="'0.3s'"
-                              [text]="'remove'"
+                              text="{{'ACTIONS.REMOVE' | translate}}"
                               (click)="confirmDelete(item)"
                             ></app-button>
                           </div>
