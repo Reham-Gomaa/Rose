@@ -24,6 +24,8 @@
     "categories": "Categories",
     "occasions": "Occasions",
     "products": "Products",
+    "edit": "Edit",
+    "add": "Add",
     "user-profile": "Account Setting",
     "not-found": "Not Found",
     "authorization": "Not Authorization"
@@ -143,6 +145,7 @@
     "products": "Products",
     "user-profile": "Account Setting",
     "not-found": "Not Found",
+    "error": "Error",
     "authorization": "Not Authorized"
   },
   "general": {
@@ -159,5 +162,120 @@
   },
   "loading": {
     "message": "Please wait... loading data"
+  },
+  "category": {
+    "addEdit": {
+      "formTitle": "{{mode}} Category",
+      "fields": {
+        "name": "Category Name",
+        "namePlaceholder": "Enter category name",
+        "image": "Category Image",
+        "imagePlaceholder": "Choose category image"
+      },
+      "buttons": {
+        "submit": "{{mode}} Category",
+        "saving": "Saving...",
+        "viewImage": "View Image"
+      },
+      "messages": {
+        "noImage": "No image available",
+        "imagePreview": "Image Preview:",
+        "addSuccess": "Category added successfully!",
+        "addError": "Failed to add category. Please try again.",
+        "updateSuccess": "Category updated successfully!",
+        "updateError": "Failed to update category. Please try again."
+      }
+    }
+  },
+  "occasion": {
+    "addEdit": {
+      "formTitle": "{{mode}} Occasion",
+      "fields": {
+        "name": "Occasion Name",
+        "namePlaceholder": "Enter occasion name",
+        "image": "Occasion Image",
+        "imagePlaceholder": "Choose occasion image"
+      },
+      "buttons": {
+        "submit": "{{mode}} Occasion",
+        "saving": "Saving...",
+        "viewImage": "View Image"
+      },
+      "messages": {
+        "noImage": "No image available",
+        "imagePreview": "Image Preview:",
+        "addSuccess": "Occasion added successfully!",
+        "addError": "Failed to add occasion. Please try again.",
+        "updateSuccess": "Occasion updated successfully!",
+        "updateError": "Failed to update occasion. Please try again."
+      }
+    }
+  },
+  "products": {
+    "addEdit": {
+      "formTitle": "{{mode}} Product",
+      "fields": {
+        "title": "Product Title",
+        "titlePlaceholder": "Enter product title",
+        "description": "Product Description",
+        "descriptionPlaceholder": "Enter product description",
+        "price": "Price",
+        "pricePlaceholder": "Enter price",
+        "discount": "Discount",
+        "discountPlaceholder": "Enter discount percentage",
+        "quantity": "Quantity",
+        "quantityPlaceholder": "Enter quantity",
+        "imgCover": "Cover Image",
+        "images": "Gallery Images",
+        "category": "Category",
+        "categoryPlaceholder": "Select category",
+        "occasion": "Occasion",
+        "occasionPlaceholder": "Select occasion"
+      },
+      "buttons": {
+        "submit": "{{mode}} Product",
+        "saving": "Saving...",
+        "viewCover": "View product cover",
+        "viewGallery": "View product gallery"
+      },
+      "messages": {
+        "noCover": "No cover image available",
+        "noGallery": "No gallery images available",
+        "coverPreview": "Cover Preview:",
+        "galleryPreview": "Gallery Previews ({{count}}):",
+        "priceAfterDiscount": "Price after discount",
+        "calculatedAutomatically": "Calculated automatically",
+        "descriptionRequired": "Product description is required",
+        "descriptionMinLength": "Description must be at least 10 characters long",
+        "categoryRequired": "Please select a category for the product",
+        "occasionRequired": "Please select an occasion for the product"
+      }
+    },
+    "messages": {
+      "addSuccess": "Product added successfully!",
+      "updateSuccess": "Product updated successfully!",
+      "addError": "Failed to add product. Please try again.",
+      "updateError": "Failed to update product. Please try again."
+    }
+  },
+  "common": {
+    "modes": {
+      "add": "Add",
+      "edit": "Edit"
+    },
+    "success": "Success",
+    "error": "Error",
+    "errors": {
+      "required": "This field is required",
+      "minLength": "This field must be at least {{requiredLength}} characters long",
+      "maxLength": "This field cannot exceed {{requiredLength}} characters",
+      "minValue": "Value must be at least {{min}}",
+      "maxValue": "Value cannot exceed {{max}}",
+      "email": "Please enter a valid email address",
+      "generic": "Invalid field"
+    },
+    "imageModal": {
+      "title": "View Image"
+    }
   }
 }

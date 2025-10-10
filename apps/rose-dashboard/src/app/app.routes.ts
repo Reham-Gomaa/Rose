@@ -10,7 +10,7 @@ export const appRoutes: Route[] = [
   {
     path: "dashboard",
     component: DashboardComponent,
-    title: "dashboard",
+    title: "titles.dashboard",
     children: [
       { path: "", redirectTo: "overview", pathMatch: "full" },
       {
@@ -22,73 +22,94 @@ export const appRoutes: Route[] = [
           ),
       },
       {
-  path: "categories",
-  title: "titles.categories",
-  children: [
-    {
-      path: "",
-      loadComponent: () =>
-        import("@rose_dashboard/features_pages/categories/categories.component").then(
-          (c) => c.CategoriesComponent
-        ),
-    },
-    {
-      path: "add",
-      title: "titles.add-category",
-      loadComponent: () =>
-        import("@rose_dashboard/features_pages/categories/components/addandedit.component").then(
-          (c) => c.AddEditCategoryComponent
-        ),
-    },
-    {
-      path: "edit/:id",
-      title: "titles.edit-category",
-      loadComponent: () =>
-        import("@rose_dashboard/features_pages/categories/components/addandedit.component").then(
-          (c) => c.AddEditCategoryComponent
-        ),
-    },
-  ],
-},
+        path: "categories",
+        title: "titles.categories",
+        children: [
+          {
+            path: "",
+            loadComponent: () =>
+              import("@rose_dashboard/features_pages/categories/categories.component").then(
+                (c) => c.CategoriesComponent,
+              ),
+          },
+          {
+            path: "add",
+            title: "titles.add-category",
+            loadComponent: () =>
+              import(
+                "@rose_dashboard/features_pages/categories/components/addandedit.component"
+              ).then((c) => c.AddEditCategoryComponent),
+          },
+          {
+            path: "edit/:id",
+            title: "titles.edit-category",
+            loadComponent: () =>
+              import(
+                "@rose_dashboard/features_pages/categories/components/addandedit.component"
+              ).then((c) => c.AddEditCategoryComponent),
+          },
+        ],
+      },
 
       {
         path: "occasions",
         title: "titles.occasions",
         children: [
-          {path:"",
-           loadComponent: () =>
-          import("@rose_dashboard/features_pages/occasions/occasions.component").then(
-            (c) => c.OccasionsComponent,
-          ),
-
-        },
-         {
-      path: "add",
-      title: "titles.add-occasion",
-      loadComponent: () =>
-        import("@rose_dashboard/features_pages/occasions/components/AddandEditOccasions.component").then(
-          (c) => c.AddEditOccasionComponent
-        ),
-    },
-    {
-      path: "edit/:id",
-      title: "titles.edit-occasion",
-      loadComponent: () =>
-        import("@rose_dashboard/features_pages/occasions/components/AddandEditOccasions.component").then(
-          (c) => c.AddEditOccasionComponent
-        ),
-    },
-      ]
-        
+          {
+            path: "",
+            loadComponent: () =>
+              import("@rose_dashboard/features_pages/occasions/occasions.component").then(
+                (c) => c.OccasionsComponent,
+              ),
+          },
+          {
+            path: "add",
+            title: "titles.add-occasion",
+            loadComponent: () =>
+              import(
+                "@rose_dashboard/features_pages/occasions/components/AddandEditOccasions.component"
+              ).then((c) => c.AddEditOccasionComponent),
+          },
+          {
+            path: "edit/:id",
+            title: "titles.edit-occasion",
+            loadComponent: () =>
+              import(
+                "@rose_dashboard/features_pages/occasions/components/AddandEditOccasions.component"
+              ).then((c) => c.AddEditOccasionComponent),
+          },
+        ],
       },
       {
         path: "products",
         title: "titles.products",
-        loadComponent: () =>
-          import("@rose_dashboard/features_pages/products/products.component").then(
-            (c) => c.ProductsComponent,
-          ),
+        children: [
+          {
+            path: "",
+            loadComponent: () =>
+              import("@rose_dashboard/features_pages/products/products.component").then(
+                (c) => c.ProductsComponent,
+              ),
+          },
+          {
+            path: "add",
+            title: "titles.add-category",
+            loadComponent: () =>
+              import(
+                "@rose_dashboard/features_pages/products/components/products-form/products-form.component"
+              ).then((c) => c.ProductsFormComponent),
+          },
+          {
+            path: "edit/:id",
+            title: "titles.edit-category",
+            loadComponent: () =>
+              import(
+                "@rose_dashboard/features_pages/products/components/products-form/products-form.component"
+              ).then((c) => c.ProductsFormComponent),
+          },
+        ],
       },
+
       {
         path: "user-profile",
         loadComponent: () =>
@@ -103,7 +124,7 @@ export const appRoutes: Route[] = [
           import("@rose_dashboard/features_pages/error/error.component").then(
             (c) => c.ErrorComponent,
           ),
-        title: "titles.user-profile",
+        title: "titles.error",
       },
       {
         path: "**",
@@ -121,6 +142,6 @@ export const appRoutes: Route[] = [
       import("@rose_dashboard/features_layouts/authorization/authorization.component").then(
         (c) => c.AuthorizationComponent,
       ),
-    title: "titles.not-authorization",
+    title: "titles.authorization",
   },
 ];

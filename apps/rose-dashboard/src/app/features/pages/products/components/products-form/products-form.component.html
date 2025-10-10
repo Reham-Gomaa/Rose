@@ -1,1 +1,276 @@
-<p>products-form works!</p>
+<div class="form-container">
+  <div class="form-card">
+    @if (isLoading()) {
+      <!-- Skeleton for form loading -->
+      <div class="p-fluid">
+        <div class="flex flex-column gap-4">
+          <!-- Title field skeleton -->
+          <div class="flex flex-column gap-2">
+            <p-skeleton width="120px" height="1.5rem"></p-skeleton>
+            <p-skeleton width="100%" height="3rem"></p-skeleton>
+          </div>
+          
+          <!-- Description field skeleton -->
+          <div class="flex flex-column gap-2">
+            <p-skeleton width="140px" height="1.5rem"></p-skeleton>
+            <p-skeleton width="100%" height="3rem"></p-skeleton>
+          </div>
+          
+          <!-- Price/Discount skeleton -->
+          <div class="flex flex-column gap-2">
+            <p-skeleton width="200px" height="1.5rem"></p-skeleton>
+            <div class="grid">
+              <div class="col-4"><p-skeleton width="100%" height="3rem"></p-skeleton></div>
+              <div class="col-4"><p-skeleton width="100%" height="3rem"></p-skeleton></div>
+              <div class="col-4"><p-skeleton width="100%" height="3rem"></p-skeleton></div>
+            </div>
+          </div>
+          
+          <!-- Submit button skeleton -->
+          <p-skeleton width="100%" height="3rem"></p-skeleton>
+        </div>
+      </div>
+    } @else {
+      <!-- Form Header -->
+      <div class="form-header mb-4">
+        <h2>{{ getFormTitle() }}</h2>
+      </div>
+
+      <form [formGroup]="productForm" (ngSubmit)="handleFormSubmit()" class="p-fluid">
+        <div class="flex flex-column gap-4">
+          
+          <!-- Title Field -->
+          <lib-custom-input
+            id="productTitle"
+            [labelText]="getFieldLabel('title')"
+            [placeholder]="getFieldPlaceholder('title')"
+            [errorHandilgControl]="productForm.get('title')!"
+            formControlName="title">
+          </lib-custom-input>
+
+          <!-- Description Field -->
+          <div class="flex flex-column gap-2">
+            <label class="label-small">{{ getFieldLabel('description') }}</label>
+            <textarea
+              [placeholder]="getFieldPlaceholder('description')"
+              formControlName="description"
+              rows="4"
+              class="textarea-style"
+              [class.border-red-500]="productForm.get('description')?.invalid && productForm.get('description')?.touched">
+            </textarea>
+            <app-input-error-message 
+              [control]="productForm.get('description')"
+              [customMessages]="{ 
+                required: 'products.addEdit.messages.descriptionRequired',
+                minlength: 'products.addEdit.messages.descriptionMinLength' }">
+            </app-input-error-message>
+          </div>
+
+          <!-- Price, Discount, and Price After Discount -->
+          <div class="flex flex-column gap-2">
+            <div class="grid">
+              <div class="col-12 md:col-4">
+                <lib-custom-input
+                  id="productPrice"
+                  type="number"
+                  [labelText]="getFieldLabel('price')"
+                  [placeholder]="getFieldPlaceholder('price')"
+                  [errorHandilgControl]="productForm.get('price')!"
+                  formControlName="price">
+                </lib-custom-input>
+              </div>
+              <div class="col-12 md:col-4">
+                <lib-custom-input
+                  id="productDiscount"
+                  type="number"
+                  [labelText]="getFieldLabel('discount')"
+                  [placeholder]="getFieldPlaceholder('discount')"
+                  [errorHandilgControl]="productForm.get('discount')!"
+                  formControlName="discount">
+                </lib-custom-input>
+              </div>
+              <div class="col-12 md:col-4">
+                <div class="flex flex-column gap-2">
+                  <label class="price-after-title">{{ getPriceAfterDiscountLabel() }}</label>
+                  <div class="computed-box">
+                    <span class="computed-value">{{ priceAfterDiscount | currency }}</span>
+                  </div>
+                  <small class="label-small">{{ getCalculatedAutomaticallyText() }}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quantity Field -->
+          <lib-custom-input
+            id="productQuantity"
+            type="number"
+            [labelText]="getFieldLabel('quantity')"
+            [placeholder]="getFieldPlaceholder('quantity')"
+            [errorHandilgControl]="productForm.get('quantity')!"
+            formControlName="quantity">
+          </lib-custom-input>
+
+          <!-- Image Upload Section -->
+          @if (!isEditMode) {
+            <!-- ADD MODE: Show file uploads with custom inputs -->
+            <div class="grid">
+              <div class="col-12 md:col-6">
+                <div class="flex flex-column gap-2">
+                  <lib-custom-input
+                    id="coverImage"
+                    type="file"
+                    accept="image/*"
+                    [labelText]="getFieldLabel('imgCover')"
+                    [errorHandilgControl]="productForm.get('imgCover')!"
+                    formControlName="imgCover"
+                    (fileSelected)="onCoverImageSelected($event)">
+                  </lib-custom-input>
+                  
+                  @if (coverPreviewUrl) {
+                    <div class="image-preview mt-2">
+                      <p class="text-sm text-gray-600 mb-1">{{ getImagePreviewText('cover') }}</p>
+                      <img [src]="coverPreviewUrl" alt="Cover preview" 
+                           class="preview-image cursor-pointer" 
+                           (click)="openImageModal(coverPreviewUrl!, getFieldLabel('imgCover'))"
+                           style="max-width: 200px; max-height: 150px; border-radius: 8px;">
+                    </div>
+                  }
+                </div>
+              </div>
+              
+              <div class="col-12 md:col-6">
+                <div class="flex flex-column gap-2">
+                  <lib-custom-input
+                    id="galleryImages"
+                    type="file"
+                    accept="image/*"
+                    [labelText]="getFieldLabel('images')"
+                    [errorHandilgControl]="productForm.get('images')!"
+                    formControlName="images"
+                    (fileSelected)="onGalleryImagesSelected($event)">
+                  </lib-custom-input>
+                  
+                  @if (galleryPreviewUrls.length > 0) {
+                    <div class="image-preview mt-2">
+                      <p class="text-sm text-gray-600 mb-1">{{ getImagePreviewText('gallery') }}</p>
+                      <div class="flex flex-wrap gap-2">
+                        @for (url of galleryPreviewUrls; track $index) {
+                          <img [src]="url" [alt]="getFieldLabel('images') + ' ' + ($index + 1)" 
+                               class="preview-image cursor-pointer" 
+                               (click)="openImageModal(url, getFieldLabel('images') + ' ' + ($index + 1))"
+                               style="max-width: 80px; max-height: 80px; border-radius: 8px;">
+                        }
+                      </div>
+                    </div>
+                  }
+                </div>
+              </div>
+            </div>
+          } @else {
+            <!-- EDIT MODE: Show view image links -->
+            <div class="grid">
+              <div class="col-12 md:col-6">
+                <div class="flex flex-column gap-2">
+                  <label class="label-small">{{ getFieldLabel('imgCover') }}</label>
+                  @if (coverPreviewUrl) {
+                    <button type="button" 
+                            (click)="openImageModal(coverPreviewUrl, getFieldLabel('imgCover'))"
+                            class="link-button">
+                      {{ getViewImageText('cover') }}
+                    </button>
+                  } @else {
+                    <span class="label-small">{{ getNoImageText('cover') }}</span>
+                  }
+                </div>
+              </div>
+              
+              <div class="col-12 md:col-6">
+                <div class="flex flex-column gap-2">
+                  <label class="label-small">{{ getFieldLabel('images') }}</label>
+                  @if (galleryPreviewUrls.length > 0) {
+                    <button type="button" 
+                            (click)="openImageModal(galleryPreviewUrls[0], getFieldLabel('images'))"
+                            class="link-button">
+                      {{ getViewImageText('gallery') }}
+                    </button>
+                  } @else {
+                    <span class="label-small">{{ getNoImageText('gallery') }}</span>
+                  }
+                </div>
+              </div>
+            </div>
+          }
+
+          <!-- Category and Occasion Dropdowns -->
+          <div class="grid">
+            <div class="col-12 md:col-6">
+              <div class="flex flex-column gap-2">
+                <label class="label-small">{{ getFieldLabel('category') }}</label>
+                <p-dropdown 
+                  [options]="categories()" 
+                  optionLabel="name" 
+                  optionValue="_id"
+                  formControlName="category"
+                  [placeholder]="getFieldPlaceholder('category') || 'Select an option'"
+                  [class.border-red-500]="productForm.get('category')?.invalid && productForm.get('category')?.touched"
+                  styleClass="w-full custom-dropdown">
+                </p-dropdown>
+                <app-input-error-message 
+                  [control]="productForm.get('category')"
+                  [customMessages]="{ required: 'products.addEdit.messages.categoryRequired' }">
+                </app-input-error-message>
+              </div>
+            </div>
+            
+            <div class="col-12 md:col-6">
+              <div class="flex flex-column gap-2">
+                <label class="label-small">{{ getFieldLabel('occasion') }}</label>
+                <p-dropdown 
+                  [options]="occasions()" 
+                  optionLabel="name" 
+                  optionValue="_id"
+                  formControlName="occasion"
+                  [placeholder]="getFieldPlaceholder('occasion') || 'Select an option'"
+                  styleClass="w-full">
+                </p-dropdown>
+                <app-input-error-message 
+                  [control]="productForm.get('occasion')"
+                  [customMessages]="{ required: 'products.addEdit.messages.occasionRequired' }">
+                </app-input-error-message>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <lib-form-button
+            type="submit"
+            [text]="getSubmitButtonText()"
+            [loadingText]="getLoadingText()"
+            [disabled]="productForm.invalid"
+            [isLoading]="isSubmitting"
+            [fullWidth]="true">
+          </lib-form-button>
+        </div>
+      </form>
+    }
+  </div>
+</div>
+
+<!-- PrimeNG Dialog for Image Modal -->
+<p-dialog 
+  [header]="modalImageTitle" 
+  [(visible)]="showImageModal" 
+  [modal]="true" 
+  [style]="{ width: '50rem',background: 'var(--modal-pop-up-bg)',color: 'var(--input-text-color)', }" 
+  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  [draggable]="false" 
+  [resizable]="false"
+  styleClass="image-modal">
+  <div class="flex justify-content-center">
+    <img 
+      [src]="modalImageUrl" 
+      [alt]="modalImageTitle" 
+      class="w-full max-h-30rem object-contain" />
+  </div>
+</p-dialog>

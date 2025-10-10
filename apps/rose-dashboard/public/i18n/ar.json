@@ -24,6 +24,8 @@
     "dashboard": "لوحة التحكم",
     "categories": "الفئات",
     "products": "المنتجات",
+    "edit": "تعديل",
+    "add": "إضافة",
     "user-profile": "إعدادات الحساب",
     "not-found": "غير موجود",
     "authorization": "غير مصرح"
@@ -142,6 +144,7 @@
     "products": "المنتجات",
     "user-profile": "إعدادات الحساب",
     "not-found": "غير موجود",
+    "error": "خطأ",
     "authorization": "غير مصرح"
   },
   "general": {
@@ -158,5 +161,113 @@
   },
   "loading": {
     "message": "يرجى الانتظار... جاري تحميل البيانات"
+  },
+  "category": {
+    "addEdit": {
+      "formTitle": "{{mode}} فئة",
+      "fields": {
+        "name": "اسم الفئة",
+        "namePlaceholder": "أدخل اسم الفئة",
+        "image": "صورة الفئة",
+        "imagePlaceholder": "اختر صورة الفئة"
+      },
+      "buttons": {
+        "submit": "{{mode}} فئة",
+        "saving": "جاري الحفظ...",
+        "viewImage": "عرض الصورة"
+      },
+      "messages": {
+        "noImage": "لا توجد صورة متاحة",
+        "imagePreview": "معاينة الصورة:"
+      }
+    }
+  },
+  "occasion": {
+    "addEdit": {
+      "formTitle": "{{mode}} مناسبة",
+      "fields": {
+        "name": "اسم المناسبة",
+        "namePlaceholder": "أدخل اسم المناسبة",
+        "image": "صورة المناسبة",
+        "imagePlaceholder": "اختر صورة المناسبة"
+      },
+      "buttons": {
+        "submit": "{{mode}} مناسبة",
+        "saving": "جاري الحفظ...",
+        "viewImage": "عرض الصورة"
+      },
+      "messages": {
+        "noImage": "لا توجد صورة متاحة",
+        "imagePreview": "معاينة الصورة:"
+      }
+    }
+  },
+
+  "products": {
+    "addEdit": {
+      "formTitle": "{{mode}} منتج",
+      "fields": {
+        "title": "عنوان المنتج",
+        "titlePlaceholder": "أدخل عنوان المنتج",
+        "description": "وصف المنتج",
+        "descriptionPlaceholder": "أدخل وصف المنتج",
+        "price": "السعر",
+        "pricePlaceholder": "أدخل السعر",
+        "discount": "الخصم",
+        "discountPlaceholder": "أدخل نسبة الخصم",
+        "quantity": "الكمية",
+        "quantityPlaceholder": "أدخل الكمية",
+        "imgCover": "صورة الغلاف",
+        "images": "صور المعرض",
+        "category": "الفئة",
+        "categoryPlaceholder": "اختر الفئة",
+        "occasion": "المناسبة",
+        "occasionPlaceholder": "اختر المناسبة"
+      },
+      "buttons": {
+        "submit": "{{mode}} منتج",
+        "saving": "جاري الحفظ...",
+        "viewCover": "عرض صورة الغلاف",
+        "viewGallery": "عرض معرض الصور"
+      },
+      "messages": {
+        "noCover": "لا توجد صورة غلاف متاحة",
+        "noGallery": "لا توجد صور في المعرض",
+        "coverPreview": "معاينة الغلاف:",
+        "galleryPreview": "معاينة المعرض ({{count}}):",
+        "priceAfterDiscount": "السعر بعد الخصم",
+        "calculatedAutomatically": "محسوب تلقائياً",
+        "descriptionRequired": "وصف المنتج مطلوب",
+        "descriptionMinLength": "يجب أن يكون الوصف 10 أحرف على الأقل",
+        "categoryRequired": "يرجى اختيار فئة للمنتج",
+        "occasionRequired": "يرجى اختيار مناسبة للمنتج"
+      }
+    },
+    "messages": {
+      "addSuccess": "تمت إضافة المنتج بنجاح!",
+      "updateSuccess": "تم تحديث المنتج بنجاح!",
+      "addError": "فشل في إضافة المنتج. يرجى المحاولة مرة أخرى.",
+      "updateError": "فشل في تحديث المنتج. يرجى المحاولة مرة أخرى."
+    }
+  },
+  "common": {
+    "modes": {
+      "add": "إضافة",
+      "edit": "تعديل"
+    },
+    "success": "نجح",
+    "error": "خطأ",
+    "errors": {
+      "required": "هذا الحقل مطلوب",
+      "minLength": "يجب أن يكون هذا الحقل {{requiredLength}} أحرف على الأقل",
+      "maxLength": "لا يمكن أن يتجاوز هذا الحقل {{requiredLength}} حرف",
+      "minValue": "يجب أن تكون القيمة {{min}} على الأقل",
+      "maxValue": "لا يمكن أن تتجاوز القيمة {{max}}",
+      "email": "يرجى إدخال عنوان بريد إلكتروني صالح",
+      "generic": "حقل غير صالح"
+    },
+    "imageModal": {
+      "title": "عرض الصورة"
+    }
   }
 }

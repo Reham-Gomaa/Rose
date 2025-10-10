@@ -11,27 +11,20 @@
 
 <div class="flex flex-wrap flex-column md:flex-row gap-4">
   @for (item of expertArr; track $index) {
-    <div class="team-card">
-      <div class="team-card-image">
-        <img
-          [ngSrc]="item.image"
-          width="250"
-          height="272"
-          loading="lazy"
-          decoding="async"
-          alt="Ahmed Mohamed"
-        />
-      </div>
-      <div class="team-card-info">
-        <h3>{{ item.name }}</h3>
-        <p class="role">{{ item.role }}</p>
-        <div class="social-icons">
-          <a><i class="pi pi-facebook"></i></a>
-          <a><i class="pi pi-instagram"></i></a>
-          <a><i class="pi pi-twitter"></i></a>
-          <a><i class="pi pi-youtube"></i></a>
-        </div>
+  <div class="team-card">
+    <div class="team-card-image">
+      <img [ngSrc]="item.image" width="250" height="272" loading="lazy" decoding="async" alt="Ahmed Mohamed" />
+    </div>
+    <div class="team-card-info">
+      <h3>{{ item.name }}</h3>
+      <p class="role">{{ item.role }}</p>
+      <div class="social-icons">
+        <a><i class="pi pi-facebook"></i></a>
+        <a><i class="pi pi-instagram"></i></a>
+        <a><i class="pi pi-twitter"></i></a>
+        <a><i class="pi pi-youtube"></i></a>
       </div>
     </div>
+  </div>
   }
 </div>

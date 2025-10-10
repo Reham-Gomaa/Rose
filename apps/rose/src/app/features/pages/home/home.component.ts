@@ -4,12 +4,13 @@ import { TranslationService } from "@angular-monorepo/services";
 // Animations_Translation
 import { fadeTransition } from "@angular-monorepo/services";
 // Components
+import { Store } from "@ngrx/store";
+import { AboutUsComponent } from "./components/about-us/aboutUs.component";
+import { BestSellerComponent } from "./components/best-seller/bestSeller.component";
+import { GalleryComponent } from "./components/gallery/gallery.component";
 import { GiftsComponent } from "./components/gifts/gifts.component";
 import { OurServicesComponent } from "./components/our-services/ourServices.component";
-import { BestSellerComponent } from "./components/best-seller/bestSeller.component";
 import { PopularItemsComponent } from "./components/popular-items/popularItems.component";
-import { AboutUsComponent } from "./components/about-us/aboutUs.component";
-import { GalleryComponent } from "./components/gallery/gallery.component";
 import { TestimonialsComponent } from "./components/testimonials/testimonials.component";
 import { TrustedByComponent } from "./components/trusted-by/trustedBy.component";
 
@@ -31,4 +32,5 @@ import { TrustedByComponent } from "./components/trusted-by/trustedBy.component"
 })
 export class HomeComponent {
   translationService = inject(TranslationService);
+  private readonly store = inject(Store);
 }

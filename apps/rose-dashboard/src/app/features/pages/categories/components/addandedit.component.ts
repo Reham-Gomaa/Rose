@@ -6,16 +6,18 @@ import { CategoryOccasionFormComponent } from "apps/rose-dashboard/src/app/share
 import { MessageService } from "primeng/api";
 import { Skeleton } from "primeng/skeleton";
 import { Subject, takeUntil } from "rxjs";
+import { TranslateService,TranslateModule } from "@ngx-translate/core";
 
 @Component({
   selector: "app-add-edit-category",
   standalone: true,
-  imports: [CategoryOccasionFormComponent,Skeleton], 
+  imports: [CategoryOccasionFormComponent,Skeleton,TranslateModule], 
    templateUrl: "./addandedit.component.html",
    styleUrls: ["./addandedit.component.scss"]
 })
 export class AddEditCategoryComponent implements OnInit {
    private _messageService = inject(MessageService);
+    private _translate = inject(TranslateService);
   isEditMode = false;
   categoryId: string | null = null;
   initialData: any = null; 
@@ -51,52 +53,55 @@ export class AddEditCategoryComponent implements OnInit {
       this.isLoading.set(false);
     }
   }
+
   handleFormSubmit(formData: FormData): void {
-  // Remove the conversion - pass FormData directly
-  console.log('Sending FormData directly to service');
-  
-  if (this.isEditMode && this.categoryId) {
-    this.categoriesService.updateCategory(this.categoryId, formData).subscribe({
-      next: () => {
-        this._messageService.add({
-          severity: "success",
-          detail: "Category updated successfully!", 
-          life: 3000,
-        });
-        this.router.navigate(["/dashboard/categories"]);
-      },
-      error: (err) => {
-        console.error("Update failed:", err);
-        this._messageService.add({
-          severity: "error",
-          detail: "Failed to update category. Please try again.",
-          life: 5000,
-        });
-      },
-    });
-  } else {
-    this.categoriesService.addCategory(formData).subscribe({
-      next: () => {
-        this._messageService.add({
-          severity: "success",
-          detail: "Category added successfully!",
-          life: 3000,
-        });
-        this.router.navigate(["/dashboard/categories"]);
-      },
-      error: (err) => {
-        console.error("Add failed:", err);
-        console.error("Error details:", err.error);
-        this._messageService.add({
-          severity: "error",
-          detail: "Failed to add category. Please try again.",
-          life: 5000,
-        });
-      },
-    });
+    if (this.isEditMode && this.categoryId) {
+      this.categoriesService.updateCategory(this.categoryId, formData).subscribe({
+        next: () => {
+          this._messageService.add({
+            severity: "success",
+            summary: this._translate.instant('common.success'),
+            detail: this._translate.instant('category.addEdit.messages.updateSuccess'),
+            life: 3000,
+          });
+          this.router.navigate(["/dashboard/categories"]);
+        },
+        error: (err) => {
+          console.error("Update failed:", err);
+          this._messageService.add({
+            severity: "error",
+            summary: this._translate.instant('common.error'),
+            detail: this._translate.instant('category.addEdit.messages.updateError'),
+            life: 5000,
+          });
+        },
+      });
+    } else {
+      this.categoriesService.addCategory(formData).subscribe({
+        next: () => {
+          this._messageService.add({
+            severity: "success",
+            summary: this._translate.instant('common.success'),
+            detail: this._translate.instant('category.addEdit.messages.addSuccess'),
+            life: 3000,
+          });
+          this.router.navigate(["/dashboard/categories"]);
+        },
+        error: (err) => {
+          console.error("Add failed:", err);
+          console.error("Error details:", err.error);
+          this._messageService.add({
+            severity: "error",
+            summary: this._translate.instant('common.error'),
+            detail: this._translate.instant('category.addEdit.messages.addError'),
+            life: 5000,
+          });
+        },
+      });
+    }
   }
-}
- ngOnDestroy(): void {
+
+  ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }

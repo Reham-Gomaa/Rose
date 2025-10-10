@@ -27,6 +27,9 @@ export class BreadcrumpComponent implements OnInit {
     this._translate.onDefaultLangChange.pipe(takeUntilDestroyed(this.$distroyRef)).subscribe(() => {
       this.stepperInit();
     });
+    this._translate.onLangChange.pipe(takeUntilDestroyed(this.$distroyRef)).subscribe(() => {
+      this.stepperInit();
+    })
   }
 
   private stepperInit() {
@@ -48,7 +51,8 @@ export class BreadcrumpComponent implements OnInit {
     const url = this._router.url;
     let finalUrl = "";
     for (const segment of url.split("/")) {
-      if (segment) {
+      const idRegex = /^[0-9a-fA-F]{24}$/;
+      if (segment && !idRegex.test(segment)) {
         const key = `breadcrumb.${segment}`;
         const translated = this._translate.instant(key);
         const label: string = translated;

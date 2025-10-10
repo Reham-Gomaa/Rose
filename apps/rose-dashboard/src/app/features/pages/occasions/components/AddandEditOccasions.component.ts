@@ -6,16 +6,18 @@ import { CategoryOccasionFormComponent } from "apps/rose-dashboard/src/app/share
 import { MessageService } from "primeng/api";
 import { Skeleton } from "primeng/skeleton";
 import { Subject, takeUntil } from "rxjs";
+import { TranslateModule,TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-add-edit-occasion",
   standalone: true,
-  imports: [CategoryOccasionFormComponent,Skeleton],
+  imports: [CategoryOccasionFormComponent,Skeleton, TranslateModule],
  templateUrl: "./AddandEditOccasions.component.html",
   styleUrl: "./AddandEditOccasions.component.scss",
 })
-export class AddEditOccasionComponent {
+export class AddEditOccasionComponent implements OnInit {
   private _messageService = inject(MessageService);
+  private _translate = inject(TranslateService);
   isEditMode = false;
   occasionId: string | null = null;
   initialData: any = null;
@@ -58,7 +60,8 @@ export class AddEditOccasionComponent {
         next: () => {
           this._messageService.add({
             severity: "success",
-            detail: "Occasion updated successfully!",
+            summary: this._translate.instant('common.success'),
+            detail: this._translate.instant('occasion.addEdit.messages.updateSuccess'),
             life: 3000,
           });
           this.router.navigate(["/dashboard/occasions"]);
@@ -67,7 +70,8 @@ export class AddEditOccasionComponent {
           console.error("Update failed:", err);
           this._messageService.add({
             severity: "error",
-            detail: "Failed to update occasion. Please try again.",
+            summary: this._translate.instant('common.error'),
+            detail: this._translate.instant('occasion.addEdit.messages.updateError'),
             life: 5000,
           });
         },
@@ -77,7 +81,8 @@ export class AddEditOccasionComponent {
         next: () => {
           this._messageService.add({
             severity: "success",
-            detail: "Occasion added successfully!",
+            summary: this._translate.instant('common.success'),
+            detail: this._translate.instant('occasion.addEdit.messages.addSuccess'),
             life: 3000,
           });
           this.router.navigate(["/dashboard/occasions"]);
@@ -86,14 +91,16 @@ export class AddEditOccasionComponent {
           console.error("Add failed:", err);
           this._messageService.add({
             severity: "error",
-            detail: "Failed to add occasion. Please try again.",
+            summary: this._translate.instant('common.error'),
+            detail: this._translate.instant('occasion.addEdit.messages.addError'),
             life: 5000,
           });
         },
       });
     }
   }
-   ngOnDestroy(): void {
+
+  ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
   }

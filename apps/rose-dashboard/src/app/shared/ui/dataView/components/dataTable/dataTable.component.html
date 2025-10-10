@@ -4,7 +4,9 @@
               <ng-template #header>
                   <tr>
                     @for(record of records(); track $index) {
-                      <th class="capitalize">
+                      <th [class]="{
+                        'hide-md': record === 'sales' || record === 'price' || record === 'ratings'
+                      }" class="capitalize">
                         {{ record }}
                       </th>
                     }
@@ -14,7 +16,28 @@
               <ng-template #body let-item>
                   <tr>
                       @for(record of records(); track $index) {
-                        <td>{{ item[record] }}</td>
+                        @if (record === "products") {
+                          <td>{{ getDisplayValue(item, record) }}</td>
+                        }
+                        @else if (record === "name") {
+                          <td>{{ (getDisplayValue(item, record) ?? '').split(" ").slice(0,2).join(" ") }}</td>
+                        }
+                        @else if (record === "stock") {
+                          @let stock = (item['quantity'] || 0) - (item['sold'] || 0);
+                          <td [class.lowQty]="stock < 10">{{ stock }}</td>
+                        }
+                        @else if (record === "sales") {
+                          <td class="hide-md">{{ item['sold'] || 0 }}</td>
+                        }
+                        @else if (record === "ratings") {
+                          <td class="hide-md">{{ item['rateAvg'] || 0 }}/5 ({{ item['rateCount'] || 0 }})</td>
+                        }
+                        @else if (record === "price") {
+                          <td class="hide-md">{{ getDisplayValue(item, record) }} EGP</td>
+                        }
+                        @else {
+                          <td>{{ getDisplayValue(item, record) }}</td>
+                        }
                       }
                     <td>
                         <div id="operations">

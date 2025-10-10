@@ -20,15 +20,15 @@
     @if (isEditMode) {
       <!-- EDIT MODE: Show view image link only -->
       <div class="flex flex-column gap-2">
-        <label class="font-medium text-sm text-gray-700">{{ getImageLabel() }}</label>
+        <label class="font-medium text-sm text-gray-700">{{ getFieldLabel('image') }}</label>
         @if (previewUrl) {
           <button type="button" 
-                  (click)="showImageModal = true"
+                  (click)="openImageModal()"
                   class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors duration-200 w-fit p-button p-button-text">
             {{ getViewImageText() }}
           </button>
         } @else {
-          <span class="text-gray-500 text-sm">No image available</span>
+          <span class="text-gray-500 text-sm">{{ getNoImageText() }}</span>
         }
       </div>
     } @else {
@@ -47,10 +47,10 @@
         <!-- Show new image preview for add mode -->
         @if (previewUrl && selectedFile) {
           <div class="image-preview mt-2">
-            <p class="text-sm text-gray-600 mb-1">Image Preview:</p>
-            <img [src]="previewUrl" [alt]="'New ' + entityType + ' image'" 
+            <p class="text-sm text-gray-600 mb-1">{{ getImagePreviewText() }}</p>
+            <img [src]="previewUrl" [alt]="getFieldLabel('image')" 
                  class="preview-image cursor-pointer" 
-                 (click)="showImageModal = true"
+                 (click)="openImageModal()"
                  style="max-width: 200px; max-height: 150px; border-radius: 8px;">
           </div>
         }
@@ -60,7 +60,7 @@
     <lib-form-button
       type="submit"
       [text]="getSubmitButtonText()"
-      [loadingText]="'Saving...'"
+      [loadingText]="getLoadingText()"
       [disabled]="entityForm.invalid"
       [isLoading]="isSubmitting"
       [fullWidth]="true">
@@ -68,9 +68,8 @@
   </div>
 </form>
 
-
 <p-dialog 
-  header="View Image" 
+  [header]="getModalTitle()" 
   [(visible)]="showImageModal" 
   [modal]="true" 
   [style]="{ width: '50rem' }" 
@@ -81,7 +80,7 @@
   <div class="flex justify-content-center">
     <img 
       [src]="previewUrl" 
-      [alt]="entityType + ' image'" 
+      [alt]="getFieldLabel('image')" 
       class="w-full max-h-30rem object-contain" />
   </div>
 </p-dialog>

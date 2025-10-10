@@ -1,9 +1,8 @@
+import { fadeTransition, TranslationService } from "@angular-monorepo/services";
 import { Component, inject } from "@angular/core";
 import { TranslatePipe } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/services";
-import { fadeTransition } from "@angular-monorepo/services";
-import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 import { BestsellerSliderComponent } from "@rose/shared_Components_ui/bestseller-slider/bestseller-slider.component";
+import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 
 @Component({
   selector: "app-best-seller",
@@ -16,7 +15,7 @@ export class BestSellerComponent {
   translationService = inject(TranslationService);
 
   responsiveOptions = [
-    { breakpoint: "1199px", numVisible: 2, numScroll: 1 },
-    { breakpoint: "768px", numVisible: 1, numScroll: 1 },
+    { breakpoint: "74.9375rem", numVisible: 2, numScroll: 1 },
+    { breakpoint: "48rem", numVisible: 1, numScroll: 1 },
   ];
 }

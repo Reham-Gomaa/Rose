@@ -1,20 +1,22 @@
-import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnDestroy } from "@angular/core";
+import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, OnDestroy, inject } from "@angular/core";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 import { FormButtonComponent } from "@angular-monorepo/rose-buttons"; 
 import { DialogModule } from 'primeng/dialog'; 
+import { TranslateModule,TranslateService } from "@ngx-translate/core";
 
 export type EntityType = 'category' | 'occasion';
 
 @Component({
   selector: "app-category-occasion-form",
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, CustomInputComponent, FormButtonComponent, DialogModule], 
+  imports: [CommonModule, ReactiveFormsModule, CustomInputComponent, FormButtonComponent, DialogModule,TranslateModule], 
   templateUrl: "./category-occasion-form.component.html",
   styleUrl: "./category-occasion-form.component.scss"
 })
 export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
+  private _translate = inject(TranslateService);
   @Input() entityType: EntityType = 'category';
   @Input() initialData: { name: string; image: string | File | null } | null = null;
   @Output() formSubmit = new EventEmitter<FormData>();
@@ -24,7 +26,7 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
   isSubmitting = false;
   previewUrl: string | null = null;
   isEditMode = false;
-   showImageModal = false;
+  showImageModal = false;
 
   constructor(private fb: FormBuilder) {
     this.entityForm = this.fb.group({
@@ -32,8 +34,6 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
       image: [null]
     });
   }
-
-
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['initialData'] && this.initialData) {
@@ -60,43 +60,53 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
     }
   }
 
-  getFormTitle(): string {
-    const action = this.isEditMode ? 'Update' : 'Add a New';
-    const entityName = this.entityType.charAt(0).toUpperCase() + this.entityType.slice(1);
-    return this.isEditMode 
-      ? `${action} ${entityName}: ${this.initialData?.name || ''}`
-      : `${action} ${entityName}`;
+  
+ getFormTitle(): string {
+  const mode = this.isEditMode ? 'edit' : 'add';
+  const modeText = this._translate.instant(`common.modes.${mode}`);
+  
+  if (this.isEditMode && this.initialData?.name) {
+  
+    const baseTitle = this._translate.instant(`${this.entityType}.addEdit.formTitle`, { mode: modeText });
+    return `${baseTitle}: ${this.initialData.name}`;
+  } else {
+   
+    return this._translate.instant(`${this.entityType}.addEdit.formTitle`, { mode: modeText });
   }
+}
 
   getFieldLabel(field: string): string {
-    const entityName = this.entityType.charAt(0).toUpperCase() + this.entityType.slice(1);
-    
-    if (field === 'name') {
-      return `${entityName} Name *`;
-    }
-    
-    if (field === 'image') {
-      
-      if (this.isEditMode) {
-        return ''; 
-      }
-      return `${entityName} Image *`;
-    }
-    
-    return '';
+    return this._translate.instant(`${this.entityType}.addEdit.fields.${field}`);
   }
 
   getFieldPlaceholder(field: string): string {
-    if (field === 'name') {
-      return `Enter ${this.entityType} name`;
-    }
-    return 'Upload file';
+    return this._translate.instant(`${this.entityType}.addEdit.fields.${field}Placeholder`);
   }
 
   getSubmitButtonText(): string {
-    const action = this.isEditMode ? 'Update' : 'Add';
-    const entityName = this.entityType.charAt(0).toUpperCase() + this.entityType.slice(1);
-    return `${action} ${entityName}`;
+    const mode = this.isEditMode ? 'edit' : 'add';
+    const modeText = this._translate.instant(`common.modes.${mode}`);
+    return this._translate.instant(`${this.entityType}.addEdit.buttons.submit`, { mode: modeText });
+  }
+
+  getLoadingText(): string {
+    return this._translate.instant(`${this.entityType}.addEdit.buttons.saving`);
+  }
+
+  getViewImageText(): string {
+    return this._translate.instant(`${this.entityType}.addEdit.buttons.viewImage`);
+  }
+
+  getNoImageText(): string {
+    return this._translate.instant(`${this.entityType}.addEdit.messages.noImage`);
+  }
+
+  getImagePreviewText(): string {
+    return this._translate.instant(`${this.entityType}.addEdit.messages.imagePreview`);
+  }
+
+  getModalTitle(): string {
+    return this._translate.instant('common.imageModal.title');
   }
 
   onFileSelected(event: Event): void {
@@ -112,7 +122,6 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
     }
   }
 
-  
   openImageModal(): void {
     this.showImageModal = true;
   }
@@ -132,7 +141,6 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
       const formData = new FormData();
       formData.append('name', this.entityForm.get('name')?.value);
 
-     
       if (!this.isEditMode && this.selectedFile) {
         formData.append('image', this.selectedFile);
       }
@@ -158,16 +166,6 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy{
     });
   }
 
-  getImageLabel(): string {
-  const entityName = this.entityType.charAt(0).toUpperCase() + this.entityType.slice(1);
-  return `${entityName} image *`;
-}
-
-getViewImageText(): string {
-  const entityName = this.entityType.charAt(0).toUpperCase() + this.entityType.slice(1);
-  return `View ${this.entityType} image`;
-}
- 
   ngOnDestroy(): void {
     if (this.previewUrl && this.previewUrl.startsWith('blob:')) {
       URL.revokeObjectURL(this.previewUrl);

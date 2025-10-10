@@ -351,10 +351,27 @@
     "empty": "Your cart is empty, wanna try shopping?",
     "continue-shopping": "Continue Shopping",
     "remove": "Remove",
-    "rating": "rating"
+    "rating": "rating",
+    "confirm-dialog": {
+      "confirmDelete": "Yes, clear",
+      "cancelDelete": "No, keep it",
+      "permanentActionWarning": "This action is permanent and cannot be undone.",
+      "deleteAccountConfirmation": "Are you sure you want to clear your cart?"
+    },
+    "savedItems": "Saved For Later",
+    "unavailable": "Currently Unavailable",
+    "moveToCart": "Move to Cart"
   },
   "favourites": {
-    "title": "My Wishlist"
+    "title": "My Wishlist",
+    "clear-wishlist": "Clear Wishlist",
+    "empty": "Your wishlist is empty, wanna try shopping?",
+    "confirm-dialog": {
+      "confirmDelete": "Yes, clear",
+      "cancelDelete": "No, keep it",
+      "permanentActionWarning": "This action is permanent and cannot be undone.",
+      "deleteAccountConfirmation": "Are you sure you want to clear your wishlist?"
+    }
   },
   "orders": {
     "title": "Orders",
@@ -472,7 +489,18 @@
     "failedLoadProfile": "Failed to load user profile",
     "loggedOut": "Logged out successfully.",
 
-    "failedToLoadCategories": "Failed to load categories"
+    "failedToLoadCategories": "Failed to load categories",
+
+    "addToCartSuccess": "Added to cart successfully!",
+    "addCartFailed": "Failed to add to cart.",
+    "cartUpdatedSuccessfully": "Cart updated successfully.",
+    "cartUpdatedFailed": "Failed to update cart.",
+    "maxQtyInStore": "you reached the maximum quantity in the store.",
+    "cartEmpty": "Cart is empty.",
+    "pdtremovedsuccessfully": "product removed successfully.",
+    "pdtremovedfailed": "Failed to remove product from cart.",
+
+    "wishlistEmpty": "wishlist is empty."
   },
   "contact": {
     "contact_us": "CONTACT US",

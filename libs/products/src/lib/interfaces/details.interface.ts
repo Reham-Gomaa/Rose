@@ -14,6 +14,7 @@ export interface ProductDetail {
   images: string[];
   price: number;
   priceAfterDiscount: number;
+  discount: number;
   quantity: number;
   category: string;
   occasion: string;
