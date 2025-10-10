@@ -41,7 +41,6 @@ export class BreadcrumpComponent implements OnInit {
       )
       .subscribe(() => {
         this.breadCrumb = this.createBreadcrumbs();
-        console.log(this.breadCrumb);
       });
   }
 

@@ -50,11 +50,10 @@ export class ProductsComponent {
   ngOnInit() {
     this.products_service.getAllProducts().subscribe({
       next: (res) => {
-         console.log('Products GET works:', res);
         this.prods.set(res.products);
       },
       error: (err) => {
-      console.error('Products GET failed:', err); // If this fails too, it's URL/auth issue
+      console.error('Products GET failed:', err); 
     }
     });
   }
