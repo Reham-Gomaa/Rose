@@ -213,6 +213,16 @@ $breakpoint-small: 620px;
   // Translate Toggle
   --translate-toggle-color: var(--zinc-700);
   --translate-toggle-hover: var(--maroon-600);
+
+
+
+
+
+    //dataView
+  --view-bg:var(--white);
+  --view-theader-bg:var(--zin-50)
+  --view-text:var(--black);
+
   // Data User
   --data-user-background: var(--white);
   --data-user-menu-background-hover: var(--maroon-50);
@@ -244,6 +254,7 @@ $breakpoint-small: 620px;
   // error page
   --error-page-title: var(--black);
   --error-page-subtitle: var(--zinc-400);
+
 }
 
 // Dark theme overrides
@@ -375,6 +386,23 @@ $breakpoint-small: 620px;
   --p-table-header-color: var(--soft-pink-200);
   --p-table-row-bg: var(--zinc-800);
   --p-table-cell-hover-bg: var(--soft-pink-200);
+  --category-value-bg: linear-gradient(
+    135deg,
+    rgba(255, 182, 193, 0.07),
+    rgba(255, 255, 255, 0.03)
+  );
+  --category-value-hover-bg: linear-gradient(
+    to right,
+    rgba(255, 182, 193, 0.4),
+    rgba(255, 255, 255, 0.3)
+  );
+
+   //dataView
+  --view-bg:var(--black);
+  --view-text:var(--white);
+  --view-theader-bg:var(--zin-500);
+
+
   --category-value-bg: linear-gradient(135deg, #ffb6c166, #ffffff4d);
   --category-value-hover-bg: linear-gradient(to right, #ffb6c166, #ffffff4d);
 

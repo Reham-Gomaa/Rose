@@ -1,4 +1,4 @@
-import { Component, output } from "@angular/core";
+import { Component, input, output } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { PaginatorModule, PaginatorState } from "primeng/paginator";
 
@@ -10,9 +10,8 @@ import { PaginatorModule, PaginatorState } from "primeng/paginator";
 })
 export class PaginationComponent {
   first: number = 0;
-
   rows: number = 6;
-
+  totalDataSize = input.required<number>()
   currentPage = output<{
     first: number;
     rows: number;
