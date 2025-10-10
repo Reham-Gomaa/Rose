@@ -194,6 +194,7 @@
       }
     }
   },
+ 
   "products": {
     "addEdit": {
       "formTitle": "{{mode}} منتج",
@@ -211,7 +212,9 @@
         "imgCover": "صورة الغلاف",
         "images": "صور المعرض",
         "category": "الفئة",
-        "occasion": "المناسبة"
+        "categoryPlaceholder": "اختر الفئة",
+        "occasion": "المناسبة",
+        "occasionPlaceholder": "اختر المناسبة"
       },
       "buttons": {
         "submit": "{{mode}} منتج",
@@ -227,8 +230,16 @@
         "priceAfterDiscount": "السعر بعد الخصم",
         "calculatedAutomatically": "محسوب تلقائياً",
         "descriptionRequired": "وصف المنتج مطلوب",
-        "categoryRequired": "يرجى اختيار فئة للمنتج"
+        "descriptionMinLength": "يجب أن يكون الوصف 10 أحرف على الأقل",
+        "categoryRequired": "يرجى اختيار فئة للمنتج",
+        "occasionRequired": "يرجى اختيار مناسبة للمنتج"
       }
+    },
+    "messages": {
+      "addSuccess": "تمت إضافة المنتج بنجاح!",
+      "updateSuccess": "تم تحديث المنتج بنجاح!",
+      "addError": "فشل في إضافة المنتج. يرجى المحاولة مرة أخرى.",
+      "updateError": "فشل في تحديث المنتج. يرجى المحاولة مرة أخرى."
     }
   },
   "common": {
@@ -236,8 +247,21 @@
       "add": "إضافة",
       "edit": "تعديل"
     },
+    "success": "نجح",
+    "error": "خطأ",
+    "errors": {
+      "required": "هذا الحقل مطلوب",
+      "minLength": "يجب أن يكون هذا الحقل {{requiredLength}} أحرف على الأقل",
+      "maxLength": "لا يمكن أن يتجاوز هذا الحقل {{requiredLength}} حرف",
+      "minValue": "يجب أن تكون القيمة {{min}} على الأقل",
+      "maxValue": "لا يمكن أن تتجاوز القيمة {{max}}",
+      "email": "يرجى إدخال عنوان بريد إلكتروني صالح",
+      "generic": "حقل غير صالح"
+    },
     "imageModal": {
       "title": "عرض الصورة"
     }
   }
+
+
 }
