@@ -93,7 +93,7 @@ export const appRoutes: Route[] = [
           },
           {
             path: "add",
-            title: "titles.add-category",
+            title: "titles.add-products",
             loadComponent: () =>
               import(
                 "@rose_dashboard/features_pages/products/components/products-form/products-form.component"
@@ -101,7 +101,7 @@ export const appRoutes: Route[] = [
           },
           {
             path: "edit/:id",
-            title: "titles.edit-category",
+            title: "titles.edit-products",
             loadComponent: () =>
               import(
                 "@rose_dashboard/features_pages/products/components/products-form/products-form.component"
