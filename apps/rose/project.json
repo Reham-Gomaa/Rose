@@ -54,6 +54,7 @@
             }
           ],
           "outputHashing": "all",
+          "optimization": true,
           "fileReplacements": [
             {
               "replace": "apps/environment/baseurl.dev.ts",

@@ -5,7 +5,9 @@ import {
   inject,
   OnInit,
   PLATFORM_ID,
+  signal,
   ViewChild,
+  ViewEncapsulation,
 } from "@angular/core";
 // Translation
 import { TranslatePipe } from "@ngx-translate/core";
@@ -20,10 +22,10 @@ import {
 // Shared_Components
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 // primeNg ...
+import { isPlatformBrowser } from "@angular/common";
 import { ButtonModule } from "primeng/button";
 import { Carousel, CarouselModule } from "primeng/carousel";
 import { TagModule } from "primeng/tag";
-import { isPlatformBrowser } from "@angular/common";
 
 @Component({
   selector: "app-gifts",
@@ -36,13 +38,14 @@ import { isPlatformBrowser } from "@angular/common";
   },
   animations: [fadeTransition],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class GiftsComponent implements OnInit {
   translationService = inject(TranslationService);
   private readonly pLATFORM_ID = inject(PLATFORM_ID);
   @ViewChild("carousel") carousel!: Carousel;
 
-  autoScrollInterval = 0;
+  autoScrollInterval = signal(0);
 
   ngOnInit() {
     if (!isPlatformBrowser(this.pLATFORM_ID)) return;
@@ -56,25 +59,25 @@ export class GiftsComponent implements OnInit {
 
   private setAutoScroll(width: number) {
     if (width < 768) {
-      this.autoScrollInterval = 3000;
+      this.autoScrollInterval.set(3000);
     } else {
-      this.autoScrollInterval = 0;
+      this.autoScrollInterval.set(0);
     }
   }
 
   responsiveOptions = [
     {
-      breakpoint: "1400px",
+      breakpoint: "87.5rem",
       numVisible: 1,
       numScroll: 1,
     },
     {
-      breakpoint: "768px",
+      breakpoint: "48rem",
       numVisible: 1,
       numScroll: 1,
     },
     {
-      breakpoint: "560px",
+      breakpoint: "35rem",
       numVisible: 1,
       numScroll: 1,
     },
