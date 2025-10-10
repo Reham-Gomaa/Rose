@@ -498,7 +498,9 @@
     "maxQtyInStore": "لقد وصلت إلى الحد الأقصى للكمية المتاحة في المتجر.",
     "cartEmpty": "السلة فارغة.",
     "pdtremovedsuccessfully": "تمت إزالة المنتج بنجاح.",
-    "pdtremovedfailed": "فشل في إزالة المنتج من السلة."
+    "pdtremovedfailed": "فشل في إزالة المنتج من السلة.",
+
+    "wishlistEmpty": "قائمة الرغبات فارغه"
   },
   "contact": {
     "contact_us": "اتصل بنا",

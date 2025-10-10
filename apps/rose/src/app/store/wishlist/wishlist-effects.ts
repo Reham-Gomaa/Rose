@@ -37,19 +37,19 @@ export class WishlistEffects {
     ),
   );
 
-  // getErrorMessage$ = createEffect(
-  //   () =>
-  //     this.actions$.pipe(
-  //       ofType(getUserwishlistFailure),
-  //       tap(() => {
-  //         this._messageService.add({
-  //           severity: "error",
-  //           detail: this._translate.instant("messagesToast.somethingWentWrong"),
-  //         });
-  //       }),
-  //     ),
-  //   { dispatch: false },
-  // );
+  getErrorMessage$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(getUserwishlistFailure),
+        tap(() => {
+          this._messageService.add({
+            severity: "error",
+            detail: this._translate.instant("messagesToast.somethingWentWrong"),
+          });
+        }),
+      ),
+    { dispatch: false },
+  );
 
   addProductToWishlist$ = createEffect(() =>
     this.actions$.pipe(
@@ -96,7 +96,7 @@ export class WishlistEffects {
         tap(() => {
           this._messageService.add({
             severity: "success",
-            detail: this._translate.instant("messagesToast.removeFromWishlistSuccess"),
+            detail: this._translate.instant("messagesToast.pdtremovedsuccessfully"),
           });
         }),
       ),

@@ -498,7 +498,9 @@
     "maxQtyInStore": "you reached the maximum quantity in the store.",
     "cartEmpty": "Cart is empty.",
     "pdtremovedsuccessfully": "product removed successfully.",
-    "pdtremovedfailed": "Failed to remove product from cart."
+    "pdtremovedfailed": "Failed to remove product from cart.",
+
+    "wishlistEmpty": "wishlist is empty."
   },
   "contact": {
     "contact_us": "CONTACT US",

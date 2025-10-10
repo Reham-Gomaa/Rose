@@ -25,7 +25,11 @@
           "
         ></i>
       </div>
-      <app-sold-out [class.hidden]="productInfo.quantity && productInfo.quantity > 0" />
+      <app-sold-out
+        [class.hidden]="
+          productInfo.quantity === undefined || productInfo.quantity > 0 || productInfo.price <= 0
+        "
+      />
     }
   </div>
 
