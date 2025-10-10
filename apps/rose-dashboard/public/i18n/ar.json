@@ -24,6 +24,8 @@
     "dashboard": "لوحة التحكم",
     "categories": "الفئات",
     "products": "المنتجات",
+    "edit": "تعديل",
+    "add": "إضافة",
     "user-profile": "إعدادات الحساب",
     "not-found": "غير موجود",
     "authorization": "غير مصرح"
@@ -42,7 +44,7 @@
     "products": "المنتجات"
   },
   "user-Profile": {
-    "updateProfile": "تحديث الملف الشخصي",
+    "Account_Settings": "إعدادات الحساب",
     "myAccount": "حسابي",
     "changePassword": "تغيير كلمة المرور",
     "logout": "تسجيل الخروج",
@@ -138,10 +140,17 @@
     "overview": "نظرة عامة",
     "dashboard": "لوحة التحكم",
     "categories": "الفئات",
+    "add-category": "إضافة فئة",
+    "edit-category": "تعديل الفئة",
     "occasions": "المناسبات",
+    "add-occasion": "إضافة مناسبة",
+    "edit-occasion": "تعديل المناسبة",
     "products": "المنتجات",
+    "add-products": "إضافة منتجات",
+    "edit-products": "تعديل المنتجات",
     "user-profile": "إعدادات الحساب",
     "not-found": "غير موجود",
+    "error": "خطأ",
     "authorization": "غير مصرح"
   },
   "general": {
@@ -151,6 +160,13 @@
     "oopsDesc": "حدث أمر غير متوقع، يرجى تحديث الصفحة أو المحاولة مرة أخرى بعد قليل.",
     "unauthorizedTitle": "غير مصرح لك بالوصول إلى هذه الصفحة.",
     "unauthorizedDesc": "إذا كنت تعتقد أن هذا خطأ، يرجى التواصل مع الدعم."
+  },
+  "menu": {
+    "account": "الحساب",
+    "logout": "تسجيل الخروج"
+  },
+  "loading": {
+    "message": "يرجى الانتظار... جاري تحميل البيانات"
   },
   "category": {
     "addEdit": {
@@ -192,7 +208,7 @@
       }
     }
   },
- 
+
   "products": {
     "addEdit": {
       "formTitle": "{{mode}} منتج",
@@ -260,6 +276,4 @@
       "title": "عرض الصورة"
     }
   }
-
-
 }

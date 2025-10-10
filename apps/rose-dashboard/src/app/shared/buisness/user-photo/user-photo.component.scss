@@ -1,0 +1,31 @@
+.user-photo {
+  width: 3.375rem;
+  height: 3.375rem;
+  border: 1px solid var(--data-user-photo-border);
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .user-photo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+.user-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--primary-color, #6366f1);
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.user-photo {
+  border-radius: 50%;
+  object-fit: cover;
+}

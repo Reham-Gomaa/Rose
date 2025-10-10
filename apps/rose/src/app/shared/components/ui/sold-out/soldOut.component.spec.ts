@@ -1,17 +1,16 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { SoldOutComponent } from "./soldOut.component";
 
-import { RequestErrorComponent } from "./request-error.component";
-
-describe("RequestErrorComponent", () => {
-  let component: RequestErrorComponent;
-  let fixture: ComponentFixture<RequestErrorComponent>;
+describe("SoldOutComponent", () => {
+  let component: SoldOutComponent;
+  let fixture: ComponentFixture<SoldOutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RequestErrorComponent],
+      imports: [SoldOutComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(RequestErrorComponent);
+    fixture = TestBed.createComponent(SoldOutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

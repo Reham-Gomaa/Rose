@@ -13,7 +13,7 @@ import { MessageService } from "primeng/api";
 export class CategoriesComponent {
   private category_service = inject(CategoriesService);
   private router = inject(Router);
-  private messageService = inject(MessageService); 
+  private messageService = inject(MessageService);
   table_header_records: string[] = ["name", "products"];
   cats: WritableSignal<Category[]> = signal<Category[]>([]);
 
@@ -21,7 +21,6 @@ export class CategoriesComponent {
     this.category_service.getAllCategories().subscribe({
       next: (res) => {
         this.cats.set(res.categories);
-        console.log(res);
       },
     });
   }

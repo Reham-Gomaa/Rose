@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   min-height: 90vh;
-  background: var(--zinc-50);
   padding: 1rem;
 }
 
@@ -26,7 +25,7 @@
 
 .title {
   font-family: var(--font-family-1);
-  color: var(--black);
+  color: var(--not-found-title);
   font-size: 2.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -34,7 +33,7 @@
 
 .subtitle {
   font-family: var(--font-family-1);
-  color: var(--zinc-400);
+  color: var(--not-found-subtitle);
   font-size: 1.25rem;
   font-weight: 400;
   margin-bottom: 1.5rem;

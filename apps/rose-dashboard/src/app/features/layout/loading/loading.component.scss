@@ -1,7 +1,7 @@
 .loading-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--loading-overlay-bg);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,15 +9,11 @@
   z-index: 9999;
 }
 
-.spinner ::ng-deep .p-progress-spinner-circle {
-  stroke: #3b82f6;
-}
-
 .loading-text {
   margin-top: 1rem;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #374151;
+  color: var(--loading-overlay-color);
 }
 
 .loading-overlay {

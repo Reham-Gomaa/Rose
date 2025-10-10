@@ -351,10 +351,27 @@
     "empty": "سلة التسوق فارغة، هل تريد تجربة التسوق؟",
     "continue-shopping": "متابعة التسوق",
     "remove": "حذف",
-    "rating": "التقييم"
+    "rating": "التقييم",
+    "confirm-dialog": {
+      "confirmDelete": "نعم، امسح",
+      "cancelDelete": "لا، احتفظ به",
+      "permanentActionWarning": "هذا الإجراء دائم ولا يمكن التراجع عنه.",
+      "deleteAccountConfirmation": "هل أنت متأكد أنك تريد مسح سلة التسوق الخاصة بك؟"
+    },
+    "savedItems": "محفوظ لوقت لاحق",
+    "unavailable": "غير متاح حالياً",
+    "moveToCart": "نقل إلى السلة"
   },
   "favourites": {
-    "title": "قائمتي المفضلة"
+    "title": "قائمتي المفضلة",
+    "clear-wishlist": "مسح قائمة الرغبات",
+    "empty": "قائمة رغباتك فارغة، هل تريد تجربة التسوق؟",
+    "confirm-dialog": {
+      "confirmDelete": "نعم، امسح",
+      "cancelDelete": "لا، احتفظ بها",
+      "permanentActionWarning": "هذا الإجراء دائم ولا يمكن التراجع عنه.",
+      "deleteAccountConfirmation": "هل أنت متأكد أنك تريد مسح قائمة الرغبات الخاصة بك؟"
+    }
   },
   "orders": {
     "title": "الطلبات",
@@ -472,7 +489,18 @@
     "failedLoadProfile": "فشل في تحميل ملف المستخدم الشخصي",
     "loggedOut": "تم تسجيل الخروج بنجاح.",
 
-    "failedToLoadCategories": "فشل في تحميل الفئات"
+    "failedToLoadCategories": "فشل في تحميل الفئات",
+
+    "addToCartSuccess": "تمت الإضافة إلى السلة بنجاح!",
+    "addCartFailed": "فشل في الإضافة إلى السلة.",
+    "cartUpdatedSuccessfully": "تم تحديث السلة بنجاح.",
+    "cartUpdatedFailed": "فشل في تحديث السلة.",
+    "maxQtyInStore": "لقد وصلت إلى الحد الأقصى للكمية المتاحة في المتجر.",
+    "cartEmpty": "السلة فارغة.",
+    "pdtremovedsuccessfully": "تمت إزالة المنتج بنجاح.",
+    "pdtremovedfailed": "فشل في إزالة المنتج من السلة.",
+
+    "wishlistEmpty": "قائمة الرغبات فارغه"
   },
   "contact": {
     "contact_us": "اتصل بنا",

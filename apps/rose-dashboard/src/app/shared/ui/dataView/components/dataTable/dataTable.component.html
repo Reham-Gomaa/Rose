@@ -17,7 +17,7 @@
                   <tr>
                       @for(record of records(); track $index) {
                         @if (record === "products") {
-                          <td>{{ getDisplayValue(item, record) }}</td>
+                          <td >{{ getDisplayValue(item, record) }}</td>
                         }
                         @else if (record === "name") {
                           <td>{{ (getDisplayValue(item, record) ?? '').split(" ").slice(0,2).join(" ") }}</td>

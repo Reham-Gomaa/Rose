@@ -1,24 +1,36 @@
 // @angular
 import { AsyncPipe, NgOptimizedImage } from "@angular/common";
-import { Component, DestroyRef, inject, OnInit, signal, WritableSignal } from "@angular/core";
+import {
+  Component,
+  DestroyRef,
+  inject,
+  OnInit,
+  signal,
+  ViewChild,
+  WritableSignal,
+} from "@angular/core";
 import { RouterLink } from "@angular/router";
 // @ngx
-import { TranslatePipe } from "@ngx-translate/core";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
 // rxjs
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { Observable, tap } from "rxjs";
 // shared Interfaces and Services
-import { cartItems } from "@rose/core_interfaces/cart.interface";
 import { TranslationService } from "@angular-monorepo/services";
+import { cartItems } from "@rose/core_interfaces/cart.interface";
 // shared Components
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
+import { EmptyCartComponent } from "@rose/shared_Components_ui/emptyCart/emptyCart.component";
 // Animation
 import { fadeTransition } from "@angular-monorepo/services";
 // primeng
 import { Skeleton } from "primeng/skeleton";
+import { MessageService } from "primeng/api";
 // Cart Data from store
+import { ConfirmDialogComponent } from "@angular-monorepo/confirm-dialog";
 import { Store } from "@ngrx/store";
 import {
+  addProductToCart,
   clearCart,
   deleteSpecificItem,
   getUserCart,
@@ -32,7 +44,16 @@ import {
 
 @Component({
   selector: "app-cart",
-  imports: [RouterLink, ButtonComponent, TranslatePipe, AsyncPipe, Skeleton, NgOptimizedImage],
+  imports: [
+    RouterLink,
+    ButtonComponent,
+    TranslatePipe,
+    AsyncPipe,
+    Skeleton,
+    NgOptimizedImage,
+    ConfirmDialogComponent,
+    EmptyCartComponent,
+  ],
   templateUrl: "./cart.component.html",
   styleUrl: "./cart.component.scss",
   animations: [fadeTransition],
@@ -41,8 +62,12 @@ export class CartComponent implements OnInit {
   readonly translationService = inject(TranslationService);
   private readonly store = inject(Store);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly _messageService = inject(MessageService);
+  private readonly _translate = inject(TranslateService);
 
+  @ViewChild("clearCartDialog") clearCartDialog!: ConfirmDialogComponent;
   userCartItems: WritableSignal<cartItems[]> = signal<cartItems[]>([]);
+  invalidItems: WritableSignal<cartItems[]> = signal<cartItems[]>([]);
   cartItemsNum$!: Observable<number>;
   isLoading$!: Observable<boolean>;
 
@@ -56,10 +81,10 @@ export class CartComponent implements OnInit {
   }
 
   checkStoreQuantity(items: cartItems[]) {
-    const invalidItems = items.filter((item) => item.quantity > item.product.quantity);
-    if (invalidItems.length > 0) {
-      for (let i = 0; i < invalidItems.length; i++) {
-        this.store.dispatch(deleteSpecificItem({ p_id: invalidItems[i].product._id }));
+    this.invalidItems.set(items.filter((item) => item.quantity > item.product.quantity));
+    if (this.invalidItems.length > 0) {
+      for (let i = 0; i < this.invalidItems.length; i++) {
+        this.store.dispatch(deleteSpecificItem({ p_id: this.invalidItems()[i].product._id }));
       }
     }
   }
@@ -95,8 +120,12 @@ export class CartComponent implements OnInit {
 
     if (qty === 1 && productQty > currentQty) {
       this.store.dispatch(updateQuantity({ p_id: item.product._id, qty: newQty }));
+    } else {
+      this._messageService.add({
+        severity: "error",
+        detail: this._translate.instant("messagesToast.maxQtyInStore"),
+      });
     }
-
     if (qty === -1 && currentQty > 1) {
       this.store.dispatch(updateQuantity({ p_id: item.product._id, qty: newQty }));
     }
@@ -137,8 +166,21 @@ export class CartComponent implements OnInit {
     this.store.dispatch(deleteSpecificItem({ p_id: p_id }));
   }
 
-  clearCart() {
+  clearCart(confirmed: boolean): void {
+    if (!confirmed) return;
+
     this.store.dispatch(clearCart());
     this.userCartItems.set([]);
+  }
+
+  addProductToCart(p_id: string) {
+    if (this.findItem(p_id)?.quantity! > 0) {
+      this.store.dispatch(addProductToCart({ p_id: p_id, qty: 1 }));
+      this.removeFromSavedItems(p_id);
+    }
+  }
+
+  removeFromSavedItems(p_id: string): void {
+    this.invalidItems.set(this.invalidItems().filter((item) => item.product._id !== p_id));
   }
 }

@@ -5,10 +5,12 @@ import { TranslatePipe } from "@ngx-translate/core";
 import { BreadcrumpComponent } from "./components/breadcrump/breadcrump.component";
 // Router
 import { RouterLink } from "@angular/router";
+import { UserPhotoComponent } from "@rose_dashboard/shared_buisness/user-photo/user-photo.component";
+import { TranslateToggleComponent, ButtonThemeComponent } from "@angular-monorepo/rose-buttons";
 
 @Component({
   selector: "app-stepper",
-  imports: [TranslatePipe, BreadcrumpComponent, RouterLink],
+  imports: [TranslatePipe, BreadcrumpComponent, RouterLink, UserPhotoComponent, TranslateToggleComponent, ButtonThemeComponent],
   templateUrl: "./stepper.component.html",
   styleUrl: "./stepper.component.scss",
 })

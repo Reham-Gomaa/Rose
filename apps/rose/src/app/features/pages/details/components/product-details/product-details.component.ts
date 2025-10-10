@@ -16,10 +16,12 @@ import {
   removeSpecificItem,
 } from "apps/rose/src/app/store/wishlist/wishlist-actions";
 import { selectIsInWishlist } from "apps/rose/src/app/store/wishlist/wishlist-selectors";
+// Shared_Component
+import { SoldOutComponent } from "@rose/shared_Components_ui/sold-out/soldOut.component";
 
 @Component({
   selector: "app-product-details",
-  imports: [NgOptimizedImage, DialogModule, AsyncPipe],
+  imports: [NgOptimizedImage, DialogModule, AsyncPipe, SoldOutComponent],
   templateUrl: "./product-details.component.html",
   styleUrl: "./product-details.component.scss",
 })

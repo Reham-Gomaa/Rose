@@ -27,15 +27,22 @@
   } @else {
     <div class="upload-section">
       <div class="avatar-container">
-        <img
-          [ngSrc]="user()?.photo || 'assets/images/default-avatar.png'"
-          width="120"
-          height="120"
-          alt="User Photo"
-          class="avatar-img"
-          loading="lazy"
-          decoding="async"
-        />
+        @if (_userDataService.userPhoto() === defaultPhoto) {
+          <div class="user-avatar">
+            {{ getInitials() }}
+          </div>
+        } @else {
+          <img
+            [ngSrc]="_userDataService.userPhoto()"
+            width="120"
+            height="120"
+            alt="User Photo"
+            class="avatar-img"
+            loading="lazy"
+            decoding="async"
+          />
+        }
+
         <p-fileupload
           mode="basic"
           name="profilePhoto"
@@ -117,7 +124,7 @@
           [options]="genders"
           optionLabel="label"
           [disabled]="true"
-          [placeholder]="user()?.gender"
+          [placeholder]="_userDataService.userGender()"
           id="gender-dropdown"
           class="w-full"
         >

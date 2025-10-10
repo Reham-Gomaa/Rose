@@ -24,6 +24,8 @@
     "categories": "Categories",
     "occasions": "Occasions",
     "products": "Products",
+    "edit": "Edit",
+    "add": "Add",
     "user-profile": "Account Setting",
     "not-found": "Not Found",
     "authorization": "Not Authorization"
@@ -42,7 +44,7 @@
     "products": "Products"
   },
   "user-Profile": {
-    "updateProfile": "Update Profile",
+    "Account_Settings": "Account Settings",
     "myAccount": "My Account",
     "changePassword": "Change Password",
     "logout": "Logout",
@@ -53,6 +55,7 @@
       "saveChanges": "Save Changes"
     },
     "changePasswordForm": {
+      "Change_Password": "Change Password",
       "oldPassword": "Old Password",
       "newPassword": "New Password",
       "confirmNewPassword": "Confirm New Password",
@@ -138,10 +141,17 @@
     "overview": "Overview",
     "dashboard": "Dashboard",
     "categories": "Categories",
+    "add-category": "Add Category",
+    "edit-category": "Edit Category",
     "occasions": "Occasions",
+    "add-occasion": "Add Occasion",
+    "edit-occasion": "Edit Occasion",
     "products": "Products",
+    "add-products": "Add Products",
+    "edit-products": "Edit Products",
     "user-profile": "Account Setting",
     "not-found": "Not Found",
+    "error": "Error",
     "authorization": "Not Authorized"
   },
   "general": {
@@ -152,7 +162,13 @@
     "unauthorizedTitle": "You are not authorized to access this page.",
     "unauthorizedDesc": "If you think this is wrong, please contact the support."
   },
-  
+  "menu": {
+    "account": "Account",
+    "logout": "Logout"
+  },
+  "loading": {
+    "message": "Please wait... loading data"
+  },
   "category": {
     "addEdit": {
       "formTitle": "{{mode}} Category",
@@ -192,7 +208,7 @@
         "viewImage": "View Image"
       },
       "messages": {
-         "noImage": "No image available",
+        "noImage": "No image available",
         "imagePreview": "Image Preview:",
         "addSuccess": "Occasion added successfully!",
         "addError": "Failed to add occasion. Please try again.",
@@ -269,4 +285,3 @@
     }
   }
 }
-
