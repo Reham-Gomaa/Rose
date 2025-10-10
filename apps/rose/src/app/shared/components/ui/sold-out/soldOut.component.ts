@@ -1,9 +1,8 @@
 import { Component } from "@angular/core";
-import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-sold-out",
-  imports: [CommonModule],
+  imports: [],
   templateUrl: "./soldOut.component.html",
   styleUrl: "./soldOut.component.scss",
 })

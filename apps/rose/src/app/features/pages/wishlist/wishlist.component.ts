@@ -50,5 +50,6 @@ export class WishlistComponent implements OnInit {
   clearWishlist(confirmed: boolean): void {
     if (!confirmed) return;
     this.store.dispatch(clearWishlist());
+    this.favouriteItems.set([]);
   }
 }

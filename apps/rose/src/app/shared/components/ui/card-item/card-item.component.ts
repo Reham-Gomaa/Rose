@@ -40,7 +40,7 @@ import { Observable, take } from "rxjs";
   templateUrl: "./card-item.component.html",
   styleUrl: "./card-item.component.scss",
 })
-export class CardItemComponent implements OnInit {
+export class CardItemComponent {
   private readonly store = inject(Store);
   userWishlist$!: Observable<any>;
   isInWishlist$!: Observable<boolean>;
@@ -52,10 +52,6 @@ export class CardItemComponent implements OnInit {
     effect(() => {
       this.isInWishlist$ = this.store.select(selectIsInWishlist(this.productInfo?._id!));
     });
-  }
-
-  ngOnInit(): void {
-    this.store.dispatch(getUserWishlist());
   }
 
   toggleWishlist() {

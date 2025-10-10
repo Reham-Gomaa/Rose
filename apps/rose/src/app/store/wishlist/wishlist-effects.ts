@@ -1,14 +1,15 @@
-import { Injectable, inject } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { Store } from "@ngrx/store";
+import { TranslateService } from "@ngx-translate/core";
 import { WishlistService } from "@rose/shared_services/wishlist/wishlist.service";
-import { catchError, map, mergeMap, of, switchMap } from "rxjs";
+import { MessageService } from "primeng/api";
+import { catchError, map, mergeMap, of, switchMap, tap } from "rxjs";
 import {
   addProductToWishlist,
   addProductToWishlistSuccess,
   checkInWishlist,
   checkInWishlistSuccess,
-  clearwishlist,
+  clearWishlist,
   clearwishlistSuccess,
   getUserWishlist,
   getUserwishlistFailure,
@@ -21,7 +22,8 @@ import {
 export class WishlistEffects {
   private readonly actions$ = inject(Actions);
   private readonly wishlistService = inject(WishlistService);
-  private readonly store = inject(Store);
+  private readonly _messageService = inject(MessageService);
+  private readonly _translate = inject(TranslateService);
 
   loadWishlist$ = createEffect(() =>
     this.actions$.pipe(
@@ -34,6 +36,20 @@ export class WishlistEffects {
       ),
     ),
   );
+
+  // getErrorMessage$ = createEffect(
+  //   () =>
+  //     this.actions$.pipe(
+  //       ofType(getUserwishlistFailure),
+  //       tap(() => {
+  //         this._messageService.add({
+  //           severity: "error",
+  //           detail: this._translate.instant("messagesToast.somethingWentWrong"),
+  //         });
+  //       }),
+  //     ),
+  //   { dispatch: false },
+  // );
 
   addProductToWishlist$ = createEffect(() =>
     this.actions$.pipe(
@@ -73,9 +89,23 @@ export class WishlistEffects {
     ),
   );
 
+  removalSuccess$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(removeSpecificItemSuccess),
+        tap(() => {
+          this._messageService.add({
+            severity: "success",
+            detail: this._translate.instant("messagesToast.removeFromWishlistSuccess"),
+          });
+        }),
+      ),
+    { dispatch: false },
+  );
+
   clearWishlist$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(clearwishlist),
+      ofType(clearWishlist),
       switchMap(() =>
         this.wishlistService.clearWishlist().pipe(
           map((wishlist) => clearwishlistSuccess({ wishlist })),
@@ -83,5 +113,19 @@ export class WishlistEffects {
         ),
       ),
     ),
+  );
+
+  clearCartSuccessToast$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(clearwishlistSuccess),
+        tap(() => {
+          this._messageService.add({
+            severity: "success",
+            detail: this._translate.instant("messagesToast.wishlistEmpty"),
+          });
+        }),
+      ),
+    { dispatch: false },
   );
 }

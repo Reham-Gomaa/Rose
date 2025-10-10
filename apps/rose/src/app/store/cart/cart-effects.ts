@@ -1,4 +1,5 @@
 import { Injectable, inject } from "@angular/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { TranslateService } from "@ngx-translate/core";
 import { CartService } from "@rose/shared_services/cart/cart.service";
@@ -46,9 +47,9 @@ export class CartEffects {
             severity: "error",
             detail: this._translate.instant("messagesToast.somethingWentWrong"),
           });
-        })
+        }),
       ),
-    { dispatch: false }
+    { dispatch: false },
   );
 
   addProduct$ = createEffect(() =>
@@ -72,9 +73,9 @@ export class CartEffects {
             severity: "success",
             detail: this._translate.instant("messagesToast.addToCartSuccess"),
           });
-        })
+        }),
       ),
-    { dispatch: false }
+    { dispatch: false },
   );
 
   updateProduct$ = createEffect(() =>
@@ -98,9 +99,9 @@ export class CartEffects {
             severity: "success",
             detail: this._translate.instant("messagesToast.cartUpdatedSuccessfully"),
           });
-        })
+        }),
       ),
-    { dispatch: false }
+    { dispatch: false },
   );
 
   deleteProduct$ = createEffect(() =>
@@ -124,9 +125,9 @@ export class CartEffects {
             severity: "success",
             detail: this._translate.instant("messagesToast.pdtremovedsuccessfully"),
           });
-        })
+        }),
       ),
-    { dispatch: false }
+    { dispatch: false },
   );
 
   clearCart$ = createEffect(() =>
@@ -150,8 +151,8 @@ export class CartEffects {
             severity: "success",
             detail: this._translate.instant("messagesToast.cartEmpty"),
           });
-        })
+        }),
       ),
-    { dispatch: false }
+    { dispatch: false },
   );
 }

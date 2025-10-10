@@ -43,11 +43,9 @@ export const removeSpecificItemSuccess = createAction(
   props<{ wishlist: wishlistResponse }>(),
 );
 
-export const clearwishlist = createAction("[wishlist] clear wishlist");
+export const clearWishlist = createAction("[wishlist] clear wishlist");
 
 export const clearwishlistSuccess = createAction(
   "[wishlist] clear wishlist success",
   props<{ wishlist: ClearResponse }>(),
 );
-
-export const clearWishlist = createAction("[wishlist] delete all favourites");
