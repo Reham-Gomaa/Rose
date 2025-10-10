@@ -24,6 +24,8 @@
     "categories": "Categories",
     "occasions": "Occasions",
     "products": "Products",
+    "edit": "Edit",
+    "add": "Add",
     "user-profile": "Account Setting",
     "not-found": "Not Found",
     "authorization": "Not Authorization"
@@ -42,7 +44,7 @@
     "products": "Products"
   },
   "user-Profile": {
-    "updateProfile": "Update Profile",
+    "Account_Settings": "Account Settings",
     "myAccount": "My Account",
     "changePassword": "Change Password",
     "logout": "Logout",
@@ -53,6 +55,7 @@
       "saveChanges": "Save Changes"
     },
     "changePasswordForm": {
+      "Change_Password": "Change Password",
       "oldPassword": "Old Password",
       "newPassword": "New Password",
       "confirmNewPassword": "Confirm New Password",
@@ -138,10 +141,17 @@
     "overview": "Overview",
     "dashboard": "Dashboard",
     "categories": "Categories",
+    "add-category": "Add Category",
+    "edit-category": "Edit Category",
     "occasions": "Occasions",
+    "add-occasion": "Add Occasion",
+    "edit-occasion": "Edit Occasion",
     "products": "Products",
+    "add-products": "Add Products",
+    "edit-products": "Edit Products",
     "user-profile": "Account Setting",
     "not-found": "Not Found",
+    "error": "Error",
     "authorization": "Not Authorized"
   },
   "general": {
@@ -151,6 +161,16 @@
     "oopsDesc": "Something unexpected happened, please refresh the page or try again shortly.",
     "unauthorizedTitle": "You are not authorized to access this page.",
     "unauthorizedDesc": "If you think this is wrong, please contact the support."
+  },
+
+
+
+  "menu": {
+    "account": "Account",
+    "logout": "Logout"
+  },
+  "loading": {
+    "message": "Please wait... loading data"
   },
 
   "category": {
@@ -192,7 +212,7 @@
         "viewImage": "View Image"
       },
       "messages": {
-         "noImage": "No image available",
+        "noImage": "No image available",
         "imagePreview": "Image Preview:",
         "addSuccess": "Occasion added successfully!",
         "addError": "Failed to add occasion. Please try again.",
@@ -218,7 +238,9 @@
         "imgCover": "Cover Image",
         "images": "Gallery Images",
         "category": "Category",
-        "occasion": "Occasion"
+        "categoryPlaceholder": "Select category",
+        "occasion": "Occasion",
+        "occasionPlaceholder": "Select occasion"
       },
       "buttons": {
         "submit": "{{mode}} Product",
@@ -234,14 +256,33 @@
         "priceAfterDiscount": "Price after discount",
         "calculatedAutomatically": "Calculated automatically",
         "descriptionRequired": "Product description is required",
-        "categoryRequired": "Please select a category for the product"
+        "descriptionMinLength": "Description must be at least 10 characters long",
+        "categoryRequired": "Please select a category for the product",
+        "occasionRequired": "Please select an occasion for the product"
       }
+    },
+    "messages": {
+      "addSuccess": "Product added successfully!",
+      "updateSuccess": "Product updated successfully!",
+      "addError": "Failed to add product. Please try again.",
+      "updateError": "Failed to update product. Please try again."
     }
   },
   "common": {
     "modes": {
       "add": "Add",
       "edit": "Edit"
+    },
+    "success": "Success",
+    "error": "Error",
+    "errors": {
+      "required": "This field is required",
+      "minLength": "This field must be at least {{requiredLength}} characters long",
+      "maxLength": "This field cannot exceed {{requiredLength}} characters",
+      "minValue": "Value must be at least {{min}}",
+      "maxValue": "Value cannot exceed {{max}}",
+      "email": "Please enter a valid email address",
+      "generic": "Invalid field"
     },
     "imageModal": {
       "title": "View Image"
@@ -271,4 +312,3 @@
     "search":"search"
   }
 }
-

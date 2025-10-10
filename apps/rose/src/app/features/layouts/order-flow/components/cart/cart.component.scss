@@ -4,7 +4,7 @@
 
   h1 {
     font-weight: 700;
-    font-size: 28px;
+    font-size: 1.75rem;
     vertical-align: middle;
     color: var(--cart-title);
 
@@ -28,20 +28,6 @@
     border-radius: 0.75rem;
     border: 0.0625rem solid var(--cart-content-border);
     padding: 1.25rem;
-
-    img.empty {
-      width: 15.625rem;
-      height: 13.375rem;
-    }
-
-    h2.empty {
-      font-weight: 400;
-      font-style: Regular;
-      font-size: 1.125rem;
-      line-height: 100%;
-      letter-spacing: 0%;
-      color: var(--cart-text-color);
-    }
 
     .pdt-wrapper {
       padding: 1.25rem 0;
@@ -97,7 +83,7 @@
           }
         }
 
-        h3.pdt-rating {
+        .pdt-rating {
           margin: 0;
           font-weight: 400;
           font-size: 0.8125rem;
@@ -180,6 +166,26 @@
           }
         }
       }
+    }
+  }
+
+  #savedItems {
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--cart-title);
+    }
+
+    .pdt-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--cart-title);
+    }
+
+    .pdt-unavailable {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--red-600);
     }
   }
 }

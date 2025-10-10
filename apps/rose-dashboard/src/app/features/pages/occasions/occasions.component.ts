@@ -14,16 +14,15 @@ import { MessageService } from "primeng/api";
 export class OccasionsComponent {
    private occasion_service = inject(OccasionService);
   private router = inject(Router);
-  private messageService = inject(MessageService); 
-  
-  table_header_records: string[] = ["name", "productsCount"]; 
+  private messageService = inject(MessageService);
+
+  table_header_records: string[] = ["name", "productsCount"];
   occasions: WritableSignal<occasion[]> = signal<occasion[]>([]);
 
   ngOnInit() {
     this.occasion_service.getAllOccasions().subscribe({
       next: (res) => {
         this.occasions.set(res.occasions);
-        console.log(res);
       },
     });
   }

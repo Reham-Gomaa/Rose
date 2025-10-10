@@ -1,4 +1,14 @@
-import { Component, Input, OnInit, signal, inject, DestroyRef } from "@angular/core";
+import {
+  Component,
+  Input,
+  OnInit,
+  signal,
+  inject,
+  DestroyRef,
+  InputSignal,
+  input,
+  ViewEncapsulation,
+} from "@angular/core";
 import { CarouselModule } from "primeng/carousel";
 import { SkeletonModule } from "primeng/skeleton";
 import { CardItemComponent } from "../card-item/card-item.component";
@@ -11,16 +21,17 @@ import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
   imports: [CarouselModule, SkeletonModule, CardItemComponent],
   templateUrl: "./bestseller-slider.component.html",
   styleUrls: ["./bestseller-slider.component.scss"],
+  encapsulation: ViewEncapsulation.None,
 })
 export class BestsellerSliderComponent implements OnInit {
   private readonly bestsellerService = inject(BestSellerService);
   private destroyRef = inject(DestroyRef);
 
-  @Input() numVisible = 4;
-  @Input() numScroll = 1;
-  @Input() responsiveOptions: any[] = [];
-  @Input() ariaLabel = "Best seller products carousel";
-  @Input() skeletonCount = 4;
+  numVisible: InputSignal<number> = input(4);
+  numScroll: InputSignal<number> = input(1);
+  responsiveOptions: InputSignal<any[]> = input([] as any[]);
+  ariaLabel: InputSignal<string> = input("Best seller products carousel");
+  skeletonCount: InputSignal<number> = input(4);
 
   items = signal<BestSeller[]>([]);
   loading = signal(true);
@@ -51,6 +62,6 @@ export class BestsellerSliderComponent implements OnInit {
   }
 
   skeletonItems(): any[] {
-    return Array(this.skeletonCount).fill(null);
+    return Array(this.skeletonCount()).fill(null);
   }
 }

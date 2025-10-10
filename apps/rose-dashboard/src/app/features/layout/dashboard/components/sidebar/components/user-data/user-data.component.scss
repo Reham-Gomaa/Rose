@@ -3,9 +3,10 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 0.5rem;
-  background-color: #fff;
-
+  background-color: var(--data-user-background);
   width: 100%;
+  padding: 0.75rem;
+  border-top: 1px solid var(--data-user-border-top);
 }
 
 .user-info {
@@ -17,7 +18,7 @@
 .user-photo {
   width: 3.375rem;
   height: 3.375rem;
-  border: 1px solid var(--black);
+  border: 1px solid var(--data-user-photo-border);
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -27,11 +28,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 0.25rem;
 }
 
 .user-name {
   margin: 0;
-  color: var(--zinc-800);
+  color: var(--data-user-name-color);
   font-family: var(--font-family-1);
   font-weight: 700;
   font-size: 0.9rem;
@@ -40,7 +42,7 @@
 
 .user-email {
   margin: 0;
-  color: #2e2e3080;
+  color: var(--data-user-email-color);
   font-family: var(--font-family-1);
   font-weight: 600;
   font-size: 0.75rem;
@@ -54,7 +56,33 @@
   padding: 0.25rem !important;
 
   .pi {
-    color: var(--zinc-800) !important;
+    color: var(--data-user-icon-color) !important;
     font-size: 1rem;
+  }
+}
+
+:host ::ng-deep .p-menu {
+  background-color: var(--data-user-menu-background) !important;
+  border: none !important;
+  .p-menu-item:first-child .p-menu-item-link {
+    color: var(--data-user-menu-first-item-color) !important;
+    font-family: var(--font-family-1);
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .p-menu-item-link {
+    color: var(--data-user-items-color) !important;
+    font-family: var(--font-family-1);
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+
+    &:hover {
+      background-color: var(--data-user-menu-background-hover) !important;
+    }
+  }
+  .pi {
+    color: var(--data-user-items-color) !important;
   }
 }

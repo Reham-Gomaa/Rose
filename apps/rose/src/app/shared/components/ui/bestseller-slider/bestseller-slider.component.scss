@@ -1,61 +1,63 @@
-/* Add spacing between cards */
-.carousel-card-wrapper {
-  padding: 0 0.5rem;
-}
-
-/* Remove indicator dots */
-.custom-carousel .p-carousel-indicators {
-  display: none !important;
-}
-
-:host ::ng-deep .p-ripple.p-button.p-component.custom-best-next {
-  position: absolute;
-  top: 25%;
-  background-color: var(--carousel-button-best-sellers-background);
-  border-radius: 100%;
-  z-index: 5;
-  transition: all 1s ease !important;
-  &:hover {
-    background-color: var(--carousel-button-best-sellers-hover);
+#bestseller-slider {
+  /* Add spacing between cards */
+  .carousel-card-wrapper {
+    padding: 0 0.5rem;
   }
-}
-:host ::ng-deep .p-ripple.p-button.p-component.custom-best-prev {
-  position: absolute;
-  top: 25%;
-  background-color: var(--carousel-button-best-sellers-background);
-  border-radius: 100%;
-  z-index: 5;
-  transition: all 1s ease !important;
-  &:hover {
-    background-color: var(--carousel-button-best-sellers-hover);
+
+  /* Remove indicator dots */
+  .custom-carousel .p-carousel-indicators {
+    display: none !important;
   }
-}
 
-::ng-deep .p-ripple.p-button.p-component.custom-best-next {
-  left: 94%;
-
-  .carousel-next-icon {
-    color: var(--carousel-i-color-best-sellers);
+  .p-ripple.p-button.p-component.custom-best-next {
+    position: absolute;
+    top: 25%;
+    background-color: var(--carousel-button-best-sellers-background);
+    border-radius: 100%;
+    z-index: 5;
+    transition: all 1s ease !important;
+    &:hover {
+      background-color: var(--carousel-button-best-sellers-hover);
+    }
   }
-}
-
-::ng-deep .p-ripple.p-button.p-component.custom-best-prev {
-  left: 1.5%;
-
-  .carousel-prev-icon {
-    color: var(--carousel-i-color-best-sellers);
+  .p-ripple.p-button.p-component.custom-best-prev {
+    position: absolute;
+    top: 25%;
+    background-color: var(--carousel-button-best-sellers-background);
+    border-radius: 100%;
+    z-index: 5;
+    transition: all 1s ease !important;
+    &:hover {
+      background-color: var(--carousel-button-best-sellers-hover);
+    }
   }
-}
 
-// RTL direction styling
+  .p-ripple.p-button.p-component.custom-best-next {
+    left: 94%;
 
-:host-context([dir="rtl"]) .header {
-  text-align: right !important;
-}
+    .carousel-next-icon {
+      color: var(--carousel-i-color-best-sellers);
+    }
+  }
 
-@media (min-width: 768px) and (max-width: 840px) {
-  ::ng-deep .p-carousel .p-carousel-item {
-    width: 50% !important;
-    flex: 0 0 auto !important;
+  .p-ripple.p-button.p-component.custom-best-prev {
+    left: 1.5%;
+
+    .carousel-prev-icon {
+      color: var(--carousel-i-color-best-sellers);
+    }
+  }
+
+  // RTL direction styling
+
+  :host-context([dir="rtl"]) .header {
+    text-align: right !important;
+  }
+
+  @media (min-width: 768px) and (max-width: 52.5rem) {
+    ::ng-deep .p-carousel .p-carousel-item {
+      width: 50% !important;
+      flex: 0 0 auto !important;
+    }
   }
 }

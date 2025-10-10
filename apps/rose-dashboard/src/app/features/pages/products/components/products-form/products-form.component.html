@@ -58,13 +58,12 @@
               class="textarea-style"
               [class.border-red-500]="productForm.get('description')?.invalid && productForm.get('description')?.touched">
             </textarea>
-             <app-input-error-message 
-                [control]="productForm.get('description')"
-                [customMessages]="{ 
-                 required: 'Product description is required',
-                 minlength: 'Description must be at least 10 characters long' }">
-             </app-input-error-message>
-
+            <app-input-error-message 
+              [control]="productForm.get('description')"
+              [customMessages]="{ 
+                required: 'products.addEdit.messages.descriptionRequired',
+                minlength: 'products.addEdit.messages.descriptionMinLength' }">
+            </app-input-error-message>
           </div>
 
           <!-- Price, Discount, and Price After Discount -->
@@ -92,11 +91,11 @@
               </div>
               <div class="col-12 md:col-4">
                 <div class="flex flex-column gap-2">
-                  <label class="price-after-title ">Price after discount</label>
+                  <label class="price-after-title">{{ getPriceAfterDiscountLabel() }}</label>
                   <div class="computed-box">
                     <span class="computed-value">{{ priceAfterDiscount | currency }}</span>
                   </div>
-                  <small class=" label-small ">Calculated automatically</small>
+                  <small class="label-small">{{ getCalculatedAutomaticallyText() }}</small>
                 </div>
               </div>
             </div>
@@ -130,10 +129,10 @@
                   
                   @if (coverPreviewUrl) {
                     <div class="image-preview mt-2">
-                      <p class="text-sm text-gray-600 mb-1">Cover Preview:</p>
+                      <p class="text-sm text-gray-600 mb-1">{{ getImagePreviewText('cover') }}</p>
                       <img [src]="coverPreviewUrl" alt="Cover preview" 
                            class="preview-image cursor-pointer" 
-                           (click)="openImageModal(coverPreviewUrl!, 'Cover Image')"
+                           (click)="openImageModal(coverPreviewUrl!, getFieldLabel('imgCover'))"
                            style="max-width: 200px; max-height: 150px; border-radius: 8px;">
                     </div>
                   }
@@ -154,12 +153,12 @@
                   
                   @if (galleryPreviewUrls.length > 0) {
                     <div class="image-preview mt-2">
-                      <p class="text-sm text-gray-600 mb-1">Gallery Previews ({{ galleryPreviewUrls.length }}):</p>
+                      <p class="text-sm text-gray-600 mb-1">{{ getImagePreviewText('gallery') }}</p>
                       <div class="flex flex-wrap gap-2">
                         @for (url of galleryPreviewUrls; track $index) {
-                          <img [src]="url" [alt]="'Gallery image ' + ($index + 1)" 
+                          <img [src]="url" [alt]="getFieldLabel('images') + ' ' + ($index + 1)" 
                                class="preview-image cursor-pointer" 
-                               (click)="openImageModal(url, 'Gallery Image ' + ($index + 1))"
+                               (click)="openImageModal(url, getFieldLabel('images') + ' ' + ($index + 1))"
                                style="max-width: 80px; max-height: 80px; border-radius: 8px;">
                         }
                       </div>
@@ -173,30 +172,30 @@
             <div class="grid">
               <div class="col-12 md:col-6">
                 <div class="flex flex-column gap-2">
-                  <label class="label-small">Product cover</label>
+                  <label class="label-small">{{ getFieldLabel('imgCover') }}</label>
                   @if (coverPreviewUrl) {
                     <button type="button" 
-                            (click)="openImageModal(coverPreviewUrl, 'Product Cover')"
+                            (click)="openImageModal(coverPreviewUrl, getFieldLabel('imgCover'))"
                             class="link-button">
-                      View product cover
+                      {{ getViewImageText('cover') }}
                     </button>
                   } @else {
-                    <span class="label-small">No cover image available</span>
+                    <span class="label-small">{{ getNoImageText('cover') }}</span>
                   }
                 </div>
               </div>
               
               <div class="col-12 md:col-6">
                 <div class="flex flex-column gap-2">
-                  <label class="label-small">Product gallery</label>
+                  <label class="label-small">{{ getFieldLabel('images') }}</label>
                   @if (galleryPreviewUrls.length > 0) {
                     <button type="button" 
-                            (click)="openImageModal(galleryPreviewUrls[0], 'Product Gallery')"
+                            (click)="openImageModal(galleryPreviewUrls[0], getFieldLabel('images'))"
                             class="link-button">
-                      View product gallery
+                      {{ getViewImageText('gallery') }}
                     </button>
                   } @else {
-                    <span class="label-small">No gallery images available</span>
+                    <span class="label-small">{{ getNoImageText('gallery') }}</span>
                   }
                 </div>
               </div>
@@ -213,15 +212,14 @@
                   optionLabel="name" 
                   optionValue="_id"
                   formControlName="category"
-                  placeholder="Select an option"
+                  [placeholder]="getFieldPlaceholder('category') || 'Select an option'"
                   [class.border-red-500]="productForm.get('category')?.invalid && productForm.get('category')?.touched"
                   styleClass="w-full custom-dropdown">
                 </p-dropdown>
                 <app-input-error-message 
-                    [control]="productForm.get('category')"
-                    [customMessages]="{ required: 'Please select a category for the product' }">
-               </app-input-error-message>
-
+                  [control]="productForm.get('category')"
+                  [customMessages]="{ required: 'products.addEdit.messages.categoryRequired' }">
+                </app-input-error-message>
               </div>
             </div>
             
@@ -233,25 +231,22 @@
                   optionLabel="name" 
                   optionValue="_id"
                   formControlName="occasion"
-                  placeholder="Select an option"
+                  [placeholder]="getFieldPlaceholder('occasion') || 'Select an option'"
                   styleClass="w-full">
                 </p-dropdown>
                 <app-input-error-message 
-                     [control]="productForm.get('occasion')"
-                     [customMessages]="{ required: 'Please select an occasion for the product' }">
-               </app-input-error-message>
-               
+                  [control]="productForm.get('occasion')"
+                  [customMessages]="{ required: 'products.addEdit.messages.occasionRequired' }">
+                </app-input-error-message>
               </div>
             </div>
           </div>
 
-          
-
           <!-- Submit Button -->
           <lib-form-button
             type="submit"
-            [text]="isEditMode ? 'Update Product' : 'Add Product'"
-            [loadingText]="'Saving...'"
+            [text]="getSubmitButtonText()"
+            [loadingText]="getLoadingText()"
             [disabled]="productForm.invalid"
             [isLoading]="isSubmitting"
             [fullWidth]="true">

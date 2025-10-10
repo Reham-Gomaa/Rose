@@ -13,8 +13,7 @@
     border-radius: 4px;
 
     &:hover {
-      background-color: var(--aside-button);
-      color: #333;
+      color: var(--aside-button);
     }
 
     // Don't make the last item (active) hoverable

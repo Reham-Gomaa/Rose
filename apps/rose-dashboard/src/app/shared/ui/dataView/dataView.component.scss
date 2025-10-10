@@ -1,7 +1,9 @@
 #data-view {
   & {
-    background-color: #fff;
+    background-color: var(--view-bg);
     border-radius: 16px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
     padding: 20px;
     margin: 20px;
   }
@@ -9,23 +11,13 @@
     h2 {
       font-size: 24px;
       font-family: var(--font-family-1);
+    color: var(--view-text);
+
+
     }
   }
   .data-table {
     margin: 18px 0px;
   }
 }
-:host ::ng-deep .p-datatable-table .p-datatable-thead > tr > th {
-  background-color: #fafafa;
-}
-:host ::ng-deep .p-datatable-tbody > tr > td > #operations button {
-  font-size: 12px;
-}
-:host ::ng-deep .p-datatable-tbody > tr > td > #operations .in-small button {
-  background: white;
-  border: 1px solid #d4d4d8;
-  color: black;
-  &:hover {
-    background-color: #d4d4d8;
-  }
-}
+

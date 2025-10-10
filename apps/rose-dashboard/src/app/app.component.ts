@@ -2,6 +2,8 @@ import { Component, DestroyRef, inject, PLATFORM_ID, signal } from "@angular/cor
 import { isPlatformBrowser } from "@angular/common";
 import { ActivatedRoute, Router, RouterOutlet, NavigationEnd } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+// Translation
+import { TranslatePipe } from "@ngx-translate/core";
 // Libs_Services
 import { StorageManagerService } from "@angular-monorepo/services";
 import { DarkModeService } from "@angular-monorepo/services";
@@ -14,7 +16,7 @@ import { LoadingComponent } from "@rose_dashboard/features_layouts/loading/loadi
 import { ErrorService } from "./core/services/error/error.service";
 
 @Component({
-  imports: [RouterOutlet, NotificationToastComponent, LoadingComponent],
+  imports: [RouterOutlet, NotificationToastComponent, LoadingComponent, TranslatePipe],
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.scss",

@@ -1,4 +1,5 @@
-<section id="product-details" class="my-5">
+<section id="product-details" class="my-5 relative">
+  <app-sold-out [class.hidden]="productDetails().quantity > 0" />
   <div class="grid gap-5 md:flex-nowrap">
     @if (productDetails()) {
     <div class="md:col-6 col-12">
