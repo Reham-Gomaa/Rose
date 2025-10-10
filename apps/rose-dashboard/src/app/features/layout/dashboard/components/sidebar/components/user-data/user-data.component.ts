@@ -13,10 +13,11 @@ import {
 import { environment } from "@rose/environment/baseurl.dev";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { ButtonThemeComponent, TranslateToggleComponent } from "@angular-monorepo/rose-buttons";
+import { UserPhotoComponent } from "@rose_dashboard/shared_buisness/user-photo/user-photo.component";
 
 @Component({
   selector: "app-user-data",
-  imports: [ButtonModule, Menu, ButtonThemeComponent, TranslateToggleComponent],
+  imports: [ButtonModule, Menu, ButtonThemeComponent, TranslateToggleComponent, UserPhotoComponent],
   templateUrl: "./user-data.component.html",
   styleUrl: "./user-data.component.scss",
 })
@@ -48,7 +49,7 @@ export class UserDataComponent {
       separator: true,
     },
     {
-      label: this._translate.instant("navbar.menu.myProfile"),
+      label: this._translate.instant("menu.account"),
       icon: "pi pi-user",
       command: () => this._router.navigate(["/dashboard/user-profile"]),
     },
@@ -56,7 +57,7 @@ export class UserDataComponent {
       separator: true,
     },
     {
-      label: this._translate.instant("navbar.menu.logout"),
+      label: this._translate.instant("menu.logout"),
       icon: "pi pi-sign-out",
       command: () => {
         this.logout();

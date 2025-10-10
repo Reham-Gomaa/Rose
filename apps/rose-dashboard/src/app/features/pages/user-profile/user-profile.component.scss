@@ -1,6 +1,5 @@
 .profile-container {
-  background: #f8f9fa;
-  min-height: 100vh;
+  background: var(--user-profile-background);
   padding: 0 2.5rem;
 }
 
@@ -9,13 +8,13 @@
   font-weight: 700;
   font-size: 1.75rem;
   line-height: 1.2;
-  color: var(--zinc-800);
+  color: var(--user-profile-title);
   padding: 0;
   margin-bottom: 2rem;
 }
 
 .content-area {
-  background: white;
+  background: var(--user-profile-card-background);
   border-radius: 12px;
   overflow: hidden;
   width: 100%;
@@ -57,7 +56,7 @@
 .change-password {
   background: none;
   border: none;
-  color: var(--zinc-800);
+  color: var(--user-profile-changePassword);
   font-family: var(--font-family-4);
   font-weight: 500;
   font-size: 1rem;

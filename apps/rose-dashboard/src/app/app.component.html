@@ -1,7 +1,7 @@
 <lib-notification-toast />
 
 @if (loading()) {
-  <app-loading [message]="'Please wait... Authorizing Admin Dashboard'" />
+  <app-loading [message]="'loading.message' | translate" />
 }
 @if (!loading()) {
   <router-outlet />

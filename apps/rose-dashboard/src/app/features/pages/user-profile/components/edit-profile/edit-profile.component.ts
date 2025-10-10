@@ -5,7 +5,7 @@ import { Router } from "@angular/router";
 import { NgOptimizedImage } from "@angular/common";
 // Translation
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
-import { TranslationService } from "@angular-monorepo/services";
+import { TranslationService, UserDataService } from "@angular-monorepo/services";
 // Shared_Components
 import {
   CustomInputComponent,
@@ -48,11 +48,16 @@ export class EditProfileComponent {
   private readonly _authApiKpService = inject(AuthApiKpService);
   private readonly _messageService = inject(MessageService);
 
+  protected readonly _userDataService = inject(UserDataService);
+
   apiError = signal<string>("");
   isLoading = signal<boolean>(false);
   isSaving = signal<boolean>(false);
   user = signal<User | null>(null);
   profileImage: string | ArrayBuffer | null = null;
+  defaultPhoto =
+    "https://flower.elevateegy.com/uploads/8627d52c-f36a-4613-bade-c16244d9bad1-High_resolution_wallpaper_background_ID_77701218231.jpg";
+
   @ViewChild("deleteAccountDialog") deleteAccountDialog!: ConfirmDialogComponent;
 
   genders = [
@@ -79,33 +84,18 @@ export class EditProfileComponent {
   });
 
   ngOnInit(): void {
-    this.loadUserProfile();
-  }
+    this._userDataService.loadUserInfo();
+    const user = this._userDataService.user();
 
-  loadUserProfile(): void {
-    this.isLoading.set(true);
-    this._authApiKpService
-      .getProfileData()
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe({
-        next: (response) => {
-          this.user.set(response.user);
-          this.profileForm.patchValue({
-            firstName: response.user.firstName,
-            lastName: response.user.lastName,
-            email: response.user.email,
-            phone: response.user.phone,
-          });
-          this.isLoading.set(false);
-        },
-        error: (err) => {
-          this._messageService.add({
-            severity: "error",
-            detail: this._translate.instant("messagesToast.failedToLoadProfileData"),
-          });
-          this.isLoading.set(false);
-        },
+    if (user) {
+      this.user.set(user);
+      this.profileForm.patchValue({
+        firstName: user.firstName || "",
+        lastName: user.lastName || "",
+        email: user.email || "",
+        phone: user.phone || "",
       });
+    }
   }
 
   onImageUpload(event: any): void {
@@ -130,7 +120,7 @@ export class EditProfileComponent {
             severity: "success",
             detail: this._translate.instant("messagesToast.profilePhotoUploadedSuccessfully"),
           });
-          this.loadUserProfile();
+          this._userDataService.loadUserInfo();
         },
         error: () => {
           this._messageService.add({
@@ -178,5 +168,15 @@ export class EditProfileComponent {
           this.isSaving.set(false);
         },
       });
+  }
+
+  getInitials(): string {
+    const username = this._userDataService.userName()?.trim() || "";
+    const parts = username.split(" ").filter(Boolean);
+
+    const first = parts[0]?.charAt(0)?.toUpperCase() || "";
+    const last = parts.length > 1 ? parts[parts.length - 1]?.charAt(0)?.toUpperCase() : "";
+
+    return `${first}${last}`;
   }
 }

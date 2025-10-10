@@ -1,9 +1,9 @@
-<section [@fadeTransition]="_translationService.fadeState()" class="profile-container">
+<section class="profile-container">
   <h2 class="sidebar-title">
     @if (activeTab === "profile") {
-      {{ "Account Settings" | translate }}
+      {{ "user-Profile.Account_Settings" | translate }}
     } @else if (activeTab === "password") {
-      {{ "Change Password" | translate }}
+      {{ "user-Profile.changePassword" | translate }}
     }
   </h2>
 

@@ -1,0 +1,15 @@
+@if (_userDataService.userPhoto() === defaultPhoto) {
+  <div class="user-avatar">
+    {{ getInitials() }}
+  </div>
+} @else {
+  <img
+    [ngSrc]="_userDataService.userPhoto()"
+    width="54"
+    height="54"
+    loading="lazy"
+    decoding="async"
+    alt="User photo"
+    class="user-photo"
+  />
+}

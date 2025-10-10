@@ -1,4 +1,7 @@
-import { Component, Input } from "@angular/core";
+import { Component, inject, Input } from "@angular/core";
+// Translation
+import { TranslateService } from "@ngx-translate/core";
+// PrimeNG
 import { ProgressSpinnerModule } from "primeng/progressspinner";
 @Component({
   selector: "app-loading",
@@ -7,5 +10,6 @@ import { ProgressSpinnerModule } from "primeng/progressspinner";
   styleUrl: "./loading.component.scss",
 })
 export class LoadingComponent {
-  @Input() message = "Please wait... checking authorization";
+  private _translate = inject(TranslateService);
+  @Input() message = this._translate.instant("loading.message");
 }
