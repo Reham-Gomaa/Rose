@@ -22,6 +22,10 @@ export class ReviewFormComponent implements OnInit {
     });
   }
 
+  addReview() {
+    // console.log(this.reviewForm.value);
+  }
+
   //hooks
   ngOnInit(): void {
     this.initReviewForm();
