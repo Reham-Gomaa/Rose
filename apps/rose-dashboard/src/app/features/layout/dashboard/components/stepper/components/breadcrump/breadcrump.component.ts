@@ -51,7 +51,8 @@ export class BreadcrumpComponent implements OnInit {
     const url = this._router.url;
     let finalUrl = "";
     for (const segment of url.split("/")) {
-      if (segment) {
+      const idRegex = /^[0-9a-fA-F]{24}$/;
+      if (segment && !idRegex.test(segment)) {
         const key = `breadcrumb.${segment}`;
         const translated = this._translate.instant(key);
         const label: string = translated;
