@@ -5,14 +5,17 @@
     loading="lazy"
     class="logo-img inline-block md:hidden"
   />
-
-  @for (item of breadCrumb; track $index) {
+  <div class="flex justify-center items-center">
+      @for (item of breadCrumb; track $index) {
     @if ($index === breadCrumb.length - 1) {
-      <p class="breadcrumb-item active text-xs md:text-base">{{ item.label }}</p>
+      <p class="breadcrumb-item text-center activeColor text-sm md:text-base">{{ item.label }}</p>
     } @else {
-      <p class="breadcrumb-item text-center text-xs md:text-base" role="button" (click)="openUrl(item.url)">
-        {{ item.label }} <i class="pi pi-angle-right"></i>
+      <p class="breadcrumb-item text-center text-sm md:text-base flex justify-center items-center gap-2" role="button" (click)="openUrl(item.url)">
+        {{ item.label }} <i  class="pi pi-angle-right text-end"></i>
       </p>
+      
     }
   }
+  </div>
+
 </div>
