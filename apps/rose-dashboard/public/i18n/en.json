@@ -28,6 +28,7 @@
     "add": "Add",
     "user-profile": "Account Setting",
     "not-found": "Not Found",
+    "error": "Error",
     "authorization": "Not Authorization"
   },
   "stepper": {
