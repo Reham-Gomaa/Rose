@@ -29,9 +29,9 @@ export interface Product {
 }
 
 export interface updateProductData {
-  price:number , 
-  rateAvg:number,
-  rateCount:number
+  price: number;
+  rateAvg: number;
+  rateCount: number;
 }
 
 export interface DeleteProductRes {

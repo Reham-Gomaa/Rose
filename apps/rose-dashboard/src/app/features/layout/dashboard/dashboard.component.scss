@@ -4,3 +4,9 @@
   width: 100%;
   background-color: var(--dashboard-bg);
 }
+
+@media (max-width: 1024px) {
+  .marg-bottom {
+    margin-bottom: 9rem;
+  }
+}

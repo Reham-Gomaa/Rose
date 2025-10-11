@@ -1,4 +1,3 @@
-
 // import { Component, input, output } from "@angular/core";
 // import { CommonModule } from "@angular/common";
 // import { ButtonComponent } from "../../../button/button.component";
@@ -33,7 +32,6 @@
 //   items: MenuItem[] | undefined;
 //   edit = output<any>();
 //   delete = output<any>();
-
 
 //   showConfirmDialog = false;
 //   itemToDelete: any = null;
@@ -97,7 +95,6 @@
 //   }
 // }
 
-
 import { Component, input, output } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ButtonComponent } from "../../../button/button.component";
@@ -120,16 +117,16 @@ import { TranslatePipe } from "@ngx-translate/core";
     Menu,
     ButtonModule,
     Skeleton,
-    ConfirmDialogComponent ,
-    TranslatePipe
+    ConfirmDialogComponent,
+    TranslatePipe,
   ],
   templateUrl: "./dataTable.component.html",
-  styleUrl: "./dataTable.component.scss"
+  styleUrl: "./dataTable.component.scss",
 })
 export class DataTableComponent {
   data = input.required<any[]>();
   records = input.required<string[]>();
-  entityType = input<string>('item');
+  entityType = input<string>("item");
 
   items: MenuItem[] | undefined;
   edit = output<any>();
@@ -141,25 +138,23 @@ export class DataTableComponent {
 
   // ADD THIS MAPPING METHOD
   getDisplayValue(item: any, record: string): any {
-  const fieldMappings: { [key: string]: string } = {
-    // Products mappings
-    'name': 'title',
-    'stock': 'quantity',
-    'sales': 'sold',
-    'ratings': 'rateAvg',
+    const fieldMappings: { [key: string]: string } = {
+      // Products mappings
+      name: "title",
+      stock: "quantity",
+      sales: "sold",
+      ratings: "rateAvg",
 
-    'products': 'productsCount'
-  };
+      products: "productsCount",
+    };
 
+    if (record === "name") {
+      return item["title"] || item["name"];
+    }
 
-  if (record === 'name') {
-
-    return item['title'] || item['name'];
+    const actualProperty = fieldMappings[record] || record;
+    return item[actualProperty];
   }
-
-  const actualProperty = fieldMappings[record] || record;
-  return item[actualProperty];
-}
 
   ngOnInit() {
     this.items = [
@@ -173,7 +168,7 @@ export class DataTableComponent {
               if (this.selectedItem) {
                 this.onEdit(this.selectedItem);
               }
-            }
+            },
           },
           {
             label: "Remove",
@@ -182,7 +177,7 @@ export class DataTableComponent {
               if (this.selectedItem) {
                 this.confirmDelete(this.selectedItem);
               }
-            }
+            },
           },
         ],
       },

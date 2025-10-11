@@ -1,3 +1,4 @@
+import { NgOptimizedImage } from "@angular/common";
 import { Component, DestroyRef, inject, OnInit } from "@angular/core";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { NavigationEnd, Router } from "@angular/router";
@@ -11,7 +12,7 @@ export interface Breadcrumb {
 
 @Component({
   selector: "app-breadcrump",
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: "./breadcrump.component.html",
   styleUrl: "./breadcrump.component.scss",
 })
@@ -29,7 +30,7 @@ export class BreadcrumpComponent implements OnInit {
     });
     this._translate.onLangChange.pipe(takeUntilDestroyed(this.$distroyRef)).subscribe(() => {
       this.stepperInit();
-    })
+    });
   }
 
   private stepperInit() {

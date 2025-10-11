@@ -1,29 +1,28 @@
 .form-container {
-    width: 100%;
-    background-color: var(--form-bg);
-    height: 100vh;
-    margin-top: -0.73rem;
-    padding: 1rem;
+  width: 100%;
+  background-color: var(--form-bg);
+  height: 100vh;
+  margin-top: -0.73rem;
+  padding: 1rem;
 }
 
 .form-card {
-    background: var(--form-card-bg);
-    border-radius: 0.75rem;
-    box-shadow: 0 4px 20px rgba(var(--form-card-shadow));
-    padding: 1.875rem;
-    margin: 0.75rem;
-    
+  background: var(--form-card-bg);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 20px rgba(var(--form-card-shadow));
+  padding: 1.875rem;
+  margin: 0.75rem;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .form-card {
-        padding: 1.25rem;
-    }
+  .form-card {
+    padding: 1.25rem;
+  }
 }
 
 @media (max-width: 480px) {
-    .form-card {
-        padding: 1rem;
-    }
+  .form-card {
+    padding: 1rem;
+  }
 }

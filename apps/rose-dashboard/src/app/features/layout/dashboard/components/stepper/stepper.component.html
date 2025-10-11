@@ -29,13 +29,26 @@
       </li>
 
       <li>
-        <a class="dropdown-item" routerLink="/dashboard/user-profile" (click)="changeHidden()">
+        <a
+          role="button"
+          tabindex="0"
+          class="dropdown-item"
+          routerLink="/dashboard/user-profile"
+          (click)="changeHidden()"
+          (keydown.escape)="changeHidden()"
+        >
           <i class="pi pi-user"></i>
           <p>{{ "stepper.dropdown.profile" | translate }}</p>
         </a>
       </li>
       <li>
-        <a class="dropdown-item text-red-600" (click)="changeHidden()">
+        <a
+          role="button"
+          tabindex="0"
+          class="dropdown-item text-red-600"
+          (click)="logout($event)"
+          (keydown.escape)="changeHidden()"
+        >
           <i class="pi pi-sign-out"></i>
           <p>{{ "stepper.dropdown.logout" | translate }}</p>
         </a>

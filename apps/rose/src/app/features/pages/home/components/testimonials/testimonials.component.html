@@ -14,34 +14,52 @@
   <div class="testimonial-section py-8">
     <div class="mx-auto">
       @defer (on timer(1000)) {
-      <p-carousel ngSkipHydration [value]="testimonials" [numVisible]="3" [numScroll]="1" [circular]="true"
-        [showIndicators]="false" [showNavigators]="false" [autoplayInterval]="5000"
-        [responsiveOptions]="responsiveOptions" role="region" aria-roledescription="carousel"
-        aria-label="Customer testimonials carousel">
-        <ng-template let-pic pTemplate="item">
-          <div class="carousel-card-wrapper lg:pr-4" role="group" aria-roledescription="slide" aria-label="Testimonial">
-            <div class="card-container">
-              <div class="card mx-auto">
-                <div class="img-container" role="img" [style.backgroundImage]="'url(' + '\'' + pic.source + '\'' + ')'">
-                </div>
-                <div>
-                  <h2 class="text-center">{{ pic.heading2 | translate }}</h2>
-                  <div class="icons-container flex justify-content-center align-items-center">
-                    <div role="img" [attr.aria-label]="'4 out of 5 stars'">
-                      <i class="pi pi-star-fill mr-1 star-icon"></i>
-                      <i class="pi pi-star-fill mr-1 star-icon"></i>
-                      <i class="pi pi-star-fill mr-1 star-icon"></i>
-                      <i class="pi pi-star mr-1 star-icon"></i>
+        <p-carousel
+          ngSkipHydration
+          [value]="testimonials"
+          [numVisible]="3"
+          [numScroll]="1"
+          [circular]="true"
+          [showIndicators]="false"
+          [showNavigators]="false"
+          [autoplayInterval]="5000"
+          [responsiveOptions]="responsiveOptions"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="Customer testimonials carousel"
+        >
+          <ng-template let-pic pTemplate="item">
+            <div
+              class="carousel-card-wrapper lg:pr-4"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="Testimonial"
+            >
+              <div class="card-container">
+                <div class="card mx-auto">
+                  <div
+                    class="img-container"
+                    role="img"
+                    [style.backgroundImage]="'url(' + '\'' + pic.source + '\'' + ')'"
+                  ></div>
+                  <div>
+                    <h2 class="text-center">{{ pic.heading2 | translate }}</h2>
+                    <div class="icons-container flex justify-content-center align-items-center">
+                      <div role="img" [attr.aria-label]="'4 out of 5 stars'">
+                        <i class="pi pi-star-fill mr-1 star-icon"></i>
+                        <i class="pi pi-star-fill mr-1 star-icon"></i>
+                        <i class="pi pi-star-fill mr-1 star-icon"></i>
+                        <i class="pi pi-star mr-1 star-icon"></i>
+                      </div>
                     </div>
+                    <p>{{ pic.paragraph | translate }}</p>
+                    <h3 class="text-center">{{ pic.heading3 | translate }}</h3>
                   </div>
-                  <p>{{ pic.paragraph | translate }}</p>
-                  <h3 class="text-center">{{ pic.heading3 | translate }}</h3>
                 </div>
               </div>
             </div>
-          </div>
-        </ng-template>
-      </p-carousel>
+          </ng-template>
+        </p-carousel>
       }
     </div>
   </div>

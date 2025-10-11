@@ -33,7 +33,6 @@ import { environment } from "@rose/environment/baseurl.dev";
 
 import { errorInterceptor } from "./core/interceptor/error.interceptor";
 
-
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),

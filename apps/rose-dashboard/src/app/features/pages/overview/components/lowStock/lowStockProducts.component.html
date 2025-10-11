@@ -1,40 +1,63 @@
 <section id="lowStock-table" class="card" role="region" aria-label="Low Stock Products">
-    @if (loading()) {
-    <div class="p-3" role="status" aria-live="polite" aria-label="Low stock products data is loading">
-        <p-skeleton width="50%" height="1.5rem" borderRadius=".25rem" aria-hidden="true"></p-skeleton>
-        <div class="flex flex-column gap-2 mt-3" aria-hidden="true">
-            @for (i of [1,2,3,4,5,6]; track i) {
-            <div class="w-full flex justify-content-between align-items-center gap-3">
-                <p-skeleton class="w-9" height="1.5rem" borderRadius=".25rem"></p-skeleton>
-                <p-skeleton class="w-3" height="1.5rem" borderRadius=".25rem"></p-skeleton>
-            </div>
-            }
-        </div>
+  @if (loading()) {
+    <div
+      class="p-3"
+      role="status"
+      aria-live="polite"
+      aria-label="Low stock products data is loading"
+    >
+      <p-skeleton width="50%" height="1.5rem" borderRadius=".25rem" aria-hidden="true"></p-skeleton>
+      <div class="flex flex-column gap-2 mt-3" aria-hidden="true">
+        @for (i of [1, 2, 3, 4, 5, 6]; track i) {
+          <div class="w-full flex justify-content-between align-items-center gap-3">
+            <p-skeleton class="w-9" height="1.5rem" borderRadius=".25rem"></p-skeleton>
+            <p-skeleton class="w-3" height="1.5rem" borderRadius=".25rem"></p-skeleton>
+          </div>
+        }
+      </div>
     </div>
-    } @else if(lowStockProducts()!.length > 0) {
-    <p-table [value]="lowStockProducts()!" [scrollable]="true" scrollHeight="14.5625rem" role="table"
-        aria-label="Low stock products and their quantities">
-        <ng-template #caption>
-            <div class="flex items-center justify-between">
-                <span id="lowstock-caption">{{ "overview.lowstock" | translate }}</span>
+  } @else if (lowStockProducts()!.length > 0) {
+    <p-table
+      [value]="lowStockProducts()!"
+      [scrollable]="true"
+      scrollHeight="14.5625rem"
+      role="table"
+      aria-label="Low stock products and their quantities"
+    >
+      <ng-template #caption>
+        <div class="flex items-center justify-between">
+          <span id="lowstock-caption">{{ "overview.lowstock" | translate }}</span>
+        </div>
+      </ng-template>
+      <ng-template #body let-item let-rowIndex="rowIndex">
+        <tr
+          role="row"
+          [attr.aria-rowindex]="rowIndex + 1"
+          [attr.aria-labelledby]="'lowstock-caption'"
+        >
+          <td role="cell" [attr.aria-label]="'Product name: ' + item.title">
+            {{ item.title }}
+          </td>
+          <td
+            role="cell"
+            [attr.aria-label]="
+              'Quantity in stock: ' +
+              item.quantity +
+              (item.quantity < 5 ? ' - Low stock warning' : '')
+            "
+          >
+            <div
+              class="value"
+              [class.low-stock]="item.quantity < 5"
+              [attr.aria-live]="item.quantity < 5 ? 'assertive' : null"
+            >
+              {{ item.quantity }}
             </div>
-        </ng-template>
-        <ng-template #body let-item let-rowIndex="rowIndex">
-            <tr role="row" [attr.aria-rowindex]="rowIndex + 1" [attr.aria-labelledby]="'lowstock-caption'">
-                <td role="cell" [attr.aria-label]="'Product name: ' + item.title">
-                    {{ item.title }}
-                </td>
-                <td role="cell"
-                    [attr.aria-label]="'Quantity in stock: ' + item.quantity + (item.quantity < 5 ? ' - Low stock warning' : '')">
-                    <div class="value" [class.low-stock]="item.quantity < 5"
-                        [attr.aria-live]="item.quantity < 5 ? 'assertive' : null">
-                        {{ item.quantity }}
-                    </div>
-                </td>
-            </tr>
-        </ng-template>
+          </td>
+        </tr>
+      </ng-template>
     </p-table>
-    }@else if (lowStockProducts()!.length === 0) {
+  } @else if (lowStockProducts()!.length === 0) {
     <app-empty-state />
-    }
+  }
 </section>

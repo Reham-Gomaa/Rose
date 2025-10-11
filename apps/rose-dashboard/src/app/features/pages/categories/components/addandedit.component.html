@@ -1,4 +1,3 @@
-
 <div class="form-container">
   <div class="form-card">
     @if (isLoading()) {
@@ -10,14 +9,14 @@
             <p-skeleton width="120px" height="1.5rem"></p-skeleton>
             <p-skeleton width="100%" height="3rem"></p-skeleton>
           </div>
-          
+
           <!-- Image upload skeleton -->
           <div class="flex flex-column gap-2">
             <p-skeleton width="140px" height="1.5rem"></p-skeleton>
             <p-skeleton width="100%" height="3rem"></p-skeleton>
             <p-skeleton width="200px" height="150px" styleClass="border-round-2xl"></p-skeleton>
           </div>
-          
+
           <!-- Submit button skeleton -->
           <p-skeleton width="100%" height="3rem"></p-skeleton>
         </div>
@@ -26,7 +25,8 @@
       <app-category-occasion-form
         entityType="category"
         [initialData]="initialData"
-        (formSubmit)="handleFormSubmit($event)">
+        (formSubmit)="handleFormSubmit($event)"
+      >
       </app-category-occasion-form>
     }
   </div>

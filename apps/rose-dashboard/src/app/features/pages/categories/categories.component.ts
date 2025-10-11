@@ -25,15 +25,15 @@ export class CategoriesComponent {
     });
   }
 
-   // Handling the events from DataViewComponent
+  // Handling the events from DataViewComponent
   onAddNew() {
-    this.router.navigate(['dashboard/categories/add']);
+    this.router.navigate(["dashboard/categories/add"]);
   }
 
   onEditCategory(category: Category) {
     this.router.navigate([`dashboard/categories/edit/${category._id}`]);
   }
-    onDeleteCategory(category: Category) {
+  onDeleteCategory(category: Category) {
     this.category_service.deleteCategory(category._id).subscribe({
       next: () => {
         this.messageService.add({
@@ -53,7 +53,7 @@ export class CategoriesComponent {
       },
     });
   }
-    private loadCategories() {
+  private loadCategories() {
     this.category_service.getAllCategories().subscribe({
       next: (res) => {
         this.cats.set(res.categories);

@@ -1,47 +1,44 @@
 <div class="flex flex-column gap-2">
   <label [for]="id()" class="label-color mt-3">{{ labelText() }}</label>
-  @if (!isFileInput) { 
-  <div class="input-wrapper">
-    <input
-      [id]="id()"
-      [type]="inputType"
-      [placeholder]="placeholder()"
-      [value]="value"
-      (input)="handleInput($event)"
-      (blur)="onTouched()"
-      required
-      class="input-style"
-    />
-    @if (type() === "password") {
-      <button type="button" (click)="toggleShowPassword()" class="eye-btn">
-        @if (!showPassword) {
-          <i class="pi pi-eye password-eye"></i>
-        } @else {
-          <i class="pi pi-eye-slash password-eye"></i>
-        }
-      </button>
-    }
-  </div> 
-}
-  @else {
+  @if (!isFileInput) {
+    <div class="input-wrapper">
+      <input
+        [id]="id()"
+        [type]="inputType"
+        [placeholder]="placeholder()"
+        [value]="value"
+        (input)="handleInput($event)"
+        (blur)="onTouched()"
+        required
+        class="input-style"
+      />
+      @if (type() === "password") {
+        <button type="button" (click)="toggleShowPassword()" class="eye-btn">
+          @if (!showPassword) {
+            <i class="pi pi-eye password-eye"></i>
+          } @else {
+            <i class="pi pi-eye-slash password-eye"></i>
+          }
+        </button>
+      }
+    </div>
+  } @else {
     <div class="file-wrapper">
-  <input
-    [id]="id()"
-    type="file"
-    [accept]="accept()"
-    (change)="onFileSelected($event)"
-    (blur)="onTouched()"
-    required
-    class="file-input"
-  />
+      <input
+        [id]="id()"
+        type="file"
+        [accept]="accept()"
+        (change)="onFileSelected($event)"
+        (blur)="onTouched()"
+        required
+        class="file-input"
+      />
 
-
-  <span class="file-action">
-    <i class="pi pi-upload"></i>
-    Upload file
-  </span>
-</div>
-
+      <span class="file-action">
+        <i class="pi pi-upload"></i>
+        Upload file
+      </span>
+    </div>
   }
   @if (errorHandilgControl()) {
     <lib-input-error-handling [control]="errorHandilgControl()!"></lib-input-error-handling>

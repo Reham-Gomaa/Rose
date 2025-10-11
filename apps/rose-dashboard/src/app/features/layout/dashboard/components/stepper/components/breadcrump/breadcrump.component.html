@@ -1,21 +1,26 @@
 <div class="breadcrumb flex">
   <img
-    src="images/overview/logo.png"
+    ngSrc="images/overview/logo.png"
     alt="mge for logo"
+    width="60"
+    height="60"
     loading="lazy"
+    decoding="async"
     class="logo-img inline-block md:hidden"
   />
   <div class="flex justify-center items-center">
-      @for (item of breadCrumb; track $index) {
-    @if ($index === breadCrumb.length - 1) {
-      <p class="breadcrumb-item text-center activeColor text-sm md:text-base">{{ item.label }}</p>
-    } @else {
-      <p class="breadcrumb-item text-center text-sm md:text-base flex justify-center items-center gap-2" role="button" (click)="openUrl(item.url)">
-        {{ item.label }} <i  class="pi pi-angle-right text-end"></i>
-      </p>
-      
+    @for (item of breadCrumb; track $index) {
+      @if ($index === breadCrumb.length - 1) {
+        <p class="breadcrumb-item text-center activeColor text-sm md:text-base">{{ item.label }}</p>
+      } @else {
+        <p
+          class="breadcrumb-item text-center text-sm md:text-base flex justify-center items-center gap-2"
+          role="button"
+          (click)="openUrl(item.url)"
+        >
+          {{ item.label }} <i class="pi pi-angle-right text-end"></i>
+        </p>
+      }
     }
-  }
   </div>
-
 </div>
