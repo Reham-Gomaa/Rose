@@ -5,6 +5,7 @@ a {
   background-color: var(--body-color);
   border-bottom: 0.0625rem solid #00000014;
   padding: 0 1rem;
+  position: relative;
 
   ul {
     list-style: none;
@@ -23,12 +24,11 @@ a {
   }
   .dropdown {
     background-color: var(--body-color);
-
     display: flex;
     flex-direction: column;
     position: absolute;
     width: 100%;
-    top: 9%;
+    top: 100%;
     right: 0;
     z-index: 9999;
     transition:

@@ -1,6 +1,9 @@
 <button
+ 
   type="button"
-  class="btn-theme"
+  [class]="[
+    'btn-theme',
+    spacing() ? 'm-1rem' : '',]"
   (click)="toggle()"
   [attr.aria-label]="darkModeService.isDark() ? 'Switch to light mode' : 'Switch to dark mode'"
 >

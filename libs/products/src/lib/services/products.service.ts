@@ -53,7 +53,6 @@ deleteProduct(prodId: string): Observable<DeleteProductRes> {
 
 getBaseUrl(): string {
   const finalUrl: string = this.API_BASE + EndPoints.PRODUCTS;
-  console.log('Products API URL:', finalUrl); 
   return finalUrl;
 }
 
