@@ -1,13 +1,11 @@
 <div class="card">
   @if (data().length > 0) {
-    <p-table [value]="data()">
+    <p-table [value]="data()" [scrollable]="true"  >
       <ng-template #header>
         <tr>
           @for (record of records(); track $index) {
             <th
-              [class]="{
-                'hide-md': record === 'sales' || record === 'price' || record === 'ratings',
-              }"
+
               class="capitalize"
             >
               @let colName = record === "productsCount" ? "products" : record.toUpperCase();
@@ -28,11 +26,11 @@
               @let stock = (item["quantity"] || 0) - (item["sold"] || 0);
               <td [class.lowQty]="stock < 10">{{ stock }}</td>
             } @else if (record === "sales") {
-              <td class="hide-md">{{ item["sold"] || 0 }}</td>
+              <td >{{ item["sold"] || 0 }}</td>
             } @else if (record === "ratings") {
-              <td class="hide-md">{{ item["rateAvg"] || 0 }}/5 ({{ item["rateCount"] || 0 }})</td>
+              <td >{{ item["rateAvg"] || 0 }}/5 ({{ item["rateCount"] || 0 }})</td>
             } @else if (record === "price") {
-              <td class="hide-md">{{ getDisplayValue(item, record) }} EGP</td>
+              <td >{{ getDisplayValue(item, record) }} EGP</td>
             } @else {
               <td>{{ getDisplayValue(item, record) }}</td>
             }
@@ -63,8 +61,8 @@
               </div>
               <div class="in-small flex lg:hidden justify-content-end">
                 <div class="card flex justify-content-center relative">
-                  <p-button (click)="onMenuClick($event, item)" icon="pi pi-ellipsis-v" />
                   <p-menu #menu [model]="items" [popup]="true" />
+                  <p-button (click)="onMenuClick(menu,$event, item)" icon="pi pi-ellipsis-v" />
                 </div>
               </div>
             </div>

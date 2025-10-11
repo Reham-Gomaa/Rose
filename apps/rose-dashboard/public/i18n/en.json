@@ -292,7 +292,8 @@
     "PRICE": "Price",
     "STOCK": "Stock",
     "SALES": "Sales",
-    "RATINGS": "Ratings"
+    "RATINGS": "Ratings",
+    "PRODUCTS":"products"
   },
   "ACTIONS": {
     "EDIT": "Edit",
