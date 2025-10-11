@@ -28,6 +28,7 @@
     "add": "إضافة",
     "user-profile": "إعدادات الحساب",
     "not-found": "غير موجود",
+    "error": "خطاء",
     "authorization": "غير مصرح"
   },
   "stepper": {
