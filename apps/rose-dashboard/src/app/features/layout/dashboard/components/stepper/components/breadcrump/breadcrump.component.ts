@@ -29,7 +29,7 @@ export class BreadcrumpComponent implements OnInit {
     });
     this._translate.onLangChange.pipe(takeUntilDestroyed(this.$distroyRef)).subscribe(() => {
       this.stepperInit();
-    })
+    });
   }
 
   private stepperInit() {

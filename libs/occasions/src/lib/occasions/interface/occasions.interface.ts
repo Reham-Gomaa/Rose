@@ -17,13 +17,10 @@ export interface occasion {
   productsCount: number;
 }
 
-
 export interface SingleOccasionRes {
   message: string;
   occasion: occasion;
 }
-
-
 
 export interface OccasionRequest {
   name: string;

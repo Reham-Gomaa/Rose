@@ -10,7 +10,7 @@ import { TranslatePipe } from "@ngx-translate/core";
   styleUrl: "./input-error-handling.component.scss",
 })
 export class InputErrorHandlingComponent {
-  @Input() control!: AbstractControl ;
+  @Input() control!: AbstractControl;
 
   readonly passwordPattern =
     "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";

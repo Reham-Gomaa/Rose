@@ -1,10 +1,17 @@
-<p-dialog [(visible)]="visible" [modal]="true" [style]="{
+<p-dialog
+  [(visible)]="visible"
+  [modal]="true"
+  [style]="{
     width: '474px',
     borderRadius: '16px',
     textAlign: 'center',
     border: 'none',
     backgroundColor: 'var(--confirm-dialog-bg)',
-  }" [breakpoints]="{ '960px': '75vw', '640px': '90vw' }" [draggable]="false" [resizable]="false">
+  }"
+  [breakpoints]="{ '960px': '75vw', '640px': '90vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
   <div class="dialog-container">
     <!-- Body content -->
     <div class="dialog-body">
@@ -19,8 +26,18 @@
       <p class="dialog-sub">{{ subMessage() }}</p>
     </div>
     <div class="dialog-actions">
-      <p-button type="button" [label]="cancelLabel()" (click)="onCancel()" styleClass="cancel-btn"></p-button>
-      <p-button type="button" [label]="confirmLabel()" (click)="onConfirm()" styleClass="confirm-btn"></p-button>
+      <p-button
+        type="button"
+        [label]="cancelLabel()"
+        (click)="onCancel()"
+        styleClass="cancel-btn"
+      ></p-button>
+      <p-button
+        type="button"
+        [label]="confirmLabel()"
+        (click)="onConfirm()"
+        styleClass="confirm-btn"
+      ></p-button>
     </div>
   </div>
 </p-dialog>

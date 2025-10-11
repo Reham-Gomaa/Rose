@@ -2,7 +2,12 @@ import { inject, Injectable } from "@angular/core";
 import { BASE_URL } from "../token/baseUrl.token";
 import { OccasionBase } from "../base/occasion.base";
 import { Observable, shareReplay } from "rxjs";
-import { DeleteOccasionRes, OccasionRequest, occasionRes, SingleOccasionRes } from "../interface/occasions.interface";
+import {
+  DeleteOccasionRes,
+  OccasionRequest,
+  occasionRes,
+  SingleOccasionRes,
+} from "../interface/occasions.interface";
 import { HttpClient } from "@angular/common/http";
 import { occasionEndPoints } from "../enum/occassion.endPoints";
 
@@ -18,18 +23,18 @@ export class OccasionService implements OccasionBase {
       `${this.Base_Url + occasionEndPoints.All_OCCASION}?limit=${limit}`,
     );
   }
- 
- getOccasionById(occasionId: string): Observable<SingleOccasionRes> {
+
+  getOccasionById(occasionId: string): Observable<SingleOccasionRes> {
     const finalUrl: string = `${this.Base_Url}${occasionEndPoints.All_OCCASION}/${occasionId}`;
     return this._http.get<SingleOccasionRes>(finalUrl).pipe(shareReplay(1));
   }
 
-  addOccasion(occasionData:FormData): Observable<SingleOccasionRes> {
+  addOccasion(occasionData: FormData): Observable<SingleOccasionRes> {
     const finalUrl: string = this.Base_Url + occasionEndPoints.All_OCCASION;
     return this._http.post<SingleOccasionRes>(finalUrl, occasionData).pipe(shareReplay(1));
   }
 
-  updateOccasion(occasionId: string, occasionData:FormData): Observable<SingleOccasionRes> {
+  updateOccasion(occasionId: string, occasionData: FormData): Observable<SingleOccasionRes> {
     const finalUrl: string = `${this.Base_Url}${occasionEndPoints.All_OCCASION}/${occasionId}`;
     return this._http.put<SingleOccasionRes>(finalUrl, occasionData).pipe(shareReplay(1));
   }

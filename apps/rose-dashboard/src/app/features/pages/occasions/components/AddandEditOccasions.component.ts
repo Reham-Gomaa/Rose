@@ -1,18 +1,18 @@
 import { Component, inject, OnInit, signal } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { OccasionService } from "@angular-monorepo/occasions"; 
-import { SingleOccasionRes } from "@angular-monorepo/occasions"; 
+import { OccasionService } from "@angular-monorepo/occasions";
+import { SingleOccasionRes } from "@angular-monorepo/occasions";
 import { CategoryOccasionFormComponent } from "apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component";
 import { MessageService } from "primeng/api";
 import { Skeleton } from "primeng/skeleton";
 import { Subject, takeUntil } from "rxjs";
-import { TranslateModule,TranslateService } from "@ngx-translate/core";
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-add-edit-occasion",
   standalone: true,
-  imports: [CategoryOccasionFormComponent,Skeleton, TranslateModule],
- templateUrl: "./AddandEditOccasions.component.html",
+  imports: [CategoryOccasionFormComponent, Skeleton, TranslateModule],
+  templateUrl: "./AddandEditOccasions.component.html",
   styleUrl: "./AddandEditOccasions.component.scss",
 })
 export class AddEditOccasionComponent implements OnInit {
@@ -27,28 +27,30 @@ export class AddEditOccasionComponent implements OnInit {
   constructor(
     private occasionService: OccasionService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {}
-
 
   ngOnInit(): void {
     this.occasionId = this.route.snapshot.paramMap.get("id");
     this.isEditMode = !!this.occasionId;
 
     if (this.isEditMode && this.occasionId) {
-      this.occasionService.getOccasionById(this.occasionId).pipe(takeUntil(this.destroy$)).subscribe({
-        next: (res: SingleOccasionRes) => {
-          this.initialData = {
-            name: res.occasion.name,
-            image: res.occasion.image,
-          };
-          this.isLoading.set(false);
-        },
-        error: (err) => {
-          console.error('Failed to load occasion:', err);
-          this.isLoading.set(false);
-        }
-      });
+      this.occasionService
+        .getOccasionById(this.occasionId)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe({
+          next: (res: SingleOccasionRes) => {
+            this.initialData = {
+              name: res.occasion.name,
+              image: res.occasion.image,
+            };
+            this.isLoading.set(false);
+          },
+          error: (err) => {
+            console.error("Failed to load occasion:", err);
+            this.isLoading.set(false);
+          },
+        });
     } else {
       this.isLoading.set(false);
     }
@@ -60,8 +62,8 @@ export class AddEditOccasionComponent implements OnInit {
         next: () => {
           this._messageService.add({
             severity: "success",
-            summary: this._translate.instant('common.success'),
-            detail: this._translate.instant('occasion.addEdit.messages.updateSuccess'),
+            summary: this._translate.instant("common.success"),
+            detail: this._translate.instant("occasion.addEdit.messages.updateSuccess"),
             life: 3000,
           });
           this.router.navigate(["/dashboard/occasions"]);
@@ -70,8 +72,8 @@ export class AddEditOccasionComponent implements OnInit {
           console.error("Update failed:", err);
           this._messageService.add({
             severity: "error",
-            summary: this._translate.instant('common.error'),
-            detail: this._translate.instant('occasion.addEdit.messages.updateError'),
+            summary: this._translate.instant("common.error"),
+            detail: this._translate.instant("occasion.addEdit.messages.updateError"),
             life: 5000,
           });
         },
@@ -81,8 +83,8 @@ export class AddEditOccasionComponent implements OnInit {
         next: () => {
           this._messageService.add({
             severity: "success",
-            summary: this._translate.instant('common.success'),
-            detail: this._translate.instant('occasion.addEdit.messages.addSuccess'),
+            summary: this._translate.instant("common.success"),
+            detail: this._translate.instant("occasion.addEdit.messages.addSuccess"),
             life: 3000,
           });
           this.router.navigate(["/dashboard/occasions"]);
@@ -91,8 +93,8 @@ export class AddEditOccasionComponent implements OnInit {
           console.error("Add failed:", err);
           this._messageService.add({
             severity: "error",
-            summary: this._translate.instant('common.error'),
-            detail: this._translate.instant('occasion.addEdit.messages.addError'),
+            summary: this._translate.instant("common.error"),
+            detail: this._translate.instant("occasion.addEdit.messages.addError"),
             life: 5000,
           });
         },

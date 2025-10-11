@@ -32,7 +32,7 @@ export type dataTypes = occasion[] | any[];
     PagPipePipe,
     SearchPipe,
     CustomInputComponent,
-    TranslatePipe
+    TranslatePipe,
   ],
   templateUrl: "./dataView.component.html",
   styleUrl: "./dataView.component.scss",
@@ -40,16 +40,16 @@ export type dataTypes = occasion[] | any[];
 export class DataViewComponent {
   data_items = input.required<occasion[] | any[]>();
   table_records = input.required<string[]>();
-    entityType = input<string>('item');
+  entityType = input<string>("item");
   public _r = inject(Router);
   currentData = signal<string>(this._r.url.split("/")[this._r.url.split("/").length - 1]);
   firstIndex: number = 0;
   numOfRows: number = 6;
   searchWord = "";
   searchInput = new FormControl("", Validators.required);
-    addNew = output<void>();
+  addNew = output<void>();
   editItem = output<any>();
-    deleteItem = output<any>();
+  deleteItem = output<any>();
   getPage(pagData: { first: number; rows: number }) {
     this.firstIndex = pagData.first;
     this.numOfRows = pagData.rows;

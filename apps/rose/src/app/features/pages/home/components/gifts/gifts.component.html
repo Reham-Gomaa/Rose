@@ -7,8 +7,9 @@
       role="img"
       aria-label="Red Christmas gifts with white ribbon"
       style="
-        background-image: linear-gradient(to right, rgba(0 0 0 / 0.2)),
-          url('./images/gifts/Red christmas gifts with white ribbon.AVIF');
+        background-image:
+          linear-gradient(to right, rgba(0 0 0 / 0.2)),
+          url(&quot;./images/gifts/Red christmas gifts with white ribbon.AVIF&quot;);
       "
       aria-hidden="true"
     >
@@ -86,25 +87,25 @@
   <!-- bottom images -->
   <div class="grid mt-4">
     @for (pic of pics; track pic.id) {
-    <div class="col-12 md:col-4" [class.md:px-3]="pic.id === 2">
-      <div
-        class="bottom-content flex justify-content-start align-items-end"
-        [style.backgroundImage]="
-          'linear-gradient(to right , rgba(0 0 0 / 0.2) ) ,url(' + '\'' + pic.source + '\'' + ')'
-        "
-        role="img"
-        [attr.aria-label]="pic.title"
-      >
-        <div class="px-2">
-          <h2 class="md:text-xs lg:text-base">
-            {{ pic.heading2 | translate }}
-          </h2>
-          <h1 class="md:text-base lg:text-xl">
-            {{ pic.heading1 | translate }}
-          </h1>
+      <div class="col-12 md:col-4" [class.md:px-3]="pic.id === 2">
+        <div
+          class="bottom-content flex justify-content-start align-items-end"
+          [style.backgroundImage]="
+            'linear-gradient(to right , rgba(0 0 0 / 0.2) ) ,url(' + '\'' + pic.source + '\'' + ')'
+          "
+          role="img"
+          [attr.aria-label]="pic.title"
+        >
+          <div class="px-2">
+            <h2 class="md:text-xs lg:text-base">
+              {{ pic.heading2 | translate }}
+            </h2>
+            <h1 class="md:text-base lg:text-xl">
+              {{ pic.heading1 | translate }}
+            </h1>
+          </div>
         </div>
       </div>
-    </div>
     }
   </div>
 </section>

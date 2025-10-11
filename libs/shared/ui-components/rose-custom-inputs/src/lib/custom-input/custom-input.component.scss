@@ -58,7 +58,6 @@
 :host-context([dir="rtl"]) .eye-btn {
   right: calc(100% - 4.375rem);
 }
- 
 
 .file-wrapper {
   position: relative;
@@ -83,8 +82,8 @@
 
 .file-input {
   position: absolute;
-  inset: 0;            
-  opacity: 0;            
+  inset: 0;
+  opacity: 0;
   cursor: pointer;
 }
 
@@ -103,5 +102,5 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  margin-left:auto
+  margin-left: auto;
 }

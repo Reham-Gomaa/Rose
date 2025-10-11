@@ -203,7 +203,7 @@ $breakpoint-small: 620px;
   --form-card-bg: var(--white);
   --form-card-shadow: 0, 0, 0, 0.01;
   --form-view-image-text: var(--blue-600);
-  --view-image-border:var(--zinc-200);
+  --view-image-border: var(--zinc-200);
   --modal-pop-up-bg: var(--zinc-200);
   --form-bg: var(--zinc-50);
   --form-labels-color: var(--zinc-800);
@@ -215,14 +215,9 @@ $breakpoint-small: 620px;
   --translate-toggle-color: var(--zinc-700);
   --translate-toggle-hover: var(--maroon-600);
 
-
-
-
-
-    //dataView
-  --view-bg:var(--white);
-  --view-theader-bg:var(--zin-50)
-  --view-text:var(--black);
+  //dataView
+  --view-bg: var(--white);
+  --view-theader-bg: var(--zin-50) --view-text: var(--black);
 
   // Data User
   --data-user-background: var(--white);
@@ -255,7 +250,6 @@ $breakpoint-small: 620px;
   // error page
   --error-page-title: var(--black);
   --error-page-subtitle: var(--zinc-400);
-
 }
 
 // Dark theme overrides
@@ -319,7 +313,7 @@ $breakpoint-small: 620px;
   --input-border-color: var(--zinc-600);
   --selected-color-input: var(--white);
   --border-active-color: var(--soft-pink-600);
-   --upload-file-color: var(--soft-pink-500);
+  --upload-file-color: var(--soft-pink-500);
   // Notification-Toast
   --toast-error-bg: var(--maroon-50);
   --toast-error-color: var(--zinc-800);
@@ -341,11 +335,10 @@ $breakpoint-small: 620px;
   --form-card-bg: var(--zinc-800);
   --form-card-shadow: 0, 0, 0, 0.01;
   --form-view-image-text: var(--blue-600);
-  --view-image-border:var(--zinc-700);
+  --view-image-border: var(--zinc-700);
   --modal-pop-up-bg: var(--zinc-800);
   --form-bg: var(--zinc-900);
   --form-labels-color: var(--zinc-200);
-
 
   // DarkMode Toggle
   --toggle-color: var(--zinc-100);
@@ -399,11 +392,10 @@ $breakpoint-small: 620px;
     rgba(255, 255, 255, 0.3)
   );
 
-   //dataView
-  --view-bg:var(--zinc-800);
-  --view-text:var(--white);
-  --view-theader-bg:var(--zin-500);
-
+  //dataView
+  --view-bg: var(--zinc-800);
+  --view-text: var(--white);
+  --view-theader-bg: var(--zin-500);
 
   --category-value-bg: linear-gradient(135deg, #ffb6c166, #ffffff4d);
   --category-value-hover-bg: linear-gradient(to right, #ffb6c166, #ffffff4d);

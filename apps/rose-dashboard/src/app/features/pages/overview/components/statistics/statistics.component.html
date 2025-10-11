@@ -1,47 +1,61 @@
 <section class="overAll" role="region" aria-label="Statistics Overview">
-    <div class="content-wrapper">
-        @if (loading()) {
-        @for (card of statCards; track $index) {
-        <div class="item" [style.backgroundColor]="card.bg" role="article" aria-label="Loading statistic card"
-            aria-busy="true">
-            <div aria-hidden="true">
-                <p-skeleton width="2rem" height="2rem" borderRadius=".5rem"></p-skeleton>
-            </div>
-            <p class="value" aria-hidden="true">
-                <p-skeleton width="5rem" height="1.5rem"></p-skeleton>
-            </p>
-            <p class="label" aria-hidden="true">
-                <p-skeleton width="7rem" height="1rem"></p-skeleton>
-            </p>
+  <div class="content-wrapper">
+    @if (loading()) {
+      @for (card of statCards; track $index) {
+        <div
+          class="item"
+          [style.backgroundColor]="card.bg"
+          role="article"
+          aria-label="Loading statistic card"
+          aria-busy="true"
+        >
+          <div aria-hidden="true">
+            <p-skeleton width="2rem" height="2rem" borderRadius=".5rem"></p-skeleton>
+          </div>
+          <p class="value" aria-hidden="true">
+            <p-skeleton width="5rem" height="1.5rem"></p-skeleton>
+          </p>
+          <p class="label" aria-hidden="true">
+            <p-skeleton width="7rem" height="1rem"></p-skeleton>
+          </p>
         </div>
-        }
-        }
+      }
+    }
 
-        @if (hasData()) {
-        @for (card of statCards; track $index; let first = $first) {
-        <div class="item me-1 md:m-0" [style.backgroundColor]="card.bg" role="article"
-            [attr.aria-label]="card.label | translate" [attr.aria-describedby]="'value-' + $index"
-            [tabindex]="first ? 0 : -1">
-            <div aria-hidden="true">
-                <i [class]="card.icon" [style.color]="card.color" style="font-size: 2rem"></i>
-            </div>
-            <p class="value" [style.color]="card.color" [id]="'value-' + $index"
-                [attr.aria-live]="first ? 'polite' : null">
-                {{ $index === 3 ? (overall()?.[card.key] | number: "1.0-2") : overall()?.[card.key] }}
-                @if ($index === 3) {
-                <span aria-label="Egyptian Pounds">{{ "EGP" | translate }}</span>
-                }
-            </p>
-            <p class="label">
-                <span class="sr-only">Statistic: </span>
-                {{ card.label | translate }}
-            </p>
+    @if (hasData()) {
+      @for (card of statCards; track $index; let first = $first) {
+        <div
+          class="item me-1 md:m-0"
+          [style.backgroundColor]="card.bg"
+          role="article"
+          [attr.aria-label]="card.label | translate"
+          [attr.aria-describedby]="'value-' + $index"
+          [tabindex]="first ? 0 : -1"
+        >
+          <div aria-hidden="true">
+            <i [class]="card.icon" [style.color]="card.color" style="font-size: 2rem"></i>
+          </div>
+          <p
+            class="value"
+            [style.color]="card.color"
+            [id]="'value-' + $index"
+            [attr.aria-live]="first ? 'polite' : null"
+          >
+            {{ $index === 3 ? (overall()?.[card.key] | number: "1.0-2") : overall()?.[card.key] }}
+            @if ($index === 3) {
+              <span aria-label="Egyptian Pounds">{{ "EGP" | translate }}</span>
+            }
+          </p>
+          <p class="label">
+            <span class="sr-only">Statistic: </span>
+            {{ card.label | translate }}
+          </p>
         </div>
-        }
-        }
+      }
+    }
 
-        @if (empty()) {
-        <app-empty-state />
-        }
-    </div>
+    @if (empty()) {
+      <app-empty-state />
+    }
+  </div>
 </section>

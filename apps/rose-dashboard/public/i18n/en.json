@@ -164,8 +164,6 @@
     "unauthorizedDesc": "If you think this is wrong, please contact the support."
   },
 
-
-
   "menu": {
     "account": "Account",
     "logout": "Logout"
@@ -289,7 +287,7 @@
       "title": "View Image"
     }
   },
-   "TABLE": {
+  "TABLE": {
     "NAME": "Name",
     "PRICE": "Price",
     "STOCK": "Stock",
@@ -299,17 +297,18 @@
   "ACTIONS": {
     "EDIT": "Edit",
     "REMOVE": "Remove"
-  }, "VIEW":{
-    "all categories":"all categories ",
-    "all products":"all products",
-    "all occasions":"all occasions"
   },
-  "add_action" : {
-    "add new products" : "add new product",
-    "add new categories" : "add new category",
-    "add new occasions" : "add new occasion"
+  "VIEW": {
+    "all categories": "all categories ",
+    "all products": "all products",
+    "all occasions": "all occasions"
   },
-  "input":{
-    "search":"search"
+  "add_action": {
+    "add new products": "add new product",
+    "add new categories": "add new category",
+    "add new occasions": "add new occasion"
+  },
+  "input": {
+    "search": "search"
   }
 }

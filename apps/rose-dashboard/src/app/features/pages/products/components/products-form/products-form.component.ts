@@ -12,8 +12,8 @@ import { Subject, takeUntil } from "rxjs";
 // Components
 import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
-import { DialogModule } from 'primeng/dialog';
-import { DropdownModule } from 'primeng/dropdown';
+import { DialogModule } from "primeng/dialog";
+import { DropdownModule } from "primeng/dropdown";
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { InputErrorMessageComponent } from "@rose_dashboard/shared_buisness/input-error/input-error.component";
 
@@ -21,18 +21,18 @@ import { InputErrorMessageComponent } from "@rose_dashboard/shared_buisness/inpu
   selector: "app-products-form",
   standalone: true,
   imports: [
-    CommonModule, 
-    ReactiveFormsModule, 
-    CustomInputComponent, 
+    CommonModule,
+    ReactiveFormsModule,
+    CustomInputComponent,
     FormButtonComponent,
     DialogModule,
     DropdownModule,
     Skeleton,
     TranslateModule,
-    InputErrorMessageComponent
+    InputErrorMessageComponent,
   ],
   templateUrl: "./products-form.component.html",
-  styleUrl: "./products-form.component.scss"
+  styleUrl: "./products-form.component.scss",
 })
 export class ProductsFormComponent implements OnInit {
   private _messageService = inject(MessageService);
@@ -52,7 +52,7 @@ export class ProductsFormComponent implements OnInit {
 
   showImageModal = false;
   modalImageUrl: string | null = null;
-  modalImageTitle: string = '';
+  modalImageTitle: string = "";
 
   productForm: FormGroup;
   selectedCoverFile: File | null = null;
@@ -66,15 +66,15 @@ export class ProductsFormComponent implements OnInit {
 
   constructor() {
     this.productForm = this.fb.group({
-      title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
-      description: ['', [Validators.required, Validators.minLength(10)]],
-      price: ['', [Validators.required, Validators.min(0)]],
-      discount: ['', [Validators.min(0), Validators.max(100)]],
-      quantity: ['', [Validators.required, Validators.min(0)]],
-      category: ['', [Validators.required]],
-      occasion: ['',[Validators.required]],
+      title: ["", [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+      description: ["", [Validators.required, Validators.minLength(10)]],
+      price: ["", [Validators.required, Validators.min(0)]],
+      discount: ["", [Validators.min(0), Validators.max(100)]],
+      quantity: ["", [Validators.required, Validators.min(0)]],
+      category: ["", [Validators.required]],
+      occasion: ["", [Validators.required]],
       imgCover: [null, [Validators.required]],
-      images: [null, [Validators.required]]
+      images: [null, [Validators.required]],
     });
   }
 
@@ -86,45 +86,48 @@ export class ProductsFormComponent implements OnInit {
     this.loadOccasions();
 
     if (this.isEditMode && this.productId) {
-      this.productsService.getSpecificProduct(this.productId).pipe(takeUntil(this.destroy$)).subscribe({
-        next: (res: ProductDetailsRes) => {
-          this.initialData = {
-            title: res.product.title,
-            description: res.product.description,
-            price: res.product.price,
-            discount: res.product.discount,
-            quantity: res.product.quantity,
-            category: res.product.category,
-            occasion: res.product.occasion,
-            imgCover: res.product.imgCover,
-            images: res.product.images
-          };
-          
-          this.coverPreviewUrl = res.product.imgCover;
-          this.galleryPreviewUrls = res.product.images;
-          
-          this.productForm.patchValue({
-            title: res.product.title,
-            description: res.product.description,
-            price: res.product.price,
-            discount: res.product.discount,
-            quantity: res.product.quantity,
-            category: res.product.category,
-            occasion: res.product.occasion
-          });
+      this.productsService
+        .getSpecificProduct(this.productId)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe({
+          next: (res: ProductDetailsRes) => {
+            this.initialData = {
+              title: res.product.title,
+              description: res.product.description,
+              price: res.product.price,
+              discount: res.product.discount,
+              quantity: res.product.quantity,
+              category: res.product.category,
+              occasion: res.product.occasion,
+              imgCover: res.product.imgCover,
+              images: res.product.images,
+            };
 
-          this.productForm.get('imgCover')?.clearValidators();
-          this.productForm.get('images')?.clearValidators();
-          this.productForm.get('imgCover')?.updateValueAndValidity();
-          this.productForm.get('images')?.updateValueAndValidity();
+            this.coverPreviewUrl = res.product.imgCover;
+            this.galleryPreviewUrls = res.product.images;
 
-          this.isLoading.set(false);
-        },
-        error: (err) => {
-          console.error('Failed to load product:', err);
-          this.isLoading.set(false);
-        }
-      });
+            this.productForm.patchValue({
+              title: res.product.title,
+              description: res.product.description,
+              price: res.product.price,
+              discount: res.product.discount,
+              quantity: res.product.quantity,
+              category: res.product.category,
+              occasion: res.product.occasion,
+            });
+
+            this.productForm.get("imgCover")?.clearValidators();
+            this.productForm.get("images")?.clearValidators();
+            this.productForm.get("imgCover")?.updateValueAndValidity();
+            this.productForm.get("images")?.updateValueAndValidity();
+
+            this.isLoading.set(false);
+          },
+          error: (err) => {
+            console.error("Failed to load product:", err);
+            this.isLoading.set(false);
+          },
+        });
     } else {
       this.isLoading.set(false);
     }
@@ -136,8 +139,8 @@ export class ProductsFormComponent implements OnInit {
         this.categories.set(res.categories);
       },
       error: (err) => {
-        console.error('Failed to load categories:', err);
-      }
+        console.error("Failed to load categories:", err);
+      },
     });
   }
 
@@ -147,22 +150,22 @@ export class ProductsFormComponent implements OnInit {
         this.occasions.set(res.occasions);
       },
       error: (err) => {
-        console.error('Failed to load occasions:', err);
-      }
+        console.error("Failed to load occasions:", err);
+      },
     });
   }
 
   get priceAfterDiscount(): number {
-    const price = this.productForm.get('price')?.value || 0;
-    const discount = this.productForm.get('discount')?.value || 0;
-    return price - (price * (discount / 100));
+    const price = this.productForm.get("price")?.value || 0;
+    const discount = this.productForm.get("discount")?.value || 0;
+    return price - price * (discount / 100);
   }
 
   onCoverImageSelected(file: File): void {
     this.selectedCoverFile = file;
     this.productForm.patchValue({ imgCover: file });
-    this.productForm.get('imgCover')?.markAsTouched();
-    
+    this.productForm.get("imgCover")?.markAsTouched();
+
     const reader = new FileReader();
     reader.onload = () => {
       this.coverPreviewUrl = reader.result as string;
@@ -173,8 +176,8 @@ export class ProductsFormComponent implements OnInit {
   onGalleryImagesSelected(file: File): void {
     this.selectedGalleryFiles.push(file);
     this.productForm.patchValue({ images: this.selectedGalleryFiles });
-    this.productForm.get('images')?.markAsTouched();
-    
+    this.productForm.get("images")?.markAsTouched();
+
     const reader = new FileReader();
     reader.onload = () => {
       this.galleryPreviewUrls.push(reader.result as string);
@@ -188,19 +191,17 @@ export class ProductsFormComponent implements OnInit {
     this.showImageModal = true;
   }
 
-getFormTitle(): string {
-  const mode = this.isEditMode ? 'edit' : 'add';
-  const modeText = this._translate.instant(`common.modes.${mode}`);
-  
-  if (this.isEditMode && this.initialData?.title) {
-    
-    const baseTitle = this._translate.instant('products.addEdit.formTitle', { mode: modeText });
-    return `${baseTitle}: ${this.initialData.title}`;
-  } else {
-    
-    return this._translate.instant('products.addEdit.formTitle', { mode: modeText });
+  getFormTitle(): string {
+    const mode = this.isEditMode ? "edit" : "add";
+    const modeText = this._translate.instant(`common.modes.${mode}`);
+
+    if (this.isEditMode && this.initialData?.title) {
+      const baseTitle = this._translate.instant("products.addEdit.formTitle", { mode: modeText });
+      return `${baseTitle}: ${this.initialData.title}`;
+    } else {
+      return this._translate.instant("products.addEdit.formTitle", { mode: modeText });
+    }
   }
-}
 
   getFieldLabel(field: string): string {
     return this._translate.instant(`products.addEdit.fields.${field}`);
@@ -211,38 +212,42 @@ getFormTitle(): string {
   }
 
   getSubmitButtonText(): string {
-    const mode = this.isEditMode ? 'edit' : 'add';
+    const mode = this.isEditMode ? "edit" : "add";
     const modeText = this._translate.instant(`common.modes.${mode}`);
-    return this._translate.instant('products.addEdit.buttons.submit', { mode: modeText });
+    return this._translate.instant("products.addEdit.buttons.submit", { mode: modeText });
   }
 
   getLoadingText(): string {
-    return this._translate.instant('products.addEdit.buttons.saving');
+    return this._translate.instant("products.addEdit.buttons.saving");
   }
 
-  getImagePreviewText(type: 'cover' | 'gallery'): string {
-    if (type === 'cover') {
-      return this._translate.instant('products.addEdit.messages.coverPreview');
+  getImagePreviewText(type: "cover" | "gallery"): string {
+    if (type === "cover") {
+      return this._translate.instant("products.addEdit.messages.coverPreview");
     } else {
       const count = this.galleryPreviewUrls.length;
-      return this._translate.instant('products.addEdit.messages.galleryPreview', { count });
+      return this._translate.instant("products.addEdit.messages.galleryPreview", { count });
     }
   }
 
-  getNoImageText(type: 'cover' | 'gallery'): string {
-    return this._translate.instant(`products.addEdit.messages.no${type.charAt(0).toUpperCase() + type.slice(1)}`);
+  getNoImageText(type: "cover" | "gallery"): string {
+    return this._translate.instant(
+      `products.addEdit.messages.no${type.charAt(0).toUpperCase() + type.slice(1)}`,
+    );
   }
 
-  getViewImageText(type: 'cover' | 'gallery'): string {
-    return this._translate.instant(`products.addEdit.buttons.view${type.charAt(0).toUpperCase() + type.slice(1)}`);
+  getViewImageText(type: "cover" | "gallery"): string {
+    return this._translate.instant(
+      `products.addEdit.buttons.view${type.charAt(0).toUpperCase() + type.slice(1)}`,
+    );
   }
 
   getPriceAfterDiscountLabel(): string {
-    return this._translate.instant('products.addEdit.messages.priceAfterDiscount');
+    return this._translate.instant("products.addEdit.messages.priceAfterDiscount");
   }
 
   getCalculatedAutomaticallyText(): string {
-    return this._translate.instant('products.addEdit.messages.calculatedAutomatically');
+    return this._translate.instant("products.addEdit.messages.calculatedAutomatically");
   }
 
   handleFormSubmit(): void {
@@ -250,24 +255,24 @@ getFormTitle(): string {
       this.isSubmitting = true;
 
       const formData = new FormData();
-      formData.append('title', this.productForm.get('title')?.value);
-      formData.append('description', this.productForm.get('description')?.value);
-      formData.append('price', this.productForm.get('price')?.value);
-      formData.append('discount', this.productForm.get('discount')?.value || '0');
-      formData.append('quantity', this.productForm.get('quantity')?.value);
-      formData.append('category', this.productForm.get('category')?.value);
-      
-      if (this.productForm.get('occasion')?.value) {
-        formData.append('occasion', this.productForm.get('occasion')?.value);
+      formData.append("title", this.productForm.get("title")?.value);
+      formData.append("description", this.productForm.get("description")?.value);
+      formData.append("price", this.productForm.get("price")?.value);
+      formData.append("discount", this.productForm.get("discount")?.value || "0");
+      formData.append("quantity", this.productForm.get("quantity")?.value);
+      formData.append("category", this.productForm.get("category")?.value);
+
+      if (this.productForm.get("occasion")?.value) {
+        formData.append("occasion", this.productForm.get("occasion")?.value);
       }
 
       if (this.selectedCoverFile) {
-        formData.append('imgCover', this.selectedCoverFile);
+        formData.append("imgCover", this.selectedCoverFile);
       }
 
       if (this.selectedGalleryFiles.length > 0) {
-        this.selectedGalleryFiles.forEach(file => {
-          formData.append('images', file);
+        this.selectedGalleryFiles.forEach((file) => {
+          formData.append("images", file);
         });
       }
 
@@ -276,8 +281,8 @@ getFormTitle(): string {
           next: () => {
             this._messageService.add({
               severity: "success",
-              summary: this._translate.instant('common.success'),
-              detail: this._translate.instant('products.messages.updateSuccess'),
+              summary: this._translate.instant("common.success"),
+              detail: this._translate.instant("products.messages.updateSuccess"),
               life: 3000,
             });
             this.router.navigate(["/dashboard/products"]);
@@ -286,8 +291,8 @@ getFormTitle(): string {
             console.error("Update failed:", err);
             this._messageService.add({
               severity: "error",
-              summary: this._translate.instant('common.error'),
-              detail: this._translate.instant('products.messages.updateError'),
+              summary: this._translate.instant("common.error"),
+              detail: this._translate.instant("products.messages.updateError"),
               life: 5000,
             });
             this.isSubmitting = false;
@@ -298,8 +303,8 @@ getFormTitle(): string {
           next: () => {
             this._messageService.add({
               severity: "success",
-              summary: this._translate.instant('common.success'),
-              detail: this._translate.instant('products.messages.addSuccess'),
+              summary: this._translate.instant("common.success"),
+              detail: this._translate.instant("products.messages.addSuccess"),
               life: 3000,
             });
             this.router.navigate(["/dashboard/products"]);
@@ -308,8 +313,8 @@ getFormTitle(): string {
             console.error("Add failed:", err);
             this._messageService.add({
               severity: "error",
-              summary: this._translate.instant('common.error'),
-              detail: this._translate.instant('products.messages.addError'),
+              summary: this._translate.instant("common.error"),
+              detail: this._translate.instant("products.messages.addError"),
               life: 5000,
             });
             this.isSubmitting = false;
@@ -322,7 +327,7 @@ getFormTitle(): string {
   }
 
   private markFormGroupTouched(): void {
-    Object.keys(this.productForm.controls).forEach(key => {
+    Object.keys(this.productForm.controls).forEach((key) => {
       const control = this.productForm.get(key);
       control?.markAsTouched();
     });
