@@ -80,7 +80,7 @@ export class UserDataComponent {
             life: 3000,
           });
           this.user.set(null);
-          window.open(`${environment.runUrl}`);
+          window.location.href = `${environment.runUrl}`;
 
           setTimeout(() => {
             document.documentElement.scrollTop = 0;
