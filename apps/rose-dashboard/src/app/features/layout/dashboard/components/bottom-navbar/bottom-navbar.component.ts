@@ -1,3 +1,4 @@
+import { NgOptimizedImage } from "@angular/common";
 import { Component } from "@angular/core";
 // Router
 import { RouterLink, RouterLinkActive } from "@angular/router";
@@ -8,7 +9,7 @@ import { environment } from "@rose/environment/baseurl.dev";
 
 @Component({
   selector: "app-bottom-navbar",
-  imports: [RouterLink, RouterLinkActive, TranslatePipe],
+  imports: [RouterLink, RouterLinkActive, TranslatePipe, NgOptimizedImage],
   templateUrl: "./bottom-navbar.component.html",
   styleUrl: "./bottom-navbar.component.scss",
 })

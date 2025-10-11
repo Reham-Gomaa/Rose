@@ -1,8 +1,23 @@
 <aside>
   <div>
-    <img src="images/overview/logo.png" alt="rose-logo" class="logo_image" />
+    <img
+      ngSrc="images/overview/logo.png"
+      width="120"
+      height="120"
+      loading="lazy"
+      decoding="async"
+      alt="rose-logo"
+      class="logo_image"
+    />
     <button class="aside-button" (click)="goToRose()">
-      <img src="images/overview/flower.png" alt="flower png" />
+      <img
+        ngSrc="images/overview/flower.png"
+        width="25"
+        height="25"
+        loading="lazy"
+        decoding="async"
+        alt="flower png"
+      />
       {{ "aside-bar.preview-website" | translate }}
     </button>
     <div class="aside-nav">
@@ -36,8 +51,6 @@
       </a>
     </div>
   </div>
-
-  <section class="profile"></section>
 
   <app-user-data />
 </aside>

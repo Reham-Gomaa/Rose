@@ -1,6 +1,7 @@
 .profile-container {
   background: var(--user-profile-background);
   padding: 0 2.5rem;
+  margin-bottom: 5rem;
 }
 
 .sidebar-title {
@@ -75,6 +76,10 @@
 }
 
 @media (max-width: 980px) {
+  .profile-container {
+    margin-bottom: 10rem;
+  }
+
   .container-btn {
     display: flex;
     flex-direction: column;

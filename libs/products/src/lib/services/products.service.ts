@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { Observable, shareReplay } from "rxjs";
 import { ProductsApi } from "../base/ProductsAPI";
-import { DeleteProductRes, ProductRes, updateProductData } from "../interfaces/product.interface";
+import { DeleteProductRes, ProductRes } from "../interfaces/product.interface";
 import { countBproduct } from "../interfaces/count-by-product.interface";
 import { ProductDetails } from "../interfaces/productDetails.interface";
 import { ProductDetailsRes } from "../interfaces/details.interface";
@@ -54,7 +54,6 @@ export class ProductsService extends ProductsApi {
 
   getBaseUrl(): string {
     const finalUrl: string = this.API_BASE + EndPoints.PRODUCTS;
-    console.log("Products API URL:", finalUrl);
     return finalUrl;
   }
 }
