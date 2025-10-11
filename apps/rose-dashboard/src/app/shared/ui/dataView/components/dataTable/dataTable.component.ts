@@ -87,7 +87,7 @@ export class DataTableComponent {
     ];
   }
 
-  onMenuClick(menu: Menu,event:PointerEvent, item: any) {
+  onMenuClick(menu: Menu,event:MouseEvent, item: any) {
     menu.toggle(event);
     this.selectedItem = item;
   }
