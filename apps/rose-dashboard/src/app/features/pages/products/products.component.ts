@@ -24,7 +24,6 @@
 //   }
 // }
 
-
 import { DataViewComponent } from "../../../shared/ui/dataView/dataView.component";
 import { Product, ProductsService } from "@angular-monorepo/products";
 import { Component, inject, signal, WritableSignal } from "@angular/core";
@@ -41,8 +40,8 @@ import { MessageService } from "primeng/api";
 })
 export class ProductsComponent {
   private products_service = inject(ProductsService);
-   private router = inject(Router);
-  private messageService = inject(MessageService); 
+  private router = inject(Router);
+  private messageService = inject(MessageService);
 
   table_header_records: string[] = ["name", "price", "stock", "sales", "ratings"];
   prods: WritableSignal<Product[]> = signal<Product[]>([]);
@@ -53,13 +52,13 @@ export class ProductsComponent {
         this.prods.set(res.products);
       },
       error: (err) => {
-      console.error('Products GET failed:', err); 
-    }
+        console.error("Products GET failed:", err);
+      },
     });
   }
 
   onAddNew() {
-    this.router.navigate(['dashboard/products/add']);
+    this.router.navigate(["dashboard/products/add"]);
   }
 
   onEditProduct(product: Product) {
@@ -95,4 +94,3 @@ export class ProductsComponent {
     });
   }
 }
-

@@ -1,14 +1,18 @@
 <section id="overview">
-    <section id="top-sec">
-        <app-statistics id="statistics" [overall]="overallReports()" />
-        <app-categories-reports id="categories" [categories]="categories()" />
-    </section>
-    <section id="charts-sec">
-        <app-order-chart id="orderChart" [orderByStatus]="orderByStatus()" />
-        <app-revenue-chart id="revenueChart" [monthlyRevenue]="monthlyRevenue()" [dailyRevenue]="dailyRevenue()" />
-    </section>
-    <section id="bottom-sec">
-        <app-top-selling-products id="topSelling" [topSellingProducts]="topSellingPdts()" />
-        <app-low-stock-products id="lowStock" [lowStockProducts]="lowStockPdts()" />
-    </section>
+  <section id="top-sec">
+    <app-statistics id="statistics" [overall]="overallReports()" />
+    <app-categories-reports id="categories" [categories]="categories()" />
+  </section>
+  <section id="charts-sec">
+    <app-order-chart id="orderChart" [orderByStatus]="orderByStatus()" />
+    <app-revenue-chart
+      id="revenueChart"
+      [monthlyRevenue]="monthlyRevenue()"
+      [dailyRevenue]="dailyRevenue()"
+    />
+  </section>
+  <section id="bottom-sec">
+    <app-top-selling-products id="topSelling" [topSellingProducts]="topSellingPdts()" />
+    <app-low-stock-products id="lowStock" [lowStockProducts]="lowStockPdts()" />
+  </section>
 </section>

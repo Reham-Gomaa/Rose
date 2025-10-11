@@ -11,7 +11,7 @@ import { PaginatorModule, PaginatorState } from "primeng/paginator";
 export class PaginationComponent {
   first: number = 0;
   rows: number = 6;
-  totalDataSize = input.required<number>()
+  totalDataSize = input.required<number>();
   currentPage = output<{
     first: number;
     rows: number;

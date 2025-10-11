@@ -1,7 +1,10 @@
 <section id="occasion">
-  <app-data-view [data_items]="prods()" [table_records]="table_header_records" [entityType]="'product'"
+  <app-data-view
+    [data_items]="prods()"
+    [table_records]="table_header_records"
+    [entityType]="'product'"
     (addNew)="onAddNew()"
-    (editItem)="onEditProduct($event)" 
-    (deleteItem)="onDeleteProduct($event)"></app-data-view>
+    (editItem)="onEditProduct($event)"
+    (deleteItem)="onDeleteProduct($event)"
+  ></app-data-view>
 </section>
-

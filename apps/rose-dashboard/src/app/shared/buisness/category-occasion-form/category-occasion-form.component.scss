@@ -10,33 +10,30 @@
   margin: 0;
 }
 
-
 :host ::ng-deep .image-modal {
   .p-dialog-header {
     padding: 1.5rem;
     border-bottom: 1px solid var(--modal-pop-up-bg);
-    
   }
-  
+
   .p-dialog-content {
     padding: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
+
   .p-dialog-header-icons {
     button {
       border-radius: 50%;
       transition: background-color 0.2s;
-      
+
       &:hover {
         background-color: var(--modal-pop-up-bg);
       }
     }
   }
 }
-
 
 .preview-image {
   cursor: pointer;
@@ -48,11 +45,11 @@
 }
 
 :host ::ng-deep .p-button-text {
-    background: transparent;
+  background: transparent;
   color: var(--form-view-image-text);
-  border: 1.5px solid var( --view-image-border);
+  border: 1.5px solid var(--view-image-border);
   border-radius: 8px;
-  padding: 0.5rem 0.7rem ;
+  padding: 0.5rem 0.7rem;
   font-size: 0.8rem;
   font-weight: 500;
   font-family: var(--font-family-4);
@@ -60,13 +57,13 @@
   transition: all 0.2s ease-in-out;
   width: auto;
   margin-left: auto;
-  
+
   &:hover {
-     background: var(--form-view-image-text);
+    background: var(--form-view-image-text);
     color: #fff !important;
     box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
   }
-  
+
   &:focus {
     box-shadow: none !important;
   }

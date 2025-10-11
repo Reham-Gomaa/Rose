@@ -23,7 +23,6 @@ export class CustomInputComponent implements ControlValueAccessor {
   placeholder = input<string>("");
   labelText = input<string>("");
   errorHandilgControl = input<AbstractControl>();
-  
 
   // New file input
   accept = input<string>();
@@ -43,7 +42,8 @@ export class CustomInputComponent implements ControlValueAccessor {
     return this.type();
   }
 
-   get isFileInput() { //file
+  get isFileInput() {
+    //file
     return this.type() === "file";
   }
 
@@ -51,38 +51,38 @@ export class CustomInputComponent implements ControlValueAccessor {
     this.showPassword = !this.showPassword;
   }
 
-openFileInput() { //file
-  const id = this.id();
-  if (id) {
-    const fileInput = document.getElementById(id);
-    fileInput?.click();
+  openFileInput() {
+    //file
+    const id = this.id();
+    if (id) {
+      const fileInput = document.getElementById(id);
+      fileInput?.click();
+    }
   }
-}
 
+  onFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+      this.fileSelected.emit(this.selectedFile);
 
-onFileSelected(event: Event) {
-  const input = event.target as HTMLInputElement;
-  if (input.files && input.files.length > 0) {
-    this.selectedFile = input.files[0];
-    this.fileSelected.emit(this.selectedFile);
-
-    // Passing the file name as string to onChange
-    this.onChange(this.selectedFile.name);
-    this.onTouched();
+      // Passing the file name as string to onChange
+      this.onChange(this.selectedFile.name);
+      this.onTouched();
+    }
   }
-}
 
-writeValue(value: File | string | null): void {
-  if (value instanceof File) {
-    this.selectedFile = value;
-    this.value = value.name;
-  } else if (typeof value === 'string') {
-    this.value = value;
-  } else {
-    this.selectedFile = null;
-    this.value = '';
+  writeValue(value: File | string | null): void {
+    if (value instanceof File) {
+      this.selectedFile = value;
+      this.value = value.name;
+    } else if (typeof value === "string") {
+      this.value = value;
+    } else {
+      this.selectedFile = null;
+      this.value = "";
+    }
   }
-}
 
   registerOnChange(fn: (value: string) => void): void {
     this.onChange = fn;

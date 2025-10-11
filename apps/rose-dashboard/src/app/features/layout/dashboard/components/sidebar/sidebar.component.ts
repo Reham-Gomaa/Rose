@@ -33,6 +33,4 @@ export class SidebarComponent {
   goToRose() {
     window.open(`${environment.runUrl}`, "_blank");
   }
-
-
 }

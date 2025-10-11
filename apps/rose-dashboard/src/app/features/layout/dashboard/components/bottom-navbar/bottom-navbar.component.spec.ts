@@ -1,23 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { BottomNavbarComponent } from './bottom-navbar.component';
+import { BottomNavbarComponent } from "./bottom-navbar.component";
 
-describe('BottomNavbarComponent', () => {
+describe("BottomNavbarComponent", () => {
   let component: BottomNavbarComponent;
   let fixture: ComponentFixture<BottomNavbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BottomNavbarComponent]
-    })
-    .compileComponents();
+      imports: [BottomNavbarComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BottomNavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

@@ -23,12 +23,10 @@ export interface Category {
   productsCount: number;
 }
 
-
 export interface SingleCategoryRes {
   message: string;
   category: Category;
 }
-
 
 export interface CategoryRequest {
   name: string;

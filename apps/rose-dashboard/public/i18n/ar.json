@@ -277,30 +277,29 @@
       "title": "عرض الصورة"
     }
   },
-    "TABLE": {
+  "TABLE": {
     "NAME": "الاسم",
     "PRICE": "السعر",
     "STOCK": "المخزون",
     "SALES": "المبيعات",
     "RATINGS": "التقييمات",
-    "PRODUCTS":"عدد المنتجات"
+    "PRODUCTS": "عدد المنتجات"
   },
   "ACTIONS": {
     "EDIT": "تعديل",
     "REMOVE": "حذف"
   },
-  "VIEW":{
-    "all categories":"كل الفئات",
-    "all products":"كل المنتجات",
-    "all occasions":"كل البرندات"
+  "VIEW": {
+    "all categories": "كل الفئات",
+    "all products": "كل المنتجات",
+    "all occasions": "كل البرندات"
   },
-   "add_action" : {
-    "add new products" : "اضافة منتجات جديد",
-    "add new categories" : "اضافة فئات جديده",
-    "add new occasions" : "إضافة براندات جديد"
+  "add_action": {
+    "add new products": "اضافة منتجات جديد",
+    "add new categories": "اضافة فئات جديده",
+    "add new occasions": "إضافة براندات جديد"
   },
-  "input":{
-    "search":"بحث"
+  "input": {
+    "search": "بحث"
   }
-
 }

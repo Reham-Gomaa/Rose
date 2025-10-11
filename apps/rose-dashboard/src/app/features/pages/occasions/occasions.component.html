@@ -1,4 +1,9 @@
 <section id="occasion">
-  <app-data-view [data_items]="occasions()" [table_records]="table_header_records"  (addNew)="onAddNew()"
-    (editItem)="onEditOccasion($event)" (deleteItem)="onDeleteOccasion($event)"></app-data-view>
+  <app-data-view
+    [data_items]="occasions()"
+    [table_records]="table_header_records"
+    (addNew)="onAddNew()"
+    (editItem)="onEditOccasion($event)"
+    (deleteItem)="onDeleteOccasion($event)"
+  ></app-data-view>
 </section>

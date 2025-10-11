@@ -1,13 +1,11 @@
-:host ::ng-deep .p-datatable-table .p-datatable-thead  > tr >th ,
+:host ::ng-deep .p-datatable-table .p-datatable-thead > tr > th,
 :host ::ng-deep .p-datatable-table .p-datatable-tbody > tr {
-    background-color: var(--view-bg);
-    color: var(--view-text);
-
+  background-color: var(--view-bg);
+  color: var(--view-text);
 }
 
-:host ::ng-deep .p-datatable-table .p-datatable-thead > tr > th  {
+:host ::ng-deep .p-datatable-table .p-datatable-thead > tr > th {
   background: var(--view-theader-bg);
-
 }
 :host ::ng-deep .p-datatable-tbody > tr > td > #operations button {
   font-size: 12px;
@@ -21,44 +19,21 @@
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 :host ::ng-deep .card .ng-star-inserted .p-menu-overlay.ng-star-inserted.ng-trigger {
-      top: 100% !important;
-      right: 0% !important;
-      left: 0% !important;
+  top: 100% !important;
+  right: 0% !important;
+  left: 0% !important;
 }
 :host ::ng-deep .p-menu-overlay {
-      transform: translateX(-80%) !important;
-
+  transform: translateX(-80%) !important;
 }
-:host ::ng-deep .pi-trash ,
-:host ::ng-deep .pi-trash ~ .p-menu-item-label  {
-  color: #DC2626 !important;
+:host ::ng-deep .pi-trash,
+:host ::ng-deep .pi-trash ~ .p-menu-item-label {
+  color: #dc2626 !important;
 }
-:host ::ng-deep .pi-pencil ,
-:host ::ng-deep .pi-pencil ~ .p-menu-item-label
- {
-  color: #155DFC !important;
+:host ::ng-deep .pi-pencil,
+:host ::ng-deep .pi-pencil ~ .p-menu-item-label {
+  color: #155dfc !important;
 }
 :host ::ng-deep .p-datatable-table-container {
   overflow-x: hidden !important;
@@ -66,14 +41,12 @@
 }
 
 .lowQty {
-  color: #DC2626;
+  color: #dc2626;
   font-weight: bold;
 }
 
-
-
-:host ::ng-deep  .p-datatable td,
-:host ::ng-deep  .p-datatable th {
+:host ::ng-deep .p-datatable td,
+:host ::ng-deep .p-datatable th {
   white-space: nowrap;
 }
 
@@ -82,13 +55,13 @@
   width: 250px; /* for Name column */
 }
 
-:host ::ng-deep  .p-datatable td:nth-child(2),
-:host ::ng-deep  .p-datatable th:nth-child(2) {
+:host ::ng-deep .p-datatable td:nth-child(2),
+:host ::ng-deep .p-datatable th:nth-child(2) {
   width: 120px; /* for Products column */
 }
 
 :host ::ng-deep .p-datatable td:nth-child(3),
-:host ::ng-deep  .p-datatable th:nth-child(3) {
+:host ::ng-deep .p-datatable th:nth-child(3) {
   width: 150px; /* for Edit button column */
 }
 
@@ -97,10 +70,8 @@
   width: 150px; /* for Remove button column */
 }
 
-
 @media screen and (max-width: 768px) {
   .hide-md {
     display: none;
   }
 }
-

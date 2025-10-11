@@ -1,37 +1,62 @@
 <section id="revenue" class="revenue-chart" role="region" aria-label="Revenue Chart">
-    @if (loading()) {
+  @if (loading()) {
     <div class="flex justify-content-between align-items-center mb-2" aria-hidden="true">
-        <p-skeleton class="w-5" height="1.5rem" borderRadius=".25rem"></p-skeleton>
-        <div class="flex w-3 justify-content-end gap-2">
-            <p-skeleton class="w-6" height="1.5rem" borderRadius=".5rem"></p-skeleton>
-            <p-skeleton class="w-6" height="1.5rem" borderRadius=".5rem"></p-skeleton>
-        </div>
+      <p-skeleton class="w-5" height="1.5rem" borderRadius=".25rem"></p-skeleton>
+      <div class="flex w-3 justify-content-end gap-2">
+        <p-skeleton class="w-6" height="1.5rem" borderRadius=".5rem"></p-skeleton>
+        <p-skeleton class="w-6" height="1.5rem" borderRadius=".5rem"></p-skeleton>
+      </div>
     </div>
     <div class="card" role="status" aria-live="polite" aria-label="Revenue chart data is loading">
-        <p-skeleton class="w-full" height="15rem" borderRadius=".5rem" aria-hidden="true"></p-skeleton>
+      <p-skeleton
+        class="w-full"
+        height="15rem"
+        borderRadius=".5rem"
+        aria-hidden="true"
+      ></p-skeleton>
     </div>
-    }@else if(dailyRevenue()!.length > 0 && monthlyRevenue()!.length > 0) {
+  } @else if (dailyRevenue()!.length > 0 && monthlyRevenue()!.length > 0) {
     <div class="header flex justify-content-between align-items-center">
-        <div>
-            <h1 class="title">{{ "overview.revenue" | translate }}</h1>
-        </div>
+      <div>
+        <h1 class="title">{{ "overview.revenue" | translate }}</h1>
+      </div>
 
-        <div class="toggle" role="group" aria-label="Chart view mode">
-            <button (click)="mode.set('monthly')" [class.active]="mode() === 'monthly'" role="radio"
-                [attr.aria-checked]="mode() === 'monthly'" aria-label="View monthly revenue data">
-                {{ "overview.monthly" | translate }}
-            </button>
-            <button (click)="mode.set('daily')" [class.active]="mode() === 'daily'" role="radio"
-                [attr.aria-checked]="mode() === 'daily'" aria-label="View daily revenue data">
-                {{ "overview.daily" | translate }}
-            </button>
-        </div>
+      <div class="toggle" role="group" aria-label="Chart view mode">
+        <button
+          (click)="mode.set('monthly')"
+          [class.active]="mode() === 'monthly'"
+          role="radio"
+          [attr.aria-checked]="mode() === 'monthly'"
+          aria-label="View monthly revenue data"
+        >
+          {{ "overview.monthly" | translate }}
+        </button>
+        <button
+          (click)="mode.set('daily')"
+          [class.active]="mode() === 'daily'"
+          role="radio"
+          [attr.aria-checked]="mode() === 'daily'"
+          aria-label="View daily revenue data"
+        >
+          {{ "overview.daily" | translate }}
+        </button>
+      </div>
     </div>
 
-    <div class="card" role="img" [attr.aria-label]="'Line chart showing ' + mode() + ' revenue data'">
-        <p-chart type="line" [data]="data" [options]="options" class="r-chart" [attr.aria-hidden]="true" />
+    <div
+      class="card"
+      role="img"
+      [attr.aria-label]="'Line chart showing ' + mode() + ' revenue data'"
+    >
+      <p-chart
+        type="line"
+        [data]="data"
+        [options]="options"
+        class="r-chart"
+        [attr.aria-hidden]="true"
+      />
     </div>
-    }@else if (dailyRevenue()!.length === 0 && monthlyRevenue()!.length === 0) {
+  } @else if (dailyRevenue()!.length === 0 && monthlyRevenue()!.length === 0) {
     <app-empty-state />
-    }
+  }
 </section>

@@ -6,25 +6,27 @@
 
 <form [formGroup]="entityForm" (ngSubmit)="onSubmit()" class="p-fluid">
   <div class="flex flex-column gap-4">
-    
     <!-- Name Field -->
     <lib-custom-input
       id="entityName"
       [labelText]="getFieldLabel('name')"
       [placeholder]="getFieldPlaceholder('name')"
       [errorHandilgControl]="nameControl"
-      formControlName="name">
+      formControlName="name"
+    >
     </lib-custom-input>
 
     <!-- Image Section - Different for Edit vs Add mode -->
     @if (isEditMode) {
       <!-- EDIT MODE: Show view image link only -->
       <div class="flex flex-column gap-2">
-        <label class="font-medium text-sm text-gray-700">{{ getFieldLabel('image') }}</label>
+        <label class="font-medium text-sm text-gray-700">{{ getFieldLabel("image") }}</label>
         @if (previewUrl) {
-          <button type="button" 
-                  (click)="openImageModal()"
-                  class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors duration-200 w-fit p-button p-button-text">
+          <button
+            type="button"
+            (click)="openImageModal()"
+            class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors duration-200 w-fit p-button p-button-text"
+          >
             {{ getViewImageText() }}
           </button>
         } @else {
@@ -41,17 +43,21 @@
           [placeholder]="getFieldPlaceholder('image')"
           [errorHandilgControl]="entityForm.get('image') ?? undefined"
           formControlName="image"
-          (change)="onFileSelected($event)">
+          (change)="onFileSelected($event)"
+        >
         </lib-custom-input>
 
         <!-- Show new image preview for add mode -->
         @if (previewUrl && selectedFile) {
           <div class="image-preview mt-2">
             <p class="text-sm text-gray-600 mb-1">{{ getImagePreviewText() }}</p>
-            <img [src]="previewUrl" [alt]="getFieldLabel('image')" 
-                 class="preview-image cursor-pointer" 
-                 (click)="openImageModal()"
-                 style="max-width: 200px; max-height: 150px; border-radius: 8px;">
+            <img
+              [src]="previewUrl"
+              [alt]="getFieldLabel('image')"
+              class="preview-image cursor-pointer"
+              (click)="openImageModal()"
+              style="max-width: 200px; max-height: 150px; border-radius: 8px"
+            />
           </div>
         }
       </div>
@@ -63,24 +69,27 @@
       [loadingText]="getLoadingText()"
       [disabled]="entityForm.invalid"
       [isLoading]="isSubmitting"
-      [fullWidth]="true">
+      [fullWidth]="true"
+    >
     </lib-form-button>
   </div>
 </form>
 
-<p-dialog 
-  [header]="getModalTitle()" 
-  [(visible)]="showImageModal" 
-  [modal]="true" 
-  [style]="{ width: '50rem' }" 
+<p-dialog
+  [header]="getModalTitle()"
+  [(visible)]="showImageModal"
+  [modal]="true"
+  [style]="{ width: '50rem' }"
   [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
-  [draggable]="false" 
+  [draggable]="false"
   [resizable]="false"
-  styleClass="image-modal">
+  styleClass="image-modal"
+>
   <div class="flex justify-content-center">
-    <img 
-      [src]="previewUrl" 
-      [alt]="getFieldLabel('image')" 
-      class="w-full max-h-30rem object-contain" />
+    <img
+      [src]="previewUrl"
+      [alt]="getFieldLabel('image')"
+      class="w-full max-h-30rem object-contain"
+    />
   </div>
 </p-dialog>

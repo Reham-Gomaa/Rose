@@ -1,6 +1,12 @@
-<section [@fadeTransition]="translationService.fadeState()" aria-labelledby="popular-items-heading" itemscope
-  itemtype="https://schema.org/ItemList">
-  <div class="popular-items-header flex justify-content-between white-space-nowrap align-items-center gap-3 mt-8">
+<section
+  [@fadeTransition]="translationService.fadeState()"
+  aria-labelledby="popular-items-heading"
+  itemscope
+  itemtype="https://schema.org/ItemList"
+>
+  <div
+    class="popular-items-header flex justify-content-between white-space-nowrap align-items-center gap-3 mt-8"
+  >
     <div class="p-relative d-inline-block popular-items-title-wrapper">
       <h2 id="popular-items-heading" class="popular-items-title" itemprop="name">
         {{ "home.popularItems.title" | translate }}
@@ -10,45 +16,70 @@
       <meta itemprop="description" content="Browse our most popular products and items" />
     </div>
 
-    <nav class="w-full lg:w-auto overflow-x-auto pb-2 categories-scroll-container" aria-label="Product categories">
+    <nav
+      class="w-full lg:w-auto overflow-x-auto pb-2 categories-scroll-container"
+      aria-label="Product categories"
+    >
       <div class="flex align-items-center gap-3" style="min-width: fit-content" role="tablist">
         @if (loading()) {
-        @for (item of [1, 2, 3]; track $index) {
-        <button type="button" class="tabs-popular-items" disabled>
-          <p-skeleton width="5rem" height="2rem"></p-skeleton>
-        </button>
-        }
+          @for (item of [1, 2, 3]; track $index) {
+            <button type="button" class="tabs-popular-items" disabled>
+              <p-skeleton width="5rem" height="2rem"></p-skeleton>
+            </button>
+          }
         } @else {
-        @for (category of categories(); track $index) {
-        <button type="button" class="tabs-popular-items" role="tab"
-          [attr.aria-selected]="selectedCategory() === category.id" [attr.aria-controls]="'category-' + category.id"
-          [attr.aria-label]="'Show ' + category.display + ' products'"
-          [class]="{ 'active-tab': selectedCategory() === category.id }" (click)="selectCategory(category.id)"
-          (keyup.enter)="selectCategory(category.id)" (keyup.space)="selectCategory(category.id)" tabindex="0"
-          itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <span itemprop="name">{{ category.display }}</span>
-          <meta itemprop="position" [attr.content]="category.id" />
-        </button>
-        }
+          @for (category of categories(); track $index) {
+            <button
+              type="button"
+              class="tabs-popular-items"
+              role="tab"
+              [attr.aria-selected]="selectedCategory() === category.id"
+              [attr.aria-controls]="'category-' + category.id"
+              [attr.aria-label]="'Show ' + category.display + ' products'"
+              [class]="{ 'active-tab': selectedCategory() === category.id }"
+              (click)="selectCategory(category.id)"
+              (keyup.enter)="selectCategory(category.id)"
+              (keyup.space)="selectCategory(category.id)"
+              tabindex="0"
+              itemprop="itemListElement"
+              itemscope
+              itemtype="https://schema.org/ListItem"
+            >
+              <span itemprop="name">{{ category.display }}</span>
+              <meta itemprop="position" [attr.content]="category.id" />
+            </button>
+          }
         }
       </div>
     </nav>
   </div>
 
-  <div class="grid mt-5" [@gridFade]="selectedCategory()" [@listAnimation]="selectedCategory()"
-    [attr.aria-labelledby]="'category-' + selectedCategory()" role="region" aria-live="polite" itemprop="mainEntity"
-    itemscope itemtype="https://schema.org/ItemList">
+  <div
+    class="grid mt-5"
+    [@gridFade]="selectedCategory()"
+    [@listAnimation]="selectedCategory()"
+    [attr.aria-labelledby]="'category-' + selectedCategory()"
+    role="region"
+    aria-live="polite"
+    itemprop="mainEntity"
+    itemscope
+    itemtype="https://schema.org/ItemList"
+  >
     @for (productInfo of filteredCards; track $index) {
-    <div class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-2" itemprop="itemListElement" itemscope
-      itemtype="https://schema.org/Product">
-      <app-card-item [productInfo]="productInfo" [loading]="loading()" />
-    </div>
+      <div
+        class="col-12 sm:col-6 md:col-4 lg:col-3 xl:col-2"
+        itemprop="itemListElement"
+        itemscope
+        itemtype="https://schema.org/Product"
+      >
+        <app-card-item [productInfo]="productInfo" [loading]="loading()" />
+      </div>
     } @empty {
-    <div class="col-12 text-center py-5 no-item">
-      <p role="status" aria-live="polite" class="no-results-message">
-        <app-no-data-available />
-      </p>
-    </div>
+      <div class="col-12 text-center py-5 no-item">
+        <p role="status" aria-live="polite" class="no-results-message">
+          <app-no-data-available />
+        </p>
+      </div>
     }
   </div>
 </section>

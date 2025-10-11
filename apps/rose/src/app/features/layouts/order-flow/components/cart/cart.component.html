@@ -7,172 +7,255 @@
         </h1>
       </div>
       <div>
-        <app-button [disable]="(cartItemsNum$ | async) === 0" (click)="clearCartDialog.show()"
-          [bgColor]="'var(--cart-clearBtn-bg)'" [textColor]="'var(--cart-clearBtn-text)'"
-          [text]="'cart.clear-cart' | translate" [padding]="'clear-cart-padding'" [borderRadius]="'cart-radius'">
-          <img loading="lazy" decoding="async" width="20" height="20" ngSrc="./images/cart/brush-cleaning.AVIF"
-            alt="clear cart" />
+        <app-button
+          [disable]="(cartItemsNum$ | async) === 0"
+          (click)="clearCartDialog.show()"
+          [bgColor]="'var(--cart-clearBtn-bg)'"
+          [textColor]="'var(--cart-clearBtn-text)'"
+          [text]="'cart.clear-cart' | translate"
+          [padding]="'clear-cart-padding'"
+          [borderRadius]="'cart-radius'"
+        >
+          <img
+            loading="lazy"
+            decoding="async"
+            width="20"
+            height="20"
+            ngSrc="./images/cart/brush-cleaning.AVIF"
+            alt="clear cart"
+          />
         </app-button>
-        <lib-confirm-dialog #clearCartDialog [message]="'cart.confirm-dialog.deleteAccountConfirmation' | translate"
+        <lib-confirm-dialog
+          #clearCartDialog
+          [message]="'cart.confirm-dialog.deleteAccountConfirmation' | translate"
           [subMessage]="'cart.confirm-dialog.permanentActionWarning' | translate"
           [cancelLabel]="'cart.confirm-dialog.cancelDelete' | translate"
-          [confirmLabel]="'cart.confirm-dialog.confirmDelete' | translate" (confirmed)="clearCart($event)" />
+          [confirmLabel]="'cart.confirm-dialog.confirmDelete' | translate"
+          (confirmed)="clearCart($event)"
+        />
       </div>
     </div>
     <!-- Loading Skeleton -->
     <div id="cartContent">
       @if (isLoading$ | async) {
-      <ng-container>
-        @for (item of [1, 2, 3]; track $index) {
-        <div [class.border-none]="$index === 2" class="pdt-wrapper flex flex-wrap">
-          <div class="w-4 pb-2 md:w-3">
-            <p-skeleton width="100%" height="8.75rem" borderRadius="1rem"></p-skeleton>
-          </div>
-          <div class="w-8 md:w-9 flex flex-column justify-content-between px-3">
-            <p-skeleton width="80%" height="1.5rem" class="mb-2"></p-skeleton>
-            <p-skeleton width="60%" height="1rem" class="mb-2"></p-skeleton>
-            <p-skeleton width="40%" height="1rem"></p-skeleton>
-          </div>
-        </div>
-        }
-      </ng-container>
-      } @else {
-      @for (item of userCartItems(); track item._id) {
-      @if (cartItemsNum$ |async; as cartItemsNum) {
-      <div [class.border-none]="cartItemsNum === $index + 1" class="pdt-wrapper">
-        <div class="md:w-3">
-          <img loading="lazy" decoding="async" class="pdt block border-round-lg" width="117" height="140"
-            [ngSrc]="item.product.imgCover" [alt]="item.product.title" />
-        </div>
-        <div class="md:w-9 flex flex-column justify-content-between">
-          <!-- pdt-Title and Delete -->
-          <div class="pdt-title-rating">
-            <div>
-              <h2 class="pdt-name">{{ item.product.title }}</h2>
-              <h3 class="pdt-rating">
-                <i class="pi pi-star-fill" style="color: var(--cart-star)"></i>
-                {{ "cart.rating" | translate }}:
-                <span class="rating">{{ item.product.rateAvg }}/5</span>
-                <span class="rating-num">({{ item.product.rateCount }} {{ "cart.rating" | translate }})</span>
-              </h3>
-            </div>
-            <div class="remove-btn">
-              <app-button (click)="removeCartItem(item.product._id)" [bgColor]="'var(--cart-deleteBtn-bg)'"
-                [textColor]="'var(--cart-deleteBtn-text)'" [icon]="'pi pi-trash'" [padding]="'cart-delete-padding'"
-                [borderRadius]="'cart-radius'" [text]="'cart.remove' | translate"
-                [rowReverse]="'flex flex-row-reverse align-items-center'" />
-            </div>
-          </div>
-          <!-- pdt-Price and Update quantity -->
-          <div class="pdt-price-quantity">
-            <div>
-              <h3 class="pdt-price">
-                <span class="qty">(x{{ item.quantity }})</span>
-                {{ item.product.price }}
-                <span class="egp">{{ "EGP" | translate }}</span>
-              </h3>
-            </div>
-            <div class="flex justify-content-center md:justify-content-between align-items-center">
-              <app-button (click)="updateProductQuantity(item.product._id, -1)" [padding]="'cart-qty-padding'"
-                [borderRadius]="'cart-radius'" [bgColor]="'var(--cart-clearBtn-bg)'"
-                [textColor]="'var(--cart-clearBtn-text)'" [icon]="'pi pi-minus'" />
-              <input type="number" class="w-4 md:w-6rem mx-2" [value]="item.quantity" min="1"
-                [max]="item.product.quantity" (change)="onQuantityChange(item.product._id, $event)"
-                (keyup.enter)="onQuantityChange(item.product._id, $event)" />
-              <app-button (click)="updateProductQuantity(item.product._id, 1)" [padding]="'cart-qty-padding'"
-                [borderRadius]="'cart-radius'" [bgColor]="'var(--cart-clearBtn-bg)'"
-                [textColor]="'var(--cart-clearBtn-text)'" [icon]="'pi pi-plus'" />
-            </div>
-          </div>
-        </div>
-      </div>
-      } }@empty {
-      <app-empty-cart [message]="'cart.empty' |translate" />
-      } }
-    </div>
-    <!-- Saved For Later -->
-    @if (invalidItems().length> 0) {
-    <div id="savedItems" class="mt-3">
-      <h2>{{ "cart.savedItems" | translate }}</h2>
-      <!-- Loading Skeleton -->
-      <div id="cartContent">
-        @if (isLoading$ | async) {
         <ng-container>
-          @for(item of [1,2,3];track $index){
-          <div [class.border-none]="$index === 2" class="pdt-wrapper flex flex-wrap">
-            <div class="w-4 pb-2 md:w-3">
-              <p-skeleton width="100%" height="8.75rem" borderRadius="1rem"></p-skeleton>
+          @for (item of [1, 2, 3]; track $index) {
+            <div [class.border-none]="$index === 2" class="pdt-wrapper flex flex-wrap">
+              <div class="w-4 pb-2 md:w-3">
+                <p-skeleton width="100%" height="8.75rem" borderRadius="1rem"></p-skeleton>
+              </div>
+              <div class="w-8 md:w-9 flex flex-column justify-content-between px-3">
+                <p-skeleton width="80%" height="1.5rem" class="mb-2"></p-skeleton>
+                <p-skeleton width="60%" height="1rem" class="mb-2"></p-skeleton>
+                <p-skeleton width="40%" height="1rem"></p-skeleton>
+              </div>
             </div>
-            <div class="w-8 md:w-9 flex flex-column justify-content-between px-3">
-              <p-skeleton width="80%" height="1.5rem" class="mb-2"></p-skeleton>
-              <p-skeleton width="60%" height="1rem" class="mb-2"></p-skeleton>
-              <p-skeleton width="40%" height="1rem"></p-skeleton>
-            </div>
-          </div>
           }
         </ng-container>
-        } @else {
-        @for (item of invalidItems(); track item._id) {
-        <div [class.border-none]="invalidItems().length === $index + 1" class="pdt-wrapper">
-          <div class="md:w-3">
-            <img loading="lazy" decoding="async" class="pdt block border-round-lg" width="117" height="140"
-              [ngSrc]="item.product.imgCover" [alt]="item.product.title" />
-          </div>
-          <div class="md:w-9 flex flex-column justify-content-between">
-            <!-- pdt-Title and Delete -->
-            <div class="pdt-title-rating">
-              <div>
-                <h3 class="pdt-title m-0">{{ item.product.title }}</h3>
-                @if (item.product.quantity <= 0) {<h4 class="pdt-unavailable m-0">{{ "cart.unavailable" | translate }}
-                  </h4>}
+      } @else {
+        @for (item of userCartItems(); track item._id) {
+          @if (cartItemsNum$ | async; as cartItemsNum) {
+            <div [class.border-none]="cartItemsNum === $index + 1" class="pdt-wrapper">
+              <div class="md:w-3">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  class="pdt block border-round-lg"
+                  width="117"
+                  height="140"
+                  [ngSrc]="item.product.imgCover"
+                  [alt]="item.product.title"
+                />
               </div>
-              <div class="remove-btn flex align-items-center">
-                <app-button [appWishlistToggle]="item.product" (click)="removeFromSavedItems(item.product._id)"
-                  [padding]="'cart-qty-padding'" [borderRadius]="'cart-radius'" [bgColor]="'var(--cart-clearBtn-bg)'"
-                  [margin]="'cart-addSavedToFav-margin'" [textColor]="'var(--cart-clearBtn-text)'"
-                  [icon]="'pi pi-heart m-auto mr-0'" />
-                <app-button (click)="removeFromSavedItems(item.product._id)" [bgColor]="'var(--cart-deleteBtn-bg)'"
-                  [textColor]="'var(--cart-deleteBtn-text)'" [icon]="'pi pi-trash'" [padding]="'cart-delete-padding'"
-                  [borderRadius]="'cart-radius'" [text]="'cart.remove' | translate"
-                  [rowReverse]="'flex flex-row-reverse align-items-center'" />
+              <div class="md:w-9 flex flex-column justify-content-between">
+                <!-- pdt-Title and Delete -->
+                <div class="pdt-title-rating">
+                  <div>
+                    <h2 class="pdt-name">{{ item.product.title }}</h2>
+                    <h3 class="pdt-rating">
+                      <i class="pi pi-star-fill" style="color: var(--cart-star)"></i>
+                      {{ "cart.rating" | translate }}:
+                      <span class="rating">{{ item.product.rateAvg }}/5</span>
+                      <span class="rating-num"
+                        >({{ item.product.rateCount }} {{ "cart.rating" | translate }})</span
+                      >
+                    </h3>
+                  </div>
+                  <div class="remove-btn">
+                    <app-button
+                      (click)="removeCartItem(item.product._id)"
+                      [bgColor]="'var(--cart-deleteBtn-bg)'"
+                      [textColor]="'var(--cart-deleteBtn-text)'"
+                      [icon]="'pi pi-trash'"
+                      [padding]="'cart-delete-padding'"
+                      [borderRadius]="'cart-radius'"
+                      [text]="'cart.remove' | translate"
+                      [rowReverse]="'flex flex-row-reverse align-items-center'"
+                    />
+                  </div>
+                </div>
+                <!-- pdt-Price and Update quantity -->
+                <div class="pdt-price-quantity">
+                  <div>
+                    <h3 class="pdt-price">
+                      <span class="qty">(x{{ item.quantity }})</span>
+                      {{ item.product.price }}
+                      <span class="egp">{{ "EGP" | translate }}</span>
+                    </h3>
+                  </div>
+                  <div
+                    class="flex justify-content-center md:justify-content-between align-items-center"
+                  >
+                    <app-button
+                      (click)="updateProductQuantity(item.product._id, -1)"
+                      [padding]="'cart-qty-padding'"
+                      [borderRadius]="'cart-radius'"
+                      [bgColor]="'var(--cart-clearBtn-bg)'"
+                      [textColor]="'var(--cart-clearBtn-text)'"
+                      [icon]="'pi pi-minus'"
+                    />
+                    <input
+                      type="number"
+                      class="w-4 md:w-6rem mx-2"
+                      [value]="item.quantity"
+                      min="1"
+                      [max]="item.product.quantity"
+                      (change)="onQuantityChange(item.product._id, $event)"
+                      (keyup.enter)="onQuantityChange(item.product._id, $event)"
+                    />
+                    <app-button
+                      (click)="updateProductQuantity(item.product._id, 1)"
+                      [padding]="'cart-qty-padding'"
+                      [borderRadius]="'cart-radius'"
+                      [bgColor]="'var(--cart-clearBtn-bg)'"
+                      [textColor]="'var(--cart-clearBtn-text)'"
+                      [icon]="'pi pi-plus'"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-            <!-- pdt-Price and Update quantity -->
-            @if (item.product.quantity > 0) {
-            <div class="pdt-price-quantity">
-              <div>
-                <h3 class="pdt-price">
-                  <span class="qty">(x{{ item.quantity }})</span>
-                  {{ item.product.price }}
-                  <span class="egp">{{ "EGP" | translate }}</span>
-                </h3>
-              </div>
-              <div class="flex justify-content-center md:justify-content-between align-items-center">
-                <app-button (click)="addProductToCart(item.product._id)" [bgColor]="'var(--cart-clearBtn-bg)'"
-                  [textColor]="'var(--cart-clearBtn-text)'" [icon]="'pi pi-shopping-bag border-circle'"
-                  [padding]="'cart-delete-padding'" [borderRadius]="'cart-radius'"
-                  [text]="'cart.moveToCart' | translate" [rowReverse]="'flex flex-row-reverse align-items-center'" />
-              </div>
-            </div>
-            }
-          </div>
-        </div>
-        } }
-      </div>
+          }
+        } @empty {
+          <app-empty-cart [message]="'cart.empty' | translate" />
+        }
+      }
     </div>
+    <!-- Saved For Later -->
+    @if (invalidItems().length > 0) {
+      <div id="savedItems" class="mt-3">
+        <h2>{{ "cart.savedItems" | translate }}</h2>
+        <!-- Loading Skeleton -->
+        <div id="cartContent">
+          @if (isLoading$ | async) {
+            <ng-container>
+              @for (item of [1, 2, 3]; track $index) {
+                <div [class.border-none]="$index === 2" class="pdt-wrapper flex flex-wrap">
+                  <div class="w-4 pb-2 md:w-3">
+                    <p-skeleton width="100%" height="8.75rem" borderRadius="1rem"></p-skeleton>
+                  </div>
+                  <div class="w-8 md:w-9 flex flex-column justify-content-between px-3">
+                    <p-skeleton width="80%" height="1.5rem" class="mb-2"></p-skeleton>
+                    <p-skeleton width="60%" height="1rem" class="mb-2"></p-skeleton>
+                    <p-skeleton width="40%" height="1rem"></p-skeleton>
+                  </div>
+                </div>
+              }
+            </ng-container>
+          } @else {
+            @for (item of invalidItems(); track item._id) {
+              <div [class.border-none]="invalidItems().length === $index + 1" class="pdt-wrapper">
+                <div class="md:w-3">
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    class="pdt block border-round-lg"
+                    width="117"
+                    height="140"
+                    [ngSrc]="item.product.imgCover"
+                    [alt]="item.product.title"
+                  />
+                </div>
+                <div class="md:w-9 flex flex-column justify-content-between">
+                  <!-- pdt-Title and Delete -->
+                  <div class="pdt-title-rating">
+                    <div>
+                      <h3 class="pdt-title m-0">{{ item.product.title }}</h3>
+                      @if (item.product.quantity <= 0) {
+                        <h4 class="pdt-unavailable m-0">{{ "cart.unavailable" | translate }}</h4>
+                      }
+                    </div>
+                    <div class="remove-btn flex align-items-center">
+                      <app-button
+                        [appWishlistToggle]="item.product"
+                        (click)="removeFromSavedItems(item.product._id)"
+                        [padding]="'cart-qty-padding'"
+                        [borderRadius]="'cart-radius'"
+                        [bgColor]="'var(--cart-clearBtn-bg)'"
+                        [margin]="'cart-addSavedToFav-margin'"
+                        [textColor]="'var(--cart-clearBtn-text)'"
+                        [icon]="'pi pi-heart m-auto mr-0'"
+                      />
+                      <app-button
+                        (click)="removeFromSavedItems(item.product._id)"
+                        [bgColor]="'var(--cart-deleteBtn-bg)'"
+                        [textColor]="'var(--cart-deleteBtn-text)'"
+                        [icon]="'pi pi-trash'"
+                        [padding]="'cart-delete-padding'"
+                        [borderRadius]="'cart-radius'"
+                        [text]="'cart.remove' | translate"
+                        [rowReverse]="'flex flex-row-reverse align-items-center'"
+                      />
+                    </div>
+                  </div>
+                  <!-- pdt-Price and Update quantity -->
+                  @if (item.product.quantity > 0) {
+                    <div class="pdt-price-quantity">
+                      <div>
+                        <h3 class="pdt-price">
+                          <span class="qty">(x{{ item.quantity }})</span>
+                          {{ item.product.price }}
+                          <span class="egp">{{ "EGP" | translate }}</span>
+                        </h3>
+                      </div>
+                      <div
+                        class="flex justify-content-center md:justify-content-between align-items-center"
+                      >
+                        <app-button
+                          (click)="addProductToCart(item.product._id)"
+                          [bgColor]="'var(--cart-clearBtn-bg)'"
+                          [textColor]="'var(--cart-clearBtn-text)'"
+                          [icon]="'pi pi-shopping-bag border-circle'"
+                          [padding]="'cart-delete-padding'"
+                          [borderRadius]="'cart-radius'"
+                          [text]="'cart.moveToCart' | translate"
+                          [rowReverse]="'flex flex-row-reverse align-items-center'"
+                        />
+                      </div>
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+          }
+        </div>
+      </div>
     }
     <!-- Route to Home -->
     <div class="flex justify-content-start align-items-center mt-4">
-      <app-button [routerLink]="'/dashboard/home'" [rowReverse]="'flex flex-row-reverse align-items-center'"
-        [icon]="'pi pi-arrow-left arrowicon mr-2'" [bgColor]="'var(--btn-shared-background)'"
-        [textColor]="'var(--cart-continueBtn-text)'" [text]="'cart.continue-shopping' | translate"
-        [padding]="'cart-padding'" [borderRadius]="'cart-radius'" />
+      <app-button
+        [routerLink]="'/dashboard/home'"
+        [rowReverse]="'flex flex-row-reverse align-items-center'"
+        [icon]="'pi pi-arrow-left arrowicon mr-2'"
+        [bgColor]="'var(--btn-shared-background)'"
+        [textColor]="'var(--cart-continueBtn-text)'"
+        [text]="'cart.continue-shopping' | translate"
+        [padding]="'cart-padding'"
+        [borderRadius]="'cart-radius'"
+      />
     </div>
   </div>
 </section>
-
-
-
 
 <!-- @else {
         @for (item of userCartItems(); track $index) {

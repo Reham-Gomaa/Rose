@@ -10,7 +10,14 @@ import { TranslateToggleComponent, ButtonThemeComponent } from "@angular-monorep
 
 @Component({
   selector: "app-stepper",
-  imports: [TranslatePipe, BreadcrumpComponent, RouterLink, UserPhotoComponent, TranslateToggleComponent, ButtonThemeComponent],
+  imports: [
+    TranslatePipe,
+    BreadcrumpComponent,
+    RouterLink,
+    UserPhotoComponent,
+    TranslateToggleComponent,
+    ButtonThemeComponent,
+  ],
   templateUrl: "./stepper.component.html",
   styleUrl: "./stepper.component.scss",
 })
