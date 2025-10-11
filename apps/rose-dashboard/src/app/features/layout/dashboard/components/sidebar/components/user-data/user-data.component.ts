@@ -1,19 +1,14 @@
-import { Component, DestroyRef, inject, signal } from "@angular/core";
-import { MenuItem, MessageService } from "primeng/api";
+import { Component, inject, signal } from "@angular/core";
+import { MenuItem } from "primeng/api";
 import { Menu } from "primeng/menu";
 import { ButtonModule } from "primeng/button";
-import { AuthApiKpService, User } from "auth-api-kp";
 import { TranslateService } from "@ngx-translate/core";
 import { Router } from "@angular/router";
-import {
-  StorageManagerService,
-  UserDataService,
-  UserStateService,
-} from "@angular-monorepo/services";
-import { environment } from "@rose/environment/baseurl.dev";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { StorageManagerService, UserDataService } from "@angular-monorepo/services";
 import { ButtonThemeComponent, TranslateToggleComponent } from "@angular-monorepo/rose-buttons";
 import { UserPhotoComponent } from "@rose_dashboard/shared_buisness/user-photo/user-photo.component";
+import { LogoutService } from "@rose_dashboard/core_services/logout/logout.service";
+import { User } from "auth-api-kp";
 
 @Component({
   selector: "app-user-data",
@@ -28,13 +23,10 @@ export class UserDataComponent {
   loading = signal(false);
 
   private readonly _translate = inject(TranslateService);
-  private readonly _authApiService = inject(AuthApiKpService);
-  private readonly destroyRef = inject(DestroyRef);
   private readonly _router = inject(Router);
-  private readonly _messageService = inject(MessageService);
   private readonly _storageManagerService = inject(StorageManagerService);
-  private readonly _userStateService = inject(UserStateService);
   protected readonly _userDataService = inject(UserDataService);
+  private readonly _logoutService = inject(LogoutService);
 
   ngOnInit() {
     this._userDataService.loadUserInfo();
@@ -67,34 +59,6 @@ export class UserDataComponent {
   ];
 
   logout() {
-    this._authApiService
-      .logout()
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe({
-        next: (res) => {
-          this._userStateService.setLoggedIn(false);
-          this._storageManagerService.removeItem("authToken");
-          this._messageService.add({
-            severity: "success",
-            detail: "Logged out successfully.",
-            life: 3000,
-          });
-          this.user.set(null);
-          window.location.href = `${environment.runUrl}`;
-
-          setTimeout(() => {
-            document.documentElement.scrollTop = 0;
-            document.body.scrollTop = 0;
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }, 0);
-        },
-        error: (err) => {
-          this._messageService.add({
-            severity: "error",
-            detail: this._translate.instant("messagesToast.sessionExpired"),
-            life: 3000,
-          });
-        },
-      });
+    this._logoutService.logout();
   }
 }
