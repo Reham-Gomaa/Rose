@@ -6,10 +6,10 @@
     </h2>
 
     <app-button
-      [bgColor]="'#A6252A'"
+      [bgColor]="'var(--view-btn-bg)'"
       [borderRadius]="'border-round-md'"
       [icon]="'pi pi-plus'"
-      [textColor]="'#fff'"
+      [textColor]="'var(--view-btn-txtColor)'"
       [padding]="'p-2'"
       [transition]="'0.3s'"
       text="{{ `add_action.add new ${currentData().toLowerCase()}` | translate }}"

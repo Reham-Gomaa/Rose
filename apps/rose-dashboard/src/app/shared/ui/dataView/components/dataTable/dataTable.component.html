@@ -8,7 +8,7 @@
 
               class="capitalize"
             >
-              @let colName = record === "productsCount" ? "products" : record.toUpperCase();
+              @let colName = record === "productsCount" ? "products".toUpperCase() : record.toUpperCase();
               {{ `TABLE.${colName}` | translate }}
             </th>
           }
@@ -61,7 +61,7 @@
               </div>
               <div class="in-small flex lg:hidden justify-content-end">
                 <div class="card flex justify-content-center relative">
-                  <p-menu #menu [model]="items" [popup]="true" />
+                  <p-menu #menu [appendTo]="'body'" [model]="items" [popup]="true" />
                   <p-button (click)="onMenuClick(menu,$event, item)" icon="pi pi-ellipsis-v" />
                 </div>
               </div>
