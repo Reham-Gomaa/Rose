@@ -6,7 +6,7 @@
     </div>
     <button
       (click)="changeHidden()"
-      class="inline-block md:hidden relative mx-2"
+      class="inline-block lg:hidden relative mx-2"
       aria-controls="stepper-menu"
       [class.open]="hidden"
     >
@@ -16,7 +16,7 @@
 
   <div
     id="stepper-menu"
-    class="dropdown inline-block md:hidden"
+    class="dropdown lg:hidden block"
     [class.open]="hidden"
     [attr.aria-hidden]="!hidden"
   >
