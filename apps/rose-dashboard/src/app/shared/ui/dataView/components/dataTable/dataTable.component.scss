@@ -4,9 +4,6 @@
   color: var(--view-text);
 }
 
-:host ::ng-deep .p-datatable-table .p-datatable-thead > tr > th {
-  background: var(--view-theader-bg);
-}
 :host ::ng-deep .p-datatable-tbody > tr > td > #operations button {
   font-size: 12px;
 }
@@ -24,19 +21,11 @@
   right: 0% !important;
   left: 0% !important;
 }
-:host ::ng-deep .p-menu-overlay {
-  transform: translateX(-80%) !important;
-}
-:host ::ng-deep .pi-trash,
-:host ::ng-deep .pi-trash ~ .p-menu-item-label {
-  color: #dc2626 !important;
-}
-:host ::ng-deep .pi-pencil,
-:host ::ng-deep .pi-pencil ~ .p-menu-item-label {
-  color: #155dfc !important;
-}
+
+
 :host ::ng-deep .p-datatable-table-container {
-  overflow: scroll !important;
+  // overflow: visible !important;
+  overflow: auto !important;
 }
 
 .lowQty {
@@ -69,8 +58,8 @@
   width: 150px; /* for Remove button column */
 }
 
-@media screen and (max-width: 768px) {
-  .hide-md {
-    display: none;
-  }
+
+
+.p-menu-item-content {
+  color:var(--remove-btn-color) !important;
 }

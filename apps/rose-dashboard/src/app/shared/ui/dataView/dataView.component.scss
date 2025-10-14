@@ -16,3 +16,9 @@
     margin: 18px 0px;
   }
 }
+
+
+:host ::ng-deep .p-paginator-page.p-paginator-page-selected {
+  background:var(--view-btn-bg) !important;
+  color: var(--view-btn-txtColor) !important;
+}

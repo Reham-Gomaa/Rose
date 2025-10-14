@@ -67,6 +67,10 @@ export class DataTableComponent {
           {
             label: "Edit",
             icon: "pi pi-pencil",
+            iconStyle:{
+              "color": 'var(--edit-btn-color)'
+            },
+           
             command: () => {
               if (this.selectedItem) {
                 this.onEdit(this.selectedItem);
@@ -76,6 +80,9 @@ export class DataTableComponent {
           {
             label: "Remove",
             icon: "pi pi-trash",
+            iconStyle:{
+              "color": 'var(--remove-btn-color)'
+            },
             command: () => {
               if (this.selectedItem) {
                 this.confirmDelete(this.selectedItem);
