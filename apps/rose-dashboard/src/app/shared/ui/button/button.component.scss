@@ -1,9 +1,9 @@
 button {
   display: flex;
-  gap: 4px;
+  gap: 0.25rem;
   align-items: center;
   border: none;
-  box-shadow: 0px 0px 37.28px 4.66px #0000000d;
+  box-shadow: 0px 0px 2.33rem 0.2913rem #0000000d;
   font-family: var(--font-family-1);
   font-weight: 400;
   font-size: 1rem;
@@ -19,55 +19,55 @@ button {
   }
 }
 
-.arrowicon {
-  color: var(--btn-shared-i-color);
-  font-size: 0.7588rem;
-}
+// .arrowicon {
+//   color: var(--btn-shared-i-color);
+//   font-size: 0.7588rem;
+// }
 
 // arrow icon rotation in rtl dir
-:host-context([dir="rtl"]) i {
-  transform: rotateY(180deg);
-}
+// :host-context([dir="rtl"]) i {
+//   transform: rotateY(180deg);
+// }
 
 // gifts left image
-.btn-topLeft-padding {
-  padding: 0.5rem;
+// .btn-topLeft-padding {
+//   padding: 0.5rem;
 
-  // large screen 992px
-  @media all and (min-width: 62rem) {
-    padding: 0.4075rem 0.8738rem;
-  }
-}
+//   // large screen 992px
+//   @media all and (min-width: 62rem) {
+//     padding: 0.4075rem 0.8738rem;
+//   }
+// }
 
 // gifts carousel
-.btn-carousel-padding {
-  padding: 0.5rem;
+// .btn-carousel-padding {
+//   padding: 0.5rem;
 
-  // large screen 992px
-  @media all and (min-width: 62rem) {
-    padding: 0.5825rem 1.165rem;
-  }
-}
+//   // large screen 992px
+//   @media all and (min-width: 62rem) {
+//     padding: 0.5825rem 1.165rem;
+//   }
+// }
 
-// gifts top part
-.btn-roundedBorderRadius {
-  border-radius: 0.2544rem;
+// // gifts top part
+// .btn-roundedBorderRadius {
+//   border-radius: 0.2544rem;
 
-  // large screen 992px
-  @media all and (min-width: 62rem) {
-    border-radius: 0.5825rem;
-  }
-}
+//   // large screen 992px
+//   @media all and (min-width: 62rem) {
+//     border-radius: 0.5825rem;
+//   }
+// }
 
 // gifts bottom-images
-.btn-pillBorderRadius {
-  border-radius: 0.625rem;
+// .btn-pillBorderRadius {
+//   border-radius: 0.625rem;
 
-  // large screen 992px
-  @media all and (min-width: 62rem) {
-    border-radius: 1.25rem;
-  }
-}
+//   // large screen 992px
+//   @media all and (min-width: 62rem) {
+//     border-radius: 1.25rem;
+//   }
+// }
 
 .btn-bottom-padding {
   padding: 0.625rem 1.25rem;
@@ -79,102 +79,102 @@ button {
 }
 
 //Btn-login-navbar
-.btn-login-radius {
-  border-radius: 1.875rem;
-}
+// .btn-login-radius {
+//   border-radius: 1.875rem;
+// }
 
-.btn-login-padding {
-  padding: 0.5rem 1.25rem;
-}
+// .btn-login-padding {
+//   padding: 0.5rem 1.25rem;
+// }
 
 // Btn-About
 
-.btn-about-radius {
-  border-radius: 0.625rem;
-}
+// .btn-about-radius {
+//   border-radius: 0.625rem;
+// }
 
-.btn-about-padding {
-  padding: 0.625rem 1.25rem;
-}
+// .btn-about-padding {
+//   padding: 0.625rem 1.25rem;
+// }
 
-.btn-bestseller-radius {
-  border-radius: 0.625rem;
-}
+// .btn-bestseller-radius {
+//   border-radius: 0.625rem;
+// }
 
 // Btn-BestSeller
 
-.btn-bestseller-padding {
-  padding: 0.625rem 1.25rem;
-}
+// .btn-bestseller-padding {
+//   padding: 0.625rem 1.25rem;
+// }
 
-.btn-about-transition,
-.btn-bestseller-transition {
-  transition: all 0.5s ease;
-}
+// .btn-about-transition,
+// .btn-bestseller-transition {
+//   transition: all 0.5s ease;
+// }
 
-.back-to-home-p {
-  padding: 5px 15px;
-}
+// .back-to-home-p {
+//   padding: .3125rem .9375rem;
+// }
 
 // cart
-.clear-cart-padding {
-  padding: 0.125rem 0.3125rem;
-  @media all and (min-width: 31.25rem) {
-    padding: 0.5rem;
-  }
-  @media all and (min-width: 48rem) {
-    padding: 0.625rem 1rem;
-  }
-}
+// .clear-cart-padding {
+//   padding: 0.125rem 0.3125rem;
+//   @media all and (min-width: 31.25rem) {
+//     padding: 0.5rem;
+//   }
+//   @media all and (min-width: 48rem) {
+//     padding: 0.625rem 1rem;
+//   }
+// }
 
-.cart-padding {
-  padding: 0.5rem;
-  @media all and (min-width: 48rem) {
-    padding: 0.625rem 1rem;
-  }
-}
-.cart-delete-padding {
-  padding: 0.3125rem 0.4375rem;
+// .cart-padding {
+//   padding: 0.5rem;
+//   @media all and (min-width: 48rem) {
+//     padding: 0.625rem 1rem;
+//   }
+// }
+// .cart-delete-padding {
+//   padding: 0.3125rem 0.4375rem;
 
-  @media all and (min-width: 48rem) {
-    padding: 0.625rem;
-  }
-}
-.cart-radius {
-  border-radius: 0.625rem;
-}
-.cart-qty-padding {
-  padding: 6px 0.625rem;
-  @media all and (min-width: 48rem) {
-    padding: 0.625rem 1rem;
-  }
-}
+//   @media all and (min-width: 48rem) {
+//     padding: 0.625rem;
+//   }
+// }
+// .cart-radius {
+//   border-radius: 0.625rem;
+// }
+// .cart-qty-padding {
+//   padding: .375rem 0.625rem;
+//   @media all and (min-width: 48rem) {
+//     padding: 0.625rem 1rem;
+//   }
+// }
 
 //btn summary-orderflow
-.btn-summary-radius {
-  border-radius: 0.625rem;
-}
+// .btn-summary-radius {
+//   border-radius: 0.625rem;
+// }
 
-.btn-summary-padding {
-  padding: 0.625rem 1.25rem;
-}
+// .btn-summary-padding {
+//   padding: 0.625rem 1.25rem;
+// }
 
-.btn-summary-transition {
-  transition: all 0.5s ease;
-}
+// .btn-summary-transition {
+//   transition: all 0.5s ease;
+// }
 
 //btn-contact
-.btn-contact-radius {
-  border-radius: 0.625rem;
-}
+// .btn-contact-radius {
+//   border-radius: 0.625rem;
+// }
 
-.btn-contact-padding {
-  padding: 0.625rem 1.25rem;
-}
+// .btn-contact-padding {
+//   padding: 0.625rem 1.25rem;
+// }
 
-.btn-contact-transition {
-  transition: all 0.5s ease;
-}
+// .btn-contact-transition {
+//   transition: all 0.5s ease;
+// }
 
 .disabled {
   cursor: not-allowed;
