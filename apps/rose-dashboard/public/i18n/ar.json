@@ -28,7 +28,7 @@
     "add": "إضافة",
     "user-profile": "إعدادات الحساب",
     "not-found": "غير موجود",
-    "error": "خطاء",
+    "error": "خطأ",
     "authorization": "غير مصرح"
   },
   "stepper": {
@@ -56,6 +56,7 @@
       "saveChanges": "حفظ التغييرات"
     },
     "changePasswordForm": {
+      "Change_Password": "تغيير كلمة المرور",
       "oldPassword": "كلمة المرور الحالية",
       "newPassword": "كلمة المرور الجديدة",
       "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
@@ -66,13 +67,6 @@
       "cancelDelete": "لا، احتفظ به",
       "permanentActionWarning": "هذا الإجراء دائم ولا يمكن التراجع عنه.",
       "deleteAccountConfirmation": "هل أنت متأكد أنك تريد حذف حسابك؟",
-      "breadcrumb": {
-        "overview": "نظرة عامة",
-        "categories": "الفئات",
-        "occasions": "المناسبات",
-        "products": "المنتجات",
-        "dashboard": "لوحة القيادة"
-      },
       "stepper": {
         "dropdown": {
           "profile": "الملف الشخصي",
@@ -108,34 +102,34 @@
       "phone": "رقم الهاتف",
       "gender": "النوع",
       "genderPlaceholder": "اختر النوع"
-    },
-    "messagesToast": {
-      "sessionExpired": "انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى للمتابعة.",
-      "logoutSuccess": "تم تسجيل الخروج بنجاح.",
-
-      "failedToLoadProfileData": "فشل في تحميل بيانات الملف الشخصي",
-      "fileSizeExceedsLimit": "حجم الملف يتجاوز الحد الأقصى المسموح به 5 ميجابايت",
-      "profilePhotoUploadedSuccessfully": "تم رفع صورة الملف الشخصي بنجاح",
-      "failedToUploadProfilePhoto": "فشل في رفع صورة الملف الشخصي",
-      "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح",
-      "failedToUpdateProfile": "فشل في تحديث الملف الشخصي",
-
-      "accountDeletedSuccessfully": "تم حذف الحساب بنجاح",
-      "failedToDeleteAccount": "فشل في حذف الحساب",
-
-      "passwordChangeFailed": "فشل تغيير كلمة المرور",
-      "passwordChangeSuccess": "تم تغيير كلمة المرور بنجاح",
-
-      "loginFailed": "البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى",
-      "loginSuccess": "تم تسجيل الدخول بنجاح!",
-
-      "somethingWentWrong": "حدث خطأ ما!",
-
-      "failedLoadProfile": "فشل في تحميل ملف المستخدم الشخصي",
-      "loggedOut": "تم تسجيل الخروج بنجاح.",
-
-      "failedToLoadCategories": "فشل في تحميل الفئات"
     }
+  },
+  "messagesToast": {
+    "sessionExpired": "انتهت صلاحية جلستك. يرجى تسجيل الدخول مرة أخرى للمتابعة.",
+    "logoutSuccess": "تم تسجيل الخروج بنجاح.",
+
+    "failedToLoadProfileData": "فشل في تحميل بيانات الملف الشخصي",
+    "fileSizeExceedsLimit": "حجم الملف يتجاوز الحد الأقصى المسموح به 5 ميجابايت",
+    "profilePhotoUploadedSuccessfully": "تم رفع صورة الملف الشخصي بنجاح",
+    "failedToUploadProfilePhoto": "فشل في رفع صورة الملف الشخصي",
+    "profileUpdatedSuccessfully": "تم تحديث الملف الشخصي بنجاح",
+    "failedToUpdateProfile": "فشل في تحديث الملف الشخصي",
+    "accountDeletedSuccessfully": "تم حذف الحساب بنجاح",
+    "failedToDeleteAccount": "فشل في حذف الحساب",
+
+    "passwordChangeFailed": "فشل تغيير كلمة المرور",
+    "passwordChangeSuccess": "تم تغيير كلمة المرور بنجاح",
+
+    "loginFailed": "البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى",
+    "loginSuccess": "تم تسجيل الدخول بنجاح!",
+
+    "fillRequired": "يرجى ملء جميع الحقول المطلوبة بشكل صحيح.",
+    "somethingWentWrong": "حدث خطأ ما!",
+
+    "failedLoadProfile": "فشل في تحميل ملف المستخدم الشخصي",
+    "loggedOut": "تم تسجيل الخروج بنجاح.",
+
+    "failedToLoadCategories": "فشل في تحميل الفئات"
   },
   "titles": {
     "overview": "نظرة عامة",
@@ -185,7 +179,11 @@
       },
       "messages": {
         "noImage": "لا توجد صورة متاحة",
-        "imagePreview": "معاينة الصورة:"
+        "imagePreview": "معاينة الصورة:",
+        "addSuccess": "تمت إضافة الفئة بنجاح!",
+        "addError": "فشل في إضافة الفئة. يرجى المحاولة مرة أخرى.",
+        "updateSuccess": "تم تحديث الفئة بنجاح!",
+        "updateError": "فشل في تحديث الفئة. يرجى المحاولة مرة أخرى."
       }
     }
   },
@@ -205,11 +203,14 @@
       },
       "messages": {
         "noImage": "لا توجد صورة متاحة",
-        "imagePreview": "معاينة الصورة:"
+        "imagePreview": "معاينة الصورة:",
+        "addSuccess": "تمت إضافة المناسبة بنجاح!",
+        "addError": "فشل في إضافة المناسبة. يرجى المحاولة مرة أخرى.",
+        "updateSuccess": "تم تحديث المناسبة بنجاح!",
+        "updateError": "فشل في تحديث المناسبة. يرجى المحاولة مرة أخرى."
       }
     }
   },
-
   "products": {
     "addEdit": {
       "formTitle": "{{mode}} منتج",
@@ -295,9 +296,9 @@
     "all occasions": "كل البرندات"
   },
   "add_action": {
-    "add new products": "اضافة منتجات جديد",
-    "add new categories": "اضافة فئات جديده",
-    "add new occasions": "إضافة براندات جديد"
+    "add new products": "اضافة منتج جديد",
+    "add new categories": "اضافة فئه جديده",
+    "add new occasions": "إضافة براند جديد"
   },
   "input": {
     "search": "بحث"
