@@ -18,14 +18,13 @@
 
     <!-- Image Section - Different for Edit vs Add mode -->
     @if (isEditMode) {
-      <!-- EDIT MODE: Show view image link only -->
+      <!-- EDIT MODE: Show view image link only (without label) -->
       <div class="flex flex-column gap-2">
-        <label class="font-medium text-sm text-gray-700">{{ getFieldLabel("image") }}</label>
         @if (previewUrl) {
           <button
             type="button"
             (click)="openImageModal()"
-            class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors duration-200 w-fit p-button p-button-text"
+            class="p-button-text"
           >
             {{ getViewImageText() }}
           </button>
@@ -34,7 +33,7 @@
         }
       </div>
     } @else {
-      <!-- ADD MODE: Show file upload -->
+      <!-- ADD MODE: Show file upload with label -->
       <div class="flex flex-column gap-2">
         <lib-custom-input
           type="file"

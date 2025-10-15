@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from "@angular/core";
+import { Component, inject, OnInit, signal, ViewEncapsulation } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ProductsService, ProductDetailsRes } from "@angular-monorepo/products";
 import { CategoriesService } from "@angular-monorepo/categories";
@@ -14,6 +14,7 @@ import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
 import { DialogModule } from "primeng/dialog";
 import { DropdownModule } from "primeng/dropdown";
+import { SelectModule } from "primeng/select";
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { InputErrorMessageComponent } from "@rose_dashboard/shared_buisness/input-error/input-error.component";
 
@@ -27,12 +28,14 @@ import { InputErrorMessageComponent } from "@rose_dashboard/shared_buisness/inpu
     FormButtonComponent,
     DialogModule,
     DropdownModule,
+    SelectModule,
     Skeleton,
     TranslateModule,
     InputErrorMessageComponent,
   ],
   templateUrl: "./products-form.component.html",
   styleUrl: "./products-form.component.scss",
+  encapsulation:ViewEncapsulation.None
 })
 export class ProductsFormComponent implements OnInit {
   private _messageService = inject(MessageService);

@@ -175,7 +175,7 @@
       "buttons": {
         "submit": "{{mode}} فئة",
         "saving": "جاري الحفظ...",
-        "viewImage": "عرض الصورة"
+        "viewImage": "عرض صورة الفئة"
       },
       "messages": {
         "noImage": "لا توجد صورة متاحة",
@@ -199,7 +199,7 @@
       "buttons": {
         "submit": "{{mode}} مناسبة",
         "saving": "جاري الحفظ...",
-        "viewImage": "عرض الصورة"
+        "viewImage": "عرض صورة المناسبة"
       },
       "messages": {
         "noImage": "لا توجد صورة متاحة",
@@ -263,6 +263,7 @@
       "add": "إضافة",
       "edit": "تعديل"
     },
+    "uploadPhoto": "رفع صورة",
     "success": "نجح",
     "error": "خطأ",
     "errors": {
@@ -277,6 +278,18 @@
     "imageModal": {
       "title": "عرض الصورة"
     }
+  },
+   "CONFIRM_DIALOG": {
+    "DELETE_MESSAGE": "هل أنت متأكد أنك تريد حذف {{type}}؟",
+    "DELETE_SUBMESSAGE": "لا يمكن التراجع عن هذا الإجراء.",
+    "CANCEL": "إلغاء",
+    "DELETE": "حذف"
+  },
+    "ENTITY_TYPES": {
+    "category": "الفئة",
+    "occasion": "المناسبة",
+    "product": "المنتج",
+    "item": "العنصر"
   },
   "TABLE": {
     "NAME": "الاسم",
@@ -293,12 +306,12 @@
   "VIEW": {
     "all categories": "كل الفئات",
     "all products": "كل المنتجات",
-    "all occasions": "كل البرندات"
+    "all occasions": "كل المناسبات"
   },
   "add_action": {
     "add new products": "اضافة منتج جديد",
     "add new categories": "اضافة فئه جديده",
-    "add new occasions": "إضافة براند جديد"
+    "add new occasions": "إضافة مناسبة جديد"
   },
   "input": {
     "search": "بحث"
