@@ -29,7 +29,7 @@
     "user-profile": "Account Setting",
     "not-found": "Not Found",
     "error": "Error",
-    "authorization": "Not Authorization"
+    "authorization": "Not Authorized"
   },
   "stepper": {
     "dropdown": {
@@ -39,7 +39,7 @@
   },
   "aside-bar": {
     "preview-website": "Preview Website",
-    "overview": "overview",
+    "overview": "Overview",
     "categories": "Categories",
     "occasions": "Occasions",
     "products": "Products"
@@ -67,13 +67,6 @@
       "cancelDelete": "No, keep it",
       "permanentActionWarning": "This action is permanent and cannot be undone.",
       "deleteAccountConfirmation": "Are you sure you want to delete your account?",
-      "breadcrumb": {
-        "overview": "Overview",
-        "categories": "Categories",
-        "occasions": "Occasions",
-        "products": "Products",
-        "dashboard": "Dashboard"
-      },
       "stepper": {
         "dropdown": {
           "profile": "Profile",
@@ -163,7 +156,6 @@
     "unauthorizedTitle": "You are not authorized to access this page.",
     "unauthorizedDesc": "If you think this is wrong, please contact the support."
   },
-
   "menu": {
     "account": "Account",
     "logout": "Logout"
@@ -171,7 +163,6 @@
   "loading": {
     "message": "Please wait... loading data"
   },
-
   "category": {
     "addEdit": {
       "formTitle": "{{mode}} Category",
@@ -293,7 +284,7 @@
     "STOCK": "Stock",
     "SALES": "Sales",
     "RATINGS": "Ratings",
-    "PRODUCTS":"products"
+    "PRODUCTS": "Products"
   },
   "ACTIONS": {
     "EDIT": "Edit",
