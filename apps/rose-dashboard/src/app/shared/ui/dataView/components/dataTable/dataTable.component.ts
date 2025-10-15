@@ -1,20 +1,19 @@
 import { Component, input, output } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { ButtonComponent } from "../../../button/button.component";
 //prime ng
-import { TableModule } from "primeng/table";
 import { MenuItem } from "primeng/api";
-import { Menu } from "primeng/menu";
 import { ButtonModule } from "primeng/button";
+import { Menu } from "primeng/menu";
 import { Skeleton } from "primeng/skeleton";
+import { TableModule } from "primeng/table";
 // Your custom component
 import { ConfirmDialogComponent } from "@angular-monorepo/confirm-dialog";
+import { ButtonComponent } from "../../../button/button.component";
+// Pipes
 import { TranslatePipe } from "@ngx-translate/core";
 
 @Component({
   selector: "app-data-table",
   imports: [
-    CommonModule,
     TableModule,
     ButtonComponent,
     Menu,
@@ -67,10 +66,10 @@ export class DataTableComponent {
           {
             label: "Edit",
             icon: "pi pi-pencil",
-            iconStyle:{
-              "color": 'var(--edit-btn-color)'
+            iconStyle: {
+              color: "var(--edit-btn-color)",
             },
-           
+
             command: () => {
               if (this.selectedItem) {
                 this.onEdit(this.selectedItem);
@@ -80,8 +79,8 @@ export class DataTableComponent {
           {
             label: "Remove",
             icon: "pi pi-trash",
-            iconStyle:{
-              "color": 'var(--remove-btn-color)'
+            iconStyle: {
+              color: "var(--remove-btn-color)",
             },
             command: () => {
               if (this.selectedItem) {
@@ -94,7 +93,7 @@ export class DataTableComponent {
     ];
   }
 
-  onMenuClick(menu: Menu,event:MouseEvent, item: any) {
+  onMenuClick(menu: Menu, event: MouseEvent, item: any) {
     menu.toggle(event);
     this.selectedItem = item;
   }
