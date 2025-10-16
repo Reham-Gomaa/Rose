@@ -75,6 +75,12 @@
   color: var(--input-text-color);
 }
 
+.image-modal{
+  width: auto !important;
+  height: auto !important;
+
+}
+
 .custom-dropdown {
   background-color: var(--input-color);
   border: 0.0625rem solid var(--input-border-color);

@@ -188,15 +188,14 @@
             <div class="col-12 md:col-6">
               <div class="flex flex-column gap-2">
                 <label class="label-small">{{ getFieldLabel('category') }}</label>
-                <p-select 
+                <p-dropdown
                   [options]="categories()" 
                   optionLabel="name" 
                   optionValue="_id"
                   formControlName="category"
                   [placeholder]="getFieldPlaceholder('category') || 'Select an option'"
-                  styleClass="w-full custom-select"
-                   panelStyleClass="custom-select-panel">
-                </p-select>
+                  styleClass="w-full custom-dropdown">
+                </p-dropdown>
                 <app-input-error-message 
                   [control]="productForm.get('category')"
                   [customMessages]="{ required: 'products.addEdit.messages.categoryRequired' }">
@@ -207,7 +206,7 @@
             <div class="col-12 md:col-6">
               <div class="flex flex-column gap-2">
                 <label class="label-small">{{ getFieldLabel('occasion') }}</label>
-                <p-select 
+                <p-dropdown
                   [options]="occasions()" 
                   optionLabel="name" 
                   optionValue="_id"
@@ -289,7 +288,7 @@
       height="60"
       loading="lazy"
       [alt]="modalImageTitle"
-      class="w-full max-h-30rem object-contain"
+      class="w-full max-h-30rem object-contain image-modal"
     />
   </div>
 </p-dialog>
