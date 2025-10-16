@@ -151,6 +151,8 @@ $breakpoint-small: 620px;
   --selected-color-input: var(--gray-950);
   --border-active-color: var(--maroon-700);
   --upload-file-color: var(--maroon-500);
+  --dropdown-selected-bg: var(--maroon-600);
+  --dropdown-selected-color: var(--zinc-50);
   // Notification-Toast
   --toast-error-bg: var(--maroon-500);
   --toast-error-color: var(--zinc-100);
@@ -319,6 +321,8 @@ $breakpoint-small: 620px;
   --selected-color-input: var(--white);
   --border-active-color: var(--soft-pink-600);
   --upload-file-color: var(--soft-pink-500);
+  --dropdown-selected-bg: var(--soft-pink-200);
+  --dropdown-selected-color: var(--zinc-50);
   // Notification-Toast
   --toast-error-bg: var(--maroon-50);
   --toast-error-color: var(--zinc-800);
