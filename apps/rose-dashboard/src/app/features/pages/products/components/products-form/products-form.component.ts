@@ -35,6 +35,7 @@ import { CurrencyPipe, NgOptimizedImage } from "@angular/common";
   ],
   templateUrl: "./products-form.component.html",
   styleUrl: "./products-form.component.scss",
+  
 })
 export class ProductsFormComponent implements OnInit {
   private _messageService = inject(MessageService);

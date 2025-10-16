@@ -1,11 +1,12 @@
-import { Component, forwardRef, input, output } from "@angular/core";
+import { Component, forwardRef, inject, input, output } from "@angular/core";
 import { AbstractControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 // shared-components
 import { InputErrorHandlingComponent } from "../input-error-handling/input-error-handling.component";
+import { TranslateService, TranslateModule } from "@ngx-translate/core";
 
 @Component({
   selector: "lib-custom-input",
-  imports: [InputErrorHandlingComponent],
+  imports: [InputErrorHandlingComponent,TranslateModule],
   standalone: true,
   providers: [
     {
@@ -18,6 +19,7 @@ import { InputErrorHandlingComponent } from "../input-error-handling/input-error
   styleUrl: "./custom-input.component.scss",
 })
 export class CustomInputComponent implements ControlValueAccessor {
+  private _translate = inject(TranslateService);
   id = input<string>();
   type = input<string>("text");
   placeholder = input<string>("");

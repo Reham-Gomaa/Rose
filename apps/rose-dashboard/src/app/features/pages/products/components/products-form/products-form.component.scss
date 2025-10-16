@@ -41,6 +41,11 @@
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 100%;
+
+   &::placeholder {
+    color: var(--input-text-color); 
+    opacity: 1; 
+  }
 }
 
 .textarea-style:focus {
@@ -70,6 +75,12 @@
   color: var(--input-text-color);
 }
 
+.image-modal{
+  width: auto !important;
+  height: auto !important;
+
+}
+
 .custom-dropdown {
   background-color: var(--input-color);
   border: 0.0625rem solid var(--input-border-color);
@@ -93,24 +104,26 @@
   color: var(--input-text-color);
 }
 
-// .custom-dropdown .p-dropdown-label {
+// .custom-select .p-select-label {
 //   color: var(--input-text-color);
 // }
 
-// .custom-dropdown .p-dropdown-panel {
-//    background-color:var(--input-color);
+// .custom-select-panel{
+//   background-color:var(--input-color);
 //   border: 0.0625rem solid var(--input-border-color);
-// //   color: var(--input-text-color);
+
 // }
 
-// .custom-dropdown .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
-//   color: var(--input-text-color) !important;                   /* Text color of each option */
+
+// .p-select .p-select-panel .p-select-items .p-select-option {
+//   color: var(--input-text-color) !important;
 // }
 
-// ::ng-deep .p-dropdown-item:hover {
-//   background-color: yellow;
-//   color: var(--input-text-color);
+// .custom-select .p-select-panel .p-select-items .p-select-option {
+//   color: var(--input-text-color) !important; /* Text color of each option */
 // }
+
+
 
 .image-button-container {
   display: flex;

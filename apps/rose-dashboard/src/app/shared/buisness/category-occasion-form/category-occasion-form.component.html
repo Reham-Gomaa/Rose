@@ -18,14 +18,13 @@
 
     <!-- Image Section - Different for Edit vs Add mode -->
     @if (isEditMode) {
-      <!-- EDIT MODE: Show view image link only -->
+      <!-- EDIT MODE: Show view image link only (without label) -->
       <div class="flex flex-column gap-2">
-        <label class="font-medium text-sm text-gray-700">{{ getFieldLabel("image") }}</label>
         @if (previewUrl) {
           <button
             type="button"
             (click)="openImageModal()"
-            class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors duration-200 w-fit p-button p-button-text"
+            class="p-button-text"
           >
             {{ getViewImageText() }}
           </button>
@@ -34,7 +33,7 @@
         }
       </div>
     } @else {
-      <!-- ADD MODE: Show file upload -->
+      <!-- ADD MODE: Show file upload with label -->
       <div class="flex flex-column gap-2">
         <lib-custom-input
           type="file"
@@ -52,8 +51,9 @@
           <div class="image-preview mt-2">
             <p class="text-sm text-gray-600 mb-1">{{ getImagePreviewText() }}</p>
             <img
-              [src]="previewUrl"
+              [ngSrc]="previewUrl"
               [alt]="getFieldLabel('image')"
+              loading="lazy"
               class="preview-image cursor-pointer"
               (click)="openImageModal()"
               style="max-width: 200px; max-height: 150px; border-radius: 8px"
@@ -76,10 +76,10 @@
 </form>
 
 <p-dialog
-  [header]="getModalTitle()"
+  [header]="modalImageTitle"
   [(visible)]="showImageModal"
   [modal]="true"
-  [style]="{ width: '50rem' }"
+  [style]="{ width: '50rem',background: 'var(--modal-pop-up-bg)',color: 'var(--input-text-color)', }" 
   [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
   [draggable]="false"
   [resizable]="false"
@@ -87,7 +87,7 @@
 >
   <div class="flex justify-content-center">
     <img
-      [src]="previewUrl"
+      [ngSrc]="modalImageUrl!"
       [alt]="getFieldLabel('image')"
       class="w-full max-h-30rem object-contain"
     />
