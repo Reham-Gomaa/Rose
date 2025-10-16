@@ -1,4 +1,4 @@
-import { Component, input, output } from "@angular/core";
+import { Component, computed, inject, input, output } from "@angular/core";
 //prime ng
 import { MenuItem } from "primeng/api";
 import { ButtonModule } from "primeng/button";
@@ -9,7 +9,8 @@ import { TableModule } from "primeng/table";
 import { ConfirmDialogComponent } from "@angular-monorepo/confirm-dialog";
 import { ButtonComponent } from "../../../button/button.component";
 // Pipes
-import { TranslatePipe } from "@ngx-translate/core";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
+import { LoadingService } from "@rose_dashboard/shared_services/loading/loading.service";
 
 @Component({
   selector: "app-data-table",
@@ -26,6 +27,12 @@ import { TranslatePipe } from "@ngx-translate/core";
   styleUrl: "./dataTable.component.scss",
 })
 export class DataTableComponent {
+
+  private _translateService = inject(TranslateService)
+  private _loadService = inject(LoadingService);
+  
+
+
   data = input.required<any[]>();
   records = input.required<string[]>();
   entityType = input<string>("item");
@@ -37,6 +44,8 @@ export class DataTableComponent {
   showConfirmDialog = false;
   itemToDelete: any = null;
   selectedItem: any = null;
+
+  apiLoaded = computed(()=>this._loadService.itemsLoaded())
 
   // ADD THIS MAPPING METHOD
   getDisplayValue(item: any, record: string): any {
@@ -59,38 +68,45 @@ export class DataTableComponent {
   }
 
   ngOnInit() {
-    this.items = [
-      {
-        label: "",
-        items: [
-          {
-            label: "Edit",
-            icon: "pi pi-pencil",
-            iconStyle: {
-              color: "var(--edit-btn-color)",
-            },
+    this.loadMenu()
+    this._translateService.onLangChange.subscribe(()=>{
+      this.loadMenu()
+    })
+    
+  }
+  loadMenu(){
+      this.items = [
+            {
+              label: "",
+              items: [
+                {
+                  label: this._translateService.instant("ACTIONS.EDIT"),
+                  icon: "pi pi-pencil",
+                  iconStyle: {
+                    color: "var(--edit-btn-color)",
+                  },
 
-            command: () => {
-              if (this.selectedItem) {
-                this.onEdit(this.selectedItem);
-              }
+                  command: () => {
+                    if (this.selectedItem) {
+                      this.onEdit(this.selectedItem);
+                    }
+                  },
+                },
+                {
+                  label: this._translateService.instant('ACTIONS.REMOVE'),
+                  icon: "pi pi-trash",
+                  iconStyle: {
+                    color: "var(--remove-btn-color)",
+                  },
+                  command: () => {
+                    if (this.selectedItem) {
+                      this.confirmDelete(this.selectedItem);
+                    }
+                  },
+                },
+              ],
             },
-          },
-          {
-            label: "Remove",
-            icon: "pi pi-trash",
-            iconStyle: {
-              color: "var(--remove-btn-color)",
-            },
-            command: () => {
-              if (this.selectedItem) {
-                this.confirmDelete(this.selectedItem);
-              }
-            },
-          },
-        ],
-      },
-    ];
+          ];
   }
 
   onMenuClick(menu: Menu, event: MouseEvent, item: any) {
