@@ -1,8 +1,7 @@
-import { NgOptimizedImage } from "@angular/common";
 import { Component, DestroyRef, inject, OnInit } from "@angular/core";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { NavigationEnd, Router } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { filter } from "rxjs";
 
 export interface Breadcrumb {
@@ -12,7 +11,7 @@ export interface Breadcrumb {
 
 @Component({
   selector: "app-breadcrump",
-  imports: [NgOptimizedImage],
+  imports: [],
   templateUrl: "./breadcrump.component.html",
   styleUrl: "./breadcrump.component.scss",
 })

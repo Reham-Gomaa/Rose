@@ -1,4 +1,4 @@
-<div class="form-container">
+<section class="form-container">
   <div class="form-card">
     @if (isLoading()) {
       <!-- Skeleton for form loading -->
@@ -129,11 +129,17 @@
                   
                   @if (coverPreviewUrl) {
                     <div class="image-preview mt-2">
-                      <p class="text-sm text-gray-600 mb-1">{{ getImagePreviewText('cover') }}</p>
-                      <img [src]="coverPreviewUrl" alt="Cover preview" 
-                           class="preview-image cursor-pointer" 
-                           (click)="openImageModal(coverPreviewUrl!, getFieldLabel('imgCover'))"
-                           style="max-width: 200px; max-height: 150px; border-radius: 8px;">
+                      <p class="text-sm text-gray-600 mb-1">{{ getImagePreviewText("cover") }}</p>
+                      <img
+                        [ngSrc]="coverPreviewUrl"
+                        alt="Cover preview"
+                        width="60"
+                        height="60"
+                        loading="lazy"
+                        class="preview-image cursor-pointer"
+                        (click)="openImageModal(coverPreviewUrl!, getFieldLabel('imgCover'))"
+                        style="max-width: 200px; max-height: 150px; border-radius: 8px"
+                      />
                     </div>
                   }
                 </div>
@@ -156,10 +162,18 @@
                       <p class="text-sm text-gray-600 mb-1">{{ getImagePreviewText('gallery') }}</p>
                       <div class="flex flex-wrap gap-2">
                         @for (url of galleryPreviewUrls; track $index) {
-                          <img [src]="url" [alt]="getFieldLabel('images') + ' ' + ($index + 1)" 
-                               class="preview-image cursor-pointer" 
-                               (click)="openImageModal(url, getFieldLabel('images') + ' ' + ($index + 1))"
-                               style="max-width: 80px; max-height: 80px; border-radius: 8px;">
+                          <img
+                            [ngSrc]="url"
+                            [alt]="getFieldLabel('images') + ' ' + ($index + 1)"
+                            width="60"
+                            height="60"
+                            loading="lazy"
+                            class="preview-image cursor-pointer"
+                            (click)="
+                              openImageModal(url, getFieldLabel('images') + ' ' + ($index + 1))
+                            "
+                            style="max-width: 80px; max-height: 80px; border-radius: 8px"
+                          />
                         }
                       </div>
                     </div>
@@ -199,9 +213,10 @@
                   optionValue="_id"
                   formControlName="occasion"
                   [placeholder]="getFieldPlaceholder('occasion') || 'Select an option'"
-                  styleClass="w-full custom-select">
-                </p-select>
-                <app-input-error-message 
+                  styleClass="w-full custom-dropdown"
+                >
+                </p-dropdown>
+                <app-input-error-message
                   [control]="productForm.get('occasion')"
                   [customMessages]="{ required: 'products.addEdit.messages.occasionRequired' }">
                 </app-input-error-message>
@@ -255,7 +270,7 @@
       </form>
     }
   </div>
-</div>
+</section>
 
 <!-- PrimeNG Dialog for Image Modal -->
 <p-dialog 
@@ -268,9 +283,13 @@
   [resizable]="false"
   styleClass="image-modal">
   <div class="flex justify-content-center">
-    <img 
-      [src]="modalImageUrl" 
-      [alt]="modalImageTitle" 
-      class="w-full max-h-30rem object-contain" />
+    <img
+      [ngSrc]="modalImageUrl!"
+      width="60"
+      height="60"
+      loading="lazy"
+      [alt]="modalImageTitle"
+      class="w-full max-h-30rem object-contain"
+    />
   </div>
 </p-dialog>

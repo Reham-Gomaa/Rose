@@ -48,15 +48,24 @@
           }
         }
         @media all and (min-width: 62rem) {
-          font-size: 0.875rem;
+          font-size: 0.75rem;
+          span {
+            font-size: 0.5rem;
+          }
+        }
+        @media all and (min-width: 75rem) {
+          font-size: 0.9375rem;
           span {
             font-size: 0.625rem;
           }
         }
-        @media all and (min-width: 75rem) {
-          font-size: 1.25rem;
-        }
         @media all and (min-width: 83.75rem) {
+          font-size: 1.25rem;
+          span {
+            font-size: 0.625rem;
+          }
+        }
+        @media all and (min-width: 87.5rem) {
           font-size: 1.5rem;
           span {
             font-size: 0.875rem;
@@ -76,7 +85,7 @@
           font-size: 1rem;
         }
         @media all and (min-width: 62rem) {
-          font-size: 0.75rem;
+          font-size: 0.625rem;
         }
         @media all and (min-width: 75rem) {
           font-size: 1rem;
