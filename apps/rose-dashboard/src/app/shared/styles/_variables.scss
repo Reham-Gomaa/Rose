@@ -167,6 +167,8 @@ $breakpoint-small: 620px;
   --aside-nav-item: var(#27272a);
   --bread-crump: var(#667085);
   --active-item-bg: var(--maroon-50);
+  --active-item-bg-hover: var(--maroon-50);
+  --active-item-color-hover: var(--zinc-800);
   --active-item-text: var(--soft-maroon-600);
   --drop-button-down-bg: var(--zinc-800);
 
@@ -336,6 +338,8 @@ $breakpoint-small: 620px;
   --aside-nav-item: var(--white);
   --bread-crump: var(--zinc-300);
   --active-item-bg: var(--soft-pink-50);
+  --active-item-bg-hover: var(--maroon-50);
+  --active-item-color-hover: var(--zinc-800);
   --active-item-text: var(--soft-pink-600);
   --drop-button-down-bg: var(--white);
 
