@@ -1,27 +1,28 @@
 import { Component, inject, OnInit, signal } from "@angular/core";
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
-import { ProductsService, ProductDetailsRes } from "@angular-monorepo/products";
+import { Subject, takeUntil } from "rxjs";
+// Shared_Service
 import { CategoriesService } from "@angular-monorepo/categories";
 import { OccasionService } from "@angular-monorepo/occasions";
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
-import { CommonModule } from "@angular/common";
+import { ProductDetailsRes, ProductsService } from "@angular-monorepo/products";
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
+// Components
+import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
+import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
+import { InputErrorMessageComponent } from "@rose_dashboard/shared_buisness/input-error/input-error.component";
+// Primeng
 import { MessageService } from "primeng/api";
 import { Skeleton } from "primeng/skeleton";
-import { Subject, takeUntil } from "rxjs";
-
-// Components
-import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
-import { FormButtonComponent } from "@angular-monorepo/rose-buttons";
 import { DialogModule } from "primeng/dialog";
 import { DropdownModule } from "primeng/dropdown";
-import { TranslateModule, TranslateService } from "@ngx-translate/core";
-import { InputErrorMessageComponent } from "@rose_dashboard/shared_buisness/input-error/input-error.component";
+import { CurrencyPipe, NgOptimizedImage } from "@angular/common";
 
 @Component({
   selector: "app-products-form",
   standalone: true,
   imports: [
-    CommonModule,
+    NgOptimizedImage,
     ReactiveFormsModule,
     CustomInputComponent,
     FormButtonComponent,
@@ -30,6 +31,7 @@ import { InputErrorMessageComponent } from "@rose_dashboard/shared_buisness/inpu
     Skeleton,
     TranslateModule,
     InputErrorMessageComponent,
+    CurrencyPipe,
   ],
   templateUrl: "./products-form.component.html",
   styleUrl: "./products-form.component.scss",

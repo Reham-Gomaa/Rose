@@ -1,4 +1,4 @@
-<div class="form-container">
+<section class="form-container">
   <div class="form-card">
     @if (isLoading()) {
       <!-- Skeleton for form loading -->
@@ -140,8 +140,11 @@
                     <div class="image-preview mt-2">
                       <p class="text-sm text-gray-600 mb-1">{{ getImagePreviewText("cover") }}</p>
                       <img
-                        [src]="coverPreviewUrl"
+                        [ngSrc]="coverPreviewUrl"
                         alt="Cover preview"
+                        width="60"
+                        height="60"
+                        loading="lazy"
                         class="preview-image cursor-pointer"
                         (click)="openImageModal(coverPreviewUrl!, getFieldLabel('imgCover'))"
                         style="max-width: 200px; max-height: 150px; border-radius: 8px"
@@ -170,8 +173,11 @@
                       <div class="flex flex-wrap gap-2">
                         @for (url of galleryPreviewUrls; track $index) {
                           <img
-                            [src]="url"
+                            [ngSrc]="url"
                             [alt]="getFieldLabel('images') + ' ' + ($index + 1)"
+                            width="60"
+                            height="60"
+                            loading="lazy"
                             class="preview-image cursor-pointer"
                             (click)="
                               openImageModal(url, getFieldLabel('images') + ' ' + ($index + 1))
@@ -221,7 +227,7 @@
                   optionValue="_id"
                   formControlName="occasion"
                   [placeholder]="getFieldPlaceholder('occasion') || 'Select an option'"
-                  styleClass="w-full"
+                  styleClass="w-full custom-dropdown"
                 >
                 </p-dropdown>
                 <app-input-error-message
@@ -284,7 +290,7 @@
       </form>
     }
   </div>
-</div>
+</section>
 
 <!-- PrimeNG Dialog for Image Modal -->
 <p-dialog
@@ -302,6 +308,13 @@
   styleClass="image-modal"
 >
   <div class="flex justify-content-center">
-    <img [src]="modalImageUrl" [alt]="modalImageTitle" class="w-full max-h-30rem object-contain" />
+    <img
+      [ngSrc]="modalImageUrl!"
+      width="60"
+      height="60"
+      loading="lazy"
+      [alt]="modalImageTitle"
+      class="w-full max-h-30rem object-contain"
+    />
   </div>
 </p-dialog>

@@ -1,13 +1,4 @@
 <div class="breadcrumb flex">
-  <img
-    ngSrc="images/overview/logo.png"
-    alt="mge for logo"
-    width="60"
-    height="60"
-    loading="lazy"
-    decoding="async"
-    class="logo-img inline-block md:hidden"
-  />
   <div class="flex justify-center items-center">
     @for (item of breadCrumb; track $index) {
       @if ($index === breadCrumb.length - 1) {
