@@ -1,4 +1,4 @@
-import { Component, inject, signal } from "@angular/core";
+import { Component, effect, inject, signal } from "@angular/core";
 import { MenuItem } from "primeng/api";
 import { Menu } from "primeng/menu";
 import { ButtonModule } from "primeng/button";
@@ -17,46 +17,61 @@ import { User } from "auth-api-kp";
   styleUrl: "./user-data.component.scss",
 })
 export class UserDataComponent {
+  // Reactive states
   user = signal<User | null>(null);
-
   isLoggedIn = signal<boolean>(false);
   loading = signal(false);
 
+  // Injected services
   private readonly _translate = inject(TranslateService);
   private readonly _router = inject(Router);
   private readonly _storageManagerService = inject(StorageManagerService);
   protected readonly _userDataService = inject(UserDataService);
   private readonly _logoutService = inject(LogoutService);
 
+  // Dropdown menu items (will be updated dynamically)
+  userDropDown: MenuItem[] = [];
+
+  constructor() {
+    // Reactively rebuild dropdown whenever username changes
+    effect(() => {
+      const name = this._userDataService.userName(); // signal or getter
+      this.buildUserDropdown(name);
+    });
+  }
+
   ngOnInit() {
+    // Load user info (possibly from API/localStorage)
     this._userDataService.loadUserInfo();
   }
 
-  userDropDown: MenuItem[] = [
-    {
-      label: this._userDataService.userName(),
-      escape: true,
-    },
-    {
-      separator: true,
-    },
-    {
-      label: this._translate.instant("menu.account"),
-      icon: "pi pi-user",
-      command: () => this._router.navigate(["/dashboard/user-profile"]),
-    },
-    {
-      separator: true,
-    },
-    {
-      label: this._translate.instant("menu.logout"),
-      icon: "pi pi-sign-out",
-      command: () => {
-        this.logout();
-        this._storageManagerService.removeItem("authToken");
+  private buildUserDropdown(userName: string) {
+    this.userDropDown = [
+      {
+        label: userName || "Guest",
+        escape: true,
       },
-    },
-  ];
+      {
+        separator: true,
+      },
+      {
+        label: this._translate.instant("menu.account"),
+        icon: "pi pi-user",
+        command: () => this._router.navigate(["/dashboard/user-profile"]),
+      },
+      {
+        separator: true,
+      },
+      {
+        label: this._translate.instant("menu.logout"),
+        icon: "pi pi-sign-out",
+        command: () => {
+          this.logout();
+          this._storageManagerService.removeItem("authToken");
+        },
+      },
+    ];
+  }
 
   logout() {
     this._logoutService.logout();
