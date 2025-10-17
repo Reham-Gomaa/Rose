@@ -26,21 +26,27 @@
       class="w-full"
     ></lib-custom-input>
   </div>
+ 
+      <div class="data-table">
+       
+          <app-data-table
+            [data]="data_items() | pagPipe: firstIndex : numOfRows | search: searchWord"
+            [records]="table_records()"
+            [entityType]="entityType()"
+            (edit)="onEdit($event)"
+            (delete)="onDelete($event)"
+          >
+          </app-data-table>
+        
+      </div>
 
-  <div class="data-table">
-    <app-data-table
-      [data]="data_items() | pagPipe: firstIndex : numOfRows | search: searchWord"
-      [records]="table_records()"
-      [entityType]="entityType()"
-      (edit)="onEdit($event)"
-      (delete)="onDelete($event)"
-    >
-    </app-data-table>
-  </div>
+  
+  
 </div>
 <div class="pagination my-2">
-  <app-pagination
-    (currentPage)="getPage($event)"
-    [totalDataSize]="data_items().length"
-  ></app-pagination>
+
+    <app-pagination
+      (currentPage)="getPage($event)"
+      [totalDataSize]="data_items().length"
+    ></app-pagination>
 </div>

@@ -1,6 +1,6 @@
 <div class="card">
   @if (data().length > 0) {
-    <p-table [value]="data()" [scrollable]="true"  >
+    <p-table [value]="data()"  [scrollable]="true"  >
       <ng-template #header>
         <tr>
           @for (record of records(); track $index) {
@@ -10,6 +10,9 @@
             >
               @let colName = record === "productsCount" ? "products".toUpperCase() : record.toUpperCase();
               {{ `TABLE.${colName}` | translate }}
+
+
+
             </th>
           }
           <th></th>
@@ -71,29 +74,43 @@
       </ng-template>
     </p-table>
   } @else {
-    <p-table [value]="[{}, {}, {}, {}, {}, {}, {}, {}]" responsiveLayout="scroll">
-      <ng-template #header>
-        <tr>
-          @for (record of records(); track $index) {
-            <th>{{ record }}</th>
+    @if(apiLoaded() === false) {
+
+      <p-table [value]="[{}, {}, {}, {}, {}, {}, {}, {}]" responsiveLayout="scroll">
+        <ng-template #header>
+          <tr>
+             @for (record of records(); track $index) {
+            <th
+
+              class="capitalize"
+            >
+              @let colName = record === "productsCount" ? "products".toUpperCase() : record.toUpperCase();
+              {{ `TABLE.${colName}` | translate }}
+
+
+
+            </th>
           }
-          <th></th>
-        </tr>
-      </ng-template>
-      <ng-template #body let-product>
-        <tr>
-          @for (record of records(); track $index) {
-            <td>
-              <p-skeleton width="100%" height="1.5rem"></p-skeleton>
-            </td>
-          }
-          <td class="flex gap-3 justify-content-end">
-            <p-skeleton width="100%" height="1.5rem"></p-skeleton>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
+          </tr>
+        </ng-template>
+        <ng-template #body let-product>
+          <tr>
+            @for (record of records(); track $index) {
+              <td>
+                <p-skeleton width="100%" height="1.5rem"></p-skeleton>
+              </td>
+            }
+            
+          </tr>
+        </ng-template>
+      </p-table>
+    }@else {
+      <p class="not-found">
+        No Items Found In This Page 
+      </p>
+    }
   }
+  
 </div>
 
 <!-- Your custom confirm dialog -->

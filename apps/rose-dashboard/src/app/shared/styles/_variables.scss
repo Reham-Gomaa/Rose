@@ -259,6 +259,12 @@ $breakpoint-small: 620px;
   // error page
   --error-page-title: var(--black);
   --error-page-subtitle: var(--zinc-400);
+
+
+  //not found items
+  --notFound-color:var(--zinc-800);
+
+
 }
 
 // Dark theme overrides
@@ -436,4 +442,6 @@ $breakpoint-small: 620px;
   // error page
   --error-page-title: var(--zinc-50);
   --error-page-subtitle: var(--zinc-300);
+    //not found items
+  --notFound-color:var(--zinc-50);
 }

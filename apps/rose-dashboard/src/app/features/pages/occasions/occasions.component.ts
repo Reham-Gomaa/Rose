@@ -4,6 +4,7 @@ import { DataViewComponent } from "../../../shared/ui/dataView/dataView.componen
 import { OccasionService, occasion } from "@angular-monorepo/occasions";
 import { Router } from "@angular/router";
 import { MessageService } from "primeng/api";
+import { LoadingService } from "@rose_dashboard/shared_services/loading/loading.service";
 
 @Component({
   selector: "app-occasions",
@@ -15,14 +16,17 @@ export class OccasionsComponent {
   private occasion_service = inject(OccasionService);
   private router = inject(Router);
   private messageService = inject(MessageService);
+  private _loadService = inject(LoadingService);
 
   table_header_records: string[] = ["name", "productsCount"];
   occasions: WritableSignal<occasion[]> = signal<occasion[]>([]);
 
   ngOnInit() {
+    this._loadService.itemsLoaded.set(false)
     this.occasion_service.getAllOccasions().subscribe({
       next: (res) => {
         this.occasions.set(res.occasions);
+        this._loadService.itemsLoaded.set(true)
       },
     });
   }
