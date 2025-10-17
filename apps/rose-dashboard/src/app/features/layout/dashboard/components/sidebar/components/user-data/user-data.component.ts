@@ -1,8 +1,7 @@
-import { Component, inject, signal, OnDestroy } from "@angular/core";
+import { Component, effect, inject, signal } from "@angular/core";
 import { MenuItem } from "primeng/api";
-import { MenuModule } from "primeng/menu";
+import { Menu } from "primeng/menu";
 import { ButtonModule } from "primeng/button";
-import { Subject, takeUntil } from "rxjs";
 import { TranslateService } from "@ngx-translate/core";
 import { Router } from "@angular/router";
 import { StorageManagerService, UserDataService } from "@angular-monorepo/services";
@@ -13,38 +12,43 @@ import { User } from "auth-api-kp";
 
 @Component({
   selector: "app-user-data",
-  imports: [ButtonModule, MenuModule, ButtonThemeComponent, TranslateToggleComponent, UserPhotoComponent],
+  imports: [ButtonModule, Menu, ButtonThemeComponent, TranslateToggleComponent, UserPhotoComponent],
   templateUrl: "./user-data.component.html",
-  styleUrls: ["./user-data.component.scss"],
+  styleUrl: "./user-data.component.scss",
 })
-export class UserDataComponent implements OnDestroy {
+export class UserDataComponent {
+  // Reactive states
   user = signal<User | null>(null);
-
   isLoggedIn = signal<boolean>(false);
   loading = signal(false);
 
+  // Injected services
   private readonly _translate = inject(TranslateService);
   private readonly _router = inject(Router);
   private readonly _storageManagerService = inject(StorageManagerService);
   protected readonly _userDataService = inject(UserDataService);
   private readonly _logoutService = inject(LogoutService);
-  private readonly destroy$ = new Subject<void>();
 
-  ngOnInit() {
-    this._userDataService.loadUserInfo();
-    this.userDropDown = this.buildUserDropdown();
+  // Dropdown menu items (will be updated dynamically)
+  userDropDown: MenuItem[] = [];
 
-    this._translate.onLangChange.pipe(takeUntil(this.destroy$)).subscribe(() => {
-      this.userDropDown = this.buildUserDropdown();
+  constructor() {
+    // Reactively rebuild dropdown whenever username changes
+    effect(() => {
+      const name = this._userDataService.userName(); // signal or getter
+      this.buildUserDropdown(name);
     });
   }
 
-  userDropDown: MenuItem[] = [];
+  ngOnInit() {
+    // Load user info (possibly from API/localStorage)
+    this._userDataService.loadUserInfo();
+  }
 
-  private buildUserDropdown(): MenuItem[] {
-    return [
+  private buildUserDropdown(userName: string) {
+    this.userDropDown = [
       {
-        label: this._userDataService.userName(),
+        label: userName || "Guest",
         escape: true,
       },
       {
@@ -71,10 +75,5 @@ export class UserDataComponent implements OnDestroy {
 
   logout() {
     this._logoutService.logout();
-  }
-
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
   }
 }
