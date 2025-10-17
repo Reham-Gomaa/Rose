@@ -99,9 +99,9 @@
 <!-- Your custom confirm dialog -->
 <lib-confirm-dialog
   [visible]="showConfirmDialog"
-  [message]="'Are you sure you want to delete this ' + entityType() + '?'"
-  [subMessage]="'This action cannot be undone.'"
-  [cancelLabel]="'Cancel'"
-  [confirmLabel]="'Delete'"
+  [message]="'CONFIRM_DIALOG.DELETE_MESSAGE' | translate: { type: ('ENTITY_TYPES.' + entityType()) | translate }"
+  [subMessage]="'CONFIRM_DIALOG.DELETE_SUBMESSAGE' | translate"
+  [cancelLabel]="'CONFIRM_DIALOG.CANCEL' | translate"
+  [confirmLabel]="'CONFIRM_DIALOG.DELETE' | translate"
   (confirmed)="onDialogConfirmed($event)"
 ></lib-confirm-dialog>
