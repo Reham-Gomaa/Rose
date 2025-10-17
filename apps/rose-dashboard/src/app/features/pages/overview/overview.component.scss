@@ -26,12 +26,19 @@
       gap: 1.5rem;
     }
 
+    #categories,
+    #topSelling,
+    #lowStock {
+      @media all and (max-width: 38.125rem) {
+        padding: 1rem;
+      }
+    }
+
     #statistics,
     #categories,
     #topSelling,
     #lowStock {
       border-radius: 1rem;
-      padding: 0;
       background-color: var(--cards-bg);
       flex: 1;
       margin-bottom: 1.5rem;
@@ -54,11 +61,21 @@
     #orderChart,
     #revenueChart {
       border-radius: 1rem;
-      padding: 0;
+      padding: 1rem;
       background-color: var(--cards-bg);
       margin-bottom: 1.5rem;
       @media all and (min-width: 38.125rem) {
-        padding: 1rem;
+        padding: 1.5rem;
+      }
+      @media all and (min-width: 52rem) {
+        width: 90%;
+        margin: 0 auto 1.5rem;
+      }
+
+      @media all and (min-width: 62rem) {
+        width: 100%;
+        margin-bottom: 0;
+        padding: 1.5rem;
       }
     }
     #orderChart {
