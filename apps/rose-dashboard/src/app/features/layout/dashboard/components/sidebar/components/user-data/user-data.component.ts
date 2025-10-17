@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal } from "@angular/core";
+import { Component, effect, inject, OnDestroy, OnInit, signal } from "@angular/core";
 import { Router } from "@angular/router";
 // Translate
 import { TranslateService } from "@ngx-translate/core";
@@ -15,6 +15,7 @@ import { User } from "auth-api-kp";
 import { MenuItem } from "primeng/api";
 import { Menu } from "primeng/menu";
 import { ButtonModule } from "primeng/button";
+import { Subject, takeUntil } from "rxjs";
 
 @Component({
   selector: "app-user-data",
@@ -22,11 +23,11 @@ import { ButtonModule } from "primeng/button";
   templateUrl: "./user-data.component.html",
   styleUrl: "./user-data.component.scss",
 })
-export class UserDataComponent {
-
+export class UserDataComponent implements OnInit, OnDestroy {
   user = signal<User | null>(null);
   isLoggedIn = signal<boolean>(false);
-  loading = signal(false);
+  loading = signal<boolean>(false);
+
   userDropDown: MenuItem[] = [];
 
   private readonly _translate = inject(TranslateService);
@@ -35,35 +36,37 @@ export class UserDataComponent {
   protected readonly _userDataService = inject(UserDataService);
   private readonly _logoutService = inject(LogoutService);
 
+  private readonly destroy$ = new Subject<void>();
 
   constructor() {
     effect(() => {
       const name = this._userDataService.userName();
-      this.buildUserDropdown(name);
+      this.userDropDown = this.buildUserDropdown(name);
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this._userDataService.loadUserInfo();
+
+    this._translate.onLangChange.pipe(takeUntil(this.destroy$)).subscribe(() => {
+      const name = this._userDataService.userName();
+      this.userDropDown = this.buildUserDropdown(name);
+    });
   }
 
-  private buildUserDropdown(userName: string) {
-    this.userDropDown = [
+  private buildUserDropdown(userName: string): MenuItem[] {
+    return [
       {
         label: userName || "Guest",
         escape: true,
       },
-      {
-        separator: true,
-      },
+      { separator: true },
       {
         label: this._translate.instant("menu.account"),
         icon: "pi pi-user",
         command: () => this._router.navigate(["/dashboard/user-profile"]),
       },
-      {
-        separator: true,
-      },
+      { separator: true },
       {
         label: this._translate.instant("menu.logout"),
         icon: "pi pi-sign-out",
@@ -75,7 +78,12 @@ export class UserDataComponent {
     ];
   }
 
-  logout() {
+  logout(): void {
     this._logoutService.logout();
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
