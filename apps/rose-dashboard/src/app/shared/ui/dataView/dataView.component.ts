@@ -1,8 +1,8 @@
-import { Component, inject, input, output, Output, signal } from "@angular/core";
-import { Router } from "@angular/router";
 import { CommonModule } from "@angular/common";
-import { ButtonComponent } from "../button/button.component";
+import { Component, computed, inject, input, output, signal } from "@angular/core";
 import { FormControl, ReactiveFormsModule, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
+import { ButtonComponent } from "../button/button.component";
 
 //primeNg
 import { TableModule } from "primeng/table";
@@ -12,11 +12,12 @@ import { PaginationComponent } from "./components/pagination/pagination.componen
 import { occasion } from "@angular-monorepo/occasions";
 import { CustomInputComponent } from "@angular-monorepo/rose-custom-inputs";
 //pipes
+import { TranslatePipe } from "@ngx-translate/core";
 import { PagPipePipe } from "./pipes/paginationPipe/pagPipe.pipe";
 import { SearchPipe } from "./pipes/searchPipe/search.pipe";
-import { EventEmitter } from "stream";
-import { TransplantedType } from "@angular/compiler";
-import { TranslatePipe } from "@ngx-translate/core";
+import { Product } from "@angular-monorepo/products";
+import { Category } from "@angular-monorepo/categories";
+import { LoadingService } from "@rose_dashboard/shared_services/loading/loading.service";
 
 export type dataTypes = occasion[] | any[];
 
@@ -38,10 +39,11 @@ export type dataTypes = occasion[] | any[];
   styleUrl: "./dataView.component.scss",
 })
 export class DataViewComponent {
-  data_items = input.required<occasion[] | any[]>();
+  data_items = input.required<occasion[] | Product[] | Category[]>();
   table_records = input.required<string[]>();
   entityType = input<string>("item");
   public _r = inject(Router);
+  
   currentData = signal<string>(this._r.url.split("/")[this._r.url.split("/").length - 1]);
   firstIndex: number = 0;
   numOfRows: number = 6;
@@ -50,6 +52,7 @@ export class DataViewComponent {
   addNew = output<void>();
   editItem = output<any>();
   deleteItem = output<any>();
+
   getPage(pagData: { first: number; rows: number }) {
     this.firstIndex = pagData.first;
     this.numOfRows = pagData.rows;

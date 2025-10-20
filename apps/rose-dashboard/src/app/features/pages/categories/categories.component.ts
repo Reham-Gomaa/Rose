@@ -3,6 +3,7 @@ import { Component, inject, signal, WritableSignal } from "@angular/core";
 import { DataViewComponent } from "../../../shared/ui/dataView/dataView.component";
 import { Router } from "@angular/router";
 import { MessageService } from "primeng/api";
+import { LoadingService } from "@rose_dashboard/shared_services/loading/loading.service";
 
 @Component({
   selector: "app-categories",
@@ -14,13 +15,17 @@ export class CategoriesComponent {
   private category_service = inject(CategoriesService);
   private router = inject(Router);
   private messageService = inject(MessageService);
+    private _loadService = inject(LoadingService);
+  
   table_header_records: string[] = ["name", "products"];
   cats: WritableSignal<Category[]> = signal<Category[]>([]);
 
   ngOnInit() {
+    this._loadService.itemsLoaded.set(false)
     this.category_service.getAllCategories().subscribe({
       next: (res) => {
         this.cats.set(res.categories);
+        this._loadService.itemsLoaded.set(true)
       },
     });
   }
