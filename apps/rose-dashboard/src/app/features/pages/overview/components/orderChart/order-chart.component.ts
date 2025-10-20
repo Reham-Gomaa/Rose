@@ -79,7 +79,7 @@ export class OrderChartComponent {
           callbacks: {
             label: (context: { dataIndex: number }) => {
               const percentage = this.percentage[context.dataIndex];
-              return `${Math.round(percentage * 10) / 10}%`;
+              return `${Math.trunc(percentage * 10) / 10}%`;
             },
           },
           titleFont: {

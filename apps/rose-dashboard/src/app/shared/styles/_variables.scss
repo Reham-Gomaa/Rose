@@ -227,6 +227,8 @@ $breakpoint-small: 620px;
   --view-btn-txtColor: var(--white);
   --edit-btn-color: var(--blue-600);
   --remove-btn-color: var(--red-600);
+  --inSmall-btn-bg: var(--zinc-50);
+  --inSmall-btn-color: var(--zinc-800);
 
   // Data User
   --data-user-background: var(--white);
@@ -260,11 +262,8 @@ $breakpoint-small: 620px;
   --error-page-title: var(--black);
   --error-page-subtitle: var(--zinc-400);
 
-
   //not found items
-  --notFound-color:var(--zinc-800);
-
-
+  --notFound-color: var(--zinc-800);
 }
 
 // Dark theme overrides
@@ -419,6 +418,8 @@ $breakpoint-small: 620px;
   --view-btn-txtColor: var(--zinc-800);
   --edit-btn-color: var(--blue-600);
   --remove-btn-color: var(--red-600);
+  --inSmall-btn-bg: var(--zinc-800);
+  --inSmall-btn-color: var(--zinc-50);
 
   --category-value-bg: linear-gradient(135deg, #ffb6c166, #ffffff4d);
   --category-value-hover-bg: linear-gradient(to right, #ffb6c166, #ffffff4d);
@@ -442,6 +443,6 @@ $breakpoint-small: 620px;
   // error page
   --error-page-title: var(--zinc-50);
   --error-page-subtitle: var(--zinc-300);
-    //not found items
-  --notFound-color:var(--zinc-50);
+  //not found items
+  --notFound-color: var(--zinc-50);
 }
