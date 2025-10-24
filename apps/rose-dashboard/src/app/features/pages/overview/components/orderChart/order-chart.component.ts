@@ -74,7 +74,7 @@ export class OrderChartComponent {
           callbacks: {
             label: (context: { dataIndex: number }) => {
               const percentage = this.percentage[context.dataIndex];
-              return `${Math.round(percentage)}%`;
+              return `${percentage.toFixed(1)}%`;
             },
           },
           titleFont: {
