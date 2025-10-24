@@ -10,3 +10,18 @@ html {
   overflow-x: hidden;
   height: 100vh;
 }
+
+.custom-small-menu.p-menu {
+  background: none !important;
+  background-color: var(--inSmall-btn-bg) !important;
+  border: 1px solid #d4d4d8;
+  border-radius: 8px;
+}
+.p-menu.custom-small-menu .p-menu-item-link {
+  color: var(--inSmall-btn-color) !important;
+  transition: all 0.3s ease-in;
+}
+.custom-small-menu .p-menu-item-link:hover {
+  background-color: var(--inSmall-btn-bg-hover) !important;
+  color: var(--inSmall-btn-color-hover) !important;
+}

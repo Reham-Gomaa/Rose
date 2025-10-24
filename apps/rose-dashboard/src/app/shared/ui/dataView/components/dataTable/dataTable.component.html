@@ -59,7 +59,13 @@
               </div>
               <div class="in-small flex lg:hidden justify-content-end">
                 <div class="card flex justify-content-center relative">
-                  <p-menu #menu [appendTo]="'body'" [model]="items" [popup]="true" />
+                  <p-menu
+                    #menu
+                    [appendTo]="'body'"
+                    [model]="items"
+                    [popup]="true"
+                    styleClass="custom-small-menu"
+                  />
                   <p-button (click)="onMenuClick(menu, $event, item)" icon="pi pi-ellipsis-v" />
                 </div>
               </div>
