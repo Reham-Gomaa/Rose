@@ -154,7 +154,8 @@
     "oopsTitle": "Oops, something went wrong!",
     "oopsDesc": "Something unexpected happened, please refresh the page or try again shortly.",
     "unauthorizedTitle": "You are not authorized to access this page.",
-    "unauthorizedDesc": "If you think this is wrong, please contact the support."
+    "unauthorizedDesc": "If you think this is wrong, please contact the support.",
+    "goToHomepage": "Go to Homepage"
   },
   "menu": {
     "account": "Account",
