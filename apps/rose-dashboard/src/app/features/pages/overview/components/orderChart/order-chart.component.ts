@@ -52,9 +52,6 @@ export class OrderChartComponent {
     this.backgroundColors = this.filtered.map((o) => this.colorMap[o._id!] || "#6B7280");
     this.total = this.values.reduce((a: any, b: any) => a + b, 0);
     this.percentage = this.values.map((v) => (v / this.total) * 100);
-
-    console.log(this.total);
-    console.log(this.percentage);
   }
 
   initChart() {
@@ -77,7 +74,7 @@ export class OrderChartComponent {
           callbacks: {
             label: (context: { dataIndex: number }) => {
               const percentage = this.percentage[context.dataIndex];
-              return `${Math.trunc(percentage * 10) / 10}%`;
+              return `${percentage.toFixed(1)}%`;
             },
           },
           titleFont: {
