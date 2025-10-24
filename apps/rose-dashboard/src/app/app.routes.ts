@@ -1,11 +1,19 @@
 import { Route } from "@angular/router";
+// Components
 import { DashboardComponent } from "@rose_dashboard/features_layouts/dashboard/dashboard.component";
+// Documentation
+import { DocumentationComponent } from "./documentation/documentation.component";
 
 export const appRoutes: Route[] = [
   {
     path: "",
     redirectTo: "dashboard",
     pathMatch: "full",
+  },
+  {
+    path: "documentation",
+    title: "titles.documentation",
+    component: DocumentationComponent,
   },
   {
     path: "dashboard",

@@ -18,10 +18,11 @@ import { fadeTransition } from "@angular-monorepo/services";
 // PrimeNG
 import { MessageService } from "primeng/api";
 // Auth lib
-import { AuthApiKpService } from "auth-api-kp";
+import { AuthApiKpService, User } from "auth-api-kp";
 // Store
 import { Store } from "@ngrx/store";
 import * as AuthActions from "@rose/store_auth/auth.actions";
+import { environment } from "@rose/environment/baseurl.dev";
 
 @Component({
   selector: "app-login",
@@ -51,6 +52,9 @@ export class LoginComponent {
   apiError = signal<string>("");
   isLoading = signal<boolean>(false);
 
+  user = signal<User | null>(null);
+  token = this._storageManagerService.getItem("authToken");
+
   loginForm: FormGroup = new FormGroup({
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [
@@ -79,7 +83,11 @@ export class LoginComponent {
               detail: this._translate.instant("messagesToast.loginSuccess"),
               life: 3000,
             });
-            this._router.navigate(["/dashboard/home"]);
+            if (res.user?.role === "admin") {
+              window.location.href = `${environment.runUrlDashboard}?token=${encodeURIComponent(res.token)}`;
+            } else {
+              this._router.navigate(["/dashboard/home"]);
+            }
           } else {
             this._messageService.add({
               severity: "error",
@@ -88,7 +96,7 @@ export class LoginComponent {
             });
           }
         },
-        error: (err) => {
+        error: () => {
           this._messageService.add({
             severity: "error",
             detail: this._translate.instant("messagesToast.loginFailed"),

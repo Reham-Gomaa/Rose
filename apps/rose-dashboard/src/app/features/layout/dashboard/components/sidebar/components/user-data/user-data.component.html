@@ -1,8 +1,3 @@
-<div class="flex justify-content-end">
-  <lib-translate-toggle />
-  <lib-button-theme />
-</div>
-
 <div class="user-box">
   <div class="user-info">
     <app-user-photo />
@@ -13,6 +8,25 @@
     </div>
   </div>
 
-  <p-menu #menu [popup]="true" [model]="userDropDown"></p-menu>
+  <p-menu #menu [popup]="true" [model]="userDropDown">
+    <ng-template pTemplate="start">
+      <div
+        class="translate-and-theme-container"
+        (click)="menu.hide()"
+        tabindex="0"
+        (keydown)="menu.hide()"
+      >
+        <div class="translate-container">
+          <i class="pi pi-globe"></i>
+          <lib-translate-toggle />
+        </div>
+
+        <div class="theme-container">
+          <lib-button-theme />
+        </div>
+      </div>
+    </ng-template>
+  </p-menu>
+
   <p-button icon="pi pi-ellipsis-v" (click)="menu.toggle($event)" aria-label="More options" />
 </div>

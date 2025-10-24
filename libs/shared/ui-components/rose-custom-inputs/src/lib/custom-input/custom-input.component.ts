@@ -6,7 +6,7 @@ import { TranslateService, TranslateModule } from "@ngx-translate/core";
 
 @Component({
   selector: "lib-custom-input",
-  imports: [InputErrorHandlingComponent,TranslateModule],
+  imports: [InputErrorHandlingComponent, TranslateModule],
   standalone: true,
   providers: [
     {

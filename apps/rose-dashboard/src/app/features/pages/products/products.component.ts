@@ -1,4 +1,3 @@
-
 import { DataViewComponent } from "../../../shared/ui/dataView/dataView.component";
 import { Product, ProductsService } from "@angular-monorepo/products";
 import { Component, inject, signal, WritableSignal } from "@angular/core";
@@ -21,12 +20,12 @@ export class ProductsComponent {
   table_header_records: string[] = ["name", "price", "stock", "sales", "ratings"];
   prods: WritableSignal<Product[]> = signal<Product[]>([]);
   ngOnInit() {
-    this._loadService.itemsLoaded.set(false)
+    this._loadService.itemsLoaded.set(false);
     this.products_service.getAllProducts().subscribe({
       next: (res) => {
         this.prods.set(res.products);
-        this._loadService.itemsLoaded.set(true)
-      }
+        this._loadService.itemsLoaded.set(true);
+      },
     });
   }
 

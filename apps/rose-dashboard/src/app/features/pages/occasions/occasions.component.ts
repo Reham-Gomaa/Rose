@@ -22,11 +22,11 @@ export class OccasionsComponent {
   occasions: WritableSignal<occasion[]> = signal<occasion[]>([]);
 
   ngOnInit() {
-    this._loadService.itemsLoaded.set(false)
+    this._loadService.itemsLoaded.set(false);
     this.occasion_service.getAllOccasions().subscribe({
       next: (res) => {
         this.occasions.set(res.occasions);
-        this._loadService.itemsLoaded.set(true)
+        this._loadService.itemsLoaded.set(true);
       },
     });
   }

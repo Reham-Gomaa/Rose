@@ -1,0 +1,1910 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@angular-monorepo/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@angular-monorepo/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CategoryOccasionFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnChanges</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-category-occasion-form</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>CommonModule</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>CustomInputComponent</code>
+                                <code><a href="../components/ButtonComponent.html" target="_self" >FormButtonComponent</a></code>
+                            <code>DialogModule</code>
+                            <code>TranslateModule</code>
+                            <code>NgOptimizedImage</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./category-occasion-form.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./category-occasion-form.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_translate" >_translate</a>
+                            </li>
+                            <li>
+                                <a href="#entityForm" >entityForm</a>
+                            </li>
+                            <li>
+                                <a href="#isEditMode" >isEditMode</a>
+                            </li>
+                            <li>
+                                <a href="#isSubmitting" >isSubmitting</a>
+                            </li>
+                            <li>
+                                <a href="#modalImageTitle" >modalImageTitle</a>
+                            </li>
+                            <li>
+                                <a href="#modalImageUrl" >modalImageUrl</a>
+                            </li>
+                            <li>
+                                <a href="#previewUrl" >previewUrl</a>
+                            </li>
+                            <li>
+                                <a href="#selectedFile" >selectedFile</a>
+                            </li>
+                            <li>
+                                <a href="#showImageModal" >showImageModal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#closeImageModal" >closeImageModal</a>
+                            </li>
+                            <li>
+                                <a href="#getFieldLabel" >getFieldLabel</a>
+                            </li>
+                            <li>
+                                <a href="#getFieldPlaceholder" >getFieldPlaceholder</a>
+                            </li>
+                            <li>
+                                <a href="#getFormTitle" >getFormTitle</a>
+                            </li>
+                            <li>
+                                <a href="#getImagePreviewText" >getImagePreviewText</a>
+                            </li>
+                            <li>
+                                <a href="#getLoadingText" >getLoadingText</a>
+                            </li>
+                            <li>
+                                <a href="#getModalTitle" >getModalTitle</a>
+                            </li>
+                            <li>
+                                <a href="#getNoImageText" >getNoImageText</a>
+                            </li>
+                            <li>
+                                <a href="#getSubmitButtonText" >getSubmitButtonText</a>
+                            </li>
+                            <li>
+                                <a href="#getViewImageText" >getViewImageText</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#markFormGroupTouched" >markFormGroupTouched</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnChanges" >ngOnChanges</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#onFileSelected" >onFileSelected</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                            <li>
+                                <a href="#openImageModal" >openImageModal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#entityType" >entityType</a>
+                            </li>
+                            <li>
+                                <a href="#initialData" >initialData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#formSubmit" >formSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#nameControl" >nameControl</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="entityType"></a>
+                        <b>entityType</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#EntityType" target="_self" >EntityType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;category&quot;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:43</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initialData"></a>
+                        <b>initialData</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>literal type | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:44</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formSubmit"></a>
+                        <b>formSubmit</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:45</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeImageModal"></a>
+                    <span class="name">
+                        <span ><b>closeImageModal</b></span>
+                        <a href="#closeImageModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeImageModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="155"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:155</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFieldLabel"></a>
+                    <span class="name">
+                        <span ><b>getFieldLabel</b></span>
+                        <a href="#getFieldLabel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFieldLabel(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="102"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>field</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFieldPlaceholder"></a>
+                    <span class="name">
+                        <span ><b>getFieldPlaceholder</b></span>
+                        <a href="#getFieldPlaceholder"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFieldPlaceholder(field: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>field</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFormTitle"></a>
+                    <span class="name">
+                        <span ><b>getFormTitle</b></span>
+                        <a href="#getFormTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFormTitle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getImagePreviewText"></a>
+                    <span class="name">
+                        <span ><b>getImagePreviewText</b></span>
+                        <a href="#getImagePreviewText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getImagePreviewText()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:128</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getLoadingText"></a>
+                    <span class="name">
+                        <span ><b>getLoadingText</b></span>
+                        <a href="#getLoadingText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getLoadingText()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="116"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:116</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getModalTitle"></a>
+                    <span class="name">
+                        <span ><b>getModalTitle</b></span>
+                        <a href="#getModalTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getModalTitle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="132"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:132</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getNoImageText"></a>
+                    <span class="name">
+                        <span ><b>getNoImageText</b></span>
+                        <a href="#getNoImageText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getNoImageText()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:124</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSubmitButtonText"></a>
+                    <span class="name">
+                        <span ><b>getSubmitButtonText</b></span>
+                        <a href="#getSubmitButtonText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSubmitButtonText()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getViewImageText"></a>
+                    <span class="name">
+                        <span ><b>getViewImageText</b></span>
+                        <a href="#getViewImageText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getViewImageText()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="markFormGroupTouched"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>markFormGroupTouched</b></span>
+                        <a href="#markFormGroupTouched"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>markFormGroupTouched()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="184"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:184</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnChanges"></a>
+                    <span class="name">
+                        <span ><b>ngOnChanges</b></span>
+                        <a href="#ngOnChanges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnChanges(changes: SimpleChanges)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changes</td>
+                                            <td>
+                                                        <code>SimpleChanges</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="191"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:191</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFileSelected"></a>
+                    <span class="name">
+                        <span ><b>onFileSelected</b></span>
+                        <a href="#onFileSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onFileSelected(event: Event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="163"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:163</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openImageModal"></a>
+                    <span class="name">
+                        <span ><b>openImageModal</b></span>
+                        <a href="#openImageModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openImageModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="149"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:149</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_translate"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_translate</b></span>
+                        <a href="#_translate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslateService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="entityForm"></a>
+                    <span class="name">
+                        <span ><b>entityForm</b></span>
+                        <a href="#entityForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditMode"></a>
+                    <span class="name">
+                        <span ><b>isEditMode</b></span>
+                        <a href="#isEditMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSubmitting"></a>
+                    <span class="name">
+                        <span ><b>isSubmitting</b></span>
+                        <a href="#isSubmitting"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalImageTitle"></a>
+                    <span class="name">
+                        <span ><b>modalImageTitle</b></span>
+                        <a href="#modalImageTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalImageUrl"></a>
+                    <span class="name">
+                        <span ><b>modalImageUrl</b></span>
+                        <a href="#modalImageUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="previewUrl"></a>
+                    <span class="name">
+                        <span ><b>previewUrl</b></span>
+                        <a href="#previewUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedFile"></a>
+                    <span class="name">
+                        <span ><b>selectedFile</b></span>
+                        <a href="#selectedFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>File | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showImageModal"></a>
+                    <span class="name">
+                        <span ><b>showImageModal</b></span>
+                        <a href="#showImageModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nameControl"></a>
+                        <span class="name"><b>nameControl</b><a href="#nameControl"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>nameControl()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="159" class="link-to-prism">apps/rose-dashboard/src/app/shared/buisness/category-occasion-form/category-occasion-form.component.ts:159</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnChanges,
+  SimpleChanges,
+  OnDestroy,
+  inject,
+} from &quot;@angular/core&quot;;
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+  AbstractControl,
+} from &quot;@angular/forms&quot;;
+import { CommonModule, NgOptimizedImage } from &quot;@angular/common&quot;;
+import { CustomInputComponent } from &quot;@angular-monorepo/rose-custom-inputs&quot;;
+import { FormButtonComponent } from &quot;@angular-monorepo/rose-buttons&quot;;
+import { DialogModule } from &quot;primeng/dialog&quot;;
+import { TranslateModule, TranslateService } from &quot;@ngx-translate/core&quot;;
+
+export type EntityType &#x3D; &quot;category&quot; | &quot;occasion&quot;;
+
+@Component({
+  selector: &quot;app-category-occasion-form&quot;,
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    CustomInputComponent,
+    FormButtonComponent,
+    DialogModule,
+    TranslateModule,
+    NgOptimizedImage,
+  ],
+  templateUrl: &quot;./category-occasion-form.component.html&quot;,
+  styleUrl: &quot;./category-occasion-form.component.scss&quot;,
+})
+export class CategoryOccasionFormComponent implements OnChanges, OnDestroy {
+  private _translate &#x3D; inject(TranslateService);
+  @Input() entityType: EntityType &#x3D; &quot;category&quot;;
+  @Input() initialData: { name: string; image: string | File | null } | null &#x3D; null;
+  @Output() formSubmit &#x3D; new EventEmitter&lt;FormData&gt;();
+
+  entityForm: FormGroup;
+  selectedFile: File | null &#x3D; null;
+  isSubmitting &#x3D; false;
+  previewUrl: string | null &#x3D; null;
+  isEditMode &#x3D; false;
+  showImageModal &#x3D; false;
+  modalImageUrl: string | null &#x3D; null;
+  modalImageTitle: string &#x3D; &quot;&quot;;
+
+  constructor(private fb: FormBuilder) {
+    this.entityForm &#x3D; this.fb.group({
+      name: [&quot;&quot;, [Validators.required, Validators.minLength(2), Validators.maxLength(50)]],
+      image: [null],
+    });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes[&quot;initialData&quot;] &amp;&amp; this.initialData) {
+      this.isEditMode &#x3D; !!this.initialData;
+
+      this.entityForm.patchValue({
+        name: this.initialData.name,
+      });
+
+      // In edit mode, remove image validators since we&#x27;re not uploading
+      if (this.isEditMode) {
+        this.entityForm.get(&quot;image&quot;)?.clearValidators();
+        this.entityForm.get(&quot;image&quot;)?.updateValueAndValidity();
+      }
+
+      if (this.initialData.image) {
+        if (typeof this.initialData.image &#x3D;&#x3D;&#x3D; &quot;string&quot;) {
+          this.previewUrl &#x3D; this.initialData.image;
+        } else {
+          this.selectedFile &#x3D; this.initialData.image;
+          this.previewUrl &#x3D; URL.createObjectURL(this.selectedFile);
+        }
+      }
+    }
+  }
+
+  getFormTitle(): string {
+    const mode &#x3D; this.isEditMode ? &quot;edit&quot; : &quot;add&quot;;
+    const modeText &#x3D; this._translate.instant(&#x60;common.modes.${mode}&#x60;);
+
+    if (this.isEditMode &amp;&amp; this.initialData?.name) {
+      const baseTitle &#x3D; this._translate.instant(&#x60;${this.entityType}.addEdit.formTitle&#x60;, {
+        mode: modeText,
+      });
+      return &#x60;${baseTitle}: ${this.initialData.name}&#x60;;
+    } else {
+      return this._translate.instant(&#x60;${this.entityType}.addEdit.formTitle&#x60;, { mode: modeText });
+    }
+  }
+
+  getFieldLabel(field: string): string {
+    return this._translate.instant(&#x60;${this.entityType}.addEdit.fields.${field}&#x60;);
+  }
+
+  getFieldPlaceholder(field: string): string {
+    return this._translate.instant(&#x60;${this.entityType}.addEdit.fields.${field}Placeholder&#x60;);
+  }
+
+  getSubmitButtonText(): string {
+    const mode &#x3D; this.isEditMode ? &quot;edit&quot; : &quot;add&quot;;
+    const modeText &#x3D; this._translate.instant(&#x60;common.modes.${mode}&#x60;);
+    return this._translate.instant(&#x60;${this.entityType}.addEdit.buttons.submit&#x60;, { mode: modeText });
+  }
+
+  getLoadingText(): string {
+    return this._translate.instant(&#x60;${this.entityType}.addEdit.buttons.saving&#x60;);
+  }
+
+  getViewImageText(): string {
+    return this._translate.instant(&#x60;${this.entityType}.addEdit.buttons.viewImage&#x60;);
+  }
+
+  getNoImageText(): string {
+    return this._translate.instant(&#x60;${this.entityType}.addEdit.messages.noImage&#x60;);
+  }
+
+  getImagePreviewText(): string {
+    return this._translate.instant(&#x60;${this.entityType}.addEdit.messages.imagePreview&#x60;);
+  }
+
+  getModalTitle(): string {
+    return this._translate.instant(&quot;common.imageModal.title&quot;);
+  }
+
+  onFileSelected(event: Event): void {
+    const input &#x3D; event.target as HTMLInputElement;
+    if (input.files &amp;&amp; input.files.length &gt; 0) {
+      this.selectedFile &#x3D; input.files[0];
+      this.entityForm.patchValue({ image: this.selectedFile });
+      this.entityForm.get(&quot;image&quot;)?.updateValueAndValidity();
+
+      const reader &#x3D; new FileReader();
+      reader.onload &#x3D; () &#x3D;&gt; (this.previewUrl &#x3D; reader.result as string);
+      reader.readAsDataURL(this.selectedFile);
+    }
+  }
+
+  openImageModal(): void {
+    this.modalImageUrl &#x3D; this.previewUrl;
+    this.modalImageTitle &#x3D; this.getFieldLabel(&quot;image&quot;);
+    this.showImageModal &#x3D; true;
+  }
+
+  closeImageModal(): void {
+    this.showImageModal &#x3D; false;
+  }
+
+  get nameControl(): AbstractControl {
+    return this.entityForm.get(&quot;name&quot;) as AbstractControl;
+  }
+
+  onSubmit(): void {
+    if (this.entityForm.valid) {
+      this.isSubmitting &#x3D; true;
+
+      const formData &#x3D; new FormData();
+      formData.append(&quot;name&quot;, this.entityForm.get(&quot;name&quot;)?.value);
+
+      if (!this.isEditMode &amp;&amp; this.selectedFile) {
+        formData.append(&quot;image&quot;, this.selectedFile);
+      }
+
+      this.formSubmit.emit(formData);
+
+      setTimeout(() &#x3D;&gt; {
+        this.isSubmitting &#x3D; false;
+      }, 2000);
+    } else {
+      this.markFormGroupTouched();
+    }
+  }
+
+  private markFormGroupTouched(): void {
+    Object.keys(this.entityForm.controls).forEach((key) &#x3D;&gt; {
+      const control &#x3D; this.entityForm.get(key);
+      control?.markAsTouched();
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.previewUrl &amp;&amp; this.previewUrl.startsWith(&quot;blob:&quot;)) {
+      URL.revokeObjectURL(this.previewUrl);
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;form-header mb-4&quot;&gt;
+  &lt;h2&gt;
+    {{ getFormTitle() }}
+  &lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;form [formGroup]&#x3D;&quot;entityForm&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot; class&#x3D;&quot;p-fluid&quot;&gt;
+  &lt;div class&#x3D;&quot;flex flex-column gap-4&quot;&gt;
+    &lt;!-- Name Field --&gt;
+    &lt;lib-custom-input
+      id&#x3D;&quot;entityName&quot;
+      [labelText]&#x3D;&quot;getFieldLabel(&#x27;name&#x27;)&quot;
+      [placeholder]&#x3D;&quot;getFieldPlaceholder(&#x27;name&#x27;)&quot;
+      [errorHandilgControl]&#x3D;&quot;nameControl&quot;
+      formControlName&#x3D;&quot;name&quot;
+    &gt;
+    &lt;/lib-custom-input&gt;
+
+    &lt;!-- Image Section - Different for Edit vs Add mode --&gt;
+    @if (isEditMode) {
+      &lt;!-- EDIT MODE: Show view image link only (without label) --&gt;
+      &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+        @if (previewUrl) {
+          &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;openImageModal()&quot; class&#x3D;&quot;p-button-text&quot;&gt;
+            {{ getViewImageText() }}
+          &lt;/button&gt;
+        } @else {
+          &lt;span class&#x3D;&quot;text-gray-500 text-sm&quot;&gt;{{ getNoImageText() }}&lt;/span&gt;
+        }
+      &lt;/div&gt;
+    } @else {
+      &lt;!-- ADD MODE: Show file upload with label --&gt;
+      &lt;div class&#x3D;&quot;flex flex-column gap-2&quot;&gt;
+        &lt;lib-custom-input
+          type&#x3D;&quot;file&quot;
+          accept&#x3D;&quot;image/*&quot;
+          [labelText]&#x3D;&quot;getFieldLabel(&#x27;image&#x27;)&quot;
+          [placeholder]&#x3D;&quot;getFieldPlaceholder(&#x27;image&#x27;)&quot;
+          [errorHandilgControl]&#x3D;&quot;entityForm.get(&#x27;image&#x27;) ?? undefined&quot;
+          formControlName&#x3D;&quot;image&quot;
+          (change)&#x3D;&quot;onFileSelected($event)&quot;
+        &gt;
+        &lt;/lib-custom-input&gt;
+
+        &lt;!-- Show new image preview for add mode --&gt;
+        @if (previewUrl &amp;&amp; selectedFile) {
+          &lt;div class&#x3D;&quot;image-preview mt-2&quot;&gt;
+            &lt;p class&#x3D;&quot;text-sm text-gray-600 mb-1&quot;&gt;{{ getImagePreviewText() }}&lt;/p&gt;
+            &lt;img
+              [ngSrc]&#x3D;&quot;previewUrl&quot;
+              [alt]&#x3D;&quot;getFieldLabel(&#x27;image&#x27;)&quot;
+              loading&#x3D;&quot;lazy&quot;
+              class&#x3D;&quot;preview-image cursor-pointer&quot;
+              (click)&#x3D;&quot;openImageModal()&quot;
+              style&#x3D;&quot;max-width: 200px; max-height: 150px; border-radius: 8px&quot;
+            /&gt;
+          &lt;/div&gt;
+        }
+      &lt;/div&gt;
+    }
+
+    &lt;lib-form-button
+      type&#x3D;&quot;submit&quot;
+      [text]&#x3D;&quot;getSubmitButtonText()&quot;
+      [loadingText]&#x3D;&quot;getLoadingText()&quot;
+      [disabled]&#x3D;&quot;entityForm.invalid&quot;
+      [isLoading]&#x3D;&quot;isSubmitting&quot;
+      [fullWidth]&#x3D;&quot;true&quot;
+    &gt;
+    &lt;/lib-form-button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;p-dialog
+  [header]&#x3D;&quot;modalImageTitle&quot;
+  [(visible)]&#x3D;&quot;showImageModal&quot;
+  [modal]&#x3D;&quot;true&quot;
+  [style]&#x3D;&quot;{
+    width: &#x27;50rem&#x27;,
+    background: &#x27;var(--modal-pop-up-bg)&#x27;,
+    color: &#x27;var(--input-text-color)&#x27;,
+  }&quot;
+  [breakpoints]&#x3D;&quot;{ &#x27;1199px&#x27;: &#x27;75vw&#x27;, &#x27;575px&#x27;: &#x27;90vw&#x27; }&quot;
+  [draggable]&#x3D;&quot;false&quot;
+  [resizable]&#x3D;&quot;false&quot;
+  styleClass&#x3D;&quot;image-modal&quot;
+&gt;
+  &lt;div class&#x3D;&quot;flex justify-content-center&quot;&gt;
+    &lt;img
+      [ngSrc]&#x3D;&quot;modalImageUrl!&quot;
+      [alt]&#x3D;&quot;getFieldLabel(&#x27;image&#x27;)&quot;
+      class&#x3D;&quot;w-full max-h-30rem object-contain&quot;
+    /&gt;
+  &lt;/div&gt;
+&lt;/p-dialog&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="form-header mb-4">  <h2>    {{ getFormTitle() }}  </h2></div><form [formGroup]="entityForm" (ngSubmit)="onSubmit()" class="p-fluid">  <div class="flex flex-column gap-4">    <!-- Name Field -->    <lib-custom-input      id="entityName"      [labelText]="getFieldLabel(\'name\')"      [placeholder]="getFieldPlaceholder(\'name\')"      [errorHandilgControl]="nameControl"      formControlName="name"    >    </lib-custom-input>    <!-- Image Section - Different for Edit vs Add mode -->    @if (isEditMode) {      <!-- EDIT MODE: Show view image link only (without label) -->      <div class="flex flex-column gap-2">        @if (previewUrl) {          <button type="button" (click)="openImageModal()" class="p-button-text">            {{ getViewImageText() }}          </button>        } @else {          <span class="text-gray-500 text-sm">{{ getNoImageText() }}</span>        }      </div>    } @else {      <!-- ADD MODE: Show file upload with label -->      <div class="flex flex-column gap-2">        <lib-custom-input          type="file"          accept="image/*"          [labelText]="getFieldLabel(\'image\')"          [placeholder]="getFieldPlaceholder(\'image\')"          [errorHandilgControl]="entityForm.get(\'image\') ?? undefined"          formControlName="image"          (change)="onFileSelected($event)"        >        </lib-custom-input>        <!-- Show new image preview for add mode -->        @if (previewUrl && selectedFile) {          <div class="image-preview mt-2">            <p class="text-sm text-gray-600 mb-1">{{ getImagePreviewText() }}</p>            <img              [ngSrc]="previewUrl"              [alt]="getFieldLabel(\'image\')"              loading="lazy"              class="preview-image cursor-pointer"              (click)="openImageModal()"              style="max-width: 200px; max-height: 150px; border-radius: 8px"            />          </div>        }      </div>    }    <lib-form-button      type="submit"      [text]="getSubmitButtonText()"      [loadingText]="getLoadingText()"      [disabled]="entityForm.invalid"      [isLoading]="isSubmitting"      [fullWidth]="true"    >    </lib-form-button>  </div></form><p-dialog  [header]="modalImageTitle"  [(visible)]="showImageModal"  [modal]="true"  [style]="{    width: \'50rem\',    background: \'var(--modal-pop-up-bg)\',    color: \'var(--input-text-color)\',  }"  [breakpoints]="{ \'1199px\': \'75vw\', \'575px\': \'90vw\' }"  [draggable]="false"  [resizable]="false"  styleClass="image-modal">  <div class="flex justify-content-center">    <img      [ngSrc]="modalImageUrl!"      [alt]="getFieldLabel(\'image\')"      class="w-full max-h-30rem object-contain"    />  </div></p-dialog></div>'
+    var COMPONENTS = [{'name': 'AddEditCategoryComponent', 'selector': 'app-add-edit-category'},{'name': 'AddEditOccasionComponent', 'selector': 'app-add-edit-occasion'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorizationComponent', 'selector': 'app-authorization'},{'name': 'BottomNavbarComponent', 'selector': 'app-bottom-navbar'},{'name': 'BreadcrumpComponent', 'selector': 'app-breadcrump'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CategoriesReportsComponent', 'selector': 'app-categories-reports'},{'name': 'CategoryOccasionFormComponent', 'selector': 'app-category-occasion-form'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DataTableComponent', 'selector': 'app-data-table'},{'name': 'DataViewComponent', 'selector': 'app-data-view'},{'name': 'DocumentationComponent', 'selector': 'app-documentation'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'EmptyStateComponent', 'selector': 'app-empty-state'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'InputErrorMessageComponent', 'selector': 'app-input-error-message'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LowStockProductsComponent', 'selector': 'app-low-stock-products'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OccasionsComponent', 'selector': 'app-occasions'},{'name': 'OrderChartComponent', 'selector': 'app-order-chart'},{'name': 'OverviewComponent', 'selector': 'app-overview'},{'name': 'PaginationComponent', 'selector': 'app-pagination'},{'name': 'PreviewDataComponent', 'selector': 'app-preview-data'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProductsFormComponent', 'selector': 'app-products-form'},{'name': 'RevenueChartComponent', 'selector': 'app-revenue-chart'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TopSellingProductsComponent', 'selector': 'app-top-selling-products'},{'name': 'UserDataComponent', 'selector': 'app-user-data'},{'name': 'UserPhotoComponent', 'selector': 'app-user-photo'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'CategoryOccasionFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CategoryOccasionFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

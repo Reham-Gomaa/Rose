@@ -21,11 +21,7 @@
       <!-- EDIT MODE: Show view image link only (without label) -->
       <div class="flex flex-column gap-2">
         @if (previewUrl) {
-          <button
-            type="button"
-            (click)="openImageModal()"
-            class="p-button-text"
-          >
+          <button type="button" (click)="openImageModal()" class="p-button-text">
             {{ getViewImageText() }}
           </button>
         } @else {
@@ -79,7 +75,11 @@
   [header]="modalImageTitle"
   [(visible)]="showImageModal"
   [modal]="true"
-  [style]="{ width: '50rem',background: 'var(--modal-pop-up-bg)',color: 'var(--input-text-color)', }" 
+  [style]="{
+    width: '50rem',
+    background: 'var(--modal-pop-up-bg)',
+    color: 'var(--input-text-color)',
+  }"
   [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
   [draggable]="false"
   [resizable]="false"

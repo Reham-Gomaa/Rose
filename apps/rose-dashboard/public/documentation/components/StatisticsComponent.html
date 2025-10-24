@@ -1,0 +1,750 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@angular-monorepo/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@angular-monorepo/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  StatisticsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/rose-dashboard/src/app/features/pages/overview/components/statistics/statistics.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-statistics</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>TranslatePipe</code>
+                            <code>Skeleton</code>
+                            <code>DecimalPipe</code>
+                                <code><a href="../components/EmptyStateComponent.html" target="_self" >EmptyStateComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./statistics.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./statistics.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#empty" >empty</a>
+                            </li>
+                            <li>
+                                <a href="#hasData" >hasData</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#overall" >overall</a>
+                            </li>
+                            <li>
+                                <a href="#statCards" >statCards</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#overall" >overall</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/statistics/statistics.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="overall"></a>
+                        <b>overall</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Overall.html" target="_self" >InputSignal&lt;Overall | undefined&gt;</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/statistics/statistics.component.ts:35</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="empty"></a>
+                    <span class="name">
+                        <span ><b>empty</b></span>
+                        <a href="#empty"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>WritableSignal&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(true)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/statistics/statistics.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasData"></a>
+                    <span class="name">
+                        <span ><b>hasData</b></span>
+                        <a href="#hasData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>WritableSignal&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/statistics/statistics.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>WritableSignal&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(true)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/statistics/statistics.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="overall"></a>
+                    <span class="name">
+                        <span ><b>overall</b></span>
+                        <a href="#overall"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Overall.html" target="_self" >InputSignal&lt;Overall | undefined&gt;</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/statistics/statistics.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="statCards"></a>
+                    <span class="name">
+                        <span ><b>statCards</b></span>
+                        <a href="#statCards"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/StatCardConfig.html" target="_self" >StatCardConfig[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      key: &quot;totalProducts&quot;,
+      label: &quot;overview.statistics.products&quot;,
+      icon: &quot;pi pi-box&quot;,
+      bg: &quot;var(--overall-pdt-bg)&quot;,
+      color: &quot;var(--overall-pdt-color)&quot;,
+    },
+    {
+      key: &quot;totalOrders&quot;,
+      label: &quot;overview.statistics.orders&quot;,
+      icon: &quot;pi pi-receipt&quot;,
+      bg: &quot;var(--overall-orders-bg)&quot;,
+      color: &quot;var(--overall-orders-color)&quot;,
+    },
+    {
+      key: &quot;totalCategories&quot;,
+      label: &quot;overview.statistics.categories&quot;,
+      icon: &quot;pi pi-clipboard&quot;,
+      bg: &quot;var(--overall-category-bg)&quot;,
+      color: &quot;var(--overall-category-color)&quot;,
+    },
+    {
+      key: &quot;totalRevenue&quot;,
+      label: &quot;overview.statistics.revenue&quot;,
+      icon: &quot;pi pi-dollar&quot;,
+      bg: &quot;var(--overall-revenue-bg)&quot;,
+      color: &quot;var(--overall-revenue-color)&quot;,
+    },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/statistics/statistics.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  AfterViewInit,
+  Component,
+  effect,
+  input,
+  InputSignal,
+  signal,
+  WritableSignal,
+} from &quot;@angular/core&quot;;
+// Interfaces
+import { Overall } from &quot;apps/rose-dashboard/src/app/core/interfaces/statistics&quot;;
+// Pipes
+import { DecimalPipe } from &quot;@angular/common&quot;;
+import { TranslatePipe } from &quot;@ngx-translate/core&quot;;
+// PrimeNg
+import { Skeleton } from &quot;primeng/skeleton&quot;;
+// Shared_Component
+import { EmptyStateComponent } from &quot;../empty-state/emptyState.component&quot;;
+
+interface StatCardConfig {
+  key: keyof Overall;
+  label: string;
+  icon: string;
+  bg: string;
+  color: string;
+}
+
+@Component({
+  selector: &quot;app-statistics&quot;,
+  imports: [TranslatePipe, Skeleton, DecimalPipe, EmptyStateComponent],
+  templateUrl: &quot;./statistics.component.html&quot;,
+  styleUrl: &quot;./statistics.component.scss&quot;,
+})
+export class StatisticsComponent {
+  overall: InputSignal&lt;Overall | undefined&gt; &#x3D; input&lt;Overall&gt;();
+  loading: WritableSignal&lt;boolean&gt; &#x3D; signal(true);
+  hasData: WritableSignal&lt;boolean&gt; &#x3D; signal(false);
+  empty: WritableSignal&lt;boolean&gt; &#x3D; signal(true);
+
+  constructor() {
+    effect(() &#x3D;&gt; {
+      const data &#x3D; this.overall();
+
+      if (data &#x3D;&#x3D;&#x3D; undefined) {
+        this.loading.set(true);
+        this.hasData.set(false);
+        this.empty.set(false);
+      } else if (Object.keys(data).length &#x3D;&#x3D;&#x3D; 0) {
+        this.loading.set(false);
+        this.hasData.set(false);
+        this.empty.set(true);
+      } else {
+        this.loading.set(false);
+        this.hasData.set(true);
+        this.empty.set(false);
+      }
+    });
+  }
+
+  statCards: StatCardConfig[] &#x3D; [
+    {
+      key: &quot;totalProducts&quot;,
+      label: &quot;overview.statistics.products&quot;,
+      icon: &quot;pi pi-box&quot;,
+      bg: &quot;var(--overall-pdt-bg)&quot;,
+      color: &quot;var(--overall-pdt-color)&quot;,
+    },
+    {
+      key: &quot;totalOrders&quot;,
+      label: &quot;overview.statistics.orders&quot;,
+      icon: &quot;pi pi-receipt&quot;,
+      bg: &quot;var(--overall-orders-bg)&quot;,
+      color: &quot;var(--overall-orders-color)&quot;,
+    },
+    {
+      key: &quot;totalCategories&quot;,
+      label: &quot;overview.statistics.categories&quot;,
+      icon: &quot;pi pi-clipboard&quot;,
+      bg: &quot;var(--overall-category-bg)&quot;,
+      color: &quot;var(--overall-category-color)&quot;,
+    },
+    {
+      key: &quot;totalRevenue&quot;,
+      label: &quot;overview.statistics.revenue&quot;,
+      icon: &quot;pi pi-dollar&quot;,
+      bg: &quot;var(--overall-revenue-bg)&quot;,
+      color: &quot;var(--overall-revenue-color)&quot;,
+    },
+  ];
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;overAll&quot; role&#x3D;&quot;region&quot; aria-label&#x3D;&quot;Statistics Overview&quot;&gt;
+  &lt;div class&#x3D;&quot;content-wrapper&quot;&gt;
+    @if (loading()) {
+      @for (card of statCards; track $index) {
+        &lt;div
+          class&#x3D;&quot;item&quot;
+          [style.backgroundColor]&#x3D;&quot;card.bg&quot;
+          role&#x3D;&quot;article&quot;
+          aria-label&#x3D;&quot;Loading statistic card&quot;
+          aria-busy&#x3D;&quot;true&quot;
+        &gt;
+          &lt;div aria-hidden&#x3D;&quot;true&quot;&gt;
+            &lt;p-skeleton width&#x3D;&quot;2rem&quot; height&#x3D;&quot;2rem&quot; borderRadius&#x3D;&quot;.5rem&quot;&gt;&lt;/p-skeleton&gt;
+          &lt;/div&gt;
+          &lt;p class&#x3D;&quot;value&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+            &lt;p-skeleton width&#x3D;&quot;5rem&quot; height&#x3D;&quot;1.5rem&quot;&gt;&lt;/p-skeleton&gt;
+          &lt;/p&gt;
+          &lt;p class&#x3D;&quot;label&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+            &lt;p-skeleton width&#x3D;&quot;7rem&quot; height&#x3D;&quot;1rem&quot;&gt;&lt;/p-skeleton&gt;
+          &lt;/p&gt;
+        &lt;/div&gt;
+      }
+    }
+
+    @if (hasData()) {
+      @for (card of statCards; track $index; let first &#x3D; $first) {
+        &lt;div
+          class&#x3D;&quot;item me-1 md:m-0&quot;
+          [style.backgroundColor]&#x3D;&quot;card.bg&quot;
+          role&#x3D;&quot;article&quot;
+          [attr.aria-label]&#x3D;&quot;card.label | translate&quot;
+          [attr.aria-describedby]&#x3D;&quot;&#x27;value-&#x27; + $index&quot;
+          [tabindex]&#x3D;&quot;first ? 0 : -1&quot;
+        &gt;
+          &lt;div aria-hidden&#x3D;&quot;true&quot;&gt;
+            &lt;i [class]&#x3D;&quot;card.icon&quot; [style.color]&#x3D;&quot;card.color&quot; style&#x3D;&quot;font-size: 2rem&quot;&gt;&lt;/i&gt;
+          &lt;/div&gt;
+          &lt;p
+            class&#x3D;&quot;value&quot;
+            [style.color]&#x3D;&quot;card.color&quot;
+            [id]&#x3D;&quot;&#x27;value-&#x27; + $index&quot;
+            [attr.aria-live]&#x3D;&quot;first ? &#x27;polite&#x27; : null&quot;
+          &gt;
+            {{ $index &#x3D;&#x3D;&#x3D; 3 ? (overall()?.[card.key] | number: &quot;1.0-2&quot;) : overall()?.[card.key] }}
+            @if ($index &#x3D;&#x3D;&#x3D; 3) {
+              &lt;span aria-label&#x3D;&quot;Egyptian Pounds&quot;&gt;{{ &quot;EGP&quot; | translate }}&lt;/span&gt;
+            }
+          &lt;/p&gt;
+          &lt;p class&#x3D;&quot;label&quot;&gt;
+            &lt;span class&#x3D;&quot;sr-only&quot;&gt;Statistic: &lt;/span&gt;
+            {{ card.label | translate }}
+          &lt;/p&gt;
+        &lt;/div&gt;
+      }
+    }
+
+    @if (empty()) {
+      &lt;app-empty-state /&gt;
+    }
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section class="overAll" role="region" aria-label="Statistics Overview">  <div class="content-wrapper">    @if (loading()) {      @for (card of statCards; track $index) {        <div          class="item"          [style.backgroundColor]="card.bg"          role="article"          aria-label="Loading statistic card"          aria-busy="true"        >          <div aria-hidden="true">            <p-skeleton width="2rem" height="2rem" borderRadius=".5rem"></p-skeleton>          </div>          <p class="value" aria-hidden="true">            <p-skeleton width="5rem" height="1.5rem"></p-skeleton>          </p>          <p class="label" aria-hidden="true">            <p-skeleton width="7rem" height="1rem"></p-skeleton>          </p>        </div>      }    }    @if (hasData()) {      @for (card of statCards; track $index; let first = $first) {        <div          class="item me-1 md:m-0"          [style.backgroundColor]="card.bg"          role="article"          [attr.aria-label]="card.label | translate"          [attr.aria-describedby]="\'value-\' + $index"          [tabindex]="first ? 0 : -1"        >          <div aria-hidden="true">            <i [class]="card.icon" [style.color]="card.color" style="font-size: 2rem"></i>          </div>          <p            class="value"            [style.color]="card.color"            [id]="\'value-\' + $index"            [attr.aria-live]="first ? \'polite\' : null"          >            {{ $index === 3 ? (overall()?.[card.key] | number: "1.0-2") : overall()?.[card.key] }}            @if ($index === 3) {              <span aria-label="Egyptian Pounds">{{ "EGP" | translate }}</span>            }          </p>          <p class="label">            <span class="sr-only">Statistic: </span>            {{ card.label | translate }}          </p>        </div>      }    }    @if (empty()) {      <app-empty-state />    }  </div></section></div>'
+    var COMPONENTS = [{'name': 'AddEditCategoryComponent', 'selector': 'app-add-edit-category'},{'name': 'AddEditOccasionComponent', 'selector': 'app-add-edit-occasion'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorizationComponent', 'selector': 'app-authorization'},{'name': 'BottomNavbarComponent', 'selector': 'app-bottom-navbar'},{'name': 'BreadcrumpComponent', 'selector': 'app-breadcrump'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CategoriesReportsComponent', 'selector': 'app-categories-reports'},{'name': 'CategoryOccasionFormComponent', 'selector': 'app-category-occasion-form'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DataTableComponent', 'selector': 'app-data-table'},{'name': 'DataViewComponent', 'selector': 'app-data-view'},{'name': 'DocumentationComponent', 'selector': 'app-documentation'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'EmptyStateComponent', 'selector': 'app-empty-state'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'InputErrorMessageComponent', 'selector': 'app-input-error-message'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LowStockProductsComponent', 'selector': 'app-low-stock-products'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OccasionsComponent', 'selector': 'app-occasions'},{'name': 'OrderChartComponent', 'selector': 'app-order-chart'},{'name': 'OverviewComponent', 'selector': 'app-overview'},{'name': 'PaginationComponent', 'selector': 'app-pagination'},{'name': 'PreviewDataComponent', 'selector': 'app-preview-data'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProductsFormComponent', 'selector': 'app-products-form'},{'name': 'RevenueChartComponent', 'selector': 'app-revenue-chart'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TopSellingProductsComponent', 'selector': 'app-top-selling-products'},{'name': 'UserDataComponent', 'selector': 'app-user-data'},{'name': 'UserPhotoComponent', 'selector': 'app-user-photo'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'StatisticsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'StatisticsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

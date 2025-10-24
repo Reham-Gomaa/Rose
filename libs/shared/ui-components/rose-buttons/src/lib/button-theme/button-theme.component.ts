@@ -12,7 +12,7 @@ import { TooltipModule } from "primeng/tooltip";
   styleUrl: "./button-theme.component.scss",
 })
 export class ButtonThemeComponent {
-  spacing=input<boolean>(true);
+  spacing = input<boolean>(true);
   darkModeService = inject(DarkModeService);
   toggle() {
     this.darkModeService.toggle();

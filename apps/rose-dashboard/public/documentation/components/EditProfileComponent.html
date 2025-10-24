@@ -1,0 +1,1443 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@angular-monorepo/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@angular-monorepo/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  EditProfileComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-edit-profile</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>SkeletonModule</code>
+                            <code>ButtonModule</code>
+                            <code>InputTextModule</code>
+                            <code>DropdownModule</code>
+                            <code>ReactiveFormsModule</code>
+                            <code>TranslateModule</code>
+                            <code>FileUpload</code>
+                            <code>CustomInputComponent</code>
+                            <code>CustomInputPhoneComponent</code>
+                            <code>Select</code>
+                            <code>NgOptimizedImage</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./edit-profile.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./edit-profile.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_authApiKpService" >_authApiKpService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_messageService" >_messageService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_translate" >_translate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_userDataService" >_userDataService</a>
+                            </li>
+                            <li>
+                                <a href="#apiError" >apiError</a>
+                            </li>
+                            <li>
+                                <a href="#defaultPhoto" >defaultPhoto</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#deleteAccountDialog" >deleteAccountDialog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#destroyRef" >destroyRef</a>
+                            </li>
+                            <li>
+                                <a href="#genders" >genders</a>
+                            </li>
+                            <li>
+                                <a href="#isLoading" >isLoading</a>
+                            </li>
+                            <li>
+                                <a href="#isSaving" >isSaving</a>
+                            </li>
+                            <li>
+                                <a href="#profileForm" >profileForm</a>
+                            </li>
+                            <li>
+                                <a href="#profileImage" >profileImage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#translationService" >translationService</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getInitials" >getInitials</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onImageUpload" >onImageUpload</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#formGroup" >formGroup</a>
+                                </li>
+                                <li>
+                                    <a href="#loading" >loading</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getInitials"></a>
+                    <span class="name">
+                        <span ><b>getInitials</b></span>
+                        <a href="#getInitials"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getInitials()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onImageUpload"></a>
+                    <span class="name">
+                        <span ><b>onImageUpload</b></span>
+                        <a href="#onImageUpload"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onImageUpload(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_authApiKpService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_authApiKpService</b></span>
+                        <a href="#_authApiKpService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(AuthApiKpService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_messageService"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_messageService</b></span>
+                        <a href="#_messageService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(MessageService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_translate"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_translate</b></span>
+                        <a href="#_translate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslateService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_userDataService"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_userDataService</b></span>
+                        <a href="#_userDataService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(UserDataService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apiError"></a>
+                    <span class="name">
+                        <span ><b>apiError</b></span>
+                        <a href="#apiError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;string&gt;(&quot;&quot;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="defaultPhoto"></a>
+                    <span class="name">
+                        <span ><b>defaultPhoto</b></span>
+                        <a href="#defaultPhoto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;https://flower.elevateegy.com/uploads/8627d52c-f36a-4613-bade-c16244d9bad1-High_resolution_wallpaper_background_ID_77701218231.jpg&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteAccountDialog"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>deleteAccountDialog</b></span>
+                        <a href="#deleteAccountDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ConfirmDialogComponent</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;deleteAccountDialog&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroyRef"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>destroyRef</b></span>
+                        <a href="#destroyRef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(DestroyRef)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="genders"></a>
+                    <span class="name">
+                        <span ><b>genders</b></span>
+                        <a href="#genders"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { value: &quot;male&quot;, label: this._translate.instant(&quot;auth.register.gender.male&quot;) },
+    { value: &quot;female&quot;, label: this._translate.instant(&quot;auth.register.gender.female&quot;) },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLoading"></a>
+                    <span class="name">
+                        <span ><b>isLoading</b></span>
+                        <a href="#isLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSaving"></a>
+                    <span class="name">
+                        <span ><b>isSaving</b></span>
+                        <a href="#isSaving"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profileForm"></a>
+                    <span class="name">
+                        <span ><b>profileForm</b></span>
+                        <a href="#profileForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new FormGroup({
+    firstName: new FormControl(&quot;&quot;, [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(30),
+    ]),
+    lastName: new FormControl(&quot;&quot;, [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(30),
+    ]),
+    email: new FormControl(&quot;&quot;, [Validators.required, Validators.email]),
+    phone: new FormControl(&quot;&quot;, [
+      Validators.required,
+      Validators.pattern(/^(\+201|01)[0125][0-9]{8}$/),
+    ]),
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="profileImage"></a>
+                    <span class="name">
+                        <span ><b>profileImage</b></span>
+                        <a href="#profileImage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | ArrayBuffer | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="translationService"></a>
+                    <span class="name">
+                            <span class="modifier">Readonly</span>
+                        <span ><b>translationService</b></span>
+                        <a href="#translationService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(TranslationService)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user"></a>
+                    <span class="name">
+                        <span ><b>user</b></span>
+                        <a href="#user"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal&lt;User | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formGroup"></a>
+                        <span class="name"><b>formGroup</b><a href="#formGroup"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>formGroup()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:134</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="loading"></a>
+                        <span class="name"><b>loading</b><a href="#loading"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>loading()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/user-profile/components/edit-profile/edit-profile.component.ts:138</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, DestroyRef, inject, signal, ViewChild } from &quot;@angular/core&quot;;
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from &quot;@angular/forms&quot;;
+import { takeUntilDestroyed } from &quot;@angular/core/rxjs-interop&quot;;
+import { Router } from &quot;@angular/router&quot;;
+import { NgOptimizedImage } from &quot;@angular/common&quot;;
+// Translation
+import { TranslateModule, TranslateService } from &quot;@ngx-translate/core&quot;;
+import { TranslationService, UserDataService } from &quot;@angular-monorepo/services&quot;;
+// Shared_Components
+import {
+  CustomInputComponent,
+  CustomInputPhoneComponent,
+} from &quot;@angular-monorepo/rose-custom-inputs&quot;;
+import { ConfirmDialogComponent } from &quot;@angular-monorepo/confirm-dialog&quot;;
+// PrimeNg
+import { MessageService } from &quot;primeng/api&quot;;
+import { ButtonModule } from &quot;primeng/button&quot;;
+import { DropdownModule } from &quot;primeng/dropdown&quot;;
+import { FileUpload } from &quot;primeng/fileupload&quot;;
+import { InputTextModule } from &quot;primeng/inputtext&quot;;
+import { Select } from &quot;primeng/select&quot;;
+import { SkeletonModule } from &quot;primeng/skeleton&quot;;
+// Auth_Lib
+import { AuthApiKpService, User } from &quot;auth-api-kp&quot;;
+
+@Component({
+  selector: &quot;app-edit-profile&quot;,
+  imports: [
+    SkeletonModule,
+    ButtonModule,
+    InputTextModule,
+    DropdownModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    FileUpload,
+    CustomInputComponent,
+    CustomInputPhoneComponent,
+    Select,
+    NgOptimizedImage,
+  ],
+  templateUrl: &quot;./edit-profile.component.html&quot;,
+  styleUrl: &quot;./edit-profile.component.scss&quot;,
+})
+export class EditProfileComponent {
+  readonly translationService &#x3D; inject(TranslationService);
+  private readonly _translate &#x3D; inject(TranslateService);
+  private readonly destroyRef &#x3D; inject(DestroyRef);
+  private readonly _authApiKpService &#x3D; inject(AuthApiKpService);
+  private readonly _messageService &#x3D; inject(MessageService);
+
+  protected readonly _userDataService &#x3D; inject(UserDataService);
+
+  apiError &#x3D; signal&lt;string&gt;(&quot;&quot;);
+  isLoading &#x3D; signal&lt;boolean&gt;(false);
+  isSaving &#x3D; signal&lt;boolean&gt;(false);
+  user &#x3D; signal&lt;User | null&gt;(null);
+  profileImage: string | ArrayBuffer | null &#x3D; null;
+  defaultPhoto &#x3D;
+    &quot;https://flower.elevateegy.com/uploads/8627d52c-f36a-4613-bade-c16244d9bad1-High_resolution_wallpaper_background_ID_77701218231.jpg&quot;;
+
+  @ViewChild(&quot;deleteAccountDialog&quot;) deleteAccountDialog!: ConfirmDialogComponent;
+
+  genders &#x3D; [
+    { value: &quot;male&quot;, label: this._translate.instant(&quot;auth.register.gender.male&quot;) },
+    { value: &quot;female&quot;, label: this._translate.instant(&quot;auth.register.gender.female&quot;) },
+  ];
+
+  profileForm: FormGroup &#x3D; new FormGroup({
+    firstName: new FormControl(&quot;&quot;, [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(30),
+    ]),
+    lastName: new FormControl(&quot;&quot;, [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(30),
+    ]),
+    email: new FormControl(&quot;&quot;, [Validators.required, Validators.email]),
+    phone: new FormControl(&quot;&quot;, [
+      Validators.required,
+      Validators.pattern(/^(\+201|01)[0125][0-9]{8}$/),
+    ]),
+  });
+
+  ngOnInit(): void {
+    this._userDataService.loadUserInfo();
+    const user &#x3D; this._userDataService.user();
+
+    if (user) {
+      this.user.set(user);
+      this.profileForm.patchValue({
+        firstName: user.firstName || &quot;&quot;,
+        lastName: user.lastName || &quot;&quot;,
+        email: user.email || &quot;&quot;,
+        phone: user.phone || &quot;&quot;,
+      });
+    }
+  }
+
+  onImageUpload(event: any): void {
+    const file &#x3D; event.files[0];
+
+    if (!file) return;
+
+    if (file.size &gt; 5 * 1024 * 1024) {
+      this._messageService.add({
+        severity: &quot;error&quot;,
+        detail: this._translate.instant(&quot;messagesToast.fileSizeExceedsLimit&quot;),
+      });
+      return;
+    }
+
+    this._authApiKpService
+      .uploadPhoto({ photo: file })
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: () &#x3D;&gt; {
+          this._messageService.add({
+            severity: &quot;success&quot;,
+            detail: this._translate.instant(&quot;messagesToast.profilePhotoUploadedSuccessfully&quot;),
+          });
+          this._userDataService.loadUserInfo();
+        },
+        error: () &#x3D;&gt; {
+          this._messageService.add({
+            severity: &quot;error&quot;,
+            detail: this._translate.instant(&quot;messagesToast.failedToUploadProfilePhoto&quot;),
+          });
+        },
+      });
+  }
+
+  get formGroup() {
+    return this.profileForm;
+  }
+
+  get loading() {
+    return this.isSaving();
+  }
+
+  onSubmit(): void {
+    if (this.profileForm.invalid) {
+      this.profileForm.markAllAsTouched();
+      return;
+    }
+
+    this.isSaving.set(true);
+    const formData &#x3D; this.profileForm.value;
+
+    this._authApiKpService
+      .editProfile(formData)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: () &#x3D;&gt; {
+          this._messageService.add({
+            severity: &quot;success&quot;,
+            detail: this._translate.instant(&quot;messagesToast.profileUpdatedSuccessfully&quot;),
+          });
+
+          this.isSaving.set(false);
+        },
+        error: (err) &#x3D;&gt; {
+          this._messageService.add({
+            severity: &quot;error&quot;,
+            detail: this._translate.instant(&quot;messagesToast.failedToUpdateProfile&quot;),
+          });
+          this.isSaving.set(false);
+        },
+      });
+  }
+
+  getInitials(): string {
+    const username &#x3D; this._userDataService.userName()?.trim() || &quot;&quot;;
+    const parts &#x3D; username.split(&quot; &quot;).filter(Boolean);
+
+    const first &#x3D; parts[0]?.charAt(0)?.toUpperCase() || &quot;&quot;;
+    const last &#x3D; parts.length &gt; 1 ? parts[parts.length - 1]?.charAt(0)?.toUpperCase() : &quot;&quot;;
+
+    return &#x60;${first}${last}&#x60;;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;content&quot;&gt;
+  @if (isLoading()) {
+    &lt;div class&#x3D;&quot;loading-skeleton&quot;&gt;
+      &lt;!-- Avatar Section Skeleton --&gt;
+      &lt;div class&#x3D;&quot;skeleton-avatar-section&quot;&gt;
+        &lt;div class&#x3D;&quot;skeleton-avatar&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;skeleton-upload-info&quot;&gt;
+          &lt;div class&#x3D;&quot;skeleton-text-lg&quot;&gt;&lt;/div&gt;
+          &lt;div class&#x3D;&quot;skeleton-text-sm&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Form Skeleton --&gt;
+      &lt;div class&#x3D;&quot;skeleton-form&quot;&gt;
+        &lt;div class&#x3D;&quot;skeleton-row&quot;&gt;
+          &lt;div class&#x3D;&quot;skeleton-field&quot;&gt;&lt;/div&gt;
+          &lt;div class&#x3D;&quot;skeleton-field&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;skeleton-field-wide&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;skeleton-field-wide&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;skeleton-field-wide&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;skeleton-actions&quot;&gt;
+          &lt;div class&#x3D;&quot;skeleton-button&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  } @else {
+    &lt;div class&#x3D;&quot;upload-section&quot;&gt;
+      &lt;div class&#x3D;&quot;avatar-container&quot;&gt;
+        @if (_userDataService.userPhoto() &#x3D;&#x3D;&#x3D; defaultPhoto) {
+          &lt;div class&#x3D;&quot;user-avatar&quot;&gt;
+            {{ getInitials() }}
+          &lt;/div&gt;
+        } @else {
+          &lt;img
+            [ngSrc]&#x3D;&quot;_userDataService.userPhoto()&quot;
+            width&#x3D;&quot;120&quot;
+            height&#x3D;&quot;120&quot;
+            alt&#x3D;&quot;User Photo&quot;
+            class&#x3D;&quot;avatar-img&quot;
+            loading&#x3D;&quot;lazy&quot;
+            decoding&#x3D;&quot;async&quot;
+          /&gt;
+        }
+
+        &lt;p-fileupload
+          mode&#x3D;&quot;basic&quot;
+          name&#x3D;&quot;profilePhoto&quot;
+          chooseIcon&#x3D;&quot;pi pi-cloud-upload&quot;
+          chooseLabel&#x3D;&quot;&quot;
+          accept&#x3D;&quot;image/*&quot;
+          maxFileSize&#x3D;&quot;5000000&quot;
+          [auto]&#x3D;&quot;true&quot;
+          (onSelect)&#x3D;&quot;onImageUpload($event)&quot;
+          styleClass&#x3D;&quot;upload-button p-button-rounded p-button-outlined&quot;
+        &gt;&lt;/p-fileupload&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;upload-info&quot;&gt;
+        &lt;h3&gt;{{ &quot;user-Profile.edit-Profile.uploadPhoto&quot; | translate }}&lt;/h3&gt;
+        &lt;p&gt;{{ &quot;user-Profile.edit-Profile.uploadPhotoInfo&quot; | translate }}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;form [formGroup]&#x3D;&quot;profileForm&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot; class&#x3D;&quot;profile-form&quot;&gt;
+      &lt;div class&#x3D;&quot;flex justify-content-between&quot;&gt;
+        &lt;!-- First Name --&gt;
+        &lt;lib-custom-input
+          formControlName&#x3D;&quot;firstName&quot;
+          type&#x3D;&quot;text&quot;
+          [placeholder]&#x3D;&quot;&#x27;auth.inputs.firstNamePlaceholder&#x27; | translate&quot;
+          id&#x3D;&quot;firstName&quot;
+          [labelText]&#x3D;&quot;&#x27;auth.inputs.firstName&#x27; | translate&quot;
+          class&#x3D;&quot;col field&quot;
+          autocomplete&#x3D;&quot;given-name&quot;
+          [errorHandilgControl]&#x3D;&quot;profileForm.get(&#x27;firstName&#x27;)!&quot;
+          aria-required&#x3D;&quot;true&quot;
+        /&gt;
+
+        &lt;!-- Last Name --&gt;
+        &lt;lib-custom-input
+          formControlName&#x3D;&quot;lastName&quot;
+          type&#x3D;&quot;text&quot;
+          placeholder&#x3D;&quot;{{ &#x27;auth.inputs.lastNamePlaceholder&#x27; | translate }}&quot;
+          id&#x3D;&quot;lastName&quot;
+          labelText&#x3D;&quot;{{ &#x27;auth.inputs.lastName&#x27; | translate }}&quot;
+          [errorHandilgControl]&#x3D;&quot;profileForm.get(&#x27;lastName&#x27;)!&quot;
+          class&#x3D;&quot;col field&quot;
+          autocomplete&#x3D;&quot;family-name&quot;
+          aria-required&#x3D;&quot;true&quot;
+        /&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Email --&gt;
+      &lt;lib-custom-input
+        formControlName&#x3D;&quot;email&quot;
+        type&#x3D;&quot;text&quot;
+        placeholder&#x3D;&quot;user@example.com&quot;
+        id&#x3D;&quot;email&quot;
+        labelText&#x3D;&quot;{{ &#x27;auth.inputs.email&#x27; | translate }}&quot;
+        [errorHandilgControl]&#x3D;&quot;profileForm.get(&#x27;email&#x27;)!&quot;
+        class&#x3D;&quot;w-full mb-3&quot;
+        autocomplete&#x3D;&quot;email&quot;
+        aria-required&#x3D;&quot;true&quot;
+      /&gt;
+
+      &lt;!-- Phone --&gt;
+      &lt;lib-custom-input-phone
+        formControlName&#x3D;&quot;phone&quot;
+        placeholder&#x3D;&quot;1012345678&quot;
+        labelText&#x3D;&quot;{{ &#x27;auth.inputs.phone&#x27; | translate }}&quot;
+        id&#x3D;&quot;phone&quot;
+        class&#x3D;&quot;w-full&quot;
+        [errorHandilgControl]&#x3D;&quot;profileForm.get(&#x27;phone&#x27;)!&quot;
+        autocomplete&#x3D;&quot;tel&quot;
+        aria-required&#x3D;&quot;true&quot;
+      /&gt;
+
+      &lt;!-- Gender --&gt;
+      &lt;div class&#x3D;&quot;field&quot;&gt;
+        &lt;label for&#x3D;&quot;gender-dropdown&quot; class&#x3D;&quot;title-label&quot;&gt;{{
+          &quot;auth.inputs.gender&quot; | translate
+        }}&lt;/label&gt;
+        &lt;p-select
+          [options]&#x3D;&quot;genders&quot;
+          optionLabel&#x3D;&quot;label&quot;
+          [disabled]&#x3D;&quot;true&quot;
+          [placeholder]&#x3D;&quot;_userDataService.userGender()&quot;
+          id&#x3D;&quot;gender-dropdown&quot;
+          class&#x3D;&quot;w-full&quot;
+        &gt;
+        &lt;/p-select&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  }
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="content">  @if (isLoading()) {    <div class="loading-skeleton">      <!-- Avatar Section Skeleton -->      <div class="skeleton-avatar-section">        <div class="skeleton-avatar"></div>        <div class="skeleton-upload-info">          <div class="skeleton-text-lg"></div>          <div class="skeleton-text-sm"></div>        </div>      </div>      <!-- Form Skeleton -->      <div class="skeleton-form">        <div class="skeleton-row">          <div class="skeleton-field"></div>          <div class="skeleton-field"></div>        </div>        <div class="skeleton-field-wide"></div>        <div class="skeleton-field-wide"></div>        <div class="skeleton-field-wide"></div>        <div class="skeleton-actions">          <div class="skeleton-button"></div>        </div>      </div>    </div>  } @else {    <div class="upload-section">      <div class="avatar-container">        @if (_userDataService.userPhoto() === defaultPhoto) {          <div class="user-avatar">            {{ getInitials() }}          </div>        } @else {          <img            [ngSrc]="_userDataService.userPhoto()"            width="120"            height="120"            alt="User Photo"            class="avatar-img"            loading="lazy"            decoding="async"          />        }        <p-fileupload          mode="basic"          name="profilePhoto"          chooseIcon="pi pi-cloud-upload"          chooseLabel=""          accept="image/*"          maxFileSize="5000000"          [auto]="true"          (onSelect)="onImageUpload($event)"          styleClass="upload-button p-button-rounded p-button-outlined"        ></p-fileupload>      </div>      <div class="upload-info">        <h3>{{ "user-Profile.edit-Profile.uploadPhoto" | translate }}</h3>        <p>{{ "user-Profile.edit-Profile.uploadPhotoInfo" | translate }}</p>      </div>    </div>    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="profile-form">      <div class="flex justify-content-between">        <!-- First Name -->        <lib-custom-input          formControlName="firstName"          type="text"          [placeholder]="\'auth.inputs.firstNamePlaceholder\' | translate"          id="firstName"          [labelText]="\'auth.inputs.firstName\' | translate"          class="col field"          autocomplete="given-name"          [errorHandilgControl]="profileForm.get(\'firstName\')!"          aria-required="true"        />        <!-- Last Name -->        <lib-custom-input          formControlName="lastName"          type="text"          placeholder="{{ \'auth.inputs.lastNamePlaceholder\' | translate }}"          id="lastName"          labelText="{{ \'auth.inputs.lastName\' | translate }}"          [errorHandilgControl]="profileForm.get(\'lastName\')!"          class="col field"          autocomplete="family-name"          aria-required="true"        />      </div>      <!-- Email -->      <lib-custom-input        formControlName="email"        type="text"        placeholder="user@example.com"        id="email"        labelText="{{ \'auth.inputs.email\' | translate }}"        [errorHandilgControl]="profileForm.get(\'email\')!"        class="w-full mb-3"        autocomplete="email"        aria-required="true"      />      <!-- Phone -->      <lib-custom-input-phone        formControlName="phone"        placeholder="1012345678"        labelText="{{ \'auth.inputs.phone\' | translate }}"        id="phone"        class="w-full"        [errorHandilgControl]="profileForm.get(\'phone\')!"        autocomplete="tel"        aria-required="true"      />      <!-- Gender -->      <div class="field">        <label for="gender-dropdown" class="title-label">{{          "auth.inputs.gender" | translate        }}</label>        <p-select          [options]="genders"          optionLabel="label"          [disabled]="true"          [placeholder]="_userDataService.userGender()"          id="gender-dropdown"          class="w-full"        >        </p-select>      </div>    </form>  }</div></div>'
+    var COMPONENTS = [{'name': 'AddEditCategoryComponent', 'selector': 'app-add-edit-category'},{'name': 'AddEditOccasionComponent', 'selector': 'app-add-edit-occasion'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorizationComponent', 'selector': 'app-authorization'},{'name': 'BottomNavbarComponent', 'selector': 'app-bottom-navbar'},{'name': 'BreadcrumpComponent', 'selector': 'app-breadcrump'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CategoriesReportsComponent', 'selector': 'app-categories-reports'},{'name': 'CategoryOccasionFormComponent', 'selector': 'app-category-occasion-form'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DataTableComponent', 'selector': 'app-data-table'},{'name': 'DataViewComponent', 'selector': 'app-data-view'},{'name': 'DocumentationComponent', 'selector': 'app-documentation'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'EmptyStateComponent', 'selector': 'app-empty-state'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'InputErrorMessageComponent', 'selector': 'app-input-error-message'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LowStockProductsComponent', 'selector': 'app-low-stock-products'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OccasionsComponent', 'selector': 'app-occasions'},{'name': 'OrderChartComponent', 'selector': 'app-order-chart'},{'name': 'OverviewComponent', 'selector': 'app-overview'},{'name': 'PaginationComponent', 'selector': 'app-pagination'},{'name': 'PreviewDataComponent', 'selector': 'app-preview-data'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProductsFormComponent', 'selector': 'app-products-form'},{'name': 'RevenueChartComponent', 'selector': 'app-revenue-chart'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TopSellingProductsComponent', 'selector': 'app-top-selling-products'},{'name': 'UserDataComponent', 'selector': 'app-user-data'},{'name': 'UserPhotoComponent', 'selector': 'app-user-photo'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'EditProfileComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'EditProfileComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

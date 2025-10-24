@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "compodoc": "npx compodoc -p tsconfig.doc.json",
+    "docs-rose": "npx compodoc -p ./tsconfig.doc.rose.json -d ./apps/rose/public/documentation",
+    "docs-dashboard": "npx compodoc -p ./tsconfig.doc.dashboard.json -d ./apps/rose-dashboard/public/documentation",
     "commit": "git-cz",
     "source-map-analyzer": "npx nx build rose --configuration=analyze-bundle && npx source-map-explorer dist/apps/rose/**/*.js",
     "dev": "concurrently \"nx serve Rose-dashboard --port 4200 \" \"nx serve Rose --port 4300 --open\""
