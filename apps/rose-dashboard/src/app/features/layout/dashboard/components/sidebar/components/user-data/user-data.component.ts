@@ -66,7 +66,7 @@ export class UserDataComponent implements OnInit, OnDestroy {
       {
         label: this._translate.instant("menu.documentation"),
         icon: "pi pi-book",
-        command: () => this._router.navigate(["/documentation"]),
+        command: () => window.open("/documentation", "_blank"),
       },
       { separator: true },
       {

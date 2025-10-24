@@ -116,7 +116,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>apps/rose/src/app/features/pages/not-found/not-found.component.ts</code>
+    <code>apps/rose-dashboard/src/app/features/pages/not-found/not-found.component.ts</code>
 </p>
 
 
@@ -149,10 +149,8 @@
             <tr>
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
-                                <code><a href="../components/ButtonComponent.html" target="_self" >ButtonComponent</a></code>
-                            <code>TranslatePipe</code>
-                            <code>RouterLink</code>
                             <code>NgOptimizedImage</code>
+                            <code>TranslatePipe</code>
                 </td>
             </tr>
 
@@ -192,80 +190,36 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &quot;@angular/core&quot;;
-// Images
 import { NgOptimizedImage } from &quot;@angular/common&quot;;
-// Animations
-import { trigger, style, animate, transition, query, stagger } from &quot;@angular/animations&quot;;
-// Router
-import { RouterLink } from &quot;@angular/router&quot;;
 // Translation
 import { TranslatePipe } from &quot;@ngx-translate/core&quot;;
-// Shared Components
-import { ButtonComponent } from &quot;@rose/shared_Components_ui/button/button.component&quot;;
+
 @Component({
   selector: &quot;app-not-found&quot;,
-  imports: [ButtonComponent, TranslatePipe, RouterLink, NgOptimizedImage],
+  imports: [NgOptimizedImage, TranslatePipe],
   templateUrl: &quot;./not-found.component.html&quot;,
   styleUrl: &quot;./not-found.component.scss&quot;,
-  animations: [
-    trigger(&quot;fadeInStagger&quot;, [
-      transition(&quot;:enter&quot;, [
-        query(
-          &quot;.not-found-image, .not-found-heading, .not-found-message&quot;,
-          [
-            style({ opacity: 0, transform: &quot;translateY(16px)&quot; }),
-            stagger(150, [
-              animate(&quot;600ms ease-out&quot;, style({ opacity: 1, transform: &quot;translateY(0)&quot; })),
-            ]),
-          ],
-          { optional: true },
-        ),
-      ]),
-    ]),
-  ],
 })
 export class NotFoundComponent {}
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;not-found-section&quot; role&#x3D;&quot;main&quot; aria-labelledby&#x3D;&quot;not-found-title&quot; @fadeInStagger&gt;
-  &lt;!-- Descriptive Error Image with Alt Text --&gt;
-  &lt;img
-    ngSrc&#x3D;&quot;/images/404-page-not-found.svg&quot;
-    alt&#x3D;&quot;Illustration of a page not found error&quot;
-    width&#x3D;&quot;480&quot;
-    height&#x3D;&quot;360&quot;
-    class&#x3D;&quot;not-found-image&quot;
-    loading&#x3D;&quot;lazy&quot;
-    decoding&#x3D;&quot;async&quot;
-  /&gt;
-
-  &lt;!-- Accessible and Semantic Heading --&gt;
-  &lt;h1 id&#x3D;&quot;not-found-title&quot; class&#x3D;&quot;not-found-heading&quot;&gt;
-    {{ &quot;not-found.notFoundContent.title&quot; | translate }}
-  &lt;/h1&gt;
-
-  &lt;!-- Descriptive Paragraph --&gt;
-  &lt;p class&#x3D;&quot;not-found-message&quot;&gt;
-    {{ &quot;not-found.notFoundContent.message&quot; | translate }}
-  &lt;/p&gt;
-
-  &lt;!-- Accessible Button (with role for clarity) --&gt;
-  &lt;app-button
-    routerLink&#x3D;&quot;/dashboard/home&quot;
-    [text]&#x3D;&quot;&#x27;not-found.not-found-home.backToHome&#x27; | translate&quot;
-    [icon]&#x3D;&quot;&#x27;pi pi-arrow-right arrowicon&#x27;&quot;
-    [bgColor]&#x3D;&quot;&#x27;var(--btn-shared-background)&#x27;&quot;
-    [textColor]&#x3D;&quot;&#x27;var(--btn-shared-color)&#x27;&quot;
-    [borderRadius]&#x3D;&quot;&#x27;btn-about-radius&#x27;&quot;
-    [padding]&#x3D;&quot;&#x27;btn-about-padding&#x27;&quot;
-    [transition]&#x3D;&quot;&#x27;btn-about-transition&#x27;&quot;
-    aria-label&#x3D;&quot;Back to homepage&quot;
-    role&#x3D;&quot;link&quot;
-  &gt;
-  &lt;/app-button&gt;
-&lt;/section&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;unauthorized-wrapper&quot;&gt;
+  &lt;div class&#x3D;&quot;unauthorized-card&quot;&gt;
+    &lt;div class&#x3D;&quot;icon-wrapper&quot;&gt;
+      &lt;img
+        ngSrc&#x3D;&quot;./images/general/9-404-error.svg&quot;
+        width&#x3D;&quot;710&quot;
+        height&#x3D;&quot;315&quot;
+        alt&#x3D;&quot;not-authorized&quot;
+        class&#x3D;&quot;shield-img&quot;
+      /&gt;
+    &lt;/div&gt;
+    &lt;h1 class&#x3D;&quot;title&quot;&gt;{{ &quot;general.notExistTitle&quot; | translate }}&lt;/h1&gt;
+    &lt;p class&#x3D;&quot;subtitle&quot;&gt;{{ &quot;general.notExistDesc&quot; | translate }}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 </code></pre>
     </div>
 
@@ -295,9 +249,9 @@ export class NotFoundComponent {}
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="not-found-section" role="main" aria-labelledby="not-found-title" @fadeInStagger>  <!-- Descriptive Error Image with Alt Text -->  <img    ngSrc="/images/404-page-not-found.svg"    alt="Illustration of a page not found error"    width="480"    height="360"    class="not-found-image"    loading="lazy"    decoding="async"  />  <!-- Accessible and Semantic Heading -->  <h1 id="not-found-title" class="not-found-heading">    {{ "not-found.notFoundContent.title" | translate }}  </h1>  <!-- Descriptive Paragraph -->  <p class="not-found-message">    {{ "not-found.notFoundContent.message" | translate }}  </p>  <!-- Accessible Button (with role for clarity) -->  <app-button    routerLink="/dashboard/home"    [text]="\'not-found.not-found-home.backToHome\' | translate"    [icon]="\'pi pi-arrow-right arrowicon\'"    [bgColor]="\'var(--btn-shared-background)\'"    [textColor]="\'var(--btn-shared-color)\'"    [borderRadius]="\'btn-about-radius\'"    [padding]="\'btn-about-padding\'"    [transition]="\'btn-about-transition\'"    aria-label="Back to homepage"    role="link"  >  </app-button></section></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'DocumentationComponent', 'selector': 'app-documentation'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'EmptyCartComponent', 'selector': 'app-empty-cart'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SoldOutComponent', 'selector': 'app-sold-out'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
-    var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'}];
+        var COMPONENT_TEMPLATE = '<div><div class="unauthorized-wrapper">  <div class="unauthorized-card">    <div class="icon-wrapper">      <img        ngSrc="./images/general/9-404-error.svg"        width="710"        height="315"        alt="not-authorized"        class="shield-img"      />    </div>    <h1 class="title">{{ "general.notExistTitle" | translate }}</h1>    <p class="subtitle">{{ "general.notExistDesc" | translate }}</p>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AddEditCategoryComponent', 'selector': 'app-add-edit-category'},{'name': 'AddEditOccasionComponent', 'selector': 'app-add-edit-occasion'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorizationComponent', 'selector': 'app-authorization'},{'name': 'BottomNavbarComponent', 'selector': 'app-bottom-navbar'},{'name': 'BreadcrumpComponent', 'selector': 'app-breadcrump'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CategoriesReportsComponent', 'selector': 'app-categories-reports'},{'name': 'CategoryOccasionFormComponent', 'selector': 'app-category-occasion-form'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DataTableComponent', 'selector': 'app-data-table'},{'name': 'DataViewComponent', 'selector': 'app-data-view'},{'name': 'DocumentationComponent', 'selector': 'app-documentation'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'EmptyStateComponent', 'selector': 'app-empty-state'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'InputErrorMessageComponent', 'selector': 'app-input-error-message'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LowStockProductsComponent', 'selector': 'app-low-stock-products'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OccasionsComponent', 'selector': 'app-occasions'},{'name': 'OrderChartComponent', 'selector': 'app-order-chart'},{'name': 'OverviewComponent', 'selector': 'app-overview'},{'name': 'PaginationComponent', 'selector': 'app-pagination'},{'name': 'PreviewDataComponent', 'selector': 'app-preview-data'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProductsFormComponent', 'selector': 'app-products-form'},{'name': 'RevenueChartComponent', 'selector': 'app-revenue-chart'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TopSellingProductsComponent', 'selector': 'app-top-selling-products'},{'name': 'UserDataComponent', 'selector': 'app-user-data'},{'name': 'UserPhotoComponent', 'selector': 'app-user-photo'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
+    var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NotFoundComponent'};
 </script>
 <script src="../js/tree.js"></script>

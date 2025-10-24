@@ -1,0 +1,1008 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@angular-monorepo/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@angular-monorepo/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  OrderChartComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-order-chart</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>ChartModule</code>
+                            <code>TranslatePipe</code>
+                            <code>Skeleton</code>
+                                <code><a href="../components/EmptyStateComponent.html" target="_self" >EmptyStateComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./order-chart.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./order-chart.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#backgroundColors" >backgroundColors</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#chartEffect" >chartEffect</a>
+                            </li>
+                            <li>
+                                <a href="#colorMap" >colorMap</a>
+                            </li>
+                            <li>
+                                <a href="#data" >data</a>
+                            </li>
+                            <li>
+                                <a href="#filtered" >filtered</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#myLabels" >myLabels</a>
+                            </li>
+                            <li>
+                                <a href="#options" >options</a>
+                            </li>
+                            <li>
+                                <a href="#orderByStatus" >orderByStatus</a>
+                            </li>
+                            <li>
+                                <a href="#percentage" >percentage</a>
+                            </li>
+                            <li>
+                                <a href="#total" >total</a>
+                            </li>
+                            <li>
+                                <a href="#values" >values</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#initChart" >initChart</a>
+                            </li>
+                            <li>
+                                <a href="#setChartData" >setChartData</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initChart"></a>
+                    <span class="name">
+                        <span ><b>initChart</b></span>
+                        <a href="#initChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initChart()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setChartData"></a>
+                    <span class="name">
+                        <span ><b>setChartData</b></span>
+                        <a href="#setChartData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setChartData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="backgroundColors"></a>
+                    <span class="name">
+                        <span ><b>backgroundColors</b></span>
+                        <a href="#backgroundColors"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chartEffect"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>chartEffect</b></span>
+                        <a href="#chartEffect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>effect(() &#x3D;&gt; {
+    const orders &#x3D; this.orderByStatus();
+    this.loading.set(!orders || orders &#x3D;&#x3D;&#x3D; undefined);
+    if (orders &amp;&amp; orders.length &gt; 0) {
+      this.setChartData();
+      this.initChart();
+    }
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="colorMap"></a>
+                    <span class="name">
+                        <span ><b>colorMap</b></span>
+                        <a href="#colorMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Record&lt;string | string&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="data"></a>
+                    <span class="name">
+                        <span ><b>data</b></span>
+                        <a href="#data"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filtered"></a>
+                    <span class="name">
+                        <span ><b>filtered</b></span>
+                        <a href="#filtered"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>OrdersByStatu[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>WritableSignal&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(true)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="myLabels"></a>
+                    <span class="name">
+                        <span ><b>myLabels</b></span>
+                        <a href="#myLabels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="options"></a>
+                    <span class="name">
+                        <span ><b>options</b></span>
+                        <a href="#options"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="orderByStatus"></a>
+                    <span class="name">
+                        <span ><b>orderByStatus</b></span>
+                        <a href="#orderByStatus"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>InputSignal&lt;[] | undefined&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>input&lt;OrdersByStatu[] | undefined&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="percentage"></a>
+                    <span class="name">
+                        <span ><b>percentage</b></span>
+                        <a href="#percentage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="total"></a>
+                    <span class="name">
+                        <span ><b>total</b></span>
+                        <a href="#total"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="values"></a>
+                    <span class="name">
+                        <span ><b>values</b></span>
+                        <a href="#values"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/overview/components/orderChart/order-chart.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, effect, input, InputSignal, signal, WritableSignal } from &quot;@angular/core&quot;;
+import { TranslatePipe } from &quot;@ngx-translate/core&quot;;
+// Shared_Interfaces
+import { OrdersByStatu } from &quot;@rose_dashboard/core_interfaces/statistics&quot;;
+// Primeng
+import { ChartModule } from &quot;primeng/chart&quot;;
+import { Skeleton } from &quot;primeng/skeleton&quot;;
+// Shared_Component
+import { EmptyStateComponent } from &quot;../empty-state/emptyState.component&quot;;
+
+@Component({
+  selector: &quot;app-order-chart&quot;,
+  imports: [ChartModule, TranslatePipe, Skeleton, EmptyStateComponent],
+  templateUrl: &quot;./order-chart.component.html&quot;,
+  styleUrl: &quot;./order-chart.component.scss&quot;,
+})
+export class OrderChartComponent {
+  orderByStatus: InputSignal&lt;OrdersByStatu[] | undefined&gt; &#x3D; input&lt;OrdersByStatu[] | undefined&gt;();
+  loading: WritableSignal&lt;boolean&gt; &#x3D; signal(true);
+  colorMap!: Record&lt;string, string&gt;;
+  filtered!: OrdersByStatu[];
+  myLabels!: string[];
+  values!: number[];
+  backgroundColors!: string[];
+  total!: number;
+  percentage!: number[];
+  data: any;
+  options: any;
+
+  constructor() {
+    this.colorMap &#x3D; {
+      canceled: &quot;#DC2626&quot;,
+      inProgress: &quot;#2B7FFF&quot;,
+      completed: &quot;#00BC7D&quot;,
+      pending: &quot;#fba707&quot;,
+    };
+  }
+
+  private readonly chartEffect &#x3D; effect(() &#x3D;&gt; {
+    const orders &#x3D; this.orderByStatus();
+    this.loading.set(!orders || orders &#x3D;&#x3D;&#x3D; undefined);
+    if (orders &amp;&amp; orders.length &gt; 0) {
+      this.setChartData();
+      this.initChart();
+    }
+  });
+
+  setChartData() {
+    this.filtered &#x3D; this.orderByStatus()!.filter((o) &#x3D;&gt; o._id !&#x3D;&#x3D; null);
+    this.myLabels &#x3D; this.filtered.map((o) &#x3D;&gt; o._id ?? &quot;unknown&quot;);
+    this.values &#x3D; this.filtered.map((o) &#x3D;&gt; o.count);
+    this.backgroundColors &#x3D; this.filtered.map((o) &#x3D;&gt; this.colorMap[o._id!] || &quot;#6B7280&quot;);
+    this.total &#x3D; this.values.reduce((a: any, b: any) &#x3D;&gt; a + b, 0);
+    this.percentage &#x3D; this.values.map((v) &#x3D;&gt; (v / this.total) * 100);
+  }
+
+  initChart() {
+    this.data &#x3D; {
+      datasets: [
+        {
+          data: this.values,
+          backgroundColor: this.backgroundColors,
+          hoverBackgroundColor: this.backgroundColors,
+        },
+      ],
+    };
+
+    this.options &#x3D; {
+      plugins: {
+        tooltip: {
+          cornerRadius: 21,
+          padding: 8,
+          displayColors: false,
+          callbacks: {
+            label: (context: { dataIndex: number }) &#x3D;&gt; {
+              const percentage &#x3D; this.percentage[context.dataIndex];
+              return &#x60;${percentage.toFixed(1)}%&#x60;;
+            },
+          },
+          titleFont: {
+            size: 11,
+            weight: &quot;600&quot;,
+            family: &quot;var(--font-family-1)&quot;,
+          },
+          bodyFont: {
+            size: 17,
+            family: &quot;var(--font-family-1)&quot;,
+          },
+        },
+      },
+    };
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section id&#x3D;&quot;order&quot; class&#x3D;&quot;order-chart&quot; role&#x3D;&quot;region&quot; aria-label&#x3D;&quot;Order Status Chart&quot;&gt;
+  @if (loading()) {
+    &lt;p-skeleton
+      class&#x3D;&quot;w-6 mb-3&quot;
+      height&#x3D;&quot;1.5rem&quot;
+      borderRadius&#x3D;&quot;.25rem&quot;
+      aria-hidden&#x3D;&quot;true&quot;
+    &gt;&lt;/p-skeleton&gt;
+    &lt;div class&#x3D;&quot;card flex justify-center mt-5 mb-5&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+      &lt;p-skeleton
+        class&#x3D;&quot;o-chart&quot;
+        width&#x3D;&quot;10.625rem&quot;
+        height&#x3D;&quot;10.625rem&quot;
+        borderRadius&#x3D;&quot;50%&quot;
+      &gt;&lt;/p-skeleton&gt;
+    &lt;/div&gt;
+    &lt;div
+      class&#x3D;&quot;flex flex-column gap-2&quot;
+      role&#x3D;&quot;status&quot;
+      aria-live&#x3D;&quot;polite&quot;
+      aria-label&#x3D;&quot;Order status chart data is loading&quot;
+    &gt;
+      @for (i of [1, 2, 3, 4]; track i) {
+        &lt;div class&#x3D;&quot;flex justify-content-between align-items-center&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
+          &lt;div class&#x3D;&quot;lable flex w-9 align-items-center gap-2&quot;&gt;
+            &lt;p-skeleton width&#x3D;&quot;1rem&quot; height&#x3D;&quot;1rem&quot; borderRadius&#x3D;&quot;50%&quot;&gt;&lt;/p-skeleton&gt;
+            &lt;p-skeleton class&#x3D;&quot;w-3&quot; height&#x3D;&quot;1rem&quot; borderRadius&#x3D;&quot;.25rem&quot;&gt;&lt;/p-skeleton&gt;
+          &lt;/div&gt;
+          &lt;p-skeleton class&#x3D;&quot;w-3&quot; height&#x3D;&quot;1rem&quot; borderRadius&#x3D;&quot;.25rem&quot;&gt;&lt;/p-skeleton&gt;
+        &lt;/div&gt;
+      }
+    &lt;/div&gt;
+  } @else if (orderByStatus()!.length &gt; 0) {
+    &lt;h1 class&#x3D;&quot;title&quot;&gt;{{ &quot;overview.status&quot; | translate }}&lt;/h1&gt;
+    &lt;div class&#x3D;&quot;chart-wrapper&quot;&gt;
+      &lt;div
+        class&#x3D;&quot;card flex justify-center mt-5 mb-5&quot;
+        role&#x3D;&quot;img&quot;
+        aria-label&#x3D;&quot;Doughnut chart showing order status distribution&quot;
+      &gt;
+        &lt;p-chart
+          type&#x3D;&quot;doughnut&quot;
+          [data]&#x3D;&quot;data&quot;
+          [options]&#x3D;&quot;options&quot;
+          class&#x3D;&quot;o-chart&quot;
+          [attr.aria-hidden]&#x3D;&quot;true&quot;
+        /&gt;
+      &lt;/div&gt;
+      &lt;div class&#x3D;&quot;details&quot;&gt;
+        @for (item of filtered; track $index; let first &#x3D; $first) {
+          &lt;div
+            class&#x3D;&quot;row&quot;
+            role&#x3D;&quot;listitem&quot;
+            [attr.aria-setsize]&#x3D;&quot;filtered.length&quot;
+            [attr.aria-posinset]&#x3D;&quot;$index + 1&quot;
+          &gt;
+            &lt;div class&#x3D;&quot;lable&quot;&gt;
+              &lt;div
+                [style.backgroundColor]&#x3D;&quot;backgroundColors[$index]&quot;
+                class&#x3D;&quot;color-id&quot;
+                [attr.aria-label]&#x3D;&quot;&#x27;Color indicator for &#x27; + item._id&quot;
+              &gt;&lt;/div&gt;
+              &lt;p class&#x3D;&quot;lable-p&quot; [id]&#x3D;&quot;&#x27;label-&#x27; + $index&quot;&gt;
+                {{ item._id }}
+              &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+              &lt;span
+                class&#x3D;&quot;value&quot;
+                [attr.aria-labelledby]&#x3D;&quot;&#x27;label-&#x27; + $index&quot;
+                [attr.aria-live]&#x3D;&quot;first ? &#x27;polite&#x27; : null&quot;
+              &gt;
+                {{ item.count + &quot; (&quot; + percentage[$index].toFixed(1) + &quot;%)&quot; }}
+              &lt;/span&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        }
+      &lt;/div&gt;
+    &lt;/div&gt;
+  } @else if (orderByStatus()?.length &#x3D;&#x3D;&#x3D; 0) {
+    &lt;app-empty-state /&gt;
+  }
+&lt;/section&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section id="order" class="order-chart" role="region" aria-label="Order Status Chart">  @if (loading()) {    <p-skeleton      class="w-6 mb-3"      height="1.5rem"      borderRadius=".25rem"      aria-hidden="true"    ></p-skeleton>    <div class="card flex justify-center mt-5 mb-5" aria-hidden="true">      <p-skeleton        class="o-chart"        width="10.625rem"        height="10.625rem"        borderRadius="50%"      ></p-skeleton>    </div>    <div      class="flex flex-column gap-2"      role="status"      aria-live="polite"      aria-label="Order status chart data is loading"    >      @for (i of [1, 2, 3, 4]; track i) {        <div class="flex justify-content-between align-items-center" aria-hidden="true">          <div class="lable flex w-9 align-items-center gap-2">            <p-skeleton width="1rem" height="1rem" borderRadius="50%"></p-skeleton>            <p-skeleton class="w-3" height="1rem" borderRadius=".25rem"></p-skeleton>          </div>          <p-skeleton class="w-3" height="1rem" borderRadius=".25rem"></p-skeleton>        </div>      }    </div>  } @else if (orderByStatus()!.length > 0) {    <h1 class="title">{{ "overview.status" | translate }}</h1>    <div class="chart-wrapper">      <div        class="card flex justify-center mt-5 mb-5"        role="img"        aria-label="Doughnut chart showing order status distribution"      >        <p-chart          type="doughnut"          [data]="data"          [options]="options"          class="o-chart"          [attr.aria-hidden]="true"        />      </div>      <div class="details">        @for (item of filtered; track $index; let first = $first) {          <div            class="row"            role="listitem"            [attr.aria-setsize]="filtered.length"            [attr.aria-posinset]="$index + 1"          >            <div class="lable">              <div                [style.backgroundColor]="backgroundColors[$index]"                class="color-id"                [attr.aria-label]="\'Color indicator for \' + item._id"              ></div>              <p class="lable-p" [id]="\'label-\' + $index">                {{ item._id }}              </p>            </div>            <div>              <span                class="value"                [attr.aria-labelledby]="\'label-\' + $index"                [attr.aria-live]="first ? \'polite\' : null"              >                {{ item.count + " (" + percentage[$index].toFixed(1) + "%)" }}              </span>            </div>          </div>        }      </div>    </div>  } @else if (orderByStatus()?.length === 0) {    <app-empty-state />  }</section></div>'
+    var COMPONENTS = [{'name': 'AddEditCategoryComponent', 'selector': 'app-add-edit-category'},{'name': 'AddEditOccasionComponent', 'selector': 'app-add-edit-occasion'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorizationComponent', 'selector': 'app-authorization'},{'name': 'BottomNavbarComponent', 'selector': 'app-bottom-navbar'},{'name': 'BreadcrumpComponent', 'selector': 'app-breadcrump'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CategoriesReportsComponent', 'selector': 'app-categories-reports'},{'name': 'CategoryOccasionFormComponent', 'selector': 'app-category-occasion-form'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DataTableComponent', 'selector': 'app-data-table'},{'name': 'DataViewComponent', 'selector': 'app-data-view'},{'name': 'DocumentationComponent', 'selector': 'app-documentation'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'EmptyStateComponent', 'selector': 'app-empty-state'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'InputErrorMessageComponent', 'selector': 'app-input-error-message'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LowStockProductsComponent', 'selector': 'app-low-stock-products'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OccasionsComponent', 'selector': 'app-occasions'},{'name': 'OrderChartComponent', 'selector': 'app-order-chart'},{'name': 'OverviewComponent', 'selector': 'app-overview'},{'name': 'PaginationComponent', 'selector': 'app-pagination'},{'name': 'PreviewDataComponent', 'selector': 'app-preview-data'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProductsFormComponent', 'selector': 'app-products-form'},{'name': 'RevenueChartComponent', 'selector': 'app-revenue-chart'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TopSellingProductsComponent', 'selector': 'app-top-selling-products'},{'name': 'UserDataComponent', 'selector': 'app-user-data'},{'name': 'UserPhotoComponent', 'selector': 'app-user-photo'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'OrderChartComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'OrderChartComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -116,7 +116,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>apps/rose/src/app/features/layouts/dashboard/dashboard.component.ts</code>
+    <code>apps/rose-dashboard/src/app/features/layout/dashboard/dashboard.component.ts</code>
 </p>
 
 
@@ -149,10 +149,10 @@
             <tr>
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
+                                <code><a href="../components/SidebarComponent.html" target="_self" >SidebarComponent</a></code>
+                                <code><a href="../components/StepperComponent.html" target="_self" >StepperComponent</a></code>
                             <code>RouterOutlet</code>
-                                <code><a href="../components/NavbarComponent.html" target="_self" >NavbarComponent</a></code>
-                                <code><a href="../components/FooterComponent.html" target="_self" >FooterComponent</a></code>
-                                <code><a href="../components/SpeedDialComponent.html" target="_self" >SpeedDialComponent</a></code>
+                                <code><a href="../components/BottomNavbarComponent.html" target="_self" >BottomNavbarComponent</a></code>
                 </td>
             </tr>
 
@@ -240,7 +240,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/rose/src/app/features/layouts/dashboard/dashboard.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/rose-dashboard/src/app/features/layout/dashboard/dashboard.component.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -254,20 +254,20 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject } from &quot;@angular/core&quot;;
-// Router
 import { RouterOutlet } from &quot;@angular/router&quot;;
 // Components
-import { FooterComponent } from &quot;../footer/footer.component&quot;;
-import { NavbarComponent } from &quot;../navbar/navbar.component&quot;;
-// Sheared Components
-import { SpeedDialComponent } from &quot;@rose/shared_Components_business/speedDial-btn/speedDial.component&quot;;
+import { SidebarComponent } from &quot;./components/sidebar/sidebar.component&quot;;
+import { StepperComponent } from &quot;./components/stepper/stepper.component&quot;;
+import { BottomNavbarComponent } from &quot;./components/bottom-navbar/bottom-navbar.component&quot;;
 import { TranslationService } from &quot;@angular-monorepo/services&quot;;
+import { fadeTransition } from &quot;@angular-monorepo/services&quot;;
 
 @Component({
   selector: &quot;app-dashboard&quot;,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent, SpeedDialComponent],
+  imports: [SidebarComponent, StepperComponent, RouterOutlet, BottomNavbarComponent],
   templateUrl: &quot;./dashboard.component.html&quot;,
   styleUrl: &quot;./dashboard.component.scss&quot;,
+  animations: [fadeTransition],
 })
 export class DashboardComponent {
   protected readonly _translationService &#x3D; inject(TranslationService);
@@ -276,13 +276,15 @@ export class DashboardComponent {
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;dash&quot;&gt;
-  &lt;app-navbar /&gt;
-  &lt;div class&#x3D;&quot;contain mx-auto&quot;&gt;
-    &lt;router-outlet /&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;dashboard&quot; [@fadeTransition]&#x3D;&quot;_translationService.fadeState()&quot;&gt;
+  &lt;app-sidebar class&#x3D;&quot;hidden lg:block md:flex-1&quot; /&gt;
+  &lt;div class&#x3D;&quot;w-full md:flex-2&quot;&gt;
+    &lt;app-stepper /&gt;
+    &lt;div class&#x3D;&quot;marg-bottom&quot;&gt;
+      &lt;router-outlet /&gt;
+    &lt;/div&gt;
+    &lt;app-bottom-navbar class&#x3D;&quot;block lg:hidden&quot; /&gt;
   &lt;/div&gt;
-  &lt;app-footer /&gt;
-  &lt;app-speed-dial /&gt;
 &lt;/section&gt;
 </code></pre>
     </div>
@@ -313,9 +315,9 @@ export class DashboardComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section class="dash">  <app-navbar />  <div class="contain mx-auto">    <router-outlet />  </div>  <app-footer />  <app-speed-dial /></section></div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'DocumentationComponent', 'selector': 'app-documentation'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'EmptyCartComponent', 'selector': 'app-empty-cart'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SoldOutComponent', 'selector': 'app-sold-out'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
-    var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'}];
+        var COMPONENT_TEMPLATE = '<div><section class="dashboard" [@fadeTransition]="_translationService.fadeState()">  <app-sidebar class="hidden lg:block md:flex-1" />  <div class="w-full md:flex-2">    <app-stepper />    <div class="marg-bottom">      <router-outlet />    </div>    <app-bottom-navbar class="block lg:hidden" />  </div></section></div>'
+    var COMPONENTS = [{'name': 'AddEditCategoryComponent', 'selector': 'app-add-edit-category'},{'name': 'AddEditOccasionComponent', 'selector': 'app-add-edit-occasion'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorizationComponent', 'selector': 'app-authorization'},{'name': 'BottomNavbarComponent', 'selector': 'app-bottom-navbar'},{'name': 'BreadcrumpComponent', 'selector': 'app-breadcrump'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CategoriesReportsComponent', 'selector': 'app-categories-reports'},{'name': 'CategoryOccasionFormComponent', 'selector': 'app-category-occasion-form'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DataTableComponent', 'selector': 'app-data-table'},{'name': 'DataViewComponent', 'selector': 'app-data-view'},{'name': 'DocumentationComponent', 'selector': 'app-documentation'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'EmptyStateComponent', 'selector': 'app-empty-state'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'InputErrorMessageComponent', 'selector': 'app-input-error-message'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LowStockProductsComponent', 'selector': 'app-low-stock-products'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OccasionsComponent', 'selector': 'app-occasions'},{'name': 'OrderChartComponent', 'selector': 'app-order-chart'},{'name': 'OverviewComponent', 'selector': 'app-overview'},{'name': 'PaginationComponent', 'selector': 'app-pagination'},{'name': 'PreviewDataComponent', 'selector': 'app-preview-data'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProductsFormComponent', 'selector': 'app-products-form'},{'name': 'RevenueChartComponent', 'selector': 'app-revenue-chart'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TopSellingProductsComponent', 'selector': 'app-top-selling-products'},{'name': 'UserDataComponent', 'selector': 'app-user-data'},{'name': 'UserPhotoComponent', 'selector': 'app-user-photo'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
+    var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'DashboardComponent'};
 </script>
 <script src="../js/tree.js"></script>

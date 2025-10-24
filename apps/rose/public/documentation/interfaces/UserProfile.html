@@ -957,15 +957,6 @@ export class NavbarComponent implements OnInit {
     const isAdmin &#x3D; user?.role &#x3D;&#x3D;&#x3D; &quot;admin&quot;;
     this.userDropDown.set([
       {
-        label: user
-          ? &#x60;${user.firstName} ${user.lastName}&#x60;
-          : this._translate.instant(&quot;navbar.menu.guest&quot;),
-        escape: true,
-      },
-      {
-        separator: true,
-      },
-      {
         label: this._translate.instant(&quot;navbar.menu.myProfile&quot;),
         icon: &quot;pi pi-user&quot;,
         visible: !!user,

@@ -106,10 +106,6 @@
                 role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
         </li>
         <li class="nav-item">
-            <a href="#styleData" class="nav-link"
-                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li class="nav-item">
             <a href="#tree" class="nav-link"
                 role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
@@ -120,18 +116,12 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>apps/rose/src/app/features/pages/home/components/categories/categories.component.ts</code>
+    <code>apps/rose-dashboard/src/app/features/pages/categories/categories.component.ts</code>
 </p>
 
 
 
 
-    <p class="comment">
-        <h3>Implements</h3>
-    </p>
-    <p class="comment">
-                <code>OnInit</code>
-    </p>
 
 
 <section data-compodoc="block-metadata">
@@ -159,18 +149,10 @@
             <tr>
                 <td class="col-md-3">imports</td>
                 <td class="col-md-9">
-                            <code>ToastModule</code>
-                            <code>Skeleton</code>
-                            <code>TranslatePipe</code>
-                                <code><a href="../components/NoDataAvailableComponent.html" target="_self" >NoDataAvailableComponent</a></code>
-                            <code>NgOptimizedImage</code>
+                                <code><a href="../components/DataViewComponent.html" target="_self" >DataViewComponent</a></code>
                 </td>
             </tr>
 
-            <tr>
-                <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./categories.component.scss</code></td>
-            </tr>
 
 
 
@@ -181,6 +163,10 @@
 
 
 
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./categories.component.scss</code></td>
+            </tr>
 
 
 
@@ -204,32 +190,25 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                    <span class="modifier">Readonly</span>
-                                <a href="#_translate" >_translate</a>
-                            </li>
-                            <li>
-                                <a href="#categories" >categories</a>
+                                <a href="#_loadService" >_loadService</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#categoriesService" >categoriesService</a>
+                                <a href="#category_service" >category_service</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#destroyRef" >destroyRef</a>
-                            </li>
-                            <li>
-                                <a href="#hasError" >hasError</a>
-                            </li>
-                            <li>
-                                <a href="#isLoading" >isLoading</a>
+                                <a href="#cats" >cats</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
                                 <a href="#messageService" >messageService</a>
                             </li>
                             <li>
-                                <a href="#translationService" >translationService</a>
+                                    <span class="modifier">Private</span>
+                                <a href="#router" >router</a>
+                            </li>
+                            <li>
+                                <a href="#table_header_records" >table_header_records</a>
                             </li>
                         </ul>
                     </td>
@@ -249,6 +228,15 @@
                             </li>
                             <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onAddNew" >onAddNew</a>
+                            </li>
+                            <li>
+                                <a href="#onDeleteCategory" >onDeleteCategory</a>
+                            </li>
+                            <li>
+                                <a href="#onEditCategory" >onEditCategory</a>
                             </li>
                         </ul>
                     </td>
@@ -294,8 +282,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="42"
-                                    class="link-to-prism">apps/rose/src/app/features/pages/home/components/categories/categories.component.ts:42</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/features/pages/categories/categories.component.ts:61</a></div>
                         </td>
                     </tr>
 
@@ -331,8 +319,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="38"
-                                    class="link-to-prism">apps/rose/src/app/features/pages/home/components/categories/categories.component.ts:38</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="23"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/features/pages/categories/categories.component.ts:23</a></div>
                         </td>
                     </tr>
 
@@ -348,6 +336,177 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onAddNew"></a>
+                    <span class="name">
+                        <span ><b>onAddNew</b></span>
+                        <a href="#onAddNew"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onAddNew()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="34"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/features/pages/categories/categories.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDeleteCategory"></a>
+                    <span class="name">
+                        <span ><b>onDeleteCategory</b></span>
+                        <a href="#onDeleteCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDeleteCategory(category: <a href="../interfaces/Category.html" target="_self">Category</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/features/pages/categories/categories.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>category</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Category.html" target="_self" >Category</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onEditCategory"></a>
+                    <span class="name">
+                        <span ><b>onEditCategory</b></span>
+                        <a href="#onEditCategory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onEditCategory(category: <a href="../interfaces/Category.html" target="_self">Category</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">apps/rose-dashboard/src/app/features/pages/categories/categories.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>category</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Category.html" target="_self" >Category</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
     <section data-compodoc="block-properties">
     
@@ -358,23 +517,22 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="_translate"></a>
+                    <a name="_loadService"></a>
                     <span class="name">
                             <span class="modifier">Private</span>
-                            <span class="modifier">Readonly</span>
-                        <span ><b>_translate</b></span>
-                        <a href="#_translate"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>_loadService</b></span>
+                        <a href="#_loadService"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>inject(TranslateService)</code>
+                        <i>Default value : </i><code>inject(LoadingService)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">apps/rose/src/app/features/pages/home/components/categories/categories.component.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/categories/categories.component.ts:18</a></div>
                         </td>
                     </tr>
 
@@ -385,36 +543,11 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="categories"></a>
-                    <span class="name">
-                        <span ><b>categories</b></span>
-                        <a href="#categories"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>signal&lt;Category[]&gt;([])</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">apps/rose/src/app/features/pages/home/components/categories/categories.component.ts:34</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="categoriesService"></a>
+                    <a name="category_service"></a>
                     <span class="name">
                             <span class="modifier">Private</span>
-                        <span ><b>categoriesService</b></span>
-                        <a href="#categoriesService"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>category_service</b></span>
+                        <a href="#category_service"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -425,7 +558,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">apps/rose/src/app/features/pages/home/components/categories/categories.component.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/categories/categories.component.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -436,72 +569,27 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="destroyRef"></a>
+                    <a name="cats"></a>
                     <span class="name">
-                            <span class="modifier">Private</span>
-                        <span ><b>destroyRef</b></span>
-                        <a href="#destroyRef"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>cats</b></span>
+                        <a href="#cats"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>inject(DestroyRef)</code>
+                        <i>Type : </i>        <code><a href="../interfaces/Category.html" target="_self" >WritableSignal&lt;Category[]&gt;</a></code>
+
                     </td>
                 </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">apps/rose/src/app/features/pages/home/components/categories/categories.component.ts:32</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="hasError"></a>
-                    <span class="name">
-                        <span ><b>hasError</b></span>
-                        <a href="#hasError"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>signal&lt;boolean&gt;(false)</code>
+                        <i>Default value : </i><code>signal&lt;Category[]&gt;([])</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">apps/rose/src/app/features/pages/home/components/categories/categories.component.ts:36</a></div>
-                        </td>
-                    </tr>
-
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="isLoading"></a>
-                    <span class="name">
-                        <span ><b>isLoading</b></span>
-                        <a href="#isLoading"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>signal&lt;boolean&gt;(true)</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">apps/rose/src/app/features/pages/home/components/categories/categories.component.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/categories/categories.component.ts:21</a></div>
                         </td>
                     </tr>
 
@@ -527,7 +615,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">apps/rose/src/app/features/pages/home/components/categories/categories.component.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/categories/categories.component.ts:17</a></div>
                         </td>
                     </tr>
 
@@ -538,21 +626,53 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="translationService"></a>
+                    <a name="router"></a>
                     <span class="name">
-                        <span ><b>translationService</b></span>
-                        <a href="#translationService"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Private</span>
+                        <span ><b>router</b></span>
+                        <a href="#router"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>inject(TranslationService)</code>
+                        <i>Default value : </i><code>inject(Router)</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">apps/rose/src/app/features/pages/home/components/categories/categories.component.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/categories/categories.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="table_header_records"></a>
+                    <span class="name">
+                        <span ><b>table_header_records</b></span>
+                        <a href="#table_header_records"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&quot;name&quot;, &quot;products&quot;]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">apps/rose-dashboard/src/app/features/pages/categories/categories.component.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -565,317 +685,91 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, inject, OnInit, signal, DestroyRef } from &quot;@angular/core&quot;;
-// Images
-import { NgOptimizedImage } from &quot;@angular/common&quot;;
-import { takeUntilDestroyed } from &quot;@angular/core/rxjs-interop&quot;;
-// Translation
-import { TranslatePipe, TranslateService } from &quot;@ngx-translate/core&quot;;
-import { TranslationService } from &quot;@angular-monorepo/services&quot;;
-// Animations
-import { fadeTransition } from &quot;@angular-monorepo/services&quot;;
-// Shared_Services , Interfaces
-import { CategoriesService, Category, CategoryRes } from &quot;@angular-monorepo/categories&quot;;
-// Shared_Components
-import { NoDataAvailableComponent } from &quot;@rose/shared_Components_business/no-data-available/no-data-available.component&quot;;
-// PrimeNG
-import { ToastModule } from &quot;primeng/toast&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CategoriesService, Category } from &quot;@angular-monorepo/categories&quot;;
+import { Component, inject, signal, WritableSignal } from &quot;@angular/core&quot;;
+import { DataViewComponent } from &quot;../../../shared/ui/dataView/dataView.component&quot;;
+import { Router } from &quot;@angular/router&quot;;
 import { MessageService } from &quot;primeng/api&quot;;
-import { Skeleton } from &quot;primeng/skeleton&quot;;
+import { LoadingService } from &quot;@rose_dashboard/shared_services/loading/loading.service&quot;;
 
 @Component({
   selector: &quot;app-categories&quot;,
-  imports: [ToastModule, Skeleton, TranslatePipe, NoDataAvailableComponent, NgOptimizedImage],
+  imports: [DataViewComponent],
   templateUrl: &quot;./categories.component.html&quot;,
-  styleUrls: [&quot;./categories.component.scss&quot;],
-  animations: [fadeTransition],
+  styleUrl: &quot;./categories.component.scss&quot;,
 })
-export class CategoriesComponent implements OnInit {
-  private readonly _translate &#x3D; inject(TranslateService);
-  private categoriesService &#x3D; inject(CategoriesService);
-  translationService &#x3D; inject(TranslationService);
+export class CategoriesComponent {
+  private category_service &#x3D; inject(CategoriesService);
+  private router &#x3D; inject(Router);
   private messageService &#x3D; inject(MessageService);
+  private _loadService &#x3D; inject(LoadingService);
 
-  private destroyRef &#x3D; inject(DestroyRef);
+  table_header_records: string[] &#x3D; [&quot;name&quot;, &quot;products&quot;];
+  cats: WritableSignal&lt;Category[]&gt; &#x3D; signal&lt;Category[]&gt;([]);
 
-  categories &#x3D; signal&lt;Category[]&gt;([]);
-  isLoading &#x3D; signal&lt;boolean&gt;(true);
-  hasError &#x3D; signal&lt;boolean&gt;(false);
-
-  ngOnInit(): void {
-    this.loadCategories();
+  ngOnInit() {
+    this._loadService.itemsLoaded.set(false);
+    this.category_service.getAllCategories().subscribe({
+      next: (res) &#x3D;&gt; {
+        this.cats.set(res.categories);
+        this._loadService.itemsLoaded.set(true);
+      },
+    });
   }
 
-  private loadCategories() {
-    this.isLoading.set(true);
+  // Handling the events from DataViewComponent
+  onAddNew() {
+    this.router.navigate([&quot;dashboard/categories/add&quot;]);
+  }
 
-    this.categoriesService
-      .getAllCategories()
-      .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe({
-        next: (response: CategoryRes) &#x3D;&gt; {
-          this.categories.set(response.categories || []);
-          this.isLoading.set(false);
-        },
-        error: () &#x3D;&gt; {
-          this.hasError.set(true);
-          this.isLoading.set(false);
-          this.messageService.add({
-            severity: &quot;error&quot;,
-            detail: this._translate.instant(&quot;messagesToast.failedToLoadCategories&quot;),
-          });
-        },
-      });
+  onEditCategory(category: Category) {
+    this.router.navigate([&#x60;dashboard/categories/edit/${category._id}&#x60;]);
+  }
+  onDeleteCategory(category: Category) {
+    this.category_service.deleteCategory(category._id).subscribe({
+      next: () &#x3D;&gt; {
+        this.messageService.add({
+          severity: &quot;success&quot;,
+          detail: &quot;Category deleted successfully!&quot;,
+          life: 3000,
+        });
+        this.loadCategories(); // Refresh the list
+      },
+      error: (err) &#x3D;&gt; {
+        console.error(&quot;Delete failed:&quot;, err);
+        this.messageService.add({
+          severity: &quot;error&quot;,
+          detail: &quot;Failed to delete category. Please try again.&quot;,
+          life: 5000,
+        });
+      },
+    });
+  }
+  private loadCategories() {
+    this.category_service.getAllCategories().subscribe({
+      next: (res) &#x3D;&gt; {
+        this.cats.set(res.categories);
+      },
+    });
   }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p-toast aria-live&#x3D;&quot;polite&quot;&gt;&lt;/p-toast&gt;
-
-@if (isLoading()) {
-  &lt;section aria-labelledby&#x3D;&quot;categories-heading&quot;&gt;
-    &lt;div class&#x3D;&quot;categories-scroll-container&quot; tabindex&#x3D;&quot;0&quot; aria-label&#x3D;&quot;Categories carousel&quot;&gt;
-      &lt;div class&#x3D;&quot;categories-scroll-wrapper&quot; role&#x3D;&quot;list&quot;&gt;
-        @for (item of [1, 2, 3, 4, 5, 6, 7]; track $index) {
-          &lt;div class&#x3D;&quot;category-card light-pink-bg&quot; role&#x3D;&quot;listitem&quot;&gt;
-            &lt;div class&#x3D;&quot;category-icon&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
-              &lt;p-skeleton width&#x3D;&quot;3.12rem&quot; height&#x3D;&quot;3.12rem&quot; shape&#x3D;&quot;circle&quot;&gt;&lt;/p-skeleton&gt;
-            &lt;/div&gt;
-            &lt;div class&#x3D;&quot;category-content&quot;&gt;
-              &lt;p-skeleton width&#x3D;&quot;6rem&quot; height&#x3D;&quot;1rem&quot;&gt;&lt;/p-skeleton&gt;
-              &lt;p-skeleton width&#x3D;&quot;4rem&quot; height&#x3D;&quot;1rem&quot;&gt;&lt;/p-skeleton&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-        }
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/section&gt;
-} @else if (hasError()) {
-  &lt;div class&#x3D;&quot;p-3 flex justify-content-center&quot; aria-live&#x3D;&quot;assertive&quot;&gt;
-    &lt;p role&#x3D;&quot;alert&quot;&gt;{{ &quot;home.categories.error&quot; | translate }}&lt;/p&gt;
-  &lt;/div&gt;
-} @else {
-  &lt;section [@fadeTransition]&#x3D;&quot;translationService.fadeState()&quot; aria-labelledby&#x3D;&quot;categories-heading&quot;&gt;
-    &lt;div class&#x3D;&quot;categories-scroll-container&quot; tabindex&#x3D;&quot;0&quot; aria-label&#x3D;&quot;Categories carousel&quot;&gt;
-      &lt;div class&#x3D;&quot;categories-scroll-wrapper&quot; role&#x3D;&quot;list&quot;&gt;
-        @for (category of categories(); track category._id) {
-          &lt;div class&#x3D;&quot;category-card light-pink-bg&quot; role&#x3D;&quot;listitem&quot;&gt;
-            &lt;div class&#x3D;&quot;category-icon&quot; aria-hidden&#x3D;&quot;true&quot;&gt;
-              &lt;img
-                [ngSrc]&#x3D;&quot;category.image&quot;
-                [alt]&#x3D;&quot;category.name + &#x27; category icon&#x27;&quot;
-                class&#x3D;&quot;category-img&quot;
-                width&#x3D;&quot;56&quot;
-                height&#x3D;&quot;56&quot;
-                loading&#x3D;&quot;lazy&quot;
-                decoding&#x3D;&quot;async&quot;
-              /&gt;
-            &lt;/div&gt;
-            &lt;div class&#x3D;&quot;category-content&quot;&gt;
-              &lt;span class&#x3D;&quot;category-name&quot;&gt;{{ category.name }}&lt;/span&gt;
-              &lt;span class&#x3D;&quot;category-count&quot;&gt;
-                {{ category.productsCount }}
-                &lt;span [ngPlural]&#x3D;&quot;category.productsCount&quot;&gt;
-                  &lt;ng-template ngPluralCase&#x3D;&quot;&#x3D;1&quot;&gt;item&lt;/ng-template&gt;
-                  &lt;ng-template ngPluralCase&#x3D;&quot;other&quot;&gt;items&lt;/ng-template&gt;
-                &lt;/span&gt;
-              &lt;/span&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
-        } @empty {
-          &lt;div class&#x3D;&quot;p-3 flex justify-content-center no-categories&quot; aria-live&#x3D;&quot;polite&quot;&gt;
-            &lt;p role&#x3D;&quot;status&quot; aria-live&#x3D;&quot;polite&quot; class&#x3D;&quot;no-results-message&quot;&gt;
-              &lt;app-no-data-available /&gt;
-            &lt;/p&gt;
-          &lt;/div&gt;
-        }
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/section&gt;
-}
+        <pre class="line-numbers"><code class="language-html">&lt;section id&#x3D;&quot;occasion&quot;&gt;
+  &lt;app-data-view
+    [data_items]&#x3D;&quot;cats()&quot;
+    [table_records]&#x3D;&quot;table_header_records&quot;
+    [entityType]&#x3D;&quot;&#x27;category&#x27;&quot;
+    (addNew)&#x3D;&quot;onAddNew()&quot;
+    (editItem)&#x3D;&quot;onEditCategory($event)&quot;
+    (deleteItem)&#x3D;&quot;onDeleteCategory($event)&quot;
+  &gt;&lt;/app-data-view&gt;
+&lt;/section&gt;
 </code></pre>
     </div>
 
-    <div class="tab-pane fade " id="styleData">
-                <p class="comment">
-                    <code>./categories.component.scss</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss">.categories-scroll-container {
-  overflow-x: auto;
-  overflow-y: hidden;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  padding: 1rem 0;
-  box-sizing: border-box;
-  max-width: 100%;
-
-  /* Hide scrollbar by default */
-  &amp;::-webkit-scrollbar {
-    display: none;
-    height: 8px;
-    transition: all 0.3s ease;
-  }
-
-  /* Show scrollbar on hover (desktop only) */
-  @media (pointer: fine) {
-    &amp;:hover {
-      &amp;::-webkit-scrollbar {
-        display: block;
-      }
-
-      &amp;::-webkit-scrollbar-track {
-        background: var(--scrollbar-track-color);
-        border-radius: 4px;
-      }
-
-      &amp;::-webkit-scrollbar-thumb {
-        background: var(--scrollbar-thumb-color);
-        border-radius: 4px;
-        transition: background 0.3s ease;
-      }
-
-      &amp;::-webkit-scrollbar-thumb:hover {
-        background: var(--scrollbar-thumb-hover-color);
-      }
-    }
-  }
-
-  /* Always show scrollbar when scrolling (desktop) */
-  &amp;.scrolling {
-    &amp;::-webkit-scrollbar {
-      display: block;
-    }
-  }
-}
-
-.categories-scroll-wrapper {
-  display: flex;
-  gap: 1rem;
-  box-sizing: border-box;
-  scroll-snap-type: x mandatory;
-  scroll-padding-left: 1rem;
-  padding-inline: 1rem;
-  min-width: fit-content;
-}
-
-.category-card {
-  flex: 0 0 13.5rem;
-  width: 13.5rem;
-  height: 7.6rem;
-  border-radius: 2.5rem;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  box-sizing: border-box;
-  overflow: hidden;
-  scroll-snap-align: start;
-  background-color: var(--card-category-background);
-}
-
-/* Icon circle */
-.category-icon {
-  flex-shrink: 0;
-  width: 5.6rem;
-  height: 5.6rem;
-  border-radius: 50%;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--icon-category-background);
-}
-
-.category-icon .category-img {
-  width: 3.12rem;
-  height: 3.12rem;
-  object-fit: contain;
-}
-
-.category-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  min-width: 0;
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-
-.category-name {
-  color: var(--card-title-category-color);
-  font-family: var(--font-family-1);
-  font-weight: 600;
-  font-size: 1rem;
-  line-height: 1.35rem;
-  overflow: visible;
-  text-overflow: clip;
-  white-space: normal;
-}
-
-.category-count {
-  color: var(--card-p-category-color);
-  font-family: var(--font-family-2);
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.8rem;
-  overflow: visible;
-  text-overflow: clip;
-  white-space: normal;
-}
-
-/* No categories message */
-.no-categories {
-  width: 100%;
-  text-align: center;
-  color: var(--card-p-category-color);
-  padding: 1rem 0;
-}
-
-/* Responsive container widths for full cards display */
-
-/* Mobile: 2 cards */
-@media (max-width: 767px) {
-  .categories-scroll-container {
-    width: calc((2 * 13.5rem) + (1 * 1rem) + 2rem);
-  }
-
-  .category-card {
-    flex-direction: column;
-    width: 10rem;
-    height: 13.1rem;
-  }
-}
-
-/* Tablet: 4 cards */
-@media (min-width: 768px) and (max-width: 991px) {
-  .categories-scroll-container {
-    width: calc((4 * 13.5rem) + (3 * 1rem) + 2rem);
-  }
-
-  .category-card {
-    width: 13.5rem;
-    height: 7.6rem;
-    flex-direction: row;
-  }
-}
-
-/* LG: 5 cards */
-@media (min-width: 992px) and (max-width: 1199px) {
-  .categories-scroll-container {
-    width: calc((5 * 13.5rem) + (4 * 1rem) + 2rem);
-  }
-}
-
-/* XL and larger: 8 cards */
-@media (min-width: 1200px) {
-  .categories-scroll-container {
-    width: calc((7 * 13.5rem) + (6 * 1rem) + 2rem);
-  }
-}
-</code></pre>
-    </div>
 
     <div class="tab-pane fade " id="tree">
         <div id="tree-container"></div>
@@ -902,9 +796,9 @@ export class CategoriesComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p-toast aria-live="polite"></p-toast>@if (isLoading()) {  <section aria-labelledby="categories-heading">    <div class="categories-scroll-container" tabindex="0" aria-label="Categories carousel">      <div class="categories-scroll-wrapper" role="list">        @for (item of [1, 2, 3, 4, 5, 6, 7]; track $index) {          <div class="category-card light-pink-bg" role="listitem">            <div class="category-icon" aria-hidden="true">              <p-skeleton width="3.12rem" height="3.12rem" shape="circle"></p-skeleton>            </div>            <div class="category-content">              <p-skeleton width="6rem" height="1rem"></p-skeleton>              <p-skeleton width="4rem" height="1rem"></p-skeleton>            </div>          </div>        }      </div>    </div>  </section>} @else if (hasError()) {  <div class="p-3 flex justify-content-center" aria-live="assertive">    <p role="alert">{{ "home.categories.error" | translate }}</p>  </div>} @else {  <section [@fadeTransition]="translationService.fadeState()" aria-labelledby="categories-heading">    <div class="categories-scroll-container" tabindex="0" aria-label="Categories carousel">      <div class="categories-scroll-wrapper" role="list">        @for (category of categories(); track category._id) {          <div class="category-card light-pink-bg" role="listitem">            <div class="category-icon" aria-hidden="true">              <img                [ngSrc]="category.image"                [alt]="category.name + \' category icon\'"                class="category-img"                width="56"                height="56"                loading="lazy"                decoding="async"              />            </div>            <div class="category-content">              <span class="category-name">{{ category.name }}</span>              <span class="category-count">                {{ category.productsCount }}                <span [ngPlural]="category.productsCount">                  <ng-template ngPluralCase="=1">item</ng-template>                  <ng-template ngPluralCase="other">items</ng-template>                </span>              </span>            </div>          </div>        } @empty {          <div class="p-3 flex justify-content-center no-categories" aria-live="polite">            <p role="status" aria-live="polite" class="no-results-message">              <app-no-data-available />            </p>          </div>        }      </div>    </div>  </section>}</div>'
-    var COMPONENTS = [{'name': 'AboutComponent', 'selector': 'app-about'},{'name': 'AboutUsComponent', 'selector': 'app-about-us'},{'name': 'AddressChoiceComponent', 'selector': 'app-address-choice'},{'name': 'AddressComponent', 'selector': 'app-address'},{'name': 'AddressItemComponent', 'selector': 'app-address-item'},{'name': 'AddressStepperComponent', 'selector': 'app-address-stepper'},{'name': 'AllCategoriesComponent', 'selector': 'app-all-categories'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BestSellerComponent', 'selector': 'app-best-seller'},{'name': 'BestsellerSliderComponent', 'selector': 'app-bestseller-slider'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CardItemComponent', 'selector': 'app-card-item'},{'name': 'CartComponent', 'selector': 'app-cart'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'CheckedCardComponent', 'selector': 'app-checked-card'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ContactComponent', 'selector': 'app-contact'},{'name': 'CustomMainDialogComponent', 'selector': 'app-custom-main-dialog'},{'name': 'CustomModalComponent', 'selector': 'app-custom-modal'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DeleteDialogComponent', 'selector': 'app-delete-dialog'},{'name': 'DetailsComponent', 'selector': 'app-details'},{'name': 'DocumentationComponent', 'selector': 'app-documentation'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'EmptyCartComponent', 'selector': 'app-empty-cart'},{'name': 'ExpertTeamComponent', 'selector': 'app-expert-team'},{'name': 'FilterCardComponent', 'selector': 'app-filter-card'},{'name': 'FilterCategoriesComponent', 'selector': 'app-filter-categories'},{'name': 'FilterCategoryComponent', 'selector': 'app-filter-category'},{'name': 'FilterOccasionsComponent', 'selector': 'app-filter-occasions'},{'name': 'FilterPriceComponent', 'selector': 'app-filter-price'},{'name': 'FilterRatingComponent', 'selector': 'app-filter-rating'},{'name': 'FilterSalesComponent', 'selector': 'app-filter-sales'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'ForgetPasswordComponent', 'selector': 'app-forget-password'},{'name': 'GalleryComponent', 'selector': 'app-gallery'},{'name': 'GiftsComponent', 'selector': 'app-gifts'},{'name': 'HeadAddressComponent', 'selector': 'app-head-address'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'InputBtnComponent', 'selector': 'app-input-btn'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NoDataAvailableComponent', 'selector': 'app-no-data-available'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OrderFlowComponent', 'selector': 'app-order-flow'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'OurServicesComponent', 'selector': 'app-our-services'},{'name': 'PaymentMethodComponent', 'selector': 'app-payment-method'},{'name': 'PopularItemsComponent', 'selector': 'app-popular-items'},{'name': 'ProductDetailsComponent', 'selector': 'app-product-details'},{'name': 'ProductReviewComponent', 'selector': 'app-product-review'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RelatedProductsComponent', 'selector': 'app-related-products'},{'name': 'ResetPasswordComponent', 'selector': 'app-reset-password'},{'name': 'ReviewFormComponent', 'selector': 'app-review-form'},{'name': 'ReviewListComponent', 'selector': 'app-review-list'},{'name': 'SearchModalComponent', 'selector': 'app-search-modal'},{'name': 'SeparatorComponent', 'selector': 'app-separator'},{'name': 'SetPasswordComponent', 'selector': 'app-set-password'},{'name': 'SoldOutComponent', 'selector': 'app-sold-out'},{'name': 'SortingComponent', 'selector': 'app-sorting'},{'name': 'SpeedDialComponent', 'selector': 'app-speed-dial'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TestimonialsComponent', 'selector': 'app-testimonials'},{'name': 'TrustedByComponent', 'selector': 'app-trusted-by'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'},{'name': 'VerifyCodeComponent', 'selector': 'app-verify-code'},{'name': 'WishlistComponent', 'selector': 'app-wishlist'}];
-    var DIRECTIVES = [{'name': 'EnglishOnlyDirective', 'selector': '[appEnglishOnly]'}];
+        var COMPONENT_TEMPLATE = '<div><section id="occasion">  <app-data-view    [data_items]="cats()"    [table_records]="table_header_records"    [entityType]="\'category\'"    (addNew)="onAddNew()"    (editItem)="onEditCategory($event)"    (deleteItem)="onDeleteCategory($event)"  ></app-data-view></section></div>'
+    var COMPONENTS = [{'name': 'AddEditCategoryComponent', 'selector': 'app-add-edit-category'},{'name': 'AddEditOccasionComponent', 'selector': 'app-add-edit-occasion'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthorizationComponent', 'selector': 'app-authorization'},{'name': 'BottomNavbarComponent', 'selector': 'app-bottom-navbar'},{'name': 'BreadcrumpComponent', 'selector': 'app-breadcrump'},{'name': 'ButtonComponent', 'selector': 'app-button'},{'name': 'CategoriesComponent', 'selector': 'app-categories'},{'name': 'CategoriesReportsComponent', 'selector': 'app-categories-reports'},{'name': 'CategoryOccasionFormComponent', 'selector': 'app-category-occasion-form'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DataTableComponent', 'selector': 'app-data-table'},{'name': 'DataViewComponent', 'selector': 'app-data-view'},{'name': 'DocumentationComponent', 'selector': 'app-documentation'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'EmptyStateComponent', 'selector': 'app-empty-state'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'InputErrorMessageComponent', 'selector': 'app-input-error-message'},{'name': 'LoadingComponent', 'selector': 'app-loading'},{'name': 'LowStockProductsComponent', 'selector': 'app-low-stock-products'},{'name': 'NotFoundComponent', 'selector': 'app-not-found'},{'name': 'OccasionsComponent', 'selector': 'app-occasions'},{'name': 'OrderChartComponent', 'selector': 'app-order-chart'},{'name': 'OverviewComponent', 'selector': 'app-overview'},{'name': 'PaginationComponent', 'selector': 'app-pagination'},{'name': 'PreviewDataComponent', 'selector': 'app-preview-data'},{'name': 'ProductsComponent', 'selector': 'app-products'},{'name': 'ProductsFormComponent', 'selector': 'app-products-form'},{'name': 'RevenueChartComponent', 'selector': 'app-revenue-chart'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'StatisticsComponent', 'selector': 'app-statistics'},{'name': 'StepperComponent', 'selector': 'app-stepper'},{'name': 'TopSellingProductsComponent', 'selector': 'app-top-selling-products'},{'name': 'UserDataComponent', 'selector': 'app-user-data'},{'name': 'UserPhotoComponent', 'selector': 'app-user-photo'},{'name': 'UserProfileComponent', 'selector': 'app-user-profile'}];
+    var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CategoriesComponent'};
 </script>
 <script src="../js/tree.js"></script>
