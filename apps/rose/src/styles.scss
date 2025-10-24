@@ -14,3 +14,27 @@ html {
   border-width: 0;
   margin-bottom: 12px;
 }
+
+/* Split Button Dropdown Menu - Global Styles */
+.p-tieredmenu,
+.p-tieredmenu-root-list,
+.p-tieredmenu-submenu {
+  background-color: var(--menu-dropdown-background) !important;
+  border: none !important;
+  border-radius: 0.75rem;
+}
+
+.p-tieredmenu-item-link {
+  color: var(--menu-dropdown-color) !important;
+  font-family: var(--font-family-1);
+  font-weight: 500;
+  font-size: 0.875rem;
+
+  .pi {
+    color: var(--menu-dropdown-color) !important;
+  }
+
+  &:hover {
+    background-color: var(--menu-dropdown-item-hover) !important;
+  }
+}

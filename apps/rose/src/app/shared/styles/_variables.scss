@@ -115,6 +115,10 @@ $breakpoint-small: 620px;
 
   --color-navbar-mobile: var(--zinc-700);
   --color-hover-navbar-mobile: var(--soft-pink-300);
+
+  --menu-dropdown-background: var(--white);
+  --menu-dropdown-color: var(--zinc-700);
+  --menu-dropdown-item-hover: var(--maroon-50);
   // DarkMode Toggle
   --toggle-color: var(--zinc-700);
   --toggle-hover: var(--maroon-600);
@@ -521,6 +525,10 @@ $breakpoint-small: 620px;
 
   --color-navbar-mobile: var(--zinc-50);
   --color-hover-navbar-mobile: var(--maroon-500);
+
+  --menu-dropdown-background: var(--zinc-700);
+  --menu-dropdown-color: var(--zinc-50);
+  --menu-dropdown-item-hover: var(--zinc-500);
   // DarkMode Toggle
   --toggle-color: var(--zinc-100);
   --toggle-hover: var(--soft-pink-200);
