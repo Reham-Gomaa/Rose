@@ -33,7 +33,7 @@ export type EntityType = "category" | "occasion";
     FormButtonComponent,
     DialogModule,
     TranslateModule,
-    NgOptimizedImage
+    NgOptimizedImage,
   ],
   templateUrl: "./category-occasion-form.component.html",
   styleUrl: "./category-occasion-form.component.scss",
@@ -50,8 +50,8 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy {
   previewUrl: string | null = null;
   isEditMode = false;
   showImageModal = false;
-    modalImageUrl: string | null = null;
-  modalImageTitle: string = '';
+  modalImageUrl: string | null = null;
+  modalImageTitle: string = "";
 
   constructor(private fb: FormBuilder) {
     this.entityForm = this.fb.group({
@@ -148,7 +148,7 @@ export class CategoryOccasionFormComponent implements OnChanges, OnDestroy {
 
   openImageModal(): void {
     this.modalImageUrl = this.previewUrl;
-    this.modalImageTitle = this.getFieldLabel('image');
+    this.modalImageTitle = this.getFieldLabel("image");
     this.showImageModal = true;
   }
 

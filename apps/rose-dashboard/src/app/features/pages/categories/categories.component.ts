@@ -15,17 +15,17 @@ export class CategoriesComponent {
   private category_service = inject(CategoriesService);
   private router = inject(Router);
   private messageService = inject(MessageService);
-    private _loadService = inject(LoadingService);
-  
+  private _loadService = inject(LoadingService);
+
   table_header_records: string[] = ["name", "products"];
   cats: WritableSignal<Category[]> = signal<Category[]>([]);
 
   ngOnInit() {
-    this._loadService.itemsLoaded.set(false)
+    this._loadService.itemsLoaded.set(false);
     this.category_service.getAllCategories().subscribe({
       next: (res) => {
         this.cats.set(res.categories);
-        this._loadService.itemsLoaded.set(true)
+        this._loadService.itemsLoaded.set(true);
       },
     });
   }

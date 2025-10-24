@@ -43,7 +43,7 @@ export class DataViewComponent {
   table_records = input.required<string[]>();
   entityType = input<string>("item");
   public _r = inject(Router);
-  
+
   currentData = signal<string>(this._r.url.split("/")[this._r.url.split("/").length - 1]);
   firstIndex: number = 0;
   numOfRows: number = 6;
