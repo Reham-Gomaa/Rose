@@ -56,15 +56,17 @@ export class UserDataComponent implements OnInit, OnDestroy {
 
   private buildUserDropdown(userName: string): MenuItem[] {
     return [
-      {
-        label: userName || "Guest",
-        escape: true,
-      },
       { separator: true },
       {
         label: this._translate.instant("menu.account"),
         icon: "pi pi-user",
         command: () => this._router.navigate(["/dashboard/user-profile"]),
+      },
+      { separator: true },
+      {
+        label: this._translate.instant("menu.documentation"),
+        icon: "pi pi-book",
+        command: () => this._router.navigate(["/documentation"]),
       },
       { separator: true },
       {

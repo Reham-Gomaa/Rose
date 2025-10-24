@@ -64,13 +64,6 @@
 :host ::ng-deep .p-menu {
   background-color: var(--data-user-menu-background) !important;
   border: none !important;
-  .p-menu-item:first-child .p-menu-item-link {
-    color: var(--data-user-menu-first-item-color) !important;
-    font-family: var(--font-family-1);
-    font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-  }
   .p-menu-item-link {
     color: var(--data-user-items-color) !important;
     font-family: var(--font-family-1);
@@ -85,4 +78,23 @@
   .pi {
     color: var(--data-user-items-color) !important;
   }
+}
+
+.translate-and-theme-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.9rem;
+}
+.translate-container {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+.theme-container {
+  display: flex;
+  align-items: center;
+}
+
+:host-context([dir="rtl"]) .user-info {
+  flex-direction: row-reverse;
 }

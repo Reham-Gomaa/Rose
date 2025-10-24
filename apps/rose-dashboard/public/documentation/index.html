@@ -1,0 +1,927 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@angular-monorepo/source documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">@angular-monorepo/source documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<div align="center">
+  <img src="https://rose-chi-nine.vercel.app/images/navbar/Rose.AVIF" alt="Rose Logo" width="120"/>
+  <h1>🌹 Rose - Modern Angular E-Commerce Platform</h1>
+  <p><em>A sophisticated, production-ready E-Commerce SPA delivering exceptional shopping experiences</em></p>
+</div>
+
+<div align="center">
+
+<p><img src="https://img.shields.io/badge/Angular-19-DD0031?style=for-the-badge&logo=angular" alt="Angular" class="img-responsive">
+<img src="https://img.shields.io/badge/NX-Monorepo-143157?style=for-the-badge&logo=nx" alt="NX" class="img-responsive">
+<img src="https://img.shields.io/badge/PrimeNG-UI-FFC107?style=for-the-badge&logo=primeng" alt="PrimeNG" class="img-responsive">
+<img src="https://img.shields.io/badge/TypeScript-4.9-3178C6?style=for-the-badge&logo=typescript" alt="TypeScript" class="img-responsive">
+<img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT" class="img-responsive"></p>
+</div>
+
+<hr>
+<h2>🎯 Project Overview</h2>
+<p>Rose is a cutting-edge e-commerce platform built with modern web technologies, designed to deliver an exceptional shopping experience across all devices. The application leverages Angular 19&#39;s latest features, NX monorepo architecture, and a comprehensive suite of tools to provide scalability, maintainability, and outstanding performance.</p>
+<h3>🎯 Mission</h3>
+<p>To create a world-class e-commerce platform that combines beautiful design with powerful functionality, enabling businesses to deliver exceptional online shopping experiences.</p>
+<h3>🎨 Design Philosophy</h3>
+<ul>
+<li><strong>User-Centric</strong>: Every feature is designed with the end-user in mind</li>
+<li><strong>Performance-First</strong>: Optimized for speed and efficiency</li>
+<li><strong>Accessible</strong>: Inclusive design for all users</li>
+<li><strong>Scalable</strong>: Built to grow with your business needs</li>
+</ul>
+<hr>
+<h2>🚀 Live Demos &amp; Resources</h2>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Resource</th>
+<th>Link</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🌐 <strong>Production App</strong></td>
+<td><a href="https://rose-chi-nine.vercel.app/">rose-chi-nine.vercel.app</a></td>
+<td>Live application demo</td>
+</tr>
+<tr>
+<td>📚 <strong>Documentation</strong></td>
+<td><a href="https://rose-d2ff.vercel.app/">rose-d2ff.vercel.app</a></td>
+<td>Comprehensive docs</td>
+</tr>
+<tr>
+<td>🗃️ <strong>Project Structure</strong></td>
+<td><a href="https://uithub.com/Reham-Gomaa/Rose">Project Structure</a></td>
+<td>Comprehensive docs</td>
+</tr>
+<tr>
+<td>📂 <strong>Source Code</strong></td>
+<td><a href="https://github.com/Reham-Gomaa/Rose">GitHub Repository</a></td>
+<td>Full source code</td>
+</tr>
+<tr>
+<td>🎨 <strong>Design System</strong></td>
+<td><a href="https://www.figma.com/design/q5TO5u0kOpfIZhoozTz0mB/Rose-App--Enhanced-?node-id=0-1&p=f&t=RtLlQvsxbbxyGBpF-0">Figma Design</a></td>
+<td>UI/UX designs</td>
+</tr>
+<tr>
+<td>🎥 <strong>Demo Video</strong></td>
+<td><a href="https://drive.google.com/file/d/1tF74Xi7E4HYe5v-xD7hWO5oEBEgLdnTb/view?usp=drive_linkhttps://drive.google.com/file/d/1tF74Xi7E4HYe5v-xD7hWO5oEBEgLdnTb/view?usp=drive_link">Demo Video</a></td>
+<td>Watch the full platform demonstration</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>👨‍💻 Our Team</h2>
+<p>Meet the talented individuals behind Rose E-Commerce Platform:</p>
+<h3>🚀 Core Development Team</h3>
+<div align="center">
+
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Role</th>
+<th>Name</th>
+<th>Phone</th>
+<th>Mail</th>
+<th>LinkedIn</th>
+<th>CV</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Frontend Developer</strong></td>
+<td>Karim Ashraf Mohamed</td>
+<td><a href="tel:+201007101012">+201007101012</a></td>
+<td><a href="mailto:karimashraf000@gmail.com">karimashraf000@gmail.com</a></td>
+<td><a href="https://www.linkedin.com/in/karimashraf13/">LinkedIn</a></td>
+<td><a href="https://drive.google.com/file/d/1bKhJ2m1SGXU00Iik0QkASHUGlTXfc8rv/view?usp=drive_link">CV</a></td>
+</tr>
+<tr>
+<td><strong>Frontend Developer</strong></td>
+<td>Reham Gomaa</td>
+<td><a href="tel:+201091628541">+201091628541</a></td>
+<td><a href="mailto:rehamgomaa686@gmail.com">rehamgomaa686@gmail.com</a></td>
+<td><a href="https://www.linkedin.com/in/reham-gomaa48/">LinkedIn</a></td>
+<td><a href="https://drive.google.com/file/d/1n56nM7Z4t9mMYM3E1c--fUg_IAabJmtM/view?usp=drivesdk">CV</a></td>
+</tr>
+<tr>
+<td><strong>Frontend Developer</strong></td>
+<td>Maher Samy</td>
+<td><a href="tel:+201557778612">+201557778612</a></td>
+<td><a href="mailto:mahersamybalata@gmail.com">mahersamybalata@gmail.com</a></td>
+<td><a href="https://www.linkedin.com/in/maher-samy-004734315/">LinkedIn</a></td>
+<td><a href="https://drive.google.com/file/d/1aydUSsJ-ZEBjdCvsZ8MYg7BjqB2TWOmd/view?usp=drive_link">CV</a></td>
+</tr>
+<tr>
+<td><strong>Frontend Developer</strong></td>
+<td>Habiba Ehab</td>
+<td><a href="tel:+201272691175">+201272691175</a></td>
+<td><a href="mailto:Habiba.em7@gmail.com">Habiba.em7@gmail.com</a></td>
+<td><a href="https://www.linkedin.com/in/habiba-ehab-542876261/">LinkedIn</a></td>
+<td><a href="https://drive.google.com/file/d/1aydUSsJ-ZEBjdCvsZ8MYg7BjqB2TWOmd/view?usp=drive_link">CV</a></td>
+</tr>
+<tr>
+<td><strong>Frontend Developer</strong></td>
+<td>Mahmoud Mohamed</td>
+<td><a href="tel:+201113709071">+201113709071</a></td>
+<td><a href="mailto:mahmouddessoki33@gmail.com">mahmouddessoki33@gmail.com</a></td>
+<td><a href="http://linkedin.com/in/mahmoud-dessoki">LinkedIn</a></td>
+<td><a href="https://drive.google.com/file/d/1kO1lTEqNkrlMsrmValq1VmTsuMjrpFem/view?usp=drivesdk">CV</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<hr>
+<h2>✨ Key Features</h2>
+<h3>🛍️ Core E-Commerce Features</h3>
+<ul>
+<li><p><strong>Advanced Product Catalog</strong></p>
+<ul>
+<li>Smart search with filters and sorting</li>
+<li>Category-based navigation</li>
+<li>Product variants and options</li>
+<li>Stock management integration</li>
+</ul>
+</li>
+<li><p><strong>Shopping Cart &amp; Checkout</strong></p>
+<ul>
+<li>Persistent cart across sessions</li>
+<li>Guest and registered checkout</li>
+<li>Multiple payment methods</li>
+<li>Order confirmation and tracking</li>
+</ul>
+</li>
+<li><p><strong>Wishlist Management</strong></p>
+<ul>
+<li>Save favorite products</li>
+<li>Share wishlists</li>
+<li>Move items to cart</li>
+<li>Wishlist analytics</li>
+</ul>
+</li>
+</ul>
+<h3>👤 User Experience Features</h3>
+<ul>
+<li><p><strong>Authentication &amp; Profile</strong></p>
+<ul>
+<li>Secure registration and login</li>
+<li>Social media authentication</li>
+<li>Password recovery with email verification</li>
+<li>Comprehensive profile management</li>
+<li>Account deletion with data export</li>
+</ul>
+</li>
+<li><p><strong>Personalization</strong></p>
+<ul>
+<li>Dark/Light theme toggle with system detection</li>
+<li>Multi-language support (i18n)</li>
+<li>Personalized recommendations</li>
+</ul>
+</li>
+</ul>
+<h3>📱 Modern Web Features</h3>
+<ul>
+<li><strong>Responsive Design</strong><ul>
+<li>Mobile-first approach</li>
+<li>Tablet optimization</li>
+<li>Desktop enhancement</li>
+<li>Touch-friendly interactions</li>
+</ul>
+</li>
+</ul>
+<h3>🗺️ Location &amp; Delivery</h3>
+<ul>
+<li><strong>Google Maps Integration</strong><ul>
+<li>Address autocomplete</li>
+<li>Store locator</li>
+<li>Delivery zone mapping</li>
+<li>GPS location services</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>🛠 Technology Stack</h2>
+<h3>🎯 Core Framework</h3>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Technology</th>
+<th>Version</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Angular</strong></td>
+<td>19.x</td>
+<td>Frontend framework with signals</td>
+</tr>
+<tr>
+<td><strong>TypeScript</strong></td>
+<td>4.9+</td>
+<td>Type-safe development</td>
+</tr>
+<tr>
+<td><strong>RxJS</strong></td>
+<td>7.x</td>
+<td>Reactive programming</td>
+</tr>
+<tr>
+<td><strong>NgRx Signals</strong></td>
+<td>Latest</td>
+<td>State management</td>
+</tr>
+</tbody>
+</table>
+<h3>🎨 UI &amp; Styling</h3>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Technology</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PrimeNG</strong></td>
+<td>Comprehensive UI components</td>
+</tr>
+<tr>
+<td><strong>PrimeFlex</strong></td>
+<td>Utility-first CSS framework</td>
+</tr>
+<tr>
+<td><strong>PrimeIcons</strong></td>
+<td>Modern icon library</td>
+</tr>
+<tr>
+<td><strong>SCSS</strong></td>
+<td>Advanced CSS preprocessing</td>
+</tr>
+</tbody>
+</table>
+<h3>🏗️ Build &amp; Architecture</h3>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Technology</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NX</strong></td>
+<td>Monorepo build system</td>
+</tr>
+<tr>
+<td><strong>AVIFack</strong></td>
+<td>Module bundling</td>
+</tr>
+<tr>
+<td><strong>ESLint</strong></td>
+<td>Code linting</td>
+</tr>
+<tr>
+<td><strong>Prettier</strong></td>
+<td>Code formatting</td>
+</tr>
+</tbody>
+</table>
+<h3>🔧 Development Tools</h3>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Technology</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Jest</strong></td>
+<td>Unit testing</td>
+</tr>
+<tr>
+<td><strong>Cypress</strong></td>
+<td>E2E testing</td>
+</tr>
+<tr>
+<td><strong>Storybook</strong></td>
+<td>Component documentation</td>
+</tr>
+<tr>
+<td><strong>Compodoc</strong></td>
+<td>Code documentation</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>🏗️ Architecture Overview</h2>
+<p>Rose follows a modular, scalable architecture pattern:</p>
+<h3>🏛️ Architecture Principles</h3>
+<ul>
+<li><strong>Separation of Concerns</strong>: Clear boundaries between features</li>
+<li><strong>Dependency Injection</strong>: Loosely coupled components</li>
+<li><strong>Reactive Programming</strong>: RxJS for data flow</li>
+<li><strong>Smart/Dumb Components</strong>: Clear component hierarchy</li>
+<li><strong>Feature-Based Structure</strong>: Organized by business domains</li>
+</ul>
+<h3>📦 Module Structure</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">Rose Application
+├── Core Module (Singleton services)
+├── Shared Module (Common components)
+├── Feature Modules
+│   ├── Auth Module
+│   ├── Products Module
+│   ├── Cart Module
+│   ├── Orders Module
+│   └── User Module
+└── Lazy-Loaded Routes</code></pre></div><hr>
+<h2>⚡ Getting Started</h2>
+<h3>📋 Prerequisites</h3>
+<p>Ensure you have the following installed:</p>
+<ul>
+<li><strong>Node.js</strong> 18.0.0 or higher</li>
+<li><strong>npm</strong> 8.0.0 or higher (or <strong>yarn</strong> 1.22.0+)</li>
+<li><strong>Git</strong> for version control</li>
+<li><strong>Angular CLI</strong> (optional but recommended)</li>
+</ul>
+<h3>🔧 Quick Start</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># 1. Clone the repository
+git clone https://github.com/Reham-Gomaa/Rose.git
+cd Rose
+
+# 2. Install dependencies
+npm install
+
+# 3. Start development server
+nx serve rose
+
+# 4. Open your browser
+# Navigate to http://localhost:4200</code></pre></div><h3>🏗️ Development Commands</h3>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Development server with hot reload
+nx serve rose
+
+# Build for production
+nx build rose --configuration=production
+
+# Run unit tests
+nx test rose
+
+# Run E2E tests
+nx e2e rose-e2e
+
+# Generate code coverage
+nx test rose --code-coverage
+
+# Lint the codebase
+nx lint rose
+
+# Build and serve production build locally
+nx build rose --prod &amp;&amp; nx serve rose --prod</code></pre></div><h3>🔍 Verification Steps</h3>
+<p>After installation, verify everything works:</p>
+<ol>
+<li><strong>Application loads</strong> at <code>http://localhost:4200</code></li>
+<li><strong>No console errors</strong> in browser developer tools</li>
+<li><strong>All routes work</strong> (navigation functioning)</li>
+<li><strong>API connection</strong> established (if backend configured)</li>
+</ol>
+<hr>
+<h3>📋 Key Directories Explained</h3>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Directory</th>
+<th>Purpose</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>apps/rose/src/app/core/</code></td>
+<td>Core application services</td>
+<td>Singletons, guards, interceptors</td>
+</tr>
+<tr>
+<td><code>apps/rose/src/app/shared/</code></td>
+<td>Shared components</td>
+<td>Reusable UI components</td>
+</tr>
+<tr>
+<td><code>apps/rose/src/app/features/</code></td>
+<td>Feature modules</td>
+<td>Business logic modules</td>
+</tr>
+<tr>
+<td><code>libs/</code></td>
+<td>Shared libraries</td>
+<td>Cross-app reusable code</td>
+</tr>
+<tr>
+<td><code>tools/</code></td>
+<td>Build and deployment</td>
+<td>Custom scripts and tools</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>📊 Performance Features</h2>
+<h3>⚡ Optimization Techniques</h3>
+<h4>Code Splitting &amp; Lazy Loading</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">// Lazy-loaded routes
+const routes: Routes = [
+  {
+    path: &quot;products&quot;,
+    loadChildren: () =&gt; import(&quot;./features/products/products.module&quot;).then((m) =&gt; m.ProductsModule),
+  },
+  {
+    path: &quot;cart&quot;,
+    loadChildren: () =&gt; import(&quot;./features/cart/cart.module&quot;).then((m) =&gt; m.CartModule),
+  },
+];</code></pre></div><h4>OnPush Change Detection</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">&#64;Component({
+  selector: &quot;app-product-card&quot;,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `...`,
+})
+export class ProductCardComponent {
+  // Optimized component
+}</code></pre></div><h4>Image Optimization</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;!-- AVIF with fallback --&gt;
+&lt;picture&gt;
+  &lt;source srcset=&quot;assets/images/product.AVIF&quot; type=&quot;image/AVIF&quot; /&gt;
+  &lt;img src=&quot;assets/images/product.jpg&quot; alt=&quot;Product&quot; loading=&quot;lazy&quot; /&gt;
+&lt;/picture&gt;</code></pre></div><h3>📈 Performance Metrics</h3>
+<table class="table table-bordered compodoc-table">
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+<th>Current</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First Contentful Paint</td>
+<td>&lt; 1.5s</td>
+<td>1.2s</td>
+</tr>
+<tr>
+<td>Largest Contentful Paint</td>
+<td>&lt; 2.5s</td>
+<td>2.1s</td>
+</tr>
+<tr>
+<td>Time to Interactive</td>
+<td>&lt; 3.0s</td>
+<td>2.8s</td>
+</tr>
+<tr>
+<td>Cumulative Layout Shift</td>
+<td>&lt; 0.1</td>
+<td>0.05</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2>🧪 Testing Strategy</h2>
+<h3>🔬 Testing Pyramid</h3>
+<h4>Unit Tests (Jest)</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">// Example unit test
+describe(&quot;ProductService&quot;, () =&gt; {
+  let service: ProductService;
+
+  beforeEach(() =&gt; {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(ProductService);
+  });
+
+  it(&quot;should fetch products&quot;, async () =&gt; {
+    const products = await service.getProducts();
+    expect(products).toBeDefined();
+    expect(products.length).toBeGreaterThan(0);
+  });
+});</code></pre></div><h4>Integration Tests (Cypress)</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">// Example E2E test
+describe(&quot;Shopping Cart&quot;, () =&gt; {
+  it(&quot;should add product to cart&quot;, () =&gt; {
+    cy.visit(&quot;/products&quot;);
+    cy.get(&quot;[data-cy=product-card]&quot;).first().click();
+    cy.get(&quot;[data-cy=add-to-cart]&quot;).click();
+    cy.get(&quot;[data-cy=cart-count]&quot;).should(&quot;contain&quot;, &quot;1&quot;);
+  });
+});</code></pre></div><h3>📊 Test Coverage Goals</h3>
+<ul>
+<li><strong>Unit Tests</strong>: &gt; 80% coverage</li>
+<li><strong>Integration Tests</strong>: Critical user flows</li>
+<li><strong>E2E Tests</strong>: Key business scenarios</li>
+</ul>
+<hr>
+<h2>🚀 Deployment Guide</h2>
+<h3>🌐 Vercel Deployment (Recommended)</h3>
+<h4>Automatic Deployment</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Install Vercel CLI
+npm i -g vercel
+
+# Deploy to production
+vercel --prod
+
+# Deploy preview
+vercel</code></pre></div><h4>Environment Variables</h4>
+<p>Set in Vercel dashboard:</p>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">GOOGLE_MAPS_API_KEY=your_key_here
+STRIPE_PUBLISHABLE_KEY=your_key_here
+API_URL=https://your-api.com</code></pre></div><h3>☁️ Other Deployment Options</h3>
+<h4>Netlify</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Build command
+nx build rose --prod
+
+# Publish directory
+dist/apps/rose</code></pre></div><h2>🔐 Security Features</h2>
+<h3>🛡️ Security Implementation</h3>
+<h4>JWT Token Handling</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">// Secure token storage
+&#64;Injectable()
+export class AuthService {
+  private tokenKey = &quot;auth_token&quot;;
+
+  storeToken(token: string): void {
+    // Store in httpOnly cookie (server-side)
+    // Or secure localStorage with encryption
+  }
+
+  getToken(): string | null {
+    // Retrieve and validate token
+    return this.secureStorage.getItem(this.tokenKey);
+  }
+}</code></pre></div><h3>🔒 Security Checklist</h3>
+<ul>
+<li>✅ HTTPS enforcement</li>
+<li>✅ XSS protection</li>
+<li>✅ CSRF protection</li>
+<li>✅ Content Security Policy</li>
+<li>✅ Secure authentication</li>
+<li>✅ Input validation</li>
+</ul>
+<hr>
+<h2>♿ Accessibility</h2>
+<h3>🎯 WCAG 2.1 AA Compliance</h3>
+<h4>Semantic HTML</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-html">&lt;main role=&quot;main&quot; aria-label=&quot;Product Catalog&quot;&gt;
+  &lt;section aria-labelledby=&quot;products-heading&quot;&gt;
+    &lt;h2 id=&quot;products-heading&quot;&gt;Featured Products&lt;/h2&gt;
+    &lt;div role=&quot;grid&quot; aria-label=&quot;Product grid&quot;&gt;
+      &lt;article role=&quot;gridcell&quot; tabindex=&quot;0&quot;&gt;
+        &lt;!-- Product content --&gt;
+      &lt;/article&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+&lt;/main&gt;</code></pre></div><h4>Keyboard Navigation</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-typescript">&#64;HostListener(&#39;keydown&#39;, [&#39;$event&#39;])
+onKeyDown(event: KeyboardEvent): void {
+  switch (event.key) {
+    case &#39;Enter&#39;:
+    case &#39; &#39;:
+      this.onClick();
+      break;
+    case &#39;Escape&#39;:
+      this.onEscape();
+      break;
+  }
+}</code></pre></div><h3>✅ Accessibility Features</h3>
+<ul>
+<li>Screen reader support</li>
+<li>Keyboard navigation</li>
+<li>High contrast mode</li>
+<li>Focus management</li>
+<li>ARIA labels and roles</li>
+<li>Color accessibility</li>
+</ul>
+<hr>
+<h2>🌍 Internationalization</h2>
+<h3>🗣️ Multi-language Support</h3>
+<h4>Translation Files</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-json">// assets/i18n/en.json
+{
+  &quot;HEADER&quot;: {
+    &quot;TITLE&quot;: &quot;Welcome to Rose&quot;,
+    &quot;SUBTITLE&quot;: &quot;Your favorite online store&quot;
+  },
+  &quot;PRODUCTS&quot;: {
+    &quot;TITLE&quot;: &quot;Products&quot;,
+    &quot;ADD_TO_CART&quot;: &quot;Add to Cart&quot;,
+    &quot;OUT_OF_STOCK&quot;: &quot;Out of Stock&quot;
+  },
+  &quot;CART&quot;: {
+    &quot;TITLE&quot;: &quot;Shopping Cart&quot;,
+    &quot;TOTAL&quot;: &quot;Total&quot;,
+    &quot;CHECKOUT&quot;: &quot;Checkout&quot;
+  }
+}</code></pre></div><h4>RTL Support</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-scss">// RTL styles
+[dir=&quot;rtl&quot;] {
+  .product-card {
+    text-align: right;
+
+    .price {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+}</code></pre></div><h3>🌐 Supported Languages</h3>
+<ul>
+<li>🇺🇸 English (en)</li>
+<li>🇸🇦 Arabic (ar) - RTL support</li>
+</ul>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-none">
+## 🤝 Contributing
+
+We welcome contributions from the community! Here&#39;s how you can help:
+
+### 🛠️ Development Workflow
+
+#### 1. Fork &amp; Clone
+```bash
+# Fork the repository on GitHub
+# Clone your fork</code></pre></div><h4>2. Create Feature Branch</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Create and switch to feature branch
+git checkout -b feature/amazing-feature
+
+# Or for bug fixes
+git checkout -b fix/bug-description</code></pre></div><h4>3. Development Setup</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Install dependencies
+npm install
+
+# Start development server
+nx serve rose
+
+# Run tests while developing
+nx test rose --watch</code></pre></div><h4>4. Commit Guidelines</h4>
+<b>Example :</b><div><pre class="line-numbers"><code class="language-bash"># Use conventional commits
+git commit -m &quot;feat: add product comparison feature&quot;
+git commit -m &quot;fix: resolve cart calculation bug&quot;
+git commit -m &quot;docs: update installation guide&quot;</code></pre></div><h4>5. Submit Pull Request</h4>
+<ul>
+<li>Ensure all tests pass</li>
+<li>Update documentation</li>
+<li>Add screenshots for UI changes</li>
+<li>Follow PR template</li>
+</ul>
+<h3>📋 Contribution Guidelines</h3>
+<h4>Code Style</h4>
+<ul>
+<li>Follow Angular style guide</li>
+<li>Use TypeScript strict mode</li>
+<li>Write meaningful commit messages</li>
+<li>Include unit tests for new features</li>
+</ul>
+<h4>Review Process</h4>
+<ol>
+<li>Automated checks (CI/CD)</li>
+<li>Code review by maintainers</li>
+<li>Testing on multiple devices</li>
+<li>Documentation review</li>
+<li>Merge after approval</li>
+</ol>
+<hr>
+<h2>🔮 Roadmap</h2>
+<h3>🎯 Upcoming Features</h3>
+<h4>Phase 1 (Q1 2025)</h4>
+<ul>
+<li><input disabled="" type="checkbox"> Mobile app with Capacitor</li>
+<li><input disabled="" type="checkbox"> Advanced product filtering</li>
+<li><input disabled="" type="checkbox"> Wishlist sharing</li>
+<li><input disabled="" type="checkbox"> Order tracking enhancements</li>
+<li><input disabled="" type="checkbox"> Performance optimizations</li>
+</ul>
+<h4>Phase 2 (Q2 2025)</h4>
+<ul>
+<li><input disabled="" type="checkbox"> AI-powered recommendations</li>
+<li><input disabled="" type="checkbox"> Voice search integration</li>
+<li><input disabled="" type="checkbox"> Augmented Reality product preview</li>
+<li><input disabled="" type="checkbox"> Multi-vendor marketplace</li>
+<li><input disabled="" type="checkbox"> Advanced analytics dashboard</li>
+</ul>
+<h4>Phase 3 (Q3 2025)</h4>
+<ul>
+<li><input disabled="" type="checkbox"> Blockchain-based loyalty program</li>
+<li><input disabled="" type="checkbox"> Social commerce features</li>
+<li><input disabled="" type="checkbox"> Advanced personalization</li>
+<li><input disabled="" type="checkbox"> Machine learning insights</li>
+<li><input disabled="" type="checkbox"> IoT device integration</li>
+</ul>
+<h3>🎨 Design Improvements</h3>
+<ul>
+<li>Enhanced micro-animations</li>
+<li>Advanced gesture support</li>
+<li>Dark mode refinements</li>
+<li>Accessibility enhancements</li>
+</ul>
+<hr>
+<h2>📝 License</h2>
+<p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
+<h3>📋 License Summary</h3>
+<ul>
+<li>✅ Commercial use allowed</li>
+<li>✅ Modification allowed</li>
+<li>✅ Distribution allowed</li>
+<li>✅ Private use allowed</li>
+</ul>
+<hr>
+<h3>🛠️ Technology Partners</h3>
+<ul>
+<li><strong>Angular Team</strong> - For the incredible framework</li>
+<li><strong>NX Team</strong> - For the powerful monorepo tools</li>
+<li><strong>PrimeNG Team</strong> - For the comprehensive UI components</li>
+<li><strong>Vercel</strong> - For the excellent hosting platform</li>
+</ul>
+<h3>🌟 Special Thanks</h3>
+<ul>
+<li>All beta testers and early adopters</li>
+<li>Community contributors and supporters</li>
+<li>Open source projects that inspired Rose</li>
+<li>Design community for feedback and inspiration</li>
+</ul>
+<hr>
+<div align="center">
+  <h3>🌹 Built with ❤️ by the Rose Team</h3>
+  <p>Star ⭐ this repository if you found it helpful!</p>
+  
+<p>  <a href="https://github.com/Reham-Gomaa/Rose">🌟 Star on GitHub</a> •
+  <a href="https://rose-chi-nine.vercel.app/">🌐 View Demo</a> •
+  <a href="https://rose-d2ff.vercel.app/">📚 Read Docs</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

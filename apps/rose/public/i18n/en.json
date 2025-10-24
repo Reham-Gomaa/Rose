@@ -14,7 +14,8 @@
     "login": "Log-in",
     "register": "Register",
     "reset-password": "Forget Password",
-    "not-found": "Not Found"
+    "not-found": "Not Found",
+    "documentation": "Documentation"
   },
   "EGP": "EGP",
   "navbar": {
@@ -32,7 +33,8 @@
       "myAddresses": "My Addresses",
       "myOrders": "My Orders",
       "dashboard": "Dashboard",
-      "logout": "Log out"
+      "logout": "Log out",
+      "documentation": "Documentation"
     }
   },
   "home": {

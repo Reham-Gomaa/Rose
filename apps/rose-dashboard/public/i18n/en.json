@@ -158,7 +158,8 @@
   },
   "menu": {
     "account": "Account",
-    "logout": "Logout"
+    "logout": "Logout",
+    "documentation": "Documentation"
   },
   "loading": {
     "message": "Please wait... loading data"
@@ -285,9 +286,9 @@
     "CANCEL": "Cancel",
     "DELETE": "Delete"
   },
-   "ENTITY_TYPES": {
+  "ENTITY_TYPES": {
     "category": "category",
-    "occasion": "occasion", 
+    "occasion": "occasion",
     "product": "product",
     "item": "item"
   },

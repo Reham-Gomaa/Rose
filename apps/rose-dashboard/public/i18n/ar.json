@@ -146,7 +146,8 @@
     "user-profile": "إعدادات الحساب",
     "not-found": "غير موجود",
     "error": "خطأ",
-    "authorization": "غير مصرح"
+    "authorization": "غير مصرح",
+    "documentation": "المرجع"
   },
   "general": {
     "notExistTitle": "هذه الصفحة غير موجودة.",
@@ -158,7 +159,8 @@
   },
   "menu": {
     "account": "الحساب",
-    "logout": "تسجيل الخروج"
+    "logout": "تسجيل الخروج",
+    "documentation": "المرجع"
   },
   "loading": {
     "message": "يرجى الانتظار... جاري تحميل البيانات"
@@ -279,13 +281,13 @@
       "title": "عرض الصورة"
     }
   },
-   "CONFIRM_DIALOG": {
+  "CONFIRM_DIALOG": {
     "DELETE_MESSAGE": "هل أنت متأكد أنك تريد حذف {{type}}؟",
     "DELETE_SUBMESSAGE": "لا يمكن التراجع عن هذا الإجراء.",
     "CANCEL": "إلغاء",
     "DELETE": "حذف"
   },
-    "ENTITY_TYPES": {
+  "ENTITY_TYPES": {
     "category": "الفئة",
     "occasion": "المناسبة",
     "product": "المنتج",

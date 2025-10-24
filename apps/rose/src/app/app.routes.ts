@@ -1,6 +1,9 @@
 import { Route } from "@angular/router";
-
+// Documentation
+import { DocumentationComponent } from "./documentation/documentation.component";
+// Components
 import { DashboardComponent } from "@rose/features_layouts/dashboard/dashboard.component";
+// Guards
 import { loggedGuard } from "@angular-monorepo/core";
 import { authGuard } from "@angular-monorepo/core";
 
@@ -9,6 +12,12 @@ export const appRoutes: Route[] = [
     path: "",
     redirectTo: "dashboard",
     pathMatch: "full",
+  },
+  {
+    path: "documentation",
+    title: "titles.documentation",
+    canActivate: [authGuard],
+    component: DocumentationComponent,
   },
   {
     path: "dashboard",
