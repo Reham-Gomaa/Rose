@@ -1,18 +1,13 @@
 <div class="card">
   @if (data().length > 0) {
-    <p-table [value]="data()"  [scrollable]="true"  >
+    <p-table [value]="data()" [scrollable]="true">
       <ng-template #header>
         <tr>
           @for (record of records(); track $index) {
-            <th
-
-              class="capitalize"
-            >
-              @let colName = record === "productsCount" ? "products".toUpperCase() : record.toUpperCase();
+            <th class="capitalize">
+              @let colName =
+                record === "productsCount" ? "products".toUpperCase() : record.toUpperCase();
               {{ `TABLE.${colName}` | translate }}
-
-
-
             </th>
           }
           <th></th>
@@ -29,11 +24,11 @@
               @let stock = (item["quantity"] || 0) - (item["sold"] || 0);
               <td [class.lowQty]="stock < 10">{{ stock }}</td>
             } @else if (record === "sales") {
-              <td >{{ item["sold"] || 0 }}</td>
+              <td>{{ item["sold"] || 0 }}</td>
             } @else if (record === "ratings") {
-              <td >{{ item["rateAvg"] || 0 }}/5 ({{ item["rateCount"] || 0 }})</td>
+              <td>{{ item["rateAvg"] || 0 }}/5 ({{ item["rateCount"] || 0 }})</td>
             } @else if (record === "price") {
-              <td >{{ getDisplayValue(item, record) }} EGP</td>
+              <td>{{ getDisplayValue(item, record) }} EGP</td>
             } @else {
               <td>{{ getDisplayValue(item, record) }}</td>
             }
@@ -64,8 +59,14 @@
               </div>
               <div class="in-small flex lg:hidden justify-content-end">
                 <div class="card flex justify-content-center relative">
-                  <p-menu #menu [appendTo]="'body'" [model]="items" [popup]="true" />
-                  <p-button (click)="onMenuClick(menu,$event, item)" icon="pi pi-ellipsis-v" />
+                  <p-menu
+                    #menu
+                    [appendTo]="'body'"
+                    [model]="items"
+                    [popup]="true"
+                    styleClass="custom-small-menu"
+                  />
+                  <p-button (click)="onMenuClick(menu, $event, item)" icon="pi pi-ellipsis-v" />
                 </div>
               </div>
             </div>
@@ -74,23 +75,17 @@
       </ng-template>
     </p-table>
   } @else {
-    @if(apiLoaded() === false) {
-
+    @if (apiLoaded() === false) {
       <p-table [value]="[{}, {}, {}, {}, {}, {}, {}, {}]" responsiveLayout="scroll">
         <ng-template #header>
           <tr>
-             @for (record of records(); track $index) {
-            <th
-
-              class="capitalize"
-            >
-              @let colName = record === "productsCount" ? "products".toUpperCase() : record.toUpperCase();
-              {{ `TABLE.${colName}` | translate }}
-
-
-
-            </th>
-          }
+            @for (record of records(); track $index) {
+              <th class="capitalize">
+                @let colName =
+                  record === "productsCount" ? "products".toUpperCase() : record.toUpperCase();
+                {{ `TABLE.${colName}` | translate }}
+              </th>
+            }
           </tr>
         </ng-template>
         <ng-template #body let-product>
@@ -100,23 +95,22 @@
                 <p-skeleton width="100%" height="1.5rem"></p-skeleton>
               </td>
             }
-            
           </tr>
         </ng-template>
       </p-table>
-    }@else {
-      <p class="not-found">
-        No Items Found In This Page 
-      </p>
+    } @else {
+      <p class="not-found">No Items Found In This Page</p>
     }
   }
-  
 </div>
 
 <!-- Your custom confirm dialog -->
 <lib-confirm-dialog
   [visible]="showConfirmDialog"
-  [message]="'CONFIRM_DIALOG.DELETE_MESSAGE' | translate: { type: ('ENTITY_TYPES.' + entityType()) | translate }"
+  [message]="
+    'CONFIRM_DIALOG.DELETE_MESSAGE'
+      | translate: { type: 'ENTITY_TYPES.' + entityType() | translate }
+  "
   [subMessage]="'CONFIRM_DIALOG.DELETE_SUBMESSAGE' | translate"
   [cancelLabel]="'CONFIRM_DIALOG.CANCEL' | translate"
   [confirmLabel]="'CONFIRM_DIALOG.DELETE' | translate"

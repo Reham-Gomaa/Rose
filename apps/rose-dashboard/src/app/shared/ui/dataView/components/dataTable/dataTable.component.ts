@@ -27,11 +27,8 @@ import { LoadingService } from "@rose_dashboard/shared_services/loading/loading.
   styleUrl: "./dataTable.component.scss",
 })
 export class DataTableComponent {
-
-  private _translateService = inject(TranslateService)
+  private _translateService = inject(TranslateService);
   private _loadService = inject(LoadingService);
-  
-
 
   data = input.required<any[]>();
   records = input.required<string[]>();
@@ -45,7 +42,7 @@ export class DataTableComponent {
   itemToDelete: any = null;
   selectedItem: any = null;
 
-  apiLoaded = computed(()=>this._loadService.itemsLoaded())
+  apiLoaded = computed(() => this._loadService.itemsLoaded());
 
   // ADD THIS MAPPING METHOD
   getDisplayValue(item: any, record: string): any {
@@ -68,45 +65,44 @@ export class DataTableComponent {
   }
 
   ngOnInit() {
-    this.loadMenu()
-    this._translateService.onLangChange.subscribe(()=>{
-      this.loadMenu()
-    })
-    
+    this.loadMenu();
+    this._translateService.onLangChange.subscribe(() => {
+      this.loadMenu();
+    });
   }
-  loadMenu(){
-      this.items = [
-            {
-              label: "",
-              items: [
-                {
-                  label: this._translateService.instant("ACTIONS.EDIT"),
-                  icon: "pi pi-pencil",
-                  iconStyle: {
-                    color: "var(--edit-btn-color)",
-                  },
-
-                  command: () => {
-                    if (this.selectedItem) {
-                      this.onEdit(this.selectedItem);
-                    }
-                  },
-                },
-                {
-                  label: this._translateService.instant('ACTIONS.REMOVE'),
-                  icon: "pi pi-trash",
-                  iconStyle: {
-                    color: "var(--remove-btn-color)",
-                  },
-                  command: () => {
-                    if (this.selectedItem) {
-                      this.confirmDelete(this.selectedItem);
-                    }
-                  },
-                },
-              ],
+  loadMenu() {
+    this.items = [
+      {
+        label: "",
+        items: [
+          {
+            label: this._translateService.instant("ACTIONS.EDIT"),
+            icon: "pi pi-pencil",
+            iconStyle: {
+              color: "var(--edit-btn-color)",
             },
-          ];
+
+            command: () => {
+              if (this.selectedItem) {
+                this.onEdit(this.selectedItem);
+              }
+            },
+          },
+          {
+            label: this._translateService.instant("ACTIONS.REMOVE"),
+            icon: "pi pi-trash",
+            iconStyle: {
+              color: "var(--remove-btn-color)",
+            },
+            command: () => {
+              if (this.selectedItem) {
+                this.confirmDelete(this.selectedItem);
+              }
+            },
+          },
+        ],
+      },
+    ];
   }
 
   onMenuClick(menu: Menu, event: MouseEvent, item: any) {

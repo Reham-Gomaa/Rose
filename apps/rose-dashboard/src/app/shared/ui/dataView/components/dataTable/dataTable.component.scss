@@ -8,9 +8,9 @@
   font-size: 12px;
 }
 :host ::ng-deep .p-datatable-tbody > tr > td > #operations .in-small button {
-  background: white;
+  background: var(--inSmall-btn-bg);
   border: 1px solid #d4d4d8;
-  color: black;
+  color: var(--inSmall-btn-color);
   &:hover {
     background-color: #d4d4d8;
   }
@@ -21,7 +21,6 @@
   right: 0% !important;
   left: 0% !important;
 }
-
 
 :host ::ng-deep .p-datatable-table-container {
   // overflow: visible !important;
@@ -58,10 +57,8 @@
   width: 150px; /* for Remove button column */
 }
 
-
-
 .p-menu-item-content {
-  color:var(--remove-btn-color) !important;
+  color: var(--remove-btn-color) !important;
 }
 
 .not-found {

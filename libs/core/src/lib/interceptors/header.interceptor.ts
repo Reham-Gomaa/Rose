@@ -8,7 +8,7 @@ export const headingInterceptor: HttpInterceptorFn = (req, next) => {
 
   const token = _storage.getItem("authToken");
   const userToken =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjg4MzhkMDdhOGJjYTMwN2Y5ZDZhMzBkIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NjA2MDE3MTV9.EzYOU7rC6SgFOIB8ILS53ICzMnQMzHTd7WPAyK3uD20";
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiNjg4MzhkMDdhOGJjYTMwN2Y5ZDZhMzBkIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NjA5NDM4MzZ9.7AphdKkNqEVZbxm0vPRtzQp6PEQZ9TWTUYCxCqtFawQ";
 
   if (token) {
     if (!req.url.includes("statistics")) {

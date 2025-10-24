@@ -70,7 +70,7 @@
                 [attr.aria-labelledby]="'label-' + $index"
                 [attr.aria-live]="first ? 'polite' : null"
               >
-                {{ item.count + " (" + percentage[$index].toFixed(0) + "%)" }}
+                {{ item.count + " (" + percentage[$index].toFixed(1) + "%)" }}
               </span>
             </div>
           </div>
