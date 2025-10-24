@@ -158,11 +158,39 @@ export class ProductsFormComponent implements OnInit {
     });
   }
 
+
   get priceAfterDiscount(): number {
-    const price = this.productForm.get("price")?.value || 0;
-    const discount = this.productForm.get("discount")?.value || 0;
-    return price - price * (discount / 100);
+  const price = this.productForm.get("price")?.value || 0;
+  const discount = this.productForm.get("discount")?.value || 0;
+  const calculatedPrice = price - price * (discount / 100);
+  
+  return Math.max(0, calculatedPrice);
+}
+  
+
+validateDiscountInput(event: any): void {
+  const input = event.target;
+  let value = input.value;
+  
+  value = value.replace(/[^\d]/g, '');
+  
+  let numericValue = parseInt(value, 10);
+  
+  if (isNaN(numericValue)) {
+    this.productForm.patchValue({ discount: '' });
+    return;
   }
+  
+  this.productForm.patchValue({ discount: numericValue });
+  
+  this.productForm.get('discount')?.markAsTouched();
+}
+
+blockMinusKey(event: KeyboardEvent): void {
+  if (event.key === '-' || event.key === 'e' || event.key === 'E') {
+    event.preventDefault();
+  }
+}
 
   onCoverImageSelected(file: File): void {
     this.selectedCoverFile = file;

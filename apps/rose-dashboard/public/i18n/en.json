@@ -248,7 +248,8 @@
         "descriptionRequired": "Product description is required",
         "descriptionMinLength": "Description must be at least 10 characters long",
         "categoryRequired": "Please select a category for the product",
-        "occasionRequired": "Please select an occasion for the product"
+        "occasionRequired": "Please select an occasion for the product",
+        "discountMaxValue": "Discount must be 100% or less"
       }
     },
     "messages": {

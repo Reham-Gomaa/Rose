@@ -93,8 +93,18 @@
                   [placeholder]="getFieldPlaceholder('discount')"
                   [errorHandilgControl]="productForm.get('discount')!"
                   formControlName="discount"
+                  (input)="validateDiscountInput($event)"
+                  (keydown)="blockMinusKey($event)"
+                  
                 >
                 </lib-custom-input>
+                 <app-input-error-message
+                  [control]="productForm.get('discount')"
+                  [customMessages]="{ max: 'products.addEdit.messages.discountMaxValue' }"
+                >
+                </app-input-error-message>
+               
+                
               </div>
               <div class="col-12 md:col-4">
                 <div class="flex flex-column gap-2">
