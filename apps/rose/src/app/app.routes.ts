@@ -10,12 +10,13 @@ import { authGuard } from "@angular-monorepo/core";
 export const appRoutes: Route[] = [
   {
     path: "",
-    redirectTo: "dashboard/home",
+    redirectTo: "dashboard",
     pathMatch: "full",
   },
   {
     path: "documentation",
     title: "titles.documentation",
+    canActivate: [authGuard],
     component: DocumentationComponent,
   },
   {
