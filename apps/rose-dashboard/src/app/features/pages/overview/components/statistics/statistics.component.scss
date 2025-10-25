@@ -39,7 +39,10 @@
           }
         }
         @media all and (min-width: 48rem) {
-          font-size: 1rem;
+          font-size: 1.25rem;
+          span {
+            font-size: 0.875rem;
+          }
         }
         @media all and (min-width: 55rem) {
           font-size: 1.5rem;
@@ -82,7 +85,7 @@
           font-size: 0.875rem;
         }
         @media all and (min-width: 48rem) {
-          font-size: 1rem;
+          font-size: 1.125rem;
         }
         @media all and (min-width: 62rem) {
           font-size: 0.625rem;

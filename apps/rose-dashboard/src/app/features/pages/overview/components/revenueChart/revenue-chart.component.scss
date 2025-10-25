@@ -11,6 +11,9 @@
     font-weight: 700;
     font-size: 1.25rem;
     color: var(--p-table-header-color);
+    @media all and (min-width: 48rem) {
+      font-size: 1.5rem;
+    }
     @media all and (min-width: 62rem) {
       font-weight: 600;
       font-size: 1.5rem;
@@ -28,8 +31,13 @@
         color: var(--chart-active-button) !important;
         font-weight: 600 !important;
       }
+      @media all and (min-width: 48rem) {
+        font-weight: 400;
+        font-size: 1.125rem;
+      }
       @media all and (min-width: 62rem) {
         font-weight: 400;
+        font-size: 0.875rem;
       }
     }
   }

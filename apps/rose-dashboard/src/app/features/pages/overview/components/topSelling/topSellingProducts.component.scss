@@ -9,7 +9,7 @@
       font-size: 1.25rem;
       line-height: 100%;
       letter-spacing: 0%;
-      @media all and (min-width: 62rem) {
+      @media all and (min-width: 48rem) {
         font-weight: 600;
         font-size: 1.5rem;
       }
@@ -29,6 +29,9 @@
       letter-spacing: 0%;
       font-size: 0.75rem;
       transition: background-color 0.5s ease-in-out;
+      @media all and (min-width: 48rem) {
+        font-size: 1.25rem;
+      }
       @media all and (min-width: 62rem) {
         font-size: 1rem;
       }
@@ -44,6 +47,9 @@
       .price {
         font-weight: 400;
         font-size: 0.625rem;
+        @media all and (min-width: 48rem) {
+          font-size: 1rem;
+        }
         @media all and (min-width: 62rem) {
           font-size: 0.75rem;
         }
@@ -54,6 +60,9 @@
         align-items: baseline;
         span {
           font-weight: 500;
+        }
+        @media all and (min-width: 48rem) {
+          font-size: 1.25rem;
         }
         @media all and (min-width: 62rem) {
           font-size: 0.875rem;
