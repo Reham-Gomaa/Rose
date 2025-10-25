@@ -24,6 +24,10 @@
           {
             "glob": "**/*",
             "input": "apps/rose/public"
+          },
+          {
+            "glob": "**/*",
+            "input": "apps/rose/src/public/documentation"
           }
         ],
         "styles": [

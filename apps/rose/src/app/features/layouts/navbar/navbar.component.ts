@@ -232,7 +232,9 @@ export class NavbarComponent implements OnInit {
         label: this._translate.instant("navbar.menu.documentation"),
         icon: "pi pi-book",
         visible: isAdmin,
-        command: () => this._router.navigate(["/documentation"]),
+        command: () => {
+          window.open(`${window.location.origin}/documentation/index.html`, "_blank");
+        },
       },
       {
         separator: true,
