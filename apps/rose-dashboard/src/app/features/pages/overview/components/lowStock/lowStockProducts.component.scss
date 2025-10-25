@@ -9,7 +9,7 @@
       line-height: 100%;
       letter-spacing: 0%;
 
-      @media all and (min-width: 62rem) {
+      @media all and (min-width: 48rem) {
         font-weight: 600;
         font-size: 1.5rem;
       }
@@ -20,9 +20,17 @@
     font-size: 0.875rem;
     line-height: 100%;
     letter-spacing: 0%;
+
     .value {
       font-weight: 500;
       font-size: 0.75rem;
+    }
+
+    @media all and (min-width: 48rem) {
+      font-size: 1.25rem;
+      .value {
+        font-size: 1.125rem;
+      }
     }
     @media all and (min-width: 62rem) {
       font-size: 1rem;

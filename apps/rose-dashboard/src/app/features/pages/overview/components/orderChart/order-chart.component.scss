@@ -9,17 +9,22 @@
     text-align: left;
     color: var(--p-table-header-color);
     @media all and (min-width: 48rem) {
-      text-align: center;
-    }
-    @media all and (min-width: 62rem) {
       font-weight: 600;
       font-size: 1.5rem;
+    }
+    @media all and (min-width: 62rem) {
+      text-align: center;
     }
   }
   .chart-wrapper {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: normal;
+    @media all and (min-width: 25rem) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
     @media all and (min-width: 62rem) {
       flex-direction: column;
       align-items: normal;
@@ -30,9 +35,9 @@
     width: 8.75rem !important;
     height: 8.75rem !important;
     margin: auto;
-    @media all and (min-width: 62rem) {
-      width: 9.6875rem !important;
-      height: 9.6875rem !important;
+    @media all and (min-width: 48rem) {
+      width: 12.5rem !important;
+      height: 12.5rem !important;
     }
     @media all and (min-width: 65rem) {
       width: 10.625rem !important;
@@ -68,9 +73,11 @@
           margin: 0 0.3125rem 0 0;
           @media all and (min-width: 48rem) {
             margin: 0 0.9375rem 0 0;
+            font-size: 1.25rem;
           }
           @media all and (min-width: 62rem) {
             margin: 0 0 0 0;
+            font-size: 0.75rem;
           }
         }
       }
@@ -81,6 +88,12 @@
         line-height: 100%;
         letter-spacing: 0%;
         text-align: right;
+        @media all and (min-width: 48rem) {
+          font-size: 1.25rem;
+        }
+        @media all and (min-width: 62rem) {
+          font-size: 0.75rem;
+        }
       }
     }
   }

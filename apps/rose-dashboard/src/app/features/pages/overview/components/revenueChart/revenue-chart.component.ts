@@ -119,7 +119,7 @@ export class RevenueChartComponent {
         x: {
           ticks: {
             color: styles.axisText.trim(),
-            font: { size: 10, weight: "700" },
+            font: { size: 12, weight: "700" },
           },
           grid: { color: styles.border, drawBorder: false, display: true },
           border: { display: false },
@@ -128,7 +128,7 @@ export class RevenueChartComponent {
           display: window.innerWidth >= 992,
           ticks: {
             color: styles.axisText.trim(),
-            font: { size: 10, weight: "700" },
+            font: { size: 12, weight: "700" },
           },
           grid: {
             display: false,
