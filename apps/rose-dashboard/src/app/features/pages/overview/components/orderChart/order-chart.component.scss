@@ -25,17 +25,22 @@
       align-items: normal;
     }
   }
+
   .o-chart {
     width: 8.75rem !important;
     height: 8.75rem !important;
     margin: auto;
     @media all and (min-width: 62rem) {
-      width: 9.6875rem;
+      width: 9.6875rem !important;
       height: 9.6875rem !important;
     }
     @media all and (min-width: 65rem) {
-      width: 10.625rem;
+      width: 10.625rem !important;
       height: 10.625rem !important;
+    }
+    @media all and (min-width: 87.5rem) {
+      width: 15.625rem !important;
+      height: 15.625rem !important;
     }
   }
 

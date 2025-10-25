@@ -331,7 +331,7 @@ $breakpoint-small: 620px;
   --border-active-color: var(--soft-pink-600);
   --upload-file-color: var(--soft-pink-500);
   --dropdown-selected-bg: var(--soft-pink-200);
-  --dropdown-selected-color: var(--zinc-50);
+  --dropdown-selected-color: var(--zinc-800);
   // Notification-Toast
   --toast-error-bg: var(--maroon-50);
   --toast-error-color: var(--zinc-800);
@@ -400,7 +400,8 @@ $breakpoint-small: 620px;
   --p-table-header-bg: var(--zinc-700);
   --p-table-header-color: var(--soft-pink-200);
   --p-table-row-bg: var(--zinc-800);
-  --p-table-cell-hover-bg: var(--soft-pink-200);
+  --p-table-cell-hover-bg: var(--soft-pink-300);
+  --p-table-cell-hover-color: var(--zinc-800);
   --category-value-bg: linear-gradient(
     135deg,
     rgba(255, 182, 193, 0.07),
@@ -421,9 +422,9 @@ $breakpoint-small: 620px;
   --edit-btn-color: var(--blue-600);
   --remove-btn-color: var(--red-600);
   --inSmall-btn-bg: var(--zinc-800);
-  --inSmall-btn-bg-hover: var(--soft-pink-200);
+  --inSmall-btn-bg-hover: var(--zinc-500);
   --inSmall-btn-color: var(--zinc-50);
-  --inSmall-btn-color-hover: var(--zinc-50);
+  --inSmall-btn-color-hover: var(--zinc-800);
 
   --category-value-bg: linear-gradient(135deg, #ffb6c166, #ffffff4d);
   --category-value-hover-bg: linear-gradient(to right, #ffb6c166, #ffffff4d);
