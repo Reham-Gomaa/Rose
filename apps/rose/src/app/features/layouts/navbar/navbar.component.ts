@@ -122,7 +122,6 @@ export class NavbarComponent implements OnInit {
   @ViewChild(SearchModalComponent) searchModal!: SearchModalComponent;
   cartItemsNum$!: Observable<number>;
   favouriteItemsNum$!: Observable<number>;
-  // Signals
 
   isLoggedIn = signal<boolean>(false);
   btnClass = signal("loginBtn");
@@ -152,8 +151,12 @@ export class NavbarComponent implements OnInit {
       this.isLoggedIn.set(!!token);
     });
 
+    this._translate.onLangChange.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
+      this.currentLang.set(this._translate.currentLang);
+      this.initializeMenuItems();
+    });
+
     this.loadUserInfo();
-    this.initializeMenuItems();
     this.getUserCart();
     this.getWishlist();
   }
@@ -229,7 +232,7 @@ export class NavbarComponent implements OnInit {
         label: this._translate.instant("navbar.menu.documentation"),
         icon: "pi pi-book",
         visible: isAdmin,
-        command: () => window.open("/documentation", "_blank"),
+        command: () => window.open("#/documentation", "_blank"),
       },
       {
         separator: true,
