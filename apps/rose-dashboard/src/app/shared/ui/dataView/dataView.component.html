@@ -29,7 +29,7 @@
 
   <div class="data-table">
     <app-data-table
-      [data]="data_items() | pagPipe: firstIndex : numOfRows | search: searchWord"
+      [data]="data_items() | search: searchWord | pagPipe: firstIndex: numOfRows"
       [records]="table_records()"
       [entityType]="entityType()"
       (edit)="onEdit($event)"
@@ -39,8 +39,11 @@
   </div>
 </div>
 <div class="pagination my-2">
-  <app-pagination
-    (currentPage)="getPage($event)"
-    [totalDataSize]="data_items().length"
-  ></app-pagination>
+  @let filteredItems = data_items() | search: searchWord;
+  @if (!(filteredItems.length < 6)) {
+    <app-pagination
+      (currentPage)="getPage($event)"
+      [totalDataSize]="filteredItems.length"
+    ></app-pagination>
+  }
 </div>
