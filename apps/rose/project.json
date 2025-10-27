@@ -38,7 +38,7 @@
         "ssr": {
           "entry": "apps/rose/src/server.ts"
         },
-        "outputMode": "server"
+        "prerender": true
       },
       "configurations": {
         "production": {
