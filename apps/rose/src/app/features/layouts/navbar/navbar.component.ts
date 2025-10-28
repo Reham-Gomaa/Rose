@@ -157,7 +157,9 @@ export class NavbarComponent implements OnInit {
       this.initializeMenuItems();
     });
 
-    this.navHidden.set(this._router.url.includes("documentation"));
+    this._router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
+      this.navHidden.set(this._router.url.includes("documentation"));
+    });
 
     this.loadUserInfo();
     this.getUserCart();
