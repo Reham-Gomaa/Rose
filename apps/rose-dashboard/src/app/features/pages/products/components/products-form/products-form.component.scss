@@ -164,9 +164,22 @@
     text-align: left;
   }
 
+  .gallery-nav-button {
+  color: var(--form-view-image-text) !important;
+  border-color: var(--view-image-border) !important;
+  
+  &:hover {
+    background-color: var(--form-view-image-text) !important;
+    color: white !important;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+  }
+ 
+}
+
   @media (max-width: 640px) {
     .form-card {
       padding: 1rem;
     }
   }
 }
+

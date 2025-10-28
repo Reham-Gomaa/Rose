@@ -17,6 +17,7 @@ import { Skeleton } from "primeng/skeleton";
 import { DialogModule } from "primeng/dialog";
 import { DropdownModule } from "primeng/dropdown";
 import { CurrencyPipe, NgOptimizedImage } from "@angular/common";
+import { ButtonModule } from "primeng/button";
 
 @Component({
   selector: "app-products-form",
@@ -32,6 +33,7 @@ import { CurrencyPipe, NgOptimizedImage } from "@angular/common";
     TranslateModule,
     InputErrorMessageComponent,
     CurrencyPipe,
+    ButtonModule,
   ],
   templateUrl: "./products-form.component.html",
   styleUrl: "./products-form.component.scss",
@@ -54,8 +56,10 @@ export class ProductsFormComponent implements OnInit {
   private destroy$ = new Subject<void>();
 
   showImageModal = false;
+  showGalleryModal = false;
   modalImageUrl: string | null = null;
   modalImageTitle: string = "";
+  currentGalleryIndex = 0;
 
   productForm: FormGroup;
   selectedCoverFile: File | null = null;
@@ -158,39 +162,37 @@ export class ProductsFormComponent implements OnInit {
     });
   }
 
-
   get priceAfterDiscount(): number {
-  const price = this.productForm.get("price")?.value || 0;
-  const discount = this.productForm.get("discount")?.value || 0;
-  const calculatedPrice = price - price * (discount / 100);
-  
-  return Math.max(0, calculatedPrice);
-}
-  
-
-validateDiscountInput(event: any): void {
-  const input = event.target;
-  let value = input.value;
-  
-  value = value.replace(/[^\d]/g, '');
-  
-  let numericValue = parseInt(value, 10);
-  
-  if (isNaN(numericValue)) {
-    this.productForm.patchValue({ discount: '' });
-    return;
+    const price = this.productForm.get("price")?.value || 0;
+    const discount = this.productForm.get("discount")?.value || 0;
+    const calculatedPrice = price - price * (discount / 100);
+    
+    return Math.max(0, calculatedPrice);
   }
-  
-  this.productForm.patchValue({ discount: numericValue });
-  
-  this.productForm.get('discount')?.markAsTouched();
-}
 
-blockMinusKey(event: KeyboardEvent): void {
-  if (event.key === '-' || event.key === 'e' || event.key === 'E') {
-    event.preventDefault();
+  validateDiscountInput(event: any): void {
+    const input = event.target;
+    let value = input.value;
+    
+    value = value.replace(/[^\d]/g, '');
+    
+    let numericValue = parseInt(value, 10);
+    
+    if (isNaN(numericValue)) {
+      this.productForm.patchValue({ discount: '' });
+      return;
+    }
+    
+    this.productForm.patchValue({ discount: numericValue });
+    
+    this.productForm.get('discount')?.markAsTouched();
   }
-}
+
+  blockMinusKey(event: KeyboardEvent): void {
+    if (event.key === '-' || event.key === 'e' || event.key === 'E') {
+      event.preventDefault();
+    }
+  }
 
   onCoverImageSelected(file: File): void {
     this.selectedCoverFile = file;
@@ -204,22 +206,54 @@ blockMinusKey(event: KeyboardEvent): void {
     reader.readAsDataURL(file);
   }
 
-  onGalleryImagesSelected(file: File): void {
-    this.selectedGalleryFiles.push(file);
+  onGalleryImagesSelected(files: File[]): void {
+    // Add all new files to the existing array
+    this.selectedGalleryFiles.push(...files);
+    
+    // Create preview URLs for all new files
+    files.forEach(file => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.galleryPreviewUrls.push(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    });
+    
     this.productForm.patchValue({ images: this.selectedGalleryFiles });
     this.productForm.get("images")?.markAsTouched();
-
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.galleryPreviewUrls.push(reader.result as string);
-    };
-    reader.readAsDataURL(file);
   }
 
   openImageModal(imageUrl: string, title: string): void {
     this.modalImageUrl = imageUrl;
     this.modalImageTitle = title;
     this.showImageModal = true;
+    this.showGalleryModal = false;
+  }
+
+  openGalleryModal(): void {
+    if (this.galleryPreviewUrls.length > 0) {
+      this.currentGalleryIndex = 0;
+      this.modalImageUrl = this.galleryPreviewUrls[0];
+      this.modalImageTitle = `${this.getFieldLabel('images')} 1/${this.galleryPreviewUrls.length}`;
+      this.showGalleryModal = true;
+      this.showImageModal = false;
+    }
+  }
+
+  nextGalleryImage(): void {
+    if (this.galleryPreviewUrls.length > 0) {
+      this.currentGalleryIndex = (this.currentGalleryIndex + 1) % this.galleryPreviewUrls.length;
+      this.modalImageUrl = this.galleryPreviewUrls[this.currentGalleryIndex];
+      this.modalImageTitle = `${this.getFieldLabel('images')} ${this.currentGalleryIndex + 1}/${this.galleryPreviewUrls.length}`;
+    }
+  }
+
+  previousGalleryImage(): void {
+    if (this.galleryPreviewUrls.length > 0) {
+      this.currentGalleryIndex = (this.currentGalleryIndex - 1 + this.galleryPreviewUrls.length) % this.galleryPreviewUrls.length;
+      this.modalImageUrl = this.galleryPreviewUrls[this.currentGalleryIndex];
+      this.modalImageTitle = `${this.getFieldLabel('images')} ${this.currentGalleryIndex + 1}/${this.galleryPreviewUrls.length}`;
+    }
   }
 
   getFormTitle(): string {
