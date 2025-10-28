@@ -37,7 +37,7 @@
         "ssr": {
           "entry": "apps/rose/src/server.ts"
         },
-        "outputMode": "CSR"
+        "outputMode": "csr"
       },
       "configurations": {
         "production": {
