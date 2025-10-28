@@ -14,12 +14,6 @@ export const appRoutes: Route[] = [
     pathMatch: "full",
   },
   {
-    path: "documentation",
-    title: "titles.documentation",
-    canActivate: [authGuard],
-    component: DocumentationComponent,
-  },
-  {
     path: "dashboard",
     component: DashboardComponent,
     title: "titles.dashboard",
@@ -30,6 +24,12 @@ export const appRoutes: Route[] = [
         title: "titles.home",
         loadComponent: () =>
           import("@rose/features_pages/home/home.component").then((c) => c.HomeComponent),
+      },
+      {
+        path: "documentation",
+        title: "titles.documentation",
+        canActivate: [authGuard],
+        component: DocumentationComponent,
       },
       {
         path: "all-categories",
