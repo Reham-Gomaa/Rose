@@ -134,6 +134,7 @@ export class NavbarComponent implements OnInit {
   userDropDown = signal<MenuItem[]>([]);
   user = signal<User | null>(null);
   loading = signal(false);
+  navHidden = signal(false);
 
   showDialog(position: modalPosition) {
     this.position.set(position);
@@ -154,6 +155,10 @@ export class NavbarComponent implements OnInit {
     this._translate.onLangChange.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
       this.currentLang.set(this._translate.currentLang);
       this.initializeMenuItems();
+    });
+
+    this._router.events.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
+      this.navHidden.set(this._router.url.includes("documentation"));
     });
 
     this.loadUserInfo();

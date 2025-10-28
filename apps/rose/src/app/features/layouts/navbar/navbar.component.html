@@ -1,4 +1,8 @@
-<div [@fadeTransition]="_translationService.fadeState()" class="navbar-container">
+<div
+  [class.hidden]="navHidden()"
+  [@fadeTransition]="_translationService.fadeState()"
+  class="navbar-container"
+>
   <!-- First Row: Logo, Search, Icons -->
   <div class="first-row">
     <div class="logo-section">
@@ -118,7 +122,7 @@
   </div>
 </div>
 
-<div class="smallNav">
+<div [class.hidden]="navHidden()" class="smallNav">
   <p-dialog
     ngSkipHydration
     [modal]="true"
