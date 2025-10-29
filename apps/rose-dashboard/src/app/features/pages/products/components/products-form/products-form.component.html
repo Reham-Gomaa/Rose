@@ -93,8 +93,18 @@
                   [placeholder]="getFieldPlaceholder('discount')"
                   [errorHandilgControl]="productForm.get('discount')!"
                   formControlName="discount"
+                  (input)="validateDiscountInput($event)"
+                  (keydown)="blockMinusKey($event)"
+                  
                 >
                 </lib-custom-input>
+                 <app-input-error-message
+                  [control]="productForm.get('discount')"
+                  [customMessages]="{ max: 'products.addEdit.messages.discountMaxValue' }"
+                >
+                </app-input-error-message>
+               
+                
               </div>
               <div class="col-12 md:col-4">
                 <div class="flex flex-column gap-2">
@@ -121,7 +131,7 @@
 
           <!-- Image Upload Section for ADD MODE -->
           @if (!isEditMode) {
-            <!-- ADD MODE: Show file uploads with custom inputs -->
+            <!-- ADD MODE -->
             <div class="grid">
               <div class="col-12 md:col-6">
                 <div class="flex flex-column gap-2">
@@ -161,10 +171,11 @@
                     id="galleryImages"
                     type="file"
                     accept="image/*"
+                    [multiple]="true"
                     [labelText]="getFieldLabel('images')"
                     [errorHandilgControl]="productForm.get('images')!"
                     formControlName="images"
-                    (fileSelected)="onGalleryImagesSelected($event)"
+                    (filesSelected)="onGalleryImagesSelected($event)"
                   >
                   </lib-custom-input>
 
@@ -188,7 +199,7 @@
                             (keydown)="
                               openImageModal(url, getFieldLabel('images') + ' ' + ($index + 1))
                             "
-                            style="max-width: 80px; max-height: 80px; border-radius: 8px"
+                           style="max-width: 200px; max-height: 150px; border-radius: 8px"
                           />
                         }
                       </div>
@@ -264,13 +275,15 @@
               <div class="col-12 md:col-6">
                 <div class="image-button-container">
                   @if (galleryPreviewUrls.length > 0) {
-                    <button
-                      type="button"
-                      (click)="openImageModal(galleryPreviewUrls[0], getFieldLabel('images'))"
-                      class="view-image-button"
-                    >
-                      {{ getViewImageText("gallery") }}
-                    </button>
+                    <div class="flex flex-column gap-2">
+                      <button
+                        type="button"
+                        (click)="openGalleryModal()"
+                        class="view-image-button"
+                      >
+                        {{ getViewImageText("gallery") }} ({{ galleryPreviewUrls.length }})
+                      </button>
+                    </div>
                   } @else {
                     <span class="label-small">{{ getNoImageText("gallery") }}</span>
                   }
@@ -294,7 +307,7 @@
     }
   </div>
 
-  <!-- PrimeNG Dialog for Image Modal -->
+  <!-- PrimeNG Dialog for Single Image Modal -->
   <p-dialog
     [header]="modalImageTitle"
     [(visible)]="showImageModal"
@@ -320,4 +333,56 @@
       />
     </div>
   </p-dialog>
+
+  <!-- PrimeNG Dialog for Gallery Images Modal -->
+<!-- PrimeNG Dialog for Gallery Images Modal -->
+<p-dialog
+  [header]="modalImageTitle"
+  [(visible)]="showGalleryModal"
+  [modal]="true"
+  [style]="{
+    width: '50rem',
+    background: 'var(--modal-pop-up-bg)',
+    color: 'var(--input-text-color)',
+  }"
+  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  styleClass="image-modal"
+>
+  <div class="flex flex-column align-items-center gap-3">
+    <div class="flex justify-content-center w-full">
+      <img
+        [ngSrc]="modalImageUrl!"
+        width="60"
+        height="60"
+        loading="lazy"
+        [alt]="modalImageTitle"
+        class="w-full max-h-30rem object-contain image-modal"
+      />
+    </div>
+    
+    @if (galleryPreviewUrls.length > 1) {
+      <div class="flex justify-content-center gap-2 align-items-center mt-3">
+        <button 
+          pButton 
+          icon="pi pi-chevron-left" 
+          (click)="previousGalleryImage()"
+          class="p-button-outlined gallery-nav-button"
+          [disabled]="galleryPreviewUrls.length <= 1"
+        ></button>
+        <span class="flex align-items-center mx-3">
+          {{ currentGalleryIndex + 1 }} / {{ galleryPreviewUrls.length }}
+        </span>
+        <button 
+          pButton 
+          icon="pi pi-chevron-right" 
+          (click)="nextGalleryImage()"
+          class="p-button-outlined gallery-nav-button"
+          [disabled]="galleryPreviewUrls.length <= 1"
+        ></button>
+      </div>
+    }
+  </div>
+</p-dialog>
 </section>

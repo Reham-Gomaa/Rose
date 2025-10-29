@@ -251,7 +251,8 @@
         "descriptionRequired": "وصف المنتج مطلوب",
         "descriptionMinLength": "يجب أن يكون الوصف 10 أحرف على الأقل",
         "categoryRequired": "يرجى اختيار فئة للمنتج",
-        "occasionRequired": "يرجى اختيار مناسبة للمنتج"
+        "occasionRequired": "يرجى اختيار مناسبة للمنتج",
+        "discountMaxValue": "يجب أن يكون الخصم 100% أو أقل"
       }
     },
     "messages": {

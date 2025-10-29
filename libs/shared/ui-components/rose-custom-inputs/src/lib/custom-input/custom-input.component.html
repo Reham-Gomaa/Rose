@@ -28,6 +28,7 @@
         [id]="id()"
         type="file"
         [accept]="accept()"
+        [multiple]="multiple()"
         (change)="onFileSelected($event)"
         (blur)="onTouched()"
         required

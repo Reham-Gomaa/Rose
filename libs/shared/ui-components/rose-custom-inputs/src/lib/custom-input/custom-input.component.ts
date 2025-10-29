@@ -23,15 +23,18 @@ export class CustomInputComponent implements ControlValueAccessor {
   id = input<string>();
   type = input<string>("text");
   placeholder = input<string>("");
-  labelText = input<string>("");
+  labelText = input<string>();
   errorHandilgControl = input<AbstractControl>();
 
-  // New file input
+  // Enhanced file inputs with backward compatibility
+  multiple = input<boolean>(false);
   accept = input<string>();
-  fileSelected = output<File>(); // Emit file when selected
+  fileSelected = output<File>(); // For single file (existing usage)
+  filesSelected = output<File[]>(); // NEW: For multiple files
 
   showPassword = false;
-  selectedFile: File | null = null; //file
+  selectedFile: File | null = null;
+  selectedFiles: File[] = []; // NEW: For multiple files
 
   value = "";
   onChange: (value: string) => void = () => {};
@@ -45,7 +48,6 @@ export class CustomInputComponent implements ControlValueAccessor {
   }
 
   get isFileInput() {
-    //file
     return this.type() === "file";
   }
 
@@ -54,10 +56,9 @@ export class CustomInputComponent implements ControlValueAccessor {
   }
 
   openFileInput() {
-    //file
     const id = this.id();
     if (id) {
-      const fileInput = document.getElementById(id);
+      const fileInput = document.getElementById(id) as HTMLInputElement;
       fileInput?.click();
     }
   }
@@ -65,23 +66,38 @@ export class CustomInputComponent implements ControlValueAccessor {
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
-      this.selectedFile = input.files[0];
-      this.fileSelected.emit(this.selectedFile);
-
-      // Passing the file name as string to onChange
-      this.onChange(this.selectedFile.name);
+      if (this.multiple()) {
+        // Handle multiple files
+        this.selectedFiles = Array.from(input.files);
+        this.filesSelected.emit(this.selectedFiles);
+        
+        // For form control, emit file names as comma-separated string
+        const fileNames = this.selectedFiles.map(file => file.name).join(', ');
+        this.onChange(fileNames);
+      } else {
+        // Handle single file (original behavior - maintains backward compatibility)
+        this.selectedFile = input.files[0];
+        this.fileSelected.emit(this.selectedFile);
+        this.onChange(this.selectedFile.name);
+      }
       this.onTouched();
     }
   }
 
-  writeValue(value: File | string | null): void {
-    if (value instanceof File) {
+  writeValue(value: File | File[] | string | null): void {
+    if (Array.isArray(value)) {
+      // Handle multiple files
+      this.selectedFiles = value;
+      this.value = value.map(file => file.name).join(', ');
+    } else if (value instanceof File) {
+      // Handle single file
       this.selectedFile = value;
       this.value = value.name;
     } else if (typeof value === "string") {
       this.value = value;
     } else {
       this.selectedFile = null;
+      this.selectedFiles = [];
       this.value = "";
     }
   }
