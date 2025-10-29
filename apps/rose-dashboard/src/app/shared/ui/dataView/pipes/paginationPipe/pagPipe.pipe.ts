@@ -9,7 +9,14 @@ export type itemType = occasion | Category | Product;
 })
 export class PagPipePipe implements PipeTransform {
   transform(items: itemsType, startIndex: number, numOfRows: number): itemsType {
-    let pageItems = items.slice(startIndex, startIndex + numOfRows + 1);
+    let pageItems;
+    if (items[startIndex] == undefined) startIndex = 0
+      if (items.length > 6) {
+        // startIndex = startIndex == 0 ? startIndex : startIndex + 1
+        pageItems = items.slice(startIndex, startIndex + numOfRows);
+      } else {
+        pageItems = items;
+      }
     return pageItems;
   }
 }

@@ -18,9 +18,9 @@ export class PaginationComponent {
   }>();
   onPageChange(event: PaginatorState) {
     this.first = event.first ?? 0;
-    this.rows = event.rows ?? 6;
+    this.rows = event.rows ?? 0 ;
     this.currentPage.emit({
-      first: this.first,
+      first: this.first ,
       rows: this.rows,
     });
   }

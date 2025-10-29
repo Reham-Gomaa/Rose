@@ -5,6 +5,7 @@ import { itemsType, itemType } from "../paginationPipe/pagPipe.pipe";
 })
 export class SearchPipe implements PipeTransform {
   transform(items: itemsType, keyword: string): itemsType {
+    if(keyword.trim() === '') return items
     let filteredItems: itemsType = items.filter((item: itemType) => {
       return item["slug"]?.toLowerCase().includes(keyword.toLowerCase());
     });
