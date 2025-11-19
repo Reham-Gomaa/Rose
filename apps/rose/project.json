@@ -54,7 +54,14 @@
             }
           ],
           "outputHashing": "all",
-          "optimization": true,
+          "optimization": {
+            "scripts": true,
+            "styles": {
+              "minify": true,
+              "removeSpecialComments": true
+            },
+            "fonts": true
+          },
           "fileReplacements": [
             {
               "replace": "apps/environment/baseurl.dev.ts",
