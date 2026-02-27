@@ -10,8 +10,8 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 // Translation
-import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@angular-monorepo/services";
+import { TranslatePipe } from "@ngx-translate/core";
 // Animations
 import { fadeTransition } from "@angular-monorepo/services";
 // Interfaces
