@@ -93,12 +93,12 @@ export class GiftsComponent implements OnInit {
   carouselList: carouselListInterface[] = [
     {
       id: 1,
-      source: "/images/gifts/1.avif",
+      source: "/images/gifts/pink-roses-in-white-vase-with-white-and-pink-balloons.avif",
       title: "pink roses in white vase with white and pink balloons",
     },
     {
       id: 2,
-      source: "/images/gifts/2.avif",
+      source: "/images/gifts/pink-roses-with-box-of-chocolate.avif",
       title: "pink roses with box of chocolate",
     },
   ];
