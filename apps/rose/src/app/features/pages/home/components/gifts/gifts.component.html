@@ -3,27 +3,37 @@
   <div class="grid">
     <!-- image next to carousel -->
     <div
-      class="top-left-parent col-12 md:col-6 lg:col-3"
+      class="top-left-parent col-12 md:col-6 lg:col-3 relative overflow-hidden"
       role="img"
       aria-label="Red Christmas gifts with white ribbon"
-      style="
-        background-image:
-          linear-gradient(to right, rgba(0 0 0 / 0.2)),
-          url(&quot;./images/gifts/Red christmas gifts with white ribbon.avif&quot;);
-      "
       aria-hidden="true"
     >
-      <h2>{{ "home.gifts.leftImage.heading2" | translate }}</h2>
-      <h1 class="white-space-normal">{{ "home.gifts.leftImage.heading1" | translate }}</h1>
-      <app-button
-        [bgColor]="'var(--btn-shared-background)'"
-        [textColor]="'var(--btn-shared-color)'"
-        [text]="'home.gifts.leftImage.btn' | translate"
-        [icon]="'pi pi-arrow-right arrowicon'"
-        [borderRadius]="'btn-roundedBorderRadius'"
-        [padding]="'btn-topLeft-padding'"
-        aria-label="Shop for Special Gifts Box"
+      <img
+        ngSrc="./images/gifts/Red christmas gifts with white ribbon.avif"
+        alt="Red Christmas gifts with white ribbon"
+        width="600"
+        height="800"
+        class="absolute top-0 left-0 w-full h-full object-cover z-0"
       />
+      <!-- Gradient Overlay -->
+      <div
+        class="absolute top-0 left-0 w-full h-full z-0"
+        style="background: linear-gradient(to right, rgba(0 0 0 / 0.2))"
+      ></div>
+
+      <div class="relative z-10 w-full">
+        <h2 class="inline-block">{{ "home.gifts.leftImage.heading2" | translate }}</h2>
+        <h1 class="white-space-normal">{{ "home.gifts.leftImage.heading1" | translate }}</h1>
+        <app-button
+          [bgColor]="'var(--btn-shared-background)'"
+          [textColor]="'var(--btn-shared-color)'"
+          [text]="'home.gifts.leftImage.btn' | translate"
+          [icon]="'pi pi-arrow-right arrowicon'"
+          [borderRadius]="'btn-roundedBorderRadius'"
+          [padding]="'btn-topLeft-padding'"
+          aria-label="Shop for Special Gifts Box"
+        />
+      </div>
     </div>
     <!-- carousel -->
     <div class="card p-0 relative col-12 md:col-6 lg:col-9">
@@ -53,19 +63,34 @@
           <h3 id="carousel-heading" class="sr-only">Featured Gift Items</h3>
           <ng-template pTemplate="item" let-pic>
             <div
-              class="carousel-content-parent border border-surface"
+              class="carousel-content-parent border border-surface relative overflow-hidden"
               role="group"
               aria-roledescription="slide"
-              [style.backgroundImage]="
-                'linear-gradient(to right , rgba(0 0 0 / 0.7) , rgba(0 0 0 / 0.5) 35%, rgba(0 0 0 / 0.3) 50% ) ,url(' +
-                '\'' +
-                pic.source +
-                '\'' +
-                ')'
-              "
               [attr.aria-label]="pic.title"
             >
-              <div class="carousel-content">
+              <img
+                [ngSrc]="pic.source"
+                [alt]="pic.title"
+                width="800"
+                height="800"
+                class="absolute top-0 left-0 w-full h-full object-cover z-0"
+                loading="eager"
+                decoding="async"
+              />
+              <!-- Gradient Overlay -->
+              <div
+                class="absolute top-0 left-0 w-full h-full z-0"
+                style="
+                  background: linear-gradient(
+                    to right,
+                    rgba(0 0 0 / 0.7),
+                    rgba(0 0 0 / 0.5) 35%,
+                    rgba(0 0 0 / 0.3) 50%
+                  );
+                "
+              ></div>
+
+              <div class="carousel-content relative z-10 w-full">
                 <h1>{{ "home.gifts.rightCarousel.heading1" | translate }}</h1>
                 <h2>{{ "home.gifts.rightCarousel.heading2" | translate }}</h2>
                 <app-button
@@ -89,18 +114,29 @@
     @for (pic of pics; track pic.id) {
       <div class="col-12 md:col-4" [class.md:px-3]="pic.id === 2">
         <div
-          class="bottom-content flex justify-content-start align-items-end"
-          [style.backgroundImage]="
-            'linear-gradient(to right , rgba(0 0 0 / 0.2) ) ,url(' + '\'' + pic.source + '\'' + ')'
-          "
+          class="bottom-content flex justify-content-start align-items-end relative overflow-hidden"
           role="img"
           [attr.aria-label]="pic.title"
         >
-          <div class="px-2">
-            <h2 class="md:text-xs lg:text-base">
+          <img
+            [ngSrc]="pic.source"
+            [alt]="pic.title"
+            width="600"
+            height="400"
+            class="absolute top-0 left-0 w-full h-full object-cover z-0"
+            loading="lazy"
+          />
+          <!-- Gradient Overlay -->
+          <div
+            class="absolute top-0 left-0 w-full h-full z-0"
+            style="background: linear-gradient(to right, rgba(0 0 0 / 0.2))"
+          ></div>
+
+          <div class="px-2 relative z-10 w-full gap-2 flex flex-column">
+            <h2 class="md:text-xs lg:text-base align-self-start">
               {{ pic.heading2 | translate }}
             </h2>
-            <h1 class="md:text-base lg:text-xl">
+            <h1 class="md:text-base lg:text-xl m-0">
               {{ pic.heading1 | translate }}
             </h1>
           </div>

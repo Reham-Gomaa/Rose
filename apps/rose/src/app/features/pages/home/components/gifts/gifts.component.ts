@@ -22,14 +22,21 @@ import {
 // Shared_Components
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 // primeNg ...
-import { isPlatformBrowser } from "@angular/common";
+import { isPlatformBrowser, NgOptimizedImage } from "@angular/common";
 import { ButtonModule } from "primeng/button";
 import { Carousel, CarouselModule } from "primeng/carousel";
 import { TagModule } from "primeng/tag";
 
 @Component({
   selector: "app-gifts",
-  imports: [CarouselModule, ButtonModule, TagModule, ButtonComponent, TranslatePipe],
+  imports: [
+    CarouselModule,
+    ButtonModule,
+    TagModule,
+    ButtonComponent,
+    TranslatePipe,
+    NgOptimizedImage,
+  ],
   templateUrl: "./gifts.component.html",
   styleUrl: "./gifts.component.scss",
   host: {
