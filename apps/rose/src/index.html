@@ -6,22 +6,43 @@
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="./images/navbar/Rose.AVIF" />
+
     <!-- 1. Preconnect to the fonts domain for early connection -->
+    <link rel="preconnect" href="https://flower.elevateegy.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- DNS prefetch for other domains -->
+    <link rel="dns-prefetch" href="https://flower.elevateegy.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <!-- <link rel="dns-prefetch" href="https://maps.googleapis.com" /> -->
 
     <!-- 2. Load the stylesheet ASYNCHRONOUSLY -->
     <link
       rel="preload"
       as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Pinyon+Script&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
+    />
+    <!-- critical image preload -->
+    <link rel="preload" href="./images/gifts/1.avif" as="image" fetchpriority="high" />
+    <link
+      rel="preload"
+      href="./images/gifts/Red christmas gifts with white ribbon.avif"
+      as="image"
+      fetchpriority="high"
     />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Pinyon+Script&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"
-      media="print"
-      onload="this.media='all'"
+      rel="preload"
+      href="./images/navbar/Rose.AVIF"
+      as="image"
+      fetchpriority="high"
     />
+
+    <!--  Preload PrimeIcons font -->
+    <link rel="preload" href="./media/primeicons.woff2" as="font" type="font/woff2" crossorigin />
+
     <noscript>
       <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Pinyon+Script&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap"

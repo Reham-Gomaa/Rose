@@ -12,7 +12,8 @@
         width="85"
         height="80"
         alt="Rose logo"
-        rel="preload"
+        fetchpriority="high"
+        loading="eager"
         decoding="async"
         class="logo-img"
       />
@@ -134,11 +135,11 @@
       <div class="smallNav-header">
         <img
           [routerLink]="'/'"
-          ngSrc="/images/navbar/Rose.AVIF"
+          ngSrc="./images/navbar/Rose.AVIF"
           width="54"
           height="54"
           alt="Rose logo"
-          loading="lazy"
+          loading="eager"
           decoding="async"
         />
       </div>

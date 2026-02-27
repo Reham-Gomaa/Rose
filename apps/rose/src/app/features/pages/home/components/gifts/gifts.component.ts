@@ -10,8 +10,8 @@ import {
   ViewEncapsulation,
 } from "@angular/core";
 // Translation
-import { TranslatePipe } from "@ngx-translate/core";
 import { TranslationService } from "@angular-monorepo/services";
+import { TranslatePipe } from "@ngx-translate/core";
 // Animations
 import { fadeTransition } from "@angular-monorepo/services";
 // Interfaces
@@ -22,14 +22,21 @@ import {
 // Shared_Components
 import { ButtonComponent } from "@rose/shared_Components_ui/button/button.component";
 // primeNg ...
-import { isPlatformBrowser } from "@angular/common";
+import { isPlatformBrowser, NgOptimizedImage } from "@angular/common";
 import { ButtonModule } from "primeng/button";
 import { Carousel, CarouselModule } from "primeng/carousel";
 import { TagModule } from "primeng/tag";
 
 @Component({
   selector: "app-gifts",
-  imports: [CarouselModule, ButtonModule, TagModule, ButtonComponent, TranslatePipe],
+  imports: [
+    CarouselModule,
+    ButtonModule,
+    TagModule,
+    ButtonComponent,
+    TranslatePipe,
+    NgOptimizedImage,
+  ],
   templateUrl: "./gifts.component.html",
   styleUrl: "./gifts.component.scss",
   host: {
@@ -86,12 +93,12 @@ export class GiftsComponent implements OnInit {
   carouselList: carouselListInterface[] = [
     {
       id: 1,
-      source: "./images/gifts/1.AVIF",
+      source: "/images/gifts/pink-roses-in-white-vase-with-white-and-pink-balloons.avif",
       title: "pink roses in white vase with white and pink balloons",
     },
     {
       id: 2,
-      source: "./images/gifts/2.AVIF",
+      source: "/images/gifts/pink-roses-with-box-of-chocolate.avif",
       title: "pink roses with box of chocolate",
     },
   ];
@@ -99,21 +106,21 @@ export class GiftsComponent implements OnInit {
   pics: picsInterface[] = [
     {
       id: 1,
-      source: "./images/gifts/Confetti lying near present.AVIF",
+      source: "/images/gifts/Confetti-lying-near-present.avif",
       title: "christmas gift with red ribbon",
       heading2: "home.gifts.bottomImages.left.heading2",
       heading1: "home.gifts.bottomImages.left.heading1",
     },
     {
       id: 2,
-      source: "./images/gifts/Top view hand holding gift box on work space.AVIF",
+      source: "/images/gifts/Top-view-hand-holding-gift-box-on-work-space.avif",
       title: "christmas gift with golden ribbon",
       heading2: "home.gifts.bottomImages.middle.heading2",
       heading1: "home.gifts.bottomImages.middle.heading1",
     },
     {
       id: 3,
-      source: "./images/gifts/Christmas shopping composition with presents and cart.AVIF",
+      source: "/images/gifts/Christmas-shopping-composition-with-presents-and-cart.avif",
       title: "colorful christmas ribbons with shopping cart",
       heading2: "home.gifts.bottomImages.right.heading2",
       heading1: "home.gifts.bottomImages.right.heading1",
