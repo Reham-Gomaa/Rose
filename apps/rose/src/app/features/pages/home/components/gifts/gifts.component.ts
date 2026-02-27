@@ -93,12 +93,12 @@ export class GiftsComponent implements OnInit {
   carouselList: carouselListInterface[] = [
     {
       id: 1,
-      source: "./images/gifts/1.avif",
+      source: "/images/gifts/1.avif",
       title: "pink roses in white vase with white and pink balloons",
     },
     {
       id: 2,
-      source: "./images/gifts/2.avif",
+      source: "/images/gifts/2.avif",
       title: "pink roses with box of chocolate",
     },
   ];
@@ -106,21 +106,21 @@ export class GiftsComponent implements OnInit {
   pics: picsInterface[] = [
     {
       id: 1,
-      source: "./images/gifts/Confetti lying near present.avif",
+      source: "/images/gifts/Confetti lying near present.avif",
       title: "christmas gift with red ribbon",
       heading2: "home.gifts.bottomImages.left.heading2",
       heading1: "home.gifts.bottomImages.left.heading1",
     },
     {
       id: 2,
-      source: "./images/gifts/Top view hand holding gift box on work space.avif",
+      source: "/images/gifts/Top view hand holding gift box on work space.avif",
       title: "christmas gift with golden ribbon",
       heading2: "home.gifts.bottomImages.middle.heading2",
       heading1: "home.gifts.bottomImages.middle.heading1",
     },
     {
       id: 3,
-      source: "./images/gifts/Christmas shopping composition with presents and cart.avif",
+      source: "/images/gifts/Christmas shopping composition with presents and cart.avif",
       title: "colorful christmas ribbons with shopping cart",
       heading2: "home.gifts.bottomImages.right.heading2",
       heading1: "home.gifts.bottomImages.right.heading1",
