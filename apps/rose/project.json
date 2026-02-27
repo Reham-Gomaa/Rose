@@ -23,7 +23,8 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/rose/public"
+            "input": "apps/rose/public",
+            "output": "/"
           }
         ],
         "styles": [

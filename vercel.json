@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "public": true,
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/images/(.*)",
+      "destination": "/browser/images/$1"
+    }
+  ]
+}
